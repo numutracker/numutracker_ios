@@ -6,6 +6,8 @@ As this was my first iOS app ever, please be gentle when viewing code repetition
 
 App is on the App Store: https://itunes.apple.com/us/app/numu-new-music-tracker/id1158641228
 
+Built fairly slowly between October 2016 and September 2017.
+
 # To Install
 
 1. `git clone https://github.com/amiantos/numutracker_ios.git`
