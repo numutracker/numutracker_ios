@@ -3,4 +3,4 @@ osx_image: xcode9.2
 xcode_project: "Numu Tracker.xcodeproj"
 
 before_install:
-  - brew update
+  - pod repo update
