@@ -14,6 +14,6 @@ Built fairly slowly between October 2016 and September 2017.
 
 1. `git clone https://github.com/amiantos/numutracker_ios.git`
 2. `pod install` (requires [CocoaPods](https://cocoapods.org))
-3. Open `Numu Tracker.xcworkspace` in Xcode 8.0 or higher.
+3. Open `Numu Tracker.xcworkspace` in Xcode 9.2 or higher.
 4. AppDelegate.swift has some Pusher API keys you should implement.
 5. You'll need to modify the Info.plist to include a Crashlytics API key if you want it.
