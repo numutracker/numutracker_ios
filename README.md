@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/amiantos/numutracker_ios.svg?branch=master)](https://travis-ci.org/amiantos/numutracker_ios)
+
 # Numu Tracker for iOS
 
 This is the iOS app for accessing Numu Tracker.
