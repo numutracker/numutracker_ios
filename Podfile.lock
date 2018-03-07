@@ -1,0 +1,22 @@
+PODS:
+  - Crashlytics (3.10.0):
+    - Fabric (~> 1.7.3)
+  - Fabric (1.7.5)
+  - PusherSwift (5.1.1)
+  - SwiftyJSON (4.0.0)
+
+DEPENDENCIES:
+  - Crashlytics
+  - Fabric
+  - PusherSwift
+  - SwiftyJSON
+
+SPEC CHECKSUMS:
+  Crashlytics: a989ef242b66605577a425733797f810bd2725eb
+  Fabric: ae7146a5f505ea370a1e44820b4b1dc8890e2890
+  PusherSwift: de9238b6b9faec5275d452e5f43ce9c82b78731e
+  SwiftyJSON: 070dabdcb1beb81b247c65ffa3a79dbbfb3b48aa
+
+PODFILE CHECKSUM: 2879d443c2cee6fd645bee165dc479af20db2190
+
+COCOAPODS: 1.4.0

@@ -1,0 +1,705 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		B40E35831DAF23FD004BA8C7 /* drums@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B40E35811DAF23FD004BA8C7 /* drums@2x.png */; };
+		B40E35841DAF23FD004BA8C7 /* drums@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = B40E35821DAF23FD004BA8C7 /* drums@3x.png */; };
+		B40E35871DAF24F3004BA8C7 /* yours@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B40E35851DAF24F3004BA8C7 /* yours@2x.png */; };
+		B40E35881DAF24F3004BA8C7 /* yours@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = B40E35861DAF24F3004BA8C7 /* yours@3x.png */; };
+		B40E35921DB1D88C004BA8C7 /* NumuTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B40E35911DB1D88C004BA8C7 /* NumuTabBarController.swift */; };
+		B40E35971DB1FB5E004BA8C7 /* all@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B40E35961DB1FB5E004BA8C7 /* all@2x.png */; };
+		B40E35991DB1FB7A004BA8C7 /* all@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = B40E35981DB1FB7A004BA8C7 /* all@3x.png */; };
+		B416A6601DC52A91000F86D9 /* AllReleasesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B416A65F1DC52A91000F86D9 /* AllReleasesTableViewController.swift */; };
+		B416A6621DC52DBA000F86D9 /* ReleaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B416A6611DC52DBA000F86D9 /* ReleaseTableViewCell.swift */; };
+		B416A6641DC52FBC000F86D9 /* ReleaseData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B416A6631DC52FBC000F86D9 /* ReleaseData.swift */; };
+		B416A6661DC530D2000F86D9 /* JSONClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = B416A6651DC530D2000F86D9 /* JSONClient.swift */; };
+		B4283A851D8548F300467CE6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4283A841D8548F300467CE6 /* AppDelegate.swift */; };
+		B4283A8C1D8548F300467CE6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B4283A8A1D8548F300467CE6 /* Main.storyboard */; };
+		B4283A8E1D8548F300467CE6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B4283A8D1D8548F300467CE6 /* Assets.xcassets */; };
+		B4283A911D8548F300467CE6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B4283A8F1D8548F300467CE6 /* LaunchScreen.storyboard */; };
+		B4283ABB1D86586800467CE6 /* SearchClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4283ABA1D86586800467CE6 /* SearchClient.swift */; };
+		B4283ABD1D8658AD00467CE6 /* ReleaseItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4283ABC1D8658AD00467CE6 /* ReleaseItem.swift */; };
+		B42866081DA5FC53000E5FA6 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = B42866071DA5FC53000E5FA6 /* User.swift */; };
+		B428660A1DA7645C000E5FA6 /* albumArtCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = B42866091DA7645C000E5FA6 /* albumArtCache.swift */; };
+		B43705D81E357C8C0060E6CC /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B43705D71E357C8C0060E6CC /* SettingsTableViewController.swift */; };
+		B43C55A71DEB9CCB00BF8483 /* UIViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B43C55A61DEB9CCB00BF8483 /* UIViewExtensions.swift */; };
+		B43C55AD1DEBA7A000BF8483 /* spotify.png in Resources */ = {isa = PBXBuildFile; fileRef = B43C55AA1DEBA7A000BF8483 /* spotify.png */; };
+		B43C55AE1DEBA7A000BF8483 /* spotify@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B43C55AB1DEBA7A000BF8483 /* spotify@2x.png */; };
+		B43C55AF1DEBA7A000BF8483 /* spotify@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = B43C55AC1DEBA7A000BF8483 /* spotify@3x.png */; };
+		B43E36B01F5DF9BA009834C9 /* NumuLogo1024.png in Resources */ = {isa = PBXBuildFile; fileRef = B43E36AF1F5DF9B9009834C9 /* NumuLogo1024.png */; };
+		B43E36B21F5DFAD0009834C9 /* LogRegPromptViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B43E36B11F5DFAD0009834C9 /* LogRegPromptViewController.swift */; };
+		B440D9D51DB2D13900477938 /* ArtistsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B440D9D41DB2D13900477938 /* ArtistsTableViewController.swift */; };
+		B440D9D71DB2D19300477938 /* ArtistItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B440D9D61DB2D19300477938 /* ArtistItem.swift */; };
+		B440D9D91DB2D28A00477938 /* ArtistTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B440D9D81DB2D28A00477938 /* ArtistTableViewCell.swift */; };
+		B440D9E41DB2EC4A00477938 /* sort@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B440D9E21DB2EC4A00477938 /* sort@2x.png */; };
+		B440D9E51DB2EC4A00477938 /* sort@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = B440D9E31DB2EC4A00477938 /* sort@3x.png */; };
+		B45BEE1B1D9F57E700A3AAA1 /* cog@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B45BEE191D9F57E700A3AAA1 /* cog@2x.png */; };
+		B45BEE1C1D9F57E700A3AAA1 /* cog@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = B45BEE1A1D9F57E700A3AAA1 /* cog@3x.png */; };
+		B4607CE61E10F5F100E75DCF /* user@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = B4607CE41E10F5F100E75DCF /* user@3x.png */; };
+		B4607CE71E10F5F100E75DCF /* user@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B4607CE51E10F5F100E75DCF /* user@2x.png */; };
+		B46754561F6DA64B00C80544 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B46754551F6DA64B00C80544 /* AboutViewController.swift */; };
+		B46754581F6DA66F00C80544 /* InstructionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B46754571F6DA66F00C80544 /* InstructionsViewController.swift */; };
+		B471648D1F5FA24600D4E03E /* NumuTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = B471648C1F5FA24600D4E03E /* NumuTextField.swift */; };
+		B47CF37B1E5E908100225B85 /* LogOutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B47CF37A1E5E908100225B85 /* LogOutViewController.swift */; };
+		B4A3E78F1DAAD67800144CEB /* lastfm_black.gif in Resources */ = {isa = PBXBuildFile; fileRef = B4A3E78E1DAAD67800144CEB /* lastfm_black.gif */; };
+		B4B49B871E5EBE4B001CE1C7 /* ReleaseFiltersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4B49B861E5EBE4B001CE1C7 /* ReleaseFiltersViewController.swift */; };
+		B4B940AE1E6131B800F52027 /* NotificationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4B940AD1E6131B800F52027 /* NotificationsViewController.swift */; };
+		B4B940B01E6136BD00F52027 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4B940AF1E6136BD00F52027 /* StoreKit.framework */; };
+		B4BFA8A81DD907E200E3580B /* appleMusic@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = B4BFA8A51DD907E200E3580B /* appleMusic@3x.png */; };
+		B4BFA8A91DD907E200E3580B /* appleMusic@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B4BFA8A61DD907E200E3580B /* appleMusic@2x.png */; };
+		B4BFA8AA1DD907E200E3580B /* appleMusic.png in Resources */ = {isa = PBXBuildFile; fileRef = B4BFA8A71DD907E200E3580B /* appleMusic.png */; };
+		B4CCFCBA1DB3485600D2277B /* ArtistReleasesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4CCFCB91DB3485600D2277B /* ArtistReleasesTableViewController.swift */; };
+		B4CCFCBC1DB3F8EE00D2277B /* ArtistReleaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4CCFCBB1DB3F8EE00D2277B /* ArtistReleaseTableViewCell.swift */; };
+		B4CCFCC51DB4311B00D2277B /* AddArtistsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4CCFCC41DB4311B00D2277B /* AddArtistsViewController.swift */; };
+		B4CCFCC71DB4353E00D2277B /* NumuUIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4CCFCC61DB4353E00D2277B /* NumuUIButton.swift */; };
+		B4CCFCC91DB447B200D2277B /* HelpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4CCFCC81DB447B200D2277B /* HelpViewController.swift */; };
+		B4DA6EAE1F6DE5C50090C945 /* LogRegPromptSmallViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4DA6EAD1F6DE5C50090C945 /* LogRegPromptSmallViewController.swift */; };
+		B4E2AB211DC6CF5D00E5F81A /* bell@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B4E2AB1F1DC6CF5D00E5F81A /* bell@2x.png */; };
+		B4E2AB221DC6CF5D00E5F81A /* bell@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = B4E2AB201DC6CF5D00E5F81A /* bell@3x.png */; };
+		B4E8B97A1E7F67BD00643AD1 /* bradroot-new-2880-man.png in Resources */ = {isa = PBXBuildFile; fileRef = B4E8B9791E7F67BD00643AD1 /* bradroot-new-2880-man.png */; };
+		E4EB5ACCF23F58468A5C04FF /* Pods_Numu_Tracker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBD0F3687066D64A7B28C145 /* Pods_Numu_Tracker.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		01361C8695313B7121751750 /* Pods-Numu Tracker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Numu Tracker.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Numu Tracker/Pods-Numu Tracker.debug.xcconfig"; sourceTree = "<group>"; };
+		AE619F4A3C507ABD0012177C /* Pods-Numu Tracker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Numu Tracker.release.xcconfig"; path = "Pods/Target Support Files/Pods-Numu Tracker/Pods-Numu Tracker.release.xcconfig"; sourceTree = "<group>"; };
+		B40E35811DAF23FD004BA8C7 /* drums@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "drums@2x.png"; sourceTree = "<group>"; };
+		B40E35821DAF23FD004BA8C7 /* drums@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "drums@3x.png"; sourceTree = "<group>"; };
+		B40E35851DAF24F3004BA8C7 /* yours@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "yours@2x.png"; sourceTree = "<group>"; };
+		B40E35861DAF24F3004BA8C7 /* yours@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "yours@3x.png"; sourceTree = "<group>"; };
+		B40E35911DB1D88C004BA8C7 /* NumuTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NumuTabBarController.swift; sourceTree = "<group>"; };
+		B40E35961DB1FB5E004BA8C7 /* all@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "all@2x.png"; sourceTree = "<group>"; };
+		B40E35981DB1FB7A004BA8C7 /* all@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "all@3x.png"; sourceTree = "<group>"; };
+		B416A65F1DC52A91000F86D9 /* AllReleasesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllReleasesTableViewController.swift; sourceTree = "<group>"; };
+		B416A6611DC52DBA000F86D9 /* ReleaseTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReleaseTableViewCell.swift; sourceTree = "<group>"; };
+		B416A6631DC52FBC000F86D9 /* ReleaseData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReleaseData.swift; sourceTree = "<group>"; };
+		B416A6651DC530D2000F86D9 /* JSONClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONClient.swift; sourceTree = "<group>"; };
+		B4283A811D8548F300467CE6 /* Numu Tracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Numu Tracker.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B4283A841D8548F300467CE6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		B4283A8B1D8548F300467CE6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		B4283A8D1D8548F300467CE6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		B4283A901D8548F300467CE6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		B4283A921D8548F300467CE6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B4283ABA1D86586800467CE6 /* SearchClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchClient.swift; sourceTree = "<group>"; };
+		B4283ABC1D8658AD00467CE6 /* ReleaseItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReleaseItem.swift; sourceTree = "<group>"; };
+		B42866071DA5FC53000E5FA6 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		B42866091DA7645C000E5FA6 /* albumArtCache.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = albumArtCache.swift; sourceTree = "<group>"; };
+		B43705D71E357C8C0060E6CC /* SettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
+		B43AF1E31DCE4C94008F7EBD /* Numu Tracker.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Numu Tracker.entitlements"; sourceTree = "<group>"; };
+		B43C55A61DEB9CCB00BF8483 /* UIViewExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewExtensions.swift; sourceTree = "<group>"; };
+		B43C55AA1DEBA7A000BF8483 /* spotify.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spotify.png; sourceTree = "<group>"; };
+		B43C55AB1DEBA7A000BF8483 /* spotify@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "spotify@2x.png"; sourceTree = "<group>"; };
+		B43C55AC1DEBA7A000BF8483 /* spotify@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "spotify@3x.png"; sourceTree = "<group>"; };
+		B43E36AF1F5DF9B9009834C9 /* NumuLogo1024.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = NumuLogo1024.png; sourceTree = "<group>"; };
+		B43E36B11F5DFAD0009834C9 /* LogRegPromptViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogRegPromptViewController.swift; sourceTree = "<group>"; };
+		B440D9D41DB2D13900477938 /* ArtistsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArtistsTableViewController.swift; sourceTree = "<group>"; };
+		B440D9D61DB2D19300477938 /* ArtistItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArtistItem.swift; sourceTree = "<group>"; };
+		B440D9D81DB2D28A00477938 /* ArtistTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArtistTableViewCell.swift; sourceTree = "<group>"; };
+		B440D9E21DB2EC4A00477938 /* sort@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sort@2x.png"; sourceTree = "<group>"; };
+		B440D9E31DB2EC4A00477938 /* sort@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sort@3x.png"; sourceTree = "<group>"; };
+		B45BEE191D9F57E700A3AAA1 /* cog@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cog@2x.png"; sourceTree = "<group>"; };
+		B45BEE1A1D9F57E700A3AAA1 /* cog@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cog@3x.png"; sourceTree = "<group>"; };
+		B4607CE41E10F5F100E75DCF /* user@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "user@3x.png"; sourceTree = "<group>"; };
+		B4607CE51E10F5F100E75DCF /* user@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "user@2x.png"; sourceTree = "<group>"; };
+		B46754551F6DA64B00C80544 /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
+		B46754571F6DA66F00C80544 /* InstructionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstructionsViewController.swift; sourceTree = "<group>"; };
+		B471648C1F5FA24600D4E03E /* NumuTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumuTextField.swift; sourceTree = "<group>"; };
+		B47CF37A1E5E908100225B85 /* LogOutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogOutViewController.swift; sourceTree = "<group>"; };
+		B4A3E78E1DAAD67800144CEB /* lastfm_black.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = lastfm_black.gif; sourceTree = "<group>"; };
+		B4B49B861E5EBE4B001CE1C7 /* ReleaseFiltersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReleaseFiltersViewController.swift; sourceTree = "<group>"; };
+		B4B940AD1E6131B800F52027 /* NotificationsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationsViewController.swift; sourceTree = "<group>"; };
+		B4B940AF1E6136BD00F52027 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		B4BFA8A51DD907E200E3580B /* appleMusic@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "appleMusic@3x.png"; sourceTree = "<group>"; };
+		B4BFA8A61DD907E200E3580B /* appleMusic@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "appleMusic@2x.png"; sourceTree = "<group>"; };
+		B4BFA8A71DD907E200E3580B /* appleMusic.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = appleMusic.png; sourceTree = "<group>"; };
+		B4CCFCB91DB3485600D2277B /* ArtistReleasesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArtistReleasesTableViewController.swift; sourceTree = "<group>"; };
+		B4CCFCBB1DB3F8EE00D2277B /* ArtistReleaseTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArtistReleaseTableViewCell.swift; sourceTree = "<group>"; };
+		B4CCFCC41DB4311B00D2277B /* AddArtistsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddArtistsViewController.swift; sourceTree = "<group>"; };
+		B4CCFCC61DB4353E00D2277B /* NumuUIButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NumuUIButton.swift; sourceTree = "<group>"; };
+		B4CCFCC81DB447B200D2277B /* HelpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelpViewController.swift; sourceTree = "<group>"; };
+		B4DA6EAD1F6DE5C50090C945 /* LogRegPromptSmallViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogRegPromptSmallViewController.swift; sourceTree = "<group>"; };
+		B4E2AB1F1DC6CF5D00E5F81A /* bell@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bell@2x.png"; sourceTree = "<group>"; };
+		B4E2AB201DC6CF5D00E5F81A /* bell@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bell@3x.png"; sourceTree = "<group>"; };
+		B4E8B9791E7F67BD00643AD1 /* bradroot-new-2880-man.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bradroot-new-2880-man.png"; sourceTree = "<group>"; };
+		CBD0F3687066D64A7B28C145 /* Pods_Numu_Tracker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Numu_Tracker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		B4283A7E1D8548F300467CE6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E4EB5ACCF23F58468A5C04FF /* Pods_Numu_Tracker.framework in Frameworks */,
+				B4B940B01E6136BD00F52027 /* StoreKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		14F28C739AD176DB0069BA7E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B4B940AF1E6136BD00F52027 /* StoreKit.framework */,
+				CBD0F3687066D64A7B28C145 /* Pods_Numu_Tracker.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B40E35931DB1F687004BA8C7 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				B43E36AF1F5DF9B9009834C9 /* NumuLogo1024.png */,
+				B4A3E78E1DAAD67800144CEB /* lastfm_black.gif */,
+				B4BFA8A51DD907E200E3580B /* appleMusic@3x.png */,
+				B4607CE41E10F5F100E75DCF /* user@3x.png */,
+				B4607CE51E10F5F100E75DCF /* user@2x.png */,
+				B4BFA8A61DD907E200E3580B /* appleMusic@2x.png */,
+				B4BFA8A71DD907E200E3580B /* appleMusic.png */,
+				B4E2AB1F1DC6CF5D00E5F81A /* bell@2x.png */,
+				B4E2AB201DC6CF5D00E5F81A /* bell@3x.png */,
+				B4E8B9791E7F67BD00643AD1 /* bradroot-new-2880-man.png */,
+				B43C55AA1DEBA7A000BF8483 /* spotify.png */,
+				B43C55AB1DEBA7A000BF8483 /* spotify@2x.png */,
+				B43C55AC1DEBA7A000BF8483 /* spotify@3x.png */,
+				B45BEE191D9F57E700A3AAA1 /* cog@2x.png */,
+				B40E35811DAF23FD004BA8C7 /* drums@2x.png */,
+				B40E35851DAF24F3004BA8C7 /* yours@2x.png */,
+				B40E35861DAF24F3004BA8C7 /* yours@3x.png */,
+				B440D9E21DB2EC4A00477938 /* sort@2x.png */,
+				B440D9E31DB2EC4A00477938 /* sort@3x.png */,
+				B40E35961DB1FB5E004BA8C7 /* all@2x.png */,
+				B40E35981DB1FB7A004BA8C7 /* all@3x.png */,
+				B40E35821DAF23FD004BA8C7 /* drums@3x.png */,
+				B45BEE1A1D9F57E700A3AAA1 /* cog@3x.png */,
+			);
+			name = Images;
+			sourceTree = "<group>";
+		};
+		B4283A781D8548F300467CE6 = {
+			isa = PBXGroup;
+			children = (
+				B4283A831D8548F300467CE6 /* Numu Tracker */,
+				B4283A821D8548F300467CE6 /* Products */,
+				EEC8C01A78FB4165AD408083 /* Pods */,
+				14F28C739AD176DB0069BA7E /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		B4283A821D8548F300467CE6 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				B4283A811D8548F300467CE6 /* Numu Tracker.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		B4283A831D8548F300467CE6 /* Numu Tracker */ = {
+			isa = PBXGroup;
+			children = (
+				B43AF1E31DCE4C94008F7EBD /* Numu Tracker.entitlements */,
+				B40E35931DB1F687004BA8C7 /* Images */,
+				B4CCFCC11DB425FD00D2277B /* Backend */,
+				B4D525E31E353187000B7ADD /* Main Views */,
+				B4CCFCBD1DB4258C00D2277B /* ArtistList */,
+				B4CCFCBE1DB425A000D2277B /* ArtistReleasesList */,
+				B4CCFCC21DB4264100D2277B /* Interface */,
+				B4CCFCC01DB425D900D2277B /* Settings */,
+			);
+			path = "Numu Tracker";
+			sourceTree = "<group>";
+		};
+		B4CCFCBD1DB4258C00D2277B /* ArtistList */ = {
+			isa = PBXGroup;
+			children = (
+				B440D9D41DB2D13900477938 /* ArtistsTableViewController.swift */,
+				B440D9D81DB2D28A00477938 /* ArtistTableViewCell.swift */,
+				B440D9D61DB2D19300477938 /* ArtistItem.swift */,
+				B4CCFCC41DB4311B00D2277B /* AddArtistsViewController.swift */,
+			);
+			name = ArtistList;
+			sourceTree = "<group>";
+		};
+		B4CCFCBE1DB425A000D2277B /* ArtistReleasesList */ = {
+			isa = PBXGroup;
+			children = (
+				B4CCFCB91DB3485600D2277B /* ArtistReleasesTableViewController.swift */,
+				B4CCFCBB1DB3F8EE00D2277B /* ArtistReleaseTableViewCell.swift */,
+			);
+			name = ArtistReleasesList;
+			sourceTree = "<group>";
+		};
+		B4CCFCC01DB425D900D2277B /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				B42866071DA5FC53000E5FA6 /* User.swift */,
+				B4CCFCC81DB447B200D2277B /* HelpViewController.swift */,
+				B43705D71E357C8C0060E6CC /* SettingsTableViewController.swift */,
+				B47CF37A1E5E908100225B85 /* LogOutViewController.swift */,
+				B4B49B861E5EBE4B001CE1C7 /* ReleaseFiltersViewController.swift */,
+				B4B940AD1E6131B800F52027 /* NotificationsViewController.swift */,
+				B43E36B11F5DFAD0009834C9 /* LogRegPromptViewController.swift */,
+				B471648C1F5FA24600D4E03E /* NumuTextField.swift */,
+				B46754551F6DA64B00C80544 /* AboutViewController.swift */,
+				B46754571F6DA66F00C80544 /* InstructionsViewController.swift */,
+				B4DA6EAD1F6DE5C50090C945 /* LogRegPromptSmallViewController.swift */,
+			);
+			name = Settings;
+			sourceTree = "<group>";
+		};
+		B4CCFCC11DB425FD00D2277B /* Backend */ = {
+			isa = PBXGroup;
+			children = (
+				B4283A921D8548F300467CE6 /* Info.plist */,
+				B4283A841D8548F300467CE6 /* AppDelegate.swift */,
+				B42866091DA7645C000E5FA6 /* albumArtCache.swift */,
+				B4283ABA1D86586800467CE6 /* SearchClient.swift */,
+				B416A6651DC530D2000F86D9 /* JSONClient.swift */,
+				B40E35911DB1D88C004BA8C7 /* NumuTabBarController.swift */,
+				B4CCFCC61DB4353E00D2277B /* NumuUIButton.swift */,
+			);
+			name = Backend;
+			sourceTree = "<group>";
+		};
+		B4CCFCC21DB4264100D2277B /* Interface */ = {
+			isa = PBXGroup;
+			children = (
+				B4283A8A1D8548F300467CE6 /* Main.storyboard */,
+				B43C55A61DEB9CCB00BF8483 /* UIViewExtensions.swift */,
+				B4283A8D1D8548F300467CE6 /* Assets.xcassets */,
+				B4283A8F1D8548F300467CE6 /* LaunchScreen.storyboard */,
+			);
+			name = Interface;
+			sourceTree = "<group>";
+		};
+		B4D525E31E353187000B7ADD /* Main Views */ = {
+			isa = PBXGroup;
+			children = (
+				B416A6611DC52DBA000F86D9 /* ReleaseTableViewCell.swift */,
+				B4283ABC1D8658AD00467CE6 /* ReleaseItem.swift */,
+				B416A6631DC52FBC000F86D9 /* ReleaseData.swift */,
+				B416A65F1DC52A91000F86D9 /* AllReleasesTableViewController.swift */,
+			);
+			name = "Main Views";
+			sourceTree = "<group>";
+		};
+		EEC8C01A78FB4165AD408083 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				01361C8695313B7121751750 /* Pods-Numu Tracker.debug.xcconfig */,
+				AE619F4A3C507ABD0012177C /* Pods-Numu Tracker.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		B4283A801D8548F300467CE6 /* Numu Tracker */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B4283AAB1D8548F300467CE6 /* Build configuration list for PBXNativeTarget "Numu Tracker" */;
+			buildPhases = (
+				D3F8613DB5ED26A875BB299C /* [CP] Check Pods Manifest.lock */,
+				B4283A7D1D8548F300467CE6 /* Sources */,
+				B4283A7E1D8548F300467CE6 /* Frameworks */,
+				B4283A7F1D8548F300467CE6 /* Resources */,
+				12A3AF21782474EB2C416A9D /* [CP] Embed Pods Frameworks */,
+				BA7D4F7E3D1BB9E44E9D8E3B /* [CP] Copy Pods Resources */,
+				B48D5FE01F6CE6D70045961A /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Numu Tracker";
+			productName = "Numu Tracker";
+			productReference = B4283A811D8548F300467CE6 /* Numu Tracker.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		B4283A791D8548F300467CE6 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0800;
+				LastUpgradeCheck = 0930;
+				ORGANIZATIONNAME = "Numu Tracker";
+				TargetAttributes = {
+					B4283A801D8548F300467CE6 = {
+						CreatedOnToolsVersion = 8.0;
+						DevelopmentTeam = 2Y9M69QJKZ;
+						LastSwiftMigration = 0900;
+						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+							com.apple.InAppPurchase = {
+								enabled = 1;
+							};
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
+					};
+				};
+			};
+			buildConfigurationList = B4283A7C1D8548F300467CE6 /* Build configuration list for PBXProject "Numu Tracker" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = B4283A781D8548F300467CE6;
+			productRefGroup = B4283A821D8548F300467CE6 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				B4283A801D8548F300467CE6 /* Numu Tracker */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		B4283A7F1D8548F300467CE6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B45BEE1B1D9F57E700A3AAA1 /* cog@2x.png in Resources */,
+				B40E35871DAF24F3004BA8C7 /* yours@2x.png in Resources */,
+				B43C55AE1DEBA7A000BF8483 /* spotify@2x.png in Resources */,
+				B45BEE1C1D9F57E700A3AAA1 /* cog@3x.png in Resources */,
+				B4607CE61E10F5F100E75DCF /* user@3x.png in Resources */,
+				B4BFA8A91DD907E200E3580B /* appleMusic@2x.png in Resources */,
+				B43C55AD1DEBA7A000BF8483 /* spotify.png in Resources */,
+				B440D9E51DB2EC4A00477938 /* sort@3x.png in Resources */,
+				B4A3E78F1DAAD67800144CEB /* lastfm_black.gif in Resources */,
+				B40E35831DAF23FD004BA8C7 /* drums@2x.png in Resources */,
+				B4BFA8AA1DD907E200E3580B /* appleMusic.png in Resources */,
+				B4BFA8A81DD907E200E3580B /* appleMusic@3x.png in Resources */,
+				B4E8B97A1E7F67BD00643AD1 /* bradroot-new-2880-man.png in Resources */,
+				B40E35881DAF24F3004BA8C7 /* yours@3x.png in Resources */,
+				B4283A911D8548F300467CE6 /* LaunchScreen.storyboard in Resources */,
+				B4E2AB221DC6CF5D00E5F81A /* bell@3x.png in Resources */,
+				B4607CE71E10F5F100E75DCF /* user@2x.png in Resources */,
+				B40E35971DB1FB5E004BA8C7 /* all@2x.png in Resources */,
+				B43E36B01F5DF9BA009834C9 /* NumuLogo1024.png in Resources */,
+				B40E35841DAF23FD004BA8C7 /* drums@3x.png in Resources */,
+				B40E35991DB1FB7A004BA8C7 /* all@3x.png in Resources */,
+				B4283A8E1D8548F300467CE6 /* Assets.xcassets in Resources */,
+				B4E2AB211DC6CF5D00E5F81A /* bell@2x.png in Resources */,
+				B4283A8C1D8548F300467CE6 /* Main.storyboard in Resources */,
+				B440D9E41DB2EC4A00477938 /* sort@2x.png in Resources */,
+				B43C55AF1DEBA7A000BF8483 /* spotify@3x.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		12A3AF21782474EB2C416A9D /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Numu Tracker/Pods-Numu Tracker-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/PusherSwift/PusherSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PusherSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Numu Tracker/Pods-Numu Tracker-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B48D5FE01F6CE6D70045961A /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Fabric/run\" ff4e55ebc57e75e6e936e72b99c0b8594aa42c9d 315e988aaa579ad0d2389921dea2e0b6ea6b2698eaf3bfb7d9b0eefa78cc4afd";
+		};
+		BA7D4F7E3D1BB9E44E9D8E3B /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Numu Tracker/Pods-Numu Tracker-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D3F8613DB5ED26A875BB299C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Numu Tracker-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		B4283A7D1D8548F300467CE6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B43C55A71DEB9CCB00BF8483 /* UIViewExtensions.swift in Sources */,
+				B4283ABD1D8658AD00467CE6 /* ReleaseItem.swift in Sources */,
+				B4CCFCC91DB447B200D2277B /* HelpViewController.swift in Sources */,
+				B46754581F6DA66F00C80544 /* InstructionsViewController.swift in Sources */,
+				B4B940AE1E6131B800F52027 /* NotificationsViewController.swift in Sources */,
+				B4283A851D8548F300467CE6 /* AppDelegate.swift in Sources */,
+				B47CF37B1E5E908100225B85 /* LogOutViewController.swift in Sources */,
+				B4CCFCC71DB4353E00D2277B /* NumuUIButton.swift in Sources */,
+				B4CCFCC51DB4311B00D2277B /* AddArtistsViewController.swift in Sources */,
+				B440D9D71DB2D19300477938 /* ArtistItem.swift in Sources */,
+				B440D9D51DB2D13900477938 /* ArtistsTableViewController.swift in Sources */,
+				B4B49B871E5EBE4B001CE1C7 /* ReleaseFiltersViewController.swift in Sources */,
+				B416A6661DC530D2000F86D9 /* JSONClient.swift in Sources */,
+				B471648D1F5FA24600D4E03E /* NumuTextField.swift in Sources */,
+				B416A6641DC52FBC000F86D9 /* ReleaseData.swift in Sources */,
+				B440D9D91DB2D28A00477938 /* ArtistTableViewCell.swift in Sources */,
+				B416A6621DC52DBA000F86D9 /* ReleaseTableViewCell.swift in Sources */,
+				B4283ABB1D86586800467CE6 /* SearchClient.swift in Sources */,
+				B4DA6EAE1F6DE5C50090C945 /* LogRegPromptSmallViewController.swift in Sources */,
+				B42866081DA5FC53000E5FA6 /* User.swift in Sources */,
+				B428660A1DA7645C000E5FA6 /* albumArtCache.swift in Sources */,
+				B4CCFCBC1DB3F8EE00D2277B /* ArtistReleaseTableViewCell.swift in Sources */,
+				B40E35921DB1D88C004BA8C7 /* NumuTabBarController.swift in Sources */,
+				B43E36B21F5DFAD0009834C9 /* LogRegPromptViewController.swift in Sources */,
+				B4CCFCBA1DB3485600D2277B /* ArtistReleasesTableViewController.swift in Sources */,
+				B416A6601DC52A91000F86D9 /* AllReleasesTableViewController.swift in Sources */,
+				B46754561F6DA64B00C80544 /* AboutViewController.swift in Sources */,
+				B43705D81E357C8C0060E6CC /* SettingsTableViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		B4283A8A1D8548F300467CE6 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B4283A8B1D8548F300467CE6 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		B4283A8F1D8548F300467CE6 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B4283A901D8548F300467CE6 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		B4283AA91D8548F300467CE6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		B4283AAA1D8548F300467CE6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		B4283AAC1D8548F300467CE6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 01361C8695313B7121751750 /* Pods-Numu Tracker.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "Numu Tracker/Numu Tracker.entitlements";
+				DEVELOPMENT_TEAM = 2Y9M69QJKZ;
+				INFOPLIST_FILE = "Numu Tracker/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.numutracker.Numu-Tracker";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_SWIFT3_OBJC_INFERENCE = Off;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		B4283AAD1D8548F300467CE6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = AE619F4A3C507ABD0012177C /* Pods-Numu Tracker.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "Numu Tracker/Numu Tracker.entitlements";
+				DEVELOPMENT_TEAM = 2Y9M69QJKZ;
+				INFOPLIST_FILE = "Numu Tracker/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.numutracker.Numu-Tracker";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_SWIFT3_OBJC_INFERENCE = Off;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		B4283A7C1D8548F300467CE6 /* Build configuration list for PBXProject "Numu Tracker" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B4283AA91D8548F300467CE6 /* Debug */,
+				B4283AAA1D8548F300467CE6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B4283AAB1D8548F300467CE6 /* Build configuration list for PBXNativeTarget "Numu Tracker" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B4283AAC1D8548F300467CE6 /* Debug */,
+				B4283AAD1D8548F300467CE6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = B4283A791D8548F300467CE6 /* Project object */;
+}
