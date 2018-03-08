@@ -184,7 +184,8 @@ class LogOutViewController: UIViewController {
         }
 
         if increment {
-            _ = Timer.scheduledTimer(timeInterval: 0.005, target: self, selector: #selector(startTimer), userInfo: nil, repeats: false)
+            _ = Timer.scheduledTimer(timeInterval: 0.005, target: self,
+                                     selector: #selector(startTimer), userInfo: nil, repeats: false)
         }
     }
 

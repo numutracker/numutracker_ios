@@ -153,9 +153,9 @@ class AllReleasesTableViewController: UITableViewController {
 
         switch (self.viewType, self.slideType) {
         case (0, 0):
-                self.viewName = "All Unlistened"
+            self.viewName = "All Unlistened"
         case (0, 1):
-                self.viewName = "All Released"
+            self.viewName = "All Released"
         case (0, 2):
             self.viewName = "All Upcoming"
         case (0, 3):
