@@ -62,21 +62,17 @@ class LogOutViewController: UIViewController {
     var releasesFollowedFinalInt: Double = 0.0
     var completionFinalFloat: Double = 0.0
 
-
-
-
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Get user stats...
         self.getUserStats()
 
-        if (defaults.bool(forKey: "logged")) {
+        if defaults.bool(forKey: "logged") {
             if let user = defaults.string(forKey: "username") {
                 Answers.logCustomEvent(withName: "User Stats", customAttributes: ["User":user])
             }
         }
-
 
         // Do any additional setup after loading the view.
 
@@ -111,13 +107,17 @@ class LogOutViewController: UIViewController {
         dividingLineView5.layer.shouldRasterize = true
 
 
-         NotificationCenter.default.addObserver(self, selector: #selector(self.actOnClosedPrompt), name: Notification.Name(rawValue: closedLogRegPromptKey), object: nil)
-         NotificationCenter.default.addObserver(self, selector: #selector(self.actOnLoggedInNotification), name: NSNotification.Name(rawValue: loggedInNotificationKey), object: nil)
+         NotificationCenter.default.addObserver(self, selector: #selector(self.actOnClosedPrompt), name: .ClosedLogRegPrompt, object: nil)
+         NotificationCenter.default.addObserver(self, selector: #selector(self.actOnLoggedInNotification), name: .LoggedIn, object: nil)
 
         let add = UIBarButtonItem(title: "Log Out", style: .plain, target: self, action: #selector(logOut))
 
         navigationItem.rightBarButtonItem = add
 
+    }
+
+    deinit {
+        NotificationCenter.default.removeObserver(self)
     }
 
     @objc func getUserStats() {
@@ -195,8 +195,8 @@ class LogOutViewController: UIViewController {
         defaults.removeObject(forKey: "username")
         defaults.removeObject(forKey: "password")
         defaults.set(false, forKey: "logged")
-        NotificationCenter.default.post(name: Notification.Name(rawValue: loggedOutNotificationKey), object: self)
-        NotificationCenter.default.post(name: Notification.Name(rawValue: updatedArtistsNotificationKey), object: self)
+        NotificationCenter.default.post(name: .LoggedOut, object: self)
+        NotificationCenter.default.post(name: .UpdatedArtists, object: self)
         _ = self.navigationController?.popViewController(animated: true)
     }
 

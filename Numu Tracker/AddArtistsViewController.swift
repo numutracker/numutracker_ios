@@ -102,7 +102,7 @@ class AddArtistsViewController: UIViewController {
                     self.addArtistsActivity.stopAnimating()
                     self.addFromAppleMusic.isHidden = false
                     if (success == "Success") {
-                        NotificationCenter.default.post(name: Notification.Name(rawValue: updatedArtistsNotificationKey), object: self)
+                        NotificationCenter.default.post(name: .UpdatedArtists, object: self)
                         let controller = UIAlertController(title: "Success", message: "Your artists have been imported. Please allow several minutes for all artists to appear.", preferredStyle: .alert)
                         controller.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
                         self.present(controller, animated: true, completion: nil)

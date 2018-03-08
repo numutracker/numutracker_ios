@@ -95,11 +95,12 @@ class NotificationsViewController: UIViewController {
 
             */
 
-        NotificationCenter.default.addObserver(self, selector: #selector(self.updateSubLabel), name: Notification.Name(rawValue: loggedInNotificationKey), object: nil)
-
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(self.updateSubLabel),
+                                               name: .LoggedIn,
+                                               object: nil)
 
         // Do any additional setup after loading the view.
-
 
          if defaults.bool(forKey: "logged") {
 
@@ -159,6 +160,10 @@ class NotificationsViewController: UIViewController {
 
         */
 
+    }
+
+    deinit {
+        NotificationCenter.default.removeObserver(self)
     }
 
     override func didReceiveMemoryWarning() {

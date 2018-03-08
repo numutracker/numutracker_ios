@@ -20,7 +20,7 @@ class LogRegPromptViewController: UIViewController, UITextFieldDelegate {
     var middleScrollDrection: Int = 0
 
     @IBAction func closeScreen(_ sender: Any) {
-        NotificationCenter.default.post(name: Notification.Name(rawValue: closedLogRegPromptKey), object: self)
+        NotificationCenter.default.post(name: .ClosedLogRegPrompt, object: self)
         Answers.logCustomEvent(withName: "Dismissed LogRegPrompt", customAttributes: nil)
         self.dismiss(animated: true, completion: nil)
     }
@@ -339,8 +339,8 @@ class LogRegPromptViewController: UIViewController, UITextFieldDelegate {
                     defaults.set(username, forKey: "username")
                     defaults.set(password, forKey: "password")
                     defaults.set(true, forKey: "logged")
-                    NotificationCenter.default.post(name: Notification.Name(rawValue: loggedInNotificationKey), object: self)
-                    NotificationCenter.default.post(name: Notification.Name(rawValue: updatedArtistsNotificationKey), object: self)
+                    NotificationCenter.default.post(name: .LoggedIn, object: self)
+                    NotificationCenter.default.post(name: .UpdatedArtists, object: self)
                     self.logInPasswordTextField.resignFirstResponder()
                     Answers.logLogin(withMethod: "LogRegPrompt",success: true,customAttributes: nil)
                     //_ = self.navigationController?.popViewController(animated: true)
@@ -389,8 +389,8 @@ class LogRegPromptViewController: UIViewController, UITextFieldDelegate {
                         defaults.set(username, forKey: "username")
                         defaults.set(password, forKey: "password")
                         defaults.set(true, forKey: "logged")
-                        NotificationCenter.default.post(name: Notification.Name(rawValue: loggedInNotificationKey), object: self)
-                        NotificationCenter.default.post(name: Notification.Name(rawValue: updatedArtistsNotificationKey), object: self)
+                        NotificationCenter.default.post(name: .LoggedIn, object: self)
+                        NotificationCenter.default.post(name: .UpdatedArtists, object: self)
                         self.signUpPasswordTextField.resignFirstResponder()
                         //_ = self.navigationController?.popViewController(animated: true)
                         Answers.logSignUp(withMethod: "LogRegPrompt", success: true, customAttributes: nil)

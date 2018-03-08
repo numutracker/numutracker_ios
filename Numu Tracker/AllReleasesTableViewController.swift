@@ -10,10 +10,13 @@ import UIKit
 import Crashlytics
 
 let defaults = UserDefaults.standard
-let loggedInNotificationKey = "com.numutracker.loggedIn"
-let loggedOutNotificationKey = "com.numutracker.loggedOut"
-let updatedArtistsNotificationKey = "com.numutracker.artistsImported"
-let closedLogRegPromptKey = "com.numutracker.closedLogRegPrompt"
+
+extension Notification.Name {
+    static let LoggedIn = Notification.Name(rawValue: "com.numutracker.loggedIn")
+    static let LoggedOut = Notification.Name(rawValue: "com.numutracker.loggedOut")
+    static let UpdatedArtists = Notification.Name(rawValue: "com.numutracker.artistsImported")
+    static let ClosedLogRegPrompt = Notification.Name(rawValue: "com.numutracker.closedLogRegPrompt")
+}
 
 
 class AllReleasesTableViewController: UITableViewController {
@@ -138,9 +141,16 @@ class AllReleasesTableViewController: UITableViewController {
             self.releasesSegmentedControl.insertSegment(withTitle: "Fresh", at: 3, animated: false)
         }
 
-        NotificationCenter.default.addObserver(self, selector: #selector(actOnLoggedInNotification), name: Notification.Name(rawValue: loggedInNotificationKey), object: nil)
 
-        NotificationCenter.default.addObserver(self, selector: #selector(actOnLoggedOutNotification), name: Notification.Name(rawValue: loggedOutNotificationKey), object: nil)
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(actOnLoggedInNotification),
+                                               name: .LoggedIn,
+                                               object: nil)
+
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(actOnLoggedOutNotification),
+                                               name: .LoggedOut,
+                                               object: nil)
 
         self.refreshControl?.addTarget(self, action: #selector(handleRefresh(refreshControl:)), for: .valueChanged)
 
@@ -160,6 +170,10 @@ class AllReleasesTableViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+    }
+
+    deinit {
+        NotificationCenter.default.removeObserver(self)
     }
 
     override func didReceiveMemoryWarning() {

@@ -11,8 +11,6 @@ import Crashlytics
 
 class ArtistsTableViewController: UITableViewController, UISearchBarDelegate, UISearchResultsUpdating {
 
-
-
     var artists: [ArtistItem] = []
     var sortMethod: String = "date"
     var screenType: String = "yours"
@@ -110,7 +108,10 @@ class ArtistsTableViewController: UITableViewController, UISearchBarDelegate, UI
             })
         })
 
-        NotificationCenter.default.addObserver(self, selector: #selector(actOnImportNotification), name: Notification.Name(rawValue: updatedArtistsNotificationKey), object: nil)
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(actOnImportNotification),
+                                               name: .UpdatedArtists,
+                                               object: nil)
 
         self.tableView.addSubview(self.artistRefreshControl)
 
@@ -121,6 +122,10 @@ class ArtistsTableViewController: UITableViewController, UISearchBarDelegate, UI
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+    }
+
+    deinit {
+        NotificationCenter.default.removeObserver(self)
     }
 
     override func viewWillDisappear(_ animated: Bool) {

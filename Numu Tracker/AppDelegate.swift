@@ -31,19 +31,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         if defaults.bool(forKey: "logged") {
 
-            ( window?.rootViewController as! UITabBarController ).selectedIndex = 1
+            (window?.rootViewController as! UITabBarController).selectedIndex = 1
             if let username = defaults.string(forKey: "username") {
                 Crashlytics.sharedInstance().setUserEmail(username)
             }
 
             UIApplication.shared.registerForRemoteNotifications()
-
         }
 
-        NotificationCenter.default.addObserver(self, selector: #selector(self.actOnClosedPrompt), name: Notification.Name(rawValue: closedLogRegPromptKey), object: nil)
-
-
-
+        NotificationCenter.default.addObserver(self, selector: #selector(self.actOnClosedPrompt), name: .ClosedLogRegPrompt, object: nil)
         return true
     }
 
