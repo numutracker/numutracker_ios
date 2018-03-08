@@ -9,7 +9,7 @@
 import UIKit
 
 class MyImageCache {
-    
+
     static let sharedCache: NSCache<NSString, UIImage> = {
         let cache = NSCache<NSString, UIImage>()
         cache.name = "MyImageCache"
@@ -17,20 +17,20 @@ class MyImageCache {
         cache.totalCostLimit = 50*1024*1024 // Max 50MB used.
         return cache
     }()
-    
+
 }
 
 extension NSURL {
-    
+
     typealias ImageCacheCompletion = (UIImage) -> Void
-    
+
     /// Retrieves a pre-cached image, or nil if it isn't cached.
     /// You should call this before calling fetchImage.
     var cachedImage: UIImage? {
         let TheString: NSString = NSString(string: self.absoluteString!)
         return MyImageCache.sharedCache.object(forKey: TheString) as UIImage?
     }
-    
+
     /// Fetches the image from the network.
     /// Stores it in the cache if successful.
     /// Only calls completion on successful image download.
@@ -54,5 +54,5 @@ extension NSURL {
         }
         task.resume()
     }
-    
+
 }

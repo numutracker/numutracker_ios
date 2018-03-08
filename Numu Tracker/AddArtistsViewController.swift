@@ -11,8 +11,8 @@ import MediaPlayer
 import Crashlytics
 
 class AddArtistsViewController: UIViewController {
-    
-    
+
+
     @IBOutlet weak var addFromAppleMusic: UIButton!
     @IBAction func addFromAppleMusicPress(_ sender: AnyObject) {
         if (defaults.bool(forKey: "logged")) {
@@ -43,22 +43,22 @@ class AddArtistsViewController: UIViewController {
             self.present(controller, animated: true, completion: nil)
              */
         }
-        
+
     }
-    
+
     @IBOutlet weak var addArtistsActivity: UIActivityIndicatorView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         self.navigationController?.navigationBar.tintColor = .white
-        
+
         addFromAppleMusic.backgroundColor = UIColor.clear
         addFromAppleMusic.layer.cornerRadius = 5
         addFromAppleMusic.layer.borderWidth = 1
         addFromAppleMusic.layer.borderColor = UIColor.gray.cgColor
-        
-      
+
+
 
 
         // Do any additional setup after loading the view.
@@ -68,7 +68,7 @@ class AddArtistsViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
+
 
     /*
     // MARK: - Navigation
@@ -80,10 +80,10 @@ class AddArtistsViewController: UIViewController {
     }
     */
 
-    
+
     func runImportArtists() {
-        
-        
+
+
         let query = MPMediaQuery.artists()
         var artists_found: [String] = []
         query.groupingType = MPMediaGrouping.artist
@@ -95,8 +95,8 @@ class AddArtistsViewController: UIViewController {
             }
         }
         let uniques = Array(Set(artists_found))
-        
-      
+
+
         DispatchQueue.global(qos: .background).async(execute: {
             JSONClient.sharedClient.postArtists(artists: uniques) { success in
                 DispatchQueue.main.async(execute: {
@@ -107,9 +107,9 @@ class AddArtistsViewController: UIViewController {
                         let controller = UIAlertController(title: "Success", message: "Your artists have been imported. Please allow several minutes for all artists to appear.", preferredStyle: .alert)
                         controller.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
                         self.present(controller, animated: true, completion: nil)
-                        
+
                         Answers.logCustomEvent(withName: "AM Artist Import", customAttributes: ["Artists":uniques.count])
-                        
+
                     } else {
                         let controller = UIAlertController(title: "Error", message: "An error occurred which prevented artists from being imported.", preferredStyle: .alert)
                         controller.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
@@ -120,7 +120,7 @@ class AddArtistsViewController: UIViewController {
             }
         })
     }
-    
+
     func displayError() {
         var error: String
         switch MPMediaLibrary.authorizationStatus() {
@@ -131,11 +131,11 @@ class AddArtistsViewController: UIViewController {
         default:
             error = "Unknown error"
         }
-        
+
         let controller = UIAlertController(title: "Error", message: error, preferredStyle: .alert)
         controller.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
         present(controller, animated: true, completion: nil)
     }
 
-    
+
 }

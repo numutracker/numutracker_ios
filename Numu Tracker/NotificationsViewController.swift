@@ -11,7 +11,7 @@ import UserNotifications
 import Crashlytics
 
 class NotificationsViewController: UIViewController {
-    
+
     @IBOutlet weak var notificationStatusLabel: UILabel!
     @IBOutlet weak var thirtyDaysButtonView: UIView!
     @IBOutlet weak var oneYearButtonView: UIView!
@@ -21,25 +21,25 @@ class NotificationsViewController: UIViewController {
     @IBOutlet weak var oneYearCostLabel: UILabel!
     @IBOutlet weak var thirtyDaysLineView: UIView!
     @IBOutlet weak var oneYearLineView: UIView!
-    
+
     //var thirtyDaysProduct: SKProduct = SKProduct()
     //var oneYearProduct: SKProduct = SKProduct()
-    
+
     @IBAction func newReleased(_ sender: UISwitch) {
         self.notificationsSwitch(state: sender.isOn, type: "newReleased")
     }
     @IBOutlet weak var newReleased: UISwitch!
-    
+
     @IBAction func newAnnouncements(_ sender: UISwitch) {
         self.notificationsSwitch(state: sender.isOn, type: "newAnnouncements")
     }
     @IBOutlet weak var newAnnouncements: UISwitch!
-    
+
     @IBAction func moreReleases(_ sender: UISwitch) {
         self.notificationsSwitch(state: sender.isOn, type: "moreReleases")
     }
     @IBOutlet weak var moreReleases: UISwitch!
-    
+
     func notificationsSwitch(state: Bool, type: String) {
         let center = UNUserNotificationCenter.current()
         center.requestAuthorization(options: [.alert, .sound]) { (granted, error) in
@@ -78,58 +78,58 @@ class NotificationsViewController: UIViewController {
         }
     }
 
-    
-    
+
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         /*
-         
+
         // Notification payments disabled in 1.0.1
-         
+
         self.updateSubLabel()
 
         thirtyDaysButtonView.layer.cornerRadius = 10.0
         thirtyDaysButtonView.clipsToBounds = true
         oneYearButtonView.layer.cornerRadius = 10.0
         oneYearButtonView.clipsToBounds = true
-        
+
         oneYearLineView.layer.shadowColor = UIColor.init(red: (28/255), green: (202/255), blue: (241/255), alpha: 1).cgColor
         oneYearLineView.layer.shadowOpacity = 0.9
         oneYearLineView.layer.shadowOffset = CGSize.zero
         oneYearLineView.layer.shadowRadius = 4
         oneYearLineView.layer.shouldRasterize = true
-        
+
         thirtyDaysLineView.layer.shadowColor = UIColor.init(red: (28/255), green: (202/255), blue: (241/255), alpha: 1).cgColor
         thirtyDaysLineView.layer.shadowOpacity = 0.9
         thirtyDaysLineView.layer.shadowOffset = CGSize.zero
         thirtyDaysLineView.layer.shadowRadius = 4
         thirtyDaysLineView.layer.shouldRasterize = true
-        
+
         let thirtyDaysTap = UILongPressGestureRecognizer(target: self, action: #selector(self.thirtyDaysSubTapped))
         thirtyDaysTap.minimumPressDuration = 0
         thirtyDaysButtonView.addGestureRecognizer(thirtyDaysTap)
-        
+
         let oneYearTap = UILongPressGestureRecognizer(target: self, action: #selector(self.oneYearSubTapped))
         oneYearTap.minimumPressDuration = 0
         oneYearButtonView.addGestureRecognizer(oneYearTap)
-        
+
         self.newReleased.isEnabled = false
         self.newAnnouncements.isEnabled = false
         self.moreReleases.isEnabled = false
-         
- 
+
+
             */
-        
+
         NotificationCenter.default.addObserver(self, selector: #selector(self.updateSubLabel), name: NSNotification.Name(rawValue: loggedInNotificationKey), object: nil)
- 
-        
+
+
         // Do any additional setup after loading the view.
-        
-        
+
+
          if (defaults.bool(forKey: "logged")) {
-        
+
             if defaults.bool(forKey: "newReleased") {
                 self.newReleased.isOn = true
                 self.notificationsSwitch(state: true, type: "newReleased")
@@ -142,18 +142,18 @@ class NotificationsViewController: UIViewController {
                 self.moreReleases.isOn = true
                 self.notificationsSwitch(state: true, type: "moreReleases")
             }
-            
+
         } else {
-            
+
             self.newReleased.isEnabled = false
             self.newAnnouncements.isEnabled = false
             self.moreReleases.isEnabled = false
-            
+
         }
-        
-        
-        
-        
+
+
+
+
         Answers.logCustomEvent(withName: "Notification Screen", customAttributes: nil)
 
         /*
@@ -164,7 +164,7 @@ class NotificationsViewController: UIViewController {
                 self.thirtyDaysTitleLabel.text = product.localizedTitle
                 self.thirtyDaysCostLabel.text = priceString
                 self.thirtyDaysProduct = product
-                
+
             }
             else if let invalidProductId = result.invalidProductIDs.first {
                 print("Invalid product identifier: \(invalidProductId)")
@@ -173,7 +173,7 @@ class NotificationsViewController: UIViewController {
                 print("Error: \(String(describing: result.error))")
             }
         }
-        
+
         SwiftyStoreKit.retrieveProductsInfo(["com.numutracker.oneYearNotifications"]) { result in
             if let product = result.retrievedProducts.first {
                 let priceString = product.localizedPrice!
@@ -189,16 +189,16 @@ class NotificationsViewController: UIViewController {
                 print("Error: \(String(describing: result.error))")
             }
         }
- 
+
         */
-        
+
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
+
     /*
     @objc func thirtyDaysSubTapped(gesture: UITapGestureRecognizer) {
 
@@ -221,7 +221,7 @@ class NotificationsViewController: UIViewController {
                     }
                 }
             } else {
-               
+
                 SwiftyStoreKit.purchaseProduct(thirtyDaysProduct, quantity: 1, atomically: false) { result in
                     switch result {
                     case .success(let product):
@@ -255,12 +255,12 @@ class NotificationsViewController: UIViewController {
                 }
             }
         }
-        
+
     }
-    
+
     @objc func oneYearSubTapped(gesture: UITapGestureRecognizer) {
-        
-        
+
+
         if gesture.state == .began {
             //print("Touching One Year")
             oneYearButtonView.backgroundColor = UIColor.init(red: 0, green: 0, blue: 0, alpha: 1)
@@ -280,14 +280,14 @@ class NotificationsViewController: UIViewController {
                     }
                 }
             } else {
-                
+
                 SwiftyStoreKit.purchaseProduct(oneYearProduct, quantity: 1, atomically: false) { result in
                     switch result {
                     case .success(let product):
                         // fetch content from your server, then:
                         DispatchQueue.global(qos: .background).async(execute: {
                             let success = JSONClient.sharedClient.processPurchase(username: defaults.string(forKey: "username")!, password: defaults.string(forKey: "password")!, purchased: product.productId)
-                            
+
                             DispatchQueue.main.async(execute: {
                                 if (success == "1") {
                                     if product.needsFinishTransaction {
@@ -315,12 +315,12 @@ class NotificationsViewController: UIViewController {
                 }
             }
         }
-        
+
     }
     */
     @objc func updateSubLabel() {
         if (defaults.bool(forKey: "logged")) {
-            
+
             if defaults.bool(forKey: "newReleased") {
                 self.newReleased.isOn = true
                 self.notificationsSwitch(state: true, type: "newReleased")
@@ -333,13 +333,13 @@ class NotificationsViewController: UIViewController {
                 self.moreReleases.isOn = true
                 self.notificationsSwitch(state: true, type: "moreReleases")
             }
-            
+
         } else {
-            
+
             self.newReleased.isEnabled = false
             self.newAnnouncements.isEnabled = false
             self.moreReleases.isEnabled = false
-            
+
         }
         /*
         if (defaults.bool(forKey: "logged"))  {
@@ -390,12 +390,12 @@ class NotificationsViewController: UIViewController {
         }
          */
     }
-    
+
     func daysBetween(start: Date, end: Date) -> Int {
         return Calendar.current.dateComponents([.day], from: start, to: end).day!
     }
-    
-    
+
+
 
     /*
     // MARK: - Navigation

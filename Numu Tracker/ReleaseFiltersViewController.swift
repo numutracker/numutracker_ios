@@ -10,7 +10,7 @@ import UIKit
 import Crashlytics
 
 class ReleaseFiltersViewController: UIViewController {
-    
+
     @IBOutlet weak var albumFilterSpinner: UIActivityIndicatorView!
     @IBOutlet weak var albumFilterSwitch: UISwitch!
     @IBAction func albumFilterSwitch(_ sender: AnyObject) {
@@ -70,16 +70,16 @@ class ReleaseFiltersViewController: UIViewController {
         Answers.logCustomEvent(withName: "Filters View", customAttributes: nil)
     }
 
- 
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
+
     func loadSettings() {
-        
+
         if (defaults.bool(forKey: "logged")) {
-            
+
             self.albumFilterSwitch.isHidden = true
             self.albumFilterSpinner.startAnimating()
             self.singlesFilterSwitch.isHidden = true
@@ -94,7 +94,7 @@ class ReleaseFiltersViewController: UIViewController {
             self.remixFilterSpinner.startAnimating()
             self.otherFilterSwitch.isHidden = true
             self.otherFilterSpinner.startAnimating()
-            
+
             DispatchQueue.global(qos: .background).async(execute: {
                 let user = User(username: defaults.string(forKey: "username")!)
                 DispatchQueue.main.async(execute: {
@@ -133,7 +133,7 @@ class ReleaseFiltersViewController: UIViewController {
                     }
                     self.compFilterSwitch.isHidden = false
                     self.compFilterSpinner.stopAnimating()
-                    
+
                     if user?.remix == "0" {
                         self.remixFilterSwitch.isOn = false
                     } else {
@@ -141,7 +141,7 @@ class ReleaseFiltersViewController: UIViewController {
                     }
                     self.remixFilterSwitch.isHidden = false
                     self.remixFilterSpinner.stopAnimating()
-                    
+
                     if user?.other == "0" {
                         self.otherFilterSwitch.isOn = false
                     } else {
@@ -149,7 +149,7 @@ class ReleaseFiltersViewController: UIViewController {
                     }
                     self.otherFilterSwitch.isHidden = false
                     self.otherFilterSpinner.stopAnimating()
-                    
+
                 })
             })
         } else {
@@ -161,10 +161,10 @@ class ReleaseFiltersViewController: UIViewController {
             self.remixFilterSwitch.isEnabled = false
             self.otherFilterSwitch.isEnabled = false
         }
-        
+
     }
 
-    
+
 
     /*
     // MARK: - Navigation

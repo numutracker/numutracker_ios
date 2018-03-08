@@ -17,7 +17,7 @@ let closedLogRegPromptKey = "com.numutracker.closedLogRegPrompt"
 
 
 class AllReleasesTableViewController: UITableViewController {
-    
+
     var lastSelectedArtistId: String = ""
     var lastSelectedArtistName: String = ""
     var selectedIndexPath : IndexPath?
@@ -48,16 +48,16 @@ class AllReleasesTableViewController: UITableViewController {
     var isLoading: Bool = false
     var viewType: Int = 1
     var slideType: Int = 0
-    
+
     @IBOutlet var footerView: UIView!
     @IBOutlet var noResultsFooterView: UIView!
     @IBOutlet weak var noResultsLabel: UILabel!
-    
+
     @IBOutlet weak var releasesSegmentedControl: UISegmentedControl!
-    
-    
+
+
     @IBAction func changeSlide(_ sender: UISegmentedControl) {
-        
+
         let segment = sender.selectedSegmentIndex
         self.slideType = segment
         self.tableView.tableFooterView = self.footerView
@@ -72,7 +72,7 @@ class AllReleasesTableViewController: UITableViewController {
             })
         })
     }
-    
+
     func loadFirstReleases() {
         self.isLoading = true
         JSONClient.sharedClient.getReleases(view: self.viewType, slide: self.slideType) {[weak self](releaseData) in
@@ -82,7 +82,7 @@ class AllReleasesTableViewController: UITableViewController {
             self.releases = results
         }
         self.isLoading = false
-        
+
         switch (self.viewType) {
             case 0:
                 switch (self.slideType) {
@@ -111,18 +111,18 @@ class AllReleasesTableViewController: UITableViewController {
             default:
                 self.viewName = "Error"
         }
-        
+
         Answers.logCustomEvent(withName: self.viewName, customAttributes: nil)
-        
+
     }
-    
+
     func loadMoreReleases() {
         self.isLoading = true
         let currentPage = Int(self.releaseData.currentPage)!
         let nextPage = currentPage+1
         let offset = releases.count
         let limit = 50
-        
+
         JSONClient.sharedClient.getReleases(view: self.viewType, slide: self.slideType, page: nextPage, limit: limit, offset: offset) {[weak self](releaseData) in
             self?.releaseData = releaseData
         }
@@ -132,12 +132,12 @@ class AllReleasesTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         if (defaults.string(forKey: "username") == nil) {
             defaults.set(false, forKey: "logged")
         }
-        
-        
+
+
         if (self.tabBarController?.selectedIndex == 0) {
             viewType = 0
             self.title = "All Releases"
@@ -147,13 +147,13 @@ class AllReleasesTableViewController: UITableViewController {
             // Add fourth segmented control ...
             self.releasesSegmentedControl.insertSegment(withTitle: "Fresh", at: 3, animated: false)
         }
-        
+
         NotificationCenter.default.addObserver(self, selector: #selector(AllReleasesTableViewController.actOnLoggedInNotification), name: NSNotification.Name(rawValue: loggedInNotificationKey), object: nil)
-        
+
         NotificationCenter.default.addObserver(self, selector: #selector(AllReleasesTableViewController.actOnLoggedOutNotification), name: NSNotification.Name(rawValue: loggedOutNotificationKey), object: nil)
-        
+
         self.refreshControl?.addTarget(self, action: #selector(AllReleasesTableViewController.handleRefresh(refreshControl:)), for: UIControlEvents.valueChanged)
-        
+
         // Load initial batch of releases...
         self.tableView.tableFooterView = self.footerView
         DispatchQueue.global(qos: .background).async(execute: {
@@ -189,24 +189,24 @@ class AllReleasesTableViewController: UITableViewController {
         return self.releases.count
     }
 
-    
+
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> ReleaseTableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "releaseInfoCell", for: indexPath) as! ReleaseTableViewCell
 
         // Configure the cell...
-        
+
         let releaseInfo = releases[indexPath.row]
         cell.configure(releaseInfo: releaseInfo)
-        
-        
+
+
         //cell.selectionStyle = .none
-        
+
 
         // Image loading.
         cell.artIndicator.startAnimating()
         cell.thumbUrl = releaseInfo.thumbUrl // For recycled cells' late image loads.
-        
-        
+
+
         if let image = releaseInfo.thumbUrl.cachedImage {
             // Cached: set immediately.
             cell.artImageView.image = image
@@ -224,9 +224,9 @@ class AllReleasesTableViewController: UITableViewController {
                 }
             }
         }
-        
+
         let rowsToLoadFromBottom = 20
-        
+
         if (!self.isLoading && indexPath.row >= (releases.count - rowsToLoadFromBottom)) {
             let currentPage = Int(releaseData.currentPage)!
             let totalPages = Int(releaseData.totalPages)!
@@ -247,7 +247,7 @@ class AllReleasesTableViewController: UITableViewController {
         return cell
     }
 
-    
+
     @objc func handleRefresh(refreshControl: UIRefreshControl) {
         releases.removeAll()
         tableView.reloadData()
@@ -261,10 +261,10 @@ class AllReleasesTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
-        
+
         let releaseInfo = self.releases[(indexPath as NSIndexPath).row]
-        
-        
+
+
         let listened = UITableViewRowAction(style: .normal, title: "Listened") { action, index in
             if (!defaults.bool(forKey: "logged")) {
                 if (UIDevice().screenType == UIDevice.ScreenType.iPhone4) {
@@ -294,27 +294,27 @@ class AllReleasesTableViewController: UITableViewController {
                                 cell.listenedIndicatorView.isHidden = false
                                  Answers.logCustomEvent(withName: "Unlistened", customAttributes: ["Release ID":releaseInfo.releaseId])
                             }
-                            
+
                             tableView.setEditing(false, animated: true)
                         }
                     })
                 })
             }
         }
-        
+
         if (releaseInfo.listenStatus == "1") {
             listened.title = "Didn't Listen"
         }
         listened.backgroundColor = UIColor.init(red: (48/255), green: (156/255), blue: (172/255), alpha: 1)
-        
+
         return [listened]
-        
+
     }
-    
+
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         return true
     }
-    
+
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let previousIndexPath = selectedIndexPath
         if indexPath == selectedIndexPath {
@@ -322,7 +322,7 @@ class AllReleasesTableViewController: UITableViewController {
         } else {
             selectedIndexPath = indexPath
         }
-        
+
         var indexPaths : Array<IndexPath> = []
         if let previous = previousIndexPath {
             indexPaths += [previous]
@@ -339,26 +339,26 @@ class AllReleasesTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         (cell as! ReleaseTableViewCell).watchFrameChanges()
     }
-    
+
     override func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         (cell as! ReleaseTableViewCell).ignoreFrameChanges()
     }
-    
+
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         for cell in tableView.visibleCells as! [ReleaseTableViewCell] {
             cell.ignoreFrameChanges()
         }
     }
-    
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         for cell in tableView.visibleCells as! [ReleaseTableViewCell] {
             cell.watchFrameChanges()
         }
-       
+
     }
-    
+
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         if (!defaults.bool(forKey: "logged") && self.tabBarController?.selectedIndex == 1) {
@@ -375,7 +375,7 @@ class AllReleasesTableViewController: UITableViewController {
             }
         }
     }
-    
+
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if indexPath == selectedIndexPath {
             return ReleaseTableViewCell.expandedHeight
@@ -393,7 +393,7 @@ class AllReleasesTableViewController: UITableViewController {
             tableView.deleteRows(at: [indexPath], with: .fade)
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+        }
     }
     */
 
@@ -412,7 +412,7 @@ class AllReleasesTableViewController: UITableViewController {
     }
     */
 
-    
+
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -433,7 +433,7 @@ class AllReleasesTableViewController: UITableViewController {
             destination.artistName = self.lastSelectedArtistName
         }
     }
-    
+
     @objc func actOnLoggedInNotification() {
         //print("Logged in")
         releases.removeAll()
@@ -447,7 +447,7 @@ class AllReleasesTableViewController: UITableViewController {
             })
         })
     }
-    
+
     @objc func actOnLoggedOutNotification() {
         //print("Logged out")
         releases.removeAll()
@@ -460,6 +460,6 @@ class AllReleasesTableViewController: UITableViewController {
         })
     }
 
-    
+
 
 }

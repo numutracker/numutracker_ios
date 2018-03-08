@@ -10,9 +10,9 @@ import Foundation
 import SwiftyJSON
 
 class SearchClient {
-    
+
     static let sharedClient = SearchClient()
-    
+
     func getUserArtists(sortBy: String, completion: @escaping ([ArtistItem]) -> ()) {
         if (defaults.bool(forKey: "logged")) {
             let username = defaults.string(forKey: "username")
@@ -35,7 +35,7 @@ class SearchClient {
             }
         }
     }
-    
+
     func getArtistSearch(search: String, completion: @escaping ([ArtistItem]) -> ()) {
         if (defaults.bool(forKey: "logged")) {
             let username = defaults.string(forKey: "username")
@@ -78,7 +78,7 @@ class SearchClient {
             }
         }
     }
-    
+
     func getSingleArtistItem(search: String, completion: @escaping ([ArtistItem]) -> ()) {
         if (defaults.bool(forKey: "logged")) {
             let username = defaults.string(forKey: "username")
@@ -101,8 +101,8 @@ class SearchClient {
             }
         }
     }
-    
-    
+
+
     func getArtistReleases(artist: String, completion: @escaping ([ReleaseItem]) -> ()) {
         // Let's try swifty json...
         if (defaults.bool(forKey: "logged")) {
@@ -112,7 +112,7 @@ class SearchClient {
             urlString = urlString + urlString2
             //print(urlString)
             var releases: [ReleaseItem] = []
-            
+
             if let url = URL(string: urlString) {
                 if let data = try? Data(contentsOf: url) {
                     if let json = try? JSON(data: data) {
@@ -128,11 +128,11 @@ class SearchClient {
                 }
             }
         } else {
-            
+
             let urlString = "https://www.numutracker.com/v2/json.php?user=0&rel_mode=artist&artist=\(artist)"
             //print(urlString)
             var releases: [ReleaseItem] = []
-            
+
             if let url = URL(string: urlString) {
                 if let data = try? Data(contentsOf: url) {
                     if let json = try? JSON(data: data) {
@@ -147,15 +147,15 @@ class SearchClient {
                     }
                 }
             }
-            
+
         }
     }
-    
+
     func getRandomArts(completion: @escaping ([String]) -> ()) {
         let urlString = "https://www.numutracker.com/v2/json.php?arts=1"
         //print(urlString)
         var arts_found: [String] = []
-        
+
         if let url = URL(string: urlString) {
             if let data = try? Data(contentsOf: url) {
                 if let json = try? JSON(data: data) {
@@ -170,8 +170,8 @@ class SearchClient {
         }
     }
 
-    
-    
+
+
     func authorizeLogIn(username: String, password: String) -> String {
         let escapedString = username.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)
         let urlString = "https://" + escapedString! + ":" + password + "@www.numutracker.com/v2/json.php?auth=1"
@@ -184,14 +184,14 @@ class SearchClient {
                         return success
                     }
                 }
-                
+
             }
         }
         return "0"
     }
-    
+
     func authorizeRegister(username: String, password: String) -> String {
-        
+
         let urlString = "https://www.numutracker.com/v2/json.php?register=" + username + "&password=" + password
         if let url = URL(string: urlString) {
             if let data = try? Data(contentsOf: url) {
@@ -200,14 +200,14 @@ class SearchClient {
                         return success
                     }
                 }
-                
+
             }
         }
         return "0"
     }
-    
+
     func toggleListenState(releaseId: String) -> String {
-        
+
         if (defaults.bool(forKey: "logged")) {
             let username = defaults.string(forKey: "username")
             let password = defaults.string(forKey: "password")
@@ -222,17 +222,17 @@ class SearchClient {
                             return success
                         }
                     }
-                    
+
                 }
             }
             return "0"
-            
+
         }
         return "0"
     }
-    
+
     func toggleFilter(filter: String) -> String {
-        
+
         if (defaults.bool(forKey: "logged")) {
             let username = defaults.string(forKey: "username")
             let password = defaults.string(forKey: "password")
@@ -246,17 +246,17 @@ class SearchClient {
                             return success
                         }
                     }
-                    
+
                 }
             }
             return "0"
-            
+
         }
         return "0"
     }
-    
+
     func unfollowArtist(artistMbid: String) -> String {
-        
+
         if (defaults.bool(forKey: "logged")) {
             let username = defaults.string(forKey: "username")
             let password = defaults.string(forKey: "password")
@@ -271,17 +271,17 @@ class SearchClient {
                             return success
                         }
                     }
-                    
+
                 }
             }
             return "0"
-            
+
         }
         return "0"
     }
-    
+
     func followArtist(artistMbid: String) -> String {
-        
+
         if (defaults.bool(forKey: "logged")) {
             let username = defaults.string(forKey: "username")
             let password = defaults.string(forKey: "password")
@@ -299,22 +299,22 @@ class SearchClient {
                 }
             }
             return "0"
-            
+
         }
         return "0"
     }
-    
+
     func getUserFilters(username: String) -> JSON {
-        
+
         if (defaults.bool(forKey: "logged")) {
             let username = defaults.string(forKey: "username")
             let password = defaults.string(forKey: "password")
             let escapedString = username!.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)
             let urlString = "https://" + escapedString! + ":" + password!
             let urlString2 = "@www.numutracker.com/v2/json.php?filters"
-            
+
             //print(urlString + urlString2)
-            
+
             if let url = URL(string: urlString + urlString2) {
                 if let data = try? Data(contentsOf: url) {
                     if let json = try? JSON(data: data) {
@@ -322,22 +322,22 @@ class SearchClient {
                     }
                 }
             }
-            
+
         }
         return JSON.null
     }
-    
+
     func getUserStats(username: String) -> JSON {
-        
+
         if (defaults.bool(forKey: "logged")) {
             let username = defaults.string(forKey: "username")
             let password = defaults.string(forKey: "password")
             let escapedString = username!.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)
             let urlString = "https://" + escapedString! + ":" + password!
             let urlString2 = "@www.numutracker.com/v2/json.php?stats"
-            
+
             //print(urlString + urlString2)
-            
+
             if let url = URL(string: urlString + urlString2) {
                 if let data = try? Data(contentsOf: url) {
                     if let json = try? JSON(data: data) {
@@ -345,12 +345,12 @@ class SearchClient {
                     }
                 }
             }
-            
+
         }
         return JSON.null
     }
 
-    
+
     func HTTPsendRequest(request: NSMutableURLRequest,
                          callback: @escaping (String, String?) -> Void) {
         let task = URLSession.shared
@@ -363,15 +363,15 @@ class SearchClient {
                                       encoding: String.Encoding.utf8.rawValue)! as String, nil)
                 }
         }
-        
+
         task.resume()
     }
-    
+
     func HTTPPostJSON(url: String,  data: NSData,
     callback: @escaping (String, String?) -> Void) {
-    
+
         let request = NSMutableURLRequest(url: NSURL(string: url)! as URL)
-        
+
         request.httpMethod = "POST"
         request.addValue("application/json",forHTTPHeaderField: "Content-Type")
         request.addValue("application/json",forHTTPHeaderField: "Accept")

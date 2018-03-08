@@ -10,28 +10,28 @@ import UIKit
 import Crashlytics
 
 class ArtistsTableViewController: UITableViewController, UISearchBarDelegate, UISearchResultsUpdating {
-   
-    
-    
+
+
+
     var artists: [ArtistItem] = []
     var sortMethod: String = "date"
     var screenType: String = "yours"
     var lastSelectedArtistId: String = ""
     var lastSelectedArtistName: String = ""
-    
+
     @IBOutlet var noResultsView: UIView!
     @IBOutlet var noSearchResultsView: UIView!
-    
+
     var artist: ArtistItem?
-    
+
     let searchController = UISearchController(searchResultsController: nil)
 
     @IBOutlet var footerView: UIView!
-    
+
     @IBAction func showSortOptions(_ sender: Any) {
-        
+
         let optionMenu = UIAlertController(title: "Sort Artists", message: nil, preferredStyle: .actionSheet)
-        
+
         // 2
         let sortAlpha = UIAlertAction(title: "By Name", style: .default, handler: {
             (alert: UIAlertAction!) -> Void in
@@ -45,36 +45,36 @@ class ArtistsTableViewController: UITableViewController, UISearchBarDelegate, UI
             self.sortMethod = "date"
             self.actOnImportNotification()
         })
-        
+
         let cancelAction = UIAlertAction(title: "Cancel", style: .destructive) { (alert: UIAlertAction) -> Void in
-            
+
         }
-        
+
         // 4
         optionMenu.addAction(sortAlpha)
         optionMenu.addAction(sortDate)
         optionMenu.addAction(cancelAction)
-        
-        
+
+
         // colors?
-        
+
         let subview1 = optionMenu.view.subviews.first! as UIView
         let subview2 = subview1.subviews.first! as UIView
         let view = subview2.subviews.first! as UIView
-        
+
         subview1.backgroundColor = UIColor(red: (30/255), green: (30/255), blue: (30/255), alpha: 1.0)
         view.backgroundColor = UIColor(red: (30/255), green: (30/255), blue: (30/255), alpha: 1.0)
         subview1.layer.cornerRadius = 10.0
         view.layer.cornerRadius = 10.0
-        
+
         optionMenu.view.tintColor = UIColor.white
-        
-        
+
+
         // 5
         self.present(optionMenu, animated: true, completion: nil)
-        
+
     }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Your Artists"
@@ -96,9 +96,9 @@ class ArtistsTableViewController: UITableViewController, UISearchBarDelegate, UI
         searchController.dimsBackgroundDuringPresentation = false
         tableView.tableHeaderView = searchController.searchBar
         //self.definesPresentationContext = true
-        
+
         // Get list of artists...
-        
+
         DispatchQueue.global(qos: .background).async(execute: {
             SearchClient.sharedClient.getUserArtists(sortBy: self.sortMethod) {[weak self](artists) in
                 self?.artists = artists
@@ -113,11 +113,11 @@ class ArtistsTableViewController: UITableViewController, UISearchBarDelegate, UI
                 }
             })
         })
-        
+
         NotificationCenter.default.addObserver(self, selector: #selector(ArtistsTableViewController.actOnImportNotification), name: NSNotification.Name(rawValue: updatedArtistsNotificationKey), object: nil)
-        
+
         self.tableView.addSubview(self.artistRefreshControl)
-        
+
         Answers.logCustomEvent(withName: "Your Artists View", customAttributes: nil)
 
         // Uncomment the following line to preserve selection between presentations
@@ -126,12 +126,12 @@ class ArtistsTableViewController: UITableViewController, UISearchBarDelegate, UI
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
-    
+
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         searchController.dismiss(animated: false, completion: nil)
     }
-    
+
     @objc func actOnImportNotification() {
         DispatchQueue.global(qos: .background).async(execute: {
             SearchClient.sharedClient.getUserArtists(sortBy: self.sortMethod) {[weak self](artists) in
@@ -154,15 +154,15 @@ class ArtistsTableViewController: UITableViewController, UISearchBarDelegate, UI
         })
 
     }
-    
-    
+
+
     lazy var artistRefreshControl: UIRefreshControl = {
         let refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action: #selector(ArtistsTableViewController.handleRefresh(_:)), for: UIControlEvents.valueChanged)
-        
+
         return refreshControl
     }()
-    
+
     @objc func handleRefresh(_ refreshControl: UIRefreshControl) {
         //print("Refresh")
         self.artists.removeAll()
@@ -176,7 +176,7 @@ class ArtistsTableViewController: UITableViewController, UISearchBarDelegate, UI
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
+
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         /* if (!defaults.bool(forKey: "logged")) {
@@ -199,14 +199,14 @@ class ArtistsTableViewController: UITableViewController, UISearchBarDelegate, UI
        return artists.count
 
     }
-    
+
     func updateSearchResults(for searchController: UISearchController) {
-        
+
             NSObject.cancelPreviousPerformRequests(withTarget: self, selector: #selector(self.reload), object: nil)
             self.perform(#selector(self.reload), with: nil, afterDelay: 1)
-        
+
     }
-    
+
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         self.resignFirstResponder()
         self.artists.removeAll()
@@ -215,7 +215,7 @@ class ArtistsTableViewController: UITableViewController, UISearchBarDelegate, UI
         self.actOnImportNotification()
         self.title = "Your Artists"
     }
-    
+
     @objc func reload() {
         if let searchText = searchController.searchBar.text, !searchText.isEmpty, searchText.count > 2 {
             self.title = "Artist Search"
@@ -238,12 +238,12 @@ class ArtistsTableViewController: UITableViewController, UISearchBarDelegate, UI
                 })
             })
         }
-        
-    }
-    
-    
 
-    
+    }
+
+
+
+
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "artistInfoCell", for: indexPath)  as! ArtistTableViewCell
         // Configure the cell...
@@ -251,8 +251,8 @@ class ArtistsTableViewController: UITableViewController, UISearchBarDelegate, UI
         cell.configure(artistInfo: artistInfo)
         cell.albumActivityIndicator.startAnimating()
         cell.thumbUrl = artistInfo.thumbUrl // For recycled cells' late image loads.
-        
-        
+
+
         if let image = artistInfo.thumbUrl.cachedImage {
             // Cached: set immediately.
             cell.artistArt.image = image
@@ -271,19 +271,19 @@ class ArtistsTableViewController: UITableViewController, UISearchBarDelegate, UI
             }
         }
 
-        
+
         return cell
     }
-    
+
     /* override func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
         return footerView
     }
      */
-    
+
     override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
-        
+
         var artistInfo = artists[indexPath.row]
-        
+
         let unfollow = UITableViewRowAction(style: .normal, title: "Error") { action, index in
             if (!defaults.bool(forKey: "logged")) {
                 if (UIDevice().screenType == UIDevice.ScreenType.iPhone4) {
@@ -317,20 +317,20 @@ class ArtistsTableViewController: UITableViewController, UISearchBarDelegate, UI
                 })
             }
         }
-        
+
         unfollow.backgroundColor = UIColor.init(red: (48/255), green: (156/255), blue: (172/255), alpha: 1)
         if (artistInfo.followStatus == "0") {
             unfollow.title = "Follow"
         } else {
             unfollow.title = "Unfollow"
         }
-    
+
         return [unfollow]
-    
-        
+
+
     }
 
-    
+
     /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
@@ -347,7 +347,7 @@ class ArtistsTableViewController: UITableViewController, UISearchBarDelegate, UI
             tableView.deleteRows(at: [indexPath], with: .fade)
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+        }
     }
     */
 
@@ -366,7 +366,7 @@ class ArtistsTableViewController: UITableViewController, UISearchBarDelegate, UI
     }
     */
 
-    
+
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -389,12 +389,12 @@ class ArtistsTableViewController: UITableViewController, UISearchBarDelegate, UI
         }
 
     }
-    
+
     func alertClose(gesture: UITapGestureRecognizer) {
         self.dismiss(animated: true, completion: nil)
     }
 
-    
+
 
 }
 
