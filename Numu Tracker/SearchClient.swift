@@ -318,13 +318,13 @@ class SearchClient {
             if let url = URL(string: urlString + urlString2) {
                 if let data = try? Data(contentsOf: url) {
                     if let json = try? JSON(data: data) {
-                        return json;
+                        return json
                     }
                 }
             }
 
         }
-        return JSON.null
+        return .null
     }
 
     func getUserStats(username: String) -> JSON {
@@ -347,7 +347,7 @@ class SearchClient {
             }
 
         }
-        return JSON.null
+        return .null
     }
 
 

@@ -160,9 +160,9 @@ class LogRegPromptSmallViewController: UIViewController, UITextFieldDelegate {
         let width = self.view.frame.size.width
         var height: CGFloat = 0
         if (scrollView.restorationIdentifier == "middle") {
-            height = width / 2;
+            height = width / 2
         } else {
-            height = width / 3;
+            height = width / 3
         }
 
         let imageWidth:CGFloat = height
@@ -259,15 +259,15 @@ class LogRegPromptSmallViewController: UIViewController, UITextFieldDelegate {
             switch (scrollView.restorationIdentifier!) {
             case "top":
                 if (self.topScrollDrection == 0) {
-                    newOffset = offset.x + intervalPixels;
+                    newOffset = offset.x + intervalPixels
                 } else {
-                    newOffset = offset.x - intervalPixels;
+                    newOffset = offset.x - intervalPixels
                 }
             case "bottom":
                 if (self.bottomScrollDrection == 0) {
-                    newOffset = offset.x + intervalPixels;
+                    newOffset = offset.x + intervalPixels
                 } else {
-                    newOffset = offset.x - intervalPixels;
+                    newOffset = offset.x - intervalPixels
                 }
             default:
                 print("Borked")

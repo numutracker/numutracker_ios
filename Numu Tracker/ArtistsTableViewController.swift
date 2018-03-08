@@ -84,7 +84,7 @@ class ArtistsTableViewController: UITableViewController, UISearchBarDelegate, UI
         searchController.searchBar.placeholder = "Search for more artists"
         searchController.searchBar.showsCancelButton = false
         self.searchController.searchBar.setShowsCancelButton(false, animated: true)
-        searchController.searchBar.delegate = self;
+        searchController.searchBar.delegate = self
         searchController.searchBar.barStyle = .black
         searchController.searchBar.keyboardType = .alphabet
         searchController.searchBar.keyboardAppearance = .dark

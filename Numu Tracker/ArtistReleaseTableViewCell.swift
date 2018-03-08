@@ -37,8 +37,8 @@ class ArtistReleaseTableViewCell: UITableViewCell {
     // Expanding variables
     class var expandedHeight: CGFloat { get { return 219 } }
     class var defaultHeight: CGFloat  { get { return 136  } }
-    var loadedListenLinks = false;
-    var isObserving = false;
+    var loadedListenLinks = false
+    var isObserving = false
 
 
     var thumbUrl: NSURL!
@@ -56,7 +56,7 @@ class ArtistReleaseTableViewCell: UITableViewCell {
 
         albumArt.layer.shadowColor = UIColor.black.cgColor
         albumArt.layer.shadowOpacity = 0.3
-        albumArt.layer.shadowOffset = CGSize.zero
+        albumArt.layer.shadowOffset = .zero
         albumArt.layer.shadowRadius = 5
         //albumArt.layer.shadowPath = UIBezierPath(rect: albumArt.bounds).cgPath
         //albumArt.layer.shouldRasterize = true
@@ -64,7 +64,7 @@ class ArtistReleaseTableViewCell: UITableViewCell {
 
         readIndicator.layer.shadowColor = UIColor.init(red: (28/255), green: (202/255), blue: (241/255), alpha: 1).cgColor
         readIndicator.layer.shadowOpacity = 0.9
-        readIndicator.layer.shadowOffset = CGSize.zero
+        readIndicator.layer.shadowOffset = .zero
         readIndicator.layer.shadowRadius = 4
         //albumArt.layer.shadowPath = UIBezierPath(rect: listenMarkerView.bounds).cgPath
         readIndicator.layer.shouldRasterize = true
@@ -134,15 +134,15 @@ class ArtistReleaseTableViewCell: UITableViewCell {
 
     func watchFrameChanges() {
         if !isObserving {
-            addObserver(self, forKeyPath: "frame", options: [NSKeyValueObservingOptions.new, NSKeyValueObservingOptions.initial], context: nil)
-            isObserving = true;
+            addObserver(self, forKeyPath: "frame", options: [.new, .initial], context: nil)
+            isObserving = true
         }
     }
 
     func ignoreFrameChanges() {
         if isObserving {
             removeObserver(self, forKeyPath: "frame")
-            isObserving = false;
+            isObserving = false
         }
     }
 

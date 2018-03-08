@@ -23,7 +23,7 @@ class ArtistTableViewCell: UITableViewCell {
         thumbUrl = artistInfo.thumbUrl
         followStatus = artistInfo.followStatus
 
-        if (artistInfo.recentRelease == "December 31, 1969") {
+        if artistInfo.recentRelease == "December 31, 1969" {
             recentReleaseLabel.text = "No Releases"
         } else {
             recentReleaseLabel.text = artistInfo.recentRelease
@@ -31,7 +31,7 @@ class ArtistTableViewCell: UITableViewCell {
         let int_total = Int(artistInfo.total_rels)!
         let int_unlistened = Int(artistInfo.unlistened)!
 
-        if (int_total > 0) {
+        if int_total > 0 {
             var percentageListened = (Double(int_unlistened) / Double(int_total))
             percentageListened = percentageListened*100
             releasesData.text = String(100-Int(percentageListened)) + "% Listened"
@@ -42,7 +42,7 @@ class ArtistTableViewCell: UITableViewCell {
 
         artistArt.layer.shadowColor = UIColor.black.cgColor
         artistArt.layer.shadowOpacity = 0.3
-        artistArt.layer.shadowOffset = CGSize.zero
+        artistArt.layer.shadowOffset = .zero
         artistArt.layer.shadowRadius = 5
         //artistArt.layer.shouldRasterize = true
 

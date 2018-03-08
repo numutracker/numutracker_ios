@@ -148,11 +148,11 @@ class AllReleasesTableViewController: UITableViewController {
             self.releasesSegmentedControl.insertSegment(withTitle: "Fresh", at: 3, animated: false)
         }
 
-        NotificationCenter.default.addObserver(self, selector: #selector(AllReleasesTableViewController.actOnLoggedInNotification), name: NSNotification.Name(rawValue: loggedInNotificationKey), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(actOnLoggedInNotification), name: NSNotification.Name(rawValue: loggedInNotificationKey), object: nil)
 
-        NotificationCenter.default.addObserver(self, selector: #selector(AllReleasesTableViewController.actOnLoggedOutNotification), name: NSNotification.Name(rawValue: loggedOutNotificationKey), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(actOnLoggedOutNotification), name: NSNotification.Name(rawValue: loggedOutNotificationKey), object: nil)
 
-        self.refreshControl?.addTarget(self, action: #selector(AllReleasesTableViewController.handleRefresh(refreshControl:)), for: .valueChanged)
+        self.refreshControl?.addTarget(self, action: #selector(handleRefresh(refreshControl:)), for: .valueChanged)
 
         // Load initial batch of releases...
         self.tableView.tableFooterView = self.footerView

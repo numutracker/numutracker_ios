@@ -30,35 +30,35 @@ struct ReleaseItem {
     init?(json: JSON) {
 
         guard let artistId = json["artist_id"].string else {
-            return nil;
+            return nil
         }
         self.artistId = artistId
 
         guard let albumName = json["title"].string else {
-            return nil;
+            return nil
         }
         self.albumName = albumName
 
 
         guard let releaseId = json["release_id"].string else {
-            return nil;
+            return nil
         }
         self.releaseId = releaseId
 
 
         guard let releaseDate = json["date"].string else {
-            return nil;
+            return nil
         }
         self.releaseDate = releaseDate
 
         guard let releaseType = json["type"].string else {
-            return nil;
+            return nil
         }
         self.releaseType = releaseType
 
 
         guard let artistName = json["artist"].string else {
-            return nil;
+            return nil
         }
         self.artistName = artistName
 
@@ -66,25 +66,25 @@ struct ReleaseItem {
         if (json["art"].int != 0 && json["art"].int != 2) {
 
         guard let albumArtThumb = json["art"]["thumb"].string else {
-            return nil;
+            return nil
         }
 
         self.albumArtThumb = albumArtThumb
 
         guard let albumArtFull = json["art"]["full"].string else {
-            return nil;
+            return nil
         }
 
         self.albumArtFull = albumArtFull
 
         guard let albumArtLarge = json["art"]["large"].string else {
-            return nil;
+            return nil
         }
 
         self.albumArtLarge = albumArtLarge
 
         guard let albumArtXLarge = json["art"]["xlarge"].string else {
-            return nil;
+            return nil
         }
 
         self.albumArtXLarge = albumArtXLarge
@@ -102,25 +102,25 @@ struct ReleaseItem {
         if (json["artist_art"].int != 0 && json["artist_art"].int != 2) {
 
             guard let albumArtThumb = json["artist_art"]["thumb"].string else {
-                return nil;
+                return nil
             }
 
             self.artistArtThumb = albumArtThumb
 
             guard let albumArtFull = json["artist_art"]["full"].string else {
-                return nil;
+                return nil
             }
 
             self.artistArtFull = albumArtFull
 
             guard let albumArtLarge = json["artist_art"]["large"].string else {
-                return nil;
+                return nil
             }
 
             self.artistArtLarge = albumArtLarge
 
             guard let albumArtXLarge = json["artist_art"]["xlarge"].string else {
-                return nil;
+                return nil
             }
 
             self.artistArtXLarge = albumArtXLarge

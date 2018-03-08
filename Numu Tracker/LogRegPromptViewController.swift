@@ -142,7 +142,7 @@ class LogRegPromptViewController: UIViewController, UITextFieldDelegate {
 
                 self.middleScrollView.setContentOffset(CGPoint(x:max_length-width,y:0), animated: false)
 
-                _ = Timer.scheduledTimer(timeInterval: 0.025, target: self, selector: #selector(LogRegPromptViewController.autoScroll), userInfo: nil, repeats: true)
+                _ = Timer.scheduledTimer(timeInterval: 0.025, target: self, selector: #selector(autoScroll), userInfo: nil, repeats: true)
 
             })
 
@@ -168,9 +168,9 @@ class LogRegPromptViewController: UIViewController, UITextFieldDelegate {
         let width = self.view.frame.size.width
         var height: CGFloat = 0
         if (scrollView.restorationIdentifier == "middle") {
-            height = width / 2;
+            height = width / 2
         } else {
-            height = width / 4;
+            height = width / 4
         }
 
         let imageWidth:CGFloat = height
@@ -275,21 +275,21 @@ class LogRegPromptViewController: UIViewController, UITextFieldDelegate {
             switch (scrollView.restorationIdentifier!) {
             case "middle":
                 if (self.middleScrollDrection == 0) {
-                    newOffset = offset.x + intervalPixels;
+                    newOffset = offset.x + intervalPixels
                 } else {
-                    newOffset = offset.x - intervalPixels;
+                    newOffset = offset.x - intervalPixels
                 }
             case "top":
                 if (self.topScrollDrection == 0) {
-                    newOffset = offset.x + intervalPixels;
+                    newOffset = offset.x + intervalPixels
                 } else {
-                    newOffset = offset.x - intervalPixels;
+                    newOffset = offset.x - intervalPixels
                 }
             case "bottom":
                 if (self.bottomScrollDrection == 0) {
-                    newOffset = offset.x + intervalPixels;
+                    newOffset = offset.x + intervalPixels
                 } else {
-                    newOffset = offset.x - intervalPixels;
+                    newOffset = offset.x - intervalPixels
                 }
             default:
                 print("Borked")

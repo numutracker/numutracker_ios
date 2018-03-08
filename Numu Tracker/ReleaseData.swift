@@ -17,12 +17,12 @@ struct ReleaseData {
 
     init?(json: JSON) {
         guard let currentPage = json["page"].string else {
-            return nil;
+            return nil
         }
         self.currentPage = currentPage
 
         guard let totalPages = json["total_pages"].string else {
-            return nil;
+            return nil
         }
         self.totalPages = totalPages
 
