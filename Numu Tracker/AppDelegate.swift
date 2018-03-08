@@ -17,43 +17,43 @@ import Crashlytics
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-    
+
     // Production
     let pusher = Pusher(key: "")
-    
+
     // Development
     //let pusher = Pusher(key: "")
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        
+
         Fabric.with([Crashlytics.self])
-        
+
         if (defaults.bool(forKey: "logged")) {
-            
+
             ( window?.rootViewController as! UITabBarController ).selectedIndex = 1
             if let username = defaults.string(forKey: "username") {
                 Crashlytics.sharedInstance().setUserEmail(username)
             }
-            
+
             UIApplication.shared.registerForRemoteNotifications()
-            
+
         }
-        
+
         NotificationCenter.default.addObserver(self, selector: #selector(self.actOnClosedPrompt), name: NSNotification.Name(rawValue: closedLogRegPromptKey), object: nil)
-        
-        
-        
+
+
+
         return true
     }
-    
+
     @objc func actOnClosedPrompt() {
         if ( ( window?.rootViewController as! UITabBarController ).selectedIndex == 1) {
              ( window?.rootViewController as! UITabBarController ).selectedIndex = 0
         }
     }
-    
-    
+
+
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
         pusher.nativePusher.register(deviceToken: deviceToken)
         if let username = defaults.string(forKey: "username") {
@@ -80,14 +80,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         }
     }
- 
-    
+
+
     private func application(application: UIApplication, didReceiveRemoteNotification notification : [NSObject : AnyObject]) {
         //print(notification)
     }
- 
-    
-    
+
+
+
     func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
         // Use this method to pause ongoing tasks, disable timers, and invalidate graphics rendering callbacks. Games should use this method to pause the game.

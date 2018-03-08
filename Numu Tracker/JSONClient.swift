@@ -10,15 +10,15 @@ import Foundation
 import SwiftyJSON
 
 class JSONClient {
-    
+
     static let sharedClient = JSONClient()
-    
+
     func postArtists(artists: [String], completion: @escaping (String) -> ()) {
         let json = ["artists": artists]
         do {
-            
+
             let jsonData = try JSONSerialization.data(withJSONObject: json, options: .prettyPrinted)
-            
+
             // create post request
             let username = defaults.string(forKey: "username")
             let password = defaults.string(forKey: "password")
@@ -26,18 +26,17 @@ class JSONClient {
             let url = NSURL(string: "https://" + escapedString! + ":" + password! + "@www.numutracker.com/v2/json.php?import")!
             let request = NSMutableURLRequest(url: url as URL)
             request.httpMethod = "POST"
-            
+
             // insert json data to the request
             request.setValue("application/json; charset=utf-8", forHTTPHeaderField: "Content-Type")
             request.httpBody = jsonData
-            
-            
+
             let task = URLSession.shared.dataTask(with: request as URLRequest){ data, response, error in
                 if error != nil{
                     //print("Error 1 -> \(String(describing: error))")
                     completion("Failure")
                 }
-                
+
                 do {
                     if (data != nil) {
                         _ = try JSONSerialization.jsonObject(with: data!, options: []) as? [String:AnyObject]
@@ -46,23 +45,21 @@ class JSONClient {
                     } else {
                         completion("Failure")
                     }
-                    
+
                 } catch {
                     //print("Error 2 -> \(error)")
                     completion("Failure")
                 }
             }
-            
+
             task.resume()
-            
+
         } catch {
             //print(error)
             completion("Failure")
         }
-
     }
-    
-    
+
     func getReleases(view: Int, slide: Int, page: Int = 1, limit: Int = 50, offset: Int = 0, completion: @escaping (ReleaseData) -> ()) {
         // Let's try swifty json...
         var urlString: String
@@ -72,7 +69,7 @@ class JSONClient {
         } else {
            username = ""
         }
-        
+
         switch view {
         case 0:
             switch slide {
@@ -100,7 +97,7 @@ class JSONClient {
             default:
                 urlString = "https://www.numutracker.com/v2/json.php?page=\(page)&rel_mode=all&limit=\(limit)&offset=\(offset)"
             }
-        
+
         case 1:
             switch slide {
             case 0:
@@ -119,15 +116,15 @@ class JSONClient {
             default:
                 urlString = "https://www.numutracker.com/v2/json.php?user=\(username)&rel_mode=unlistened&page=\(page)&limit=\(limit)&offset=\(offset)"
             }
-        
+
         default:
             urlString = "https://www.numutracker.com/v2/json.php?page=\(page)&rel_mode=all&limit=\(limit)&offset=\(offset)"
         }
-        
+
         //print(urlString)
-        
+
         var releases: ReleaseData
-        
+
         if let url = URL(string: urlString) {
             if let data = try? Data(contentsOf: url) {
                 if let json = try? JSON(data: data) {
@@ -139,7 +136,7 @@ class JSONClient {
             }
         }
     }
-    
+
     func getSpotifyLink(artist: String?, album: String?, completion: @escaping (String) -> ()) {
         if let artist = artist?.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed), let album = album?.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) {
             // Generate spotify search string
@@ -153,10 +150,10 @@ class JSONClient {
                     }
                 }
             }
-            
+
         }
     }
-    
+
     func getAppleMusicLink(artist: String?, album: String?, completion: @escaping (String) -> ()) {
         if let artist = artist?.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed), let album = album?.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) {
             // Generate spotify search string
@@ -170,12 +167,12 @@ class JSONClient {
                     }
                 }
             }
-            
+
         }
     }
-    
+
     func getSingleArtist(artist: String?, completion: @escaping (ArtistItem) -> ()) {
-    
+
         if let artist = artist?.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) {
             let urlString = "https://www.numutracker.com/artist/\(artist)"
             if let url = URL(string: urlString) {
@@ -188,9 +185,9 @@ class JSONClient {
                 }
             }
         }
-    
+
     }
-    
+
     func processPurchase(username: String, password: String, purchased: String) -> String {
         let escapedString = username.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)
         let urlString = "https://" + escapedString! + ":" + password + "@www.numutracker.com/v2/json.php?purchased=" + purchased
@@ -203,13 +200,13 @@ class JSONClient {
                         return success
                     }
                 }
-                
+
             }
         }
         return "0"
     }
-    
-    func getSubStatus(username: String, password: String) -> Array<String> {
+
+    func getSubStatus(username: String, password: String) -> [String] {
         let escapedString = username.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)
         let urlString = "https://" + escapedString! + ":" + password + "@www.numutracker.com/v2/json.php?sub_status=1"
         //print(urlString)
@@ -221,15 +218,15 @@ class JSONClient {
                         return [success,sub_date,now_date]
                     }
                 }
-                
+
             }
         }
-        return Array()
+        return []
     }
-    
 
-    
-    
 
-    
+
+
+
+
 }

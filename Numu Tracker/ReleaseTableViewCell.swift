@@ -10,8 +10,8 @@ import UIKit
 import Crashlytics
 
 class ReleaseTableViewCell: UITableViewCell {
-    
-    
+
+
     @IBOutlet weak var viewMoreReleasesButton: UIButton!
     // @IBOutlet weak var listenSpofityButton: UIButton!
     @IBOutlet weak var listenButtonView: UIView!
@@ -24,11 +24,7 @@ class ReleaseTableViewCell: UITableViewCell {
     var thumbUrl: NSURL!
     var listenState: String! {
         didSet {
-            if (listenState == "1") {
-                listenedIndicatorView.isHidden = true
-            } else {
-                listenedIndicatorView.isHidden = false
-            }
+            listenedIndicatorView.isHidden = listenState == "1"
         }
     }
     var spotifyUrl: String?
@@ -45,71 +41,67 @@ class ReleaseTableViewCell: UITableViewCell {
         }
     }
     var releaseId: String = "0"
-    
 
-    
+
+
     // Expanding variables
     class var expandedHeight: CGFloat { get { return 247 } }
     class var defaultHeight: CGFloat  { get { return 136  } }
-    var loadedListenLinks = false;
-    var isObserving = false;
-    
+    var loadedListenLinks = false
+    var isObserving = false
+
     var artistItem: ArtistItem?
-    
+
     func configure(releaseInfo: ReleaseItem) {
-        
+
         // listenSpofityButton.layer.cornerRadius = 8
-        
+
         viewMoreReleasesButton.setTitle("View other releases by " + releaseInfo.artistName, for: .normal)
-        
+
         artistLabel.text = releaseInfo.artistName
         releaseNameLabel.text = releaseInfo.albumName
-        
+
         releaseId = releaseInfo.releaseId
-        
+
         metaLabel.text = releaseInfo.releaseType + " • " + releaseInfo.releaseDate
-        
+
         thumbUrl = releaseInfo.thumbUrl
-        
+
         artImageView.layer.shadowColor = UIColor.black.cgColor
         artImageView.layer.shadowOpacity = 0.3
-        artImageView.layer.shadowOffset = CGSize.zero
+        artImageView.layer.shadowOffset = .zero
         artImageView.layer.shadowRadius = 5
         //artImageView.layer.shouldRasterize = true
-        
-        
-        listenedIndicatorView.layer.shadowColor = UIColor.init(red: (28/255), green: (202/255), blue: (241/255), alpha: 1).cgColor
+
+
+        listenedIndicatorView.layer.shadowColor = UIColor(red: (28/255), green: (202/255), blue: (241/255), alpha: 1).cgColor
         listenedIndicatorView.layer.shadowOpacity = 0.9
-        listenedIndicatorView.layer.shadowOffset = CGSize.zero
+        listenedIndicatorView.layer.shadowOffset = .zero
         listenedIndicatorView.layer.shadowRadius = 4
         listenedIndicatorView.layer.shouldRasterize = true
-        
+
         if (releaseInfo.listenStatus == "0") {
             listenState = "0"
         } else {
             listenState = "1"
         }
-        
-                
+
+
     }
-    
+
 func checkHeight() {
     //listenButtonView.isHidden = (frame.size.height < ReleaseTableViewCell.expandedHeight)
-    if (frame.size.height < ReleaseTableViewCell.expandedHeight) {
-        
-        if (loadedListenLinks == true) {
+    if frame.size.height < ReleaseTableViewCell.expandedHeight {
+        if loadedListenLinks {
             self.removeListenLinks()
         }
     } else {
-        
-        if (loadedListenLinks == false) {
+        if !loadedListenLinks {
             self.loadListenLinks()
         }
-        
-        
     }
 }
-    
+
     func loadListenLinks() {
         //print("Loading Links..")
         let artist = self.artistLabel.text
@@ -125,7 +117,7 @@ func checkHeight() {
                 })
             }
              */
-            
+
             JSONClient.sharedClient.getAppleMusicLink(artist: artist, album: album) { link in
                 DispatchQueue.main.async(execute: {
                     self.itunesUrl = link
@@ -133,12 +125,12 @@ func checkHeight() {
                     //print(self.itunesUrl ?? "No AM Link")
                 })
             }
-            
+
         })
-        
+
         self.loadedListenLinks = true
     }
-    
+
     func removeListenLinks() {
         self.loadedListenLinks = false
         //self.spotifyUrl = nil
@@ -148,26 +140,26 @@ func checkHeight() {
     }
 
 
-    
+
     func watchFrameChanges() {
         if !isObserving {
-            addObserver(self, forKeyPath: "frame", options: [NSKeyValueObservingOptions.new, NSKeyValueObservingOptions.initial], context: nil)
-            isObserving = true;
+            addObserver(self, forKeyPath: "frame", options: [.new, .initial], context: nil)
+            isObserving = true
         }
     }
-    
+
     func ignoreFrameChanges() {
         if isObserving {
             removeObserver(self, forKeyPath: "frame")
-            isObserving = false;
+            isObserving = false
         }
     }
-    
+
     override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
         if keyPath == "frame" {
             checkHeight()
         }
     }
-    
-    
+
+
   }

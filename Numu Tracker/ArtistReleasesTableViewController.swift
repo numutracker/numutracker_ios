@@ -10,23 +10,23 @@ import UIKit
 import Crashlytics
 
 class ArtistReleasesTableViewController: UITableViewController {
-    
+
     var selectedIndexPath : IndexPath?
     var releases: [ReleaseItem] = []
     var artistId: String?
     var artistName: String?
     var artistItem: [ArtistItem] = []
-    
+
     @IBOutlet var footerView: UIView!
     @IBOutlet var noResultsView: UIView!
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         let add = UIBarButtonItem(title: "", style: .plain, target: self, action: #selector(addTapped))
-        
+
         navigationItem.rightBarButtonItem = add
-        
+
         if self.artistId != nil {
             // Get artist item...
             self.navigationController?.navigationBar.tintColor = .white
@@ -37,16 +37,16 @@ class ArtistReleasesTableViewController: UITableViewController {
                 SearchClient.sharedClient.getArtistReleases(artist: selectedArtist) {[weak self](releases) in
                     self?.releases = releases
                 }
-                
+
                 SearchClient.sharedClient.getSingleArtistItem(search: selectedArtist) {[weak self](artists) in
                     self?.artistItem = artists
                 }
-                
+
                 DispatchQueue.main.async(execute: {
-                    if (!defaults.bool(forKey: "logged")) {
+                    if !defaults.bool(forKey: "logged") {
                         self.navigationItem.rightBarButtonItem?.title = "Follow"
                     } else {
-                        if (self.artistItem[0].followStatus == "1") {
+                        if self.artistItem[0].followStatus == "1" {
                             self.navigationItem.rightBarButtonItem?.title = "Unfollow"
                         } else {
                             self.navigationItem.rightBarButtonItem?.title = "Follow"
@@ -56,24 +56,24 @@ class ArtistReleasesTableViewController: UITableViewController {
                     self.tableView.beginUpdates()
                     self.tableView.endUpdates()
                     self.tableView.tableFooterView = UIView()
-                    if (self.releases.count == 0) {
+                    if self.releases.isEmpty {
                         self.tableView.tableFooterView = self.noResultsView
                     }
                 })
             })
-  
+
             Answers.logCustomEvent(withName: "Artist Screen", customAttributes: ["Artist ID":selectedArtist])
-            
+
         }
-        
-        
+
+
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
-    
+
     @objc func addTapped() {
             if let artistId = self.artistId {
                 if (defaults.bool(forKey: "logged")) {
@@ -122,11 +122,11 @@ class ArtistReleasesTableViewController: UITableViewController {
         return releases.count
     }
 
-    
+
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "artistAlbumCell", for: indexPath) as! ArtistReleaseTableViewCell
 
-        
+
         // Configure the cell...
         let releaseInfo = releases[(indexPath as NSIndexPath).row]
         cell.configure(releaseInfo: releaseInfo)
@@ -150,15 +150,15 @@ class ArtistReleasesTableViewController: UITableViewController {
             }
         }
         return cell
- 
+
     }
-    
+
 
     override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
-        
+
         let releaseInfo = self.releases[(indexPath as NSIndexPath).row]
-        
-        
+
+
         let listened = UITableViewRowAction(style: .normal, title: "Listened") { action, index in
             if (!defaults.bool(forKey: "logged")) {
                 if (UIDevice().screenType == UIDevice.ScreenType.iPhone4) {
@@ -195,24 +195,24 @@ class ArtistReleasesTableViewController: UITableViewController {
                     })
                 })
             }
-            
+
         }
-        
+
         if (releaseInfo.listenStatus == "1") {
             listened.title = "Didn't Listen"
         }
-        listened.backgroundColor = UIColor.init(red: (48/255), green: (156/255), blue: (172/255), alpha: 1)
+        listened.backgroundColor = UIColor(red: (48/255), green: (156/255), blue: (172/255), alpha: 1)
 
         return [listened]
-        
+
     }
-    
+
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         return true
     }
-    
+
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        
+
     }
 
     /*
@@ -229,7 +229,7 @@ class ArtistReleasesTableViewController: UITableViewController {
         return true
     }
     */
-    
+
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let previousIndexPath = selectedIndexPath
         if indexPath == selectedIndexPath {
@@ -237,7 +237,7 @@ class ArtistReleasesTableViewController: UITableViewController {
         } else {
             selectedIndexPath = indexPath
         }
-        
+
         var indexPaths : Array<IndexPath> = []
         if let previous = previousIndexPath {
             indexPaths += [previous]
@@ -254,25 +254,25 @@ class ArtistReleasesTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         (cell as! ArtistReleaseTableViewCell).watchFrameChanges()
     }
-    
+
     override func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         (cell as! ArtistReleaseTableViewCell).ignoreFrameChanges()
     }
-    
+
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         for cell in tableView.visibleCells as! [ArtistReleaseTableViewCell] {
             cell.ignoreFrameChanges()
         }
     }
-    
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         for cell in tableView.visibleCells as! [ArtistReleaseTableViewCell] {
             cell.watchFrameChanges()
         }
     }
-    
+
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if indexPath == selectedIndexPath {
             return ArtistReleaseTableViewCell.expandedHeight
@@ -281,7 +281,7 @@ class ArtistReleasesTableViewController: UITableViewController {
         }
     }
 
-    
-    
+
+
 
 }
