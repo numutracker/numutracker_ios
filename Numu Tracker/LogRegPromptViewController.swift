@@ -306,9 +306,9 @@ class LogRegPromptViewController: UIViewController, UITextFieldDelegate {
     }
 
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        if (textField.returnKeyType == .next) {
+        if textField.returnKeyType == .next {
             //print("Next Pressed")
-            if (textField.restorationIdentifier == "signEmail") {
+            if textField.restorationIdentifier == "signEmail" {
                 signUpPasswordTextField.becomeFirstResponder()
             } else {
                 logInPasswordTextField.becomeFirstResponder()
@@ -316,8 +316,8 @@ class LogRegPromptViewController: UIViewController, UITextFieldDelegate {
             return true
         }
 
-        if (textField.returnKeyType == .go) {
-            if (textField.restorationIdentifier == "signPassword") {
+        if textField.returnKeyType == .go {
+            if textField.restorationIdentifier == "signPassword" {
                 //print("Sign Go Pressed")
                 return self.goSignUp()
             } else {
@@ -341,7 +341,7 @@ class LogRegPromptViewController: UIViewController, UITextFieldDelegate {
         DispatchQueue.global(qos: .background).async(execute: {
             let success = SearchClient.sharedClient.authorizeLogIn(username: username!, password: password!)
             DispatchQueue.main.async(execute: {
-                if (success == "1") {
+                if success == "1" {
                     self.logInLabel.text = "Logged in!"
                     defaults.set(username, forKey: "username")
                     defaults.set(password, forKey: "password")
@@ -375,13 +375,13 @@ class LogRegPromptViewController: UIViewController, UITextFieldDelegate {
         let emailVerify = isValidEmail(testStr: username!)
         var errorText: String = ""
         var errorInt: Bool = false
-        if (password == "") {
+        if password == "" {
             errorText = "Please enter a password."
             errorInt = true
-        } else if (password!.characters.count < 8) {
+        } else if password!.characters.count < 8 {
             errorText = "Password needs to be at least 8 characters."
             errorInt = true
-        } else if (!emailVerify) {
+        } else if !emailVerify {
             errorText = "Please enter a valid email."
             errorInt = true
         }

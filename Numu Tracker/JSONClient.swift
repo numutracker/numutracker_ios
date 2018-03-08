@@ -63,12 +63,7 @@ class JSONClient {
     func getReleases(view: Int, slide: Int, page: Int = 1, limit: Int = 50, offset: Int = 0, completion: @escaping (ReleaseData) -> ()) {
         // Let's try swifty json...
         var urlString: String
-        var username: String
-        if let currentUserName = defaults.string(forKey: "username") {
-            username = currentUserName
-        } else {
-           username = ""
-        }
+        let username = defaults.string(forKey: "username") ?? ""
 
         switch view {
         case 0:
@@ -185,7 +180,6 @@ class JSONClient {
                 }
             }
         }
-
     }
 
     func processPurchase(username: String, password: String, purchased: String) -> String {
@@ -223,10 +217,4 @@ class JSONClient {
         }
         return []
     }
-
-
-
-
-
-
 }

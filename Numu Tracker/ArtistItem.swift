@@ -24,91 +24,51 @@ struct ArtistItem {
     let total_rels: String
 
     init?(json: JSON) {
-
-        guard let artistId = json["artist_id"].string else {
-            return nil
+        guard let artistId = json["artist_id"].string,
+            let followStatus = json["follow_status"].string,
+            let recentRelease = json["recent_date"].string,
+            let unlistened = json["unread"].string,
+            let total_rels = json["total_releases"].string,
+            let artistName = json["name"].string else {
+                return nil
         }
+
         self.artistId = artistId
-
-        guard let followStatus = json["follow_status"].string else {
-            return nil
-        }
         self.followStatus = followStatus
-
-
-        guard let recentRelease = json["recent_date"].string else {
-            return nil
-        }
+        self.artistName = artistName
+        self.total_rels = total_rels
+        self.unlistened = unlistened
         self.recentRelease = recentRelease
 
-        guard let unlistened = json["unread"].string else {
-            return nil
-        }
-        self.unlistened = unlistened
+        if json["artist_art"].int != 0 && json["artist_art"].int != 2 {
 
-        guard let total_rels = json["total_releases"].string else {
-            return nil
-        }
-        self.total_rels = total_rels
-
-
-
-        guard let artistName = json["name"].string else {
-            return nil
-        }
-        self.artistName = artistName
-
-        if (json["artist_art"].int != 0 && json["artist_art"].int != 2) {
-
-            guard let albumArtThumb = json["artist_art"]["thumb"].string else {
+            guard let albumArtThumb = json["artist_art"]["thumb"].string,
+                let albumArtFull = json["artist_art"]["full"].string,
+                let albumArtLarge = json["artist_art"]["large"].string,
+                let albumArtXLarge = json["artist_art"]["xlarge"].string else {
                 return nil
             }
 
             self.artistArtThumb = albumArtThumb
-
-            guard let albumArtFull = json["artist_art"]["full"].string else {
-                return nil
-            }
-
             self.artistArtFull = albumArtFull
-
-            guard let albumArtLarge = json["artist_art"]["large"].string else {
-                return nil
-            }
-
             self.artistArtLarge = albumArtLarge
-
-            guard let albumArtXLarge = json["artist_art"]["xlarge"].string else {
-                return nil
-            }
-
             self.artistArtXLarge = albumArtXLarge
-
         } else {
-
             self.artistArtThumb = ""
             self.artistArtFull = ""
             self.artistArtLarge = ""
             self.artistArtXLarge = ""
-
         }
 
-
-        if (self.artistArtFull != "") {
+        if self.artistArtFull != "" {
             self.thumbUrl = NSURL(string: self.artistArtFull)!
         } else {
             self.thumbUrl = NSURL(string: "")!
         }
-
     }
 
     func unfollowArtist() -> String {
-
         let success = SearchClient.sharedClient.unfollowArtist(artistMbid: self.artistId)
         return success
-
-
     }
-
-
 }

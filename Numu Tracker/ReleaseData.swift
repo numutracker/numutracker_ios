@@ -16,31 +16,17 @@ struct ReleaseData {
     var results: [ReleaseItem] = []
 
     init?(json: JSON) {
-        guard let currentPage = json["page"].string else {
+        guard let currentPage = json["page"].string,
+            let totalPages = json["total_pages"].string,
+            let totalResults = json["total_results"].string,
+            let results = json["results"].array else {
             return nil
         }
+
         self.currentPage = currentPage
-
-        guard let totalPages = json["total_pages"].string else {
-            return nil
-        }
         self.totalPages = totalPages
-
-        guard let totalResults = json["total_results"].string else {
-            return nil
-        }
         self.totalResults = totalResults
 
-
-        guard let results = json["results"].array else {
-            return nil
-        }
-
-        for release in results {
-            if let releaseFound = ReleaseItem(json: release) {
-                self.results.append(releaseFound)
-            }
-        }
-
+        self.results = results.flatMap { ReleaseItem(json: $0) }
     }
 }

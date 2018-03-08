@@ -71,7 +71,7 @@ class ArtistReleaseTableViewCell: UITableViewCell {
 
         //print("read",releaseInfo.listenStatus)
 
-        if (self.listenStatus == "0") {
+        if self.listenStatus == "0" {
             readIndicator.isHidden = false
         } else {
             readIndicator.isHidden = true
@@ -113,7 +113,6 @@ class ArtistReleaseTableViewCell: UITableViewCell {
                     //print(self.itunesUrl ?? "No AM Link")
                 })
             }
-
         })
 
         self.loadedListenLinks = true

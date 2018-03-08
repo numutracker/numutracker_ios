@@ -26,7 +26,7 @@ class AddArtistsViewController: UIViewController {
                 }
             }
         } else {
-            if (UIDevice().screenType == UIDevice.ScreenType.iPhone4) {
+            if UIDevice().screenType == UIDevice.ScreenType.iPhone4 {
                 let loginViewController = storyboard?.instantiateViewController(withIdentifier: "LogRegPromptSmall") as! UINavigationController
                 DispatchQueue.main.async {
                     self.present(loginViewController, animated: true, completion: nil)
@@ -53,7 +53,7 @@ class AddArtistsViewController: UIViewController {
 
         self.navigationController?.navigationBar.tintColor = .white
 
-        addFromAppleMusic.backgroundColor = UIColor.clear
+        addFromAppleMusic.backgroundColor = .clear
         addFromAppleMusic.layer.cornerRadius = 5
         addFromAppleMusic.layer.borderWidth = 1
         addFromAppleMusic.layer.borderColor = UIColor.gray.cgColor
@@ -86,7 +86,7 @@ class AddArtistsViewController: UIViewController {
 
         let query = MPMediaQuery.artists()
         var artists_found: [String] = []
-        query.groupingType = MPMediaGrouping.artist
+        query.groupingType = .artist
         if let items = query.items {
             for artist in items {
                 if let artist_name = artist.artist {
@@ -95,7 +95,6 @@ class AddArtistsViewController: UIViewController {
             }
         }
         let uniques = Array(Set(artists_found))
-
 
         DispatchQueue.global(qos: .background).async(execute: {
             JSONClient.sharedClient.postArtists(artists: uniques) { success in
@@ -136,6 +135,4 @@ class AddArtistsViewController: UIViewController {
         controller.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
         present(controller, animated: true, completion: nil)
     }
-
-
 }

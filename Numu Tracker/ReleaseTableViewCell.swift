@@ -42,8 +42,6 @@ class ReleaseTableViewCell: UITableViewCell {
     }
     var releaseId: String = "0"
 
-
-
     // Expanding variables
     class var expandedHeight: CGFloat { get { return 247 } }
     class var defaultHeight: CGFloat  { get { return 136  } }

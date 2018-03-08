@@ -27,11 +27,11 @@ class ArtistReleasesTableViewController: UITableViewController {
 
         navigationItem.rightBarButtonItem = add
 
-        if self.artistId != nil {
+        if let artistId = self.artistId {
             // Get artist item...
             self.navigationController?.navigationBar.tintColor = .white
-            let selectedArtist: String = self.artistId!
-            self.title = self.artistName!
+            let selectedArtist: String = artistId
+            self.title = artistName
             self.tableView.tableFooterView = footerView
             DispatchQueue.global(qos: .background).async(execute: {
                 SearchClient.sharedClient.getArtistReleases(artist: selectedArtist) {[weak self](releases) in
@@ -46,11 +46,8 @@ class ArtistReleasesTableViewController: UITableViewController {
                     if !defaults.bool(forKey: "logged") {
                         self.navigationItem.rightBarButtonItem?.title = "Follow"
                     } else {
-                        if self.artistItem[0].followStatus == "1" {
-                            self.navigationItem.rightBarButtonItem?.title = "Unfollow"
-                        } else {
-                            self.navigationItem.rightBarButtonItem?.title = "Follow"
-                        }
+                        let title = self.artistItem[0].followStatus == "1" ? "Unfollow" : "Follow"
+                        self.navigationItem.rightBarButtonItem?.title = title
                     }
                     self.tableView.reloadData()
                     self.tableView.beginUpdates()
