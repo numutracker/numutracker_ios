@@ -82,37 +82,28 @@ class AllReleasesTableViewController: UITableViewController {
         }
         self.isLoading = false
 
-        switch self.viewType {
-            case 0:
-                switch self.slideType {
-                case 0:
-                     self.viewName = "All Unlistened"
-                case 1:
-                    self.viewName = "All Released"
-                case 2:
-                    self.viewName = "All Upcoming"
-                default:
-                    self.viewName = "Error"
-            }
-            case 1:
-                switch self.slideType {
-                case 0:
-                    self.viewName = "Your Unlistened"
-                case 1:
-                    self.viewName = "Your Released"
-                case 2:
-                    self.viewName = "Your Upcoming"
-                case 3:
-                    self.viewName = "Your Fresh"
-                default:
-                   self.viewName = "Error"
-                }
-            default:
-                self.viewName = "Error"
+        switch (self.viewType, self.slideType) {
+        case (0, 0):
+                self.viewName = "All Unlistened"
+        case (0, 1):
+                self.viewName = "All Released"
+        case (0, 2):
+            self.viewName = "All Upcoming"
+        case (0, 3):
+            self.viewName = "Error"
+        case (1, 0):
+            self.viewName = "Your Unlistened"
+        case (1, 1):
+            self.viewName = "Your Released"
+        case (1, 2):
+            self.viewName = "Your Upcoming"
+        case (1, 3):
+            self.viewName = "Your Fresh"
+        default:
+            self.viewName = "Error"
         }
 
         Answers.logCustomEvent(withName: self.viewName, customAttributes: nil)
-
     }
 
     func loadMoreReleases() {
@@ -226,10 +217,10 @@ class AllReleasesTableViewController: UITableViewController {
 
         let rowsToLoadFromBottom = 20
 
-        if (!self.isLoading && indexPath.row >= (releases.count - rowsToLoadFromBottom)) {
+        if !self.isLoading && indexPath.row >= (releases.count - rowsToLoadFromBottom) {
             let currentPage = Int(releaseData.currentPage)!
             let totalPages = Int(releaseData.totalPages)!
-            if (currentPage < totalPages) {
+            if currentPage < totalPages {
                 //print("load more")
                 self.tableView.tableFooterView = self.footerView
                 DispatchQueue.global(qos: .background).async(execute: {
@@ -242,10 +233,8 @@ class AllReleasesTableViewController: UITableViewController {
             }
         }
 
-
         return cell
     }
-
 
     @objc func handleRefresh(refreshControl: UIRefreshControl) {
         releases.removeAll()
@@ -265,8 +254,8 @@ class AllReleasesTableViewController: UITableViewController {
 
 
         let listened = UITableViewRowAction(style: .normal, title: "Listened") { action, index in
-            if (!defaults.bool(forKey: "logged")) {
-                if (UIDevice().screenType == UIDevice.ScreenType.iPhone4) {
+            if !defaults.bool(forKey: "logged") {
+                if UIDevice().screenType == .iPhone4 {
                     let loginViewController = self.storyboard?.instantiateViewController(withIdentifier: "LogRegPromptSmall") as! UINavigationController
                     DispatchQueue.main.async {
                         self.present(loginViewController, animated: true, completion: nil)
@@ -281,10 +270,10 @@ class AllReleasesTableViewController: UITableViewController {
                 DispatchQueue.global(qos: .background).async(execute: {
                     let success = releaseInfo.toggleListenStatus()
                     DispatchQueue.main.async(execute: {
-                        if (success == "1") {
+                        if success == "1" {
                             // remove or add unread marker back in
                             let cell = self.tableView.cellForRow(at: indexPath) as! ReleaseTableViewCell
-                            if (self.releases[indexPath.row].listenStatus == "0") {
+                            if self.releases[indexPath.row].listenStatus == "0" {
                                 self.releases[(indexPath as NSIndexPath).row].listenStatus = "1"
                                 cell.listenedIndicatorView.isHidden = true
                                 Answers.logCustomEvent(withName: "Listened", customAttributes: ["Release ID":releaseInfo.releaseId])
@@ -301,7 +290,7 @@ class AllReleasesTableViewController: UITableViewController {
             }
         }
 
-        if (releaseInfo.listenStatus == "1") {
+        if releaseInfo.listenStatus == "1" {
             listened.title = "Didn't Listen"
         }
         listened.backgroundColor = UIColor(red: (48/255), green: (156/255), blue: (172/255), alpha: 1)
@@ -361,7 +350,7 @@ class AllReleasesTableViewController: UITableViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         if (!defaults.bool(forKey: "logged") && self.tabBarController?.selectedIndex == 1) {
-            if (UIDevice().screenType == UIDevice.ScreenType.iPhone4) {
+            if UIDevice().screenType == .iPhone4 {
                 let loginViewController = storyboard?.instantiateViewController(withIdentifier: "LogRegPromptSmall") as! UINavigationController
                 DispatchQueue.main.async {
                     self.present(loginViewController, animated: true, completion: nil)

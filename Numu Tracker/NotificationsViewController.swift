@@ -313,8 +313,7 @@ class NotificationsViewController: UIViewController {
     }
     */
     @objc func updateSubLabel() {
-        if (defaults.bool(forKey: "logged")) {
-
+        if defaults.bool(forKey: "logged") {
             if defaults.bool(forKey: "newReleased") {
                 self.newReleased.isOn = true
                 self.notificationsSwitch(state: true, type: "newReleased")

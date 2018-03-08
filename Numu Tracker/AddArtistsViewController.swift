@@ -26,7 +26,7 @@ class AddArtistsViewController: UIViewController {
                 }
             }
         } else {
-            if UIDevice().screenType == UIDevice.ScreenType.iPhone4 {
+            if UIDevice().screenType == .iPhone4 {
                 let loginViewController = storyboard?.instantiateViewController(withIdentifier: "LogRegPromptSmall") as! UINavigationController
                 DispatchQueue.main.async {
                     self.present(loginViewController, animated: true, completion: nil)

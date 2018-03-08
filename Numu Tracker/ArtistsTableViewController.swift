@@ -282,7 +282,7 @@ class ArtistsTableViewController: UITableViewController, UISearchBarDelegate, UI
 
         let unfollow = UITableViewRowAction(style: .normal, title: "Error") { action, index in
             if (!defaults.bool(forKey: "logged")) {
-                if (UIDevice().screenType == UIDevice.ScreenType.iPhone4) {
+                if UIDevice().screenType == .iPhone4 {
                     let loginViewController = self.storyboard?.instantiateViewController(withIdentifier: "LogRegPromptSmall") as! UINavigationController
                     DispatchQueue.main.async {
                         self.present(loginViewController, animated: true, completion: nil)
@@ -297,13 +297,13 @@ class ArtistsTableViewController: UITableViewController, UISearchBarDelegate, UI
                 DispatchQueue.global(qos: .background).async(execute: {
                     let success = artistInfo.unfollowArtist()
                     DispatchQueue.main.async(execute: {
-                        if (success == "1") {
+                        if success == "1" {
                             artistInfo.followStatus = "0"
                             //self.artists.remove(at: indexPath.row)
                             //tableView.deleteRows(at: [indexPath], with: .automatic)
                             self.artists[(indexPath as NSIndexPath).row].followStatus = "0"
                             Answers.logCustomEvent(withName: "Unfol Swipe", customAttributes: ["Artist ID":artistInfo.artistId])
-                        } else if (success == "2") {
+                        } else if success == "2" {
                             artistInfo.followStatus = "1"
                             self.artists[(indexPath as NSIndexPath).row].followStatus = "1"
                             Answers.logCustomEvent(withName: "Follo Swipe", customAttributes: ["Artist ID":artistInfo.artistId])
