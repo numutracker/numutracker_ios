@@ -15,7 +15,7 @@ class AddArtistsViewController: UIViewController {
 
     @IBOutlet weak var addFromAppleMusic: UIButton!
     @IBAction func addFromAppleMusicPress(_ sender: AnyObject) {
-        if defaults.bool(forKey: "logged") {
+        if defaults.logged {
             self.addArtistsActivity.startAnimating()
             addFromAppleMusic.isHidden = true
             MPMediaLibrary.requestAuthorization { (status) in

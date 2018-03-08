@@ -336,9 +336,9 @@ class LogRegPromptViewController: UIViewController, UITextFieldDelegate {
             DispatchQueue.main.async(execute: {
                 if success == "1" {
                     self.logInLabel.text = "Logged in!"
-                    defaults.set(username, forKey: "username")
-                    defaults.set(password, forKey: "password")
-                    defaults.set(true, forKey: "logged")
+                    defaults.username = username
+                    defaults.password = password
+                    defaults.logged = true
                     NotificationCenter.default.post(name: .LoggedIn, object: self)
                     NotificationCenter.default.post(name: .UpdatedArtists, object: self)
                     self.logInPasswordTextField.resignFirstResponder()
@@ -386,9 +386,9 @@ class LogRegPromptViewController: UIViewController, UITextFieldDelegate {
                 DispatchQueue.main.async(execute: {
                     if success == "1" {
                         self.signUpLabel.text = "Registration Successful!"
-                        defaults.set(username, forKey: "username")
-                        defaults.set(password, forKey: "password")
-                        defaults.set(true, forKey: "logged")
+                        defaults.username = username
+                        defaults.password = password
+                        defaults.logged = true
                         NotificationCenter.default.post(name: .LoggedIn, object: self)
                         NotificationCenter.default.post(name: .UpdatedArtists, object: self)
                         self.signUpPasswordTextField.resignFirstResponder()

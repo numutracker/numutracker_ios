@@ -78,7 +78,7 @@ class ReleaseFiltersViewController: UIViewController {
 
     func loadSettings() {
 
-        if defaults.bool(forKey: "logged") {
+        if defaults.logged {
             self.albumFilterSwitch.isHidden = true
             self.albumFilterSpinner.startAnimating()
             self.singlesFilterSwitch.isHidden = true
@@ -95,7 +95,7 @@ class ReleaseFiltersViewController: UIViewController {
             self.otherFilterSpinner.startAnimating()
 
             DispatchQueue.global(qos: .background).async(execute: {
-                let user = User(username: defaults.string(forKey: "username")!)
+                let user = User(username: defaults.username!)
                 DispatchQueue.main.async(execute: {
 
                     self.albumFilterSwitch.isOn = user?.album != "0"

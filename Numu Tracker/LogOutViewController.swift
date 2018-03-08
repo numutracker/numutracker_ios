@@ -73,8 +73,8 @@ class LogOutViewController: UIViewController {
         // Get user stats...
         self.getUserStats()
 
-        if defaults.bool(forKey: "logged") {
-            if let user = defaults.string(forKey: "username") {
+        if defaults.logged {
+            if let user = defaults.username {
                 Answers.logCustomEvent(withName: "User Stats", customAttributes: ["User":user])
             }
         }
@@ -124,8 +124,8 @@ class LogOutViewController: UIViewController {
     }
 
     @objc func getUserStats() {
-        if defaults.bool(forKey: "logged") {
-            let user = defaults.string(forKey: "username")!
+        if defaults.logged {
+            let user = defaults.username!
             DispatchQueue.global(qos: .background).async(execute: {
                 let json = SearchClient.sharedClient.getUserStats(username: user)
                 DispatchQueue.main.async(execute: {
@@ -189,13 +189,13 @@ class LogOutViewController: UIViewController {
     }
 
     @objc func logOut() {
-        defaults.set(false, forKey: "newReleased")
-        defaults.set(false, forKey: "newAnnouncements")
-        defaults.set(false, forKey: "moreReleases")
+        defaults.newReleased = false
+        defaults.newAnnouncements = false
+        defaults.moreReleases = false
         UIApplication.shared.registerForRemoteNotifications()
-        defaults.removeObject(forKey: "username")
-        defaults.removeObject(forKey: "password")
-        defaults.set(false, forKey: "logged")
+        defaults.username = nil
+        defaults.password = nil
+        defaults.logged = false
         NotificationCenter.default.post(name: .LoggedOut, object: self)
         NotificationCenter.default.post(name: .UpdatedArtists, object: self)
         _ = self.navigationController?.popViewController(animated: true)
@@ -203,7 +203,7 @@ class LogOutViewController: UIViewController {
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        if !defaults.bool(forKey: "logged") {
+        if !defaults.logged {
             if UIDevice().screenType == .iPhone4 {
                 let loginViewController = self.storyboard?.instantiateViewController(withIdentifier: "LogRegPromptSmall") as! UINavigationController
                 DispatchQueue.main.async {

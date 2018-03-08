@@ -180,7 +180,7 @@ class ArtistsTableViewController: UITableViewController, UISearchBarDelegate, UI
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        /* if (!defaults.bool(forKey: "logged")) {
+        /* if (!defaults.logged) {
             let loginViewController = storyboard?.instantiateViewController(withIdentifier: "LogRegPrompt") as! UINavigationController
             DispatchQueue.main.async {
                 self.present(loginViewController, animated: true, completion: nil)
@@ -280,7 +280,7 @@ class ArtistsTableViewController: UITableViewController, UISearchBarDelegate, UI
         var artistInfo = artists[indexPath.row]
 
         let unfollow = UITableViewRowAction(style: .normal, title: "Error") { action, index in
-            if !defaults.bool(forKey: "logged") {
+            if !defaults.logged {
                 if UIDevice().screenType == .iPhone4 {
                     let loginViewController = self.storyboard?.instantiateViewController(withIdentifier: "LogRegPromptSmall") as! UINavigationController
                     DispatchQueue.main.async {

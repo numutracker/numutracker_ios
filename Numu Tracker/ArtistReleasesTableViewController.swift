@@ -43,7 +43,7 @@ class ArtistReleasesTableViewController: UITableViewController {
                 }
 
                 DispatchQueue.main.async(execute: {
-                    if !defaults.bool(forKey: "logged") {
+                    if !defaults.logged {
                         self.navigationItem.rightBarButtonItem?.title = "Follow"
                     } else {
                         let title = self.artistItem[0].followStatus == "1" ? "Unfollow" : "Follow"
@@ -73,7 +73,7 @@ class ArtistReleasesTableViewController: UITableViewController {
 
     @objc func addTapped() {
             if let artistId = self.artistId {
-                if defaults.bool(forKey: "logged") {
+                if defaults.logged {
                     DispatchQueue.global(qos: .background).async(execute: {
                         let success = SearchClient.sharedClient.unfollowArtist(artistMbid: artistId)
                         DispatchQueue.main.async(execute: {
@@ -152,7 +152,7 @@ class ArtistReleasesTableViewController: UITableViewController {
         let releaseInfo = self.releases[indexPath.row]
 
         let listened = UITableViewRowAction(style: .normal, title: "Listened") { action, index in
-            if !defaults.bool(forKey: "logged") {
+            if !defaults.logged {
                 if UIDevice().screenType == .iPhone4 {
                     let loginViewController = self.storyboard?.instantiateViewController(withIdentifier: "LogRegPromptSmall") as! UINavigationController
                     DispatchQueue.main.async {

@@ -14,8 +14,8 @@ class SearchClient {
     static let sharedClient = SearchClient()
 
     func getUserArtists(sortBy: String, completion: @escaping ([ArtistItem]) -> ()) {
-        if defaults.bool(forKey: "logged") {
-            let username = defaults.string(forKey: "username")
+        if defaults.logged {
+            let username = defaults.username
             let urlString = "https://www.numutracker.com/v2/json.php?artists=" + username! + "&sortby=" + sortBy
             var artists: [ArtistItem] = []
             //print(urlString)
@@ -37,8 +37,8 @@ class SearchClient {
     }
 
     func getArtistSearch(search: String, completion: @escaping ([ArtistItem]) -> ()) {
-        if defaults.bool(forKey: "logged") {
-            let username = defaults.string(forKey: "username")
+        if defaults.logged {
+            let username = defaults.username
             let var_search = search.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
             let urlString = "https://www.numutracker.com/v2/json.php?artist_search=" + username! + "&search=" + var_search!
             var artists: [ArtistItem] = []
@@ -80,8 +80,8 @@ class SearchClient {
     }
 
     func getSingleArtistItem(search: String, completion: @escaping ([ArtistItem]) -> ()) {
-        if defaults.bool(forKey: "logged") {
-            let username = defaults.string(forKey: "username")
+        if defaults.logged {
+            let username = defaults.username
             let urlString = "https://www.numutracker.com/v2/json.php?single_artist=" + username! + "&search=" + search
             var artists: [ArtistItem] = []
             //print(urlString)
@@ -105,8 +105,8 @@ class SearchClient {
 
     func getArtistReleases(artist: String, completion: @escaping ([ReleaseItem]) -> ()) {
         // Let's try swifty json...
-        if defaults.bool(forKey: "logged") {
-            let username = defaults.string(forKey: "username")
+        if defaults.logged {
+            let username = defaults.username
             var urlString = "https://www.numutracker.com/v2/json.php?user=" + username!
             let urlString2 = "&rel_mode=artist&artist=\(artist)"
             urlString = urlString + urlString2
@@ -208,9 +208,9 @@ class SearchClient {
 
     func toggleListenState(releaseId: String) -> String {
 
-        if defaults.bool(forKey: "logged") {
-            let username = defaults.string(forKey: "username")
-            let password = defaults.string(forKey: "password")
+        if defaults.logged {
+            let username = defaults.username
+            let password = defaults.password
             let escapedString = username!.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)
             let urlString = "https://" + escapedString! + ":" + password!
             let urlString2 = "@www.numutracker.com/v2/json.php?listen=" + releaseId
@@ -233,9 +233,9 @@ class SearchClient {
 
     func toggleFilter(filter: String) -> String {
 
-        if defaults.bool(forKey: "logged") {
-            let username = defaults.string(forKey: "username")
-            let password = defaults.string(forKey: "password")
+        if defaults.logged {
+            let username = defaults.username
+            let password = defaults.password
             let escapedString = username!.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)
             let urlString = "https://" + escapedString! + ":" + password!
             let urlString2 = "@www.numutracker.com/v2/json.php?filter=" + filter
@@ -257,9 +257,9 @@ class SearchClient {
 
     func unfollowArtist(artistMbid: String) -> String {
 
-        if defaults.bool(forKey: "logged") {
-            let username = defaults.string(forKey: "username")
-            let password = defaults.string(forKey: "password")
+        if defaults.logged {
+            let username = defaults.username
+            let password = defaults.password
             let escapedString = username!.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)
             let urlString = "https://" + escapedString! + ":" + password!
             let urlString2 = "@www.numutracker.com/v2/json.php?unfollow=" + artistMbid
@@ -282,9 +282,9 @@ class SearchClient {
 
     func followArtist(artistMbid: String) -> String {
 
-        if defaults.bool(forKey: "logged") {
-            let username = defaults.string(forKey: "username")
-            let password = defaults.string(forKey: "password")
+        if defaults.logged {
+            let username = defaults.username
+            let password = defaults.password
             let escapedString = username!.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)
             let urlString = "https://" + escapedString! + ":" + password!
             let urlString2 = "@www.numutracker.com/v2/json.php?follow=" + artistMbid
@@ -306,9 +306,9 @@ class SearchClient {
 
     func getUserFilters(username: String) -> JSON {
 
-        if defaults.bool(forKey: "logged") {
-            let username = defaults.string(forKey: "username")
-            let password = defaults.string(forKey: "password")
+        if defaults.logged {
+            let username = defaults.username
+            let password = defaults.password
             let escapedString = username!.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)
             let urlString = "https://" + escapedString! + ":" + password!
             let urlString2 = "@www.numutracker.com/v2/json.php?filters"
@@ -329,9 +329,9 @@ class SearchClient {
 
     func getUserStats(username: String) -> JSON {
 
-        if defaults.bool(forKey: "logged") {
-            let username = defaults.string(forKey: "username")
-            let password = defaults.string(forKey: "password")
+        if defaults.logged {
+            let username = defaults.username
+            let password = defaults.password
             let escapedString = username!.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)
             let urlString = "https://" + escapedString! + ":" + password!
             let urlString2 = "@www.numutracker.com/v2/json.php?stats"

@@ -29,7 +29,7 @@ class SettingsTableViewController: UITableViewController {
     }
 
     override func viewWillAppear(_ animated: Bool) {
-        /* if (!defaults.bool(forKey: "logged")) {
+        /* if (!defaults.logged) {
             let loginViewController = storyboard?.instantiateViewController(withIdentifier: "LogRegPrompt") as! UINavigationController
             DispatchQueue.main.async {
                 self.present(loginViewController, animated: false, completion: nil)

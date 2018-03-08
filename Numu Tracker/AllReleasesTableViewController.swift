@@ -11,6 +11,72 @@ import Crashlytics
 
 let defaults = UserDefaults.standard
 
+extension UserDefaults {
+    var logged: Bool {
+        get {
+            return bool(forKey: "logged")
+        }
+        set {
+            set(newValue, forKey: "logged")
+        }
+    }
+
+    var newReleased: Bool {
+        get {
+            return bool(forKey: "newReleased")
+        }
+        set {
+            set(newValue, forKey: "newReleased")
+        }
+    }
+
+    var newAnnouncements: Bool {
+        get {
+            return bool(forKey: "newAnnouncements")
+        }
+        set {
+            set(newValue, forKey: "newAnnouncements")
+        }
+    }
+
+    var moreReleases: Bool {
+        get {
+            return bool(forKey: "moreReleases")
+        }
+        set {
+            set(newValue, forKey: "moreReleases")
+        }
+    }
+
+    var username: String? {
+        get {
+            return string(forKey: "username")
+        }
+        set {
+            if let v = newValue {
+                set(v, forKey: "username")
+            }
+            else {
+                removeObject(forKey: "username")
+            }
+        }
+    }
+
+    var password: String? {
+        get {
+            return string(forKey: "password")
+        }
+        set {
+            if let v = newValue {
+                set(v, forKey: "password")
+            }
+            else {
+                removeObject(forKey: "password")
+            }
+        }
+    }
+}
+
 extension Notification.Name {
     static let LoggedIn = Notification.Name(rawValue: "com.numutracker.loggedIn")
     static let LoggedOut = Notification.Name(rawValue: "com.numutracker.loggedOut")
@@ -126,8 +192,8 @@ class AllReleasesTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        if defaults.string(forKey: "username") == nil {
-            defaults.set(false, forKey: "logged")
+        if defaults.username == nil {
+            defaults.logged = false
         }
 
 
@@ -141,7 +207,6 @@ class AllReleasesTableViewController: UITableViewController {
             self.releasesSegmentedControl.insertSegment(withTitle: "Fresh", at: 3, animated: false)
         }
 
-
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(actOnLoggedInNotification),
                                                name: .LoggedIn,
@@ -152,7 +217,7 @@ class AllReleasesTableViewController: UITableViewController {
                                                name: .LoggedOut,
                                                object: nil)
 
-        self.refreshControl?.addTarget(self, action: #selector(handleRefresh(refreshControl:)), for: .valueChanged)
+        self.refreshControl?.addTarget(self, action: #selector(handleRefresh), for: .valueChanged)
 
         // Load initial batch of releases...
         self.tableView.tableFooterView = self.footerView
@@ -268,7 +333,7 @@ class AllReleasesTableViewController: UITableViewController {
 
 
         let listened = UITableViewRowAction(style: .normal, title: "Listened") { action, index in
-            if !defaults.bool(forKey: "logged") {
+            if !defaults.logged {
                 if UIDevice().screenType == .iPhone4 {
                     let loginViewController = self.storyboard?.instantiateViewController(withIdentifier: "LogRegPromptSmall") as! UINavigationController
                     DispatchQueue.main.async {
@@ -362,7 +427,7 @@ class AllReleasesTableViewController: UITableViewController {
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        if !defaults.bool(forKey: "logged") && self.tabBarController?.selectedIndex == 1 {
+        if !defaults.logged && self.tabBarController?.selectedIndex == 1 {
             let controller = UIDevice().screenType == .iPhone4 ? "LogRegPromptSmall" : "LogRegPrompt"
             let loginViewController = storyboard?.instantiateViewController(withIdentifier: controller) as! UINavigationController
             DispatchQueue.main.async {
