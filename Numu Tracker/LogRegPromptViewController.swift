@@ -142,7 +142,7 @@ class LogRegPromptViewController: UIViewController, UITextFieldDelegate {
 
                 self.middleScrollView.setContentOffset(CGPoint(x:max_length-width,y:0), animated: false)
 
-                _ = Timer.scheduledTimer(timeInterval: 0.025, target: self, selector: #selector(autoScroll), userInfo: nil, repeats: true)
+                _ = Timer.scheduledTimer(timeInterval: 0.025, target: self, selector: #selector(self.autoScroll), userInfo: nil, repeats: true)
 
             })
 
