@@ -96,7 +96,7 @@ class AllReleasesTableViewController: UITableViewController {
                     self.viewName = "Error"
             }
             case 1:
-                switch (self.slideType) {
+                switch self.slideType {
                 case 0:
                     self.viewName = "Your Unlistened"
                 case 1:
@@ -133,12 +133,12 @@ class AllReleasesTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        if (defaults.string(forKey: "username") == nil) {
+        if defaults.string(forKey: "username") == nil {
             defaults.set(false, forKey: "logged")
         }
 
 
-        if (self.tabBarController?.selectedIndex == 0) {
+        if self.tabBarController?.selectedIndex == 0 {
             viewType = 0
             self.title = "All Releases"
         } else {
@@ -148,9 +148,9 @@ class AllReleasesTableViewController: UITableViewController {
             self.releasesSegmentedControl.insertSegment(withTitle: "Fresh", at: 3, animated: false)
         }
 
-        NotificationCenter.default.addObserver(self, selector: #selector(actOnLoggedInNotification), name: NSNotification.Name(rawValue: loggedInNotificationKey), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(actOnLoggedInNotification), name: Notification.Name(rawValue: loggedInNotificationKey), object: nil)
 
-        NotificationCenter.default.addObserver(self, selector: #selector(actOnLoggedOutNotification), name: NSNotification.Name(rawValue: loggedOutNotificationKey), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(actOnLoggedOutNotification), name: Notification.Name(rawValue: loggedOutNotificationKey), object: nil)
 
         self.refreshControl?.addTarget(self, action: #selector(handleRefresh(refreshControl:)), for: .valueChanged)
 

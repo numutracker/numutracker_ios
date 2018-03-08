@@ -41,12 +41,12 @@ class LogRegPromptSmallViewController: UIViewController, UITextFieldDelegate {
         var animationDuration = 0.5
 
         // if sign up form is showing, hide it
-        if (signUpFormView.alpha == 1) {
+        if signUpFormView.alpha == 1 {
             self.signUpFormView.alpha = 0
             animationDuration = 0
         }
 
-        if (logInFormView.alpha == 0) {
+        if logInFormView.alpha == 0 {
             UIView.animate(withDuration: animationDuration) {
                 self.logInFormView.alpha = 1
                 self.logInEmailTextField.becomeFirstResponder()
@@ -65,12 +65,12 @@ class LogRegPromptSmallViewController: UIViewController, UITextFieldDelegate {
         var animationDuration = 0.5
 
         // if log in form is showing, hide it
-        if (logInFormView.alpha == 1) {
+        if logInFormView.alpha == 1 {
             self.logInFormView.alpha = 0
             animationDuration = 0
         }
 
-        if (signUpFormView.alpha == 0) {
+        if signUpFormView.alpha == 0 {
             UIView.animate(withDuration: animationDuration) {
                 self.signUpFormView.alpha = 1
                 self.signUpEmailTextField.becomeFirstResponder()
@@ -96,15 +96,11 @@ class LogRegPromptSmallViewController: UIViewController, UITextFieldDelegate {
         signUpFormView.alpha = 0
         logInFormView.alpha = 0
 
-
-
         let width = self.view.frame.size.width
         var height: CGFloat = 0
         var max_length: CGFloat = 0
         height = width / 3
         max_length = height * 15
-
-
 
         self.topScrollView.isScrollEnabled = true
         self.topScrollView.alwaysBounceHorizontal = true
@@ -203,7 +199,6 @@ class LogRegPromptSmallViewController: UIViewController, UITextFieldDelegate {
                     xPosition += imageWidth
                     //self.topScrollViewSize += imageWidth
 
-
                 }
             }
 
@@ -284,9 +279,9 @@ class LogRegPromptSmallViewController: UIViewController, UITextFieldDelegate {
     }
 
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        if (textField.returnKeyType == .next) {
+        if textField.returnKeyType == .next {
             print("Next Pressed")
-            if (textField.restorationIdentifier == "signEmail") {
+            if textField.restorationIdentifier == "signEmail" {
                 signUpPasswordTextField.becomeFirstResponder()
             } else {
                 logInPasswordTextField.becomeFirstResponder()
@@ -294,8 +289,8 @@ class LogRegPromptSmallViewController: UIViewController, UITextFieldDelegate {
             return true
         }
 
-        if (textField.returnKeyType == .go) {
-            if (textField.restorationIdentifier == "signPassword") {
+        if textField.returnKeyType == .go {
+            if textField.restorationIdentifier == "signPassword" {
                 print("Sign Go Pressed")
                 return self.goSignUp()
             } else {

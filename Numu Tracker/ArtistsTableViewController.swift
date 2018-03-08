@@ -110,7 +110,7 @@ class ArtistsTableViewController: UITableViewController, UISearchBarDelegate, UI
             })
         })
 
-        NotificationCenter.default.addObserver(self, selector: #selector(ArtistsTableViewController.actOnImportNotification), name: NSNotification.Name(rawValue: updatedArtistsNotificationKey), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(actOnImportNotification), name: Notification.Name(rawValue: updatedArtistsNotificationKey), object: nil)
 
         self.tableView.addSubview(self.artistRefreshControl)
 

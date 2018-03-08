@@ -14,7 +14,7 @@ class SearchClient {
     static let sharedClient = SearchClient()
 
     func getUserArtists(sortBy: String, completion: @escaping ([ArtistItem]) -> ()) {
-        if (defaults.bool(forKey: "logged")) {
+        if defaults.bool(forKey: "logged") {
             let username = defaults.string(forKey: "username")
             let urlString = "https://www.numutracker.com/v2/json.php?artists=" + username! + "&sortby=" + sortBy
             var artists: [ArtistItem] = []
@@ -37,7 +37,7 @@ class SearchClient {
     }
 
     func getArtistSearch(search: String, completion: @escaping ([ArtistItem]) -> ()) {
-        if (defaults.bool(forKey: "logged")) {
+        if defaults.bool(forKey: "logged") {
             let username = defaults.string(forKey: "username")
             let var_search = search.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
             let urlString = "https://www.numutracker.com/v2/json.php?artist_search=" + username! + "&search=" + var_search!
@@ -105,7 +105,7 @@ class SearchClient {
 
     func getArtistReleases(artist: String, completion: @escaping ([ReleaseItem]) -> ()) {
         // Let's try swifty json...
-        if (defaults.bool(forKey: "logged")) {
+        if defaults.bool(forKey: "logged") {
             let username = defaults.string(forKey: "username")
             var urlString = "https://www.numutracker.com/v2/json.php?user=" + username!
             let urlString2 = "&rel_mode=artist&artist=\(artist)"
@@ -208,7 +208,7 @@ class SearchClient {
 
     func toggleListenState(releaseId: String) -> String {
 
-        if (defaults.bool(forKey: "logged")) {
+        if defaults.bool(forKey: "logged") {
             let username = defaults.string(forKey: "username")
             let password = defaults.string(forKey: "password")
             let escapedString = username!.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)
@@ -233,7 +233,7 @@ class SearchClient {
 
     func toggleFilter(filter: String) -> String {
 
-        if (defaults.bool(forKey: "logged")) {
+        if defaults.bool(forKey: "logged") {
             let username = defaults.string(forKey: "username")
             let password = defaults.string(forKey: "password")
             let escapedString = username!.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)
@@ -257,7 +257,7 @@ class SearchClient {
 
     func unfollowArtist(artistMbid: String) -> String {
 
-        if (defaults.bool(forKey: "logged")) {
+        if defaults.bool(forKey: "logged") {
             let username = defaults.string(forKey: "username")
             let password = defaults.string(forKey: "password")
             let escapedString = username!.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)
@@ -329,7 +329,7 @@ class SearchClient {
 
     func getUserStats(username: String) -> JSON {
 
-        if (defaults.bool(forKey: "logged")) {
+        if defaults.bool(forKey: "logged") {
             let username = defaults.string(forKey: "username")
             let password = defaults.string(forKey: "password")
             let escapedString = username!.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)
@@ -356,7 +356,7 @@ class SearchClient {
         let task = URLSession.shared
             .dataTask(with: request as URLRequest) {
                 (data, response, error) -> Void in
-                if (error != nil) {
+                if error != nil {
                     callback("", error?.localizedDescription)
                 } else {
                     callback(NSString(data: data!,

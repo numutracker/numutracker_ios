@@ -111,7 +111,7 @@ class LogOutViewController: UIViewController {
         dividingLineView5.layer.shouldRasterize = true
 
 
-         NotificationCenter.default.addObserver(self, selector: #selector(self.actOnClosedPrompt), name: NSNotification.Name(rawValue: closedLogRegPromptKey), object: nil)
+         NotificationCenter.default.addObserver(self, selector: #selector(self.actOnClosedPrompt), name: Notification.Name(rawValue: closedLogRegPromptKey), object: nil)
          NotificationCenter.default.addObserver(self, selector: #selector(self.actOnLoggedInNotification), name: NSNotification.Name(rawValue: loggedInNotificationKey), object: nil)
 
         let add = UIBarButtonItem(title: "Log Out", style: .plain, target: self, action: #selector(logOut))
@@ -146,43 +146,43 @@ class LogOutViewController: UIViewController {
     @objc func startTimer() {
         var increment: Bool = false
 
-        if (self.artistsListenedFinalInt > self.artistsListenedInt) {
+        if self.artistsListenedFinalInt > self.artistsListenedInt {
             self.artistsListenedInt = self.artistsListenedInt + (self.artistsListenedFinalInt/150)
             increment = true
         } else {
             self.artistsListenedInt = self.artistsListenedFinalInt
         }
 
-        if (self.artistsFollowedFinalInt > self.artistsFollowedInt) {
+        if self.artistsFollowedFinalInt > self.artistsFollowedInt {
             self.artistsFollowedInt = self.artistsFollowedInt + (self.artistsFollowedFinalInt/150)
             increment = true
         } else {
             self.artistsFollowedInt = self.artistsFollowedFinalInt
         }
 
-        if (self.releasesListenedFinalInt > self.releasesListenedInt) {
+        if self.releasesListenedFinalInt > self.releasesListenedInt {
             self.releasesListenedInt = self.releasesListenedInt + (self.releasesListenedFinalInt/150)
             increment = true
         } else {
             self.releasesListenedInt = self.releasesListenedFinalInt
         }
 
-        if (self.releasesFollowedFinalInt > self.releasesFollowedInt) {
+        if self.releasesFollowedFinalInt > self.releasesFollowedInt {
             self.releasesFollowedInt = self.releasesFollowedInt + (self.releasesFollowedFinalInt/150)
             increment = true
         } else {
             self.releasesFollowedInt = self.releasesFollowedFinalInt
         }
 
-        if (self.completionFinalFloat > self.completionFloat) {
+        if self.completionFinalFloat > self.completionFloat {
             self.completionFloat = self.completionFloat + (self.completionFinalFloat/150)
             increment = true
         } else {
             self.completionFinalFloat = self.completionFloat
         }
 
-        if (increment) {
-            _ = Timer.scheduledTimer(timeInterval: 0.005, target: self, selector: #selector(LogOutViewController.startTimer), userInfo: nil, repeats: false)
+        if increment {
+            _ = Timer.scheduledTimer(timeInterval: 0.005, target: self, selector: #selector(startTimer), userInfo: nil, repeats: false)
         }
 
     }
@@ -202,8 +202,8 @@ class LogOutViewController: UIViewController {
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        if (!defaults.bool(forKey: "logged")) {
-            if (UIDevice().screenType == UIDevice.ScreenType.iPhone4) {
+        if !defaults.bool(forKey: "logged") {
+            if UIDevice().screenType == .iPhone4 {
                 let loginViewController = self.storyboard?.instantiateViewController(withIdentifier: "LogRegPromptSmall") as! UINavigationController
                 DispatchQueue.main.async {
                     self.present(loginViewController, animated: true, completion: nil)

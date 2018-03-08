@@ -40,7 +40,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         }
 
-        NotificationCenter.default.addObserver(self, selector: #selector(self.actOnClosedPrompt), name: NSNotification.Name(rawValue: closedLogRegPromptKey), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.actOnClosedPrompt), name: Notification.Name(rawValue: closedLogRegPromptKey), object: nil)
 
 
 

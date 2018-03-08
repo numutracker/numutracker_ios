@@ -43,12 +43,12 @@ class LogRegPromptViewController: UIViewController, UITextFieldDelegate {
         var animationDuration = 0.5
 
         // if sign up form is showing, hide it
-        if (signUpFormView.alpha == 1) {
+        if signUpFormView.alpha == 1 {
             self.signUpFormView.alpha = 0
             animationDuration = 0
         }
 
-        if (logInFormView.alpha == 0) {
+        if logInFormView.alpha == 0 {
             UIView.animate(withDuration: animationDuration) {
                 self.logInFormView.alpha = 1
                 self.logInEmailTextField.becomeFirstResponder()
@@ -259,8 +259,8 @@ class LogRegPromptViewController: UIViewController, UITextFieldDelegate {
                 }
             }
 
-           if (offset.x <= 0) {
-                switch (scrollView.restorationIdentifier!) {
+           if offset.x <= 0 {
+                switch scrollView.restorationIdentifier! {
                     case "middle":
                         self.middleScrollDrection = 0
                     case "top":
@@ -274,19 +274,19 @@ class LogRegPromptViewController: UIViewController, UITextFieldDelegate {
 
             switch (scrollView.restorationIdentifier!) {
             case "middle":
-                if (self.middleScrollDrection == 0) {
+                if self.middleScrollDrection == 0 {
                     newOffset = offset.x + intervalPixels
                 } else {
                     newOffset = offset.x - intervalPixels
                 }
             case "top":
-                if (self.topScrollDrection == 0) {
+                if self.topScrollDrection == 0 {
                     newOffset = offset.x + intervalPixels
                 } else {
                     newOffset = offset.x - intervalPixels
                 }
             case "bottom":
-                if (self.bottomScrollDrection == 0) {
+                if self.bottomScrollDrection == 0 {
                     newOffset = offset.x + intervalPixels
                 } else {
                     newOffset = offset.x - intervalPixels

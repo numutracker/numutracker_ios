@@ -122,13 +122,13 @@ class NotificationsViewController: UIViewController {
 
             */
 
-        NotificationCenter.default.addObserver(self, selector: #selector(self.updateSubLabel), name: NSNotification.Name(rawValue: loggedInNotificationKey), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.updateSubLabel), name: Notification.Name(rawValue: loggedInNotificationKey), object: nil)
 
 
         // Do any additional setup after loading the view.
 
 
-         if (defaults.bool(forKey: "logged")) {
+         if defaults.bool(forKey: "logged") {
 
             if defaults.bool(forKey: "newReleased") {
                 self.newReleased.isOn = true
@@ -142,17 +142,11 @@ class NotificationsViewController: UIViewController {
                 self.moreReleases.isOn = true
                 self.notificationsSwitch(state: true, type: "moreReleases")
             }
-
         } else {
-
             self.newReleased.isEnabled = false
             self.newAnnouncements.isEnabled = false
             self.moreReleases.isEnabled = false
-
         }
-
-
-
 
         Answers.logCustomEvent(withName: "Notification Screen", customAttributes: nil)
 

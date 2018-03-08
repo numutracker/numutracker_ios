@@ -70,21 +70,21 @@ class JSONClient {
             switch slide {
             case 0:
                 // All unlistened
-                if (defaults.bool(forKey: "logged")) {
+                if defaults.bool(forKey: "logged") {
                     urlString = "https://www.numutracker.com/v2/json.php?user=\(username)&page=\(page)&rel_mode=allunlistened&limit=\(limit)&offset=\(offset)"
                 } else {
                     urlString = "https://www.numutracker.com/v2/json.php?page=\(page)&rel_mode=allunlistened&limit=\(limit)&offset=\(offset)"
                 }
             case 1:
                 // All released
-                if (defaults.bool(forKey: "logged")) {
+                if defaults.bool(forKey: "logged") {
                     urlString = "https://www.numutracker.com/v2/json.php?user=\(username)&page=\(page)&rel_mode=all&limit=\(limit)&offset=\(offset)"
                 } else {
                     urlString = "https://www.numutracker.com/v2/json.php?page=\(page)&rel_mode=all&limit=\(limit)&offset=\(offset)"
                 }
             case 2:
                 // All upcoming
-                if (defaults.bool(forKey: "logged")) {
+                if defaults.bool(forKey: "logged") {
                     urlString = "https://www.numutracker.com/v2/json.php?user=\(username)&page=\(page)&rel_mode=allupcoming&limit=\(limit)&offset=\(offset)"
                 } else {
                     urlString = "https://www.numutracker.com/v2/json.php?page=\(page)&rel_mode=allupcoming&limit=\(limit)&offset=\(offset)"
