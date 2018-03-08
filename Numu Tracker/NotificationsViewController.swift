@@ -44,42 +44,15 @@ class NotificationsViewController: UIViewController {
         let center = UNUserNotificationCenter.current()
         center.requestAuthorization(options: [.alert, .sound]) { (granted, error) in
             // actions based on whether notifications were authorized or not
-            if (granted) {
-                switch type {
-                case "newReleased":
-                    // Turn on new releases in user defaults
-                    if state {
-                        defaults.set(true, forKey: "newReleased")
-                    } else {
-                        defaults.set(false, forKey: "newReleased")
-                    }
-                case "newAnnouncements":
-                    // turn on release days...
-                    if state {
-                        defaults.set(true, forKey: "newAnnouncements")
-                    } else {
-                        defaults.set(false, forKey: "newAnnouncements")
-                    }
-                case "moreReleases":
-                    // turn on release days...
-                    if state {
-                        defaults.set(true, forKey: "moreReleases")
-                    } else {
-                        defaults.set(false, forKey: "moreReleases")
-                    }
+            guard granted else { return }
+            defaults.set(state, forKey: type)
 
-                default:
-                    break
-                }
-                DispatchQueue.main.async(execute: {
-                    UIApplication.shared.registerForRemoteNotifications()
-                })
-            }
+            DispatchQueue.main.async(execute: {
+                UIApplication.shared.registerForRemoteNotifications()
+            })
+
         }
     }
-
-
-
 
     override func viewDidLoad() {
         super.viewDidLoad()
