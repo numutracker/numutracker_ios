@@ -83,9 +83,9 @@ class AllReleasesTableViewController: UITableViewController {
         }
         self.isLoading = false
 
-        switch (self.viewType) {
+        switch self.viewType {
             case 0:
-                switch (self.slideType) {
+                switch self.slideType {
                 case 0:
                      self.viewName = "All Unlistened"
                 case 1:
