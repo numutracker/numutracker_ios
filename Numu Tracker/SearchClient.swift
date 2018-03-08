@@ -341,7 +341,7 @@ class SearchClient {
             if let url = URL(string: urlString + urlString2) {
                 if let data = try? Data(contentsOf: url) {
                     if let json = try? JSON(data: data) {
-                        return json;
+                        return json
                     }
                 }
             }
@@ -359,8 +359,7 @@ class SearchClient {
                 if error != nil {
                     callback("", error?.localizedDescription)
                 } else {
-                    callback(NSString(data: data!,
-                                      encoding: String.Encoding.utf8.rawValue)! as String, nil)
+                    callback(String(data: data!, encoding: .utf8)!, nil)
                 }
         }
 
@@ -370,7 +369,7 @@ class SearchClient {
     func HTTPPostJSON(url: String,  data: NSData,
     callback: @escaping (String, String?) -> Void) {
 
-        let request = NSMutableURLRequest(url: NSURL(string: url)! as URL)
+        let request = NSMutableURLRequest(url: URL(string: url)!)
 
         request.httpMethod = "POST"
         request.addValue("application/json",forHTTPHeaderField: "Content-Type")
