@@ -11,67 +11,76 @@ import Crashlytics
 
 let defaults = UserDefaults.standard
 
+extension String {
+    static let logged = "logged"
+    static let newReleased = "newReleased"
+    static let newAnnouncements = "newAnnouncements"
+    static let moreReleases = "moreReleases"
+    static let username = "username"
+    static let password = "password"
+}
+
 extension UserDefaults {
     var logged: Bool {
         get {
-            return bool(forKey: "logged")
+            return bool(forKey: .logged)
         }
         set {
-            set(newValue, forKey: "logged")
+            set(newValue, forKey: .logged)
         }
     }
 
     var newReleased: Bool {
         get {
-            return bool(forKey: "newReleased")
+            return bool(forKey: .newReleased)
         }
         set {
-            set(newValue, forKey: "newReleased")
+            set(newValue, forKey: .newReleased)
         }
     }
 
     var newAnnouncements: Bool {
         get {
-            return bool(forKey: "newAnnouncements")
+            return bool(forKey: .newAnnouncements)
         }
         set {
-            set(newValue, forKey: "newAnnouncements")
+            set(newValue, forKey: .newAnnouncements)
         }
     }
 
     var moreReleases: Bool {
         get {
-            return bool(forKey: "moreReleases")
+            return bool(forKey: .moreReleases)
         }
         set {
-            set(newValue, forKey: "moreReleases")
+            set(newValue, forKey: .moreReleases)
         }
     }
 
     var username: String? {
         get {
-            return string(forKey: "username")
+            return string(forKey: .username)
         }
         set {
             if let v = newValue {
-                set(v, forKey: "username")
+                set(v, forKey: .username)
             }
             else {
-                removeObject(forKey: "username")
+                removeObject(forKey: .username)
             }
         }
     }
 
     var password: String? {
         get {
-            return string(forKey: "password")
+            return string(forKey: .password)
         }
         set {
             if let v = newValue {
-                set(v, forKey: "password")
+                set(v, forKey: .password)
             }
             else {
-                removeObject(forKey: "password")
+                removeObject(forKey: .password)
             }
         }
     }
@@ -267,9 +276,7 @@ class AllReleasesTableViewController: UITableViewController {
         let releaseInfo = releases[indexPath.row]
         cell.configure(releaseInfo: releaseInfo)
 
-
         //cell.selectionStyle = .none
-
 
         // Image loading.
         cell.artIndicator.startAnimating()
@@ -519,7 +526,4 @@ class AllReleasesTableViewController: UITableViewController {
             })
         })
     }
-
-
-
 }
