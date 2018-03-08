@@ -264,7 +264,7 @@ class AllReleasesTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
 
-        let releaseInfo = self.releases[(indexPath as NSIndexPath).row]
+        let releaseInfo = self.releases[indexPath.row]
 
 
         let listened = UITableViewRowAction(style: .normal, title: "Listened") { action, index in
@@ -288,11 +288,11 @@ class AllReleasesTableViewController: UITableViewController {
                             // remove or add unread marker back in
                             let cell = self.tableView.cellForRow(at: indexPath) as! ReleaseTableViewCell
                             if self.releases[indexPath.row].listenStatus == "0" {
-                                self.releases[(indexPath as NSIndexPath).row].listenStatus = "1"
+                                self.releases[indexPath.row].listenStatus = "1"
                                 cell.listenedIndicatorView.isHidden = true
                                 Answers.logCustomEvent(withName: "Listened", customAttributes: ["Release ID":releaseInfo.releaseId])
                             } else {
-                                self.releases[(indexPath as NSIndexPath).row].listenStatus = "0"
+                                self.releases[indexPath.row].listenStatus = "0"
                                 cell.listenedIndicatorView.isHidden = false
                                  Answers.logCustomEvent(withName: "Unlistened", customAttributes: ["Release ID":releaseInfo.releaseId])
                             }

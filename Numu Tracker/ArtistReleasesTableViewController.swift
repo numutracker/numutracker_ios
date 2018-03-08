@@ -119,13 +119,11 @@ class ArtistReleasesTableViewController: UITableViewController {
         return releases.count
     }
 
-
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "artistAlbumCell", for: indexPath) as! ArtistReleaseTableViewCell
 
-
         // Configure the cell...
-        let releaseInfo = releases[(indexPath as NSIndexPath).row]
+        let releaseInfo = releases[indexPath.row]
         cell.configure(releaseInfo: releaseInfo)
         cell.albumArtActivityIndicator.startAnimating()
         cell.thumbUrl = releaseInfo.thumbUrl // For recycled cells' late image loads.
@@ -147,14 +145,11 @@ class ArtistReleasesTableViewController: UITableViewController {
             }
         }
         return cell
-
     }
-
 
     override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
 
-        let releaseInfo = self.releases[(indexPath as NSIndexPath).row]
-
+        let releaseInfo = self.releases[indexPath.row]
 
         let listened = UITableViewRowAction(style: .normal, title: "Listened") { action, index in
             if !defaults.bool(forKey: "logged") {
@@ -179,12 +174,12 @@ class ArtistReleasesTableViewController: UITableViewController {
                             if cell.readIndicator.isHidden && releaseInfo.listenStatus != "2" {
                                 cell.readIndicator.isHidden = false
                                 cell.listenStatus = "0"
-                                self.releases[(indexPath as NSIndexPath).row].listenStatus = "0"
+                                self.releases[indexPath.row].listenStatus = "0"
                                 Answers.logCustomEvent(withName: "Unlistened", customAttributes: ["Release ID":releaseInfo.releaseId])
                             } else {
                                 cell.readIndicator.isHidden = true
                                 cell.listenStatus = "1"
-                                self.releases[(indexPath as NSIndexPath).row].listenStatus = "1"
+                                self.releases[indexPath.row].listenStatus = "1"
                                 Answers.logCustomEvent(withName: "Listened", customAttributes: ["Release ID":releaseInfo.releaseId])
                             }
                             tableView.setEditing(false, animated: true)
@@ -209,7 +204,6 @@ class ArtistReleasesTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-
     }
 
     /*
@@ -248,6 +242,7 @@ class ArtistReleasesTableViewController: UITableViewController {
             tableView.endUpdates()
         }
     }
+
     override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         (cell as! ArtistReleaseTableViewCell).watchFrameChanges()
     }
@@ -277,8 +272,4 @@ class ArtistReleasesTableViewController: UITableViewController {
             return ArtistReleaseTableViewCell.defaultHeight
         }
     }
-
-
-
-
 }

@@ -242,7 +242,7 @@ class ArtistsTableViewController: UITableViewController, UISearchBarDelegate, UI
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "artistInfoCell", for: indexPath)  as! ArtistTableViewCell
         // Configure the cell...
-        let artistInfo = artists[(indexPath as NSIndexPath).row]
+        let artistInfo = artists[indexPath.row]
         cell.configure(artistInfo: artistInfo)
         cell.albumActivityIndicator.startAnimating()
         cell.thumbUrl = artistInfo.thumbUrl // For recycled cells' late image loads.
@@ -300,11 +300,11 @@ class ArtistsTableViewController: UITableViewController, UISearchBarDelegate, UI
                             artistInfo.followStatus = "0"
                             //self.artists.remove(at: indexPath.row)
                             //tableView.deleteRows(at: [indexPath], with: .automatic)
-                            self.artists[(indexPath as NSIndexPath).row].followStatus = "0"
+                            self.artists[indexPath.row].followStatus = "0"
                             Answers.logCustomEvent(withName: "Unfol Swipe", customAttributes: ["Artist ID":artistInfo.artistId])
                         } else if success == "2" {
                             artistInfo.followStatus = "1"
-                            self.artists[(indexPath as NSIndexPath).row].followStatus = "1"
+                            self.artists[indexPath.row].followStatus = "1"
                             Answers.logCustomEvent(withName: "Follo Swipe", customAttributes: ["Artist ID":artistInfo.artistId])
                         }
                          tableView.setEditing(false, animated: true)
