@@ -68,13 +68,13 @@ class NotificationsViewController: UIViewController {
         oneYearButtonView.layer.cornerRadius = 10.0
         oneYearButtonView.clipsToBounds = true
 
-        oneYearLineView.layer.shadowColor = UIColor(red: (28/255), green: (202/255), blue: (241/255), alpha: 1).cgColor
+        oneYearLineView.layer.shadowColor = UIColor.shadow.cgColor
         oneYearLineView.layer.shadowOpacity = 0.9
         oneYearLineView.layer.shadowOffset = CGSize.zero
         oneYearLineView.layer.shadowRadius = 4
         oneYearLineView.layer.shouldRasterize = true
 
-        thirtyDaysLineView.layer.shadowColor = UIColor(red: (28/255), green: (202/255), blue: (241/255), alpha: 1).cgColor
+        thirtyDaysLineView.layer.shadowColor = UIColor.shadow.cgColor
         thirtyDaysLineView.layer.shadowOpacity = 0.9
         thirtyDaysLineView.layer.shadowOffset = CGSize.zero
         thirtyDaysLineView.layer.shadowRadius = 4

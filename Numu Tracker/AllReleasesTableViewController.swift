@@ -307,7 +307,7 @@ class AllReleasesTableViewController: UITableViewController {
         if releaseInfo.listenStatus == "1" {
             listened.title = "Didn't Listen"
         }
-        listened.backgroundColor = UIColor(red: (48/255), green: (156/255), blue: (172/255), alpha: 1)
+        listened.backgroundColor = .bg
 
         return [listened]
 
@@ -358,22 +358,15 @@ class AllReleasesTableViewController: UITableViewController {
         for cell in tableView.visibleCells as! [ReleaseTableViewCell] {
             cell.watchFrameChanges()
         }
-
     }
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         if !defaults.bool(forKey: "logged") && self.tabBarController?.selectedIndex == 1 {
-            if UIDevice().screenType == .iPhone4 {
-                let loginViewController = storyboard?.instantiateViewController(withIdentifier: "LogRegPromptSmall") as! UINavigationController
-                DispatchQueue.main.async {
-                    self.present(loginViewController, animated: true, completion: nil)
-                }
-            } else {
-                let loginViewController = storyboard?.instantiateViewController(withIdentifier: "LogRegPrompt") as! UINavigationController
-                DispatchQueue.main.async {
-                    self.present(loginViewController, animated: true, completion: nil)
-                }
+            let controller = UIDevice().screenType == .iPhone4 ? "LogRegPromptSmall" : "LogRegPrompt"
+            let loginViewController = storyboard?.instantiateViewController(withIdentifier: controller) as! UINavigationController
+            DispatchQueue.main.async {
+                self.present(loginViewController, animated: true, completion: nil)
             }
         }
     }

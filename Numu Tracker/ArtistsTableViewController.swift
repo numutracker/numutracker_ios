@@ -313,7 +313,7 @@ class ArtistsTableViewController: UITableViewController, UISearchBarDelegate, UI
             }
         }
 
-        unfollow.backgroundColor = UIColor(red: (48/255), green: (156/255), blue: (172/255), alpha: 1)
+        unfollow.backgroundColor = .bg
         if artistInfo.followStatus == "0" {
             unfollow.title = "Follow"
         } else {
