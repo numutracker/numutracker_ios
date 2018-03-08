@@ -55,24 +55,20 @@ class ArtistsTableViewController: UITableViewController, UISearchBarDelegate, UI
         optionMenu.addAction(sortDate)
         optionMenu.addAction(cancelAction)
 
-
         // colors?
-
         let subview1 = optionMenu.view.subviews.first! as UIView
         let subview2 = subview1.subviews.first! as UIView
         let view = subview2.subviews.first! as UIView
 
-        subview1.backgroundColor = UIColor(red: (30/255), green: (30/255), blue: (30/255), alpha: 1.0)
-        view.backgroundColor = UIColor(red: (30/255), green: (30/255), blue: (30/255), alpha: 1.0)
+        subview1.backgroundColor = UIColor(red: 30/255, green: 30/255, blue: 30/255, alpha: 1.0)
+        view.backgroundColor = UIColor(red: 30/255, green: 30/255, blue: 30/255, alpha: 1.0)
         subview1.layer.cornerRadius = 10.0
         view.layer.cornerRadius = 10.0
 
         optionMenu.view.tintColor = .white
 
-
         // 5
         self.present(optionMenu, animated: true, completion: nil)
-
     }
 
     override func viewDidLoad() {
@@ -387,15 +383,11 @@ class ArtistsTableViewController: UITableViewController, UISearchBarDelegate, UI
             destination.artistId = self.lastSelectedArtistId
             destination.artistName = self.lastSelectedArtistName
         }
-
     }
 
     func alertClose(gesture: UITapGestureRecognizer) {
         self.dismiss(animated: true, completion: nil)
     }
-
-
-
 }
 
 extension UIImageView {
@@ -404,7 +396,7 @@ extension UIImageView {
             (data, response, error) -> Void in
             DispatchQueue.main.async {
                 self.contentMode =  contentMode
-                if let data = data { self.image = UIImage(data: data) }
+                data.map { self.image = UIImage(data: $0) }
             }
         }).resume()
     }

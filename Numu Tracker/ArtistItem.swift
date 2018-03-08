@@ -40,7 +40,6 @@ struct ArtistItem {
         self.unlistened = unlistened
         self.recentRelease = recentRelease
 
-
         if json["artist_art"].int != 0 && json["artist_art"].int != 2 {
 
             guard let albumArtThumb = json["artist_art"]["thumb"].string,

@@ -36,20 +36,17 @@ extension NSURL {
     /// Only calls completion on successful image download.
     /// Completion is called on the main thread.
     func fetchImage(completion: @escaping ImageCacheCompletion) {
-        let task = URLSession.shared.dataTask(with: self as URL) {
-            data, response, error in
+        let task = URLSession.shared.dataTask(with: self as URL) { data, response, error in
             if error == nil {
-                if let  data = data,
-                    let image = UIImage(data: data) {
-                    let TheString: NSString = NSString(string: self.absoluteString!)
-                    MyImageCache.sharedCache.setObject(
-                        image,
-                        forKey: TheString,
-                        cost: data.count)
-                   DispatchQueue.main.async(execute: {
-                        completion(image)
-                    })
-                }
+                guard let data = data,
+                    let image = UIImage(data: data) else { return }
+
+                MyImageCache.sharedCache.setObject(image,
+                                                   forKey: self.absoluteString! as NSString,
+                                                   cost: data.count)
+                DispatchQueue.main.async(execute: {
+                    completion(image)
+                })
             }
         }
         task.resume()

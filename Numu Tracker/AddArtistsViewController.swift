@@ -26,7 +26,7 @@ class AddArtistsViewController: UIViewController {
                 }
             }
         } else {
-            if (UIDevice().screenType == UIDevice.ScreenType.iPhone4) {
+            if UIDevice().screenType == UIDevice.ScreenType.iPhone4 {
                 let loginViewController = storyboard?.instantiateViewController(withIdentifier: "LogRegPromptSmall") as! UINavigationController
                 DispatchQueue.main.async {
                     self.present(loginViewController, animated: true, completion: nil)
@@ -96,7 +96,6 @@ class AddArtistsViewController: UIViewController {
         }
         let uniques = Array(Set(artists_found))
 
-
         DispatchQueue.global(qos: .background).async(execute: {
             JSONClient.sharedClient.postArtists(artists: uniques) { success in
                 DispatchQueue.main.async(execute: {
@@ -136,6 +135,4 @@ class AddArtistsViewController: UIViewController {
         controller.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
         present(controller, animated: true, completion: nil)
     }
-
-
 }
