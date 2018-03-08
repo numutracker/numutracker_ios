@@ -9,6 +9,10 @@
 import Foundation
 import SwiftyJSON
 
+protocol JSONCodable {
+    init?(json: JSON)
+}
+
 struct ReleaseItem {
     let artistName: String
     let artistId: String

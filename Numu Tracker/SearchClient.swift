@@ -9,6 +9,23 @@
 import Foundation
 import SwiftyJSON
 
+extension ReleaseItem : JSONCodable { }
+extension ArtistItem: JSONCodable { }
+
+extension Array where Element : JSONCodable {
+    init(from url: String) {
+        if let url = URL(string: url),
+            let data = try? Data(contentsOf: url),
+            let json = try? JSON(data: data),
+            let arr = json.array  {
+            self = arr.flatMap { Element(json: $0) }
+        }
+        else {
+            self = []
+        }
+    }
+}
+
 class SearchClient {
 
     static let sharedClient = SearchClient()
@@ -17,22 +34,9 @@ class SearchClient {
         if defaults.logged {
             let username = defaults.username
             let urlString = "https://www.numutracker.com/v2/json.php?artists=" + username! + "&sortby=" + sortBy
-            var artists: [ArtistItem] = []
+
             //print(urlString)
-            if let url = URL(string: urlString) {
-                if let data = try? Data(contentsOf: url) {
-                    if let json = try? JSON(data: data) {
-                        if let artists_found = json.array {
-                            for artist in artists_found {
-                                if let artistFound = ArtistItem(json: artist) {
-                                    artists.append(artistFound)
-                                }
-                            }
-                            completion(artists)
-                        }
-                    }
-                }
-            }
+            completion(.init(from: urlString))
         }
     }
 
@@ -41,41 +45,12 @@ class SearchClient {
             let username = defaults.username
             let var_search = search.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
             let urlString = "https://www.numutracker.com/v2/json.php?artist_search=" + username! + "&search=" + var_search!
-            var artists: [ArtistItem] = []
-            //print(urlString)
-            if let url = URL(string: urlString) {
-                if let data = try? Data(contentsOf: url) {
-                    if let json = try? JSON(data: data) {
-                        if let artists_found = json.array {
-                            for artist in artists_found {
-                                if let artistFound = ArtistItem(json: artist) {
-                                    artists.append(artistFound)
-                                }
-                            }
-                            completion(artists)
-                        }
-                    }
-                }
-            }
+            completion(.init(from: urlString))
+
         } else {
             let var_search = search.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
             let urlString = "https://www.numutracker.com/v2/json.php?artist_search=0&search=" + var_search!
-            var artists: [ArtistItem] = []
-            //print(urlString)
-            if let url = URL(string: urlString) {
-                if let data = try? Data(contentsOf: url) {
-                    if let json = try? JSON(data: data) {
-                        if let artists_found = json.array {
-                            for artist in artists_found {
-                                if let artistFound = ArtistItem(json: artist) {
-                                    artists.append(artistFound)
-                                }
-                            }
-                            completion(artists)
-                        }
-                    }
-                }
-            }
+            completion(.init(from: urlString))
         }
     }
 
@@ -83,22 +58,7 @@ class SearchClient {
         if defaults.logged {
             let username = defaults.username
             let urlString = "https://www.numutracker.com/v2/json.php?single_artist=" + username! + "&search=" + search
-            var artists: [ArtistItem] = []
-            //print(urlString)
-            if let url = URL(string: urlString) {
-                if let data = try? Data(contentsOf: url) {
-                    if let json = try? JSON(data: data) {
-                        if let artists_found = json.array {
-                            for artist in artists_found {
-                                if let artistFound = ArtistItem(json: artist) {
-                                    artists.append(artistFound)
-                                }
-                            }
-                            completion(artists)
-                        }
-                    }
-                }
-            }
+            completion(.init(from: urlString))
         }
     }
 
@@ -111,42 +71,11 @@ class SearchClient {
             let urlString2 = "&rel_mode=artist&artist=\(artist)"
             urlString = urlString + urlString2
             //print(urlString)
-            var releases: [ReleaseItem] = []
-
-            if let url = URL(string: urlString) {
-                if let data = try? Data(contentsOf: url) {
-                    if let json = try? JSON(data: data) {
-                        if let release_groups = json.array {
-                            for release in release_groups {
-                                if let releaseFound = ReleaseItem(json: release) {
-                                    releases.append(releaseFound)
-                                }
-                            }
-                            completion(releases)
-                        }
-                    }
-                }
-            }
+            completion(.init(from: urlString))
         } else {
 
             let urlString = "https://www.numutracker.com/v2/json.php?user=0&rel_mode=artist&artist=\(artist)"
-            //print(urlString)
-            var releases: [ReleaseItem] = []
-
-            if let url = URL(string: urlString) {
-                if let data = try? Data(contentsOf: url) {
-                    if let json = try? JSON(data: data) {
-                        if let release_groups = json.array {
-                            for release in release_groups {
-                                if let releaseFound = ReleaseItem(json: release) {
-                                    releases.append(releaseFound)
-                                }
-                            }
-                            completion(releases)
-                        }
-                    }
-                }
-            }
+            completion(.init(from: urlString))
 
         }
     }
