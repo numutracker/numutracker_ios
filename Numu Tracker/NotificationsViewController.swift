@@ -95,13 +95,13 @@ class NotificationsViewController: UIViewController {
         oneYearButtonView.layer.cornerRadius = 10.0
         oneYearButtonView.clipsToBounds = true
 
-        oneYearLineView.layer.shadowColor = UIColor.init(red: (28/255), green: (202/255), blue: (241/255), alpha: 1).cgColor
+        oneYearLineView.layer.shadowColor = UIColor(red: (28/255), green: (202/255), blue: (241/255), alpha: 1).cgColor
         oneYearLineView.layer.shadowOpacity = 0.9
         oneYearLineView.layer.shadowOffset = CGSize.zero
         oneYearLineView.layer.shadowRadius = 4
         oneYearLineView.layer.shouldRasterize = true
 
-        thirtyDaysLineView.layer.shadowColor = UIColor.init(red: (28/255), green: (202/255), blue: (241/255), alpha: 1).cgColor
+        thirtyDaysLineView.layer.shadowColor = UIColor(red: (28/255), green: (202/255), blue: (241/255), alpha: 1).cgColor
         thirtyDaysLineView.layer.shadowOpacity = 0.9
         thirtyDaysLineView.layer.shadowOffset = CGSize.zero
         thirtyDaysLineView.layer.shadowRadius = 4
@@ -204,10 +204,10 @@ class NotificationsViewController: UIViewController {
 
         if gesture.state == .began {
              //print("Touching Thirty Days")
-            thirtyDaysButtonView.backgroundColor = UIColor.init(red: 0, green: 0, blue: 0, alpha: 1)
+            thirtyDaysButtonView.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 1)
         } else if gesture.state == .ended { // optional for touch up event catching
             //print("Touch Up Thirty Days")
-            thirtyDaysButtonView.backgroundColor = UIColor.init(red: 0, green: 0, blue: 0, alpha: 0.2)
+            thirtyDaysButtonView.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.2)
             if (!defaults.bool(forKey: "logged")) {
                 if (UIDevice().screenType == UIDevice.ScreenType.iPhone4) {
                     let loginViewController = self.storyboard?.instantiateViewController(withIdentifier: "LogRegPromptSmall") as! UINavigationController
@@ -263,10 +263,10 @@ class NotificationsViewController: UIViewController {
 
         if gesture.state == .began {
             //print("Touching One Year")
-            oneYearButtonView.backgroundColor = UIColor.init(red: 0, green: 0, blue: 0, alpha: 1)
+            oneYearButtonView.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 1)
         } else if gesture.state == .ended { // optional for touch up event catching
             //print("Touch Up One Year")
-            oneYearButtonView.backgroundColor = UIColor.init(red: 0, green: 0, blue: 0, alpha: 0.2)
+            oneYearButtonView.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.2)
             if (!defaults.bool(forKey: "logged")) {
                 if (UIDevice().screenType == UIDevice.ScreenType.iPhone4) {
                     let loginViewController = self.storyboard?.instantiateViewController(withIdentifier: "LogRegPromptSmall") as! UINavigationController

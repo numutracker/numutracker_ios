@@ -31,7 +31,6 @@ class JSONClient {
             request.setValue("application/json; charset=utf-8", forHTTPHeaderField: "Content-Type")
             request.httpBody = jsonData
 
-
             let task = URLSession.shared.dataTask(with: request as URLRequest){ data, response, error in
                 if error != nil{
                     //print("Error 1 -> \(String(describing: error))")
@@ -59,9 +58,7 @@ class JSONClient {
             //print(error)
             completion("Failure")
         }
-
     }
-
 
     func getReleases(view: Int, slide: Int, page: Int = 1, limit: Int = 50, offset: Int = 0, completion: @escaping (ReleaseData) -> ()) {
         // Let's try swifty json...
@@ -209,7 +206,7 @@ class JSONClient {
         return "0"
     }
 
-    func getSubStatus(username: String, password: String) -> Array<String> {
+    func getSubStatus(username: String, password: String) -> [String] {
         let escapedString = username.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)
         let urlString = "https://" + escapedString! + ":" + password + "@www.numutracker.com/v2/json.php?sub_status=1"
         //print(urlString)
@@ -224,7 +221,7 @@ class JSONClient {
 
             }
         }
-        return Array()
+        return []
     }
 
 

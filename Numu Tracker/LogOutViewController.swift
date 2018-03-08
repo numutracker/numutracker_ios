@@ -80,31 +80,31 @@ class LogOutViewController: UIViewController {
 
         // Do any additional setup after loading the view.
 
-        dividingLineView1.layer.shadowColor = UIColor.init(red: (28/255), green: (202/255), blue: (241/255), alpha: 1).cgColor
+        dividingLineView1.layer.shadowColor = UIColor(red: (28/255), green: (202/255), blue: (241/255), alpha: 1).cgColor
         dividingLineView1.layer.shadowOpacity = 0.9
         dividingLineView1.layer.shadowOffset = .zero
         dividingLineView1.layer.shadowRadius = 4
         dividingLineView1.layer.shouldRasterize = true
 
-        dividingLineView2.layer.shadowColor = UIColor.init(red: (28/255), green: (202/255), blue: (241/255), alpha: 1).cgColor
+        dividingLineView2.layer.shadowColor = UIColor(red: (28/255), green: (202/255), blue: (241/255), alpha: 1).cgColor
         dividingLineView2.layer.shadowOpacity = 0.9
         dividingLineView2.layer.shadowOffset = .zero
         dividingLineView2.layer.shadowRadius = 4
         dividingLineView2.layer.shouldRasterize = true
 
-        dividingLineView3.layer.shadowColor = UIColor.init(red: (28/255), green: (202/255), blue: (241/255), alpha: 1).cgColor
+        dividingLineView3.layer.shadowColor = UIColor(red: (28/255), green: (202/255), blue: (241/255), alpha: 1).cgColor
         dividingLineView3.layer.shadowOpacity = 0.9
         dividingLineView3.layer.shadowOffset = .zero
         dividingLineView3.layer.shadowRadius = 4
         dividingLineView3.layer.shouldRasterize = true
 
-        dividingLineView4.layer.shadowColor = UIColor.init(red: (28/255), green: (202/255), blue: (241/255), alpha: 1).cgColor
+        dividingLineView4.layer.shadowColor = UIColor(red: (28/255), green: (202/255), blue: (241/255), alpha: 1).cgColor
         dividingLineView4.layer.shadowOpacity = 0.9
         dividingLineView4.layer.shadowOffset = .zero
         dividingLineView4.layer.shadowRadius = 4
         dividingLineView4.layer.shouldRasterize = true
 
-        dividingLineView5.layer.shadowColor = UIColor.init(red: (28/255), green: (202/255), blue: (241/255), alpha: 1).cgColor
+        dividingLineView5.layer.shadowColor = UIColor(red: (28/255), green: (202/255), blue: (241/255), alpha: 1).cgColor
         dividingLineView5.layer.shadowOpacity = 0.9
         dividingLineView5.layer.shadowOffset = .zero
         dividingLineView5.layer.shadowRadius = 4

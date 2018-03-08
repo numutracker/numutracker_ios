@@ -62,7 +62,7 @@ class ArtistReleaseTableViewCell: UITableViewCell {
         //albumArt.layer.shouldRasterize = true
 
 
-        readIndicator.layer.shadowColor = UIColor.init(red: (28/255), green: (202/255), blue: (241/255), alpha: 1).cgColor
+        readIndicator.layer.shadowColor = UIColor(red: (28/255), green: (202/255), blue: (241/255), alpha: 1).cgColor
         readIndicator.layer.shadowOpacity = 0.9
         readIndicator.layer.shadowOffset = .zero
         readIndicator.layer.shadowRadius = 4
@@ -80,18 +80,15 @@ class ArtistReleaseTableViewCell: UITableViewCell {
     }
     func checkHeight() {
         //listenButtonView.isHidden = (frame.size.height < ReleaseTableViewCell.expandedHeight)
-        if (frame.size.height < ArtistReleaseTableViewCell.expandedHeight) {
+        if frame.size.height < ArtistReleaseTableViewCell.expandedHeight {
 
-            if (loadedListenLinks == true) {
+            if loadedListenLinks {
                 self.removeListenLinks()
             }
         } else {
-
-            if (loadedListenLinks == false) {
+            if !loadedListenLinks {
                 self.loadListenLinks()
             }
-
-
         }
     }
 

@@ -24,7 +24,6 @@ class ReleaseTableViewCell: UITableViewCell {
     var thumbUrl: NSURL!
     var listenState: String! {
         didSet {
-
             listenedIndicatorView.isHidden = listenState == "1"
         }
     }
@@ -75,7 +74,7 @@ class ReleaseTableViewCell: UITableViewCell {
         //artImageView.layer.shouldRasterize = true
 
 
-        listenedIndicatorView.layer.shadowColor = UIColor.init(red: (28/255), green: (202/255), blue: (241/255), alpha: 1).cgColor
+        listenedIndicatorView.layer.shadowColor = UIColor(red: (28/255), green: (202/255), blue: (241/255), alpha: 1).cgColor
         listenedIndicatorView.layer.shadowOpacity = 0.9
         listenedIndicatorView.layer.shadowOffset = .zero
         listenedIndicatorView.layer.shadowRadius = 4

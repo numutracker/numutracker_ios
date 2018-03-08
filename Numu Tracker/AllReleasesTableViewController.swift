@@ -305,7 +305,7 @@ class AllReleasesTableViewController: UITableViewController {
         if (releaseInfo.listenStatus == "1") {
             listened.title = "Didn't Listen"
         }
-        listened.backgroundColor = UIColor.init(red: (48/255), green: (156/255), blue: (172/255), alpha: 1)
+        listened.backgroundColor = UIColor(red: (48/255), green: (156/255), blue: (172/255), alpha: 1)
 
         return [listened]
 

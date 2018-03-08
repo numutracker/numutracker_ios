@@ -17,11 +17,11 @@ class NumuTextField: UITextField {
         self.borderStyle = .none
 
         self.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.5)
-        self.textColor = UIColor.white
+        self.textColor = .white
 
         let border = CALayer()
         let width = CGFloat(2.0)
-        border.borderColor = UIColor.init(red: 0.24, green: 0.67, blue: 0.73, alpha: 1.0).cgColor
+        border.borderColor = UIColor(red: 0.24, green: 0.67, blue: 0.73, alpha: 1.0).cgColor
         border.frame = CGRect(x: 0, y: self.frame.size.height - width + 0, width:  self.frame.size.width + 100, height: self.frame.size.height)
 
         border.borderWidth = width
