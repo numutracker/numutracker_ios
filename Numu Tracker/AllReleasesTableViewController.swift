@@ -25,13 +25,13 @@ class AllReleasesTableViewController: UITableViewController {
     var viewName: String = ""
     var releaseData: ReleaseData! {
         didSet {
-            if (releaseData.totalPages == "0") {
+            if releaseData.totalPages == "0" {
                 DispatchQueue.main.async(execute: {
                     self.tableView.tableHeaderView = self.noResultsFooterView
                     self.tableView.tableFooterView = UIView()
-                    if (self.slideType == 3) {
+                    if self.slideType == 3 {
                         self.noResultsLabel.text = "After you've followed some artists, any releases (upcoming or past) added to the system will show up here.\n\nCheck back later."
-                    } else if (self.slideType == 2) {
+                    } else if self.slideType == 2 {
                         self.noResultsLabel.text = "Any upcoming releases will appear here."
                     } else {
                         self.noResultsLabel.text = "No results.\n\nHave you followed some artists?\n\nPull to refresh when you have."
@@ -41,7 +41,6 @@ class AllReleasesTableViewController: UITableViewController {
                 DispatchQueue.main.async(execute: {
                     self.tableView.tableHeaderView = nil
                 })
-
             }
         }
     }

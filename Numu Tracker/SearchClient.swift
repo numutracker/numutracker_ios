@@ -80,7 +80,7 @@ class SearchClient {
     }
 
     func getSingleArtistItem(search: String, completion: @escaping ([ArtistItem]) -> ()) {
-        if (defaults.bool(forKey: "logged")) {
+        if defaults.bool(forKey: "logged") {
             let username = defaults.string(forKey: "username")
             let urlString = "https://www.numutracker.com/v2/json.php?single_artist=" + username! + "&search=" + search
             var artists: [ArtistItem] = []
@@ -282,7 +282,7 @@ class SearchClient {
 
     func followArtist(artistMbid: String) -> String {
 
-        if (defaults.bool(forKey: "logged")) {
+        if defaults.bool(forKey: "logged") {
             let username = defaults.string(forKey: "username")
             let password = defaults.string(forKey: "password")
             let escapedString = username!.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)
@@ -306,7 +306,7 @@ class SearchClient {
 
     func getUserFilters(username: String) -> JSON {
 
-        if (defaults.bool(forKey: "logged")) {
+        if defaults.bool(forKey: "logged") {
             let username = defaults.string(forKey: "username")
             let password = defaults.string(forKey: "password")
             let escapedString = username!.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)

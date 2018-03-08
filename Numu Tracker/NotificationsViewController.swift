@@ -48,21 +48,21 @@ class NotificationsViewController: UIViewController {
                 switch type {
                 case "newReleased":
                     // Turn on new releases in user defaults
-                    if (state) {
+                    if state {
                         defaults.set(true, forKey: "newReleased")
                     } else {
                         defaults.set(false, forKey: "newReleased")
                     }
                 case "newAnnouncements":
                     // turn on release days...
-                    if (state) {
+                    if state {
                         defaults.set(true, forKey: "newAnnouncements")
                     } else {
                         defaults.set(false, forKey: "newAnnouncements")
                     }
                 case "moreReleases":
                     // turn on release days...
-                    if (state) {
+                    if state {
                         defaults.set(true, forKey: "moreReleases")
                     } else {
                         defaults.set(false, forKey: "moreReleases")

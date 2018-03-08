@@ -59,20 +59,18 @@ class LogRegPromptViewController: UIViewController, UITextFieldDelegate {
             }
             self.view.endEditing(true)
         }
-
-
     }
 
     @IBAction func signUpButtonPress(_ sender: Any) {
          var animationDuration = 0.5
 
         // if log in form is showing, hide it
-        if (logInFormView.alpha == 1) {
+        if logInFormView.alpha == 1 {
             self.logInFormView.alpha = 0
             animationDuration = 0
         }
 
-        if (signUpFormView.alpha == 0) {
+        if signUpFormView.alpha == 0 {
             UIView.animate(withDuration: animationDuration) {
                 self.signUpFormView.alpha = 1
                 self.signUpEmailTextField.becomeFirstResponder()
@@ -98,15 +96,11 @@ class LogRegPromptViewController: UIViewController, UITextFieldDelegate {
         signUpFormView.alpha = 0
         logInFormView.alpha = 0
 
-
-
         let width = self.view.frame.size.width
         var height: CGFloat = 0
         var max_length: CGFloat = 0
         height = width / 2
         max_length = height * 6
-
-
 
         self.topScrollView.isScrollEnabled = true
         self.topScrollView.alwaysBounceHorizontal = true
@@ -167,7 +161,7 @@ class LogRegPromptViewController: UIViewController, UITextFieldDelegate {
         // get width of screen
         let width = self.view.frame.size.width
         var height: CGFloat = 0
-        if (scrollView.restorationIdentifier == "middle") {
+        if scrollView.restorationIdentifier == "middle" {
             height = width / 2
         } else {
             height = width / 4
@@ -233,8 +227,7 @@ class LogRegPromptViewController: UIViewController, UITextFieldDelegate {
             let intervalPixels: CGFloat = 0.50
 
             // Determine length:
-
-            if (scrollView.restorationIdentifier == "middle") {
+            if scrollView.restorationIdentifier == "middle" {
                 height = width / 2
                 max_length = height * 6
             } else {
@@ -246,8 +239,8 @@ class LogRegPromptViewController: UIViewController, UITextFieldDelegate {
 
             //print("Data: Max \(max_offset) and \(offset.x)")
 
-            if (offset.x >= max_offset) {
-                switch (scrollView.restorationIdentifier!) {
+            if offset.x >= max_offset {
+                switch scrollView.restorationIdentifier! {
                     case "middle":
                         self.middleScrollDrection = 1
                     case "top":
@@ -272,7 +265,7 @@ class LogRegPromptViewController: UIViewController, UITextFieldDelegate {
                 }
             }
 
-            switch (scrollView.restorationIdentifier!) {
+            switch scrollView.restorationIdentifier! {
             case "middle":
                 if self.middleScrollDrection == 0 {
                     newOffset = offset.x + intervalPixels
@@ -386,12 +379,12 @@ class LogRegPromptViewController: UIViewController, UITextFieldDelegate {
             errorInt = true
         }
 
-        if (!errorInt) {
+        if !errorInt {
             // Check credentials...
             DispatchQueue.global(qos: .background).async(execute: {
                 let success = SearchClient.sharedClient.authorizeRegister(username: username!, password: password!)
                 DispatchQueue.main.async(execute: {
-                    if (success == "1") {
+                    if success == "1" {
                         self.signUpLabel.text = "Registration Successful!"
                         defaults.set(username, forKey: "username")
                         defaults.set(password, forKey: "password")
