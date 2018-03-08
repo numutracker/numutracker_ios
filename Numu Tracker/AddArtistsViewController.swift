@@ -53,7 +53,7 @@ class AddArtistsViewController: UIViewController {
 
         self.navigationController?.navigationBar.tintColor = .white
 
-        addFromAppleMusic.backgroundColor = UIColor.clear
+        addFromAppleMusic.backgroundColor = .clear
         addFromAppleMusic.layer.cornerRadius = 5
         addFromAppleMusic.layer.borderWidth = 1
         addFromAppleMusic.layer.borderColor = UIColor.gray.cgColor
@@ -86,7 +86,7 @@ class AddArtistsViewController: UIViewController {
 
         let query = MPMediaQuery.artists()
         var artists_found: [String] = []
-        query.groupingType = MPMediaGrouping.artist
+        query.groupingType = .artist
         if let items = query.items {
             for artist in items {
                 if let artist_name = artist.artist {

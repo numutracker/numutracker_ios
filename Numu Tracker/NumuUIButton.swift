@@ -18,18 +18,9 @@ class NumuUIButton: UIButton {
     }
     */
 
-
     override var isHighlighted: Bool {
         didSet {
-
-            if (isHighlighted) {
-                self.backgroundColor = UIColor.black
-            }
-            else {
-                self.backgroundColor = UIColor.clear
-            }
-
+            self.backgroundColor = isHighlighted ? .black : .clear
         }
     }
-
 }

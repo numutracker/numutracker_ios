@@ -43,12 +43,12 @@ class HelpViewController: UIViewController,MFMailComposeViewControllerDelegate {
 
          self.navigationController?.navigationBar.tintColor = .white
 
-        emailDeveloperButton.backgroundColor = UIColor.clear
+        emailDeveloperButton.backgroundColor = .clear
         emailDeveloperButton.layer.cornerRadius = 5
         emailDeveloperButton.layer.borderWidth = 1
         emailDeveloperButton.layer.borderColor = UIColor.gray.cgColor
 
-        discussOnRedditButtonOutlet.backgroundColor = UIColor.clear
+        discussOnRedditButtonOutlet.backgroundColor = .clear
         discussOnRedditButtonOutlet.layer.cornerRadius = 5
         discussOnRedditButtonOutlet.layer.borderWidth = 1
         discussOnRedditButtonOutlet.layer.borderColor = UIColor.gray.cgColor
