@@ -152,7 +152,7 @@ class AllReleasesTableViewController: UITableViewController {
 
         NotificationCenter.default.addObserver(self, selector: #selector(AllReleasesTableViewController.actOnLoggedOutNotification), name: NSNotification.Name(rawValue: loggedOutNotificationKey), object: nil)
 
-        self.refreshControl?.addTarget(self, action: #selector(AllReleasesTableViewController.handleRefresh(refreshControl:)), for: UIControlEvents.valueChanged)
+        self.refreshControl?.addTarget(self, action: #selector(AllReleasesTableViewController.handleRefresh(refreshControl:)), for: .valueChanged)
 
         // Load initial batch of releases...
         self.tableView.tableFooterView = self.footerView

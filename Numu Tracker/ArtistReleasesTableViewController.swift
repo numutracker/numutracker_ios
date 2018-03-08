@@ -43,10 +43,10 @@ class ArtistReleasesTableViewController: UITableViewController {
                 }
 
                 DispatchQueue.main.async(execute: {
-                    if (!defaults.bool(forKey: "logged")) {
+                    if !defaults.bool(forKey: "logged") {
                         self.navigationItem.rightBarButtonItem?.title = "Follow"
                     } else {
-                        if (self.artistItem[0].followStatus == "1") {
+                        if self.artistItem[0].followStatus == "1" {
                             self.navigationItem.rightBarButtonItem?.title = "Unfollow"
                         } else {
                             self.navigationItem.rightBarButtonItem?.title = "Follow"
@@ -56,7 +56,7 @@ class ArtistReleasesTableViewController: UITableViewController {
                     self.tableView.beginUpdates()
                     self.tableView.endUpdates()
                     self.tableView.tableFooterView = UIView()
-                    if (self.releases.count == 0) {
+                    if self.releases.isEmpty {
                         self.tableView.tableFooterView = self.noResultsView
                     }
                 })

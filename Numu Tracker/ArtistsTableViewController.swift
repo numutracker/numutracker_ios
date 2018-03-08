@@ -67,7 +67,7 @@ class ArtistsTableViewController: UITableViewController, UISearchBarDelegate, UI
         subview1.layer.cornerRadius = 10.0
         view.layer.cornerRadius = 10.0
 
-        optionMenu.view.tintColor = UIColor.white
+        optionMenu.view.tintColor = .white
 
 
         // 5
@@ -89,8 +89,8 @@ class ArtistsTableViewController: UITableViewController, UISearchBarDelegate, UI
         searchController.searchBar.keyboardType = .alphabet
         searchController.searchBar.keyboardAppearance = .dark
         searchController.searchBar.searchBarStyle = .default
-        searchController.searchBar.backgroundColor = UIColor.black
-        searchController.searchBar.tintColor = UIColor.white
+        searchController.searchBar.backgroundColor = .black
+        searchController.searchBar.tintColor = .white
         searchController.searchResultsUpdater = self
         searchController.hidesNavigationBarDuringPresentation = false
         searchController.dimsBackgroundDuringPresentation = false
@@ -108,7 +108,7 @@ class ArtistsTableViewController: UITableViewController, UISearchBarDelegate, UI
                 self.tableView.beginUpdates()
                 self.tableView.endUpdates()
                 self.tableView.tableFooterView = UIView()
-                if (self.artists.count == 0) {
+                if self.artists.isEmpty {
                     self.tableView.tableFooterView = self.noResultsView
                 }
             })
@@ -145,7 +145,7 @@ class ArtistsTableViewController: UITableViewController, UISearchBarDelegate, UI
                 //self.tableView.setContentOffset(CGPoint(x:0, y:0-self.tableView.contentInset.top), animated: false)
                 self.artistRefreshControl.endRefreshing()
                 self.tableView.tableFooterView = UIView()
-                if (self.artists.count == 0) {
+                if self.artists.isEmpty {
                     self.tableView.tableFooterView = self.noResultsView
                 }
                 self.searchController.searchBar.text = ""
@@ -158,7 +158,7 @@ class ArtistsTableViewController: UITableViewController, UISearchBarDelegate, UI
 
     lazy var artistRefreshControl: UIRefreshControl = {
         let refreshControl = UIRefreshControl()
-        refreshControl.addTarget(self, action: #selector(ArtistsTableViewController.handleRefresh(_:)), for: UIControlEvents.valueChanged)
+        refreshControl.addTarget(self, action: #selector(handleRefresh), for: .valueChanged)
 
         return refreshControl
     }()
@@ -231,7 +231,7 @@ class ArtistsTableViewController: UITableViewController, UISearchBarDelegate, UI
                     self.tableView.beginUpdates()
                     self.tableView.endUpdates()
                     self.tableView.tableFooterView = UIView()
-                    if (self.artists.count == 0) {
+                    if self.artists.isEmpty {
                         self.tableView.tableFooterView = self.noSearchResultsView
                     }
                     Answers.logSearch(withQuery: searchText,customAttributes: nil)
