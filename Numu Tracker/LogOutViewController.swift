@@ -106,14 +106,12 @@ class LogOutViewController: UIViewController {
         dividingLineView5.layer.shadowRadius = 4
         dividingLineView5.layer.shouldRasterize = true
 
-
-         NotificationCenter.default.addObserver(self, selector: #selector(self.actOnClosedPrompt), name: .ClosedLogRegPrompt, object: nil)
-         NotificationCenter.default.addObserver(self, selector: #selector(self.actOnLoggedInNotification), name: .LoggedIn, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.actOnClosedPrompt), name: .ClosedLogRegPrompt, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.actOnLoggedInNotification), name: .LoggedIn, object: nil)
 
         let add = UIBarButtonItem(title: "Log Out", style: .plain, target: self, action: #selector(logOut))
 
         navigationItem.rightBarButtonItem = add
-
     }
 
     deinit {

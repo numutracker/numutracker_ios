@@ -202,10 +202,8 @@ class ArtistsTableViewController: UITableViewController, UISearchBarDelegate, UI
     }
 
     func updateSearchResults(for searchController: UISearchController) {
-
-            NSObject.cancelPreviousPerformRequests(withTarget: self, selector: #selector(self.reload), object: nil)
-            self.perform(#selector(self.reload), with: nil, afterDelay: 1)
-
+        NSObject.cancelPreviousPerformRequests(withTarget: self, selector: #selector(self.reload), object: nil)
+        self.perform(#selector(self.reload), with: nil, afterDelay: 1)
     }
 
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
@@ -239,11 +237,7 @@ class ArtistsTableViewController: UITableViewController, UISearchBarDelegate, UI
                 })
             })
         }
-
     }
-
-
-
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "artistInfoCell", for: indexPath)  as! ArtistTableViewCell
@@ -327,10 +321,7 @@ class ArtistsTableViewController: UITableViewController, UISearchBarDelegate, UI
         }
 
         return [unfollow]
-
-
     }
-
 
     /*
     // Override to support conditional editing of the table view.
@@ -397,7 +388,7 @@ class ArtistsTableViewController: UITableViewController, UISearchBarDelegate, UI
 
 extension UIImageView {
     func downloadImageFrom(link:String, contentMode: UIViewContentMode) {
-        URLSession.shared.dataTask( with: NSURL(string:link)! as URL, completionHandler: {
+        URLSession.shared.dataTask(with: URL(string:link)!, completionHandler: {
             (data, response, error) -> Void in
             DispatchQueue.main.async {
                 self.contentMode =  contentMode

@@ -23,8 +23,8 @@ class JSONClient {
             let username = defaults.string(forKey: "username")
             let password = defaults.string(forKey: "password")
             let escapedString = username?.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)
-            let url = NSURL(string: "https://" + escapedString! + ":" + password! + "@www.numutracker.com/v2/json.php?import")!
-            let request = NSMutableURLRequest(url: url as URL)
+            let url = URL(string: "https://" + escapedString! + ":" + password! + "@www.numutracker.com/v2/json.php?import")!
+            let request = NSMutableURLRequest(url: url)
             request.httpMethod = "POST"
 
             // insert json data to the request
