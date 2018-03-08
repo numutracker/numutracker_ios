@@ -15,7 +15,7 @@ class AddArtistsViewController: UIViewController {
 
     @IBOutlet weak var addFromAppleMusic: UIButton!
     @IBAction func addFromAppleMusicPress(_ sender: AnyObject) {
-        if (defaults.bool(forKey: "logged")) {
+        if defaults.bool(forKey: "logged") {
             self.addArtistsActivity.startAnimating()
             addFromAppleMusic.isHidden = true
             MPMediaLibrary.requestAuthorization { (status) in
@@ -101,7 +101,7 @@ class AddArtistsViewController: UIViewController {
                 DispatchQueue.main.async(execute: {
                     self.addArtistsActivity.stopAnimating()
                     self.addFromAppleMusic.isHidden = false
-                    if (success == "Success") {
+                    if success == "Success" {
                         NotificationCenter.default.post(name: .UpdatedArtists, object: self)
                         let controller = UIAlertController(title: "Success", message: "Your artists have been imported. Please allow several minutes for all artists to appear.", preferredStyle: .alert)
                         controller.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))

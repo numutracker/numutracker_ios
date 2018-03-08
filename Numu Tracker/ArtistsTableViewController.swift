@@ -286,7 +286,7 @@ class ArtistsTableViewController: UITableViewController, UISearchBarDelegate, UI
         var artistInfo = artists[indexPath.row]
 
         let unfollow = UITableViewRowAction(style: .normal, title: "Error") { action, index in
-            if (!defaults.bool(forKey: "logged")) {
+            if !defaults.bool(forKey: "logged") {
                 if UIDevice().screenType == .iPhone4 {
                     let loginViewController = self.storyboard?.instantiateViewController(withIdentifier: "LogRegPromptSmall") as! UINavigationController
                     DispatchQueue.main.async {
@@ -320,7 +320,7 @@ class ArtistsTableViewController: UITableViewController, UISearchBarDelegate, UI
         }
 
         unfollow.backgroundColor = UIColor(red: (48/255), green: (156/255), blue: (172/255), alpha: 1)
-        if (artistInfo.followStatus == "0") {
+        if artistInfo.followStatus == "0" {
             unfollow.title = "Follow"
         } else {
             unfollow.title = "Unfollow"

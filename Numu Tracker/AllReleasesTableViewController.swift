@@ -363,7 +363,7 @@ class AllReleasesTableViewController: UITableViewController {
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        if (!defaults.bool(forKey: "logged") && self.tabBarController?.selectedIndex == 1) {
+        if !defaults.bool(forKey: "logged") && self.tabBarController?.selectedIndex == 1 {
             if UIDevice().screenType == .iPhone4 {
                 let loginViewController = storyboard?.instantiateViewController(withIdentifier: "LogRegPromptSmall") as! UINavigationController
                 DispatchQueue.main.async {

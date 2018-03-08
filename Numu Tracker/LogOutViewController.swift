@@ -121,7 +121,7 @@ class LogOutViewController: UIViewController {
     }
 
     @objc func getUserStats() {
-        if (defaults.bool(forKey: "logged")) {
+        if defaults.bool(forKey: "logged") {
             let user = defaults.string(forKey: "username")!
             DispatchQueue.global(qos: .background).async(execute: {
                 let json = SearchClient.sharedClient.getUserStats(username: user)
@@ -134,7 +134,6 @@ class LogOutViewController: UIViewController {
                     self.completionFinalFloat = json["percentage"].double!
 
                     self.startTimer()
-
                 })
 
             })
@@ -184,7 +183,6 @@ class LogOutViewController: UIViewController {
         if increment {
             _ = Timer.scheduledTimer(timeInterval: 0.005, target: self, selector: #selector(startTimer), userInfo: nil, repeats: false)
         }
-
     }
 
     @objc func logOut() {

@@ -155,7 +155,7 @@ class LogRegPromptSmallViewController: UIViewController, UITextFieldDelegate {
         // get width of screen
         let width = self.view.frame.size.width
         var height: CGFloat = 0
-        if (scrollView.restorationIdentifier == "middle") {
+        if scrollView.restorationIdentifier == "middle" {
             height = width / 2
         } else {
             height = width / 3
@@ -229,7 +229,7 @@ class LogRegPromptSmallViewController: UIViewController, UITextFieldDelegate {
 
             //print("Data: Max \(max_offset) and \(offset.x)")
 
-            if (offset.x >= max_offset) {
+            if offset.x >= max_offset {
                 switch (scrollView.restorationIdentifier!) {
                 case "top":
                     self.topScrollDrection = 1
@@ -240,7 +240,7 @@ class LogRegPromptSmallViewController: UIViewController, UITextFieldDelegate {
                 }
             }
 
-            if (offset.x <= 0) {
+            if offset.x <= 0 {
                 switch (scrollView.restorationIdentifier!) {
                 case "top":
                     self.topScrollDrection = 0
@@ -251,15 +251,15 @@ class LogRegPromptSmallViewController: UIViewController, UITextFieldDelegate {
                 }
             }
 
-            switch (scrollView.restorationIdentifier!) {
+            switch scrollView.restorationIdentifier! {
             case "top":
-                if (self.topScrollDrection == 0) {
+                if self.topScrollDrection == 0 {
                     newOffset = offset.x + intervalPixels
                 } else {
                     newOffset = offset.x - intervalPixels
                 }
             case "bottom":
-                if (self.bottomScrollDrection == 0) {
+                if self.bottomScrollDrection == 0 {
                     newOffset = offset.x + intervalPixels
                 } else {
                     newOffset = offset.x - intervalPixels
@@ -314,7 +314,7 @@ class LogRegPromptSmallViewController: UIViewController, UITextFieldDelegate {
         DispatchQueue.global(qos: .background).async(execute: {
             let success = SearchClient.sharedClient.authorizeLogIn(username: username!, password: password!)
             DispatchQueue.main.async(execute: {
-                if (success == "1") {
+                if success == "1" {
                     self.logInLabel.text = "Logged in!"
                     defaults.set(username, forKey: "username")
                     defaults.set(password, forKey: "password")
@@ -348,23 +348,23 @@ class LogRegPromptSmallViewController: UIViewController, UITextFieldDelegate {
         let emailVerify = isValidEmail(testStr: username!)
         var errorText: String = ""
         var errorInt: Bool = false
-        if (password == "") {
+        if password == "" {
             errorText = "Please enter a password."
             errorInt = true
-        } else if (password!.characters.count < 8) {
+        } else if password!.characters.count < 8 {
             errorText = "Password needs to be at least 8 characters."
             errorInt = true
-        } else if (!emailVerify) {
+        } else if !emailVerify {
             errorText = "Please enter a valid email."
             errorInt = true
         }
 
-        if (!errorInt) {
+        if !errorInt {
             // Check credentials...
             DispatchQueue.global(qos: .background).async(execute: {
                 let success = SearchClient.sharedClient.authorizeRegister(username: username!, password: password!)
                 DispatchQueue.main.async(execute: {
-                    if (success == "1") {
+                    if success == "1" {
                         self.signUpLabel.text = "Registration Successful!"
                         defaults.set(username, forKey: "username")
                         defaults.set(password, forKey: "password")

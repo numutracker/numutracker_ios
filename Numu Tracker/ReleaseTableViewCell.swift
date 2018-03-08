@@ -78,7 +78,7 @@ class ReleaseTableViewCell: UITableViewCell {
         listenedIndicatorView.layer.shadowRadius = 4
         listenedIndicatorView.layer.shouldRasterize = true
 
-        if (releaseInfo.listenStatus == "0") {
+        if releaseInfo.listenStatus == "0" {
             listenState = "0"
         } else {
             listenState = "1"

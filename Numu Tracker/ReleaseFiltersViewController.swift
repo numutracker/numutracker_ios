@@ -78,8 +78,7 @@ class ReleaseFiltersViewController: UIViewController {
 
     func loadSettings() {
 
-        if (defaults.bool(forKey: "logged")) {
-
+        if defaults.bool(forKey: "logged") {
             self.albumFilterSwitch.isHidden = true
             self.albumFilterSpinner.startAnimating()
             self.singlesFilterSwitch.isHidden = true

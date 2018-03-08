@@ -77,10 +77,10 @@ class ArtistReleasesTableViewController: UITableViewController {
                     DispatchQueue.global(qos: .background).async(execute: {
                         let success = SearchClient.sharedClient.unfollowArtist(artistMbid: artistId)
                         DispatchQueue.main.async(execute: {
-                            if (success == "1") {
+                            if success == "1" {
                                self.navigationItem.rightBarButtonItem?.title = "Follow"
                                 Answers.logCustomEvent(withName: "Unfol Bar", customAttributes: ["Artist ID":artistId])
-                            } else if (success == "2") {
+                            } else if success == "2" {
                                 self.navigationItem.rightBarButtonItem?.title = "Unfollow"
                                 Answers.logCustomEvent(withName: "Follo Bar", customAttributes: ["Artist ID":artistId])
                             }
@@ -157,7 +157,7 @@ class ArtistReleasesTableViewController: UITableViewController {
 
 
         let listened = UITableViewRowAction(style: .normal, title: "Listened") { action, index in
-            if (!defaults.bool(forKey: "logged")) {
+            if !defaults.bool(forKey: "logged") {
                 if UIDevice().screenType == .iPhone4 {
                     let loginViewController = self.storyboard?.instantiateViewController(withIdentifier: "LogRegPromptSmall") as! UINavigationController
                     DispatchQueue.main.async {
@@ -173,10 +173,10 @@ class ArtistReleasesTableViewController: UITableViewController {
                 DispatchQueue.global(qos: .background).async(execute: {
                     let success = releaseInfo.toggleListenStatus()
                     DispatchQueue.main.async(execute: {
-                        if (success == "1") {
+                        if success == "1" {
                             // remove or add unread marker back in
                             let cell = self.tableView.cellForRow(at: indexPath) as! ArtistReleaseTableViewCell
-                            if (cell.readIndicator.isHidden == true && releaseInfo.listenStatus != "2") {
+                            if cell.readIndicator.isHidden && releaseInfo.listenStatus != "2" {
                                 cell.readIndicator.isHidden = false
                                 cell.listenStatus = "0"
                                 self.releases[(indexPath as NSIndexPath).row].listenStatus = "0"
@@ -195,7 +195,7 @@ class ArtistReleasesTableViewController: UITableViewController {
 
         }
 
-        if (releaseInfo.listenStatus == "1") {
+        if releaseInfo.listenStatus == "1" {
             listened.title = "Didn't Listen"
         }
         listened.backgroundColor = UIColor(red: (48/255), green: (156/255), blue: (172/255), alpha: 1)

@@ -124,7 +124,7 @@ class SettingsTableViewController: UITableViewController {
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 
-        if (segue.identifier == "accountButtonSegue") {
+        if segue.identifier == "accountButtonSegue" {
             //print("Trying to segue...")
         }
 

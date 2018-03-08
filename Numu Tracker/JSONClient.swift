@@ -38,7 +38,7 @@ class JSONClient {
                 }
 
                 do {
-                    if (data != nil) {
+                    if data != nil {
                         _ = try JSONSerialization.jsonObject(with: data!, options: []) as? [String:AnyObject]
                         //print("Result -> \(String(describing: result))")
                         completion("Success")

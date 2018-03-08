@@ -44,8 +44,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     @objc func actOnClosedPrompt() {
-        if ( ( window?.rootViewController as! UITabBarController ).selectedIndex == 1) {
-             ( window?.rootViewController as! UITabBarController ).selectedIndex = 0
+        if (window?.rootViewController as! UITabBarController).selectedIndex == 1 {
+             (window?.rootViewController as! UITabBarController).selectedIndex = 0
         }
     }
 
