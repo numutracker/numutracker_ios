@@ -29,49 +29,50 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         Fabric.with([Crashlytics.self])
 
-        if defaults.bool(forKey: "logged") {
+        if defaults.logged {
 
-            ( window?.rootViewController as! UITabBarController ).selectedIndex = 1
-            if let username = defaults.string(forKey: "username") {
+            (window?.rootViewController as! UITabBarController).selectedIndex = 1
+            if let username = defaults.username {
                 Crashlytics.sharedInstance().setUserEmail(username)
             }
 
             UIApplication.shared.registerForRemoteNotifications()
-
         }
 
-        NotificationCenter.default.addObserver(self, selector: #selector(self.actOnClosedPrompt), name: NSNotification.Name(rawValue: closedLogRegPromptKey), object: nil)
-
-
-
+        NotificationCenter.default.addObserver(self, selector: #selector(self.actOnClosedPrompt), name: .ClosedLogRegPrompt, object: nil)
         return true
     }
 
     @objc func actOnClosedPrompt() {
-        if ( ( window?.rootViewController as! UITabBarController ).selectedIndex == 1) {
-             ( window?.rootViewController as! UITabBarController ).selectedIndex = 0
+        if (window?.rootViewController as! UITabBarController).selectedIndex == 1 {
+             (window?.rootViewController as! UITabBarController).selectedIndex = 0
         }
     }
 
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
 
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
         pusher.nativePusher.register(deviceToken: deviceToken)
-        if let username = defaults.string(forKey: "username") {
-            if defaults.bool(forKey: "newReleased") {
+        if let username = defaults.username {
+            if defaults.newReleased {
                 pusher.nativePusher.subscribe(interestName: "newReleased_" + username)
                 print("Turned on new notifications")
             } else {
                 pusher.nativePusher.unsubscribe(interestName: "newReleased_" + username)
                 print("Turned off new notifications")
             }
-            if defaults.bool(forKey: "newAnnouncements") {
+
+            if defaults.newAnnouncements {
                 pusher.nativePusher.subscribe(interestName: "newAnnouncements_" + username)
                 print("Turned on new music friday notifications")
             } else {
                 pusher.nativePusher.unsubscribe(interestName: "newAnnouncements_" + username)
                 print("Turned off new music friday notifications")
             }
-            if defaults.bool(forKey: "moreReleases") {
+
+            if defaults.moreReleases {
                 pusher.nativePusher.subscribe(interestName: "moreReleases_" + username)
                 print("Turned on more releases notifications")
             } else {

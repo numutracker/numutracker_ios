@@ -18,7 +18,7 @@ class LogRegPromptSmallViewController: UIViewController, UITextFieldDelegate {
     var bottomScrollDrection: Int = 0
 
     @IBAction func closeScreen(_ sender: Any) {
-        NotificationCenter.default.post(name: Notification.Name(rawValue: closedLogRegPromptKey), object: self)
+        NotificationCenter.default.post(name: .ClosedLogRegPrompt, object: self)
         Answers.logCustomEvent(withName: "Dismissed LogRegPrompt", customAttributes: nil)
         self.dismiss(animated: true, completion: nil)
     }
@@ -41,12 +41,12 @@ class LogRegPromptSmallViewController: UIViewController, UITextFieldDelegate {
         var animationDuration = 0.5
 
         // if sign up form is showing, hide it
-        if (signUpFormView.alpha == 1) {
+        if signUpFormView.alpha == 1 {
             self.signUpFormView.alpha = 0
             animationDuration = 0
         }
 
-        if (logInFormView.alpha == 0) {
+        if logInFormView.alpha == 0 {
             UIView.animate(withDuration: animationDuration) {
                 self.logInFormView.alpha = 1
                 self.logInEmailTextField.becomeFirstResponder()
@@ -65,12 +65,12 @@ class LogRegPromptSmallViewController: UIViewController, UITextFieldDelegate {
         var animationDuration = 0.5
 
         // if log in form is showing, hide it
-        if (logInFormView.alpha == 1) {
+        if logInFormView.alpha == 1 {
             self.logInFormView.alpha = 0
             animationDuration = 0
         }
 
-        if (signUpFormView.alpha == 0) {
+        if signUpFormView.alpha == 0 {
             UIView.animate(withDuration: animationDuration) {
                 self.signUpFormView.alpha = 1
                 self.signUpEmailTextField.becomeFirstResponder()
@@ -96,15 +96,11 @@ class LogRegPromptSmallViewController: UIViewController, UITextFieldDelegate {
         signUpFormView.alpha = 0
         logInFormView.alpha = 0
 
-
-
         let width = self.view.frame.size.width
         var height: CGFloat = 0
         var max_length: CGFloat = 0
         height = width / 3
         max_length = height * 15
-
-
 
         self.topScrollView.isScrollEnabled = true
         self.topScrollView.alwaysBounceHorizontal = true
@@ -134,7 +130,7 @@ class LogRegPromptSmallViewController: UIViewController, UITextFieldDelegate {
 
                  self.bottomScrollView.setContentOffset(CGPoint(x:max_length-width,y:0), animated: false)
 
-                _ = Timer.scheduledTimer(timeInterval: 0.025, target: self, selector: #selector(LogRegPromptSmallViewController.autoScroll), userInfo: nil, repeats: true)
+                _ = Timer.scheduledTimer(timeInterval: 0.025, target: self, selector: #selector(self.autoScroll), userInfo: nil, repeats: true)
 
             })
 
@@ -159,7 +155,7 @@ class LogRegPromptSmallViewController: UIViewController, UITextFieldDelegate {
         // get width of screen
         let width = self.view.frame.size.width
         var height: CGFloat = 0
-        if (scrollView.restorationIdentifier == "middle") {
+        if scrollView.restorationIdentifier == "middle" {
             height = width / 2
         } else {
             height = width / 3
@@ -203,7 +199,6 @@ class LogRegPromptSmallViewController: UIViewController, UITextFieldDelegate {
                     xPosition += imageWidth
                     //self.topScrollViewSize += imageWidth
 
-
                 }
             }
 
@@ -234,7 +229,7 @@ class LogRegPromptSmallViewController: UIViewController, UITextFieldDelegate {
 
             //print("Data: Max \(max_offset) and \(offset.x)")
 
-            if (offset.x >= max_offset) {
+            if offset.x >= max_offset {
                 switch (scrollView.restorationIdentifier!) {
                 case "top":
                     self.topScrollDrection = 1
@@ -245,7 +240,7 @@ class LogRegPromptSmallViewController: UIViewController, UITextFieldDelegate {
                 }
             }
 
-            if (offset.x <= 0) {
+            if offset.x <= 0 {
                 switch (scrollView.restorationIdentifier!) {
                 case "top":
                     self.topScrollDrection = 0
@@ -256,15 +251,15 @@ class LogRegPromptSmallViewController: UIViewController, UITextFieldDelegate {
                 }
             }
 
-            switch (scrollView.restorationIdentifier!) {
+            switch scrollView.restorationIdentifier! {
             case "top":
-                if (self.topScrollDrection == 0) {
+                if self.topScrollDrection == 0 {
                     newOffset = offset.x + intervalPixels
                 } else {
                     newOffset = offset.x - intervalPixels
                 }
             case "bottom":
-                if (self.bottomScrollDrection == 0) {
+                if self.bottomScrollDrection == 0 {
                     newOffset = offset.x + intervalPixels
                 } else {
                     newOffset = offset.x - intervalPixels
@@ -284,9 +279,9 @@ class LogRegPromptSmallViewController: UIViewController, UITextFieldDelegate {
     }
 
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        if (textField.returnKeyType == .next) {
+        if textField.returnKeyType == .next {
             print("Next Pressed")
-            if (textField.restorationIdentifier == "signEmail") {
+            if textField.restorationIdentifier == "signEmail" {
                 signUpPasswordTextField.becomeFirstResponder()
             } else {
                 logInPasswordTextField.becomeFirstResponder()
@@ -294,8 +289,8 @@ class LogRegPromptSmallViewController: UIViewController, UITextFieldDelegate {
             return true
         }
 
-        if (textField.returnKeyType == .go) {
-            if (textField.restorationIdentifier == "signPassword") {
+        if textField.returnKeyType == .go {
+            if textField.restorationIdentifier == "signPassword" {
                 print("Sign Go Pressed")
                 return self.goSignUp()
             } else {
@@ -319,13 +314,13 @@ class LogRegPromptSmallViewController: UIViewController, UITextFieldDelegate {
         DispatchQueue.global(qos: .background).async(execute: {
             let success = SearchClient.sharedClient.authorizeLogIn(username: username!, password: password!)
             DispatchQueue.main.async(execute: {
-                if (success == "1") {
+                if success == "1" {
                     self.logInLabel.text = "Logged in!"
-                    defaults.set(username, forKey: "username")
-                    defaults.set(password, forKey: "password")
-                    defaults.set(true, forKey: "logged")
-                    NotificationCenter.default.post(name: Notification.Name(rawValue: loggedInNotificationKey), object: self)
-                    NotificationCenter.default.post(name: Notification.Name(rawValue: updatedArtistsNotificationKey), object: self)
+                    defaults.username = username
+                    defaults.password = password
+                    defaults.logged = true
+                    NotificationCenter.default.post(name: .LoggedIn, object: self)
+                    NotificationCenter.default.post(name: .UpdatedArtists, object: self)
                     self.logInPasswordTextField.resignFirstResponder()
                     Answers.logLogin(withMethod: "LogRegPrompt",success: true,customAttributes: nil)
                     //_ = self.navigationController?.popViewController(animated: true)
@@ -353,29 +348,29 @@ class LogRegPromptSmallViewController: UIViewController, UITextFieldDelegate {
         let emailVerify = isValidEmail(testStr: username!)
         var errorText: String = ""
         var errorInt: Bool = false
-        if (password == "") {
+        if password == "" {
             errorText = "Please enter a password."
             errorInt = true
-        } else if (password!.characters.count < 8) {
+        } else if password!.characters.count < 8 {
             errorText = "Password needs to be at least 8 characters."
             errorInt = true
-        } else if (!emailVerify) {
+        } else if !emailVerify {
             errorText = "Please enter a valid email."
             errorInt = true
         }
 
-        if (!errorInt) {
+        if !errorInt {
             // Check credentials...
             DispatchQueue.global(qos: .background).async(execute: {
                 let success = SearchClient.sharedClient.authorizeRegister(username: username!, password: password!)
                 DispatchQueue.main.async(execute: {
-                    if (success == "1") {
+                    if success == "1" {
                         self.signUpLabel.text = "Registration Successful!"
-                        defaults.set(username, forKey: "username")
-                        defaults.set(password, forKey: "password")
-                        defaults.set(true, forKey: "logged")
-                        NotificationCenter.default.post(name: Notification.Name(rawValue: loggedInNotificationKey), object: self)
-                        NotificationCenter.default.post(name: Notification.Name(rawValue: updatedArtistsNotificationKey), object: self)
+                        defaults.username = username
+                        defaults.password = password
+                        defaults.logged = true
+                        NotificationCenter.default.post(name: .LoggedIn, object: self)
+                        NotificationCenter.default.post(name: .UpdatedArtists, object: self)
                         self.signUpPasswordTextField.resignFirstResponder()
                         //_ = self.navigationController?.popViewController(animated: true)
                         Answers.logSignUp(withMethod: "LogRegPrompt", success: true, customAttributes: nil)

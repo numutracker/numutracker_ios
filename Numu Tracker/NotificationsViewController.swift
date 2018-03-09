@@ -44,42 +44,15 @@ class NotificationsViewController: UIViewController {
         let center = UNUserNotificationCenter.current()
         center.requestAuthorization(options: [.alert, .sound]) { (granted, error) in
             // actions based on whether notifications were authorized or not
-            if (granted) {
-                switch type {
-                case "newReleased":
-                    // Turn on new releases in user defaults
-                    if (state) {
-                        defaults.set(true, forKey: "newReleased")
-                    } else {
-                        defaults.set(false, forKey: "newReleased")
-                    }
-                case "newAnnouncements":
-                    // turn on release days...
-                    if (state) {
-                        defaults.set(true, forKey: "newAnnouncements")
-                    } else {
-                        defaults.set(false, forKey: "newAnnouncements")
-                    }
-                case "moreReleases":
-                    // turn on release days...
-                    if (state) {
-                        defaults.set(true, forKey: "moreReleases")
-                    } else {
-                        defaults.set(false, forKey: "moreReleases")
-                    }
+            guard granted else { return }
+            defaults.set(state, forKey: type)
 
-                default:
-                    break
-                }
-                DispatchQueue.main.async(execute: {
-                    UIApplication.shared.registerForRemoteNotifications()
-                })
-            }
+            DispatchQueue.main.async(execute: {
+                UIApplication.shared.registerForRemoteNotifications()
+            })
+
         }
     }
-
-
-
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -95,13 +68,13 @@ class NotificationsViewController: UIViewController {
         oneYearButtonView.layer.cornerRadius = 10.0
         oneYearButtonView.clipsToBounds = true
 
-        oneYearLineView.layer.shadowColor = UIColor(red: (28/255), green: (202/255), blue: (241/255), alpha: 1).cgColor
+        oneYearLineView.layer.shadowColor = UIColor.shadow.cgColor
         oneYearLineView.layer.shadowOpacity = 0.9
         oneYearLineView.layer.shadowOffset = CGSize.zero
         oneYearLineView.layer.shadowRadius = 4
         oneYearLineView.layer.shouldRasterize = true
 
-        thirtyDaysLineView.layer.shadowColor = UIColor(red: (28/255), green: (202/255), blue: (241/255), alpha: 1).cgColor
+        thirtyDaysLineView.layer.shadowColor = UIColor.shadow.cgColor
         thirtyDaysLineView.layer.shadowOpacity = 0.9
         thirtyDaysLineView.layer.shadowOffset = CGSize.zero
         thirtyDaysLineView.layer.shadowRadius = 4
@@ -122,37 +95,32 @@ class NotificationsViewController: UIViewController {
 
             */
 
-        NotificationCenter.default.addObserver(self, selector: #selector(self.updateSubLabel), name: NSNotification.Name(rawValue: loggedInNotificationKey), object: nil)
-
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(self.updateSubLabel),
+                                               name: .LoggedIn,
+                                               object: nil)
 
         // Do any additional setup after loading the view.
 
+         if defaults.logged {
 
-         if (defaults.bool(forKey: "logged")) {
-
-            if defaults.bool(forKey: "newReleased") {
+            if defaults.newReleased {
                 self.newReleased.isOn = true
                 self.notificationsSwitch(state: true, type: "newReleased")
             }
-            if defaults.bool(forKey: "newAnnouncements") {
+            if defaults.newAnnouncements {
                 self.newAnnouncements.isOn = true
                 self.notificationsSwitch(state: true, type: "newAnnouncements")
             }
-            if defaults.bool(forKey: "moreReleases") {
+            if defaults.moreReleases {
                 self.moreReleases.isOn = true
                 self.notificationsSwitch(state: true, type: "moreReleases")
             }
-
         } else {
-
             self.newReleased.isEnabled = false
             self.newAnnouncements.isEnabled = false
             self.moreReleases.isEnabled = false
-
         }
-
-
-
 
         Answers.logCustomEvent(withName: "Notification Screen", customAttributes: nil)
 
@@ -194,6 +162,10 @@ class NotificationsViewController: UIViewController {
 
     }
 
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -208,7 +180,7 @@ class NotificationsViewController: UIViewController {
         } else if gesture.state == .ended { // optional for touch up event catching
             //print("Touch Up Thirty Days")
             thirtyDaysButtonView.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.2)
-            if (!defaults.bool(forKey: "logged")) {
+            if (!defaults.logged) {
                 if (UIDevice().screenType == UIDevice.ScreenType.iPhone4) {
                     let loginViewController = self.storyboard?.instantiateViewController(withIdentifier: "LogRegPromptSmall") as! UINavigationController
                     DispatchQueue.main.async {
@@ -227,7 +199,7 @@ class NotificationsViewController: UIViewController {
                     case .success(let product):
                         // fetch content from your server, then:
                         DispatchQueue.global(qos: .background).async(execute: {
-                            let success = JSONClient.sharedClient.processPurchase(username: defaults.string(forKey: "username")!, password: defaults.string(forKey: "password")!, purchased: product.productId)
+                            let success = JSONClient.sharedClient.processPurchase(username: defaults.username!, password: defaults.password!, purchased: product.productId)
                             DispatchQueue.main.async(execute: {
                                 if (success == "1") {
                                     if product.needsFinishTransaction {
@@ -267,7 +239,7 @@ class NotificationsViewController: UIViewController {
         } else if gesture.state == .ended { // optional for touch up event catching
             //print("Touch Up One Year")
             oneYearButtonView.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.2)
-            if (!defaults.bool(forKey: "logged")) {
+            if (!defaults.logged) {
                 if (UIDevice().screenType == UIDevice.ScreenType.iPhone4) {
                     let loginViewController = self.storyboard?.instantiateViewController(withIdentifier: "LogRegPromptSmall") as! UINavigationController
                     DispatchQueue.main.async {
@@ -286,7 +258,7 @@ class NotificationsViewController: UIViewController {
                     case .success(let product):
                         // fetch content from your server, then:
                         DispatchQueue.global(qos: .background).async(execute: {
-                            let success = JSONClient.sharedClient.processPurchase(username: defaults.string(forKey: "username")!, password: defaults.string(forKey: "password")!, purchased: product.productId)
+                            let success = JSONClient.sharedClient.processPurchase(username: defaults.username!, password: defaults.password!, purchased: product.productId)
 
                             DispatchQueue.main.async(execute: {
                                 if (success == "1") {
@@ -319,17 +291,16 @@ class NotificationsViewController: UIViewController {
     }
     */
     @objc func updateSubLabel() {
-        if (defaults.bool(forKey: "logged")) {
-
-            if defaults.bool(forKey: "newReleased") {
+        if defaults.logged {
+            if defaults.newReleased {
                 self.newReleased.isOn = true
                 self.notificationsSwitch(state: true, type: "newReleased")
             }
-            if defaults.bool(forKey: "newAnnouncements") {
+            if defaults.newAnnouncements {
                 self.newAnnouncements.isOn = true
                 self.notificationsSwitch(state: true, type: "newAnnouncements")
             }
-            if defaults.bool(forKey: "moreReleases") {
+            if defaults.moreReleases {
                 self.moreReleases.isOn = true
                 self.notificationsSwitch(state: true, type: "moreReleases")
             }
@@ -342,9 +313,9 @@ class NotificationsViewController: UIViewController {
 
         }
         /*
-        if (defaults.bool(forKey: "logged"))  {
+        if (defaults.logged)  {
         DispatchQueue.global(qos: .background).async(execute: {
-        let sub_status = JSONClient.sharedClient.getSubStatus(username: defaults.string(forKey: "username")!, password: defaults.string(forKey: "password")!)
+        let sub_status = JSONClient.sharedClient.getSubStatus(username: defaults.username!, password: defaults.password!)
             DispatchQueue.main.async(execute: {
                 if (sub_status[0] == "0") {
                     self.notificationStatusLabel.text = "You are not subscribed. Add time below."
@@ -364,15 +335,15 @@ class NotificationsViewController: UIViewController {
                     self.newReleased.isEnabled = true
                     self.newAnnouncements.isEnabled = true
                     self.moreReleases.isEnabled = true
-                    if defaults.bool(forKey: "newReleased") {
+                    if defaults.newReleased {
                         self.newReleased.isOn = true
                         self.notificationsSwitch(state: true, type: "newReleased")
                     }
-                    if defaults.bool(forKey: "newAnnouncements") {
+                    if defaults.newAnnouncements {
                         self.newAnnouncements.isOn = true
                         self.notificationsSwitch(state: true, type: "newAnnouncements")
                     }
-                    if defaults.bool(forKey: "moreReleases") {
+                    if defaults.moreReleases {
                         self.moreReleases.isOn = true
                         self.notificationsSwitch(state: true, type: "moreReleases")
                     }

@@ -10,10 +10,88 @@ import UIKit
 import Crashlytics
 
 let defaults = UserDefaults.standard
-let loggedInNotificationKey = "com.numutracker.loggedIn"
-let loggedOutNotificationKey = "com.numutracker.loggedOut"
-let updatedArtistsNotificationKey = "com.numutracker.artistsImported"
-let closedLogRegPromptKey = "com.numutracker.closedLogRegPrompt"
+
+extension String {
+    static let logged = "logged"
+    static let newReleased = "newReleased"
+    static let newAnnouncements = "newAnnouncements"
+    static let moreReleases = "moreReleases"
+    static let username = "username"
+    static let password = "password"
+}
+
+extension UserDefaults {
+    var logged: Bool {
+        get {
+            return bool(forKey: .logged)
+        }
+        set {
+            set(newValue, forKey: .logged)
+        }
+    }
+
+    var newReleased: Bool {
+        get {
+            return bool(forKey: .newReleased)
+        }
+        set {
+            set(newValue, forKey: .newReleased)
+        }
+    }
+
+    var newAnnouncements: Bool {
+        get {
+            return bool(forKey: .newAnnouncements)
+        }
+        set {
+            set(newValue, forKey: .newAnnouncements)
+        }
+    }
+
+    var moreReleases: Bool {
+        get {
+            return bool(forKey: .moreReleases)
+        }
+        set {
+            set(newValue, forKey: .moreReleases)
+        }
+    }
+
+    var username: String? {
+        get {
+            return string(forKey: .username)
+        }
+        set {
+            if let v = newValue {
+                set(v, forKey: .username)
+            }
+            else {
+                removeObject(forKey: .username)
+            }
+        }
+    }
+
+    var password: String? {
+        get {
+            return string(forKey: .password)
+        }
+        set {
+            if let v = newValue {
+                set(v, forKey: .password)
+            }
+            else {
+                removeObject(forKey: .password)
+            }
+        }
+    }
+}
+
+extension Notification.Name {
+    static let LoggedIn = Notification.Name(rawValue: "com.numutracker.loggedIn")
+    static let LoggedOut = Notification.Name(rawValue: "com.numutracker.loggedOut")
+    static let UpdatedArtists = Notification.Name(rawValue: "com.numutracker.artistsImported")
+    static let ClosedLogRegPrompt = Notification.Name(rawValue: "com.numutracker.closedLogRegPrompt")
+}
 
 
 class AllReleasesTableViewController: UITableViewController {
@@ -25,13 +103,13 @@ class AllReleasesTableViewController: UITableViewController {
     var viewName: String = ""
     var releaseData: ReleaseData! {
         didSet {
-            if (releaseData.totalPages == "0") {
+            if releaseData.totalPages == "0" {
                 DispatchQueue.main.async(execute: {
                     self.tableView.tableHeaderView = self.noResultsFooterView
                     self.tableView.tableFooterView = UIView()
-                    if (self.slideType == 3) {
+                    if self.slideType == 3 {
                         self.noResultsLabel.text = "After you've followed some artists, any releases (upcoming or past) added to the system will show up here.\n\nCheck back later."
-                    } else if (self.slideType == 2) {
+                    } else if self.slideType == 2 {
                         self.noResultsLabel.text = "Any upcoming releases will appear here."
                     } else {
                         self.noResultsLabel.text = "No results.\n\nHave you followed some artists?\n\nPull to refresh when you have."
@@ -41,7 +119,6 @@ class AllReleasesTableViewController: UITableViewController {
                 DispatchQueue.main.async(execute: {
                     self.tableView.tableHeaderView = nil
                 })
-
             }
         }
     }
@@ -83,37 +160,28 @@ class AllReleasesTableViewController: UITableViewController {
         }
         self.isLoading = false
 
-        switch self.viewType {
-            case 0:
-                switch self.slideType {
-                case 0:
-                     self.viewName = "All Unlistened"
-                case 1:
-                    self.viewName = "All Released"
-                case 2:
-                    self.viewName = "All Upcoming"
-                default:
-                    self.viewName = "Error"
-            }
-            case 1:
-                switch (self.slideType) {
-                case 0:
-                    self.viewName = "Your Unlistened"
-                case 1:
-                    self.viewName = "Your Released"
-                case 2:
-                    self.viewName = "Your Upcoming"
-                case 3:
-                    self.viewName = "Your Fresh"
-                default:
-                   self.viewName = "Error"
-                }
-            default:
-                self.viewName = "Error"
+        switch (self.viewType, self.slideType) {
+        case (0, 0):
+            self.viewName = "All Unlistened"
+        case (0, 1):
+            self.viewName = "All Released"
+        case (0, 2):
+            self.viewName = "All Upcoming"
+        case (0, 3):
+            self.viewName = "Error"
+        case (1, 0):
+            self.viewName = "Your Unlistened"
+        case (1, 1):
+            self.viewName = "Your Released"
+        case (1, 2):
+            self.viewName = "Your Upcoming"
+        case (1, 3):
+            self.viewName = "Your Fresh"
+        default:
+            self.viewName = "Error"
         }
 
         Answers.logCustomEvent(withName: self.viewName, customAttributes: nil)
-
     }
 
     func loadMoreReleases() {
@@ -133,12 +201,12 @@ class AllReleasesTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        if (defaults.string(forKey: "username") == nil) {
-            defaults.set(false, forKey: "logged")
+        if defaults.username == nil {
+            defaults.logged = false
         }
 
 
-        if (self.tabBarController?.selectedIndex == 0) {
+        if self.tabBarController?.selectedIndex == 0 {
             viewType = 0
             self.title = "All Releases"
         } else {
@@ -148,11 +216,17 @@ class AllReleasesTableViewController: UITableViewController {
             self.releasesSegmentedControl.insertSegment(withTitle: "Fresh", at: 3, animated: false)
         }
 
-        NotificationCenter.default.addObserver(self, selector: #selector(actOnLoggedInNotification), name: NSNotification.Name(rawValue: loggedInNotificationKey), object: nil)
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(actOnLoggedInNotification),
+                                               name: .LoggedIn,
+                                               object: nil)
 
-        NotificationCenter.default.addObserver(self, selector: #selector(actOnLoggedOutNotification), name: NSNotification.Name(rawValue: loggedOutNotificationKey), object: nil)
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(actOnLoggedOutNotification),
+                                               name: .LoggedOut,
+                                               object: nil)
 
-        self.refreshControl?.addTarget(self, action: #selector(handleRefresh(refreshControl:)), for: .valueChanged)
+        self.refreshControl?.addTarget(self, action: #selector(handleRefresh), for: .valueChanged)
 
         // Load initial batch of releases...
         self.tableView.tableFooterView = self.footerView
@@ -170,6 +244,10 @@ class AllReleasesTableViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+    }
+
+    deinit {
+        NotificationCenter.default.removeObserver(self)
     }
 
     override func didReceiveMemoryWarning() {
@@ -198,9 +276,7 @@ class AllReleasesTableViewController: UITableViewController {
         let releaseInfo = releases[indexPath.row]
         cell.configure(releaseInfo: releaseInfo)
 
-
         //cell.selectionStyle = .none
-
 
         // Image loading.
         cell.artIndicator.startAnimating()
@@ -227,10 +303,10 @@ class AllReleasesTableViewController: UITableViewController {
 
         let rowsToLoadFromBottom = 20
 
-        if (!self.isLoading && indexPath.row >= (releases.count - rowsToLoadFromBottom)) {
+        if !self.isLoading && indexPath.row >= (releases.count - rowsToLoadFromBottom) {
             let currentPage = Int(releaseData.currentPage)!
             let totalPages = Int(releaseData.totalPages)!
-            if (currentPage < totalPages) {
+            if currentPage < totalPages {
                 //print("load more")
                 self.tableView.tableFooterView = self.footerView
                 DispatchQueue.global(qos: .background).async(execute: {
@@ -243,10 +319,8 @@ class AllReleasesTableViewController: UITableViewController {
             }
         }
 
-
         return cell
     }
-
 
     @objc func handleRefresh(refreshControl: UIRefreshControl) {
         releases.removeAll()
@@ -262,12 +336,12 @@ class AllReleasesTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
 
-        let releaseInfo = self.releases[(indexPath as NSIndexPath).row]
+        let releaseInfo = self.releases[indexPath.row]
 
 
         let listened = UITableViewRowAction(style: .normal, title: "Listened") { action, index in
-            if (!defaults.bool(forKey: "logged")) {
-                if (UIDevice().screenType == UIDevice.ScreenType.iPhone4) {
+            if !defaults.logged {
+                if UIDevice().screenType == .iPhone4 {
                     let loginViewController = self.storyboard?.instantiateViewController(withIdentifier: "LogRegPromptSmall") as! UINavigationController
                     DispatchQueue.main.async {
                         self.present(loginViewController, animated: true, completion: nil)
@@ -282,15 +356,15 @@ class AllReleasesTableViewController: UITableViewController {
                 DispatchQueue.global(qos: .background).async(execute: {
                     let success = releaseInfo.toggleListenStatus()
                     DispatchQueue.main.async(execute: {
-                        if (success == "1") {
+                        if success == "1" {
                             // remove or add unread marker back in
                             let cell = self.tableView.cellForRow(at: indexPath) as! ReleaseTableViewCell
-                            if (self.releases[indexPath.row].listenStatus == "0") {
-                                self.releases[(indexPath as NSIndexPath).row].listenStatus = "1"
+                            if self.releases[indexPath.row].listenStatus == "0" {
+                                self.releases[indexPath.row].listenStatus = "1"
                                 cell.listenedIndicatorView.isHidden = true
                                 Answers.logCustomEvent(withName: "Listened", customAttributes: ["Release ID":releaseInfo.releaseId])
                             } else {
-                                self.releases[(indexPath as NSIndexPath).row].listenStatus = "0"
+                                self.releases[indexPath.row].listenStatus = "0"
                                 cell.listenedIndicatorView.isHidden = false
                                  Answers.logCustomEvent(withName: "Unlistened", customAttributes: ["Release ID":releaseInfo.releaseId])
                             }
@@ -302,10 +376,10 @@ class AllReleasesTableViewController: UITableViewController {
             }
         }
 
-        if (releaseInfo.listenStatus == "1") {
+        if releaseInfo.listenStatus == "1" {
             listened.title = "Didn't Listen"
         }
-        listened.backgroundColor = UIColor(red: (48/255), green: (156/255), blue: (172/255), alpha: 1)
+        listened.backgroundColor = .bg
 
         return [listened]
 
@@ -356,22 +430,15 @@ class AllReleasesTableViewController: UITableViewController {
         for cell in tableView.visibleCells as! [ReleaseTableViewCell] {
             cell.watchFrameChanges()
         }
-
     }
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        if (!defaults.bool(forKey: "logged") && self.tabBarController?.selectedIndex == 1) {
-            if (UIDevice().screenType == UIDevice.ScreenType.iPhone4) {
-                let loginViewController = storyboard?.instantiateViewController(withIdentifier: "LogRegPromptSmall") as! UINavigationController
-                DispatchQueue.main.async {
-                    self.present(loginViewController, animated: true, completion: nil)
-                }
-            } else {
-                let loginViewController = storyboard?.instantiateViewController(withIdentifier: "LogRegPrompt") as! UINavigationController
-                DispatchQueue.main.async {
-                    self.present(loginViewController, animated: true, completion: nil)
-                }
+        if !defaults.logged && self.tabBarController?.selectedIndex == 1 {
+            let controller = UIDevice().screenType == .iPhone4 ? "LogRegPromptSmall" : "LogRegPrompt"
+            let loginViewController = storyboard?.instantiateViewController(withIdentifier: controller) as! UINavigationController
+            DispatchQueue.main.async {
+                self.present(loginViewController, animated: true, completion: nil)
             }
         }
     }
@@ -459,7 +526,4 @@ class AllReleasesTableViewController: UITableViewController {
             })
         })
     }
-
-
-
 }

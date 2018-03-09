@@ -20,13 +20,12 @@ struct ReleaseData {
             let totalPages = json["total_pages"].string,
             let totalResults = json["total_results"].string,
             let results = json["results"].array else {
-            return nil
+                return nil
         }
 
         self.currentPage = currentPage
         self.totalPages = totalPages
         self.totalResults = totalResults
-
         self.results = results.flatMap { ReleaseItem(json: $0) }
     }
 }

@@ -9,144 +9,73 @@
 import Foundation
 import SwiftyJSON
 
+extension ReleaseItem : JSONCodable { }
+extension ArtistItem: JSONCodable { }
+
+extension Array where Element : JSONCodable {
+    init(from url: String) {
+        if let url = URL(string: url),
+            let data = try? Data(contentsOf: url),
+            let json = try? JSON(data: data),
+            let arr = json.array  {
+            self = arr.flatMap { Element(json: $0) }
+        }
+        else {
+            self = []
+        }
+    }
+}
+
 class SearchClient {
 
     static let sharedClient = SearchClient()
 
     func getUserArtists(sortBy: String, completion: @escaping ([ArtistItem]) -> ()) {
-        if (defaults.bool(forKey: "logged")) {
-            let username = defaults.string(forKey: "username")
+        if defaults.logged {
+            let username = defaults.username
             let urlString = "https://www.numutracker.com/v2/json.php?artists=" + username! + "&sortby=" + sortBy
-            var artists: [ArtistItem] = []
+
             //print(urlString)
-            if let url = URL(string: urlString) {
-                if let data = try? Data(contentsOf: url) {
-                    if let json = try? JSON(data: data) {
-                        if let artists_found = json.array {
-                            for artist in artists_found {
-                                if let artistFound = ArtistItem(json: artist) {
-                                    artists.append(artistFound)
-                                }
-                            }
-                            completion(artists)
-                        }
-                    }
-                }
-            }
+            completion(.init(from: urlString))
         }
     }
 
     func getArtistSearch(search: String, completion: @escaping ([ArtistItem]) -> ()) {
-        if (defaults.bool(forKey: "logged")) {
-            let username = defaults.string(forKey: "username")
+        if defaults.logged {
+            let username = defaults.username
             let var_search = search.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
             let urlString = "https://www.numutracker.com/v2/json.php?artist_search=" + username! + "&search=" + var_search!
-            var artists: [ArtistItem] = []
-            //print(urlString)
-            if let url = URL(string: urlString) {
-                if let data = try? Data(contentsOf: url) {
-                    if let json = try? JSON(data: data) {
-                        if let artists_found = json.array {
-                            for artist in artists_found {
-                                if let artistFound = ArtistItem(json: artist) {
-                                    artists.append(artistFound)
-                                }
-                            }
-                            completion(artists)
-                        }
-                    }
-                }
-            }
+            completion(.init(from: urlString))
+
         } else {
             let var_search = search.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
             let urlString = "https://www.numutracker.com/v2/json.php?artist_search=0&search=" + var_search!
-            var artists: [ArtistItem] = []
-            //print(urlString)
-            if let url = URL(string: urlString) {
-                if let data = try? Data(contentsOf: url) {
-                    if let json = try? JSON(data: data) {
-                        if let artists_found = json.array {
-                            for artist in artists_found {
-                                if let artistFound = ArtistItem(json: artist) {
-                                    artists.append(artistFound)
-                                }
-                            }
-                            completion(artists)
-                        }
-                    }
-                }
-            }
+            completion(.init(from: urlString))
         }
     }
 
     func getSingleArtistItem(search: String, completion: @escaping ([ArtistItem]) -> ()) {
-        if (defaults.bool(forKey: "logged")) {
-            let username = defaults.string(forKey: "username")
+        if defaults.logged {
+            let username = defaults.username
             let urlString = "https://www.numutracker.com/v2/json.php?single_artist=" + username! + "&search=" + search
-            var artists: [ArtistItem] = []
-            //print(urlString)
-            if let url = URL(string: urlString) {
-                if let data = try? Data(contentsOf: url) {
-                    if let json = try? JSON(data: data) {
-                        if let artists_found = json.array {
-                            for artist in artists_found {
-                                if let artistFound = ArtistItem(json: artist) {
-                                    artists.append(artistFound)
-                                }
-                            }
-                            completion(artists)
-                        }
-                    }
-                }
-            }
+            completion(.init(from: urlString))
         }
     }
 
 
     func getArtistReleases(artist: String, completion: @escaping ([ReleaseItem]) -> ()) {
         // Let's try swifty json...
-        if (defaults.bool(forKey: "logged")) {
-            let username = defaults.string(forKey: "username")
+        if defaults.logged {
+            let username = defaults.username
             var urlString = "https://www.numutracker.com/v2/json.php?user=" + username!
             let urlString2 = "&rel_mode=artist&artist=\(artist)"
             urlString = urlString + urlString2
             //print(urlString)
-            var releases: [ReleaseItem] = []
-
-            if let url = URL(string: urlString) {
-                if let data = try? Data(contentsOf: url) {
-                    if let json = try? JSON(data: data) {
-                        if let release_groups = json.array {
-                            for release in release_groups {
-                                if let releaseFound = ReleaseItem(json: release) {
-                                    releases.append(releaseFound)
-                                }
-                            }
-                            completion(releases)
-                        }
-                    }
-                }
-            }
+            completion(.init(from: urlString))
         } else {
 
             let urlString = "https://www.numutracker.com/v2/json.php?user=0&rel_mode=artist&artist=\(artist)"
-            //print(urlString)
-            var releases: [ReleaseItem] = []
-
-            if let url = URL(string: urlString) {
-                if let data = try? Data(contentsOf: url) {
-                    if let json = try? JSON(data: data) {
-                        if let release_groups = json.array {
-                            for release in release_groups {
-                                if let releaseFound = ReleaseItem(json: release) {
-                                    releases.append(releaseFound)
-                                }
-                            }
-                            completion(releases)
-                        }
-                    }
-                }
-            }
+            completion(.init(from: urlString))
 
         }
     }
@@ -208,9 +137,9 @@ class SearchClient {
 
     func toggleListenState(releaseId: String) -> String {
 
-        if (defaults.bool(forKey: "logged")) {
-            let username = defaults.string(forKey: "username")
-            let password = defaults.string(forKey: "password")
+        if defaults.logged {
+            let username = defaults.username
+            let password = defaults.password
             let escapedString = username!.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)
             let urlString = "https://" + escapedString! + ":" + password!
             let urlString2 = "@www.numutracker.com/v2/json.php?listen=" + releaseId
@@ -233,9 +162,9 @@ class SearchClient {
 
     func toggleFilter(filter: String) -> String {
 
-        if (defaults.bool(forKey: "logged")) {
-            let username = defaults.string(forKey: "username")
-            let password = defaults.string(forKey: "password")
+        if defaults.logged {
+            let username = defaults.username
+            let password = defaults.password
             let escapedString = username!.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)
             let urlString = "https://" + escapedString! + ":" + password!
             let urlString2 = "@www.numutracker.com/v2/json.php?filter=" + filter
@@ -257,9 +186,9 @@ class SearchClient {
 
     func unfollowArtist(artistMbid: String) -> String {
 
-        if (defaults.bool(forKey: "logged")) {
-            let username = defaults.string(forKey: "username")
-            let password = defaults.string(forKey: "password")
+        if defaults.logged {
+            let username = defaults.username
+            let password = defaults.password
             let escapedString = username!.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)
             let urlString = "https://" + escapedString! + ":" + password!
             let urlString2 = "@www.numutracker.com/v2/json.php?unfollow=" + artistMbid
@@ -282,9 +211,9 @@ class SearchClient {
 
     func followArtist(artistMbid: String) -> String {
 
-        if (defaults.bool(forKey: "logged")) {
-            let username = defaults.string(forKey: "username")
-            let password = defaults.string(forKey: "password")
+        if defaults.logged {
+            let username = defaults.username
+            let password = defaults.password
             let escapedString = username!.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)
             let urlString = "https://" + escapedString! + ":" + password!
             let urlString2 = "@www.numutracker.com/v2/json.php?follow=" + artistMbid
@@ -306,9 +235,9 @@ class SearchClient {
 
     func getUserFilters(username: String) -> JSON {
 
-        if (defaults.bool(forKey: "logged")) {
-            let username = defaults.string(forKey: "username")
-            let password = defaults.string(forKey: "password")
+        if defaults.logged {
+            let username = defaults.username
+            let password = defaults.password
             let escapedString = username!.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)
             let urlString = "https://" + escapedString! + ":" + password!
             let urlString2 = "@www.numutracker.com/v2/json.php?filters"
@@ -329,9 +258,9 @@ class SearchClient {
 
     func getUserStats(username: String) -> JSON {
 
-        if (defaults.bool(forKey: "logged")) {
-            let username = defaults.string(forKey: "username")
-            let password = defaults.string(forKey: "password")
+        if defaults.logged {
+            let username = defaults.username
+            let password = defaults.password
             let escapedString = username!.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)
             let urlString = "https://" + escapedString! + ":" + password!
             let urlString2 = "@www.numutracker.com/v2/json.php?stats"
@@ -341,7 +270,7 @@ class SearchClient {
             if let url = URL(string: urlString + urlString2) {
                 if let data = try? Data(contentsOf: url) {
                     if let json = try? JSON(data: data) {
-                        return json;
+                        return json
                     }
                 }
             }
@@ -356,11 +285,10 @@ class SearchClient {
         let task = URLSession.shared
             .dataTask(with: request as URLRequest) {
                 (data, response, error) -> Void in
-                if (error != nil) {
+                if error != nil {
                     callback("", error?.localizedDescription)
                 } else {
-                    callback(NSString(data: data!,
-                                      encoding: String.Encoding.utf8.rawValue)! as String, nil)
+                    callback(String(data: data!, encoding: .utf8)!, nil)
                 }
         }
 
@@ -370,7 +298,7 @@ class SearchClient {
     func HTTPPostJSON(url: String,  data: NSData,
     callback: @escaping (String, String?) -> Void) {
 
-        let request = NSMutableURLRequest(url: NSURL(string: url)! as URL)
+        let request = NSMutableURLRequest(url: URL(string: url)!)
 
         request.httpMethod = "POST"
         request.addValue("application/json",forHTTPHeaderField: "Content-Type")

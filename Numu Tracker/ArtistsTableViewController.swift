@@ -11,8 +11,6 @@ import Crashlytics
 
 class ArtistsTableViewController: UITableViewController, UISearchBarDelegate, UISearchResultsUpdating {
 
-
-
     var artists: [ArtistItem] = []
     var sortMethod: String = "date"
     var screenType: String = "yours"
@@ -110,7 +108,10 @@ class ArtistsTableViewController: UITableViewController, UISearchBarDelegate, UI
             })
         })
 
-        NotificationCenter.default.addObserver(self, selector: #selector(ArtistsTableViewController.actOnImportNotification), name: NSNotification.Name(rawValue: updatedArtistsNotificationKey), object: nil)
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(actOnImportNotification),
+                                               name: .UpdatedArtists,
+                                               object: nil)
 
         self.tableView.addSubview(self.artistRefreshControl)
 
@@ -121,6 +122,10 @@ class ArtistsTableViewController: UITableViewController, UISearchBarDelegate, UI
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+    }
+
+    deinit {
+        NotificationCenter.default.removeObserver(self)
     }
 
     override func viewWillDisappear(_ animated: Bool) {
@@ -175,7 +180,7 @@ class ArtistsTableViewController: UITableViewController, UISearchBarDelegate, UI
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        /* if (!defaults.bool(forKey: "logged")) {
+        /* if (!defaults.logged) {
             let loginViewController = storyboard?.instantiateViewController(withIdentifier: "LogRegPrompt") as! UINavigationController
             DispatchQueue.main.async {
                 self.present(loginViewController, animated: true, completion: nil)
@@ -197,10 +202,8 @@ class ArtistsTableViewController: UITableViewController, UISearchBarDelegate, UI
     }
 
     func updateSearchResults(for searchController: UISearchController) {
-
-            NSObject.cancelPreviousPerformRequests(withTarget: self, selector: #selector(self.reload), object: nil)
-            self.perform(#selector(self.reload), with: nil, afterDelay: 1)
-
+        NSObject.cancelPreviousPerformRequests(withTarget: self, selector: #selector(self.reload), object: nil)
+        self.perform(#selector(self.reload), with: nil, afterDelay: 1)
     }
 
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
@@ -234,16 +237,12 @@ class ArtistsTableViewController: UITableViewController, UISearchBarDelegate, UI
                 })
             })
         }
-
     }
-
-
-
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "artistInfoCell", for: indexPath)  as! ArtistTableViewCell
         // Configure the cell...
-        let artistInfo = artists[(indexPath as NSIndexPath).row]
+        let artistInfo = artists[indexPath.row]
         cell.configure(artistInfo: artistInfo)
         cell.albumActivityIndicator.startAnimating()
         cell.thumbUrl = artistInfo.thumbUrl // For recycled cells' late image loads.
@@ -281,8 +280,8 @@ class ArtistsTableViewController: UITableViewController, UISearchBarDelegate, UI
         var artistInfo = artists[indexPath.row]
 
         let unfollow = UITableViewRowAction(style: .normal, title: "Error") { action, index in
-            if (!defaults.bool(forKey: "logged")) {
-                if (UIDevice().screenType == UIDevice.ScreenType.iPhone4) {
+            if !defaults.logged {
+                if UIDevice().screenType == .iPhone4 {
                     let loginViewController = self.storyboard?.instantiateViewController(withIdentifier: "LogRegPromptSmall") as! UINavigationController
                     DispatchQueue.main.async {
                         self.present(loginViewController, animated: true, completion: nil)
@@ -297,15 +296,15 @@ class ArtistsTableViewController: UITableViewController, UISearchBarDelegate, UI
                 DispatchQueue.global(qos: .background).async(execute: {
                     let success = artistInfo.unfollowArtist()
                     DispatchQueue.main.async(execute: {
-                        if (success == "1") {
+                        if success == "1" {
                             artistInfo.followStatus = "0"
                             //self.artists.remove(at: indexPath.row)
                             //tableView.deleteRows(at: [indexPath], with: .automatic)
-                            self.artists[(indexPath as NSIndexPath).row].followStatus = "0"
+                            self.artists[indexPath.row].followStatus = "0"
                             Answers.logCustomEvent(withName: "Unfol Swipe", customAttributes: ["Artist ID":artistInfo.artistId])
-                        } else if (success == "2") {
+                        } else if success == "2" {
                             artistInfo.followStatus = "1"
-                            self.artists[(indexPath as NSIndexPath).row].followStatus = "1"
+                            self.artists[indexPath.row].followStatus = "1"
                             Answers.logCustomEvent(withName: "Follo Swipe", customAttributes: ["Artist ID":artistInfo.artistId])
                         }
                          tableView.setEditing(false, animated: true)
@@ -314,18 +313,15 @@ class ArtistsTableViewController: UITableViewController, UISearchBarDelegate, UI
             }
         }
 
-        unfollow.backgroundColor = UIColor(red: (48/255), green: (156/255), blue: (172/255), alpha: 1)
-        if (artistInfo.followStatus == "0") {
+        unfollow.backgroundColor = .bg
+        if artistInfo.followStatus == "0" {
             unfollow.title = "Follow"
         } else {
             unfollow.title = "Unfollow"
         }
 
         return [unfollow]
-
-
     }
-
 
     /*
     // Override to support conditional editing of the table view.
@@ -392,7 +388,7 @@ class ArtistsTableViewController: UITableViewController, UISearchBarDelegate, UI
 
 extension UIImageView {
     func downloadImageFrom(link:String, contentMode: UIViewContentMode) {
-        URLSession.shared.dataTask( with: NSURL(string:link)! as URL, completionHandler: {
+        URLSession.shared.dataTask(with: URL(string:link)!, completionHandler: {
             (data, response, error) -> Void in
             DispatchQueue.main.async {
                 self.contentMode =  contentMode

@@ -10,7 +10,6 @@ import UIKit
 
 class SettingsTableViewController: UITableViewController {
 
-
     @IBOutlet weak var createAccountCell: UITableViewCell!
     @IBOutlet weak var createAccountLabel: UILabel!
 
@@ -25,13 +24,12 @@ class SettingsTableViewController: UITableViewController {
     @IBOutlet weak var lastFmCell: UITableViewCell!
 
 
-   override func viewDidLoad() {
+    override func viewDidLoad() {
         super.viewDidLoad()
-
     }
 
     override func viewWillAppear(_ animated: Bool) {
-        /* if (!defaults.bool(forKey: "logged")) {
+        /* if (!defaults.logged) {
             let loginViewController = storyboard?.instantiateViewController(withIdentifier: "LogRegPrompt") as! UINavigationController
             DispatchQueue.main.async {
                 self.present(loginViewController, animated: false, completion: nil)
@@ -103,7 +101,7 @@ class SettingsTableViewController: UITableViewController {
     */
 
     override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        cell.selectionStyle = UITableViewCellSelectionStyle.none
+        cell.selectionStyle = .none
     }
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -113,9 +111,7 @@ class SettingsTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-
         return super.tableView(tableView, heightForRowAt: indexPath)
-
     }
 
 
@@ -123,13 +119,8 @@ class SettingsTableViewController: UITableViewController {
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-
-        if (segue.identifier == "accountButtonSegue") {
+        if segue.identifier == "accountButtonSegue" {
             //print("Trying to segue...")
         }
-
-
     }
-
-
 }

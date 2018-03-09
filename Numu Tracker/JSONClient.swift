@@ -20,11 +20,11 @@ class JSONClient {
             let jsonData = try JSONSerialization.data(withJSONObject: json, options: .prettyPrinted)
 
             // create post request
-            let username = defaults.string(forKey: "username")
-            let password = defaults.string(forKey: "password")
+            let username = defaults.username
+            let password = defaults.password
             let escapedString = username?.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)
-            let url = NSURL(string: "https://" + escapedString! + ":" + password! + "@www.numutracker.com/v2/json.php?import")!
-            let request = NSMutableURLRequest(url: url as URL)
+            let url = URL(string: "https://" + escapedString! + ":" + password! + "@www.numutracker.com/v2/json.php?import")!
+            let request = NSMutableURLRequest(url: url)
             request.httpMethod = "POST"
 
             // insert json data to the request
@@ -38,7 +38,7 @@ class JSONClient {
                 }
 
                 do {
-                    if (data != nil) {
+                    if data != nil {
                         _ = try JSONSerialization.jsonObject(with: data!, options: []) as? [String:AnyObject]
                         //print("Result -> \(String(describing: result))")
                         completion("Success")
@@ -63,28 +63,28 @@ class JSONClient {
     func getReleases(view: Int, slide: Int, page: Int = 1, limit: Int = 50, offset: Int = 0, completion: @escaping (ReleaseData) -> ()) {
         // Let's try swifty json...
         var urlString: String
-        let username = defaults.string(forKey: "username") ?? ""
+        let username = defaults.username ?? ""
 
         switch view {
         case 0:
             switch slide {
             case 0:
                 // All unlistened
-                if (defaults.bool(forKey: "logged")) {
+                if defaults.logged {
                     urlString = "https://www.numutracker.com/v2/json.php?user=\(username)&page=\(page)&rel_mode=allunlistened&limit=\(limit)&offset=\(offset)"
                 } else {
                     urlString = "https://www.numutracker.com/v2/json.php?page=\(page)&rel_mode=allunlistened&limit=\(limit)&offset=\(offset)"
                 }
             case 1:
                 // All released
-                if (defaults.bool(forKey: "logged")) {
+                if defaults.logged {
                     urlString = "https://www.numutracker.com/v2/json.php?user=\(username)&page=\(page)&rel_mode=all&limit=\(limit)&offset=\(offset)"
                 } else {
                     urlString = "https://www.numutracker.com/v2/json.php?page=\(page)&rel_mode=all&limit=\(limit)&offset=\(offset)"
                 }
             case 2:
                 // All upcoming
-                if (defaults.bool(forKey: "logged")) {
+                if defaults.logged {
                     urlString = "https://www.numutracker.com/v2/json.php?user=\(username)&page=\(page)&rel_mode=allupcoming&limit=\(limit)&offset=\(offset)"
                 } else {
                     urlString = "https://www.numutracker.com/v2/json.php?page=\(page)&rel_mode=allupcoming&limit=\(limit)&offset=\(offset)"

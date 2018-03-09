@@ -15,7 +15,7 @@ class AddArtistsViewController: UIViewController {
 
     @IBOutlet weak var addFromAppleMusic: UIButton!
     @IBAction func addFromAppleMusicPress(_ sender: AnyObject) {
-        if (defaults.bool(forKey: "logged")) {
+        if defaults.logged {
             self.addArtistsActivity.startAnimating()
             addFromAppleMusic.isHidden = true
             MPMediaLibrary.requestAuthorization { (status) in
@@ -26,7 +26,7 @@ class AddArtistsViewController: UIViewController {
                 }
             }
         } else {
-            if UIDevice().screenType == UIDevice.ScreenType.iPhone4 {
+            if UIDevice().screenType == .iPhone4 {
                 let loginViewController = storyboard?.instantiateViewController(withIdentifier: "LogRegPromptSmall") as! UINavigationController
                 DispatchQueue.main.async {
                     self.present(loginViewController, animated: true, completion: nil)
@@ -101,8 +101,8 @@ class AddArtistsViewController: UIViewController {
                 DispatchQueue.main.async(execute: {
                     self.addArtistsActivity.stopAnimating()
                     self.addFromAppleMusic.isHidden = false
-                    if (success == "Success") {
-                        NotificationCenter.default.post(name: Notification.Name(rawValue: updatedArtistsNotificationKey), object: self)
+                    if success == "Success" {
+                        NotificationCenter.default.post(name: .UpdatedArtists, object: self)
                         let controller = UIAlertController(title: "Success", message: "Your artists have been imported. Please allow several minutes for all artists to appear.", preferredStyle: .alert)
                         controller.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
                         self.present(controller, animated: true, completion: nil)

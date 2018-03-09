@@ -78,8 +78,7 @@ class ReleaseFiltersViewController: UIViewController {
 
     func loadSettings() {
 
-        if (defaults.bool(forKey: "logged")) {
-
+        if defaults.logged {
             self.albumFilterSwitch.isHidden = true
             self.albumFilterSpinner.startAnimating()
             self.singlesFilterSwitch.isHidden = true
@@ -96,60 +95,36 @@ class ReleaseFiltersViewController: UIViewController {
             self.otherFilterSpinner.startAnimating()
 
             DispatchQueue.global(qos: .background).async(execute: {
-                let user = User(username: defaults.string(forKey: "username")!)
+                let user = User(username: defaults.username!)
                 DispatchQueue.main.async(execute: {
-                    if user?.album == "0" {
-                        self.albumFilterSwitch.isOn = false
-                    } else {
-                        self.albumFilterSwitch.isOn = true
-                    }
+
+                    self.albumFilterSwitch.isOn = user?.album != "0"
                     self.albumFilterSwitch.isHidden = false
                     self.albumFilterSpinner.stopAnimating()
-                    if user?.single == "0" {
-                        self.singlesFilterSwitch.isOn = false
-                    } else {
-                        self.singlesFilterSwitch.isOn = true
-                    }
+
+                    self.singlesFilterSwitch.isOn = user?.single != "0"
                     self.singlesFilterSwitch.isHidden = false
                     self.singlesFilterSpinner.stopAnimating()
-                    if user?.ep == "0" {
-                        self.epFilterSwitch.isOn = false
-                    } else {
-                        self.epFilterSwitch.isOn = true
-                    }
+
+                    self.epFilterSwitch.isOn = user?.ep != "0"
                     self.epFilterSwitch.isHidden = false
                     self.epFilterSpinner.stopAnimating()
-                    if user?.live == "0" {
-                        self.liveFilterSwitch.isOn = false
-                    } else {
-                        self.liveFilterSwitch.isOn = true
-                    }
+
+                    self.liveFilterSwitch.isOn = user?.live != "0"
                     self.liveFilterSwitch.isHidden = false
                     self.liveFilterSpinner.stopAnimating()
-                    if user?.soundtrack == "0" {
-                        self.compFilterSwitch.isOn = false
-                    } else {
-                        self.compFilterSwitch.isOn = true
-                    }
+
+                    self.compFilterSwitch.isOn = user?.soundtrack != "0"
                     self.compFilterSwitch.isHidden = false
                     self.compFilterSpinner.stopAnimating()
 
-                    if user?.remix == "0" {
-                        self.remixFilterSwitch.isOn = false
-                    } else {
-                        self.remixFilterSwitch.isOn = true
-                    }
+                    self.remixFilterSwitch.isOn = user?.remix != "0"
                     self.remixFilterSwitch.isHidden = false
                     self.remixFilterSpinner.stopAnimating()
 
-                    if user?.other == "0" {
-                        self.otherFilterSwitch.isOn = false
-                    } else {
-                        self.otherFilterSwitch.isOn = true
-                    }
+                    self.otherFilterSwitch.isOn = user?.other != "0"
                     self.otherFilterSwitch.isHidden = false
                     self.otherFilterSpinner.stopAnimating()
-
                 })
             })
         } else {
@@ -167,13 +142,13 @@ class ReleaseFiltersViewController: UIViewController {
 
 
     /*
-    // MARK: - Navigation
+     // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destinationViewController.
+     // Pass the selected object to the new view controller.
+     }
+     */
 
 }
