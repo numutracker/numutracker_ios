@@ -1,5 +1,5 @@
 //
-//  LogRegPromptViewController.swift
+//  LogRegPromptSmallViewController.swift
 //  Numu Tracker
 //
 //  Created by Bradley Root on 9/4/17.
@@ -9,15 +9,13 @@
 import UIKit
 import Crashlytics
 
-class LogRegPromptViewController: UIViewController, UITextFieldDelegate {
+class LogRegPromptSmallViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var topScrollView: UIScrollView!
-    @IBOutlet weak var middleScrollView: UIScrollView!
     @IBOutlet weak var bottomScrollView: UIScrollView!
 
     var topScrollDrection: Int = 0
     var bottomScrollDrection: Int = 0
-    var middleScrollDrection: Int = 0
 
     @IBAction func closeScreen(_ sender: Any) {
         NotificationCenter.default.post(name: .ClosedLogRegPrompt, object: self)
@@ -59,10 +57,12 @@ class LogRegPromptViewController: UIViewController, UITextFieldDelegate {
             }
             self.view.endEditing(true)
         }
+
+
     }
 
     @IBAction func signUpButtonPress(_ sender: Any) {
-         var animationDuration = 0.5
+        var animationDuration = 0.5
 
         // if log in form is showing, hide it
         if logInFormView.alpha == 1 {
@@ -99,16 +99,12 @@ class LogRegPromptViewController: UIViewController, UITextFieldDelegate {
         let width = self.view.frame.size.width
         var height: CGFloat = 0
         var max_length: CGFloat = 0
-        height = width / 2
-        max_length = height * 6
+        height = width / 3
+        max_length = height * 15
 
         self.topScrollView.isScrollEnabled = true
         self.topScrollView.alwaysBounceHorizontal = true
         self.topScrollView.contentSize.width = max_length
-
-        self.middleScrollView.isScrollEnabled = true
-        self.middleScrollView.alwaysBounceHorizontal = true
-        self.middleScrollView.contentSize.width = max_length
 
         self.bottomScrollView.isScrollEnabled = true
         self.bottomScrollView.alwaysBounceHorizontal = true
@@ -120,21 +116,19 @@ class LogRegPromptViewController: UIViewController, UITextFieldDelegate {
                 self?.arts = arts
             }
             DispatchQueue.main.async(execute: {
-                let top_artists = Array(self.arts[0..<12])
-                let mid_artists = Array(self.arts[12..<18])
-                let bot_artists = Array(self.arts[18..<30])
+                let top_artists = Array(self.arts[0..<15])
+                let bot_artists = Array(self.arts[15..<30])
 
                 self.loadArts(scrollView: self.topScrollView, images: top_artists)
-                self.loadArts(scrollView: self.middleScrollView, images: mid_artists)
                 self.loadArts(scrollView: self.bottomScrollView, images: bot_artists)
 
                 let width = self.view.frame.size.width
                 var height: CGFloat = 0
                 var max_length: CGFloat = 0
-                height = width / 2
-                max_length = height * 6
+                height = width / 3
+                max_length = height * 15
 
-                self.middleScrollView.setContentOffset(CGPoint(x:max_length-width,y:0), animated: false)
+                 self.bottomScrollView.setContentOffset(CGPoint(x:max_length-width,y:0), animated: false)
 
                 _ = Timer.scheduledTimer(timeInterval: 0.025, target: self, selector: #selector(self.autoScroll), userInfo: nil, repeats: true)
 
@@ -164,7 +158,7 @@ class LogRegPromptViewController: UIViewController, UITextFieldDelegate {
         if scrollView.restorationIdentifier == "middle" {
             height = width / 2
         } else {
-            height = width / 4
+            height = width / 3
         }
 
         let imageWidth:CGFloat = height
@@ -205,7 +199,6 @@ class LogRegPromptViewController: UIViewController, UITextFieldDelegate {
                     xPosition += imageWidth
                     //self.topScrollViewSize += imageWidth
 
-
                 }
             }
 
@@ -215,7 +208,7 @@ class LogRegPromptViewController: UIViewController, UITextFieldDelegate {
 
     @objc func autoScroll() {
 
-        let scrollViewArray: [UIScrollView] = [self.topScrollView,self.middleScrollView,self.bottomScrollView]
+        let scrollViewArray: [UIScrollView] = [self.topScrollView,self.bottomScrollView]
 
         for scrollView in scrollViewArray {
             let width = self.view.frame.size.width
@@ -227,51 +220,38 @@ class LogRegPromptViewController: UIViewController, UITextFieldDelegate {
             let intervalPixels: CGFloat = 0.50
 
             // Determine length:
-            if scrollView.restorationIdentifier == "middle" {
-                height = width / 2
-                max_length = height * 6
-            } else {
-                height = width / 4
-                max_length = height * 12
-            }
+
+
+                height = width / 3
+                max_length = height * 15
 
             let max_offset = max_length - width
 
             //print("Data: Max \(max_offset) and \(offset.x)")
 
             if offset.x >= max_offset {
-                switch scrollView.restorationIdentifier! {
-                    case "middle":
-                        self.middleScrollDrection = 1
-                    case "top":
-                        self.topScrollDrection = 1
-                    case "bottom":
-                        self.bottomScrollDrection = 1
-                    default:
-                        print("Borked")
+                switch (scrollView.restorationIdentifier!) {
+                case "top":
+                    self.topScrollDrection = 1
+                case "bottom":
+                    self.bottomScrollDrection = 1
+                default:
+                    print("Borked")
                 }
             }
 
-           if offset.x <= 0 {
-                switch scrollView.restorationIdentifier! {
-                    case "middle":
-                        self.middleScrollDrection = 0
-                    case "top":
-                        self.topScrollDrection = 0
-                    case "bottom":
-                        self.bottomScrollDrection = 0
-                    default:
-                        print("Borked")
+            if offset.x <= 0 {
+                switch (scrollView.restorationIdentifier!) {
+                case "top":
+                    self.topScrollDrection = 0
+                case "bottom":
+                    self.bottomScrollDrection = 0
+                default:
+                    print("Borked")
                 }
             }
 
             switch scrollView.restorationIdentifier! {
-            case "middle":
-                if self.middleScrollDrection == 0 {
-                    newOffset = offset.x + intervalPixels
-                } else {
-                    newOffset = offset.x - intervalPixels
-                }
             case "top":
                 if self.topScrollDrection == 0 {
                     newOffset = offset.x + intervalPixels
@@ -300,7 +280,7 @@ class LogRegPromptViewController: UIViewController, UITextFieldDelegate {
 
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         if textField.returnKeyType == .next {
-            //print("Next Pressed")
+            print("Next Pressed")
             if textField.restorationIdentifier == "signEmail" {
                 signUpPasswordTextField.becomeFirstResponder()
             } else {
@@ -311,10 +291,10 @@ class LogRegPromptViewController: UIViewController, UITextFieldDelegate {
 
         if textField.returnKeyType == .go {
             if textField.restorationIdentifier == "signPassword" {
-                //print("Sign Go Pressed")
+                print("Sign Go Pressed")
                 return self.goSignUp()
             } else {
-                //print("Log Go Pressed")
+                print("Log Go Pressed")
                 return self.goLogIn()
                 //self.dismiss(animated: true, completion: nil)
             }
@@ -328,8 +308,8 @@ class LogRegPromptViewController: UIViewController, UITextFieldDelegate {
         self.logInLabel.text = "Logging in..."
         let username = self.logInEmailTextField.text
         let password = self.logInPasswordTextField.text
-        //print("Username",username!)
-        //print("Password",password!)
+        print("Username",username!)
+        print("Password",password!)
         // Check credentials...
         DispatchQueue.global(qos: .background).async(execute: {
             let success = SearchClient.sharedClient.authorizeLogIn(username: username!, password: password!)
@@ -362,8 +342,8 @@ class LogRegPromptViewController: UIViewController, UITextFieldDelegate {
         self.signUpLabel.text = "Signing up...\nPlease wait..."
         let username = self.signUpEmailTextField.text
         let password = self.signUpPasswordTextField.text
-        //print("Username",username!)
-        //print("Password",password!)
+        print("Username",username!)
+        print("Password",password!)
 
         let emailVerify = isValidEmail(testStr: username!)
         var errorText: String = ""
@@ -371,7 +351,7 @@ class LogRegPromptViewController: UIViewController, UITextFieldDelegate {
         if password == "" {
             errorText = "Please enter a password."
             errorInt = true
-        } else if password!.characters.count < 8 {
+        } else if password!.count < 8 {
             errorText = "Password needs to be at least 8 characters."
             errorInt = true
         } else if !emailVerify {
@@ -417,13 +397,14 @@ class LogRegPromptViewController: UIViewController, UITextFieldDelegate {
     }
 
     /*
-    // MARK: - Navigation
+     // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destinationViewController.
+     // Pass the selected object to the new view controller.
+     }
+     */
 
 }
+
