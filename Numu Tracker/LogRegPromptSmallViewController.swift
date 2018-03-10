@@ -351,7 +351,7 @@ class LogRegPromptSmallViewController: UIViewController, UITextFieldDelegate {
         if password == "" {
             errorText = "Please enter a password."
             errorInt = true
-        } else if password!.characters.count < 8 {
+        } else if password!.count < 8 {
             errorText = "Password needs to be at least 8 characters."
             errorInt = true
         } else if !emailVerify {
