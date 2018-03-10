@@ -38,6 +38,7 @@
 		B440D9D91DB2D28A00477938 /* ArtistTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B440D9D81DB2D28A00477938 /* ArtistTableViewCell.swift */; };
 		B440D9E41DB2EC4A00477938 /* sort@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B440D9E21DB2EC4A00477938 /* sort@2x.png */; };
 		B440D9E51DB2EC4A00477938 /* sort@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = B440D9E31DB2EC4A00477938 /* sort@3x.png */; };
+		B45A133B205479CB001EBDA5 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B45A133A205479CB001EBDA5 /* Default-568h@2x.png */; };
 		B45BEE1B1D9F57E700A3AAA1 /* cog@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B45BEE191D9F57E700A3AAA1 /* cog@2x.png */; };
 		B45BEE1C1D9F57E700A3AAA1 /* cog@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = B45BEE1A1D9F57E700A3AAA1 /* cog@3x.png */; };
 		B4607CE61E10F5F100E75DCF /* user@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = B4607CE41E10F5F100E75DCF /* user@3x.png */; };
@@ -82,16 +83,16 @@
 		B4283A811D8548F300467CE6 /* Numu Tracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Numu Tracker.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B4283A841D8548F300467CE6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B4283A8B1D8548F300467CE6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		B4283A8D1D8548F300467CE6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		B4283A8D1D8548F300467CE6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = interface/Assets.xcassets; sourceTree = "<group>"; };
 		B4283A901D8548F300467CE6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		B4283A921D8548F300467CE6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B4283A921D8548F300467CE6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = ../Info.plist; sourceTree = "<group>"; };
 		B4283ABA1D86586800467CE6 /* SearchClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchClient.swift; sourceTree = "<group>"; };
 		B4283ABC1D8658AD00467CE6 /* ReleaseItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReleaseItem.swift; sourceTree = "<group>"; };
 		B42866071DA5FC53000E5FA6 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		B42866091DA7645C000E5FA6 /* albumArtCache.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = albumArtCache.swift; sourceTree = "<group>"; };
 		B43705D71E357C8C0060E6CC /* SettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 		B43AF1E31DCE4C94008F7EBD /* Numu Tracker.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Numu Tracker.entitlements"; sourceTree = "<group>"; };
-		B43C55A61DEB9CCB00BF8483 /* UIViewExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewExtensions.swift; sourceTree = "<group>"; };
+		B43C55A61DEB9CCB00BF8483 /* UIViewExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIViewExtensions.swift; path = interface/UIViewExtensions.swift; sourceTree = "<group>"; };
 		B43C55AA1DEBA7A000BF8483 /* spotify.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spotify.png; sourceTree = "<group>"; };
 		B43C55AB1DEBA7A000BF8483 /* spotify@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "spotify@2x.png"; sourceTree = "<group>"; };
 		B43C55AC1DEBA7A000BF8483 /* spotify@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "spotify@3x.png"; sourceTree = "<group>"; };
@@ -102,6 +103,7 @@
 		B440D9D81DB2D28A00477938 /* ArtistTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArtistTableViewCell.swift; sourceTree = "<group>"; };
 		B440D9E21DB2EC4A00477938 /* sort@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sort@2x.png"; sourceTree = "<group>"; };
 		B440D9E31DB2EC4A00477938 /* sort@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sort@3x.png"; sourceTree = "<group>"; };
+		B45A133A205479CB001EBDA5 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		B45BEE191D9F57E700A3AAA1 /* cog@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cog@2x.png"; sourceTree = "<group>"; };
 		B45BEE1A1D9F57E700A3AAA1 /* cog@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cog@3x.png"; sourceTree = "<group>"; };
 		B4607CE41E10F5F100E75DCF /* user@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "user@3x.png"; sourceTree = "<group>"; };
@@ -185,6 +187,7 @@
 		B4283A781D8548F300467CE6 = {
 			isa = PBXGroup;
 			children = (
+				B45A133A205479CB001EBDA5 /* Default-568h@2x.png */,
 				B4283A831D8548F300467CE6 /* Numu Tracker */,
 				B4283A821D8548F300467CE6 /* Products */,
 				EEC8C01A78FB4165AD408083 /* Pods */,
@@ -224,6 +227,7 @@
 				B4CCFCC41DB4311B00D2277B /* AddArtistsViewController.swift */,
 			);
 			name = ArtistList;
+			path = artists;
 			sourceTree = "<group>";
 		};
 		B4CCFCBE1DB425A000D2277B /* ArtistReleasesList */ = {
@@ -233,6 +237,7 @@
 				B4CCFCBB1DB3F8EE00D2277B /* ArtistReleaseTableViewCell.swift */,
 			);
 			name = ArtistReleasesList;
+			path = artistreleases;
 			sourceTree = "<group>";
 		};
 		B4CCFCC01DB425D900D2277B /* Settings */ = {
@@ -251,6 +256,7 @@
 				B4DA6EAD1F6DE5C50090C945 /* LogRegPromptSmallViewController.swift */,
 			);
 			name = Settings;
+			path = settings;
 			sourceTree = "<group>";
 		};
 		B4CCFCC11DB425FD00D2277B /* Backend */ = {
@@ -265,6 +271,7 @@
 				B4CCFCC61DB4353E00D2277B /* NumuUIButton.swift */,
 			);
 			name = Backend;
+			path = backend;
 			sourceTree = "<group>";
 		};
 		B4CCFCC21DB4264100D2277B /* Interface */ = {
@@ -287,6 +294,7 @@
 				B416A65F1DC52A91000F86D9 /* AllReleasesTableViewController.swift */,
 			);
 			name = "Main Views";
+			path = releases;
 			sourceTree = "<group>";
 		};
 		EEC8C01A78FB4165AD408083 /* Pods */ = {
@@ -385,6 +393,7 @@
 				B4A3E78F1DAAD67800144CEB /* lastfm_black.gif in Resources */,
 				B40E35831DAF23FD004BA8C7 /* drums@2x.png in Resources */,
 				B4BFA8AA1DD907E200E3580B /* appleMusic.png in Resources */,
+				B45A133B205479CB001EBDA5 /* Default-568h@2x.png in Resources */,
 				B4BFA8A81DD907E200E3580B /* appleMusic@3x.png in Resources */,
 				B4E8B97A1E7F67BD00643AD1 /* bradroot-new-2880-man.png in Resources */,
 				B40E35881DAF24F3004BA8C7 /* yours@3x.png in Resources */,
