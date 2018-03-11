@@ -19,19 +19,22 @@ class NumuCredential {
         if let username = username,
             let password = password {
             let credential = URLCredential(user: username, password: password, persistence: .synchronizable)
-            URLCredentialStorage.shared.setDefaultCredential(credential, for: protectionSpace.production)
+                URLCredentialStorage.shared.setDefaultCredential(credential, for: protectionSpace.production)
+                URLCredentialStorage.shared.setDefaultCredential(credential, for: protectionSpace.beta)
         }
     }
     
     static func removeCredential() {
         if let credential = URLCredentialStorage.shared.defaultCredential(for: protectionSpace.production) {
             URLCredentialStorage.shared.remove(credential, for: protectionSpace.production)
+            URLCredentialStorage.shared.remove(credential, for: protectionSpace.beta)
         }
     }
     
     static func checkForCredential() -> Bool {
-        if URLCredentialStorage.shared.defaultCredential(for: protectionSpace.production) != nil {
-            return true
+        if URLCredentialStorage.shared.defaultCredential(for: protectionSpace.production) != nil,
+            URLCredentialStorage.shared.defaultCredential(for: protectionSpace.beta) != nil {
+                return true
         } else {
             return false
         }
@@ -41,6 +44,7 @@ class NumuCredential {
     static func convertCredential() -> Bool {
         // Function to convert credentials stored in UserDefaults to URLCredential
         
+        return false
     }
     
     
