@@ -182,39 +182,4 @@ class JSONClient {
         }
     }
 
-    func processPurchase(username: String, password: String, purchased: String) -> String {
-        let escapedString = username.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)
-        let urlString = "https://" + escapedString! + ":" + password + "@www.numutracker.com/v2/json.php?purchased=" + purchased
-        //print(urlString)
-        if let url = URL(string: urlString) {
-            if let data = try? Data(contentsOf: url) {
-                //print(data)
-                if let json = try? JSON(data: data) {
-                    if let success = json["result"].string {
-                        return success
-                    }
-                }
-
-            }
-        }
-        return "0"
-    }
-
-    func getSubStatus(username: String, password: String) -> [String] {
-        let escapedString = username.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)
-        let urlString = "https://" + escapedString! + ":" + password + "@www.numutracker.com/v2/json.php?sub_status=1"
-        //print(urlString)
-        if let url = URL(string: urlString) {
-            if let data = try? Data(contentsOf: url) {
-                //print(data)
-                if let json = try? JSON(data: data) {
-                    if let success = json["result"].string, let sub_date = json["subscription_end"].string, let now_date = json["date_now"].string {
-                        return [success,sub_date,now_date]
-                    }
-                }
-
-            }
-        }
-        return []
-    }
 }

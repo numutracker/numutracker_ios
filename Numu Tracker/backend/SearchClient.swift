@@ -9,50 +9,9 @@
 import Foundation
 import SwiftyJSON
 
-extension ReleaseItem : JSONCodable { }
-extension ArtistItem: JSONCodable { }
-
-extension Array where Element : JSONCodable {
-    init(from url: String) {
-        if let url = URL(string: url),
-            let data = try? Data(contentsOf: url),
-            let json = try? JSON(data: data),
-            let arr = json.array  {
-            self = arr.flatMap { Element(json: $0) }
-        }
-        else {
-            self = []
-        }
-    }
-}
-
 class SearchClient {
 
     static let sharedClient = SearchClient()
-
-    func getUserArtists(sortBy: String, completion: @escaping ([ArtistItem]) -> ()) {
-        if defaults.logged {
-            let username = defaults.username
-            let urlString = "https://www.numutracker.com/v2/json.php?artists=" + username! + "&sortby=" + sortBy
-
-            //print(urlString)
-            completion(.init(from: urlString))
-        }
-    }
-
-    func getArtistSearch(search: String, completion: @escaping ([ArtistItem]) -> ()) {
-        if defaults.logged {
-            let username = defaults.username
-            let var_search = search.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
-            let urlString = "https://www.numutracker.com/v2/json.php?artist_search=" + username! + "&search=" + var_search!
-            completion(.init(from: urlString))
-
-        } else {
-            let var_search = search.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
-            let urlString = "https://www.numutracker.com/v2/json.php?artist_search=0&search=" + var_search!
-            completion(.init(from: urlString))
-        }
-    }
 
     func getSingleArtistItem(search: String, completion: @escaping ([ArtistItem]) -> ()) {
         if defaults.logged {
@@ -144,30 +103,6 @@ class SearchClient {
             let urlString = "https://" + escapedString! + ":" + password!
             let urlString2 = "@www.numutracker.com/v2/json.php?listen=" + releaseId
             //print(urlString + urlString2)
-            if let url = URL(string: urlString + urlString2) {
-                if let data = try? Data(contentsOf: url) {
-                    if let json = try? JSON(data: data) {
-                        if let success = json["result"].string {
-                            return success
-                        }
-                    }
-
-                }
-            }
-            return "0"
-
-        }
-        return "0"
-    }
-
-    func toggleFilter(filter: String) -> String {
-
-        if defaults.logged {
-            let username = defaults.username
-            let password = defaults.password
-            let escapedString = username!.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)
-            let urlString = "https://" + escapedString! + ":" + password!
-            let urlString2 = "@www.numutracker.com/v2/json.php?filter=" + filter
             if let url = URL(string: urlString + urlString2) {
                 if let data = try? Data(contentsOf: url) {
                     if let json = try? JSON(data: data) {
