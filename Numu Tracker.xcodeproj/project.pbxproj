@@ -158,6 +158,7 @@
 		B40E35931DB1F687004BA8C7 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				B45A133A205479CB001EBDA5 /* Default-568h@2x.png */,
 				B43E36AF1F5DF9B9009834C9 /* NumuLogo1024.png */,
 				B4A3E78E1DAAD67800144CEB /* lastfm_black.gif */,
 				B4BFA8A51DD907E200E3580B /* appleMusic@3x.png */,
@@ -189,7 +190,6 @@
 		B4283A781D8548F300467CE6 = {
 			isa = PBXGroup;
 			children = (
-				B45A133A205479CB001EBDA5 /* Default-568h@2x.png */,
 				B4283A831D8548F300467CE6 /* Numu Tracker */,
 				B4283A821D8548F300467CE6 /* Products */,
 				EEC8C01A78FB4165AD408083 /* Pods */,
