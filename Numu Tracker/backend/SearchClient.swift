@@ -13,15 +13,6 @@ class SearchClient {
 
     static let sharedClient = SearchClient()
 
-    func getSingleArtistItem(search: String, completion: @escaping ([ArtistItem]) -> ()) {
-        if defaults.logged {
-            let username = defaults.username
-            let urlString = "https://www.numutracker.com/v2/json.php?single_artist=" + username! + "&search=" + search
-            completion(.init(from: urlString))
-        }
-    }
-
-
     func getArtistReleases(artist: String, completion: @escaping ([ReleaseItem]) -> ()) {
         // Let's try swifty json...
         if defaults.logged {

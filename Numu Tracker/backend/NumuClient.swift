@@ -26,6 +26,7 @@ class NumuClient {
                         completion(json)
                     } catch {
                         completion(JSON.null)
+                        // TODO: Implement more robust error handling, like notifying the user when their user / password no longer works.
                         print(error.localizedDescription)
                     }
                 }
@@ -33,7 +34,7 @@ class NumuClient {
             task.resume()
         }
     }
-    
+
     func toggleFilter(filter: String, completion: @escaping (Bool) -> ()) {
         let endPoint = "/v2/json.php?filter=" + filter
         self.getJSON(with: endPoint) { (json) in
@@ -42,7 +43,7 @@ class NumuClient {
             }
         }
     }
-    
+
     func getUserArtists(sortBy: String, completion: @escaping ([ArtistItem]) -> ()) {
         if let username = NumuCredential.sharedClient.getUsername() {
             let endPoint = "/v2/json.php?artists=" + username + "&sortby=" + sortBy
@@ -53,7 +54,7 @@ class NumuClient {
             completion([])
         }
     }
-    
+
     func getArtistSearch(search: String, completion: @escaping ([ArtistItem]) -> ()) {
         let var_search = search.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
         let username = NumuCredential.sharedClient.getUsername() ?? "0"
@@ -61,7 +62,14 @@ class NumuClient {
         self.getJSON(with: endPoint) { (json) in
             completion(.init(with: json))
         }
-
+    }
+    
+    func getSingleArtistItem(search: String, completion: @escaping ([ArtistItem]) -> ()) {
+        let username = NumuCredential.sharedClient.getUsername() ?? "0"
+        let endPoint = "/v2/json.php?single_artist=" + username + "&search=" + search
+        self.getJSON(with: endPoint) { (json) in
+            completion(.init(with: json))
+        }
     }
 
 }

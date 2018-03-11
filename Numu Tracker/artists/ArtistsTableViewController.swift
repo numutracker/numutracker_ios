@@ -14,7 +14,6 @@ class ArtistsTableViewController: UITableViewController, UISearchBarDelegate, UI
     var artists: [ArtistItem] = []
     
     var sortMethod: String = "date"
-    var screenType: String = "yours"
     var lastSelectedArtistId: String = ""
     var lastSelectedArtistName: String = ""
     
@@ -113,6 +112,7 @@ class ArtistsTableViewController: UITableViewController, UISearchBarDelegate, UI
         self.tableView.tableFooterView = UIView()
         self.viewState = .user
         self.searchController.isActive = false
+        self.searchController.searchBar.showsCancelButton = false
         self.searchController.searchBar.isHidden = true
         self.actOnImportNotification()
     }
@@ -286,10 +286,6 @@ class ArtistsTableViewController: UITableViewController, UISearchBarDelegate, UI
             self.lastSelectedArtistName = artistName
             destination.artistId = artistId
             destination.artistName = artistName
-        } else if segue.identifier == "showArtistReleases",
-            let destination = segue.destination as? ArtistReleasesTableViewController {
-            destination.artistId = self.lastSelectedArtistId
-            destination.artistName = self.lastSelectedArtistName
         }
     }
 

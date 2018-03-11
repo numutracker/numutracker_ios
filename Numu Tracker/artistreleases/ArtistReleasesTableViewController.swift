@@ -38,7 +38,7 @@ class ArtistReleasesTableViewController: UITableViewController {
                     self?.releases = releases
                 }
 
-                SearchClient.sharedClient.getSingleArtistItem(search: selectedArtist) {[weak self](artists) in
+                NumuClient.sharedClient.getSingleArtistItem(search: selectedArtist) {[weak self](artists) in
                     self?.artistItem = artists
                 }
 
