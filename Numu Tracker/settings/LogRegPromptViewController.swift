@@ -6,8 +6,10 @@
 //  Copyright © 2017 Numu Tracker. All rights reserved.
 //
 
+import Foundation
 import UIKit
 import Crashlytics
+
 
 class LogRegPromptViewController: UIViewController, UITextFieldDelegate {
 
@@ -336,9 +338,19 @@ class LogRegPromptViewController: UIViewController, UITextFieldDelegate {
             DispatchQueue.main.async(execute: {
                 if success == "1" {
                     self.logInLabel.text = "Logged in!"
+                    defaults.logged = true
+                    
+                    // TO REMOVE: Store credentials in user defaults.
                     defaults.username = username
                     defaults.password = password
-                    defaults.logged = true
+                    
+                    // Store credentials in NSURLCredential
+                    
+                    let credential = URLCredential(user: username!, password: password!, persistence: URLCredential.Persistence.permanent)
+                    let protectionSpace = URLProtectionSpace(host: "www.numutracker.com", port: 443, protocol: "https", realm: nil, authenticationMethod: NSURLAuthenticationMethodHTTPBasic)
+                    let credentialStorage = URLCredentialStorage.shared
+                    credentialStorage.set(credential, for: protectionSpace)                    
+                    
                     NotificationCenter.default.post(name: .LoggedIn, object: self)
                     NotificationCenter.default.post(name: .UpdatedArtists, object: self)
                     self.logInPasswordTextField.resignFirstResponder()
@@ -386,9 +398,12 @@ class LogRegPromptViewController: UIViewController, UITextFieldDelegate {
                 DispatchQueue.main.async(execute: {
                     if success == "1" {
                         self.signUpLabel.text = "Registration Successful!"
+                        
+                        // Store credentials in UserDefaults
                         defaults.username = username
                         defaults.password = password
                         defaults.logged = true
+                        
                         NotificationCenter.default.post(name: .LoggedIn, object: self)
                         NotificationCenter.default.post(name: .UpdatedArtists, object: self)
                         self.signUpPasswordTextField.resignFirstResponder()

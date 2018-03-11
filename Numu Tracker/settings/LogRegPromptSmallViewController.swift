@@ -316,9 +316,15 @@ class LogRegPromptSmallViewController: UIViewController, UITextFieldDelegate {
             DispatchQueue.main.async(execute: {
                 if success == "1" {
                     self.logInLabel.text = "Logged in!"
+                    defaults.logged = true
+                    
+                    // TO REMOVE: Store credentials in user defaults.
                     defaults.username = username
                     defaults.password = password
-                    defaults.logged = true
+                    
+                    // Store credentials in NSURLCredential
+                    NumuCredential.storeCredential(username: username, password: password)
+                    
                     NotificationCenter.default.post(name: .LoggedIn, object: self)
                     NotificationCenter.default.post(name: .UpdatedArtists, object: self)
                     self.logInPasswordTextField.resignFirstResponder()

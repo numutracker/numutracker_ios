@@ -197,6 +197,10 @@ class LogOutViewController: UIViewController {
         defaults.username = nil
         defaults.password = nil
         defaults.logged = false
+        
+        // Remove credentials from URLCredentialStorage
+        NumuCredential.removeCredential()
+                
         NotificationCenter.default.post(name: .LoggedOut, object: self)
         NotificationCenter.default.post(name: .UpdatedArtists, object: self)
         _ = self.navigationController?.popViewController(animated: true)
