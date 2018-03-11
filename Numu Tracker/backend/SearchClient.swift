@@ -30,31 +30,6 @@ class SearchClient {
 
     static let sharedClient = SearchClient()
 
-    /*
-    func getUserArtists(sortBy: String, completion: @escaping ([ArtistItem]) -> ()) {
-        if defaults.logged {
-            let username = defaults.username
-            let urlString = "https://www.numutracker.com/v2/json.php?artists=" + username! + "&sortby=" + sortBy
-            completion(.init(from: urlString))
-        }
-    }
- 
-
-    func getArtistSearch(search: String, completion: @escaping ([ArtistItem]) -> ()) {
-        if defaults.logged {
-            let username = defaults.username
-            let var_search = search.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
-            let urlString = "https://www.numutracker.com/v2/json.php?artist_search=" + username! + "&search=" + var_search!
-            completion(.init(from: urlString))
-
-        } else {
-            let var_search = search.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
-            let urlString = "https://www.numutracker.com/v2/json.php?artist_search=0&search=" + var_search!
-            completion(.init(from: urlString))
-        }
-    }
-     */
-
     func getSingleArtistItem(search: String, completion: @escaping ([ArtistItem]) -> ()) {
         if defaults.logged {
             let username = defaults.username
@@ -160,43 +135,6 @@ class SearchClient {
         }
         return "0"
     }
-
-    /*
-    func toggleFilter(filter: String) -> String {
-        
-        // New version using credential storage
-        
-        if NumuCredential.checkForCredential() {
-            
-            print("Found Credential")
-            
-            let hostPrefix = "https://www.numutracker.com"
-            let endPoint = "/v2/json.php?filter=" + filter
-            
-            let sessionConfiguration = URLSessionConfiguration.default
-            //sessionConfiguration.urlCredentialStorage = URLCredentialStorage.shared
-            let session = URLSession(configuration: sessionConfiguration)
-            
-            if let url = URL(string: hostPrefix + endPoint) {
-                let task = session.dataTask(with: url) {
-                    (data, response, error) in
-                    if let httpResponse = response as? HTTPURLResponse {
-                        let dataString = NSString(data: data!, encoding: String.Encoding.utf8.rawValue)
-                        print(response)
-                    }
-                }
-            
-                task.resume()
-
-            }
-            
-        } else {
-            print("No Credential")
-        }
- 
-        return "0"
-    }
-     */
 
     func unfollowArtist(artistMbid: String) -> String {
 
