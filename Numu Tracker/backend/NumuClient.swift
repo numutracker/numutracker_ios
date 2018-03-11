@@ -55,19 +55,13 @@ class NumuClient {
     }
     
     func getArtistSearch(search: String, completion: @escaping ([ArtistItem]) -> ()) {
-        if let username = NumuCredential.sharedClient.getUsername() {
-            let var_search = search.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
-            let endPoint = "/v2/json.php?artist_search=" + username + "&search=" + var_search!
-            self.getJSON(with: endPoint) { (json) in
-                completion(.init(with: json))
-            }
-        } else {
-            let var_search = search.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
-            let endPoint = "/v2/json.php?artist_search=0&search=" + var_search!
-            self.getJSON(with: endPoint) { (json) in
-                completion(.init(with: json))
-            }
+        let var_search = search.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
+        let username = NumuCredential.sharedClient.getUsername() ?? "0"
+        let endPoint = "/v2/json.php?artist_search=" + username + "&search=" + var_search!
+        self.getJSON(with: endPoint) { (json) in
+            completion(.init(with: json))
         }
+
     }
-    
+
 }
