@@ -323,7 +323,7 @@ class LogRegPromptSmallViewController: UIViewController, UITextFieldDelegate {
                     defaults.password = password
                     
                     // Store credentials in NSURLCredential
-                    NumuCredential.storeCredential(username: username, password: password)
+                    NumuCredential.sharedClient.storeCredential(username: username, password: password)
                     
                     NotificationCenter.default.post(name: .LoggedIn, object: self)
                     NotificationCenter.default.post(name: .UpdatedArtists, object: self)

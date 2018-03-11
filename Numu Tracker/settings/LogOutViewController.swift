@@ -199,7 +199,7 @@ class LogOutViewController: UIViewController {
         defaults.logged = false
         
         // Remove credentials from URLCredentialStorage
-        NumuCredential.removeCredential()
+        NumuCredential.sharedClient.removeCredential()
                 
         NotificationCenter.default.post(name: .LoggedOut, object: self)
         NotificationCenter.default.post(name: .UpdatedArtists, object: self)

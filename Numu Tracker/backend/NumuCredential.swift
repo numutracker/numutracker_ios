@@ -10,11 +10,13 @@ import Foundation
 
 class NumuCredential {
     
+    static let sharedClient = NumuCredential()
+    
     private struct protectionSpace {
         static let production = URLProtectionSpace(host: "www.numutracker.com", port: 443, protocol: "https", realm: "Numu Tracker", authenticationMethod: NSURLAuthenticationMethodHTTPBasic)
     }
     
-    static func storeCredential(username: String?, password: String?) {
+    func storeCredential(username: String?, password: String?) {
         if let username = username,
             let password = password {
             let credential = URLCredential(user: username, password: password, persistence: .synchronizable)
@@ -22,13 +24,13 @@ class NumuCredential {
         }
     }
     
-    static func removeCredential() {
+    func removeCredential() {
         if let credential = URLCredentialStorage.shared.defaultCredential(for: protectionSpace.production) {
             URLCredentialStorage.shared.remove(credential, for: protectionSpace.production, options: ["NSURLCredentialStorageRemoveSynchronizableCredentials": true])
         }
     }
     
-    static func checkForCredential() -> Bool {
+    func checkForCredential() -> Bool {
         if URLCredentialStorage.shared.defaultCredential(for: protectionSpace.production) != nil {
             print("Found Credential")
             return true
@@ -37,14 +39,14 @@ class NumuCredential {
         }
     }
     
-    static func getUsername() -> String? {
+    func getUsername() -> String? {
         if let credential = URLCredentialStorage.shared.defaultCredential(for: protectionSpace.production) {
             return credential.user
         }
         return nil
     }
     
-    static func convertCredential() -> Bool {
+    func convertCredential() -> Bool {
         // Function to convert credentials stored in UserDefaults to URLCredential
         
         return false

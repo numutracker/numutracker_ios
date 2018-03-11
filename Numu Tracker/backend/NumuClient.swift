@@ -54,7 +54,7 @@ class NumuClient {
     }
     
     func getUserArtists(sortBy: String, completion: @escaping ([ArtistItem]) -> ()) {
-        if let username = NumuCredential.getUsername() {
+        if let username = NumuCredential.sharedClient.getUsername() {
             let endPoint = "/v2/json.php?artists=" + username + "&sortby=" + sortBy
             self.getJSON(with: endPoint) { (json) in
                 completion(.init(with: json))
@@ -65,7 +65,7 @@ class NumuClient {
     }
     
     func getArtistSearch(search: String, completion: @escaping ([ArtistItem]) -> ()) {
-        if let username = NumuCredential.getUsername() {
+        if let username = NumuCredential.sharedClient.getUsername() {
             let var_search = search.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
             let endPoint = "/v2/json.php?artist_search=" + username + "&search=" + var_search!
             self.getJSON(with: endPoint) { (json) in
