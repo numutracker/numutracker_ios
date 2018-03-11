@@ -91,15 +91,12 @@ class ArtistsTableViewController: UITableViewController, UISearchBarDelegate, UI
     }
 
     @objc func actOnImportNotification() {
-        DispatchQueue.global(qos: .background).async(execute: {
-            NumuClient.sharedClient.getUserArtists(sortBy: self.sortMethod) {[weak self](artists) in
-                self?.artists = artists
-                DispatchQueue.main.async(execute: {
-                    self?.loadTable()
-                })
-            }
-        })
-
+        NumuClient.sharedClient.getUserArtists(sortBy: self.sortMethod) {[weak self](artists) in
+            self?.artists = artists
+            DispatchQueue.main.async(execute: {
+                self?.loadTable()
+            })
+        }
     }
 
 
@@ -166,7 +163,7 @@ class ArtistsTableViewController: UITableViewController, UISearchBarDelegate, UI
             self.artists.removeAll()
             self.tableView.reloadData()
             self.tableView.tableFooterView = footerView
-            SearchClient.sharedClient.getArtistSearch(search: searchText) {[weak self](artists) in
+            NumuClient.sharedClient.getArtistSearch(search: searchText) {[weak self](artists) in
                 self?.artists = artists
                 DispatchQueue.main.async(execute: {
                     self?.loadTable()

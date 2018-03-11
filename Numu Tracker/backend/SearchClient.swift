@@ -26,7 +26,6 @@ extension Array where Element : JSONCodable {
     }
 }
 
-
 class SearchClient {
 
     static let sharedClient = SearchClient()
@@ -39,7 +38,7 @@ class SearchClient {
             completion(.init(from: urlString))
         }
     }
-     */
+ 
 
     func getArtistSearch(search: String, completion: @escaping ([ArtistItem]) -> ()) {
         if defaults.logged {
@@ -54,6 +53,7 @@ class SearchClient {
             completion(.init(from: urlString))
         }
     }
+     */
 
     func getSingleArtistItem(search: String, completion: @escaping ([ArtistItem]) -> ()) {
         if defaults.logged {

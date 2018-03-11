@@ -9,37 +9,44 @@
 import Foundation
 import SwiftyJSON
 
+extension Array where Element : JSONCodable {
+    init(with json: JSON) {
+        if let arr = json.array {
+            self = arr.flatMap { Element(json: $0) }
+        } else {
+            self = []
+        }
+    }
+}
+
 class NumuClient {
-    
-    static let sharedClient = NumuClient()
     
     private let urlPrefix = "https://www.numutracker.com"
     
-    func getJSON(endPoint: String, completion: @escaping (JSON) -> ()) {
-        if NumuCredential.checkForCredential() {
-            let sessionConfiguration = URLSessionConfiguration.default
-            let session = URLSession(configuration: sessionConfiguration)
-            if let url = URL(string: urlPrefix + endPoint) {
-                    let task = session.dataTask(with: url) { (data, response, error) in
-                        if let content = data {
-                            do {
-                                let json = try JSON(data: content)
-                                completion(json)
-                            } catch {
-                                print(error.localizedDescription)
-                            }
-                        }
+    static let sharedClient = NumuClient()
+    
+    func getJSON(with endPoint: String, completion: @escaping (JSON) -> ()) {
+        let sessionConfiguration = URLSessionConfiguration.default
+        let session = URLSession(configuration: sessionConfiguration)
+        if let url = URL(string: urlPrefix + endPoint) {
+            let task = session.dataTask(with: url) { (data, response, error) in
+                if let content = data {
+                    do {
+                        let json = try JSON(data: content)
+                        completion(json)
+                    } catch {
+                        completion(JSON.null)
+                        print(error.localizedDescription)
                     }
-                    task.resume()
+                }
             }
-        } else {
-            completion(JSON.null)
+            task.resume()
         }
     }
     
     func toggleFilter(filter: String, completion: @escaping (Bool) -> ()) {
         let endPoint = "/v2/json.php?filter=" + filter
-        self.getJSON(endPoint: endPoint) { (json) in
+        self.getJSON(with: endPoint) { (json) in
             if let result = json["result"].string {
                 result == "1" ? completion(true) : completion(false)
             }
@@ -49,14 +56,27 @@ class NumuClient {
     func getUserArtists(sortBy: String, completion: @escaping ([ArtistItem]) -> ()) {
         if let username = NumuCredential.getUsername() {
             let endPoint = "/v2/json.php?artists=" + username + "&sortby=" + sortBy
-            self.getJSON(endPoint: endPoint) { (json) in
-                if let arr = json.array {
-                    let artists = arr.flatMap { ArtistItem(json: $0) }
-                    completion(artists)
-                }
+            self.getJSON(with: endPoint) { (json) in
+                completion(.init(with: json))
             }
         } else {
             completion([])
+        }
+    }
+    
+    func getArtistSearch(search: String, completion: @escaping ([ArtistItem]) -> ()) {
+        if let username = NumuCredential.getUsername() {
+            let var_search = search.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
+            let endPoint = "/v2/json.php?artist_search=" + username + "&search=" + var_search!
+            self.getJSON(with: endPoint) { (json) in
+                completion(.init(with: json))
+            }
+        } else {
+            let var_search = search.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
+            let endPoint = "/v2/json.php?artist_search=0&search=" + var_search!
+            self.getJSON(with: endPoint) { (json) in
+                completion(.init(with: json))
+            }
         }
     }
     
