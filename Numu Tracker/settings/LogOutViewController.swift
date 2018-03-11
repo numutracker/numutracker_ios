@@ -11,11 +11,6 @@ import UserNotifications
 import PusherSwift
 import Crashlytics
 
-extension UIColor {
-    static let shadow = UIColor(red: 28/255, green: 202/255, blue: 241/255, alpha: 1)
-    static let bg = UIColor(red: 48/255, green: 156/255, blue: 172/255, alpha: 1)
-}
-
 class LogOutViewController: UIViewController {
 
     @IBOutlet weak var dividingLineView1: UIView!

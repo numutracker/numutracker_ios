@@ -9,16 +9,6 @@
 import Foundation
 import SwiftyJSON
 
-extension Array where Element : JSONCodable {
-    init(with json: JSON) {
-        if let arr = json.array {
-            self = arr.flatMap { Element(json: $0) }
-        } else {
-            self = []
-        }
-    }
-}
-
 class NumuClient {
     
     private let urlPrefix = "https://www.numutracker.com"

@@ -9,23 +9,6 @@
 import Foundation
 import SwiftyJSON
 
-extension ReleaseItem : JSONCodable { }
-extension ArtistItem: JSONCodable { }
-
-extension Array where Element : JSONCodable {
-    init(from url: String) {
-        if let url = URL(string: url),
-            let data = try? Data(contentsOf: url),
-            let json = try? JSON(data: data),
-            let arr = json.array  {
-            self = arr.flatMap { Element(json: $0) }
-        }
-        else {
-            self = []
-        }
-    }
-}
-
 class SearchClient {
 
     static let sharedClient = SearchClient()

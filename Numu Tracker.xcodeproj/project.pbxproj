@@ -27,7 +27,6 @@
 		B42866081DA5FC53000E5FA6 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = B42866071DA5FC53000E5FA6 /* User.swift */; };
 		B428660A1DA7645C000E5FA6 /* albumArtCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = B42866091DA7645C000E5FA6 /* albumArtCache.swift */; };
 		B43705D81E357C8C0060E6CC /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B43705D71E357C8C0060E6CC /* SettingsTableViewController.swift */; };
-		B43C55A71DEB9CCB00BF8483 /* UIViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B43C55A61DEB9CCB00BF8483 /* UIViewExtensions.swift */; };
 		B43C55AD1DEBA7A000BF8483 /* spotify.png in Resources */ = {isa = PBXBuildFile; fileRef = B43C55AA1DEBA7A000BF8483 /* spotify.png */; };
 		B43C55AE1DEBA7A000BF8483 /* spotify@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B43C55AB1DEBA7A000BF8483 /* spotify@2x.png */; };
 		B43C55AF1DEBA7A000BF8483 /* spotify@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = B43C55AC1DEBA7A000BF8483 /* spotify@3x.png */; };
@@ -41,6 +40,7 @@
 		B45A133B205479CB001EBDA5 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B45A133A205479CB001EBDA5 /* Default-568h@2x.png */; };
 		B45A133D20548632001EBDA5 /* NumuCredential.swift in Sources */ = {isa = PBXBuildFile; fileRef = B45A133C20548632001EBDA5 /* NumuCredential.swift */; };
 		B45A133F2054CBDF001EBDA5 /* NumuClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = B45A133E2054CBDF001EBDA5 /* NumuClient.swift */; };
+		B45A134120551C46001EBDA5 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B45A134020551C46001EBDA5 /* Extensions.swift */; };
 		B45BEE1B1D9F57E700A3AAA1 /* cog@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B45BEE191D9F57E700A3AAA1 /* cog@2x.png */; };
 		B45BEE1C1D9F57E700A3AAA1 /* cog@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = B45BEE1A1D9F57E700A3AAA1 /* cog@3x.png */; };
 		B4607CE61E10F5F100E75DCF /* user@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = B4607CE41E10F5F100E75DCF /* user@3x.png */; };
@@ -94,7 +94,6 @@
 		B42866091DA7645C000E5FA6 /* albumArtCache.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = albumArtCache.swift; sourceTree = "<group>"; };
 		B43705D71E357C8C0060E6CC /* SettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 		B43AF1E31DCE4C94008F7EBD /* Numu Tracker.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Numu Tracker.entitlements"; sourceTree = "<group>"; };
-		B43C55A61DEB9CCB00BF8483 /* UIViewExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIViewExtensions.swift; path = interface/UIViewExtensions.swift; sourceTree = "<group>"; };
 		B43C55AA1DEBA7A000BF8483 /* spotify.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spotify.png; sourceTree = "<group>"; };
 		B43C55AB1DEBA7A000BF8483 /* spotify@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "spotify@2x.png"; sourceTree = "<group>"; };
 		B43C55AC1DEBA7A000BF8483 /* spotify@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "spotify@3x.png"; sourceTree = "<group>"; };
@@ -108,6 +107,7 @@
 		B45A133A205479CB001EBDA5 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		B45A133C20548632001EBDA5 /* NumuCredential.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumuCredential.swift; sourceTree = "<group>"; };
 		B45A133E2054CBDF001EBDA5 /* NumuClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumuClient.swift; sourceTree = "<group>"; };
+		B45A134020551C46001EBDA5 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		B45BEE191D9F57E700A3AAA1 /* cog@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cog@2x.png"; sourceTree = "<group>"; };
 		B45BEE1A1D9F57E700A3AAA1 /* cog@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cog@3x.png"; sourceTree = "<group>"; };
 		B4607CE41E10F5F100E75DCF /* user@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "user@3x.png"; sourceTree = "<group>"; };
@@ -275,6 +275,7 @@
 				B4CCFCC61DB4353E00D2277B /* NumuUIButton.swift */,
 				B45A133C20548632001EBDA5 /* NumuCredential.swift */,
 				B45A133E2054CBDF001EBDA5 /* NumuClient.swift */,
+				B45A134020551C46001EBDA5 /* Extensions.swift */,
 			);
 			name = Backend;
 			path = backend;
@@ -284,7 +285,6 @@
 			isa = PBXGroup;
 			children = (
 				B4283A8A1D8548F300467CE6 /* Main.storyboard */,
-				B43C55A61DEB9CCB00BF8483 /* UIViewExtensions.swift */,
 				B4283A8D1D8548F300467CE6 /* Assets.xcassets */,
 				B4283A8F1D8548F300467CE6 /* LaunchScreen.storyboard */,
 			);
@@ -496,7 +496,6 @@
 			files = (
 				B45A133D20548632001EBDA5 /* NumuCredential.swift in Sources */,
 				B45A133F2054CBDF001EBDA5 /* NumuClient.swift in Sources */,
-				B43C55A71DEB9CCB00BF8483 /* UIViewExtensions.swift in Sources */,
 				B4283ABD1D8658AD00467CE6 /* ReleaseItem.swift in Sources */,
 				B4CCFCC91DB447B200D2277B /* HelpViewController.swift in Sources */,
 				B46754581F6DA66F00C80544 /* InstructionsViewController.swift in Sources */,
@@ -513,6 +512,7 @@
 				B416A6641DC52FBC000F86D9 /* ReleaseData.swift in Sources */,
 				B440D9D91DB2D28A00477938 /* ArtistTableViewCell.swift in Sources */,
 				B416A6621DC52DBA000F86D9 /* ReleaseTableViewCell.swift in Sources */,
+				B45A134120551C46001EBDA5 /* Extensions.swift in Sources */,
 				B4283ABB1D86586800467CE6 /* SearchClient.swift in Sources */,
 				B4DA6EAE1F6DE5C50090C945 /* LogRegPromptSmallViewController.swift in Sources */,
 				B42866081DA5FC53000E5FA6 /* User.swift in Sources */,

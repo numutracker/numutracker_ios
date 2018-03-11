@@ -296,14 +296,3 @@ class ArtistsTableViewController: UITableViewController, UISearchBarDelegate, UI
     
 }
 
-extension UIImageView {
-    func downloadImageFrom(link:String, contentMode: UIViewContentMode) {
-        URLSession.shared.dataTask(with: URL(string:link)!, completionHandler: {
-            (data, response, error) -> Void in
-            DispatchQueue.main.async {
-                self.contentMode =  contentMode
-                data.map { self.image = UIImage(data: $0) }
-            }
-        }).resume()
-    }
-}

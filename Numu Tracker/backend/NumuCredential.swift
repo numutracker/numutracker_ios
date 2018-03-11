@@ -32,7 +32,6 @@ class NumuCredential {
     
     func checkForCredential() -> Bool {
         if URLCredentialStorage.shared.defaultCredential(for: protectionSpace.production) != nil {
-            print("Found Credential")
             return true
         } else {
             return false
