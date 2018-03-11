@@ -14,51 +14,51 @@ class ReleaseFiltersViewController: UIViewController {
     @IBOutlet weak var albumFilterSpinner: UIActivityIndicatorView!
     @IBOutlet weak var albumFilterSwitch: UISwitch!
     @IBAction func albumFilterSwitch(_ sender: AnyObject) {
-        DispatchQueue.global(qos: .background).async(execute: {
-            let _ = SearchClient.sharedClient.toggleFilter(filter: "album")
-        })
+        NumuClient.sharedClient.toggleFilter(filter: "album") { (result) in
+            print(result)
+        }
     }
     @IBOutlet weak var singlesFilterSpinner: UIActivityIndicatorView!
     @IBOutlet weak var singlesFilterSwitch: UISwitch!
     @IBAction func singlesFilterSwitch(_ sender: AnyObject) {
-        DispatchQueue.global(qos: .background).async(execute: {
-            let _ = SearchClient.sharedClient.toggleFilter(filter: "single")
-        })
+        NumuClient.sharedClient.toggleFilter(filter: "single") { (result) in
+            print(result)
+        }
     }
     @IBOutlet weak var epFilterSpinner: UIActivityIndicatorView!
     @IBOutlet weak var epFilterSwitch: UISwitch!
     @IBAction func epFilterSwitch(_ sender: AnyObject) {
-        DispatchQueue.global(qos: .background).async(execute: {
-            let _ = SearchClient.sharedClient.toggleFilter(filter: "ep")
-        })
+        NumuClient.sharedClient.toggleFilter(filter: "ep") { (result) in
+            print(result)
+        }
     }
     @IBOutlet weak var liveFilterSpinner: UIActivityIndicatorView!
     @IBOutlet weak var liveFilterSwitch: UISwitch!
     @IBAction func liveFilterSwitch(_ sender: AnyObject) {
-        DispatchQueue.global(qos: .background).async(execute: {
-            let _ = SearchClient.sharedClient.toggleFilter(filter: "live")
-        })
+        NumuClient.sharedClient.toggleFilter(filter: "live") { (result) in
+            print(result)
+        }
     }
     @IBOutlet weak var compFilterSpinner: UIActivityIndicatorView!
     @IBOutlet weak var compFilterSwitch: UISwitch!
     @IBAction func compFilterSwitch(_ sender: AnyObject) {
-        DispatchQueue.global(qos: .background).async(execute: {
-            let _ = SearchClient.sharedClient.toggleFilter(filter: "soundtrack")
-        })
+        NumuClient.sharedClient.toggleFilter(filter: "soundtrack") { (result) in
+            print(result)
+        }
     }
     @IBOutlet weak var remixFilterSpinner: UIActivityIndicatorView!
     @IBOutlet weak var remixFilterSwitch: UISwitch!
     @IBAction func remixFilterSwitch(_ sender: AnyObject) {
-        DispatchQueue.global(qos: .background).async(execute: {
-            let _ = SearchClient.sharedClient.toggleFilter(filter: "remix")
-        })
+        NumuClient.sharedClient.toggleFilter(filter: "remix") { (result) in
+            print(result)
+        }
     }
     @IBOutlet weak var otherFilterSpinner: UIActivityIndicatorView!
     @IBOutlet weak var otherFilterSwitch: UISwitch!
     @IBAction func otherFilterSwitch(_ sender: AnyObject) {
-        DispatchQueue.global(qos: .background).async(execute: {
-            let _ = SearchClient.sharedClient.toggleFilter(filter: "other")
-        })
+        NumuClient.sharedClient.toggleFilter(filter: "other") { (result) in
+            print(result)
+        }
     }
 
 

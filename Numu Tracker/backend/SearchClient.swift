@@ -26,19 +26,20 @@ extension Array where Element : JSONCodable {
     }
 }
 
+
 class SearchClient {
 
     static let sharedClient = SearchClient()
 
+    /*
     func getUserArtists(sortBy: String, completion: @escaping ([ArtistItem]) -> ()) {
         if defaults.logged {
             let username = defaults.username
             let urlString = "https://www.numutracker.com/v2/json.php?artists=" + username! + "&sortby=" + sortBy
-
-            //print(urlString)
             completion(.init(from: urlString))
         }
     }
+     */
 
     func getArtistSearch(search: String, completion: @escaping ([ArtistItem]) -> ()) {
         if defaults.logged {
@@ -160,6 +161,7 @@ class SearchClient {
         return "0"
     }
 
+    /*
     func toggleFilter(filter: String) -> String {
         
         // New version using credential storage
@@ -180,7 +182,7 @@ class SearchClient {
                     (data, response, error) in
                     if let httpResponse = response as? HTTPURLResponse {
                         let dataString = NSString(data: data!, encoding: String.Encoding.utf8.rawValue)
-                        print(dataString)
+                        print(response)
                     }
                 }
             
@@ -191,29 +193,10 @@ class SearchClient {
         } else {
             print("No Credential")
         }
-
-        /* if defaults.logged {
-            let username = defaults.username
-            let password = defaults.password
-            let escapedString = username!.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)
-            let urlString = "https://" + escapedString! + ":" + password!
-            let urlString2 = "@www.numutracker.com/v2/json.php?filter=" + filter
-            if let url = URL(string: urlString + urlString2) {
-                if let data = try? Data(contentsOf: url) {
-                    if let json = try? JSON(data: data) {
-                        if let success = json["result"].string {
-                            return success
-                        }
-                    }
-
-                }
-            }
-            return "0"
-
-        } */
  
         return "0"
     }
+     */
 
     func unfollowArtist(artistMbid: String) -> String {
 

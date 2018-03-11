@@ -12,10 +12,25 @@ import Crashlytics
 class ArtistsTableViewController: UITableViewController, UISearchBarDelegate, UISearchResultsUpdating {
 
     var artists: [ArtistItem] = []
+    
     var sortMethod: String = "date"
     var screenType: String = "yours"
     var lastSelectedArtistId: String = ""
     var lastSelectedArtistName: String = ""
+    
+    enum states {
+        case user, search
+    }
+    
+    var viewState = states.user {
+        didSet {
+            if viewState == .user {
+                self.title = "Your Artists"
+            } else {
+                self.title = "Search Artists"
+            }
+        }
+    }
 
     @IBOutlet var noResultsView: UIView!
     @IBOutlet var noSearchResultsView: UIView!
@@ -26,52 +41,8 @@ class ArtistsTableViewController: UITableViewController, UISearchBarDelegate, UI
 
     @IBOutlet var footerView: UIView!
 
-    @IBAction func showSortOptions(_ sender: Any) {
-
-        let optionMenu = UIAlertController(title: "Sort Artists", message: nil, preferredStyle: .actionSheet)
-
-        // 2
-        let sortAlpha = UIAlertAction(title: "By Name", style: .default, handler: {
-            (alert: UIAlertAction!) -> Void in
-            self.tableView.tableFooterView = self.footerView
-            self.sortMethod = "name"
-            self.actOnImportNotification()
-        })
-        let sortDate = UIAlertAction(title: "By Recent Release", style: .default, handler: {
-            (alert: UIAlertAction!) -> Void in
-            self.tableView.tableFooterView = self.footerView
-            self.sortMethod = "date"
-            self.actOnImportNotification()
-        })
-
-        let cancelAction = UIAlertAction(title: "Cancel", style: .destructive) { (alert: UIAlertAction) -> Void in
-
-        }
-
-        // 4
-        optionMenu.addAction(sortAlpha)
-        optionMenu.addAction(sortDate)
-        optionMenu.addAction(cancelAction)
-
-        // colors?
-        let subview1 = optionMenu.view.subviews.first! as UIView
-        let subview2 = subview1.subviews.first! as UIView
-        let view = subview2.subviews.first! as UIView
-
-        subview1.backgroundColor = UIColor(red: 30/255, green: 30/255, blue: 30/255, alpha: 1.0)
-        view.backgroundColor = UIColor(red: 30/255, green: 30/255, blue: 30/255, alpha: 1.0)
-        subview1.layer.cornerRadius = 10.0
-        view.layer.cornerRadius = 10.0
-
-        optionMenu.view.tintColor = .white
-
-        // 5
-        self.present(optionMenu, animated: true, completion: nil)
-    }
-
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "Your Artists"
         tableView.tableFooterView = footerView
         tableView.backgroundView = UIView()
         tableView.keyboardDismissMode = .onDrag
@@ -89,24 +60,15 @@ class ArtistsTableViewController: UITableViewController, UISearchBarDelegate, UI
         searchController.hidesNavigationBarDuringPresentation = false
         searchController.dimsBackgroundDuringPresentation = false
         tableView.tableHeaderView = searchController.searchBar
-        //self.definesPresentationContext = true
 
         // Get list of artists...
 
-        DispatchQueue.global(qos: .background).async(execute: {
-            SearchClient.sharedClient.getUserArtists(sortBy: self.sortMethod) {[weak self](artists) in
-                self?.artists = artists
-            }
+        NumuClient.sharedClient.getUserArtists(sortBy: self.sortMethod) {[weak self](artists) in
+            self?.artists = artists
             DispatchQueue.main.async(execute: {
-                self.tableView.reloadData()
-                self.tableView.beginUpdates()
-                self.tableView.endUpdates()
-                self.tableView.tableFooterView = UIView()
-                if self.artists.isEmpty {
-                    self.tableView.tableFooterView = self.noResultsView
-                }
+                self?.loadTable()
             })
-        })
+        }
 
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(actOnImportNotification),
@@ -117,11 +79,6 @@ class ArtistsTableViewController: UITableViewController, UISearchBarDelegate, UI
 
         Answers.logCustomEvent(withName: "Your Artists View", customAttributes: nil)
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
 
     deinit {
@@ -135,23 +92,12 @@ class ArtistsTableViewController: UITableViewController, UISearchBarDelegate, UI
 
     @objc func actOnImportNotification() {
         DispatchQueue.global(qos: .background).async(execute: {
-            SearchClient.sharedClient.getUserArtists(sortBy: self.sortMethod) {[weak self](artists) in
+            NumuClient.sharedClient.getUserArtists(sortBy: self.sortMethod) {[weak self](artists) in
                 self?.artists = artists
+                DispatchQueue.main.async(execute: {
+                    self?.loadTable()
+                })
             }
-            DispatchQueue.main.async(execute: {
-                self.tableView.reloadData()
-                self.tableView.beginUpdates()
-                sleep(1)
-                self.tableView.endUpdates()
-                //self.tableView.setContentOffset(CGPoint(x:0, y:0-self.tableView.contentInset.top), animated: false)
-                self.artistRefreshControl.endRefreshing()
-                self.tableView.tableFooterView = UIView()
-                if self.artists.isEmpty {
-                    self.tableView.tableFooterView = self.noResultsView
-                }
-                self.searchController.searchBar.text = ""
-                self.searchController.searchBar.isHidden = false
-            })
         })
 
     }
@@ -160,7 +106,6 @@ class ArtistsTableViewController: UITableViewController, UISearchBarDelegate, UI
     lazy var artistRefreshControl: UIRefreshControl = {
         let refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action: #selector(handleRefresh), for: .valueChanged)
-
         return refreshControl
     }()
 
@@ -169,6 +114,8 @@ class ArtistsTableViewController: UITableViewController, UISearchBarDelegate, UI
         self.artists.removeAll()
         self.tableView.reloadData()
         self.tableView.tableFooterView = UIView()
+        self.viewState = .user
+        self.searchController.isActive = false
         self.searchController.searchBar.isHidden = true
         self.actOnImportNotification()
     }
@@ -180,12 +127,6 @@ class ArtistsTableViewController: UITableViewController, UISearchBarDelegate, UI
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        /* if (!defaults.logged) {
-            let loginViewController = storyboard?.instantiateViewController(withIdentifier: "LogRegPrompt") as! UINavigationController
-            DispatchQueue.main.async {
-                self.present(loginViewController, animated: true, completion: nil)
-            }
-        } */
     }
 
     // MARK: - Table view data source
@@ -205,37 +146,33 @@ class ArtistsTableViewController: UITableViewController, UISearchBarDelegate, UI
         NSObject.cancelPreviousPerformRequests(withTarget: self, selector: #selector(self.reload), object: nil)
         self.perform(#selector(self.reload), with: nil, afterDelay: 1)
     }
+    
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        self.viewState = .search
+    }
 
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         self.resignFirstResponder()
+        self.viewState = .user
         self.artists.removeAll()
         self.tableView.reloadData()
         self.tableView.tableFooterView = footerView
         self.actOnImportNotification()
-        self.title = "Your Artists"
     }
 
     @objc func reload() {
         if let searchText = searchController.searchBar.text, !searchText.isEmpty, searchText.count > 2 {
-            self.title = "Artist Search"
+            self.viewState = .search
             self.artists.removeAll()
             self.tableView.reloadData()
             self.tableView.tableFooterView = footerView
-            DispatchQueue.global(qos: .background).async(execute: {
-                SearchClient.sharedClient.getArtistSearch(search: searchText) {[weak self](artists) in
-                    self?.artists = artists
-                }
+            SearchClient.sharedClient.getArtistSearch(search: searchText) {[weak self](artists) in
+                self?.artists = artists
                 DispatchQueue.main.async(execute: {
-                    self.tableView.reloadData()
-                    self.tableView.beginUpdates()
-                    self.tableView.endUpdates()
-                    self.tableView.tableFooterView = UIView()
-                    if self.artists.isEmpty {
-                        self.tableView.tableFooterView = self.noSearchResultsView
-                    }
+                    self?.loadTable()
                     Answers.logSearch(withQuery: searchText,customAttributes: nil)
                 })
-            })
+            }
         }
     }
 
@@ -270,10 +207,6 @@ class ArtistsTableViewController: UITableViewController, UISearchBarDelegate, UI
         return cell
     }
 
-    /* override func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
-        return footerView
-    }
-     */
 
     override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
 
@@ -322,49 +255,31 @@ class ArtistsTableViewController: UITableViewController, UISearchBarDelegate, UI
 
         return [unfollow]
     }
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
+    
+    func loadTable() {
+        self.tableView.reloadData()
+        self.tableView.beginUpdates()
+        self.tableView.endUpdates()
+        self.tableView.tableFooterView = UIView()
+        self.artistRefreshControl.endRefreshing()
+        self.searchController.searchBar.isHidden = false
+        if self.artists.count == 0,
+            self.viewState == .search {
+            self.tableView.tableFooterView = self.noSearchResultsView
+        }
+        if self.artists.count == 0,
+            self.viewState == .user {
+            self.tableView.tableFooterView = self.noResultsView
+        }
+        
+        if (self.viewState == .user) {
+            self.searchController.searchBar.text = ""
         }
     }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
 
     // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
         if segue.identifier == "showArtistReleases",
             let destination = segue.destination as? ArtistReleasesTableViewController,
             let releaseIndex = tableView.indexPathForSelectedRow?.row {
@@ -381,9 +296,7 @@ class ArtistsTableViewController: UITableViewController, UISearchBarDelegate, UI
         }
     }
 
-    func alertClose(gesture: UITapGestureRecognizer) {
-        self.dismiss(animated: true, completion: nil)
-    }
+    
 }
 
 extension UIImageView {
