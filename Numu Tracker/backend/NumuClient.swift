@@ -56,6 +56,37 @@ class NumuClient {
             }
         }
     }
+    
+    func authorizeRegister(username: String, password: String, completion: @escaping (String) -> ()) {
+        let endPoint = "/v2/json.php?register=" + username + "&password=" + password
+        self.getJSON(with: endPoint) { (json) in
+            if let result = json["result"].string {
+                if result == "1" {
+                    NumuCredential.sharedClient.storeCredential(username: username, password: password)
+                }
+                completion(result)
+            } else {
+                // FIXME: API returns a string that fails JSON conversion.
+                // When API doesn't do this, this check will fail.
+                completion("Registration Failure")
+            }
+        }
+        
+        /*
+        let urlString = "https://www.numutracker.com/v2/json.php?register=" + username + "&password=" + password
+        if let url = URL(string: urlString) {
+            if let data = try? Data(contentsOf: url) {
+                if let json = try? JSON(data: data) {
+                    if let success = json["result"].string {
+                        return success
+                    }
+                }
+                
+            }
+        }
+        return "0"
+         */
+    }
 
     func toggleFilter(filter: String, completion: @escaping (Bool) -> ()) {
         let endPoint = "/v2/json.php?filter=" + filter

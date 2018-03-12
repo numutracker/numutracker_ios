@@ -358,27 +358,33 @@ class LogRegPromptSmallViewController: UIViewController, UITextFieldDelegate {
         }
 
         if !errorInt {
-            // Check credentials...
-            DispatchQueue.global(qos: .background).async(execute: {
-                let success = SearchClient.sharedClient.authorizeRegister(username: username!, password: password!)
+            // Check Credentials
+            NumuClient.sharedClient.authorizeRegister(username: username!, password: password!) { (result) in
                 DispatchQueue.main.async(execute: {
-                    if success == "1" {
+                    if result == "1" {
+                        // Registration Success
                         self.signUpLabel.text = "Registration Successful!"
+                        defaults.logged = true
+                        // TODO: Remove: Store credentials in user defaults.
                         defaults.username = username
                         defaults.password = password
-                        defaults.logged = true
+                        // Update interface elsewhere
                         NotificationCenter.default.post(name: .LoggedIn, object: self)
                         NotificationCenter.default.post(name: .UpdatedArtists, object: self)
-                        self.signUpPasswordTextField.resignFirstResponder()
-                        //_ = self.navigationController?.popViewController(animated: true)
+                        // Close keyboard
+                        self.logInPasswordTextField.resignFirstResponder()
+                        // Log to Answers
                         Answers.logSignUp(withMethod: "LogRegPrompt", success: true, customAttributes: nil)
+                        // Pop viewcontroller
                         self.dismiss(animated: true, completion: nil)
                     } else {
-                        self.signUpLabel.text = "Registration Failed"
+                        // Registration Failure
+                        self.signUpLabel.text = result
+                        // Log to Answers
                         Answers.logSignUp(withMethod: "LogRegPrompt", success: false, customAttributes: nil)
                     }
                 })
-            })
+            }
             return true
         } else {
             self.signUpLabel.text = errorText

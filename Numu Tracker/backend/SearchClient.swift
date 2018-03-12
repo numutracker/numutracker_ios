@@ -13,30 +13,6 @@ class SearchClient {
 
     static let sharedClient = SearchClient()
 
-    
-
-    
-
-
-
-    
-
-    func authorizeRegister(username: String, password: String) -> String {
-
-        let urlString = "https://www.numutracker.com/v2/json.php?register=" + username + "&password=" + password
-        if let url = URL(string: urlString) {
-            if let data = try? Data(contentsOf: url) {
-                if let json = try? JSON(data: data) {
-                    if let success = json["result"].string {
-                        return success
-                    }
-                }
-
-            }
-        }
-        return "0"
-    }
-
     func toggleListenState(releaseId: String) -> String {
 
         if defaults.logged {
