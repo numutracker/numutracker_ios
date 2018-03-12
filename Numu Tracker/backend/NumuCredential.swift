@@ -10,7 +10,7 @@ import Foundation
 
 class NumuCredential {
     
-    static let sharedClient = NumuCredential()
+    static let shared = NumuCredential()
     
     private struct protectionSpace {
         static let production = URLProtectionSpace(host: "www.numutracker.com", port: 443, protocol: "https", realm: "Numu Tracker", authenticationMethod: NSURLAuthenticationMethodHTTPBasic)

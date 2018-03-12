@@ -111,35 +111,25 @@ class LogRegPromptSmallViewController: UIViewController, UITextFieldDelegate {
         self.bottomScrollView.contentSize.width = max_length
 
         // Load list of recent releases
-        DispatchQueue.global(qos: .background).async(execute: {
-            SearchClient.sharedClient.getRandomArts() {[weak self](arts) in
-                self?.arts = arts
-            }
+        NumuClient.shared.getRandomArts() {[weak self](arts) in
+            self?.arts = arts
             DispatchQueue.main.async(execute: {
-                let top_artists = Array(self.arts[0..<15])
-                let bot_artists = Array(self.arts[15..<30])
-
-                self.loadArts(scrollView: self.topScrollView, images: top_artists)
-                self.loadArts(scrollView: self.bottomScrollView, images: bot_artists)
-
-                let width = self.view.frame.size.width
+                let top_artists = Array(self!.arts[0..<15])
+                let bot_artists = Array(self!.arts[15..<30])
+                self?.loadArts(scrollView: (self?.topScrollView)!, images: top_artists)
+                self?.loadArts(scrollView: (self?.bottomScrollView)!, images: bot_artists)
+                let width = self?.view.frame.size.width
                 var height: CGFloat = 0
                 var max_length: CGFloat = 0
-                height = width / 3
+                height = width! / 3
                 max_length = height * 15
-
-                 self.bottomScrollView.setContentOffset(CGPoint(x:max_length-width,y:0), animated: false)
-
-                _ = Timer.scheduledTimer(timeInterval: 0.025, target: self, selector: #selector(self.autoScroll), userInfo: nil, repeats: true)
-
+                self?.bottomScrollView.setContentOffset(CGPoint(x:max_length-width!,y:0), animated: false)
+                _ = Timer.scheduledTimer(timeInterval: 0.025, target: self!, selector: #selector(self?.autoScroll), userInfo: nil, repeats: true)
             })
-
-        })
+        }
 
         Answers.logCustomEvent(withName: "Login / Signup Screen", customAttributes: nil)
 
-        // Do any additional setup after loading the view.
-        //let timer = Timer.scheduledTimer(timeInterval: 0.05, target: self, selector: #selector(LogRegPromptViewController.autoScroll), userInfo: nil, repeats: true)
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -310,35 +300,35 @@ class LogRegPromptSmallViewController: UIViewController, UITextFieldDelegate {
         let password = self.logInPasswordTextField.text
         print("Username",username!)
         print("Password",password!)
-        // Check credentials...
-        DispatchQueue.global(qos: .background).async(execute: {
-            let success = SearchClient.sharedClient.authorizeLogIn(username: username!, password: password!)
+        
+        // Check Credentials
+        NumuClient.shared.authorizeLogIn(username: username!, password: password!) { (result) in
             DispatchQueue.main.async(execute: {
-                if success == "1" {
+                if result == "1" {
+                    // Login Success
                     self.logInLabel.text = "Logged in!"
                     defaults.logged = true
-                    
-                    // TO REMOVE: Store credentials in user defaults.
+                    // TODO: Remove: Store credentials in user defaults.
                     defaults.username = username
                     defaults.password = password
-                    
-                    // Store credentials in NSURLCredential
-                    NumuCredential.sharedClient.storeCredential(username: username, password: password)
-                    
+                    // Update interface elsewhere
                     NotificationCenter.default.post(name: .LoggedIn, object: self)
                     NotificationCenter.default.post(name: .UpdatedArtists, object: self)
+                    // Close keyboard
                     self.logInPasswordTextField.resignFirstResponder()
+                    // Log to Answers
                     Answers.logLogin(withMethod: "LogRegPrompt",success: true,customAttributes: nil)
-                    //_ = self.navigationController?.popViewController(animated: true)
-
+                    // Pop viewcontroller
                     self.dismiss(animated: true, completion: nil)
                 } else {
-                    self.logInLabel.text = "Log In Unsuccessful"
+                    // Login Failure
+                    self.logInLabel.text = result
+                    // Log to Answers
                     Answers.logLogin(withMethod: "LogRegPrompt",success: false,customAttributes: nil)
                 }
             })
-        })
-
+        }
+        
         return true
 
     }
@@ -366,27 +356,33 @@ class LogRegPromptSmallViewController: UIViewController, UITextFieldDelegate {
         }
 
         if !errorInt {
-            // Check credentials...
-            DispatchQueue.global(qos: .background).async(execute: {
-                let success = SearchClient.sharedClient.authorizeRegister(username: username!, password: password!)
+            // Check Credentials
+            NumuClient.shared.authorizeRegister(username: username!, password: password!) { (result) in
                 DispatchQueue.main.async(execute: {
-                    if success == "1" {
+                    if result == "1" {
+                        // Registration Success
                         self.signUpLabel.text = "Registration Successful!"
+                        defaults.logged = true
+                        // TODO: Remove: Store credentials in user defaults.
                         defaults.username = username
                         defaults.password = password
-                        defaults.logged = true
+                        // Update interface elsewhere
                         NotificationCenter.default.post(name: .LoggedIn, object: self)
                         NotificationCenter.default.post(name: .UpdatedArtists, object: self)
-                        self.signUpPasswordTextField.resignFirstResponder()
-                        //_ = self.navigationController?.popViewController(animated: true)
+                        // Close keyboard
+                        self.logInPasswordTextField.resignFirstResponder()
+                        // Log to Answers
                         Answers.logSignUp(withMethod: "LogRegPrompt", success: true, customAttributes: nil)
+                        // Pop viewcontroller
                         self.dismiss(animated: true, completion: nil)
                     } else {
-                        self.signUpLabel.text = "Registration Failed"
+                        // Registration Failure
+                        self.signUpLabel.text = result
+                        // Log to Answers
                         Answers.logSignUp(withMethod: "LogRegPrompt", success: false, customAttributes: nil)
                     }
                 })
-            })
+            }
             return true
         } else {
             self.signUpLabel.text = errorText

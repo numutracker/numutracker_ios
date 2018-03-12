@@ -14,7 +14,6 @@ class ArtistsTableViewController: UITableViewController, UISearchBarDelegate, UI
     var artists: [ArtistItem] = []
     
     var sortMethod: String = "date"
-    var screenType: String = "yours"
     var lastSelectedArtistId: String = ""
     var lastSelectedArtistName: String = ""
     
@@ -63,7 +62,7 @@ class ArtistsTableViewController: UITableViewController, UISearchBarDelegate, UI
 
         // Get list of artists...
 
-        NumuClient.sharedClient.getUserArtists(sortBy: self.sortMethod) {[weak self](artists) in
+        NumuClient.shared.getUserArtists(sortBy: self.sortMethod) {[weak self](artists) in
             self?.artists = artists
             DispatchQueue.main.async(execute: {
                 self?.loadTable()
@@ -91,7 +90,7 @@ class ArtistsTableViewController: UITableViewController, UISearchBarDelegate, UI
     }
 
     @objc func actOnImportNotification() {
-        NumuClient.sharedClient.getUserArtists(sortBy: self.sortMethod) {[weak self](artists) in
+        NumuClient.shared.getUserArtists(sortBy: self.sortMethod) {[weak self](artists) in
             self?.artists = artists
             DispatchQueue.main.async(execute: {
                 self?.loadTable()
@@ -107,12 +106,12 @@ class ArtistsTableViewController: UITableViewController, UISearchBarDelegate, UI
     }()
 
     @objc func handleRefresh(_ refreshControl: UIRefreshControl) {
-        //print("Refresh")
         self.artists.removeAll()
         self.tableView.reloadData()
         self.tableView.tableFooterView = UIView()
         self.viewState = .user
         self.searchController.isActive = false
+        self.searchController.searchBar.showsCancelButton = false
         self.searchController.searchBar.isHidden = true
         self.actOnImportNotification()
     }
@@ -129,19 +128,12 @@ class ArtistsTableViewController: UITableViewController, UISearchBarDelegate, UI
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
        return artists.count
 
-    }
-
-    func updateSearchResults(for searchController: UISearchController) {
-        NSObject.cancelPreviousPerformRequests(withTarget: self, selector: #selector(self.reload), object: nil)
-        self.perform(#selector(self.reload), with: nil, afterDelay: 1)
     }
     
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
@@ -157,13 +149,18 @@ class ArtistsTableViewController: UITableViewController, UISearchBarDelegate, UI
         self.actOnImportNotification()
     }
 
+    func updateSearchResults(for searchController: UISearchController) {
+        NSObject.cancelPreviousPerformRequests(withTarget: self, selector: #selector(self.reload), object: nil)
+        self.perform(#selector(self.reload), with: nil, afterDelay: 1)
+    }
+
     @objc func reload() {
         if let searchText = searchController.searchBar.text, !searchText.isEmpty, searchText.count > 2 {
             self.viewState = .search
             self.artists.removeAll()
             self.tableView.reloadData()
             self.tableView.tableFooterView = footerView
-            NumuClient.sharedClient.getArtistSearch(search: searchText) {[weak self](artists) in
+            NumuClient.shared.getArtistSearch(search: searchText) {[weak self](artists) in
                 self?.artists = artists
                 DispatchQueue.main.async(execute: {
                     self?.loadTable()
@@ -180,7 +177,6 @@ class ArtistsTableViewController: UITableViewController, UISearchBarDelegate, UI
         cell.configure(artistInfo: artistInfo)
         cell.albumActivityIndicator.startAnimating()
         cell.thumbUrl = artistInfo.thumbUrl // For recycled cells' late image loads.
-
 
         if let image = artistInfo.thumbUrl.cachedImage {
             // Cached: set immediately.
@@ -200,7 +196,6 @@ class ArtistsTableViewController: UITableViewController, UISearchBarDelegate, UI
             }
         }
 
-
         return cell
     }
 
@@ -211,16 +206,12 @@ class ArtistsTableViewController: UITableViewController, UISearchBarDelegate, UI
 
         let unfollow = UITableViewRowAction(style: .normal, title: "Error") { action, index in
             if !defaults.logged {
+                var loginViewController = self.storyboard?.instantiateViewController(withIdentifier: "LogRegPrompt") as! UINavigationController
                 if UIDevice().screenType == .iPhone4 {
-                    let loginViewController = self.storyboard?.instantiateViewController(withIdentifier: "LogRegPromptSmall") as! UINavigationController
-                    DispatchQueue.main.async {
-                        self.present(loginViewController, animated: true, completion: nil)
-                    }
-                } else {
-                    let loginViewController = self.storyboard?.instantiateViewController(withIdentifier: "LogRegPrompt") as! UINavigationController
-                    DispatchQueue.main.async {
-                        self.present(loginViewController, animated: true, completion: nil)
-                    }
+                    loginViewController = self.storyboard?.instantiateViewController(withIdentifier: "LogRegPromptSmall") as! UINavigationController
+                }
+                DispatchQueue.main.async {
+                    self.present(loginViewController, animated: true, completion: nil)
                 }
             } else {
                 DispatchQueue.global(qos: .background).async(execute: {
@@ -228,8 +219,6 @@ class ArtistsTableViewController: UITableViewController, UISearchBarDelegate, UI
                     DispatchQueue.main.async(execute: {
                         if success == "1" {
                             artistInfo.followStatus = "0"
-                            //self.artists.remove(at: indexPath.row)
-                            //tableView.deleteRows(at: [indexPath], with: .automatic)
                             self.artists[indexPath.row].followStatus = "0"
                             Answers.logCustomEvent(withName: "Unfol Swipe", customAttributes: ["Artist ID":artistInfo.artistId])
                         } else if success == "2" {
@@ -244,11 +233,7 @@ class ArtistsTableViewController: UITableViewController, UISearchBarDelegate, UI
         }
 
         unfollow.backgroundColor = .bg
-        if artistInfo.followStatus == "0" {
-            unfollow.title = "Follow"
-        } else {
-            unfollow.title = "Unfollow"
-        }
+        unfollow.title = artistInfo.followStatus == "0" ? "Follow" : "Unfollow"
 
         return [unfollow]
     }
@@ -286,10 +271,6 @@ class ArtistsTableViewController: UITableViewController, UISearchBarDelegate, UI
             self.lastSelectedArtistName = artistName
             destination.artistId = artistId
             destination.artistName = artistName
-        } else if segue.identifier == "showArtistReleases",
-            let destination = segue.destination as? ArtistReleasesTableViewController {
-            destination.artistId = self.lastSelectedArtistId
-            destination.artistName = self.lastSelectedArtistName
         }
     }
 

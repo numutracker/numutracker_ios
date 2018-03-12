@@ -28,9 +28,7 @@ class NumuTabBarController: UITabBarController, UITabBarControllerDelegate {
         super.viewWillAppear(animated)
     }
 
-    //Delegate methods
     func tabBarController(_ tabBarController: UITabBarController, shouldSelect viewController: UIViewController) -> Bool {
-        //print("Should select viewController: \(viewController.title) ?")
         return true
     }
 

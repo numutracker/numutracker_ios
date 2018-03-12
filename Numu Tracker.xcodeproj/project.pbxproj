@@ -253,10 +253,10 @@
 				B47CF37A1E5E908100225B85 /* LogOutViewController.swift */,
 				B4B49B861E5EBE4B001CE1C7 /* ReleaseFiltersViewController.swift */,
 				B4B940AD1E6131B800F52027 /* NotificationsViewController.swift */,
-				B43E36B11F5DFAD0009834C9 /* LogRegPromptViewController.swift */,
 				B471648C1F5FA24600D4E03E /* NumuTextField.swift */,
 				B46754551F6DA64B00C80544 /* AboutViewController.swift */,
 				B46754571F6DA66F00C80544 /* InstructionsViewController.swift */,
+				B43E36B11F5DFAD0009834C9 /* LogRegPromptViewController.swift */,
 				B4DA6EAD1F6DE5C50090C945 /* LogRegPromptSmallViewController.swift */,
 			);
 			name = Settings;

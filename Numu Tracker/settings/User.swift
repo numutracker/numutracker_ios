@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import SwiftyJSON
 
 class User {
 
@@ -18,50 +19,26 @@ class User {
     var remix: String = "1"
     var other: String = "1"
 
-    init?(username: String) {
+    init?(json: JSON) {
 
-        // Get filter info from json query...
-        let json = SearchClient.sharedClient.getUserFilters(username: username)
-
-        //print(json)
-
-        guard let album = json["album"].string else {
+        guard let album = json["album"].string,
+            let single = json["single"].string,
+            let ep = json["ep"].string,
+            let live = json["live"].string,
+            let soundtrack = json["soundtrack"].string,
+            let remix = json["remix"].string,
+            let other = json["other"].string else {
             return nil
         }
+        
         self.album = album
-
-        guard let single = json["single"].string else {
-            return nil
-        }
         self.single = single
-
-        guard let ep = json["ep"].string else {
-            return nil
-        }
         self.ep = ep
-
-        guard let live = json["live"].string else {
-            return nil
-        }
         self.live = live
-
-        guard let soundtrack = json["soundtrack"].string else {
-            return nil
-        }
         self.soundtrack = soundtrack
-
-        guard let remix = json["remix"].string else {
-            return nil
-        }
         self.remix = remix
-
-        guard let other = json["other"].string else {
-            return nil
-        }
         self.other = other
 
-
     }
-
-
+    
 }

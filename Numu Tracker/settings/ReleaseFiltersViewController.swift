@@ -14,49 +14,49 @@ class ReleaseFiltersViewController: UIViewController {
     @IBOutlet weak var albumFilterSpinner: UIActivityIndicatorView!
     @IBOutlet weak var albumFilterSwitch: UISwitch!
     @IBAction func albumFilterSwitch(_ sender: AnyObject) {
-        NumuClient.sharedClient.toggleFilter(filter: "album") { (result) in
+        NumuClient.shared.toggleFilter(filter: "album") { (result) in
             print(result)
         }
     }
     @IBOutlet weak var singlesFilterSpinner: UIActivityIndicatorView!
     @IBOutlet weak var singlesFilterSwitch: UISwitch!
     @IBAction func singlesFilterSwitch(_ sender: AnyObject) {
-        NumuClient.sharedClient.toggleFilter(filter: "single") { (result) in
+        NumuClient.shared.toggleFilter(filter: "single") { (result) in
             print(result)
         }
     }
     @IBOutlet weak var epFilterSpinner: UIActivityIndicatorView!
     @IBOutlet weak var epFilterSwitch: UISwitch!
     @IBAction func epFilterSwitch(_ sender: AnyObject) {
-        NumuClient.sharedClient.toggleFilter(filter: "ep") { (result) in
+        NumuClient.shared.toggleFilter(filter: "ep") { (result) in
             print(result)
         }
     }
     @IBOutlet weak var liveFilterSpinner: UIActivityIndicatorView!
     @IBOutlet weak var liveFilterSwitch: UISwitch!
     @IBAction func liveFilterSwitch(_ sender: AnyObject) {
-        NumuClient.sharedClient.toggleFilter(filter: "live") { (result) in
+        NumuClient.shared.toggleFilter(filter: "live") { (result) in
             print(result)
         }
     }
     @IBOutlet weak var compFilterSpinner: UIActivityIndicatorView!
     @IBOutlet weak var compFilterSwitch: UISwitch!
     @IBAction func compFilterSwitch(_ sender: AnyObject) {
-        NumuClient.sharedClient.toggleFilter(filter: "soundtrack") { (result) in
+        NumuClient.shared.toggleFilter(filter: "soundtrack") { (result) in
             print(result)
         }
     }
     @IBOutlet weak var remixFilterSpinner: UIActivityIndicatorView!
     @IBOutlet weak var remixFilterSwitch: UISwitch!
     @IBAction func remixFilterSwitch(_ sender: AnyObject) {
-        NumuClient.sharedClient.toggleFilter(filter: "remix") { (result) in
+        NumuClient.shared.toggleFilter(filter: "remix") { (result) in
             print(result)
         }
     }
     @IBOutlet weak var otherFilterSpinner: UIActivityIndicatorView!
     @IBOutlet weak var otherFilterSwitch: UISwitch!
     @IBAction func otherFilterSwitch(_ sender: AnyObject) {
-        NumuClient.sharedClient.toggleFilter(filter: "other") { (result) in
+        NumuClient.shared.toggleFilter(filter: "other") { (result) in
             print(result)
         }
     }
@@ -78,7 +78,8 @@ class ReleaseFiltersViewController: UIViewController {
 
     func loadSettings() {
 
-        if defaults.logged {
+        if NumuCredential.shared.checkForCredential() {
+           
             self.albumFilterSwitch.isHidden = true
             self.albumFilterSpinner.startAnimating()
             self.singlesFilterSwitch.isHidden = true
@@ -93,40 +94,39 @@ class ReleaseFiltersViewController: UIViewController {
             self.remixFilterSpinner.startAnimating()
             self.otherFilterSwitch.isHidden = true
             self.otherFilterSpinner.startAnimating()
-
-            DispatchQueue.global(qos: .background).async(execute: {
-                let user = User(username: defaults.username!)
+            
+            NumuClient.shared.getUserFilters() {[weak self](json) in
+                let user = User(json: json)
                 DispatchQueue.main.async(execute: {
-
-                    self.albumFilterSwitch.isOn = user?.album != "0"
-                    self.albumFilterSwitch.isHidden = false
-                    self.albumFilterSpinner.stopAnimating()
-
-                    self.singlesFilterSwitch.isOn = user?.single != "0"
-                    self.singlesFilterSwitch.isHidden = false
-                    self.singlesFilterSpinner.stopAnimating()
-
-                    self.epFilterSwitch.isOn = user?.ep != "0"
-                    self.epFilterSwitch.isHidden = false
-                    self.epFilterSpinner.stopAnimating()
-
-                    self.liveFilterSwitch.isOn = user?.live != "0"
-                    self.liveFilterSwitch.isHidden = false
-                    self.liveFilterSpinner.stopAnimating()
-
-                    self.compFilterSwitch.isOn = user?.soundtrack != "0"
-                    self.compFilterSwitch.isHidden = false
-                    self.compFilterSpinner.stopAnimating()
-
-                    self.remixFilterSwitch.isOn = user?.remix != "0"
-                    self.remixFilterSwitch.isHidden = false
-                    self.remixFilterSpinner.stopAnimating()
-
-                    self.otherFilterSwitch.isOn = user?.other != "0"
-                    self.otherFilterSwitch.isHidden = false
-                    self.otherFilterSpinner.stopAnimating()
+                    self?.albumFilterSwitch.isOn = user?.album != "0"
+                    self?.albumFilterSwitch.isHidden = false
+                    self?.albumFilterSpinner.stopAnimating()
+                    
+                    self?.singlesFilterSwitch.isOn = user?.single != "0"
+                    self?.singlesFilterSwitch.isHidden = false
+                    self?.singlesFilterSpinner.stopAnimating()
+                    
+                    self?.epFilterSwitch.isOn = user?.ep != "0"
+                    self?.epFilterSwitch.isHidden = false
+                    self?.epFilterSpinner.stopAnimating()
+                    
+                    self?.liveFilterSwitch.isOn = user?.live != "0"
+                    self?.liveFilterSwitch.isHidden = false
+                    self?.liveFilterSpinner.stopAnimating()
+                    
+                    self?.compFilterSwitch.isOn = user?.soundtrack != "0"
+                    self?.compFilterSwitch.isHidden = false
+                    self?.compFilterSpinner.stopAnimating()
+                    
+                    self?.remixFilterSwitch.isOn = user?.remix != "0"
+                    self?.remixFilterSwitch.isHidden = false
+                    self?.remixFilterSpinner.stopAnimating()
+                    
+                    self?.otherFilterSwitch.isOn = user?.other != "0"
+                    self?.otherFilterSwitch.isHidden = false
+                    self?.otherFilterSpinner.stopAnimating()
                 })
-            })
+            }
         } else {
             self.albumFilterSwitch.isEnabled = false
             self.singlesFilterSwitch.isEnabled = false

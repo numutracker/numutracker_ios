@@ -119,22 +119,18 @@ class LogOutViewController: UIViewController {
     }
 
     @objc func getUserStats() {
-        if defaults.logged {
-            let user = defaults.username!
-            DispatchQueue.global(qos: .background).async(execute: {
-                let json = SearchClient.sharedClient.getUserStats(username: user)
+        if NumuCredential.shared.checkForCredential() {
+            NumuClient.shared.getUserStats() {[weak self](json) in
                 DispatchQueue.main.async(execute: {
-
-                    self.artistsListenedFinalInt = json["total_list_artists_unfilt"].double!
-                    self.artistsFollowedFinalInt = json["total_follows"].double!
-                    self.releasesListenedFinalInt = json["total_listens_unfilt"].double!
-                    self.releasesFollowedFinalInt = json["total_rel_fol"].double!
-                    self.completionFinalFloat = json["percentage"].double!
-
-                    self.startTimer()
+                    self?.artistsListenedFinalInt = json["total_list_artists_unfilt"].double!
+                    self?.artistsFollowedFinalInt = json["total_follows"].double!
+                    self?.releasesListenedFinalInt = json["total_listens_unfilt"].double!
+                    self?.releasesFollowedFinalInt = json["total_rel_fol"].double!
+                    self?.completionFinalFloat = json["percentage"].double!
+                    // Start animation
+                    self?.startTimer()
                 })
-
-            })
+            }
         } else {
             // Nada
         }
@@ -194,7 +190,7 @@ class LogOutViewController: UIViewController {
         defaults.logged = false
         
         // Remove credentials from URLCredentialStorage
-        NumuCredential.sharedClient.removeCredential()
+        NumuCredential.shared.removeCredential()
                 
         NotificationCenter.default.post(name: .LoggedOut, object: self)
         NotificationCenter.default.post(name: .UpdatedArtists, object: self)

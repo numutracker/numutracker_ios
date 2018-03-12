@@ -2,11 +2,11 @@
 
 # Numu Tracker for iOS
 
-This is the iOS app for accessing the Numu Tracker API.
+Numu Tracker can keep you up to date on music by the artists you love the most. Part to-do list, part reminders and alerts, Numu gives you the tools to ensure you never miss out on new albums.
 
-Numu Tracker is a service to help you keep track of new music (get it?). Users can import a list of artists from Apple Music, then can configure different types of notifications to receive. Users can also use the app to keep track of what they've listened to, sort it acts as a automatic to-do list for all music.
+[![Numu Tracker Screenshots](https://www.apple.com/itunes/link/images/link-badge-appstore.png)](https://itunes.apple.com/us/app/numu-new-music-tracker/id1158641228)
 
-App is on the App Store: https://itunes.apple.com/us/app/numu-new-music-tracker/id1158641228
+This app is dependent on the Numu Tracker Backened, [originally built in PHP](https://github.com/amiantos/numutracker_php) but soon to be [rebuilt in Django](https://github.com/amiantos/numutracker_django).
 
 ## Screenshots
 
@@ -28,4 +28,3 @@ Numu Tracker for iOS features paid icons from [The Noun Project](https://thenoun
 * [Romantic music icon by ProSymbols](https://thenounproject.com/icon/557819/)
 * [Drums icon by Hea Poh Lin](https://thenounproject.com/icon/585972/)
 * [Setting icon by Nancy](https://thenounproject.com/icon/652826/)
-
