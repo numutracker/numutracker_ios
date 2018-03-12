@@ -110,30 +110,6 @@ class SearchClient {
         return .null
     }
 
-    func getUserStats(username: String) -> JSON {
-
-        if defaults.logged {
-            let username = defaults.username
-            let password = defaults.password
-            let escapedString = username!.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)
-            let urlString = "https://" + escapedString! + ":" + password!
-            let urlString2 = "@www.numutracker.com/v2/json.php?stats"
-
-            //print(urlString + urlString2)
-
-            if let url = URL(string: urlString + urlString2) {
-                if let data = try? Data(contentsOf: url) {
-                    if let json = try? JSON(data: data) {
-                        return json
-                    }
-                }
-            }
-
-        }
-        return .null
-    }
-
-
     func HTTPsendRequest(request: NSMutableURLRequest,
                          callback: @escaping (String, String?) -> Void) {
         let task = URLSession.shared

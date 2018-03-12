@@ -119,22 +119,18 @@ class LogOutViewController: UIViewController {
     }
 
     @objc func getUserStats() {
-        if defaults.logged {
-            let user = defaults.username!
-            DispatchQueue.global(qos: .background).async(execute: {
-                let json = SearchClient.sharedClient.getUserStats(username: user)
+        if NumuCredential.sharedClient.checkForCredential() {
+            NumuClient.sharedClient.getUserStats() {[weak self](json) in
                 DispatchQueue.main.async(execute: {
-
-                    self.artistsListenedFinalInt = json["total_list_artists_unfilt"].double!
-                    self.artistsFollowedFinalInt = json["total_follows"].double!
-                    self.releasesListenedFinalInt = json["total_listens_unfilt"].double!
-                    self.releasesFollowedFinalInt = json["total_rel_fol"].double!
-                    self.completionFinalFloat = json["percentage"].double!
-
-                    self.startTimer()
+                    self?.artistsListenedFinalInt = json["total_list_artists_unfilt"].double!
+                    self?.artistsFollowedFinalInt = json["total_follows"].double!
+                    self?.releasesListenedFinalInt = json["total_listens_unfilt"].double!
+                    self?.releasesFollowedFinalInt = json["total_rel_fol"].double!
+                    self?.completionFinalFloat = json["percentage"].double!
+                    // Start animation
+                    self?.startTimer()
                 })
-
-            })
+            }
         } else {
             // Nada
         }

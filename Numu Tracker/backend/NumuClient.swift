@@ -71,21 +71,6 @@ class NumuClient {
                 completion("Registration Failure")
             }
         }
-        
-        /*
-        let urlString = "https://www.numutracker.com/v2/json.php?register=" + username + "&password=" + password
-        if let url = URL(string: urlString) {
-            if let data = try? Data(contentsOf: url) {
-                if let json = try? JSON(data: data) {
-                    if let success = json["result"].string {
-                        return success
-                    }
-                }
-                
-            }
-        }
-        return "0"
-         */
     }
 
     func toggleFilter(filter: String, completion: @escaping (Bool) -> ()) {
@@ -95,6 +80,35 @@ class NumuClient {
                 result == "1" ? completion(true) : completion(false)
             }
         }
+    }
+    
+    func getUserStats(completion: @escaping (JSON) -> ()) {
+        let endPoint = "/v2/json.php?stats"
+        self.getJSON(with: endPoint) { (json) in
+            completion(json)
+        }
+        
+        /*
+        if defaults.logged {
+            let username = defaults.username
+            let password = defaults.password
+            let escapedString = username!.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)
+            let urlString = "https://" + escapedString! + ":" + password!
+            let urlString2 = "@www.numutracker.com/v2/json.php?stats"
+            
+            //print(urlString + urlString2)
+            
+            if let url = URL(string: urlString + urlString2) {
+                if let data = try? Data(contentsOf: url) {
+                    if let json = try? JSON(data: data) {
+                        return json
+                    }
+                }
+            }
+            
+        }
+        return .null
+         */
     }
     
     // MARK: - Artist Related
