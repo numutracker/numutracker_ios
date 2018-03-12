@@ -111,30 +111,22 @@ class LogRegPromptSmallViewController: UIViewController, UITextFieldDelegate {
         self.bottomScrollView.contentSize.width = max_length
 
         // Load list of recent releases
-        DispatchQueue.global(qos: .background).async(execute: {
-            SearchClient.sharedClient.getRandomArts() {[weak self](arts) in
-                self?.arts = arts
-            }
+        NumuClient.sharedClient.getRandomArts() {[weak self](arts) in
+            self?.arts = arts
             DispatchQueue.main.async(execute: {
-                let top_artists = Array(self.arts[0..<15])
-                let bot_artists = Array(self.arts[15..<30])
-
-                self.loadArts(scrollView: self.topScrollView, images: top_artists)
-                self.loadArts(scrollView: self.bottomScrollView, images: bot_artists)
-
-                let width = self.view.frame.size.width
+                let top_artists = Array(self!.arts[0..<15])
+                let bot_artists = Array(self!.arts[15..<30])
+                self?.loadArts(scrollView: (self?.topScrollView)!, images: top_artists)
+                self?.loadArts(scrollView: (self?.bottomScrollView)!, images: bot_artists)
+                let width = self?.view.frame.size.width
                 var height: CGFloat = 0
                 var max_length: CGFloat = 0
-                height = width / 3
+                height = width! / 3
                 max_length = height * 15
-
-                 self.bottomScrollView.setContentOffset(CGPoint(x:max_length-width,y:0), animated: false)
-
-                _ = Timer.scheduledTimer(timeInterval: 0.025, target: self, selector: #selector(self.autoScroll), userInfo: nil, repeats: true)
-
+                self?.bottomScrollView.setContentOffset(CGPoint(x:max_length-width!,y:0), animated: false)
+                _ = Timer.scheduledTimer(timeInterval: 0.025, target: self, selector: #selector(self?.autoScroll), userInfo: nil, repeats: true)
             })
-
-        })
+        }
 
         Answers.logCustomEvent(withName: "Login / Signup Screen", customAttributes: nil)
 

@@ -36,17 +36,21 @@ class NumuClient {
         }
     }
     
-    // MARK: User Related
+    func postJSON(with endPoint: String, content: JSON) {
+        
+    }
+    
+    // MARK: - User Related
     
     func authorizeLogIn(username: String, password: String, completion: @escaping (String) -> ()) {
-        // Temporarily store the credential
         NumuCredential.sharedClient.storeCredential(username: username, password: password)
         let endPoint = "/v2/json.php?auth=1"
         self.getJSON(with: endPoint) { (json) in
             if let result = json["result"].string {
                 completion(result)
             } else {
-                // Remove failed credential
+                // FIXME: API returns a string that fails JSON conversion.
+                // When API doesn't do this, this check will fail.
                 NumuCredential.sharedClient.removeCredential()
                 completion("Authorization Failure")
             }
@@ -62,7 +66,7 @@ class NumuClient {
         }
     }
     
-    // MARK: Artist Related
+    // MARK: - Artist Related
 
     func getUserArtists(sortBy: String, completion: @escaping ([ArtistItem]) -> ()) {
         if let username = NumuCredential.sharedClient.getUsername() {
@@ -97,6 +101,17 @@ class NumuClient {
         let endPoint = "/v2/json.php?user=\(username)&rel_mode=artist&artist=\(artist)"
         self.getJSON(with: endPoint) { (json) in
             completion(.init(with: json))
+        }
+    }
+    
+    // MARK: - Miscellaneous
+    
+    func getRandomArts(completion: @escaping ([String]) -> ()) {
+        let endPoint = "/v2/json.php?arts=1"
+        self.getJSON(with: endPoint) { (json) in
+            if let arts = json.array {
+                completion(arts.flatMap { String(describing: $0) })
+            }
         }
     }
 

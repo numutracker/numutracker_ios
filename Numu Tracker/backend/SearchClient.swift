@@ -15,24 +15,7 @@ class SearchClient {
 
     
 
-    func getRandomArts(completion: @escaping ([String]) -> ()) {
-        let urlString = "https://www.numutracker.com/v2/json.php?arts=1"
-        //print(urlString)
-        var arts_found: [String] = []
-
-        if let url = URL(string: urlString) {
-            if let data = try? Data(contentsOf: url) {
-                if let json = try? JSON(data: data) {
-                    if let arts = json.array {
-                        for art in arts {
-                            arts_found.append(art.string!)
-                        }
-                        completion(arts_found)
-                    }
-                }
-            }
-        }
-    }
+    
 
 
 
