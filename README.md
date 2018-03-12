@@ -4,9 +4,15 @@
 
 This is the iOS app for accessing the Numu Tracker API.
 
+Numu Tracker is a service to help you keep track of new music (get it?). Users can import a list of artists from Apple Music, then can configure different types of notifications to receive. Users can also use the app to keep track of what they've listened to, sort it acts as a automatic to-do list for all music.
+
 App is on the App Store: https://itunes.apple.com/us/app/numu-new-music-tracker/id1158641228
 
-# To Install
+## Screenshots
+
+![Numu Tracker Screenshots](/screenshots.jpg?raw=true)
+
+## To Install
 
 1. `git clone https://github.com/amiantos/numutracker_ios.git`
 2. `pod install` (requires [CocoaPods](https://cocoapods.org))
