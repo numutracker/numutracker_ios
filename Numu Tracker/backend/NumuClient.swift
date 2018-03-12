@@ -72,6 +72,13 @@ class NumuClient {
             }
         }
     }
+    
+    func getUserFilters(completion: @escaping (JSON) -> ()) {
+        let endPoint = "/v2/json.php?filters"
+        self.getJSON(with: endPoint) { (json) in
+            completion(json)
+        }
+    }
 
     func toggleFilter(filter: String, completion: @escaping (Bool) -> ()) {
         let endPoint = "/v2/json.php?filter=" + filter
