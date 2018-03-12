@@ -28,39 +28,34 @@ class ArtistReleasesTableViewController: UITableViewController {
         navigationItem.rightBarButtonItem = add
 
         if let artistId = self.artistId {
-            // Get artist item...
+
             self.navigationController?.navigationBar.tintColor = .white
             let selectedArtist: String = artistId
             self.title = artistName
             self.tableView.tableFooterView = footerView
-            DispatchQueue.global(qos: .background).async(execute: {
-                SearchClient.sharedClient.getArtistReleases(artist: selectedArtist) {[weak self](releases) in
+            
+            NumuClient.sharedClient.getSingleArtistItem(search: selectedArtist) {[weak self](artists) in
+                self?.artistItem = artists
+                NumuClient.sharedClient.getArtistReleases(artist: selectedArtist) {[weak self](releases) in
                     self?.releases = releases
+                    DispatchQueue.main.async(execute: {
+                        if !defaults.logged {
+                            self?.navigationItem.rightBarButtonItem?.title = "Follow"
+                        } else {
+                            let title = self?.artistItem[0].followStatus == "1" ? "Unfollow" : "Follow"
+                            self?.navigationItem.rightBarButtonItem?.title = title
+                        }
+                        self?.tableView.reloadData()
+                        self?.tableView.beginUpdates()
+                        self?.tableView.endUpdates()
+                        self?.tableView.tableFooterView = UIView()
+                        if (self?.releases.isEmpty)! {
+                            self?.tableView.tableFooterView = self?.noResultsView
+                        }
+                    })
                 }
-
-                NumuClient.sharedClient.getSingleArtistItem(search: selectedArtist) {[weak self](artists) in
-                    self?.artistItem = artists
-                }
-
-                DispatchQueue.main.async(execute: {
-                    if !defaults.logged {
-                        self.navigationItem.rightBarButtonItem?.title = "Follow"
-                    } else {
-                        let title = self.artistItem[0].followStatus == "1" ? "Unfollow" : "Follow"
-                        self.navigationItem.rightBarButtonItem?.title = title
-                    }
-                    self.tableView.reloadData()
-                    self.tableView.beginUpdates()
-                    self.tableView.endUpdates()
-                    self.tableView.tableFooterView = UIView()
-                    if self.releases.isEmpty {
-                        self.tableView.tableFooterView = self.noResultsView
-                    }
-                })
-            })
-
+            }
             Answers.logCustomEvent(withName: "Artist Screen", customAttributes: ["Artist ID":selectedArtist])
-
         }
 
 

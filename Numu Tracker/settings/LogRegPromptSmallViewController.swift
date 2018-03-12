@@ -310,35 +310,35 @@ class LogRegPromptSmallViewController: UIViewController, UITextFieldDelegate {
         let password = self.logInPasswordTextField.text
         print("Username",username!)
         print("Password",password!)
-        // Check credentials...
-        DispatchQueue.global(qos: .background).async(execute: {
-            let success = SearchClient.sharedClient.authorizeLogIn(username: username!, password: password!)
+        
+        // Check Credentials
+        NumuClient.sharedClient.authorizeLogIn(username: username!, password: password!) { (result) in
             DispatchQueue.main.async(execute: {
-                if success == "1" {
+                if result == "1" {
+                    // Login Success
                     self.logInLabel.text = "Logged in!"
                     defaults.logged = true
-                    
-                    // TO REMOVE: Store credentials in user defaults.
+                    // TODO: Remove: Store credentials in user defaults.
                     defaults.username = username
                     defaults.password = password
-                    
-                    // Store credentials in NSURLCredential
-                    NumuCredential.sharedClient.storeCredential(username: username, password: password)
-                    
+                    // Update interface elsewhere
                     NotificationCenter.default.post(name: .LoggedIn, object: self)
                     NotificationCenter.default.post(name: .UpdatedArtists, object: self)
+                    // Close keyboard
                     self.logInPasswordTextField.resignFirstResponder()
+                    // Log to Answers
                     Answers.logLogin(withMethod: "LogRegPrompt",success: true,customAttributes: nil)
-                    //_ = self.navigationController?.popViewController(animated: true)
-
+                    // Pop viewcontroller
                     self.dismiss(animated: true, completion: nil)
                 } else {
-                    self.logInLabel.text = "Log In Unsuccessful"
+                    // Login Failure
+                    self.logInLabel.text = result
+                    // Log to Answers
                     Answers.logLogin(withMethod: "LogRegPrompt",success: false,customAttributes: nil)
                 }
             })
-        })
-
+        }
+        
         return true
 
     }

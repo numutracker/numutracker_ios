@@ -13,22 +13,7 @@ class SearchClient {
 
     static let sharedClient = SearchClient()
 
-    func getArtistReleases(artist: String, completion: @escaping ([ReleaseItem]) -> ()) {
-        // Let's try swifty json...
-        if defaults.logged {
-            let username = defaults.username
-            var urlString = "https://www.numutracker.com/v2/json.php?user=" + username!
-            let urlString2 = "&rel_mode=artist&artist=\(artist)"
-            urlString = urlString + urlString2
-            //print(urlString)
-            completion(.init(from: urlString))
-        } else {
-
-            let urlString = "https://www.numutracker.com/v2/json.php?user=0&rel_mode=artist&artist=\(artist)"
-            completion(.init(from: urlString))
-
-        }
-    }
+    
 
     func getRandomArts(completion: @escaping ([String]) -> ()) {
         let urlString = "https://www.numutracker.com/v2/json.php?arts=1"
@@ -51,23 +36,7 @@ class SearchClient {
 
 
 
-    func authorizeLogIn(username: String, password: String) -> String {
-        let escapedString = username.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)
-        let urlString = "https://" + escapedString! + ":" + password + "@www.numutracker.com/v2/json.php?auth=1"
-        //print(urlString)
-        if let url = URL(string: urlString) {
-            if let data = try? Data(contentsOf: url) {
-                //print(data)
-                if let json = try? JSON(data: data) {
-                    if let success = json["result"].string {
-                        return success
-                    }
-                }
-
-            }
-        }
-        return "0"
-    }
+    
 
     func authorizeRegister(username: String, password: String) -> String {
 

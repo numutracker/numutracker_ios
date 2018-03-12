@@ -19,6 +19,7 @@ class NumuClient {
         let sessionConfiguration = URLSessionConfiguration.default
         let session = URLSession(configuration: sessionConfiguration)
         if let url = URL(string: urlPrefix + endPoint) {
+            print(url)
             let task = session.dataTask(with: url) { (data, response, error) in
                 if let content = data {
                     do {
@@ -34,6 +35,23 @@ class NumuClient {
             task.resume()
         }
     }
+    
+    // MARK: User Related
+    
+    func authorizeLogIn(username: String, password: String, completion: @escaping (String) -> ()) {
+        // Temporarily store the credential
+        NumuCredential.sharedClient.storeCredential(username: username, password: password)
+        let endPoint = "/v2/json.php?auth=1"
+        self.getJSON(with: endPoint) { (json) in
+            if let result = json["result"].string {
+                completion(result)
+            } else {
+                // Remove failed credential
+                NumuCredential.sharedClient.removeCredential()
+                completion("Authorization Failure")
+            }
+        }
+    }
 
     func toggleFilter(filter: String, completion: @escaping (Bool) -> ()) {
         let endPoint = "/v2/json.php?filter=" + filter
@@ -43,6 +61,8 @@ class NumuClient {
             }
         }
     }
+    
+    // MARK: Artist Related
 
     func getUserArtists(sortBy: String, completion: @escaping ([ArtistItem]) -> ()) {
         if let username = NumuCredential.sharedClient.getUsername() {
@@ -58,7 +78,7 @@ class NumuClient {
     func getArtistSearch(search: String, completion: @escaping ([ArtistItem]) -> ()) {
         let var_search = search.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
         let username = NumuCredential.sharedClient.getUsername() ?? "0"
-        let endPoint = "/v2/json.php?artist_search=" + username + "&search=" + var_search!
+        let endPoint = "/v2/json.php?artist_search=\(username)&search=\(var_search!)"
         self.getJSON(with: endPoint) { (json) in
             completion(.init(with: json))
         }
@@ -67,6 +87,14 @@ class NumuClient {
     func getSingleArtistItem(search: String, completion: @escaping ([ArtistItem]) -> ()) {
         let username = NumuCredential.sharedClient.getUsername() ?? "0"
         let endPoint = "/v2/json.php?single_artist=" + username + "&search=" + search
+        self.getJSON(with: endPoint) { (json) in
+            completion(.init(with: json))
+        }
+    }
+    
+    func getArtistReleases(artist: String, completion: @escaping ([ReleaseItem]) -> ()) {
+        let username = NumuCredential.sharedClient.getUsername() ?? "0"
+        let endPoint = "/v2/json.php?user=\(username)&rel_mode=artist&artist=\(artist)"
         self.getJSON(with: endPoint) { (json) in
             completion(.init(with: json))
         }

@@ -328,43 +328,37 @@ class LogRegPromptViewController: UIViewController, UITextFieldDelegate {
     func goLogIn() -> Bool {
 
         self.logInLabel.text = "Logging in..."
+
         let username = self.logInEmailTextField.text
         let password = self.logInPasswordTextField.text
-        //print("Username",username!)
-        //print("Password",password!)
-        // Check credentials...
-        DispatchQueue.global(qos: .background).async(execute: {
-            let success = SearchClient.sharedClient.authorizeLogIn(username: username!, password: password!)
+
+        // Check Credentials
+        NumuClient.sharedClient.authorizeLogIn(username: username!, password: password!) { (result) in
             DispatchQueue.main.async(execute: {
-                if success == "1" {
+                if result == "1" {
+                    // Login Success
                     self.logInLabel.text = "Logged in!"
                     defaults.logged = true
-                    
-                    // TO REMOVE: Store credentials in user defaults.
+                    // TODO: Remove: Store credentials in user defaults.
                     defaults.username = username
                     defaults.password = password
-                    
-                    // Store credentials in NSURLCredential
-                    
-                    let credential = URLCredential(user: username!, password: password!, persistence: URLCredential.Persistence.permanent)
-                    let protectionSpace = URLProtectionSpace(host: "www.numutracker.com", port: 443, protocol: "https", realm: nil, authenticationMethod: NSURLAuthenticationMethodHTTPBasic)
-                    let credentialStorage = URLCredentialStorage.shared
-                    credentialStorage.set(credential, for: protectionSpace)                    
-                    
+                    // Update interface elsewhere
                     NotificationCenter.default.post(name: .LoggedIn, object: self)
                     NotificationCenter.default.post(name: .UpdatedArtists, object: self)
+                    // Close keyboard
                     self.logInPasswordTextField.resignFirstResponder()
+                    // Log to Answers
                     Answers.logLogin(withMethod: "LogRegPrompt",success: true,customAttributes: nil)
-                    //_ = self.navigationController?.popViewController(animated: true)
-
+                    // Pop viewcontroller
                     self.dismiss(animated: true, completion: nil)
                 } else {
-                    self.logInLabel.text = "Log In Unsuccessful"
+                    // Login Failure
+                    self.logInLabel.text = result
+                    // Log to Answers
                     Answers.logLogin(withMethod: "LogRegPrompt",success: false,customAttributes: nil)
                 }
             })
-        })
-
+        }
         return true
 
     }
