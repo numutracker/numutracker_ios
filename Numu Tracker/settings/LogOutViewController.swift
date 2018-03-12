@@ -119,8 +119,8 @@ class LogOutViewController: UIViewController {
     }
 
     @objc func getUserStats() {
-        if NumuCredential.sharedClient.checkForCredential() {
-            NumuClient.sharedClient.getUserStats() {[weak self](json) in
+        if NumuCredential.shared.checkForCredential() {
+            NumuClient.shared.getUserStats() {[weak self](json) in
                 DispatchQueue.main.async(execute: {
                     self?.artistsListenedFinalInt = json["total_list_artists_unfilt"].double!
                     self?.artistsFollowedFinalInt = json["total_follows"].double!
@@ -190,7 +190,7 @@ class LogOutViewController: UIViewController {
         defaults.logged = false
         
         // Remove credentials from URLCredentialStorage
-        NumuCredential.sharedClient.removeCredential()
+        NumuCredential.shared.removeCredential()
                 
         NotificationCenter.default.post(name: .LoggedOut, object: self)
         NotificationCenter.default.post(name: .UpdatedArtists, object: self)

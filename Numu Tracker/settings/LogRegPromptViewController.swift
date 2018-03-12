@@ -117,7 +117,7 @@ class LogRegPromptViewController: UIViewController, UITextFieldDelegate {
         self.bottomScrollView.contentSize.width = max_length
 
         // Load list of recent releases
-        NumuClient.sharedClient.getRandomArts() {[weak self](arts) in
+        NumuClient.shared.getRandomArts() {[weak self](arts) in
             self?.arts = arts
             DispatchQueue.main.async(execute: {
                 let top_artists = Array(self!.arts[0..<15])
@@ -130,14 +130,12 @@ class LogRegPromptViewController: UIViewController, UITextFieldDelegate {
                 height = width! / 3
                 max_length = height * 15
                 self?.bottomScrollView.setContentOffset(CGPoint(x:max_length-width!,y:0), animated: false)
-                _ = Timer.scheduledTimer(timeInterval: 0.025, target: self, selector: #selector(self?.autoScroll), userInfo: nil, repeats: true)
+                _ = Timer.scheduledTimer(timeInterval: 0.025, target: self!, selector: #selector(self?.autoScroll), userInfo: nil, repeats: true)
             })
         }
 
         Answers.logCustomEvent(withName: "Login / Signup Screen", customAttributes: nil)
 
-        // Do any additional setup after loading the view.
-        //let timer = Timer.scheduledTimer(timeInterval: 0.05, target: self, selector: #selector(LogRegPromptViewController.autoScroll), userInfo: nil, repeats: true)
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -323,7 +321,7 @@ class LogRegPromptViewController: UIViewController, UITextFieldDelegate {
         let password = self.logInPasswordTextField.text
 
         // Check Credentials
-        NumuClient.sharedClient.authorizeLogIn(username: username!, password: password!) { (result) in
+        NumuClient.shared.authorizeLogIn(username: username!, password: password!) { (result) in
             DispatchQueue.main.async(execute: {
                 if result == "1" {
                     // Login Success
@@ -377,7 +375,7 @@ class LogRegPromptViewController: UIViewController, UITextFieldDelegate {
 
         if !errorInt {
             // Check Credentials
-            NumuClient.sharedClient.authorizeRegister(username: username!, password: password!) { (result) in
+            NumuClient.shared.authorizeRegister(username: username!, password: password!) { (result) in
                 DispatchQueue.main.async(execute: {
                     if result == "1" {
                         // Registration Success

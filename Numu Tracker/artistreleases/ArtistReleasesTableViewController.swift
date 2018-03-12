@@ -34,9 +34,9 @@ class ArtistReleasesTableViewController: UITableViewController {
             self.title = artistName
             self.tableView.tableFooterView = footerView
             
-            NumuClient.sharedClient.getSingleArtistItem(search: selectedArtist) {[weak self](artists) in
+            NumuClient.shared.getSingleArtistItem(search: selectedArtist) {[weak self](artists) in
                 self?.artistItem = artists
-                NumuClient.sharedClient.getArtistReleases(artist: selectedArtist) {[weak self](releases) in
+                NumuClient.shared.getArtistReleases(artist: selectedArtist) {[weak self](releases) in
                     self?.releases = releases
                     DispatchQueue.main.async(execute: {
                         if !defaults.logged {

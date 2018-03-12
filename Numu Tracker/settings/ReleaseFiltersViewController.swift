@@ -14,49 +14,49 @@ class ReleaseFiltersViewController: UIViewController {
     @IBOutlet weak var albumFilterSpinner: UIActivityIndicatorView!
     @IBOutlet weak var albumFilterSwitch: UISwitch!
     @IBAction func albumFilterSwitch(_ sender: AnyObject) {
-        NumuClient.sharedClient.toggleFilter(filter: "album") { (result) in
+        NumuClient.shared.toggleFilter(filter: "album") { (result) in
             print(result)
         }
     }
     @IBOutlet weak var singlesFilterSpinner: UIActivityIndicatorView!
     @IBOutlet weak var singlesFilterSwitch: UISwitch!
     @IBAction func singlesFilterSwitch(_ sender: AnyObject) {
-        NumuClient.sharedClient.toggleFilter(filter: "single") { (result) in
+        NumuClient.shared.toggleFilter(filter: "single") { (result) in
             print(result)
         }
     }
     @IBOutlet weak var epFilterSpinner: UIActivityIndicatorView!
     @IBOutlet weak var epFilterSwitch: UISwitch!
     @IBAction func epFilterSwitch(_ sender: AnyObject) {
-        NumuClient.sharedClient.toggleFilter(filter: "ep") { (result) in
+        NumuClient.shared.toggleFilter(filter: "ep") { (result) in
             print(result)
         }
     }
     @IBOutlet weak var liveFilterSpinner: UIActivityIndicatorView!
     @IBOutlet weak var liveFilterSwitch: UISwitch!
     @IBAction func liveFilterSwitch(_ sender: AnyObject) {
-        NumuClient.sharedClient.toggleFilter(filter: "live") { (result) in
+        NumuClient.shared.toggleFilter(filter: "live") { (result) in
             print(result)
         }
     }
     @IBOutlet weak var compFilterSpinner: UIActivityIndicatorView!
     @IBOutlet weak var compFilterSwitch: UISwitch!
     @IBAction func compFilterSwitch(_ sender: AnyObject) {
-        NumuClient.sharedClient.toggleFilter(filter: "soundtrack") { (result) in
+        NumuClient.shared.toggleFilter(filter: "soundtrack") { (result) in
             print(result)
         }
     }
     @IBOutlet weak var remixFilterSpinner: UIActivityIndicatorView!
     @IBOutlet weak var remixFilterSwitch: UISwitch!
     @IBAction func remixFilterSwitch(_ sender: AnyObject) {
-        NumuClient.sharedClient.toggleFilter(filter: "remix") { (result) in
+        NumuClient.shared.toggleFilter(filter: "remix") { (result) in
             print(result)
         }
     }
     @IBOutlet weak var otherFilterSpinner: UIActivityIndicatorView!
     @IBOutlet weak var otherFilterSwitch: UISwitch!
     @IBAction func otherFilterSwitch(_ sender: AnyObject) {
-        NumuClient.sharedClient.toggleFilter(filter: "other") { (result) in
+        NumuClient.shared.toggleFilter(filter: "other") { (result) in
             print(result)
         }
     }
@@ -78,7 +78,7 @@ class ReleaseFiltersViewController: UIViewController {
 
     func loadSettings() {
 
-        if NumuCredential.sharedClient.checkForCredential() {
+        if NumuCredential.shared.checkForCredential() {
            
             self.albumFilterSwitch.isHidden = true
             self.albumFilterSpinner.startAnimating()
@@ -95,7 +95,7 @@ class ReleaseFiltersViewController: UIViewController {
             self.otherFilterSwitch.isHidden = true
             self.otherFilterSpinner.startAnimating()
             
-            NumuClient.sharedClient.getUserFilters() {[weak self](json) in
+            NumuClient.shared.getUserFilters() {[weak self](json) in
                 let user = User(json: json)
                 DispatchQueue.main.async(execute: {
                     self?.albumFilterSwitch.isOn = user?.album != "0"
