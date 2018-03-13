@@ -17,7 +17,6 @@
 		B416A6601DC52A91000F86D9 /* AllReleasesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B416A65F1DC52A91000F86D9 /* AllReleasesTableViewController.swift */; };
 		B416A6621DC52DBA000F86D9 /* ReleaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B416A6611DC52DBA000F86D9 /* ReleaseTableViewCell.swift */; };
 		B416A6641DC52FBC000F86D9 /* ReleaseData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B416A6631DC52FBC000F86D9 /* ReleaseData.swift */; };
-		B416A6661DC530D2000F86D9 /* JSONClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = B416A6651DC530D2000F86D9 /* JSONClient.swift */; };
 		B4283A851D8548F300467CE6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4283A841D8548F300467CE6 /* AppDelegate.swift */; };
 		B4283A8C1D8548F300467CE6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B4283A8A1D8548F300467CE6 /* Main.storyboard */; };
 		B4283A8E1D8548F300467CE6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B4283A8D1D8548F300467CE6 /* Assets.xcassets */; };
@@ -79,7 +78,6 @@
 		B416A65F1DC52A91000F86D9 /* AllReleasesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllReleasesTableViewController.swift; sourceTree = "<group>"; };
 		B416A6611DC52DBA000F86D9 /* ReleaseTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReleaseTableViewCell.swift; sourceTree = "<group>"; };
 		B416A6631DC52FBC000F86D9 /* ReleaseData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReleaseData.swift; sourceTree = "<group>"; };
-		B416A6651DC530D2000F86D9 /* JSONClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONClient.swift; sourceTree = "<group>"; };
 		B4283A811D8548F300467CE6 /* Numu Tracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Numu Tracker.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B4283A841D8548F300467CE6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B4283A8B1D8548F300467CE6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -263,7 +261,6 @@
 				B4283A921D8548F300467CE6 /* Info.plist */,
 				B4283A841D8548F300467CE6 /* AppDelegate.swift */,
 				B42866091DA7645C000E5FA6 /* albumArtCache.swift */,
-				B416A6651DC530D2000F86D9 /* JSONClient.swift */,
 				B40E35911DB1D88C004BA8C7 /* NumuTabBarController.swift */,
 				B4CCFCC61DB4353E00D2277B /* NumuUIButton.swift */,
 				B45A133C20548632001EBDA5 /* NumuCredential.swift */,
@@ -500,7 +497,6 @@
 				B440D9D71DB2D19300477938 /* ArtistItem.swift in Sources */,
 				B440D9D51DB2D13900477938 /* ArtistsTableViewController.swift in Sources */,
 				B4B49B871E5EBE4B001CE1C7 /* ReleaseFiltersViewController.swift in Sources */,
-				B416A6661DC530D2000F86D9 /* JSONClient.swift in Sources */,
 				B471648D1F5FA24600D4E03E /* NumuTextField.swift in Sources */,
 				B416A6641DC52FBC000F86D9 /* ReleaseData.swift in Sources */,
 				B440D9D91DB2D28A00477938 /* ArtistTableViewCell.swift in Sources */,

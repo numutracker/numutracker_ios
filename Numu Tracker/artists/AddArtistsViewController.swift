@@ -95,29 +95,25 @@ class AddArtistsViewController: UIViewController {
             }
         }
         let uniques = Array(Set(artists_found))
+        NumuClient.shared.postArtists(artists: uniques) { success in
+            DispatchQueue.main.async(execute: {
+                self.addArtistsActivity.stopAnimating()
+                self.addFromAppleMusic.isHidden = false
+                if success == "Success" {
+                    NotificationCenter.default.post(name: .UpdatedArtists, object: self)
+                    let controller = UIAlertController(title: "Success", message: "Your artists have been imported. Please allow several minutes for all artists to appear.", preferredStyle: .alert)
+                    controller.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+                    self.present(controller, animated: true, completion: nil)
 
-        DispatchQueue.global(qos: .background).async(execute: {
-            JSONClient.sharedClient.postArtists(artists: uniques) { success in
-                DispatchQueue.main.async(execute: {
-                    self.addArtistsActivity.stopAnimating()
-                    self.addFromAppleMusic.isHidden = false
-                    if success == "Success" {
-                        NotificationCenter.default.post(name: .UpdatedArtists, object: self)
-                        let controller = UIAlertController(title: "Success", message: "Your artists have been imported. Please allow several minutes for all artists to appear.", preferredStyle: .alert)
-                        controller.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-                        self.present(controller, animated: true, completion: nil)
+                    Answers.logCustomEvent(withName: "AM Artist Import", customAttributes: ["Artists":uniques.count])
 
-                        Answers.logCustomEvent(withName: "AM Artist Import", customAttributes: ["Artists":uniques.count])
-
-                    } else {
-                        let controller = UIAlertController(title: "Error", message: "An error occurred which prevented artists from being imported.", preferredStyle: .alert)
-                        controller.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-                        self.present(controller, animated: true, completion: nil)
-
-                    }
-                })
-            }
-        })
+                } else {
+                    let controller = UIAlertController(title: "Error", message: "An error occurred which prevented artists from being imported.", preferredStyle: .alert)
+                    controller.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+                    self.present(controller, animated: true, completion: nil)
+                }
+            })
+        }
     }
 
     func displayError() {

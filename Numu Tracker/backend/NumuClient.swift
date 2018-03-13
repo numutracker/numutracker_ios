@@ -114,6 +114,43 @@ class NumuClient {
         }
     }
 
+    func postArtists(artists: [String], completion: @escaping (String) -> ()) {
+        // FIXME: This function is really messy and needs to be rewritten.
+        let json = ["artists": artists]
+        do {
+            let jsonData = try JSONSerialization.data(withJSONObject: json, options: .prettyPrinted)
+
+            // create post request
+            let url = URL(string: "https://www.numutracker.com/v2/json.php?import")!
+            let request = NSMutableURLRequest(url: url)
+            request.httpMethod = "POST"
+
+            // insert json data to the request
+            request.setValue("application/json; charset=utf-8", forHTTPHeaderField: "Content-Type")
+            request.httpBody = jsonData
+
+            let task = URLSession.shared.dataTask(with: request as URLRequest){ data, response, error in
+                if error != nil{
+                    completion("Failure")
+                }
+                do {
+                    if data != nil {
+                        _ = try JSONSerialization.jsonObject(with: data!, options: []) as? [String:AnyObject]
+                        completion("Success")
+                    } else {
+                        completion("Failure")
+                    }
+                } catch {
+                    completion("Failure")
+                }
+            }
+            task.resume()
+        } catch {
+            print(error.localizedDescription)
+            completion("Failure")
+        }
+    }
+
     // MARK: - Artist Related
 
     func getArtist(search: String, completion: @escaping ([ArtistItem]) -> ()) {
