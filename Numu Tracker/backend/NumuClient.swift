@@ -207,5 +207,31 @@ class NumuClient {
             }
         }
     }
+    
+    func getAppleMusicLink(artist: String?, album: String?, completion: @escaping (String) -> ()) {
+        if let artist = artist?.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed),
+            let album = album?.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) {
+            let urlString = "https://itunes.apple.com/search?term=\(artist)%20\(album)&media=music&entity=album"
+            if let url = URL(string: urlString),
+                let data = try? Data(contentsOf: url),
+                let json = try? JSON(data: data),
+                let results = json["results"][0]["collectionViewUrl"].string {
+                    completion(results)
+            }
+        }
+    }
+
+    func getSpotifyLink(artist: String?, album: String?, completion: @escaping (String) -> ()) {
+        if let artist = artist?.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed),
+            let album = album?.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) {
+            let urlString = "https://api.spotify.com/v1/search?q=artist:\(artist)%20album:\(album)&type=album"
+            if let url = URL(string: urlString),
+                let data = try? Data(contentsOf: url),
+                let json = try? JSON(data: data),
+                let results = json["albums"]["items"][0]["external_urls"]["spotify"].string {
+                    completion(results)
+            }
+        }
+    }
 
 }

@@ -60,40 +60,4 @@ class JSONClient {
         }
     }
 
-    
-
-    func getSpotifyLink(artist: String?, album: String?, completion: @escaping (String) -> ()) {
-        if let artist = artist?.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed), let album = album?.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) {
-            // Generate spotify search string
-            let urlString = "https://api.spotify.com/v1/search?q=artist:\(artist)%20album:\(album)&type=album"
-            if let url = URL(string: urlString) {
-                if let data = try? Data(contentsOf: url) {
-                    if let json = try? JSON(data: data) {
-                        if let url = json["albums"]["items"][0]["external_urls"]["spotify"].string {
-                            completion(url)
-                        }
-                    }
-                }
-            }
-
-        }
-    }
-
-    func getAppleMusicLink(artist: String?, album: String?, completion: @escaping (String) -> ()) {
-        if let artist = artist?.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed), let album = album?.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) {
-            // Generate spotify search string
-            let urlString = "https://itunes.apple.com/search?term=\(artist)%20\(album)&media=music&entity=album"
-            if let url = URL(string: urlString) {
-                if let data = try? Data(contentsOf: url) {
-                    if let json = try? JSON(data: data) {
-                        if let url = json["results"][0]["collectionViewUrl"].string {
-                            completion(url)
-                        }
-                    }
-                }
-            }
-
-        }
-    }
-
 }
