@@ -73,7 +73,7 @@ class NumuClient {
 
     // MARK: - User Related
     
-    func getUserFilters(completion: @escaping (JSON) -> ()) {
+    func getFilters(completion: @escaping (JSON) -> ()) {
         let endPoint = "/v2/json.php?filters"
         self.getJSON(with: endPoint) { (json) in
             completion(json)
@@ -97,8 +97,9 @@ class NumuClient {
     }
     
     // MARK: - User Activities
-    
-    func toggleListenState(releaseId: String, completion: @escaping (String) -> ()) {
+    // FIXME: These functions should return bools or error codes in APIv3
+
+    func toggleListen(releaseId: String, completion: @escaping (String) -> ()) {
         let endPoint = "/v2/json.php?listen=" + releaseId
         self.getJSON(with: endPoint) { (json) in
             if let result = json["result"].string {
@@ -106,10 +107,27 @@ class NumuClient {
             }
         }
     }
-    
+
+    func toggleFollow(artistMbid: String, completion: @escaping (String) -> ()) {
+        let endPoint = "/v2/json.php?unfollow=" + artistMbid
+        self.getJSON(with: endPoint) { (json) in
+            if let result = json["result"].string {
+                result != "0" ? completion(result) : completion("0")
+            }
+        }
+    }
+
     // MARK: - Artist Related
 
-    func getUserArtists(sortBy: String, completion: @escaping ([ArtistItem]) -> ()) {
+    func getArtist(search: String, completion: @escaping ([ArtistItem]) -> ()) {
+        let username = NumuCredential.shared.getUsername() ?? "0"
+        let endPoint = "/v2/json.php?single_artist=" + username + "&search=" + search
+        self.getJSON(with: endPoint) { (json) in
+            completion(.init(with: json))
+        }
+    }
+
+    func getArtists(sortBy: String, completion: @escaping ([ArtistItem]) -> ()) {
         if let username = NumuCredential.shared.getUsername() {
             let endPoint = "/v2/json.php?artists=" + username + "&sortby=" + sortBy
             self.getJSON(with: endPoint) { (json) in
@@ -128,15 +146,7 @@ class NumuClient {
             completion(.init(with: json))
         }
     }
-    
-    func getSingleArtistItem(search: String, completion: @escaping ([ArtistItem]) -> ()) {
-        let username = NumuCredential.shared.getUsername() ?? "0"
-        let endPoint = "/v2/json.php?single_artist=" + username + "&search=" + search
-        self.getJSON(with: endPoint) { (json) in
-            completion(.init(with: json))
-        }
-    }
-    
+
     func getArtistReleases(artist: String, completion: @escaping ([ReleaseItem]) -> ()) {
         let username = NumuCredential.shared.getUsername() ?? "0"
         let endPoint = "/v2/json.php?user=\(username)&rel_mode=artist&artist=\(artist)"
@@ -147,7 +157,7 @@ class NumuClient {
     
     // MARK: - Miscellaneous
     
-    func getRandomArts(completion: @escaping ([String]) -> ()) {
+    func getArt(completion: @escaping ([String]) -> ()) {
         let endPoint = "/v2/json.php?arts=1"
         self.getJSON(with: endPoint) { (json) in
             if let arts = json.array {

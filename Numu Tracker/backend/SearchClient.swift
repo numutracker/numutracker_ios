@@ -13,55 +13,6 @@ class SearchClient {
 
     static let sharedClient = SearchClient()
 
-    func unfollowArtist(artistMbid: String) -> String {
-
-        if defaults.logged {
-            let username = defaults.username
-            let password = defaults.password
-            let escapedString = username!.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)
-            let urlString = "https://" + escapedString! + ":" + password!
-            let urlString2 = "@www.numutracker.com/v2/json.php?unfollow=" + artistMbid
-            //print(urlString + urlString2)
-            if let url = URL(string: urlString + urlString2) {
-                if let data = try? Data(contentsOf: url) {
-                    if let json = try? JSON(data: data) {
-                        if let success = json["result"].string {
-                            return success
-                        }
-                    }
-
-                }
-            }
-            return "0"
-
-        }
-        return "0"
-    }
-
-    func followArtist(artistMbid: String) -> String {
-
-        if defaults.logged {
-            let username = defaults.username
-            let password = defaults.password
-            let escapedString = username!.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)
-            let urlString = "https://" + escapedString! + ":" + password!
-            let urlString2 = "@www.numutracker.com/v2/json.php?follow=" + artistMbid
-            //print(urlString + urlString2)
-            if let url = URL(string: urlString + urlString2) {
-                if let data = try? Data(contentsOf: url) {
-                    if let json = try? JSON(data: data) {
-                        if let success = json["result"].string {
-                            return success
-                        }
-                    }
-                }
-            }
-            return "0"
-
-        }
-        return "0"
-    }
-
     func HTTPsendRequest(request: NSMutableURLRequest,
                          callback: @escaping (String, String?) -> Void) {
         let task = URLSession.shared

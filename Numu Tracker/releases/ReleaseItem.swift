@@ -104,7 +104,7 @@ struct ReleaseItem {
     }
 
     func toggleListenStatus(completion: @escaping (String) -> ()) {
-        NumuClient.shared.toggleListenState(releaseId: self.releaseId) { (result) in
+        NumuClient.shared.toggleListen(releaseId: self.releaseId) { (result) in
             completion(result)
         }
     }

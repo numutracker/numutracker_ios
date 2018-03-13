@@ -111,7 +111,7 @@ class LogRegPromptSmallViewController: UIViewController, UITextFieldDelegate {
         self.bottomScrollView.contentSize.width = max_length
 
         // Load list of recent releases
-        NumuClient.shared.getRandomArts() {[weak self](arts) in
+        NumuClient.shared.getArt() {[weak self](arts) in
             self?.arts = arts
             DispatchQueue.main.async(execute: {
                 let top_artists = Array(self!.arts[0..<15])
