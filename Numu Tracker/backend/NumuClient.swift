@@ -89,7 +89,7 @@ class NumuClient {
         }
     }
     
-    func getUserStats(completion: @escaping (JSON) -> ()) {
+    func getStats(completion: @escaping (JSON) -> ()) {
         let endPoint = "/v2/json.php?stats"
         self.getJSON(with: endPoint) { (json) in
             completion(json)
