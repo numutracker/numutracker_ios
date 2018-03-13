@@ -35,7 +35,8 @@ class NumuClient {
     }
     
     func postJSON(with endPoint: String, content: JSON) {
-        
+        // TODO: Create function and convert postArtists to use it.
+        // When we have more user submittable parts of the app this'll be needed.
     }
 
     // MARK: - Account Related
