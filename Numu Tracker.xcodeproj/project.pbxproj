@@ -52,7 +52,6 @@
 		B4A3E78F1DAAD67800144CEB /* lastfm_black.gif in Resources */ = {isa = PBXBuildFile; fileRef = B4A3E78E1DAAD67800144CEB /* lastfm_black.gif */; };
 		B4B49B871E5EBE4B001CE1C7 /* ReleaseFiltersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4B49B861E5EBE4B001CE1C7 /* ReleaseFiltersViewController.swift */; };
 		B4B940AE1E6131B800F52027 /* NotificationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4B940AD1E6131B800F52027 /* NotificationsViewController.swift */; };
-		B4B940B01E6136BD00F52027 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4B940AF1E6136BD00F52027 /* StoreKit.framework */; };
 		B4BFA8A81DD907E200E3580B /* appleMusic@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = B4BFA8A51DD907E200E3580B /* appleMusic@3x.png */; };
 		B4BFA8A91DD907E200E3580B /* appleMusic@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B4BFA8A61DD907E200E3580B /* appleMusic@2x.png */; };
 		B4BFA8AA1DD907E200E3580B /* appleMusic.png in Resources */ = {isa = PBXBuildFile; fileRef = B4BFA8A71DD907E200E3580B /* appleMusic.png */; };
@@ -119,7 +118,6 @@
 		B4A3E78E1DAAD67800144CEB /* lastfm_black.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = lastfm_black.gif; sourceTree = "<group>"; };
 		B4B49B861E5EBE4B001CE1C7 /* ReleaseFiltersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReleaseFiltersViewController.swift; sourceTree = "<group>"; };
 		B4B940AD1E6131B800F52027 /* NotificationsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationsViewController.swift; sourceTree = "<group>"; };
-		B4B940AF1E6136BD00F52027 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		B4BFA8A51DD907E200E3580B /* appleMusic@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "appleMusic@3x.png"; sourceTree = "<group>"; };
 		B4BFA8A61DD907E200E3580B /* appleMusic@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "appleMusic@2x.png"; sourceTree = "<group>"; };
 		B4BFA8A71DD907E200E3580B /* appleMusic.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = appleMusic.png; sourceTree = "<group>"; };
@@ -141,7 +139,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				E4EB5ACCF23F58468A5C04FF /* Pods_Numu_Tracker.framework in Frameworks */,
-				B4B940B01E6136BD00F52027 /* StoreKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -151,7 +148,6 @@
 		14F28C739AD176DB0069BA7E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				B4B940AF1E6136BD00F52027 /* StoreKit.framework */,
 				CBD0F3687066D64A7B28C145 /* Pods_Numu_Tracker.framework */,
 			);
 			name = Frameworks;
