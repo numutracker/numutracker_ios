@@ -270,8 +270,7 @@ class AllReleasesTableViewController: UITableViewController {
                     }
                 }
             } else {
-                DispatchQueue.global(qos: .background).async(execute: {
-                    let success = releaseInfo.toggleListenStatus()
+                releaseInfo.toggleListenStatus() { (success) in
                     DispatchQueue.main.async(execute: {
                         if success == "1" {
                             // remove or add unread marker back in
@@ -289,7 +288,7 @@ class AllReleasesTableViewController: UITableViewController {
                             tableView.setEditing(false, animated: true)
                         }
                     })
-                })
+                }
             }
         }
 

@@ -37,9 +37,9 @@ class NumuClient {
     func postJSON(with endPoint: String, content: JSON) {
         
     }
-    
-    // MARK: - User Related
-    
+
+    // MARK: - Account Related
+
     func authorizeLogIn(username: String, password: String, completion: @escaping (String) -> ()) {
         NumuCredential.shared.storeCredential(username: username, password: password)
         let endPoint = "/v2/json.php?auth=1"
@@ -54,7 +54,7 @@ class NumuClient {
             }
         }
     }
-    
+
     func authorizeRegister(username: String, password: String, completion: @escaping (String) -> ()) {
         let endPoint = "/v2/json.php?register=" + username + "&password=" + password
         self.getJSON(with: endPoint) { (json) in
@@ -70,6 +70,8 @@ class NumuClient {
             }
         }
     }
+
+    // MARK: - User Related
     
     func getUserFilters(completion: @escaping (JSON) -> ()) {
         let endPoint = "/v2/json.php?filters"
@@ -91,6 +93,17 @@ class NumuClient {
         let endPoint = "/v2/json.php?stats"
         self.getJSON(with: endPoint) { (json) in
             completion(json)
+        }
+    }
+    
+    // MARK: - User Activities
+    
+    func toggleListenState(releaseId: String, completion: @escaping (String) -> ()) {
+        let endPoint = "/v2/json.php?listen=" + releaseId
+        self.getJSON(with: endPoint) { (json) in
+            if let result = json["result"].string {
+                result == "1" ? completion("1") : completion("0")
+            }
         }
     }
     
