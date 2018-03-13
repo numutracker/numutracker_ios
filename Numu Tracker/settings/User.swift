@@ -30,7 +30,7 @@ class User {
             let other = json["other"].string else {
             return nil
         }
-        
+
         self.album = album
         self.single = single
         self.ep = ep
@@ -40,5 +40,5 @@ class User {
         self.other = other
 
     }
-    
+
 }
