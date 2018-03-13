@@ -106,7 +106,7 @@ class ArtistReleaseTableViewCell: UITableViewCell {
                 })
             }*/
 
-            JSONClient.sharedClient.getAppleMusicLink(artist: artist, album: album) { link in
+           NumuClient.shared.getAppleMusicLink(artist: artist, album: album) { link in
                 DispatchQueue.main.async(execute: {
                     self.itunesUrl = link
                     self.listenOnItunesButton.isEnabled = true

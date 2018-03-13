@@ -34,7 +34,7 @@ class ArtistReleasesTableViewController: UITableViewController {
             self.title = artistName
             self.tableView.tableFooterView = footerView
             
-            NumuClient.shared.getSingleArtistItem(search: selectedArtist) {[weak self](artists) in
+            NumuClient.shared.getArtist(search: selectedArtist) {[weak self](artists) in
                 self?.artistItem = artists
                 NumuClient.shared.getArtistReleases(artist: selectedArtist) {[weak self](releases) in
                     self?.releases = releases
@@ -69,8 +69,7 @@ class ArtistReleasesTableViewController: UITableViewController {
     @objc func addTapped() {
             if let artistId = self.artistId {
                 if defaults.logged {
-                    DispatchQueue.global(qos: .background).async(execute: {
-                        let success = SearchClient.sharedClient.unfollowArtist(artistMbid: artistId)
+                    NumuClient.shared.toggleFollow(artistMbid: artistId) { (success) in
                         DispatchQueue.main.async(execute: {
                             if success == "1" {
                                self.navigationItem.rightBarButtonItem?.title = "Follow"
@@ -80,7 +79,7 @@ class ArtistReleasesTableViewController: UITableViewController {
                                 Answers.logCustomEvent(withName: "Follo Bar", customAttributes: ["Artist ID":artistId])
                             }
                         })
-                    })
+                    }
                 } else {
                     if UIDevice().screenType == .iPhone4 {
                         let loginViewController = self.storyboard?.instantiateViewController(withIdentifier: "LogRegPromptSmall") as! UINavigationController
@@ -160,8 +159,7 @@ class ArtistReleasesTableViewController: UITableViewController {
                     }
                 }
             } else {
-                DispatchQueue.global(qos: .background).async(execute: {
-                    let success = releaseInfo.toggleListenStatus()
+                releaseInfo.toggleListenStatus() { (success) in
                     DispatchQueue.main.async(execute: {
                         if success == "1" {
                             // remove or add unread marker back in
@@ -180,7 +178,7 @@ class ArtistReleasesTableViewController: UITableViewController {
                             tableView.setEditing(false, animated: true)
                         }
                     })
-                })
+                }
             }
 
         }

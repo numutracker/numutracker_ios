@@ -25,7 +25,7 @@ class HelpViewController: UIViewController,MFMailComposeViewControllerDelegate {
         if MFMailComposeViewController.canSendMail() {
             let mail = MFMailComposeViewController()
             mail.mailComposeDelegate = self
-            mail.setToRecipients(["bradroot@me.com"])
+            mail.setToRecipients(["info@numutracker.com"])
             mail.setSubject("Numu Tracker Feedback")
             mail.setMessageBody("<p>Numu feedback goes here: </p>", isHTML: true)
             present(mail, animated: true, completion: nil)
@@ -38,28 +38,23 @@ class HelpViewController: UIViewController,MFMailComposeViewControllerDelegate {
         controller.dismiss(animated: true, completion: nil)
     }
 
+    func setupButton(button: NumuUIButton) {
+        button.backgroundColor = .clear
+        button.layer.cornerRadius = 5
+        button.layer.borderWidth = 1
+        button.layer.borderColor = UIColor.gray.cgColor
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         self.navigationController?.navigationBar.tintColor = .white
 
-        emailDeveloperButton.backgroundColor = .clear
-        emailDeveloperButton.layer.cornerRadius = 5
-        emailDeveloperButton.layer.borderWidth = 1
-        emailDeveloperButton.layer.borderColor = UIColor.gray.cgColor
-
-        discussOnRedditButtonOutlet.backgroundColor = .clear
-        discussOnRedditButtonOutlet.layer.cornerRadius = 5
-        discussOnRedditButtonOutlet.layer.borderWidth = 1
-        discussOnRedditButtonOutlet.layer.borderColor = UIColor.gray.cgColor
+        setupButton(button: emailDeveloperButton)
+        setupButton(button: discussOnRedditButtonOutlet)
 
         Answers.logCustomEvent(withName: "Help View", customAttributes: nil)
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
 
     override func didReceiveMemoryWarning() {

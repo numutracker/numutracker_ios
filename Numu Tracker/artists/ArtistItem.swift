@@ -67,8 +67,9 @@ struct ArtistItem {
         }
     }
 
-    func unfollowArtist() -> String {
-        let success = SearchClient.sharedClient.unfollowArtist(artistMbid: self.artistId)
-        return success
+    func unfollowArtist(completion: @escaping (String) -> ()) {
+        NumuClient.shared.toggleFollow(artistMbid: self.artistId) { (result) in
+            completion(result)
+        }
     }
 }

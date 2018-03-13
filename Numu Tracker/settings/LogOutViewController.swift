@@ -120,7 +120,7 @@ class LogOutViewController: UIViewController {
 
     @objc func getUserStats() {
         if NumuCredential.shared.checkForCredential() {
-            NumuClient.shared.getUserStats() {[weak self](json) in
+            NumuClient.shared.getStats() {[weak self](json) in
                 DispatchQueue.main.async(execute: {
                     self?.artistsListenedFinalInt = json["total_list_artists_unfilt"].double!
                     self?.artistsFollowedFinalInt = json["total_follows"].double!

@@ -62,7 +62,7 @@ class ArtistsTableViewController: UITableViewController, UISearchBarDelegate, UI
 
         // Get list of artists...
 
-        NumuClient.shared.getUserArtists(sortBy: self.sortMethod) {[weak self](artists) in
+        NumuClient.shared.getArtists(sortBy: self.sortMethod) {[weak self](artists) in
             self?.artists = artists
             DispatchQueue.main.async(execute: {
                 self?.loadTable()
@@ -90,7 +90,7 @@ class ArtistsTableViewController: UITableViewController, UISearchBarDelegate, UI
     }
 
     @objc func actOnImportNotification() {
-        NumuClient.shared.getUserArtists(sortBy: self.sortMethod) {[weak self](artists) in
+        NumuClient.shared.getArtists(sortBy: self.sortMethod) {[weak self](artists) in
             self?.artists = artists
             DispatchQueue.main.async(execute: {
                 self?.loadTable()
@@ -214,8 +214,7 @@ class ArtistsTableViewController: UITableViewController, UISearchBarDelegate, UI
                     self.present(loginViewController, animated: true, completion: nil)
                 }
             } else {
-                DispatchQueue.global(qos: .background).async(execute: {
-                    let success = artistInfo.unfollowArtist()
+                artistInfo.unfollowArtist() { (success) in
                     DispatchQueue.main.async(execute: {
                         if success == "1" {
                             artistInfo.followStatus = "0"
@@ -228,7 +227,7 @@ class ArtistsTableViewController: UITableViewController, UISearchBarDelegate, UI
                         }
                          tableView.setEditing(false, animated: true)
                     })
-                })
+                }
             }
         }
 
