@@ -22,7 +22,6 @@
 		B4283A8C1D8548F300467CE6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B4283A8A1D8548F300467CE6 /* Main.storyboard */; };
 		B4283A8E1D8548F300467CE6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B4283A8D1D8548F300467CE6 /* Assets.xcassets */; };
 		B4283A911D8548F300467CE6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B4283A8F1D8548F300467CE6 /* LaunchScreen.storyboard */; };
-		B4283ABB1D86586800467CE6 /* SearchClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4283ABA1D86586800467CE6 /* SearchClient.swift */; };
 		B4283ABD1D8658AD00467CE6 /* ReleaseItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4283ABC1D8658AD00467CE6 /* ReleaseItem.swift */; };
 		B42866081DA5FC53000E5FA6 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = B42866071DA5FC53000E5FA6 /* User.swift */; };
 		B428660A1DA7645C000E5FA6 /* albumArtCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = B42866091DA7645C000E5FA6 /* albumArtCache.swift */; };
@@ -87,7 +86,6 @@
 		B4283A8D1D8548F300467CE6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = interface/Assets.xcassets; sourceTree = "<group>"; };
 		B4283A901D8548F300467CE6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B4283A921D8548F300467CE6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = ../Info.plist; sourceTree = "<group>"; };
-		B4283ABA1D86586800467CE6 /* SearchClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchClient.swift; sourceTree = "<group>"; };
 		B4283ABC1D8658AD00467CE6 /* ReleaseItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReleaseItem.swift; sourceTree = "<group>"; };
 		B42866071DA5FC53000E5FA6 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		B42866091DA7645C000E5FA6 /* albumArtCache.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = albumArtCache.swift; sourceTree = "<group>"; };
@@ -265,7 +263,6 @@
 				B4283A921D8548F300467CE6 /* Info.plist */,
 				B4283A841D8548F300467CE6 /* AppDelegate.swift */,
 				B42866091DA7645C000E5FA6 /* albumArtCache.swift */,
-				B4283ABA1D86586800467CE6 /* SearchClient.swift */,
 				B416A6651DC530D2000F86D9 /* JSONClient.swift */,
 				B40E35911DB1D88C004BA8C7 /* NumuTabBarController.swift */,
 				B4CCFCC61DB4353E00D2277B /* NumuUIButton.swift */,
@@ -509,7 +506,6 @@
 				B440D9D91DB2D28A00477938 /* ArtistTableViewCell.swift in Sources */,
 				B416A6621DC52DBA000F86D9 /* ReleaseTableViewCell.swift in Sources */,
 				B45A134120551C46001EBDA5 /* Extensions.swift in Sources */,
-				B4283ABB1D86586800467CE6 /* SearchClient.swift in Sources */,
 				B4DA6EAE1F6DE5C50090C945 /* LogRegPromptSmallViewController.swift in Sources */,
 				B42866081DA5FC53000E5FA6 /* User.swift in Sources */,
 				B428660A1DA7645C000E5FA6 /* albumArtCache.swift in Sources */,
