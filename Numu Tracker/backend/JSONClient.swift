@@ -60,77 +60,7 @@ class JSONClient {
         }
     }
 
-    func getReleases(view: Int, slide: Int, page: Int = 1, limit: Int = 50, offset: Int = 0, completion: @escaping (ReleaseData) -> ()) {
-        // Let's try swifty json...
-        var urlString: String
-        let username = defaults.username ?? ""
-
-        switch view {
-        case 0:
-            switch slide {
-            case 0:
-                // All unlistened
-                if defaults.logged {
-                    urlString = "https://www.numutracker.com/v2/json.php?user=\(username)&page=\(page)&rel_mode=allunlistened&limit=\(limit)&offset=\(offset)"
-                } else {
-                    urlString = "https://www.numutracker.com/v2/json.php?page=\(page)&rel_mode=allunlistened&limit=\(limit)&offset=\(offset)"
-                }
-            case 1:
-                // All released
-                if defaults.logged {
-                    urlString = "https://www.numutracker.com/v2/json.php?user=\(username)&page=\(page)&rel_mode=all&limit=\(limit)&offset=\(offset)"
-                } else {
-                    urlString = "https://www.numutracker.com/v2/json.php?page=\(page)&rel_mode=all&limit=\(limit)&offset=\(offset)"
-                }
-            case 2:
-                // All upcoming
-                if defaults.logged {
-                    urlString = "https://www.numutracker.com/v2/json.php?user=\(username)&page=\(page)&rel_mode=allupcoming&limit=\(limit)&offset=\(offset)"
-                } else {
-                    urlString = "https://www.numutracker.com/v2/json.php?page=\(page)&rel_mode=allupcoming&limit=\(limit)&offset=\(offset)"
-                }
-            default:
-                urlString = "https://www.numutracker.com/v2/json.php?page=\(page)&rel_mode=all&limit=\(limit)&offset=\(offset)"
-            }
-
-        case 1:
-            switch slide {
-            case 0:
-                // User unlistened
-                urlString = "https://www.numutracker.com/v2/json.php?user=\(username)&rel_mode=unlistened&page=\(page)&limit=\(limit)&offset=\(offset)"
-                //print(urlString)
-            case 1:
-                // User released
-                urlString = "https://www.numutracker.com/v2/json.php?user=\(username)&rel_mode=user&page=\(page)&limit=\(limit)&offset=\(offset)"
-            case 2:
-                // User upcoming
-                urlString = "https://www.numutracker.com/v2/json.php?user=\(username)&rel_mode=upcoming&page=\(page)&limit=\(limit)&offset=\(offset)"
-            case 3:
-                // User newly added
-                urlString = "https://www.numutracker.com/v2/json.php?user=\(username)&rel_mode=fresh&page=\(page)&limit=\(limit)&offset=\(offset)"
-            default:
-                urlString = "https://www.numutracker.com/v2/json.php?user=\(username)&rel_mode=unlistened&page=\(page)&limit=\(limit)&offset=\(offset)"
-            }
-
-        default:
-            urlString = "https://www.numutracker.com/v2/json.php?page=\(page)&rel_mode=all&limit=\(limit)&offset=\(offset)"
-        }
-
-        //print(urlString)
-
-        var releases: ReleaseData
-
-        if let url = URL(string: urlString) {
-            if let data = try? Data(contentsOf: url) {
-                if let json = try? JSON(data: data) {
-                    if let releaseData = ReleaseData(json: json) {
-                        releases = releaseData
-                        completion(releases)
-                    }
-                }
-            }
-        }
-    }
+    
 
     func getSpotifyLink(artist: String?, album: String?, completion: @escaping (String) -> ()) {
         if let artist = artist?.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed), let album = album?.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) {
@@ -163,22 +93,6 @@ class JSONClient {
                 }
             }
 
-        }
-    }
-
-    func getSingleArtist(artist: String?, completion: @escaping (ArtistItem) -> ()) {
-
-        if let artist = artist?.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) {
-            let urlString = "https://www.numutracker.com/artist/\(artist)"
-            if let url = URL(string: urlString) {
-                if let data = try? Data(contentsOf: url) {
-                    if let json = try? JSON(data: data) {
-                        if let artist = ArtistItem(json: json[0]) {
-                            completion(artist)
-                        }
-                    }
-                }
-            }
         }
     }
 

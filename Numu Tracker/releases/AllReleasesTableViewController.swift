@@ -51,31 +51,29 @@ class AllReleasesTableViewController: UITableViewController {
 
 
     @IBAction func changeSlide(_ sender: UISegmentedControl) {
-
         let segment = sender.selectedSegmentIndex
         self.slideType = segment
         self.tableView.tableFooterView = self.footerView
         self.selectedIndexPath = nil
         releases.removeAll()
         tableView.reloadData()
-        DispatchQueue.global(qos: .background).async(execute: {
-            self.loadFirstReleases()
-            DispatchQueue.main.async(execute: {
-                self.tableView.reloadData()
-                self.tableView.tableFooterView = UIView()
-            })
-        })
+        self.loadFirstReleases()
     }
 
     func loadFirstReleases() {
         self.isLoading = true
-        JSONClient.sharedClient.getReleases(view: self.viewType, slide: self.slideType) {[weak self](releaseData) in
+        NumuClient.shared.getReleases(view: self.viewType, slide: self.slideType) {[weak self](releaseData) in
             self?.releaseData = releaseData
+            DispatchQueue.main.async(execute: {
+                if let results = self?.releaseData?.results {
+                    self?.releases = results
+                }
+                self?.isLoading = false
+                self?.tableView.reloadData()
+                self?.tableView.tableFooterView = UIView()
+                self?.refreshControl?.endRefreshing()
+            })
         }
-        if let results = self.releaseData?.results {
-            self.releases = results
-        }
-        self.isLoading = false
 
         switch (self.viewType, self.slideType) {
         case (0, 0):
@@ -108,11 +106,15 @@ class AllReleasesTableViewController: UITableViewController {
         let offset = releases.count
         let limit = 50
 
-        JSONClient.sharedClient.getReleases(view: self.viewType, slide: self.slideType, page: nextPage, limit: limit, offset: offset) {[weak self](releaseData) in
+        NumuClient.shared.getReleases(view: self.viewType, slide: self.slideType, page: nextPage, limit: limit, offset: offset) {[weak self](releaseData) in
             self?.releaseData = releaseData
+            DispatchQueue.main.async(execute: {
+                self?.releases = (self?.releases)! + (self?.releaseData?.results)!
+                self?.isLoading = false
+                self?.tableView.reloadData()
+                self?.tableView.tableFooterView = UIView()
+            })
         }
-        self.releases = self.releases + (self.releaseData?.results)!
-        self.isLoading = false
     }
 
     override func viewDidLoad() {
@@ -147,14 +149,7 @@ class AllReleasesTableViewController: UITableViewController {
 
         // Load initial batch of releases...
         self.tableView.tableFooterView = self.footerView
-        DispatchQueue.global(qos: .background).async(execute: {
-            self.loadFirstReleases()
-            DispatchQueue.main.async(execute: {
-                self.tableView.reloadData()
-                self.tableView.tableFooterView = UIView()
-            })
-        })
-
+        self.loadFirstReleases()
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -224,15 +219,8 @@ class AllReleasesTableViewController: UITableViewController {
             let currentPage = Int(releaseData.currentPage)!
             let totalPages = Int(releaseData.totalPages)!
             if currentPage < totalPages {
-                //print("load more")
                 self.tableView.tableFooterView = self.footerView
-                DispatchQueue.global(qos: .background).async(execute: {
-                    self.loadMoreReleases()
-                    DispatchQueue.main.async(execute: {
-                        self.tableView.reloadData()
-                        self.tableView.tableFooterView = UIView()
-                    })
-                })
+                self.loadMoreReleases()
             }
         }
 
@@ -242,13 +230,7 @@ class AllReleasesTableViewController: UITableViewController {
     @objc func handleRefresh(refreshControl: UIRefreshControl) {
         releases.removeAll()
         tableView.reloadData()
-        DispatchQueue.global(qos: .background).async(execute: {
-            self.loadFirstReleases()
-            DispatchQueue.main.async(execute: {
-                self.tableView.reloadData()
-                refreshControl.endRefreshing()
-            })
-        })
+        self.loadFirstReleases()
     }
 
     override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
