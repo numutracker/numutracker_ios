@@ -129,6 +129,8 @@ class LogOutViewController: UIViewController {
                     self?.completionFinalFloat = json["percentage"].double!
                     // Start animation
                     self?.startTimer()
+                    
+                    NumuReviewHelper.incrementAndAskForReview()
                 })
             }
         } else {

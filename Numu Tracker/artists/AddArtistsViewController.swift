@@ -106,6 +106,8 @@ class AddArtistsViewController: UIViewController {
                     self.present(controller, animated: true, completion: nil)
 
                     Answers.logCustomEvent(withName: "AM Artist Import", customAttributes: ["Artists":uniques.count])
+                    
+                    NumuReviewHelper.incrementAndAskForReview()
 
                 } else {
                     let controller = UIAlertController(title: "Error", message: "An error occurred which prevented artists from being imported.", preferredStyle: .alert)

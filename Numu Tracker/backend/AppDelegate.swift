@@ -28,7 +28,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
 
         Fabric.with([Crashlytics.self])
-
+        
+        NumuReviewHelper.incrementActivityCount()
+        
         if defaults.logged {
 
             (window?.rootViewController as! UITabBarController).selectedIndex = 1

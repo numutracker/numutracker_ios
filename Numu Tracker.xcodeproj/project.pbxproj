@@ -41,6 +41,7 @@
 		B4CCFCC91DB447B200D2277B /* HelpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4CCFCC81DB447B200D2277B /* HelpViewController.swift */; };
 		B4DA6EAE1F6DE5C50090C945 /* LogRegPromptSmallViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4DA6EAD1F6DE5C50090C945 /* LogRegPromptSmallViewController.swift */; };
 		B4E8B97A1E7F67BD00643AD1 /* bradroot-new-2880-man.png in Resources */ = {isa = PBXBuildFile; fileRef = B4E8B9791E7F67BD00643AD1 /* bradroot-new-2880-man.png */; };
+		B4F1E3AB2058C6C100F2544A /* NumuReviewHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4F1E3AA2058C6C100F2544A /* NumuReviewHelper.swift */; };
 		E4EB5ACCF23F58468A5C04FF /* Pods_Numu_Tracker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBD0F3687066D64A7B28C145 /* Pods_Numu_Tracker.framework */; };
 /* End PBXBuildFile section */
 
@@ -84,6 +85,7 @@
 		B4CCFCC81DB447B200D2277B /* HelpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelpViewController.swift; sourceTree = "<group>"; };
 		B4DA6EAD1F6DE5C50090C945 /* LogRegPromptSmallViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogRegPromptSmallViewController.swift; sourceTree = "<group>"; };
 		B4E8B9791E7F67BD00643AD1 /* bradroot-new-2880-man.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bradroot-new-2880-man.png"; sourceTree = "<group>"; };
+		B4F1E3AA2058C6C100F2544A /* NumuReviewHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumuReviewHelper.swift; sourceTree = "<group>"; };
 		CBD0F3687066D64A7B28C145 /* Pods_Numu_Tracker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Numu_Tracker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -203,6 +205,7 @@
 				B45A133C20548632001EBDA5 /* NumuCredential.swift */,
 				B45A133E2054CBDF001EBDA5 /* NumuClient.swift */,
 				B45A134020551C46001EBDA5 /* Extensions.swift */,
+				B4F1E3AA2058C6C100F2544A /* NumuReviewHelper.swift */,
 			);
 			name = Backend;
 			path = backend;
@@ -404,6 +407,7 @@
 				B45A133F2054CBDF001EBDA5 /* NumuClient.swift in Sources */,
 				B4283ABD1D8658AD00467CE6 /* ReleaseItem.swift in Sources */,
 				B4CCFCC91DB447B200D2277B /* HelpViewController.swift in Sources */,
+				B4F1E3AB2058C6C100F2544A /* NumuReviewHelper.swift in Sources */,
 				B46754581F6DA66F00C80544 /* InstructionsViewController.swift in Sources */,
 				B4B940AE1E6131B800F52027 /* NotificationsViewController.swift in Sources */,
 				B4283A851D8548F300467CE6 /* AppDelegate.swift in Sources */,
