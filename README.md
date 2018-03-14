@@ -17,10 +17,23 @@ This app is dependent on the Numu Tracker Backened, [originally built in PHP](ht
 1. `git clone https://github.com/amiantos/numutracker_ios.git`
 2. `pod install` (requires [CocoaPods](https://cocoapods.org))
 3. Open `Numu Tracker.xcworkspace` in Xcode 9.2 or higher.
-4. AppDelegate.swift has some Pusher API keys you can implement.
-5. You'll need to modify the Info.plist to include a Crashlytics API key if you want it.
+4. Build :)
 
-## Credits
+## Author
+
+* Brad Root - [amiantos](https://github.com/amiantos)
+
+See also the list of [contributors](https://github.com/amiantos/numutracker_ios/contributors).
+
+## Beta Testers
+
+If you'd like to beta test production versions of Numu Tracker, please email info@numutracker.com
+
+## License
+
+This project is licensed under the GNU General Public License v3.0 - see the [LICENSE](LICENSE) file for details
+
+## Acknowledgements
 
 Numu Tracker for iOS features paid icons from [The Noun Project](https://thenounproject.com). If you steal the icons from this repo you'll need to include credit to the designer. To be helpful here's a list of the icons used, to download yourself:
 
