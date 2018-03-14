@@ -45,19 +45,16 @@ class NumuCredential {
         return nil
     }
     
+    // TODO: Remove in v2.0
     func convertCredential() {
         // Function to convert credentials stored in UserDefaults to URLCredential
-        if let username = defaults.username,
-            let password = defaults.password {
-            // Print current defaults
-            print("Current defaults: \(defaults.logged) \(String(describing: defaults.username)) / \(String(describing: defaults.password))")
+        if let username = defaults.username, username != "",
+            let password = defaults.password, password != "" {
             // Store credentials securely
             storeCredential(username: username, password: password)
             // Remove credentials from user defaults
             defaults.username = ""
             defaults.password = ""
-            // Print defaults to ensure they're gone
-            print("New defaults: \(defaults.logged) \(String(describing: defaults.username)) / \(String(describing: defaults.password))")
         }
     }
     
