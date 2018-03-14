@@ -45,10 +45,17 @@ class NumuCredential {
         return nil
     }
     
-    func convertCredential() -> Bool {
+    // TODO: Remove in v2.0
+    func convertCredential() {
         // Function to convert credentials stored in UserDefaults to URLCredential
-        
-        return false
+        if let username = defaults.username, username != "",
+            let password = defaults.password, password != "" {
+            // Store credentials securely
+            storeCredential(username: username, password: password)
+            // Remove credentials from user defaults
+            defaults.username = ""
+            defaults.password = ""
+        }
     }
     
     

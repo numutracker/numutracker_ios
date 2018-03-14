@@ -17,7 +17,6 @@ class NumuClient {
     
     func getJSON(with endPoint: String, completion: @escaping (JSON) -> ()) {
         if let url = URL(string: urlPrefix + endPoint) {
-            print(url)
             let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
                 if let content = data {
                     do {

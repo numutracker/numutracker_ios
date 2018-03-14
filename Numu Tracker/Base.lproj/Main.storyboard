@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14101" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="QfB-2I-NEJ">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="QfB-2I-NEJ">
     <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14086"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
@@ -131,11 +131,11 @@ Any imported artists you've unfollowed will not be re-imported.</string>
                         </subviews>
                         <color key="backgroundColor" red="0.13350695369999999" green="0.13364198799999999" blue="0.13352787490000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="6Bv-3X-alE" firstAttribute="centerX" secondItem="Rs2-VC-i1a" secondAttribute="centerX" id="0vx-d8-176"/>
                             <constraint firstItem="VPi-vA-Mgg" firstAttribute="centerX" secondItem="Epd-7O-Jkq" secondAttribute="centerX" id="41o-hp-2gf"/>
                             <constraint firstItem="6Bv-3X-alE" firstAttribute="top" secondItem="Epd-7O-Jkq" secondAttribute="bottom" constant="16" id="NaL-Xo-Rj4"/>
                             <constraint firstItem="Epd-7O-Jkq" firstAttribute="top" secondItem="hiP-8M-4HH" secondAttribute="bottom" constant="21" id="Rac-v7-agf"/>
                             <constraint firstItem="Epd-7O-Jkq" firstAttribute="centerX" secondItem="Rs2-VC-i1a" secondAttribute="centerX" id="bAb-tj-2Gb"/>
-                            <constraint firstItem="6Bv-3X-alE" firstAttribute="centerX" secondItem="Rs2-VC-i1a" secondAttribute="centerX" id="eLy-Ws-ZRH"/>
                             <constraint firstItem="Epd-7O-Jkq" firstAttribute="centerY" secondItem="VPi-vA-Mgg" secondAttribute="centerY" id="msj-ZQ-cuD"/>
                             <constraint firstItem="6Bv-3X-alE" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Rs2-VC-i1a" secondAttribute="leading" constant="18" id="sTI-sU-CXP"/>
                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="6Bv-3X-alE" secondAttribute="trailing" constant="18" id="trv-zt-5H2"/>
@@ -902,7 +902,7 @@ Any imported artists you've unfollowed will not be re-imported.</string>
                                                         <constraint firstAttribute="width" constant="128" id="DPJ-s6-hoe"/>
                                                         <constraint firstAttribute="height" constant="47" id="Q53-pa-qhN"/>
                                                     </constraints>
-                                                    <state key="normal" image="appleMusic.png">
+                                                    <state key="normal" image="appleMusic">
                                                         <color key="titleColor" red="0.10980392160000001" green="0.81176470590000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     </state>
                                                     <connections>
@@ -1038,7 +1038,7 @@ Any imported artists you've unfollowed will not be re-imported.</string>
                                 <rect key="frame" x="0.0" y="478" width="414" height="258"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="y0d-TD-xht">
-                                        <rect key="frame" x="31.666666666666657" y="30" width="351" height="150.66666666666666"/>
+                                        <rect key="frame" x="30.333333333333343" y="30" width="353.66666666666663" height="150.66666666666666"/>
                                         <attributedString key="attributedText">
                                             <fragment content="Numu ">
                                                 <attributes>
@@ -1426,7 +1426,7 @@ Any imported artists you've unfollowed will not be re-imported.</string>
                                                         <constraint firstAttribute="width" constant="128" id="70z-vE-Q6a"/>
                                                         <constraint firstAttribute="height" constant="47" id="CSx-cR-een"/>
                                                     </constraints>
-                                                    <state key="normal" image="appleMusic.png">
+                                                    <state key="normal" image="appleMusic">
                                                         <color key="titleColor" red="0.10980392160000001" green="0.81176470590000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     </state>
                                                     <connections>
@@ -1627,7 +1627,7 @@ Try following some artists?</string>
                             <tableViewSection headerTitle="Account" id="s6m-ba-v6D">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" id="FbF-76-ESs">
-                                        <rect key="frame" x="0.0" y="55.333333333333343" width="414" height="44"/>
+                                        <rect key="frame" x="0.0" y="55.333333333333336" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="FbF-76-ESs" id="vEA-bK-p65">
                                             <rect key="frame" x="0.0" y="0.0" width="376" height="43.666666666666664"/>
@@ -1836,7 +1836,7 @@ Try following some artists?</string>
         <scene sceneID="hjy-Ge-Nda">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="17Z-pk-giM" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Your Artists" image="drums.png" id="Goh-K9-w2o"/>
+                    <tabBarItem key="tabBarItem" title="Your Artists" image="drums" selectedImage="drums" id="Goh-K9-w2o"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="WNl-6T-VaW">
                         <rect key="frame" x="0.0" y="20" width="414" height="44"/>
@@ -1876,7 +1876,7 @@ Try following some artists?</string>
         <scene sceneID="oel-Wh-i56">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="mTE-7Z-lM0" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Settings" image="cog.png" id="Wvb-fJ-yyl"/>
+                    <tabBarItem key="tabBarItem" title="Settings" image="cog" id="Wvb-fJ-yyl"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="kam-m5-Lpb">
                         <rect key="frame" x="0.0" y="20" width="414" height="44"/>
@@ -1931,14 +1931,14 @@ Try following some artists?</string>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="redraw" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="phg-fg-dDA">
                                         <rect key="frame" x="18" y="259.66666666666669" width="378" height="684.33333333333326"/>
                                         <color key="backgroundColor" red="0.13350695369999999" green="0.13364198799999999" blue="0.13352787490000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <mutableString key="text">Register for an account, or sign into an existing account using your email address and password.
+                                        <string key="text">Register for an account, or sign into an existing account using your email address and password.
 
 First step will be to import some artists, using the page available on the Settings screen. You can also manually search and follow any artists you like on the "Your Artists" screen, if you don't want to import your whole music library. 
 On any screen showing releases, tap on a release to reveal a drop-down with a link to Apple Music, if available. Swipe to the left over any release to reveal the "Listened" button, to mark a release as listened. A glowing blue line next to album art means an album has not been listened to.
 
 In the Your Artists screen you can swipe left to unfollow an artist. Use the search bar at the top of the screen to search the entire Numu Tracker artist database. If your favorite artist doesn't appear in the database, please email me on the "Get Help" screen.
 
-On the Settings screen, you can adjust which types of releases you want to see. (I recommend leaving on Album and EP, but it's up to you.) You can turn notifictions on or off. Check out the Your Account screen to see some account stats, and to log out of your account if you need to.  If you have any problems, have suggestions, or just need help with your life, feel free to contact me.  Thanks for using Numu! 🙃</mutableString>
+On the Settings screen, you can adjust which types of releases you want to see. (I recommend leaving on Album and EP, but it's up to you.) You can turn notifictions on or off. Check out the Your Account screen to see some account stats, and to log out of your account if you need to.  If you have any problems, have suggestions, or just need help with your life, feel free to contact me.  Thanks for using Numu! 🙃</string>
                                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -2344,7 +2344,7 @@ On the Settings screen, you can adjust which types of releases you want to see. 
                                 <rect key="frame" x="0.0" y="340" width="414" height="396"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="QHm-jn-DPo">
-                                        <rect key="frame" x="31.666666666666657" y="30" width="351" height="150.66666666666666"/>
+                                        <rect key="frame" x="30.333333333333343" y="30" width="353.66666666666663" height="150.66666666666666"/>
                                         <attributedString key="attributedText">
                                             <fragment content="Numu ">
                                                 <attributes>
@@ -2690,14 +2690,14 @@ On the Settings screen, you can adjust which types of releases you want to see. 
         </scene>
     </scenes>
     <resources>
-        <image name="appleMusic.png" width="128" height="47"/>
+        <image name="appleMusic" width="128" height="47"/>
         <image name="bradroot-new-2880-man.png" width="2880" height="2880"/>
-        <image name="cog.png" width="22" height="22"/>
-        <image name="drums.png" width="22" height="22"/>
+        <image name="cog" width="22" height="22"/>
+        <image name="drums" width="22" height="22"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="R10-UG-e16"/>
-        <segue reference="f0Q-AI-Q2O"/>
+        <segue reference="jcr-Ul-g7T"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
 </document>

@@ -327,9 +327,6 @@ class LogRegPromptViewController: UIViewController, UITextFieldDelegate {
                     // Login Success
                     self.logInLabel.text = "Logged in!"
                     defaults.logged = true
-                    // TODO: Remove: Store credentials in user defaults.
-                    defaults.username = username
-                    defaults.password = password
                     // Update interface elsewhere
                     NotificationCenter.default.post(name: .LoggedIn, object: self)
                     NotificationCenter.default.post(name: .UpdatedArtists, object: self)

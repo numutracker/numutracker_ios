@@ -7,13 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		B40E35831DAF23FD004BA8C7 /* drums@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B40E35811DAF23FD004BA8C7 /* drums@2x.png */; };
-		B40E35841DAF23FD004BA8C7 /* drums@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = B40E35821DAF23FD004BA8C7 /* drums@3x.png */; };
-		B40E35871DAF24F3004BA8C7 /* yours@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B40E35851DAF24F3004BA8C7 /* yours@2x.png */; };
-		B40E35881DAF24F3004BA8C7 /* yours@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = B40E35861DAF24F3004BA8C7 /* yours@3x.png */; };
 		B40E35921DB1D88C004BA8C7 /* NumuTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B40E35911DB1D88C004BA8C7 /* NumuTabBarController.swift */; };
-		B40E35971DB1FB5E004BA8C7 /* all@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B40E35961DB1FB5E004BA8C7 /* all@2x.png */; };
-		B40E35991DB1FB7A004BA8C7 /* all@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = B40E35981DB1FB7A004BA8C7 /* all@3x.png */; };
 		B416A6601DC52A91000F86D9 /* AllReleasesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B416A65F1DC52A91000F86D9 /* AllReleasesTableViewController.swift */; };
 		B416A6621DC52DBA000F86D9 /* ReleaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B416A6611DC52DBA000F86D9 /* ReleaseTableViewCell.swift */; };
 		B416A6641DC52FBC000F86D9 /* ReleaseData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B416A6631DC52FBC000F86D9 /* ReleaseData.swift */; };
@@ -23,58 +17,38 @@
 		B4283A911D8548F300467CE6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B4283A8F1D8548F300467CE6 /* LaunchScreen.storyboard */; };
 		B4283ABD1D8658AD00467CE6 /* ReleaseItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4283ABC1D8658AD00467CE6 /* ReleaseItem.swift */; };
 		B42866081DA5FC53000E5FA6 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = B42866071DA5FC53000E5FA6 /* User.swift */; };
-		B428660A1DA7645C000E5FA6 /* albumArtCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = B42866091DA7645C000E5FA6 /* albumArtCache.swift */; };
+		B428660A1DA7645C000E5FA6 /* AlbumArtCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = B42866091DA7645C000E5FA6 /* AlbumArtCache.swift */; };
 		B43705D81E357C8C0060E6CC /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B43705D71E357C8C0060E6CC /* SettingsTableViewController.swift */; };
-		B43C55AD1DEBA7A000BF8483 /* spotify.png in Resources */ = {isa = PBXBuildFile; fileRef = B43C55AA1DEBA7A000BF8483 /* spotify.png */; };
-		B43C55AE1DEBA7A000BF8483 /* spotify@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B43C55AB1DEBA7A000BF8483 /* spotify@2x.png */; };
-		B43C55AF1DEBA7A000BF8483 /* spotify@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = B43C55AC1DEBA7A000BF8483 /* spotify@3x.png */; };
 		B43E36B01F5DF9BA009834C9 /* NumuLogo1024.png in Resources */ = {isa = PBXBuildFile; fileRef = B43E36AF1F5DF9B9009834C9 /* NumuLogo1024.png */; };
 		B43E36B21F5DFAD0009834C9 /* LogRegPromptViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B43E36B11F5DFAD0009834C9 /* LogRegPromptViewController.swift */; };
 		B440D9D51DB2D13900477938 /* ArtistsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B440D9D41DB2D13900477938 /* ArtistsTableViewController.swift */; };
 		B440D9D71DB2D19300477938 /* ArtistItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B440D9D61DB2D19300477938 /* ArtistItem.swift */; };
 		B440D9D91DB2D28A00477938 /* ArtistTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B440D9D81DB2D28A00477938 /* ArtistTableViewCell.swift */; };
-		B440D9E41DB2EC4A00477938 /* sort@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B440D9E21DB2EC4A00477938 /* sort@2x.png */; };
-		B440D9E51DB2EC4A00477938 /* sort@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = B440D9E31DB2EC4A00477938 /* sort@3x.png */; };
 		B45A133B205479CB001EBDA5 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B45A133A205479CB001EBDA5 /* Default-568h@2x.png */; };
 		B45A133D20548632001EBDA5 /* NumuCredential.swift in Sources */ = {isa = PBXBuildFile; fileRef = B45A133C20548632001EBDA5 /* NumuCredential.swift */; };
 		B45A133F2054CBDF001EBDA5 /* NumuClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = B45A133E2054CBDF001EBDA5 /* NumuClient.swift */; };
 		B45A134120551C46001EBDA5 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B45A134020551C46001EBDA5 /* Extensions.swift */; };
-		B45BEE1B1D9F57E700A3AAA1 /* cog@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B45BEE191D9F57E700A3AAA1 /* cog@2x.png */; };
-		B45BEE1C1D9F57E700A3AAA1 /* cog@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = B45BEE1A1D9F57E700A3AAA1 /* cog@3x.png */; };
-		B4607CE61E10F5F100E75DCF /* user@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = B4607CE41E10F5F100E75DCF /* user@3x.png */; };
-		B4607CE71E10F5F100E75DCF /* user@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B4607CE51E10F5F100E75DCF /* user@2x.png */; };
 		B46754561F6DA64B00C80544 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B46754551F6DA64B00C80544 /* AboutViewController.swift */; };
 		B46754581F6DA66F00C80544 /* InstructionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B46754571F6DA66F00C80544 /* InstructionsViewController.swift */; };
 		B471648D1F5FA24600D4E03E /* NumuTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = B471648C1F5FA24600D4E03E /* NumuTextField.swift */; };
 		B47CF37B1E5E908100225B85 /* LogOutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B47CF37A1E5E908100225B85 /* LogOutViewController.swift */; };
-		B4A3E78F1DAAD67800144CEB /* lastfm_black.gif in Resources */ = {isa = PBXBuildFile; fileRef = B4A3E78E1DAAD67800144CEB /* lastfm_black.gif */; };
 		B4B49B871E5EBE4B001CE1C7 /* ReleaseFiltersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4B49B861E5EBE4B001CE1C7 /* ReleaseFiltersViewController.swift */; };
 		B4B940AE1E6131B800F52027 /* NotificationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4B940AD1E6131B800F52027 /* NotificationsViewController.swift */; };
-		B4BFA8A81DD907E200E3580B /* appleMusic@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = B4BFA8A51DD907E200E3580B /* appleMusic@3x.png */; };
-		B4BFA8A91DD907E200E3580B /* appleMusic@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B4BFA8A61DD907E200E3580B /* appleMusic@2x.png */; };
-		B4BFA8AA1DD907E200E3580B /* appleMusic.png in Resources */ = {isa = PBXBuildFile; fileRef = B4BFA8A71DD907E200E3580B /* appleMusic.png */; };
 		B4CCFCBA1DB3485600D2277B /* ArtistReleasesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4CCFCB91DB3485600D2277B /* ArtistReleasesTableViewController.swift */; };
 		B4CCFCBC1DB3F8EE00D2277B /* ArtistReleaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4CCFCBB1DB3F8EE00D2277B /* ArtistReleaseTableViewCell.swift */; };
 		B4CCFCC51DB4311B00D2277B /* AddArtistsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4CCFCC41DB4311B00D2277B /* AddArtistsViewController.swift */; };
 		B4CCFCC71DB4353E00D2277B /* NumuUIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4CCFCC61DB4353E00D2277B /* NumuUIButton.swift */; };
 		B4CCFCC91DB447B200D2277B /* HelpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4CCFCC81DB447B200D2277B /* HelpViewController.swift */; };
 		B4DA6EAE1F6DE5C50090C945 /* LogRegPromptSmallViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4DA6EAD1F6DE5C50090C945 /* LogRegPromptSmallViewController.swift */; };
-		B4E2AB211DC6CF5D00E5F81A /* bell@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B4E2AB1F1DC6CF5D00E5F81A /* bell@2x.png */; };
-		B4E2AB221DC6CF5D00E5F81A /* bell@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = B4E2AB201DC6CF5D00E5F81A /* bell@3x.png */; };
 		B4E8B97A1E7F67BD00643AD1 /* bradroot-new-2880-man.png in Resources */ = {isa = PBXBuildFile; fileRef = B4E8B9791E7F67BD00643AD1 /* bradroot-new-2880-man.png */; };
+		B4F1E3AB2058C6C100F2544A /* NumuReviewHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4F1E3AA2058C6C100F2544A /* NumuReviewHelper.swift */; };
 		E4EB5ACCF23F58468A5C04FF /* Pods_Numu_Tracker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBD0F3687066D64A7B28C145 /* Pods_Numu_Tracker.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		01361C8695313B7121751750 /* Pods-Numu Tracker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Numu Tracker.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Numu Tracker/Pods-Numu Tracker.debug.xcconfig"; sourceTree = "<group>"; };
 		AE619F4A3C507ABD0012177C /* Pods-Numu Tracker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Numu Tracker.release.xcconfig"; path = "Pods/Target Support Files/Pods-Numu Tracker/Pods-Numu Tracker.release.xcconfig"; sourceTree = "<group>"; };
-		B40E35811DAF23FD004BA8C7 /* drums@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "drums@2x.png"; sourceTree = "<group>"; };
-		B40E35821DAF23FD004BA8C7 /* drums@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "drums@3x.png"; sourceTree = "<group>"; };
-		B40E35851DAF24F3004BA8C7 /* yours@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "yours@2x.png"; sourceTree = "<group>"; };
-		B40E35861DAF24F3004BA8C7 /* yours@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "yours@3x.png"; sourceTree = "<group>"; };
 		B40E35911DB1D88C004BA8C7 /* NumuTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NumuTabBarController.swift; sourceTree = "<group>"; };
-		B40E35961DB1FB5E004BA8C7 /* all@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "all@2x.png"; sourceTree = "<group>"; };
-		B40E35981DB1FB7A004BA8C7 /* all@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "all@3x.png"; sourceTree = "<group>"; };
 		B416A65F1DC52A91000F86D9 /* AllReleasesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllReleasesTableViewController.swift; sourceTree = "<group>"; };
 		B416A6611DC52DBA000F86D9 /* ReleaseTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReleaseTableViewCell.swift; sourceTree = "<group>"; };
 		B416A6631DC52FBC000F86D9 /* ReleaseData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReleaseData.swift; sourceTree = "<group>"; };
@@ -86,46 +60,32 @@
 		B4283A921D8548F300467CE6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = ../Info.plist; sourceTree = "<group>"; };
 		B4283ABC1D8658AD00467CE6 /* ReleaseItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReleaseItem.swift; sourceTree = "<group>"; };
 		B42866071DA5FC53000E5FA6 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
-		B42866091DA7645C000E5FA6 /* albumArtCache.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = albumArtCache.swift; sourceTree = "<group>"; };
+		B42866091DA7645C000E5FA6 /* AlbumArtCache.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlbumArtCache.swift; sourceTree = "<group>"; };
 		B43705D71E357C8C0060E6CC /* SettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 		B43AF1E31DCE4C94008F7EBD /* Numu Tracker.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Numu Tracker.entitlements"; sourceTree = "<group>"; };
-		B43C55AA1DEBA7A000BF8483 /* spotify.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spotify.png; sourceTree = "<group>"; };
-		B43C55AB1DEBA7A000BF8483 /* spotify@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "spotify@2x.png"; sourceTree = "<group>"; };
-		B43C55AC1DEBA7A000BF8483 /* spotify@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "spotify@3x.png"; sourceTree = "<group>"; };
 		B43E36AF1F5DF9B9009834C9 /* NumuLogo1024.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = NumuLogo1024.png; sourceTree = "<group>"; };
 		B43E36B11F5DFAD0009834C9 /* LogRegPromptViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogRegPromptViewController.swift; sourceTree = "<group>"; };
 		B440D9D41DB2D13900477938 /* ArtistsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArtistsTableViewController.swift; sourceTree = "<group>"; };
 		B440D9D61DB2D19300477938 /* ArtistItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArtistItem.swift; sourceTree = "<group>"; };
 		B440D9D81DB2D28A00477938 /* ArtistTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArtistTableViewCell.swift; sourceTree = "<group>"; };
-		B440D9E21DB2EC4A00477938 /* sort@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sort@2x.png"; sourceTree = "<group>"; };
-		B440D9E31DB2EC4A00477938 /* sort@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sort@3x.png"; sourceTree = "<group>"; };
 		B45A133A205479CB001EBDA5 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		B45A133C20548632001EBDA5 /* NumuCredential.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumuCredential.swift; sourceTree = "<group>"; };
 		B45A133E2054CBDF001EBDA5 /* NumuClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumuClient.swift; sourceTree = "<group>"; };
 		B45A134020551C46001EBDA5 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
-		B45BEE191D9F57E700A3AAA1 /* cog@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cog@2x.png"; sourceTree = "<group>"; };
-		B45BEE1A1D9F57E700A3AAA1 /* cog@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cog@3x.png"; sourceTree = "<group>"; };
-		B4607CE41E10F5F100E75DCF /* user@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "user@3x.png"; sourceTree = "<group>"; };
-		B4607CE51E10F5F100E75DCF /* user@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "user@2x.png"; sourceTree = "<group>"; };
 		B46754551F6DA64B00C80544 /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		B46754571F6DA66F00C80544 /* InstructionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstructionsViewController.swift; sourceTree = "<group>"; };
 		B471648C1F5FA24600D4E03E /* NumuTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumuTextField.swift; sourceTree = "<group>"; };
 		B47CF37A1E5E908100225B85 /* LogOutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogOutViewController.swift; sourceTree = "<group>"; };
-		B4A3E78E1DAAD67800144CEB /* lastfm_black.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = lastfm_black.gif; sourceTree = "<group>"; };
 		B4B49B861E5EBE4B001CE1C7 /* ReleaseFiltersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReleaseFiltersViewController.swift; sourceTree = "<group>"; };
 		B4B940AD1E6131B800F52027 /* NotificationsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationsViewController.swift; sourceTree = "<group>"; };
-		B4BFA8A51DD907E200E3580B /* appleMusic@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "appleMusic@3x.png"; sourceTree = "<group>"; };
-		B4BFA8A61DD907E200E3580B /* appleMusic@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "appleMusic@2x.png"; sourceTree = "<group>"; };
-		B4BFA8A71DD907E200E3580B /* appleMusic.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = appleMusic.png; sourceTree = "<group>"; };
 		B4CCFCB91DB3485600D2277B /* ArtistReleasesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArtistReleasesTableViewController.swift; sourceTree = "<group>"; };
 		B4CCFCBB1DB3F8EE00D2277B /* ArtistReleaseTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArtistReleaseTableViewCell.swift; sourceTree = "<group>"; };
 		B4CCFCC41DB4311B00D2277B /* AddArtistsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddArtistsViewController.swift; sourceTree = "<group>"; };
 		B4CCFCC61DB4353E00D2277B /* NumuUIButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NumuUIButton.swift; sourceTree = "<group>"; };
 		B4CCFCC81DB447B200D2277B /* HelpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelpViewController.swift; sourceTree = "<group>"; };
 		B4DA6EAD1F6DE5C50090C945 /* LogRegPromptSmallViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogRegPromptSmallViewController.swift; sourceTree = "<group>"; };
-		B4E2AB1F1DC6CF5D00E5F81A /* bell@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bell@2x.png"; sourceTree = "<group>"; };
-		B4E2AB201DC6CF5D00E5F81A /* bell@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bell@3x.png"; sourceTree = "<group>"; };
 		B4E8B9791E7F67BD00643AD1 /* bradroot-new-2880-man.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bradroot-new-2880-man.png"; sourceTree = "<group>"; };
+		B4F1E3AA2058C6C100F2544A /* NumuReviewHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumuReviewHelper.swift; sourceTree = "<group>"; };
 		CBD0F3687066D64A7B28C145 /* Pods_Numu_Tracker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Numu_Tracker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -152,30 +112,9 @@
 		B40E35931DB1F687004BA8C7 /* Images */ = {
 			isa = PBXGroup;
 			children = (
-				B45A133A205479CB001EBDA5 /* Default-568h@2x.png */,
 				B43E36AF1F5DF9B9009834C9 /* NumuLogo1024.png */,
-				B4A3E78E1DAAD67800144CEB /* lastfm_black.gif */,
-				B4BFA8A51DD907E200E3580B /* appleMusic@3x.png */,
-				B4607CE41E10F5F100E75DCF /* user@3x.png */,
-				B4607CE51E10F5F100E75DCF /* user@2x.png */,
-				B4BFA8A61DD907E200E3580B /* appleMusic@2x.png */,
-				B4BFA8A71DD907E200E3580B /* appleMusic.png */,
-				B4E2AB1F1DC6CF5D00E5F81A /* bell@2x.png */,
-				B4E2AB201DC6CF5D00E5F81A /* bell@3x.png */,
 				B4E8B9791E7F67BD00643AD1 /* bradroot-new-2880-man.png */,
-				B43C55AA1DEBA7A000BF8483 /* spotify.png */,
-				B43C55AB1DEBA7A000BF8483 /* spotify@2x.png */,
-				B43C55AC1DEBA7A000BF8483 /* spotify@3x.png */,
-				B45BEE191D9F57E700A3AAA1 /* cog@2x.png */,
-				B40E35811DAF23FD004BA8C7 /* drums@2x.png */,
-				B40E35851DAF24F3004BA8C7 /* yours@2x.png */,
-				B40E35861DAF24F3004BA8C7 /* yours@3x.png */,
-				B440D9E21DB2EC4A00477938 /* sort@2x.png */,
-				B440D9E31DB2EC4A00477938 /* sort@3x.png */,
-				B40E35961DB1FB5E004BA8C7 /* all@2x.png */,
-				B40E35981DB1FB7A004BA8C7 /* all@3x.png */,
-				B40E35821DAF23FD004BA8C7 /* drums@3x.png */,
-				B45BEE1A1D9F57E700A3AAA1 /* cog@3x.png */,
+				B45A133A205479CB001EBDA5 /* Default-568h@2x.png */,
 			);
 			name = Images;
 			path = images;
@@ -260,12 +199,13 @@
 			children = (
 				B4283A921D8548F300467CE6 /* Info.plist */,
 				B4283A841D8548F300467CE6 /* AppDelegate.swift */,
-				B42866091DA7645C000E5FA6 /* albumArtCache.swift */,
+				B42866091DA7645C000E5FA6 /* AlbumArtCache.swift */,
 				B40E35911DB1D88C004BA8C7 /* NumuTabBarController.swift */,
 				B4CCFCC61DB4353E00D2277B /* NumuUIButton.swift */,
 				B45A133C20548632001EBDA5 /* NumuCredential.swift */,
 				B45A133E2054CBDF001EBDA5 /* NumuClient.swift */,
 				B45A134020551C46001EBDA5 /* Extensions.swift */,
+				B4F1E3AA2058C6C100F2544A /* NumuReviewHelper.swift */,
 			);
 			name = Backend;
 			path = backend;
@@ -378,33 +318,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B45BEE1B1D9F57E700A3AAA1 /* cog@2x.png in Resources */,
-				B40E35871DAF24F3004BA8C7 /* yours@2x.png in Resources */,
-				B43C55AE1DEBA7A000BF8483 /* spotify@2x.png in Resources */,
-				B45BEE1C1D9F57E700A3AAA1 /* cog@3x.png in Resources */,
-				B4607CE61E10F5F100E75DCF /* user@3x.png in Resources */,
-				B4BFA8A91DD907E200E3580B /* appleMusic@2x.png in Resources */,
-				B43C55AD1DEBA7A000BF8483 /* spotify.png in Resources */,
-				B440D9E51DB2EC4A00477938 /* sort@3x.png in Resources */,
-				B4A3E78F1DAAD67800144CEB /* lastfm_black.gif in Resources */,
-				B40E35831DAF23FD004BA8C7 /* drums@2x.png in Resources */,
-				B4BFA8AA1DD907E200E3580B /* appleMusic.png in Resources */,
 				B45A133B205479CB001EBDA5 /* Default-568h@2x.png in Resources */,
-				B4BFA8A81DD907E200E3580B /* appleMusic@3x.png in Resources */,
 				B4E8B97A1E7F67BD00643AD1 /* bradroot-new-2880-man.png in Resources */,
-				B40E35881DAF24F3004BA8C7 /* yours@3x.png in Resources */,
 				B4283A911D8548F300467CE6 /* LaunchScreen.storyboard in Resources */,
-				B4E2AB221DC6CF5D00E5F81A /* bell@3x.png in Resources */,
-				B4607CE71E10F5F100E75DCF /* user@2x.png in Resources */,
-				B40E35971DB1FB5E004BA8C7 /* all@2x.png in Resources */,
 				B43E36B01F5DF9BA009834C9 /* NumuLogo1024.png in Resources */,
-				B40E35841DAF23FD004BA8C7 /* drums@3x.png in Resources */,
-				B40E35991DB1FB7A004BA8C7 /* all@3x.png in Resources */,
 				B4283A8E1D8548F300467CE6 /* Assets.xcassets in Resources */,
-				B4E2AB211DC6CF5D00E5F81A /* bell@2x.png in Resources */,
 				B4283A8C1D8548F300467CE6 /* Main.storyboard in Resources */,
-				B440D9E41DB2EC4A00477938 /* sort@2x.png in Resources */,
-				B43C55AF1DEBA7A000BF8483 /* spotify@3x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -488,6 +407,7 @@
 				B45A133F2054CBDF001EBDA5 /* NumuClient.swift in Sources */,
 				B4283ABD1D8658AD00467CE6 /* ReleaseItem.swift in Sources */,
 				B4CCFCC91DB447B200D2277B /* HelpViewController.swift in Sources */,
+				B4F1E3AB2058C6C100F2544A /* NumuReviewHelper.swift in Sources */,
 				B46754581F6DA66F00C80544 /* InstructionsViewController.swift in Sources */,
 				B4B940AE1E6131B800F52027 /* NotificationsViewController.swift in Sources */,
 				B4283A851D8548F300467CE6 /* AppDelegate.swift in Sources */,
@@ -504,7 +424,7 @@
 				B45A134120551C46001EBDA5 /* Extensions.swift in Sources */,
 				B4DA6EAE1F6DE5C50090C945 /* LogRegPromptSmallViewController.swift in Sources */,
 				B42866081DA5FC53000E5FA6 /* User.swift in Sources */,
-				B428660A1DA7645C000E5FA6 /* albumArtCache.swift in Sources */,
+				B428660A1DA7645C000E5FA6 /* AlbumArtCache.swift in Sources */,
 				B4CCFCBC1DB3F8EE00D2277B /* ArtistReleaseTableViewCell.swift in Sources */,
 				B40E35921DB1D88C004BA8C7 /* NumuTabBarController.swift in Sources */,
 				B43E36B21F5DFAD0009834C9 /* LogRegPromptViewController.swift in Sources */,

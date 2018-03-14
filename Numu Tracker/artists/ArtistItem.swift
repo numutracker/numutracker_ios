@@ -70,6 +70,7 @@ struct ArtistItem {
     func unfollowArtist(completion: @escaping (String) -> ()) {
         NumuClient.shared.toggleFollow(artistMbid: self.artistId) { (result) in
             completion(result)
+            NumuReviewHelper.incrementAndAskForReview()
         }
     }
 }

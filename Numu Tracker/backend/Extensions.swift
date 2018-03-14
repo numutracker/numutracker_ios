@@ -73,6 +73,7 @@ extension String {
     static let moreReleases = "moreReleases"
     static let username = "username"
     static let password = "password"
+    static let activityCount = "activityCount"
 }
 
 extension UserDefaults {
@@ -82,6 +83,15 @@ extension UserDefaults {
         }
         set {
             set(newValue, forKey: .logged)
+        }
+    }
+    
+    var activityCount: Int {
+        get {
+            return integer(forKey: .activityCount)
+        }
+        set {
+            set(newValue, forKey: .activityCount)
         }
     }
     
@@ -112,6 +122,7 @@ extension UserDefaults {
         }
     }
     
+    // TODO: Remove in v2
     var username: String? {
         get {
             return string(forKey: .username)
@@ -125,7 +136,8 @@ extension UserDefaults {
             }
         }
     }
-    
+
+    // TODO: Remove in v2
     var password: String? {
         get {
             return string(forKey: .password)

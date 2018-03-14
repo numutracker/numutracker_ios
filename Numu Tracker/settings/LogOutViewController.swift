@@ -69,7 +69,7 @@ class LogOutViewController: UIViewController {
         self.getUserStats()
 
         if defaults.logged {
-            if let user = defaults.username {
+            if let user = NumuCredential.shared.getUsername() {
                 Answers.logCustomEvent(withName: "User Stats", customAttributes: ["User":user])
             }
         }
@@ -129,6 +129,8 @@ class LogOutViewController: UIViewController {
                     self?.completionFinalFloat = json["percentage"].double!
                     // Start animation
                     self?.startTimer()
+                    
+                    NumuReviewHelper.incrementAndAskForReview()
                 })
             }
         } else {
