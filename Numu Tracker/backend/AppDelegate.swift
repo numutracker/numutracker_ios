@@ -23,8 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     // Development
     //let pusher = Pusher(key: "")
-
-
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
 
         Fabric.with([Crashlytics.self])
@@ -33,8 +32,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         if defaults.logged {
 
+            NumuCredential.shared.convertCredential()
+
             (window?.rootViewController as! UITabBarController).selectedIndex = 1
-            if let username = defaults.username {
+            if let username = NumuCredential.shared.getUsername() {
                 Crashlytics.sharedInstance().setUserEmail(username)
             }
 
@@ -57,7 +58,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
         pusher.nativePusher.register(deviceToken: deviceToken)
-        if let username = defaults.username {
+        if let username = NumuCredential.shared.getUsername() {
             if defaults.newReleased {
                 pusher.nativePusher.subscribe(interestName: "newReleased_" + username)
                 print("Turned on new notifications")

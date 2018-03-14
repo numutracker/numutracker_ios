@@ -120,11 +120,6 @@ class AllReleasesTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        if defaults.username == nil {
-            defaults.logged = false
-        }
-
-
         if self.tabBarController?.selectedIndex == 0 {
             viewType = 0
             self.title = "All Releases"

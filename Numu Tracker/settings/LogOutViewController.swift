@@ -69,7 +69,7 @@ class LogOutViewController: UIViewController {
         self.getUserStats()
 
         if defaults.logged {
-            if let user = defaults.username {
+            if let user = NumuCredential.shared.getUsername() {
                 Answers.logCustomEvent(withName: "User Stats", customAttributes: ["User":user])
             }
         }
