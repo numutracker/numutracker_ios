@@ -145,6 +145,7 @@ class ArtistsTableViewController: UITableViewController, UISearchBarDelegate, UI
         self.viewState = .user
         self.artists.removeAll()
         self.tableView.reloadData()
+        self.searchController.searchBar.showsCancelButton = false
         self.tableView.tableFooterView = footerView
         self.actOnImportNotification()
     }
