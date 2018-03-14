@@ -30,6 +30,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         NumuReviewHelper.incrementActivityCount()
         
+        if NumuCredential.shared.checkForCredential() && defaults.logged == false {
+            // If iCloud-synced credentials exist mark user as logged in.
+            defaults.logged = true
+        }
+        
         if defaults.logged {
 
             NumuCredential.shared.convertCredential()
