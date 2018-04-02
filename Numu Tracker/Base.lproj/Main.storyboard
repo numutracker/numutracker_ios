@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="QfB-2I-NEJ">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="QfB-2I-NEJ">
     <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
@@ -1038,7 +1038,7 @@ Any imported artists you've unfollowed will not be re-imported.</string>
                                 <rect key="frame" x="0.0" y="478" width="414" height="258"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="y0d-TD-xht">
-                                        <rect key="frame" x="30.333333333333343" y="30" width="353.66666666666663" height="150.66666666666666"/>
+                                        <rect key="frame" x="31.666666666666657" y="30" width="351" height="150.66666666666666"/>
                                         <attributedString key="attributedText">
                                             <fragment content="Numu ">
                                                 <attributes>
@@ -1492,7 +1492,7 @@ Any imported artists you've unfollowed will not be re-imported.</string>
                                         <constraint firstItem="nCT-hA-tw2" firstAttribute="top" secondItem="7Wh-LQ-SXB" secondAttribute="bottom" constant="17.5" id="wIt-8o-sIr"/>
                                     </constraints>
                                 </tableViewCellContentView>
-                                <color key="backgroundColor" red="0.13350695369999999" green="0.13364198799999999" blue="0.13352787490000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.13333333333333333" green="0.13333333333333333" blue="0.13333333333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="tintColor" red="0.13350695369999999" green="0.13364198799999999" blue="0.13352787490000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="vts-KZ-zYJ" secondAttribute="trailing" constant="18" id="GoP-jo-hiK"/>
@@ -1596,7 +1596,7 @@ Try following some artists?</string>
                     <tabBar key="tabBar" contentMode="scaleToFill" barStyle="black" id="NS7-mN-aR6">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="tintColor" red="0.1199414805" green="0.62484174969999995" blue="0.69512790440000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="tintColor" red="0.12156862745098039" green="0.62352941176470589" blue="0.69411764705882351" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </tabBar>
                     <connections>
                         <segue destination="50Y-BS-eDK" kind="relationship" relationship="viewControllers" id="R10-UG-e16"/>
@@ -1627,7 +1627,7 @@ Try following some artists?</string>
                             <tableViewSection headerTitle="Account" id="s6m-ba-v6D">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" id="FbF-76-ESs">
-                                        <rect key="frame" x="0.0" y="55.333333333333336" width="414" height="44"/>
+                                        <rect key="frame" x="0.0" y="55.333333333333343" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="FbF-76-ESs" id="vEA-bK-p65">
                                             <rect key="frame" x="0.0" y="0.0" width="376" height="43.666666666666664"/>
@@ -2344,7 +2344,7 @@ On the Settings screen, you can adjust which types of releases you want to see. 
                                 <rect key="frame" x="0.0" y="340" width="414" height="396"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="QHm-jn-DPo">
-                                        <rect key="frame" x="30.333333333333343" y="30" width="353.66666666666663" height="150.66666666666666"/>
+                                        <rect key="frame" x="31.666666666666657" y="30" width="351" height="150.66666666666666"/>
                                         <attributedString key="attributedText">
                                             <fragment content="Numu ">
                                                 <attributes>
@@ -2697,7 +2697,7 @@ On the Settings screen, you can adjust which types of releases you want to see. 
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="R10-UG-e16"/>
-        <segue reference="jcr-Ul-g7T"/>
+        <segue reference="f0Q-AI-Q2O"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
 </document>
