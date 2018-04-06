@@ -10,9 +10,10 @@ target 'Numu Tracker' do
   use_frameworks!
 
   # Pods for Numu Tracker
-pod 'PusherSwift'
-pod ’SwiftyJSON’
-pod 'Fabric'
-pod 'Crashlytics'
+    pod 'PusherSwift'
+    pod ’SwiftyJSON’
+    pod 'Fabric'
+    pod 'Crashlytics'
+    pod 'SnapKit', '~> 4.0.0'
 
 end
