@@ -44,7 +44,7 @@ extension Array where Element : JSONCodable {
             let data = try? Data(contentsOf: url),
             let json = try? JSON(data: data),
             let arr = json.array  {
-            self = arr.flatMap { Element(json: $0) }
+            self = arr.compactMap { Element(json: $0) }
         }
         else {
             self = []
@@ -56,7 +56,7 @@ extension Array where Element : JSONCodable {
 extension Array where Element : JSONCodable {
     init(with json: JSON) {
         if let arr = json.array {
-            self = arr.flatMap { Element(json: $0) }
+            self = arr.compactMap { Element(json: $0) }
         } else {
             self = []
         }

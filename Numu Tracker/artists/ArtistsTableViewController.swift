@@ -59,6 +59,8 @@ class ArtistsTableViewController: UITableViewController, UISearchBarDelegate, UI
         searchController.hidesNavigationBarDuringPresentation = false
         searchController.dimsBackgroundDuringPresentation = false
         tableView.tableHeaderView = searchController.searchBar
+        
+        self.view?.snapshotView(afterScreenUpdates: true)
 
         // Get list of artists...
 
@@ -170,6 +172,7 @@ class ArtistsTableViewController: UITableViewController, UISearchBarDelegate, UI
             }
         }
     }
+    
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "artistInfoCell", for: indexPath)  as! ArtistTableViewCell

@@ -26,6 +26,6 @@ struct ReleaseData {
         self.currentPage = currentPage
         self.totalPages = totalPages
         self.totalResults = totalResults
-        self.results = results.flatMap { ReleaseItem(json: $0) }
+        self.results = results.compactMap { ReleaseItem(json: $0) }
     }
 }

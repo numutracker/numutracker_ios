@@ -240,7 +240,7 @@ class NumuClient {
         let endPoint = "/v2/json.php?arts=1"
         self.getJSON(with: endPoint) { (json) in
             if let arts = json.array {
-                completion(arts.flatMap { String(describing: $0) })
+                completion(arts.compactMap { String(describing: $0) })
             }
         }
     }
