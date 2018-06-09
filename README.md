@@ -6,7 +6,7 @@ Numu Tracker can keep you up to date on music by the artists you love the most. 
 
 [![Numu Tracker Screenshots](https://www.apple.com/itunes/link/images/link-badge-appstore.png)](https://itunes.apple.com/us/app/numu-new-music-tracker/id1158641228)
 
-This app is dependent on the Numu Tracker Backened, [originally built in PHP](https://github.com/amiantos/numutracker_php) but soon to be [rebuilt in Django](https://github.com/amiantos/numutracker_django).
+This app is dependent on the Numu Tracker Backened, [originally built in PHP](https://github.com/amiantos/numutracker_php) but soon to be [rebuilt in Flask](https://github.com/amiantos/numutracker_api).
 
 ## Screenshots
 
