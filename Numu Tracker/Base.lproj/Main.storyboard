@@ -1,14 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="QfB-2I-NEJ">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.13.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="QfB-2I-NEJ">
     <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
-        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.9"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -39,7 +36,7 @@
                                                 </constraints>
                                             </imageView>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ui9-65-oOu">
-                                                <rect key="frame" x="22.666666666666657" y="392" width="370.33333333333337" height="188"/>
+                                                <rect key="frame" x="22" y="392" width="370.33333333333331" height="188"/>
                                                 <color key="backgroundColor" red="0.13350695369999999" green="0.13364198799999999" blue="0.13352787490000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <string key="text">Numu Tracker was designed and programmed by Brad Root.
 
@@ -126,7 +123,7 @@ Any imported artists you've unfollowed will not be re-imported.</string>
                                 <nil key="highlightedColor"/>
                             </label>
                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="VPi-vA-Mgg">
-                                <rect key="frame" x="188.66666666666666" y="89" width="37" height="37"/>
+                                <rect key="frame" x="188.66666666666666" y="88.666666666666671" width="37" height="37"/>
                             </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" red="0.13350695369999999" green="0.13364198799999999" blue="0.13352787490000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -158,14 +155,14 @@ Any imported artists you've unfollowed will not be re-imported.</string>
                         <viewControllerLayoutGuide type="top" id="IzD-WA-0P2"/>
                         <viewControllerLayoutGuide type="bottom" id="Dh5-FS-0hG"/>
                     </layoutGuides>
-                    <scrollView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="mXQ-GX-qfT">
+                    <scrollView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" id="mXQ-GX-qfT">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ucg-Sm-nZu">
+                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ucg-Sm-nZu">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="516"/>
                                 <subviews>
-                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7nY-rM-ZJM">
+                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7nY-rM-ZJM">
                                         <rect key="frame" x="347" y="20" width="51" height="31"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="31" id="V80-vJ-cX9"/>
@@ -176,26 +173,26 @@ Any imported artists you've unfollowed will not be re-imported.</string>
                                             <action selector="albumFilterSwitch:" destination="cvB-f6-UI7" eventType="valueChanged" id="am9-At-wV7"/>
                                         </connections>
                                     </switch>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Albums" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qBd-bN-Qab">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Albums" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qBd-bN-Qab">
                                         <rect key="frame" x="18" y="25" width="58" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eyr-bA-c1y">
+                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eyr-bA-c1y">
                                         <rect key="frame" x="18" y="64" width="378" height="1"/>
                                         <color key="backgroundColor" red="0.20060706140000001" green="0.20079019670000001" blue="0.20063543319999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="1" id="2mk-OR-eyj"/>
                                         </constraints>
                                     </view>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Singles" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HsP-8O-gjG">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Singles" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HsP-8O-gjG">
                                         <rect key="frame" x="18" y="83" width="56" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="a4b-ZH-M8w">
+                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="a4b-ZH-M8w">
                                         <rect key="frame" x="347" y="78" width="51" height="31"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="49" id="0eX-fi-nOH"/>
@@ -206,20 +203,20 @@ Any imported artists you've unfollowed will not be re-imported.</string>
                                             <action selector="singlesFilterSwitch:" destination="cvB-f6-UI7" eventType="valueChanged" id="OYa-uH-WCW"/>
                                         </connections>
                                     </switch>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="c3B-96-RUB">
+                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="c3B-96-RUB">
                                         <rect key="frame" x="18" y="122" width="378" height="1"/>
                                         <color key="backgroundColor" red="0.20060706140000001" green="0.20079019670000001" blue="0.20063543319999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="1" id="ZlB-OT-y4D"/>
                                         </constraints>
                                     </view>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="EPs" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nrI-a9-W2l">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="EPs" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nrI-a9-W2l">
                                         <rect key="frame" x="18" y="141" width="28.666666666666671" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="I1D-pu-OTS">
+                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="I1D-pu-OTS">
                                         <rect key="frame" x="347" y="136" width="51" height="31"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="49" id="rFO-iN-E2F"/>
@@ -230,20 +227,20 @@ Any imported artists you've unfollowed will not be re-imported.</string>
                                             <action selector="epFilterSwitch:" destination="cvB-f6-UI7" eventType="valueChanged" id="9Ew-Ro-BTG"/>
                                         </connections>
                                     </switch>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sGB-nZ-trO">
+                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sGB-nZ-trO">
                                         <rect key="frame" x="18" y="180" width="378" height="1"/>
                                         <color key="backgroundColor" red="0.20060706140000001" green="0.20079019670000001" blue="0.20063543319999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="1" id="d4P-AS-KvJ"/>
                                         </constraints>
                                     </view>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Live Albums" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tpx-qa-moA">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Live Albums" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tpx-qa-moA">
                                         <rect key="frame" x="18" y="199" width="93" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="3Kn-f8-cPP">
+                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="3Kn-f8-cPP">
                                         <rect key="frame" x="347" y="194" width="51" height="31"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="31" id="03C-HJ-9sf"/>
@@ -254,20 +251,20 @@ Any imported artists you've unfollowed will not be re-imported.</string>
                                             <action selector="liveFilterSwitch:" destination="cvB-f6-UI7" eventType="valueChanged" id="YNb-oF-OaM"/>
                                         </connections>
                                     </switch>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="N8m-o9-DYV">
+                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="N8m-o9-DYV">
                                         <rect key="frame" x="18" y="238" width="378" height="1"/>
                                         <color key="backgroundColor" red="0.20060706140000001" green="0.20079019670000001" blue="0.20063543319999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="1" id="8QD-AQ-mfC"/>
                                         </constraints>
                                     </view>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Soundtracks" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C5u-2n-d6q">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Soundtracks" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C5u-2n-d6q">
                                         <rect key="frame" x="18" y="257" width="97" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="625-Lf-Ote">
+                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="625-Lf-Ote">
                                         <rect key="frame" x="347" y="252" width="51" height="31"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="31" id="JOQ-tx-ppr"/>
@@ -278,20 +275,20 @@ Any imported artists you've unfollowed will not be re-imported.</string>
                                             <action selector="compFilterSwitch:" destination="cvB-f6-UI7" eventType="valueChanged" id="SAb-Yv-hkV"/>
                                         </connections>
                                     </switch>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ULg-iM-vuc">
+                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ULg-iM-vuc">
                                         <rect key="frame" x="18" y="296" width="378" height="1"/>
                                         <color key="backgroundColor" red="0.20060706140000001" green="0.20079019670000001" blue="0.20063543319999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="1" id="Wzi-Wi-kS4"/>
                                         </constraints>
                                     </view>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Remixes" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R04-yR-Fut">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Remixes" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R04-yR-Fut">
                                         <rect key="frame" x="18" y="315" width="329" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Vk3-dv-33A">
+                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Vk3-dv-33A">
                                         <rect key="frame" x="347" y="310" width="51" height="31"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="49" id="KJj-BR-UZ1"/>
@@ -302,27 +299,27 @@ Any imported artists you've unfollowed will not be re-imported.</string>
                                             <action selector="remixFilterSwitch:" destination="cvB-f6-UI7" eventType="valueChanged" id="kgH-Tz-W9K"/>
                                         </connections>
                                     </switch>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9cM-9q-kgZ">
+                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9cM-9q-kgZ">
                                         <rect key="frame" x="18" y="354" width="378" height="1"/>
                                         <color key="backgroundColor" red="0.20060706140000001" green="0.20079019670000001" blue="0.20063543319999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="1" id="vMa-Ik-efa"/>
                                         </constraints>
                                     </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eQF-EM-aEM">
+                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eQF-EM-aEM">
                                         <rect key="frame" x="0.0" y="412" width="414" height="1"/>
                                         <color key="backgroundColor" red="0.20060706140000001" green="0.20079019670000001" blue="0.20063543319999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="1" id="Q0x-0C-7tw"/>
                                         </constraints>
                                     </view>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Other" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ock-B9-4TY">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Other" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ock-B9-4TY">
                                         <rect key="frame" x="18" y="373" width="44" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="BOb-3N-z7Z">
+                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="BOb-3N-z7Z">
                                         <rect key="frame" x="347" y="368" width="51" height="31"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="31" id="yVo-uT-heK"/>
@@ -333,28 +330,28 @@ Any imported artists you've unfollowed will not be re-imported.</string>
                                             <action selector="otherFilterSwitch:" destination="cvB-f6-UI7" eventType="valueChanged" id="0cL-Ss-ZNX"/>
                                         </connections>
                                     </switch>
-                                    <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="trZ-Ma-Vfu">
+                                    <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" ambiguous="YES" hidesWhenStopped="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="trZ-Ma-Vfu">
                                         <rect key="frame" x="361" y="26" width="20" height="20"/>
                                     </activityIndicatorView>
-                                    <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="v2D-U6-kw9">
+                                    <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" ambiguous="YES" hidesWhenStopped="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="v2D-U6-kw9">
                                         <rect key="frame" x="361" y="84" width="20" height="20"/>
                                     </activityIndicatorView>
-                                    <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="ZfL-GA-MIX">
+                                    <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" ambiguous="YES" hidesWhenStopped="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="ZfL-GA-MIX">
                                         <rect key="frame" x="361" y="141" width="20" height="20"/>
                                     </activityIndicatorView>
-                                    <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="68o-gW-TCz">
+                                    <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" ambiguous="YES" hidesWhenStopped="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="68o-gW-TCz">
                                         <rect key="frame" x="361" y="199" width="20" height="20"/>
                                     </activityIndicatorView>
-                                    <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="wnd-7v-XoF">
+                                    <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" ambiguous="YES" hidesWhenStopped="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="wnd-7v-XoF">
                                         <rect key="frame" x="361" y="257" width="20" height="20"/>
                                     </activityIndicatorView>
-                                    <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="GoK-bP-BUy">
+                                    <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" ambiguous="YES" hidesWhenStopped="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="GoK-bP-BUy">
                                         <rect key="frame" x="361" y="315" width="20" height="20"/>
                                     </activityIndicatorView>
-                                    <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="nI7-kF-eXb">
+                                    <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" ambiguous="YES" hidesWhenStopped="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="nI7-kF-eXb">
                                         <rect key="frame" x="361" y="373" width="20" height="20"/>
                                     </activityIndicatorView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M7T-mL-29N">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M7T-mL-29N">
                                         <rect key="frame" x="63" y="429" width="288" height="67"/>
                                         <constraints>
                                             <constraint firstAttribute="width" relation="lessThanOrEqual" constant="288" id="Ot1-7e-uDK"/>
@@ -553,7 +550,7 @@ Any imported artists you've unfollowed will not be re-imported.</string>
                                         </connections>
                                     </switch>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Get a heads up on days your artists release new music, so you can't forget." textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pgw-Eo-QBf">
-                                        <rect key="frame" x="66" y="80" width="282.66666666666669" height="43"/>
+                                        <rect key="frame" x="65.666666666666657" y="80" width="282.66666666666674" height="43"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="43" id="gDR-qx-0sJ"/>
                                             <constraint firstAttribute="width" relation="lessThanOrEqual" constant="288" id="pDb-Mf-2kK"/>
@@ -563,7 +560,7 @@ Any imported artists you've unfollowed will not be re-imported.</string>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Numu will let you know when upcoming releases by your artists are announced." textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VEP-RN-tan">
-                                        <rect key="frame" x="78.666666666666686" y="220" width="258" height="43"/>
+                                        <rect key="frame" x="78" y="220" width="258" height="43"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="43" id="FkO-hm-MvO"/>
                                             <constraint firstAttribute="width" relation="lessThanOrEqual" constant="288" id="GEw-ns-egO"/>
@@ -597,7 +594,7 @@ Any imported artists you've unfollowed will not be re-imported.</string>
                                         </connections>
                                     </switch>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Get notified any time past releases by your artists are added to Numu." textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gd3-Yu-jnp">
-                                        <rect key="frame" x="67.666666666666657" y="360" width="279.33333333333337" height="43"/>
+                                        <rect key="frame" x="67.333333333333343" y="360" width="279.33333333333326" height="43"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="43" id="Icn-dq-a5l"/>
                                             <constraint firstAttribute="width" relation="lessThanOrEqual" constant="288" id="Q0S-Za-PcK"/>
@@ -784,7 +781,7 @@ Any imported artists you've unfollowed will not be re-imported.</string>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
                         <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="Z69-ha-1Y4">
-                            <rect key="frame" x="102" y="46" width="37" height="37"/>
+                            <rect key="frame" x="101.66666666666667" y="45.666666666666657" width="37.000000000000014" height="37"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="37" id="A2Z-KD-0nl"/>
                                 <constraint firstAttribute="height" constant="37" id="QBg-cL-Ury"/>
@@ -1007,7 +1004,7 @@ Any imported artists you've unfollowed will not be re-imported.</string>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
                         <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="Hkc-Li-D5M">
-                            <rect key="frame" x="75" y="22" width="37" height="37"/>
+                            <rect key="frame" x="75" y="21.666666666666671" width="37" height="37"/>
                         </activityIndicatorView>
                     </subviews>
                     <color key="backgroundColor" red="0.13350695369999999" green="0.13364198799999999" blue="0.13352787490000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1032,7 +1029,7 @@ Any imported artists you've unfollowed will not be re-imported.</string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="J2A-Ex-KyL">
-                                <rect key="frame" x="188" y="253" width="37" height="37"/>
+                                <rect key="frame" x="188.66666666666666" y="252.66666666666663" width="37" height="37"/>
                             </activityIndicatorView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gIG-KA-PkO" userLabel="Copy Text">
                                 <rect key="frame" x="0.0" y="478" width="414" height="258"/>
@@ -1059,7 +1056,7 @@ Any imported artists you've unfollowed will not be re-imported.</string>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q9h-xG-bML">
-                                        <rect key="frame" x="160" y="192.66666666666663" width="95" height="57.333333333333343"/>
+                                        <rect key="frame" x="159.66666666666666" y="192.66666666666663" width="95" height="57.333333333333343"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                         <state key="normal" title="I'll Register Later"/>
                                         <connections>
@@ -1092,7 +1089,7 @@ Any imported artists you've unfollowed will not be re-imported.</string>
                                 <rect key="frame" x="0.0" y="64" width="414" height="414"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MTd-6i-11o">
-                                        <rect key="frame" x="120.99999999999999" y="0.0" width="172.66666666666663" height="104"/>
+                                        <rect key="frame" x="120.66666666666667" y="0.0" width="172.66666666666663" height="103.66666666666667"/>
                                         <attributedString key="attributedText">
                                             <fragment content="Log into ">
                                                 <attributes>
@@ -1112,7 +1109,7 @@ Any imported artists you've unfollowed will not be re-imported.</string>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1Py-9I-N2a" userLabel="Password Section">
-                                        <rect key="frame" x="0.0" y="207" width="414" height="104"/>
+                                        <rect key="frame" x="0.0" y="206.99999999999997" width="414" height="103.66666666666666"/>
                                         <subviews>
                                             <textField opaque="NO" contentMode="scaleToFill" restorationIdentifier="logPassword" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" adjustsFontSizeToFit="NO" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="e9I-dD-wvn" userLabel="Numu Password Field" customClass="NumuTextField" customModule="Numu_Tracker" customModuleProvider="target">
                                                 <rect key="frame" x="36" y="20.666666666666686" width="342" height="40"/>
@@ -1144,10 +1141,10 @@ Any imported artists you've unfollowed will not be re-imported.</string>
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2DL-wl-8kB" userLabel="Email Section">
-                                        <rect key="frame" x="0.0" y="104" width="414" height="103"/>
+                                        <rect key="frame" x="0.0" y="103.66666666666666" width="414" height="103.33333333333334"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="email address" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q1I-qM-Qs8">
-                                                <rect key="frame" x="36" y="65.333333333333343" width="342" height="17"/>
+                                                <rect key="frame" x="36" y="65.666666666666686" width="342" height="17"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="17" id="KSw-RZ-KCO"/>
                                                 </constraints>
@@ -1156,7 +1153,7 @@ Any imported artists you've unfollowed will not be re-imported.</string>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textField opaque="NO" contentMode="scaleToFill" restorationIdentifier="logEmail" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" adjustsFontSizeToFit="NO" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OVg-4T-ODB" userLabel="Numu Email Field" customClass="NumuTextField" customModule="Numu_Tracker" customModuleProvider="target">
-                                                <rect key="frame" x="36" y="20.333333333333343" width="342" height="40"/>
+                                                <rect key="frame" x="36" y="20.666666666666686" width="342" height="40"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="40" id="bif-2l-Cw2"/>
                                                 </constraints>
@@ -1195,7 +1192,7 @@ Any imported artists you've unfollowed will not be re-imported.</string>
                                 <rect key="frame" x="0.0" y="64" width="414" height="414"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BaV-mh-k3A">
-                                        <rect key="frame" x="110" y="0.0" width="194" height="104"/>
+                                        <rect key="frame" x="110" y="0.0" width="194" height="103.66666666666667"/>
                                         <attributedString key="attributedText">
                                             <fragment content="Sign up for ">
                                                 <attributes>
@@ -1215,7 +1212,7 @@ Any imported artists you've unfollowed will not be re-imported.</string>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vAB-mt-TZ4" userLabel="Password Section">
-                                        <rect key="frame" x="0.0" y="207" width="414" height="104"/>
+                                        <rect key="frame" x="0.0" y="206.99999999999997" width="414" height="103.66666666666666"/>
                                         <subviews>
                                             <textField opaque="NO" contentMode="scaleToFill" restorationIdentifier="signPassword" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" adjustsFontSizeToFit="NO" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="X2z-c3-Vqt" userLabel="Numu Password Field" customClass="NumuTextField" customModule="Numu_Tracker" customModuleProvider="target">
                                                 <rect key="frame" x="36" y="20.666666666666686" width="342" height="40"/>
@@ -1247,10 +1244,10 @@ Any imported artists you've unfollowed will not be re-imported.</string>
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hcl-Rv-ru1" userLabel="Email Section">
-                                        <rect key="frame" x="0.0" y="104" width="414" height="103"/>
+                                        <rect key="frame" x="0.0" y="103.66666666666666" width="414" height="103.33333333333334"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="email address" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8mf-q5-0I8">
-                                                <rect key="frame" x="36" y="65.333333333333343" width="342" height="17"/>
+                                                <rect key="frame" x="36" y="65.666666666666686" width="342" height="17"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="17" id="029-2K-6oL"/>
                                                 </constraints>
@@ -1259,7 +1256,7 @@ Any imported artists you've unfollowed will not be re-imported.</string>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textField opaque="NO" contentMode="scaleToFill" restorationIdentifier="signEmail" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" adjustsFontSizeToFit="NO" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="BzA-K7-oh0" userLabel="Numu Email Field" customClass="NumuTextField" customModule="Numu_Tracker" customModuleProvider="target">
-                                                <rect key="frame" x="36" y="20.333333333333343" width="342" height="40"/>
+                                                <rect key="frame" x="36" y="20.666666666666686" width="342" height="40"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="40" id="srB-R8-Mlr"/>
                                                 </constraints>
@@ -1418,7 +1415,7 @@ Any imported artists you've unfollowed will not be re-imported.</string>
                                             </constraints>
                                         </view>
                                         <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nCT-hA-tw2">
-                                            <rect key="frame" x="0.0" y="135" width="414" height="109"/>
+                                            <rect key="frame" x="0.0" y="135.66666666666666" width="414" height="108"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dmT-lI-To1">
                                                     <rect key="frame" x="143" y="18" width="128" height="47"/>
@@ -1434,14 +1431,14 @@ Any imported artists you've unfollowed will not be re-imported.</string>
                                                     </connections>
                                                 </button>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ECc-LH-9vP">
-                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="1"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="0.33333333333333331"/>
                                                     <color key="backgroundColor" red="0.20060706140000001" green="0.20079019670000001" blue="0.20063543319999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="0.5" id="Jj8-WI-eW1"/>
                                                     </constraints>
                                                 </view>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IRj-RX-Ojc">
-                                                    <rect key="frame" x="206.66666666666666" y="54" width="1" height="1"/>
+                                                    <rect key="frame" x="206.66666666666666" y="53.333333333333343" width="1" height="1"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="1" id="e3T-bC-2CW"/>
@@ -1449,7 +1446,7 @@ Any imported artists you've unfollowed will not be re-imported.</string>
                                                     </constraints>
                                                 </view>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oxH-AK-9O3">
-                                                    <rect key="frame" x="109" y="73" width="197" height="28"/>
+                                                    <rect key="frame" x="108.66666666666669" y="73" width="197" height="28"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                     <state key="normal" title="View more releases by this artist">
                                                         <color key="titleColor" red="0.10980392160000001" green="0.81176470590000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1520,9 +1517,9 @@ Any imported artists you've unfollowed will not be re-imported.</string>
                     </tableView>
                     <navigationItem key="navigationItem" id="e57-ac-NoB">
                         <nil key="title"/>
-                        <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="PhI-8h-nYk">
-                            <rect key="frame" x="87.666666666666686" y="7" width="239" height="30"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="PhI-8h-nYk">
+                            <rect key="frame" x="87.666666666666657" y="7" width="0.0" height="30"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
                             <segments>
                                 <segment title="Unlistened"/>
                                 <segment title="Released"/>
@@ -1551,7 +1548,7 @@ Any imported artists you've unfollowed will not be re-imported.</string>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
                         <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="HnZ-6j-Fcj">
-                            <rect key="frame" x="102" y="22" width="37" height="37"/>
+                            <rect key="frame" x="101.66666666666667" y="21.666666666666671" width="37.000000000000014" height="37"/>
                         </activityIndicatorView>
                     </subviews>
                     <color key="backgroundColor" red="0.13350695369999999" green="0.13364198799999999" blue="0.13352787490000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1565,7 +1562,7 @@ Any imported artists you've unfollowed will not be re-imported.</string>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="1000" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n3X-4R-CJR">
-                            <rect key="frame" x="107.66666666666667" y="36" width="172.33333333333331" height="57"/>
+                            <rect key="frame" x="107.00000000000001" y="36" width="172.33333333333337" height="57"/>
                             <constraints>
                                 <constraint firstAttribute="width" relation="lessThanOrEqual" constant="288" id="t8d-cY-RnP"/>
                             </constraints>
@@ -1634,7 +1631,7 @@ Try following some artists?</string>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your Account" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LQY-t0-aKy">
-                                                    <rect key="frame" x="18" y="11" width="350" height="21"/>
+                                                    <rect key="frame" x="18" y="11.333333333333336" width="350" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
@@ -1663,7 +1660,7 @@ Try following some artists?</string>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Release Filters" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VY9-6y-XMv">
-                                                    <rect key="frame" x="18" y="11" width="350" height="21"/>
+                                                    <rect key="frame" x="18" y="11.333333333333336" width="350" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
@@ -1688,7 +1685,7 @@ Try following some artists?</string>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Notifications" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZV9-PD-Cbk">
-                                                    <rect key="frame" x="18" y="11" width="350" height="21"/>
+                                                    <rect key="frame" x="18" y="11.333333333333336" width="350" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
@@ -1717,7 +1714,7 @@ Try following some artists?</string>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Apple Music Import" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nu8-hd-nq8">
-                                                    <rect key="frame" x="18" y="11" width="350" height="21"/>
+                                                    <rect key="frame" x="18" y="11.333333333333336" width="350" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
@@ -1746,7 +1743,7 @@ Try following some artists?</string>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Instructions" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Lo-sD-lrx">
-                                                    <rect key="frame" x="18" y="11" width="350" height="21"/>
+                                                    <rect key="frame" x="18" y="11.333333333333336" width="350" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
@@ -1771,7 +1768,7 @@ Try following some artists?</string>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="About" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gi6-kK-N4o">
-                                                    <rect key="frame" x="18" y="11" width="350" height="21"/>
+                                                    <rect key="frame" x="18" y="11.333333333333336" width="350" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
@@ -1796,7 +1793,7 @@ Try following some artists?</string>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Get Help" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qIA-nH-Gg6">
-                                                    <rect key="frame" x="18" y="11" width="350" height="21"/>
+                                                    <rect key="frame" x="18" y="11.333333333333336" width="350" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
@@ -2083,7 +2080,7 @@ On the Settings screen, you can adjust which types of releases you want to see. 
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FHt-ni-xDi">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="457.66666666666669"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="458"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="5" translatesAutoresizingMaskIntoConstraints="NO" id="VRP-ZO-VcM">
                                         <rect key="frame" x="36" y="36" width="153" height="60"/>
@@ -2136,7 +2133,7 @@ On the Settings screen, you can adjust which types of releases you want to see. 
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="5" translatesAutoresizingMaskIntoConstraints="NO" id="Fp8-kI-G8N">
-                                        <rect key="frame" x="36" y="159.66666666666666" width="153" height="60"/>
+                                        <rect key="frame" x="36" y="160" width="153" height="60"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="60" id="3pf-HY-RLr"/>
                                         </constraints>
@@ -2145,14 +2142,14 @@ On the Settings screen, you can adjust which types of releases you want to see. 
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kJT-W6-QtE">
-                                        <rect key="frame" x="36" y="222.66666666666666" width="153" height="1"/>
+                                        <rect key="frame" x="36" y="223" width="153" height="1"/>
                                         <color key="backgroundColor" red="0.1199414805" green="0.62484174969999995" blue="0.69512790440000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="1" id="bS1-rj-LGc"/>
                                         </constraints>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="releases listened" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kV2-Vy-EY0">
-                                        <rect key="frame" x="36" y="231.66666666666666" width="153" height="16"/>
+                                        <rect key="frame" x="36" y="232" width="153" height="16"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="16" id="6wf-2O-CHl"/>
                                         </constraints>
@@ -2186,7 +2183,7 @@ On the Settings screen, you can adjust which types of releases you want to see. 
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0%" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="5" translatesAutoresizingMaskIntoConstraints="NO" id="tgv-18-qPG">
-                                        <rect key="frame" x="131" y="282.66666666666669" width="153" height="60"/>
+                                        <rect key="frame" x="130.66666666666666" y="283" width="152.99999999999997" height="60"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="60" id="qJF-lT-mTf"/>
                                         </constraints>
@@ -2195,14 +2192,14 @@ On the Settings screen, you can adjust which types of releases you want to see. 
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GOi-ze-Iay">
-                                        <rect key="frame" x="131" y="345.66666666666669" width="153" height="1"/>
+                                        <rect key="frame" x="130.66666666666666" y="346" width="152.99999999999997" height="1"/>
                                         <color key="backgroundColor" red="0.1199414805" green="0.62484174969999995" blue="0.69512790440000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="1" id="Mce-LL-ITl"/>
                                         </constraints>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="completed*" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oA9-Tx-jww">
-                                        <rect key="frame" x="172.66666666666666" y="353.66666666666669" width="70" height="16"/>
+                                        <rect key="frame" x="172" y="354" width="70" height="16"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="16" id="UUM-S9-3F4"/>
                                         </constraints>
@@ -2211,7 +2208,7 @@ On the Settings screen, you can adjust which types of releases you want to see. 
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="* Based on your current filters." textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ymX-lu-NRH">
-                                        <rect key="frame" x="115.66666666666669" y="405.66666666666669" width="183" height="16"/>
+                                        <rect key="frame" x="115.66666666666669" y="406" width="183" height="16"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="16" id="7UY-HB-JiT"/>
                                         </constraints>
@@ -2365,7 +2362,7 @@ On the Settings screen, you can adjust which types of releases you want to see. 
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kef-AO-sJ3">
-                                        <rect key="frame" x="160" y="192.66666666666663" width="95" height="195.33333333333337"/>
+                                        <rect key="frame" x="159.66666666666666" y="192.66666666666663" width="95" height="195.33333333333337"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                         <state key="normal" title="I'll Register Later"/>
                                         <connections>
@@ -2395,7 +2392,7 @@ On the Settings screen, you can adjust which types of releases you want to see. 
                                 <rect key="frame" x="0.0" y="64" width="414" height="276"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g1P-y6-Dds">
-                                        <rect key="frame" x="120.99999999999999" y="0.0" width="172.66666666666663" height="40"/>
+                                        <rect key="frame" x="120.66666666666667" y="0.0" width="172.66666666666663" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="p3f-Mz-KQb"/>
                                         </constraints>
@@ -2697,7 +2694,7 @@ On the Settings screen, you can adjust which types of releases you want to see. 
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="R10-UG-e16"/>
-        <segue reference="f0Q-AI-Q2O"/>
+        <segue reference="jcr-Ul-g7T"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
 </document>
