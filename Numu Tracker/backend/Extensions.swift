@@ -163,13 +163,13 @@ extension Notification.Name {
 extension UIView {
     func fadeIn() {
         // Move our fade out code from earlier
-        UIView.animate(withDuration: 1.0, delay: 0.0, options: UIViewAnimationOptions.curveEaseIn, animations: {
+        UIView.animate(withDuration: 1.0, delay: 0.0, options: UIView.AnimationOptions.curveEaseIn, animations: {
             self.alpha = 1.0 // Instead of a specific instance of, say, birdTypeLabel, we simply set [thisInstance] (ie, self)'s alpha
         }, completion: nil)
     }
     
     func fadeOut() {
-        UIView.animate(withDuration: 1.0, delay: 0.0, options: UIViewAnimationOptions.curveEaseOut, animations: {
+        UIView.animate(withDuration: 1.0, delay: 0.0, options: UIView.AnimationOptions.curveEaseOut, animations: {
             self.alpha = 0.0
         }, completion: nil)
     }
@@ -182,7 +182,7 @@ extension UIColor {
 
 
 extension UIImageView {
-    func downloadImageFrom(link:String, contentMode: UIViewContentMode) {
+    func downloadImageFrom(link:String, contentMode: UIView.ContentMode) {
         URLSession.shared.dataTask(with: URL(string:link)!, completionHandler: {
             (data, response, error) -> Void in
             DispatchQueue.main.async {

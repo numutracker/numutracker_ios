@@ -24,7 +24,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     // Development
     //let pusher = Pusher(key: "")
     
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 
         Fabric.with([Crashlytics.self])
         
