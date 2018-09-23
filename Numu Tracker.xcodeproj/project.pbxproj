@@ -359,12 +359,13 @@
 			files = (
 			);
 			inputPaths = (
+				"$(BUILT_PRODUCTS_DIR)/$(INFOPLIST_PATH)",
 			);
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Fabric/run\" ff4e55ebc57e75e6e936e72b99c0b8594aa42c9d 315e988aaa579ad0d2389921dea2e0b6ea6b2698eaf3bfb7d9b0eefa78cc4afd";
+			shellScript = "\"${PODS_ROOT}/Fabric/run\" ff4e55ebc57e75e6e936e72b99c0b8594aa42c9d 315e988aaa579ad0d2389921dea2e0b6ea6b2698eaf3bfb7d9b0eefa78cc4afd\n";
 		};
 		D3F8613DB5ED26A875BB299C /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
