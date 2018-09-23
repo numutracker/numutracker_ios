@@ -10,6 +10,7 @@ import UIKit
 import UserNotifications
 import PusherSwift
 import Crashlytics
+import SwiftyJSON
 
 class LogOutViewController: UIViewController {
 
@@ -120,19 +121,29 @@ class LogOutViewController: UIViewController {
 
     @objc func getUserStats() {
         if NumuCredential.shared.checkForCredential() {
-            NumuClient.shared.getStats() {[weak self](json) in
+            let queue = OperationQueue()
+            let fetchTest = FetchOperation("https://www.numutracker.com/v2/json.php?stats")
+            fetchTest.qualityOfService = .userInitiated
+            fetchTest.completionBlock = { [unowned fetchTest] in
+                let json = fetchTest.json
                 DispatchQueue.main.async(execute: {
-                    self?.artistsListenedFinalInt = json["total_list_artists_unfilt"].double!
-                    self?.artistsFollowedFinalInt = json["total_follows"].double!
-                    self?.releasesListenedFinalInt = json["total_listens_unfilt"].double!
-                    self?.releasesFollowedFinalInt = json["total_rel_fol"].double!
-                    self?.completionFinalFloat = json["percentage"].double!
-                    // Start animation
-                    self?.startTimer()
-                    
-                    NumuReviewHelper.incrementAndAskForReview()
+                    if let artistsListenedFinalInt = json["total_list_artists_unfilt"].double,
+                        let artistsFollowedFinalInt = json["total_follows"].double,
+                        let releasesListenedFinalInt = json["total_listens_unfilt"].double,
+                        let releasesFollowedFinalInt = json["total_rel_fol"].double,
+                        let completionFinalFloat = json["percentage"].double {
+                        self.artistsListenedFinalInt = artistsListenedFinalInt
+                        self.artistsFollowedFinalInt = artistsFollowedFinalInt
+                        self.releasesListenedFinalInt = releasesListenedFinalInt
+                        self.releasesFollowedFinalInt = releasesFollowedFinalInt
+                        self.completionFinalFloat = completionFinalFloat
+                        // Start animation
+                        self.startTimer()
+                        NumuReviewHelper.incrementAndAskForReview()
+                    }
                 })
             }
+            queue.addOperation(fetchTest)
         } else {
             // Nada
         }

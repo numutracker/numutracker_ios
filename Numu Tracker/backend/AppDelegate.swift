@@ -39,7 +39,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
             NumuCredential.shared.convertCredential()
 
-            (window?.rootViewController as! UITabBarController).selectedIndex = 1
             if let username = NumuCredential.shared.getUsername() {
                 Crashlytics.sharedInstance().setUserEmail(username)
             }

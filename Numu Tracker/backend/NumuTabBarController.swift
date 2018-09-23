@@ -13,11 +13,8 @@ class NumuTabBarController: UITabBarController, UITabBarControllerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.viewControllers![0].title = "All Releases"
-        self.viewControllers![0].tabBarItem.image = UIImage(named: "all")
-
-        self.viewControllers![1].title = "Your Releases"
-        self.viewControllers![1].tabBarItem.image = UIImage(named: "yours")
+        self.viewControllers![0].title = "Your Releases"
+        self.viewControllers![0].tabBarItem.image = UIImage(named: "yours")
 
         self.tabBar.tintColor = UIColor(red: 0.24, green: 0.67, blue: 0.73, alpha: 1.0)
 

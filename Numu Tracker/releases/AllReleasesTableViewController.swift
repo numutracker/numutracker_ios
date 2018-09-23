@@ -118,17 +118,20 @@ class AllReleasesTableViewController: UITableViewController {
     }
 
     override func viewDidLoad() {
+        
         super.viewDidLoad()
-
-        if self.tabBarController?.selectedIndex == 0 {
-            viewType = 0
-            self.title = "All Releases"
-        } else {
-            viewType = 1
-            self.title = "Your Releases"
-            // Add fourth segmented control ...
-            self.releasesSegmentedControl.insertSegment(withTitle: "Fresh", at: 3, animated: false)
+        
+        let queue = OperationQueue()
+        let fetchTest = FetchOperation("https://www.numutracker.com/v2/json.php?arts=1")
+        fetchTest.completionBlock = { [unowned fetchTest] in
+            print(fetchTest.json)
         }
+        
+        queue.addOperation(fetchTest)
+        
+
+        viewType = 1
+        self.title = "Your Releases"
 
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(actOnLoggedInNotification),
@@ -327,7 +330,7 @@ class AllReleasesTableViewController: UITableViewController {
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        if !defaults.logged && self.tabBarController?.selectedIndex == 1 {
+        if !defaults.logged && self.tabBarController?.selectedIndex == 0 {
             let controller = UIDevice().screenType == .iPhone4 ? "LogRegPromptSmall" : "LogRegPrompt"
             let loginViewController = storyboard?.instantiateViewController(withIdentifier: controller) as! UINavigationController
             DispatchQueue.main.async {

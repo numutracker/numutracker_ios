@@ -1517,13 +1517,14 @@ Any imported artists you've unfollowed will not be re-imported.</string>
                     </tableView>
                     <navigationItem key="navigationItem" id="e57-ac-NoB">
                         <nil key="title"/>
-                        <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="PhI-8h-nYk">
-                            <rect key="frame" x="87.666666666666686" y="7" width="239" height="30"/>
+                        <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="PhI-8h-nYk">
+                            <rect key="frame" x="47.666666666666657" y="7" width="319" height="30"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
                             <segments>
                                 <segment title="Unlistened"/>
                                 <segment title="Released"/>
                                 <segment title="Upcoming"/>
+                                <segment title="Fresh"/>
                             </segments>
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
@@ -1583,7 +1584,7 @@ Try following some artists?</string>
                     </constraints>
                 </view>
             </objects>
-            <point key="canvasLocation" x="1041" y="-252"/>
+            <point key="canvasLocation" x="1040.5797101449275" y="-252.71739130434784"/>
         </scene>
         <!--Numu Tab Bar Controller-->
         <scene sceneID="pPo-Hq-Xts">
@@ -1596,7 +1597,6 @@ Try following some artists?</string>
                         <color key="tintColor" red="0.12156862745098039" green="0.62352941176470589" blue="0.69411764705882351" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </tabBar>
                     <connections>
-                        <segue destination="50Y-BS-eDK" kind="relationship" relationship="viewControllers" id="R10-UG-e16"/>
                         <segue destination="50Y-BS-eDK" kind="relationship" relationship="viewControllers" id="V4e-5v-AsB"/>
                         <segue destination="17Z-pk-giM" kind="relationship" relationship="viewControllers" id="kqW-4e-qqJ"/>
                         <segue destination="mTE-7Z-lM0" kind="relationship" relationship="viewControllers" id="hr4-0D-m1n"/>
@@ -2693,7 +2693,6 @@ On the Settings screen, you can adjust which types of releases you want to see. 
         <image name="drums" width="22" height="22"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="R10-UG-e16"/>
         <segue reference="jcr-Ul-g7T"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
