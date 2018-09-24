@@ -17,7 +17,9 @@ class NumuClient {
     
     func getJSON(with endPoint: String, completion: @escaping (JSON) -> ()) {
         if let url = URL(string: urlPrefix + endPoint) {
+            print(url)
             let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
+                //print(String(data: data!, encoding: String.Encoding.utf8) as String!)
                 if let content = data {
                     do {
                         let json = try JSON(data: content)
@@ -61,12 +63,44 @@ class NumuClient {
             if let result = json["result"].string {
                 if result == "1" {
                     NumuCredential.shared.storeCredential(username: username, password: password)
+                    defaults.logged = true
                 }
                 completion(result)
             } else {
                 // FIXME: API returns a string that fails JSON conversion.
                 // When API doesn't do this, this check will fail.
                 completion("Registration Failure")
+            }
+        }
+    }
+    
+    func authorizeRegisterWithCK(icloud_id: String, completion: @escaping (String) -> ()) {
+        let endPoint = "/v2/json.php?register_ck=" + icloud_id
+        self.getJSON(with: endPoint) { (json) in
+            if let result = json["result"].string {
+                if result == "1" {
+                    NumuCredential.shared.storeCredential(username: icloud_id, password: "icloud")
+                    defaults.logged = true
+                }
+                completion(result)
+            } else {
+                // FIXME: API returns a string that fails JSON conversion.
+                // When API doesn't do this, this check will fail.
+                completion("Registration Failure")
+            }
+        }
+    }
+    
+    func addCKIDtoAccount(icloud_id: String, completion: @escaping (String) -> ()) {
+        let endPoint = "/v2/json.php?add_ck=" + icloud_id
+        self.getJSON(with: endPoint) { (json) in
+            if let result = json["result"].string {
+                completion(result)
+            } else {
+                // FIXME: API returns a string that fails JSON conversion.
+                // When API doesn't do this, this check will fail.
+                NumuCredential.shared.removeCredential()
+                completion("Authorization Failure")
             }
         }
     }
@@ -192,25 +226,11 @@ class NumuClient {
     // MARK: - Release Related
 
     func getReleases(view: Int, slide: Int, page: Int = 1, limit: Int = 50, offset: Int = 0, completion: @escaping (ReleaseData) -> ()) {
+        
         var endPoint: String
         let username = NumuCredential.shared.getUsername() ?? "0"
 
         switch (view, slide) {
-        case (0, 0):
-            // All Unlistened
-            let logged = "/v2/json.php?user=\(username)&page=\(page)&rel_mode=allunlistened&limit=\(limit)&offset=\(offset)"
-            let notLogged = "/v2/json.php?page=\(page)&rel_mode=allunlistened&limit=\(limit)&offset=\(offset)"
-            endPoint = defaults.logged ? logged : notLogged
-        case (0, 1):
-            // All Released
-            let logged = "/v2/json.php?user=\(username)&page=\(page)&rel_mode=all&limit=\(limit)&offset=\(offset)"
-            let notLogged = "/v2/json.php?page=\(page)&rel_mode=all&limit=\(limit)&offset=\(offset)"
-            endPoint = defaults.logged ? logged : notLogged
-        case (0, 2):
-            // All Upcoming
-            let logged = "/v2/json.php?user=\(username)&page=\(page)&rel_mode=allupcoming&limit=\(limit)&offset=\(offset)"
-            let notLogged = "/v2/json.php?page=\(page)&rel_mode=allupcoming&limit=\(limit)&offset=\(offset)"
-            endPoint = defaults.logged ? logged : notLogged
         case (1, 0):
             // User Unlistened
             endPoint = "/v2/json.php?user=\(username)&rel_mode=unlistened&page=\(page)&limit=\(limit)&offset=\(offset)"

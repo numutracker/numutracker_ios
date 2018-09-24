@@ -9,6 +9,13 @@
 /* Begin PBXBuildFile section */
 		4461CB79215844C9001939F0 /* AsyncOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4461CB78215844C9001939F0 /* AsyncOperation.swift */; };
 		4461CB7B2158470C001939F0 /* FetchJSONOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4461CB7A2158470C001939F0 /* FetchJSONOperation.swift */; };
+		4461CB7F21585488001939F0 /* NumuAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4461CB7E21585488001939F0 /* NumuAPI.swift */; };
+		4461CB8121585673001939F0 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4461CB8021585673001939F0 /* CloudKit.framework */; };
+		4461CB8321585729001939F0 /* AuthOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4461CB8221585729001939F0 /* AuthOperation.swift */; };
+		4461CB8521588C54001939F0 /* CKUserRecordIDOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4461CB8421588C54001939F0 /* CKUserRecordIDOperation.swift */; };
+		4461CB89215897B7001939F0 /* AuthWithCKUserRecordID.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4461CB88215897B7001939F0 /* AuthWithCKUserRecordID.swift */; };
+		4461CB8B21589AB4001939F0 /* RegisterWithCKUserRecordID.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4461CB8A21589AB4001939F0 /* RegisterWithCKUserRecordID.swift */; };
+		4461CB8D21589D7A001939F0 /* LocalAuthOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4461CB8C21589D7A001939F0 /* LocalAuthOperation.swift */; };
 		B40E35921DB1D88C004BA8C7 /* NumuTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B40E35911DB1D88C004BA8C7 /* NumuTabBarController.swift */; };
 		B416A6601DC52A91000F86D9 /* AllReleasesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B416A65F1DC52A91000F86D9 /* AllReleasesTableViewController.swift */; };
 		B416A6621DC52DBA000F86D9 /* ReleaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B416A6611DC52DBA000F86D9 /* ReleaseTableViewCell.swift */; };
@@ -50,6 +57,13 @@
 		01361C8695313B7121751750 /* Pods-Numu Tracker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Numu Tracker.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Numu Tracker/Pods-Numu Tracker.debug.xcconfig"; sourceTree = "<group>"; };
 		4461CB78215844C9001939F0 /* AsyncOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncOperation.swift; sourceTree = "<group>"; };
 		4461CB7A2158470C001939F0 /* FetchJSONOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchJSONOperation.swift; sourceTree = "<group>"; };
+		4461CB7E21585488001939F0 /* NumuAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumuAPI.swift; sourceTree = "<group>"; };
+		4461CB8021585673001939F0 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
+		4461CB8221585729001939F0 /* AuthOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthOperation.swift; sourceTree = "<group>"; };
+		4461CB8421588C54001939F0 /* CKUserRecordIDOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CKUserRecordIDOperation.swift; sourceTree = "<group>"; };
+		4461CB88215897B7001939F0 /* AuthWithCKUserRecordID.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthWithCKUserRecordID.swift; sourceTree = "<group>"; };
+		4461CB8A21589AB4001939F0 /* RegisterWithCKUserRecordID.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterWithCKUserRecordID.swift; sourceTree = "<group>"; };
+		4461CB8C21589D7A001939F0 /* LocalAuthOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalAuthOperation.swift; sourceTree = "<group>"; };
 		AE619F4A3C507ABD0012177C /* Pods-Numu Tracker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Numu Tracker.release.xcconfig"; path = "Pods/Target Support Files/Pods-Numu Tracker/Pods-Numu Tracker.release.xcconfig"; sourceTree = "<group>"; };
 		B40E35911DB1D88C004BA8C7 /* NumuTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NumuTabBarController.swift; sourceTree = "<group>"; };
 		B416A65F1DC52A91000F86D9 /* AllReleasesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllReleasesTableViewController.swift; sourceTree = "<group>"; };
@@ -97,6 +111,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E4EB5ACCF23F58468A5C04FF /* Pods_Numu_Tracker.framework in Frameworks */,
+				4461CB8121585673001939F0 /* CloudKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -106,6 +121,7 @@
 		14F28C739AD176DB0069BA7E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				4461CB8021585673001939F0 /* CloudKit.framework */,
 				CBD0F3687066D64A7B28C145 /* Pods_Numu_Tracker.framework */,
 			);
 			name = Frameworks;
@@ -116,6 +132,11 @@
 			children = (
 				4461CB78215844C9001939F0 /* AsyncOperation.swift */,
 				4461CB7A2158470C001939F0 /* FetchJSONOperation.swift */,
+				4461CB8221585729001939F0 /* AuthOperation.swift */,
+				4461CB8421588C54001939F0 /* CKUserRecordIDOperation.swift */,
+				4461CB88215897B7001939F0 /* AuthWithCKUserRecordID.swift */,
+				4461CB8A21589AB4001939F0 /* RegisterWithCKUserRecordID.swift */,
+				4461CB8C21589D7A001939F0 /* LocalAuthOperation.swift */,
 			);
 			path = Operations;
 			sourceTree = "<group>";
@@ -217,6 +238,7 @@
 				B45A133E2054CBDF001EBDA5 /* NumuClient.swift */,
 				B45A134020551C46001EBDA5 /* Extensions.swift */,
 				B4F1E3AA2058C6C100F2544A /* NumuReviewHelper.swift */,
+				4461CB7E21585488001939F0 /* NumuAPI.swift */,
 			);
 			name = Backend;
 			path = backend;
@@ -296,9 +318,12 @@
 								enabled = 1;
 							};
 							com.apple.InAppPurchase = {
-								enabled = 1;
+								enabled = 0;
 							};
 							com.apple.Push = {
+								enabled = 1;
+							};
+							com.apple.iCloud = {
 								enabled = 1;
 							};
 						};
@@ -408,26 +433,32 @@
 			files = (
 				B45A133D20548632001EBDA5 /* NumuCredential.swift in Sources */,
 				4461CB7B2158470C001939F0 /* FetchJSONOperation.swift in Sources */,
+				4461CB8521588C54001939F0 /* CKUserRecordIDOperation.swift in Sources */,
 				B45A133F2054CBDF001EBDA5 /* NumuClient.swift in Sources */,
+				4461CB8D21589D7A001939F0 /* LocalAuthOperation.swift in Sources */,
 				B4283ABD1D8658AD00467CE6 /* ReleaseItem.swift in Sources */,
 				B4CCFCC91DB447B200D2277B /* HelpViewController.swift in Sources */,
 				B4F1E3AB2058C6C100F2544A /* NumuReviewHelper.swift in Sources */,
 				B46754581F6DA66F00C80544 /* InstructionsViewController.swift in Sources */,
+				4461CB7F21585488001939F0 /* NumuAPI.swift in Sources */,
 				B4B940AE1E6131B800F52027 /* NotificationsViewController.swift in Sources */,
 				B4283A851D8548F300467CE6 /* AppDelegate.swift in Sources */,
 				B47CF37B1E5E908100225B85 /* LogOutViewController.swift in Sources */,
 				B4CCFCC71DB4353E00D2277B /* NumuUIButton.swift in Sources */,
 				B4CCFCC51DB4311B00D2277B /* AddArtistsViewController.swift in Sources */,
+				4461CB8B21589AB4001939F0 /* RegisterWithCKUserRecordID.swift in Sources */,
 				B440D9D71DB2D19300477938 /* ArtistItem.swift in Sources */,
 				B440D9D51DB2D13900477938 /* ArtistsTableViewController.swift in Sources */,
 				B4B49B871E5EBE4B001CE1C7 /* ReleaseFiltersViewController.swift in Sources */,
 				B471648D1F5FA24600D4E03E /* NumuTextField.swift in Sources */,
+				4461CB8321585729001939F0 /* AuthOperation.swift in Sources */,
 				B416A6641DC52FBC000F86D9 /* ReleaseData.swift in Sources */,
 				B440D9D91DB2D28A00477938 /* ArtistTableViewCell.swift in Sources */,
 				B416A6621DC52DBA000F86D9 /* ReleaseTableViewCell.swift in Sources */,
 				B45A134120551C46001EBDA5 /* Extensions.swift in Sources */,
 				B4DA6EAE1F6DE5C50090C945 /* LogRegPromptSmallViewController.swift in Sources */,
 				B42866081DA5FC53000E5FA6 /* User.swift in Sources */,
+				4461CB89215897B7001939F0 /* AuthWithCKUserRecordID.swift in Sources */,
 				B428660A1DA7645C000E5FA6 /* AlbumArtCache.swift in Sources */,
 				4461CB79215844C9001939F0 /* AsyncOperation.swift in Sources */,
 				B4CCFCBC1DB3F8EE00D2277B /* ArtistReleaseTableViewCell.swift in Sources */,

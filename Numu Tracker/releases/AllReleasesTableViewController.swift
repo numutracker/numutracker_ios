@@ -61,42 +61,44 @@ class AllReleasesTableViewController: UITableViewController {
     }
 
     func loadFirstReleases() {
-        self.isLoading = true
-        NumuClient.shared.getReleases(view: self.viewType, slide: self.slideType) {[weak self](releaseData) in
-            self?.releaseData = releaseData
-            DispatchQueue.main.async(execute: {
-                if let results = self?.releaseData?.results {
-                    self?.releases = results
-                }
-                self?.isLoading = false
-                self?.tableView.reloadData()
-                self?.tableView.tableFooterView = UIView()
-                self?.refreshControl?.endRefreshing()
-            })
-        }
+        if defaults.logged {
+            self.isLoading = true
+            NumuClient.shared.getReleases(view: self.viewType, slide: self.slideType) {[weak self](releaseData) in
+                self?.releaseData = releaseData
+                DispatchQueue.main.async(execute: {
+                    if let results = self?.releaseData?.results {
+                        self?.releases = results
+                    }
+                    self?.isLoading = false
+                    self?.tableView.reloadData()
+                    self?.tableView.tableFooterView = UIView()
+                    self?.refreshControl?.endRefreshing()
+                })
+            }
 
-        switch (self.viewType, self.slideType) {
-        case (0, 0):
-            self.viewName = "All Unlistened"
-        case (0, 1):
-            self.viewName = "All Released"
-        case (0, 2):
-            self.viewName = "All Upcoming"
-        case (0, 3):
-            self.viewName = "Error"
-        case (1, 0):
-            self.viewName = "Your Unlistened"
-        case (1, 1):
-            self.viewName = "Your Released"
-        case (1, 2):
-            self.viewName = "Your Upcoming"
-        case (1, 3):
-            self.viewName = "Your Fresh"
-        default:
-            self.viewName = "Error"
-        }
+            switch (self.viewType, self.slideType) {
+            case (0, 0):
+                self.viewName = "All Unlistened"
+            case (0, 1):
+                self.viewName = "All Released"
+            case (0, 2):
+                self.viewName = "All Upcoming"
+            case (0, 3):
+                self.viewName = "Error"
+            case (1, 0):
+                self.viewName = "Your Unlistened"
+            case (1, 1):
+                self.viewName = "Your Released"
+            case (1, 2):
+                self.viewName = "Your Upcoming"
+            case (1, 3):
+                self.viewName = "Your Fresh"
+            default:
+                self.viewName = "Error"
+            }
 
-        Answers.logCustomEvent(withName: self.viewName, customAttributes: nil)
+            Answers.logCustomEvent(withName: self.viewName, customAttributes: nil)
+        }
     }
 
     func loadMoreReleases() {
@@ -120,15 +122,6 @@ class AllReleasesTableViewController: UITableViewController {
     override func viewDidLoad() {
         
         super.viewDidLoad()
-        
-        let queue = OperationQueue()
-        let fetchTest = FetchOperation("https://www.numutracker.com/v2/json.php?arts=1")
-        fetchTest.completionBlock = { [unowned fetchTest] in
-            print(fetchTest.json)
-        }
-        
-        queue.addOperation(fetchTest)
-        
 
         viewType = 1
         self.title = "Your Releases"
@@ -147,7 +140,8 @@ class AllReleasesTableViewController: UITableViewController {
 
         // Load initial batch of releases...
         self.tableView.tableFooterView = self.footerView
-        self.loadFirstReleases()
+        
+        // self.loadFirstReleases()
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -237,39 +231,27 @@ class AllReleasesTableViewController: UITableViewController {
 
 
         let listened = UITableViewRowAction(style: .normal, title: "Listened") { action, index in
-            if !defaults.logged {
-                if UIDevice().screenType == .iPhone4 {
-                    let loginViewController = self.storyboard?.instantiateViewController(withIdentifier: "LogRegPromptSmall") as! UINavigationController
-                    DispatchQueue.main.async {
-                        self.present(loginViewController, animated: true, completion: nil)
-                    }
-                } else {
-                    let loginViewController = self.storyboard?.instantiateViewController(withIdentifier: "LogRegPrompt") as! UINavigationController
-                    DispatchQueue.main.async {
-                        self.present(loginViewController, animated: true, completion: nil)
-                    }
-                }
-            } else {
-                releaseInfo.toggleListenStatus() { (success) in
-                    DispatchQueue.main.async(execute: {
-                        if success == "1" {
-                            // remove or add unread marker back in
-                            let cell = self.tableView.cellForRow(at: indexPath) as! ReleaseTableViewCell
-                            if self.releases[indexPath.row].listenStatus == "0" {
-                                self.releases[indexPath.row].listenStatus = "1"
-                                cell.listenedIndicatorView.isHidden = true
-                                Answers.logCustomEvent(withName: "Listened", customAttributes: ["Release ID":releaseInfo.releaseId])
-                            } else {
-                                self.releases[indexPath.row].listenStatus = "0"
-                                cell.listenedIndicatorView.isHidden = false
-                                 Answers.logCustomEvent(withName: "Unlistened", customAttributes: ["Release ID":releaseInfo.releaseId])
-                            }
-
-                            tableView.setEditing(false, animated: true)
+            
+            releaseInfo.toggleListenStatus() { (success) in
+                DispatchQueue.main.async(execute: {
+                    if success == "1" {
+                        // remove or add unread marker back in
+                        let cell = self.tableView.cellForRow(at: indexPath) as! ReleaseTableViewCell
+                        if self.releases[indexPath.row].listenStatus == "0" {
+                            self.releases[indexPath.row].listenStatus = "1"
+                            cell.listenedIndicatorView.isHidden = true
+                            Answers.logCustomEvent(withName: "Listened", customAttributes: ["Release ID":releaseInfo.releaseId])
+                        } else {
+                            self.releases[indexPath.row].listenStatus = "0"
+                            cell.listenedIndicatorView.isHidden = false
+                             Answers.logCustomEvent(withName: "Unlistened", customAttributes: ["Release ID":releaseInfo.releaseId])
                         }
-                    })
-                }
+
+                        tableView.setEditing(false, animated: true)
+                    }
+                })
             }
+            
         }
 
         if releaseInfo.listenStatus == "1" {
@@ -330,13 +312,6 @@ class AllReleasesTableViewController: UITableViewController {
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        if !defaults.logged && self.tabBarController?.selectedIndex == 0 {
-            let controller = UIDevice().screenType == .iPhone4 ? "LogRegPromptSmall" : "LogRegPrompt"
-            let loginViewController = storyboard?.instantiateViewController(withIdentifier: controller) as! UINavigationController
-            DispatchQueue.main.async {
-                self.present(loginViewController, animated: true, completion: nil)
-            }
-        }
     }
 
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

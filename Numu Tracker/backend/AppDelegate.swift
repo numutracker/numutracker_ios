@@ -12,6 +12,7 @@ import UserNotifications
 import SwiftyJSON
 import Fabric
 import Crashlytics
+import CloudKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -37,8 +38,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         if defaults.logged {
 
-            NumuCredential.shared.convertCredential()
-
             if let username = NumuCredential.shared.getUsername() {
                 Crashlytics.sharedInstance().setUserEmail(username)
             }
@@ -47,7 +46,31 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
 
         NotificationCenter.default.addObserver(self, selector: #selector(self.actOnClosedPrompt), name: .ClosedLogRegPrompt, object: nil)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(self.ckDataChange), name: Notification.Name.CKAccountChanged, object: nil)
+        
+        let queue = OperationQueue()
+        let ckOperation = CKUserRecordIDOperation()
+        let ckAuthOperation = AuthWithCKUserRecordID()
+        let ckRegisterOperation = RegisterWithCKUserRecordID()
+        let localAuthOperation = LocalAuthOperation()
+        ckAuthOperation.addDependency(ckOperation)
+        ckRegisterOperation.addDependency(ckAuthOperation)
+        localAuthOperation.addDependency(ckRegisterOperation)
+        localAuthOperation.completionBlock = {
+            print("Finished Auth Process!!!")
+            DispatchQueue.main.async(execute: {
+                NotificationCenter.default.post(name: .LoggedIn, object: self)
+                NotificationCenter.default.post(name: .UpdatedArtists, object: self)
+            })
+        }
+        queue.addOperations([ckOperation, ckAuthOperation, ckRegisterOperation, localAuthOperation], waitUntilFinished: false)
+        
         return true
+    }
+    
+    @objc func ckDataChange() {
+        UserDefaults.standard.removeObject(forKey: "userRecordID")
     }
 
     @objc func actOnClosedPrompt() {

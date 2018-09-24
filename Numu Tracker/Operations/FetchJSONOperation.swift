@@ -27,21 +27,15 @@ final class FetchOperation: AsyncOperation {
         
         let url = URL(string: self.url)!
         dataTask = session.dataTask(with: url) {[unowned self] (data, _, _) in
-            guard !self.isCancelled else {
-                self.state = .isFinished
-                return
-            }
-            
             guard let data = data else { return }
             
             do {
                 self.json = try JSON(data: data)
             } catch {
                 self.json = JSON.null
-                // TODO: Implement more robust error handling, like notifying the user when their user / password no longer works.
-                print(error.localizedDescription)
+                //print(error.localizedDescription)
             }
-            
+
             self.state = .isFinished
         }
         dataTask?.resume()

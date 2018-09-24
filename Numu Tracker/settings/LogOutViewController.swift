@@ -122,7 +122,7 @@ class LogOutViewController: UIViewController {
     @objc func getUserStats() {
         if NumuCredential.shared.checkForCredential() {
             let queue = OperationQueue()
-            let fetchTest = FetchOperation("https://www.numutracker.com/v2/json.php?stats")
+            let fetchTest = FetchOperation(NumuAPI.shared.getStats())
             fetchTest.qualityOfService = .userInitiated
             fetchTest.completionBlock = { [unowned fetchTest] in
                 let json = fetchTest.json
@@ -212,19 +212,6 @@ class LogOutViewController: UIViewController {
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        if !defaults.logged {
-            if UIDevice().screenType == .iPhone4 {
-                let loginViewController = self.storyboard?.instantiateViewController(withIdentifier: "LogRegPromptSmall") as! UINavigationController
-                DispatchQueue.main.async {
-                    self.present(loginViewController, animated: true, completion: nil)
-                }
-            } else {
-                let loginViewController = self.storyboard?.instantiateViewController(withIdentifier: "LogRegPrompt") as! UINavigationController
-                DispatchQueue.main.async {
-                    self.present(loginViewController, animated: true, completion: nil)
-                }
-            }
-        }
     }
 
     @objc func actOnClosedPrompt() {

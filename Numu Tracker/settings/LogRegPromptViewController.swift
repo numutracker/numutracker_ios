@@ -120,17 +120,20 @@ class LogRegPromptViewController: UIViewController, UITextFieldDelegate {
         NumuClient.shared.getArt() {[weak self](arts) in
             self?.arts = arts
             DispatchQueue.main.async(execute: {
-                let top_artists = Array(self!.arts[0..<15])
-                let bot_artists = Array(self!.arts[15..<30])
-                self?.loadArts(scrollView: (self?.topScrollView)!, images: top_artists)
-                self?.loadArts(scrollView: (self?.bottomScrollView)!, images: bot_artists)
-                let width = self?.view.frame.size.width
-                var height: CGFloat = 0
-                var max_length: CGFloat = 0
-                height = width! / 3
-                max_length = height * 15
-                self?.bottomScrollView.setContentOffset(CGPoint(x:max_length-width!,y:0), animated: false)
-                _ = Timer.scheduledTimer(timeInterval: 0.025, target: self!, selector: #selector(self?.autoScroll), userInfo: nil, repeats: true)
+                if let top_artists = self?.arts[0..<12],
+                    let mid_artists = self?.arts[12..<18],
+                    let bot_artists = self?.arts[18..<30] {
+                    self?.loadArts(scrollView: (self?.topScrollView)!, images: Array(top_artists))
+                    self?.loadArts(scrollView: (self?.middleScrollView)!, images: Array(mid_artists))
+                    self?.loadArts(scrollView: (self?.bottomScrollView)!, images: Array(bot_artists))
+                    let width = self?.view.frame.size.width
+                    var height: CGFloat = 0
+                    var max_length: CGFloat = 0
+                    height = width! / 3
+                    max_length = height * 12
+                    //self?.bottomScrollView.setContentOffset(CGPoint(x:max_length-width!,y:0), animated: false)
+                    _ = Timer.scheduledTimer(timeInterval: 0.025, target: self!, selector: #selector(self?.autoScroll), userInfo: nil, repeats: true)
+                }
             })
         }
 
