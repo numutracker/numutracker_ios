@@ -1610,7 +1610,7 @@ Try following some artists?</string>
                         <color key="sectionIndexBackgroundColor" red="0.1199414805" green="0.62484174969999995" blue="0.69512790440000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="sectionIndexTrackingBackgroundColor" red="0.1199414805" green="0.62484174969999995" blue="0.69512790440000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <sections>
-                            <tableViewSection headerTitle="Account" id="s6m-ba-v6D">
+                            <tableViewSection headerTitle="Your Account" id="s6m-ba-v6D">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" id="FbF-76-ESs">
                                         <rect key="frame" x="0.0" y="55.333333333333343" width="414" height="44"/>
@@ -1619,7 +1619,7 @@ Try following some artists?</string>
                                             <rect key="frame" x="0.0" y="0.0" width="376" height="43.666666666666664"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your Account" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LQY-t0-aKy">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Listening Stats" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LQY-t0-aKy">
                                                     <rect key="frame" x="18" y="11.333333333333336" width="350" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -1858,11 +1858,11 @@ Try following some artists?</string>
             </objects>
             <point key="canvasLocation" x="158" y="-252"/>
         </scene>
-        <!--Settings-->
+        <!--More-->
         <scene sceneID="oel-Wh-i56">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="mTE-7Z-lM0" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Settings" image="cog" id="Wvb-fJ-yyl"/>
+                    <tabBarItem key="tabBarItem" title="More" image="soundwave" id="Wvb-fJ-yyl"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="kam-m5-Lpb">
                         <rect key="frame" x="0.0" y="20" width="414" height="44"/>
@@ -2056,10 +2056,10 @@ On the Settings screen, you can adjust which types of releases you want to see. 
             </objects>
             <point key="canvasLocation" x="2075.625" y="1969.0140845070423"/>
         </scene>
-        <!--Your Account-->
+        <!--Stats-->
         <scene sceneID="sgH-t4-KDi">
             <objects>
-                <viewController title="Your Account" id="tPw-Dw-vLI" customClass="LogOutViewController" customModule="Numu_Tracker" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Stats" id="tPw-Dw-vLI" customClass="LogOutViewController" customModule="Numu_Tracker" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="YtP-cc-CgT"/>
                         <viewControllerLayoutGuide type="bottom" id="M3b-Sw-YEI"/>
@@ -2667,8 +2667,8 @@ On the Settings screen, you can adjust which types of releases you want to see. 
     <resources>
         <image name="appleMusic" width="128" height="47"/>
         <image name="bradroot-new-2880-man.png" width="2880" height="2880"/>
-        <image name="cog" width="22" height="22"/>
         <image name="drums" width="22" height="22"/>
+        <image name="soundwave" width="22" height="22"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="jcr-Ul-g7T"/>

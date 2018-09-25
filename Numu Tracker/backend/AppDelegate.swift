@@ -30,36 +30,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         Fabric.with([Crashlytics.self])
         
         NumuReviewHelper.incrementActivityCount()
-
-        NotificationCenter.default.addObserver(self, selector: #selector(self.actOnClosedPrompt), name: .ClosedLogRegPrompt, object: nil)
         
         NotificationCenter.default.addObserver(self, selector: #selector(self.ckDataChange), name: Notification.Name.CKAccountChanged, object: nil)
         
-        let queue = OperationQueue()
-        
-        // Get and store CK record ID if available
-        let getCKUserOperation = GetCKUserOperation()
-        // If user account exists already, link it to CK or create new account
-        let registerWithCKOperation = RegisterWithCKOperation()
-        // Try to auth with any credentials
-        let authOperation = AuthOperation()
-
-        registerWithCKOperation.addDependency(getCKUserOperation)
-        authOperation.addDependency(registerWithCKOperation)
-        authOperation.completionBlock = {
-            print("Finished Auth Process!!!")
-            DispatchQueue.main.async(execute: {
-                if defaults.logged {
-                    UIApplication.shared.registerForRemoteNotifications()
-                }
-            })
-        }
-        queue.addOperations([getCKUserOperation, registerWithCKOperation, authOperation], waitUntilFinished: false)
- 
-        
-        // MARK: - Debugging
-        // let authOperation = AuthOperation()
-        // queue.addOperation(authOperation)
+        runLogInOperations()
         
         
         return true
@@ -67,12 +41,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     @objc func ckDataChange() {
         // Need to re-run authorization procedure here.
-    }
-
-    @objc func actOnClosedPrompt() {
-        if (window?.rootViewController as! UITabBarController).selectedIndex == 1 {
-             (window?.rootViewController as! UITabBarController).selectedIndex = 0
-        }
+        runLogInOperations()
     }
 
     deinit {
@@ -137,5 +106,27 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
 
+    fileprivate func runLogInOperations() {
+        let queue = OperationQueue()
+        
+        // Get and store CK record ID if available
+        let getCKUserOperation = GetCKUserOperation()
+        // If user account exists already, link it to CK or create new account
+        let registerWithCKOperation = RegisterWithCKOperation()
+        // Try to auth with any credentials
+        let authOperation = AuthOperation()
+        
+        registerWithCKOperation.addDependency(getCKUserOperation)
+        authOperation.addDependency(registerWithCKOperation)
+        authOperation.completionBlock = {
+            print("Finished Auth Process!!!")
+            DispatchQueue.main.async(execute: {
+                if defaults.logged {
+                    UIApplication.shared.registerForRemoteNotifications()
+                }
+            })
+        }
+        queue.addOperations([getCKUserOperation, registerWithCKOperation, authOperation], waitUntilFinished: false)
+    }
 
 }
