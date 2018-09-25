@@ -2667,11 +2667,11 @@ On the Settings screen, you can adjust which types of releases you want to see. 
     <resources>
         <image name="appleMusic" width="128" height="47"/>
         <image name="bradroot-new-2880-man.png" width="2880" height="2880"/>
-        <image name="drums" width="22" height="22"/>
-        <image name="soundwave" width="22" height="22"/>
+        <image name="drums" width="23.666666030883789" height="23"/>
+        <image name="soundwave" width="31" height="21"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="jcr-Ul-g7T"/>
+        <segue reference="f0Q-AI-Q2O"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
 </document>

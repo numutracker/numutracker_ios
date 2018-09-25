@@ -17,6 +17,8 @@ class ArtistsTableViewController: UITableViewController, UISearchBarDelegate, UI
     var lastSelectedArtistId: String = ""
     var lastSelectedArtistName: String = ""
     
+    var searchTerms: String?
+    
     enum states {
         case user, search
     }
@@ -24,9 +26,9 @@ class ArtistsTableViewController: UITableViewController, UISearchBarDelegate, UI
     var viewState = states.user {
         didSet {
             if viewState == .user {
-                self.title = "Your Artists"
+                self.navigationItem.title = "Your Artists"
             } else {
-                self.title = "Search Artists"
+                self.navigationItem.title = "Search Artists"
             }
         }
     }
@@ -45,11 +47,10 @@ class ArtistsTableViewController: UITableViewController, UISearchBarDelegate, UI
         tableView.tableFooterView = footerView
         tableView.backgroundView = UIView()
         tableView.keyboardDismissMode = .onDrag
-        searchController.searchBar.placeholder = "Search for more artists"
+        searchController.searchBar.placeholder = "Search all artists"
         searchController.searchBar.showsCancelButton = false
-        self.searchController.searchBar.setShowsCancelButton(false, animated: true)
         searchController.searchBar.delegate = self
-        searchController.searchBar.barStyle = .black
+        searchController.searchBar.barStyle = .blackTranslucent
         searchController.searchBar.keyboardType = .alphabet
         searchController.searchBar.keyboardAppearance = .dark
         searchController.searchBar.searchBarStyle = .default
@@ -151,6 +152,10 @@ class ArtistsTableViewController: UITableViewController, UISearchBarDelegate, UI
         self.tableView.tableFooterView = footerView
         self.actOnImportNotification()
     }
+    
+    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+        
+    }
 
     func updateSearchResults(for searchController: UISearchController) {
         NSObject.cancelPreviousPerformRequests(withTarget: self, selector: #selector(self.reload), object: nil)
@@ -171,6 +176,10 @@ class ArtistsTableViewController: UITableViewController, UISearchBarDelegate, UI
                 })
             }
         }
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.searchController.isActive = false
     }
     
 
@@ -268,6 +277,7 @@ class ArtistsTableViewController: UITableViewController, UISearchBarDelegate, UI
         if segue.identifier == "showArtistReleases",
             let destination = segue.destination as? ArtistReleasesTableViewController,
             let releaseIndex = tableView.indexPathForSelectedRow?.row {
+            self.searchTerms = searchController.searchBar.text
             let artistId = artists[releaseIndex].artistId
             let artistName = artists[releaseIndex].artistName
             self.lastSelectedArtistId = artistId
