@@ -8,7 +8,7 @@
 
 import Foundation
 
-class AuthWithCKUserRecordID: AsyncOperation {
+class AuthWithCKOperation: AsyncOperation {
     
     let queue = OperationQueue()
     

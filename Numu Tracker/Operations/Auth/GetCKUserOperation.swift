@@ -9,7 +9,7 @@
 import Foundation
 import CloudKit
 
-class CKUserRecordIDOperation: AsyncOperation {
+class GetCKUserOperation: AsyncOperation {
     
     override func main() {
         print("Running CKUserRecordIDOperation..")

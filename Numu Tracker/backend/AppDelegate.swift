@@ -30,47 +30,43 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         Fabric.with([Crashlytics.self])
         
         NumuReviewHelper.incrementActivityCount()
-        
-        if NumuCredential.shared.checkForCredential() && defaults.logged == false {
-            // If iCloud-synced credentials exist mark user as logged in.
-            defaults.logged = true
-        }
-        
-        if defaults.logged {
-
-            if let username = NumuCredential.shared.getUsername() {
-                Crashlytics.sharedInstance().setUserEmail(username)
-            }
-
-            UIApplication.shared.registerForRemoteNotifications()
-        }
 
         NotificationCenter.default.addObserver(self, selector: #selector(self.actOnClosedPrompt), name: .ClosedLogRegPrompt, object: nil)
         
         NotificationCenter.default.addObserver(self, selector: #selector(self.ckDataChange), name: Notification.Name.CKAccountChanged, object: nil)
         
         let queue = OperationQueue()
-        let ckOperation = CKUserRecordIDOperation()
-        let ckAuthOperation = AuthWithCKUserRecordID()
-        let ckRegisterOperation = RegisterWithCKUserRecordID()
-        let localAuthOperation = LocalAuthOperation()
-        ckAuthOperation.addDependency(ckOperation)
-        ckRegisterOperation.addDependency(ckAuthOperation)
-        localAuthOperation.addDependency(ckRegisterOperation)
-        localAuthOperation.completionBlock = {
+        
+        // Get and store CK record ID if available
+        let getCKUserOperation = GetCKUserOperation()
+        // If user account exists already, link it to CK or create new account
+        let registerWithCKOperation = RegisterWithCKOperation()
+        // Try to auth with any credentials
+        let authOperation = AuthOperation()
+
+        registerWithCKOperation.addDependency(getCKUserOperation)
+        authOperation.addDependency(registerWithCKOperation)
+        authOperation.completionBlock = {
             print("Finished Auth Process!!!")
             DispatchQueue.main.async(execute: {
-                NotificationCenter.default.post(name: .LoggedIn, object: self)
-                NotificationCenter.default.post(name: .UpdatedArtists, object: self)
+                if defaults.logged {
+                    UIApplication.shared.registerForRemoteNotifications()
+                }
             })
         }
-        queue.addOperations([ckOperation, ckAuthOperation, ckRegisterOperation, localAuthOperation], waitUntilFinished: false)
+        queue.addOperations([getCKUserOperation, registerWithCKOperation, authOperation], waitUntilFinished: false)
+ 
+        
+        // MARK: - Debugging
+        // let authOperation = AuthOperation()
+        // queue.addOperation(authOperation)
+        
         
         return true
     }
     
     @objc func ckDataChange() {
-        UserDefaults.standard.removeObject(forKey: "userRecordID")
+        // Need to re-run authorization procedure here.
     }
 
     @objc func actOnClosedPrompt() {

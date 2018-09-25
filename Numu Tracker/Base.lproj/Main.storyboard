@@ -1055,22 +1055,11 @@ Any imported artists you've unfollowed will not be re-imported.</string>
                                         </attributedString>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q9h-xG-bML">
-                                        <rect key="frame" x="159.66666666666666" y="192.66666666666663" width="95" height="57.333333333333343"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                        <state key="normal" title="I'll Register Later"/>
-                                        <connections>
-                                            <action selector="closeScreen:" destination="j5T-7n-8Aw" eventType="touchUpInside" id="LKx-Hq-wsv"/>
-                                        </connections>
-                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.13350695369999999" green="0.13364198799999999" blue="0.13352787490000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="q9h-xG-bML" secondAttribute="bottom" constant="8" id="2xh-UX-f3U"/>
                                     <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="y0d-TD-xht" secondAttribute="bottom" constant="50" id="DNA-CU-ELD"/>
-                                    <constraint firstItem="q9h-xG-bML" firstAttribute="centerX" secondItem="gIG-KA-PkO" secondAttribute="centerX" id="HFU-54-TJS"/>
                                     <constraint firstItem="y0d-TD-xht" firstAttribute="centerX" secondItem="gIG-KA-PkO" secondAttribute="centerX" id="MTT-HF-TnD"/>
-                                    <constraint firstItem="q9h-xG-bML" firstAttribute="top" secondItem="y0d-TD-xht" secondAttribute="bottom" constant="12" id="aZo-v4-Gqa"/>
                                     <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="y0d-TD-xht" secondAttribute="trailing" constant="30" id="qSk-4B-lz8"/>
                                     <constraint firstItem="y0d-TD-xht" firstAttribute="top" secondItem="gIG-KA-PkO" secondAttribute="top" constant="30" id="vbn-1e-RhJ"/>
                                     <constraint firstItem="y0d-TD-xht" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="gIG-KA-PkO" secondAttribute="leading" constant="30" id="wPD-Kh-Ei3"/>
@@ -2361,23 +2350,12 @@ On the Settings screen, you can adjust which types of releases you want to see. 
                                         </attributedString>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kef-AO-sJ3">
-                                        <rect key="frame" x="159.66666666666666" y="192.66666666666663" width="95" height="195.33333333333337"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                        <state key="normal" title="I'll Register Later"/>
-                                        <connections>
-                                            <action selector="closeScreen:" destination="2xq-DR-iB8" eventType="touchUpInside" id="rIi-OX-mmt"/>
-                                        </connections>
-                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.13350695369999999" green="0.13364198799999999" blue="0.13352787490000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstItem="QHm-jn-DPo" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="gFV-k0-Xxg" secondAttribute="leading" constant="30" id="IB0-BJ-DTE"/>
-                                    <constraint firstItem="kef-AO-sJ3" firstAttribute="centerX" secondItem="gFV-k0-Xxg" secondAttribute="centerX" id="Ww8-6I-Saz"/>
                                     <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="QHm-jn-DPo" secondAttribute="bottom" constant="50" id="Ytu-ZR-BhZ"/>
                                     <constraint firstItem="QHm-jn-DPo" firstAttribute="top" secondItem="gFV-k0-Xxg" secondAttribute="top" constant="30" id="gTy-ko-QCJ"/>
-                                    <constraint firstItem="kef-AO-sJ3" firstAttribute="top" secondItem="QHm-jn-DPo" secondAttribute="bottom" constant="12" id="kvN-5Z-hD2"/>
-                                    <constraint firstAttribute="bottom" secondItem="kef-AO-sJ3" secondAttribute="bottom" constant="8" id="mLy-id-Dg1"/>
                                     <constraint firstItem="QHm-jn-DPo" firstAttribute="centerX" secondItem="gFV-k0-Xxg" secondAttribute="centerX" id="t61-wn-9bK"/>
                                     <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="QHm-jn-DPo" secondAttribute="trailing" constant="30" id="wZh-Lc-e5I"/>
                                 </constraints>

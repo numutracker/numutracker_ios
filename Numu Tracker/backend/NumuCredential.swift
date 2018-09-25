@@ -19,8 +19,9 @@ class NumuCredential {
     func storeCredential(username: String?, password: String?) {
         if let username = username,
             let password = password {
+            self.removeCredential() // Remove current default credential
             let credential = URLCredential(user: username, password: password, persistence: .synchronizable)
-                URLCredentialStorage.shared.setDefaultCredential(credential, for: protectionSpace.production)
+            URLCredentialStorage.shared.setDefaultCredential(credential, for: protectionSpace.production)
             defaults.logged = true
         }
     }

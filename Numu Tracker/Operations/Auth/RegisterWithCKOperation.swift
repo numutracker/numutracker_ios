@@ -8,7 +8,7 @@
 
 import Foundation
 
-class RegisterWithCKUserRecordID: AsyncOperation {
+class RegisterWithCKOperation: AsyncOperation {
 
     override func main() {
         print("Running RegisterWithCKUserRecordID Operation...")

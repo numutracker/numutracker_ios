@@ -21,11 +21,6 @@ class LogRegPromptViewController: UIViewController, UITextFieldDelegate {
     var bottomScrollDrection: Int = 0
     var middleScrollDrection: Int = 0
 
-    @IBAction func closeScreen(_ sender: Any) {
-        NotificationCenter.default.post(name: .ClosedLogRegPrompt, object: self)
-        Answers.logCustomEvent(withName: "Dismissed LogRegPrompt", customAttributes: nil)
-        self.dismiss(animated: true, completion: nil)
-    }
     var arts: [String] = []
 
     @IBOutlet weak var signUpFormView: UIView!
