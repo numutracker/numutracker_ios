@@ -111,8 +111,9 @@ class LogOutViewController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(self.actOnLoggedInNotification), name: .LoggedIn, object: nil)
 
         let add = UIBarButtonItem(title: "Log Out", style: .plain, target: self, action: #selector(logOut))
-
-        navigationItem.rightBarButtonItem = add
+        if UserDefaults.standard.string(forKey: "userRecordID") == nil {
+            navigationItem.rightBarButtonItem = add
+        }
     }
 
     deinit {
