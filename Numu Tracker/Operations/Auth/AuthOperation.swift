@@ -24,6 +24,7 @@ class AuthOperation: AsyncOperation {
                 if let result = json["result"].string,
                     result == "1" {
                     print("SUCCESS: AuthTest with existing credentials successful!")
+                    defaults.logged = true
                     self.sendNotifcations()
                     self.state = .isFinished
                 } else {

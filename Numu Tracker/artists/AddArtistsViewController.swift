@@ -26,22 +26,9 @@ class AddArtistsViewController: UIViewController {
                 }
             }
         } else {
-            if UIDevice().screenType == .iPhone4 {
-                let loginViewController = storyboard?.instantiateViewController(withIdentifier: "LogRegPromptSmall") as! UINavigationController
-                DispatchQueue.main.async {
-                    self.present(loginViewController, animated: true, completion: nil)
-                }
-            } else {
-                let loginViewController = storyboard?.instantiateViewController(withIdentifier: "LogRegPrompt") as! UINavigationController
-                DispatchQueue.main.async {
-                    self.present(loginViewController, animated: true, completion: nil)
-                }
-            }
-            /*
-             let controller = UIAlertController(title: "Apple Music Import", message: "Please log in first.", preferredStyle: .alert)
+            let controller = UIAlertController(title: "Apple Music Import", message: "Please log in first.", preferredStyle: .alert)
             controller.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
             self.present(controller, animated: true, completion: nil)
-             */
         }
 
     }

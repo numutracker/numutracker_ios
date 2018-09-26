@@ -11,6 +11,20 @@ import Crashlytics
 
 class ArtistsTableViewController: UITableViewController, UISearchBarDelegate, UISearchResultsUpdating {
 
+    @IBOutlet weak var importAppleMusicActivityIndicator: UIActivityIndicatorView!
+    @IBOutlet weak var importAppleMusicButton: UIButton!
+    @IBAction func importAppleMusicButton(_ sender: Any) {
+        importAppleMusicActivityIndicator.startAnimating()
+        let importAMOperation = ImportAppleMusicOperation()
+        let queue = OperationQueue()
+        importAMOperation.qualityOfService = .userInteractive
+        importAMOperation.completionBlock = {
+            DispatchQueue.main.async {
+                self.importAppleMusicActivityIndicator.stopAnimating()
+            }
+        }
+        queue.addOperation(importAMOperation)
+    }
     var artists: [ArtistItem] = []
     
     var sortMethod: String = "date"
@@ -62,6 +76,11 @@ class ArtistsTableViewController: UITableViewController, UISearchBarDelegate, UI
         tableView.tableHeaderView = searchController.searchBar
         
         self.view?.snapshotView(afterScreenUpdates: true)
+        
+        importAppleMusicButton.backgroundColor = .clear
+        importAppleMusicButton.layer.cornerRadius = 5
+        importAppleMusicButton.layer.borderWidth = 1
+        importAppleMusicButton.layer.borderColor = UIColor.gray.cgColor
 
         // Get list of artists...
 
