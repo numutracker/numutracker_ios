@@ -813,8 +813,8 @@ Any imported artists you've unfollowed will not be re-imported.</string>
                     <rect key="frame" x="0.0" y="0.0" width="386" height="189"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SHE-jm-wdb">
-                            <rect key="frame" x="61.666666666666657" y="24" width="262.66666666666674" height="67"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SHE-jm-wdb">
+                            <rect key="frame" x="61.666666666666657" y="0.0" width="262.66666666666674" height="49.666666666666664"/>
                             <constraints>
                                 <constraint firstAttribute="width" relation="lessThanOrEqual" constant="288" id="Vcd-vU-Ez1"/>
                             </constraints>
@@ -827,10 +827,10 @@ or manually search and follow artists.</string>
                             <nil key="highlightedColor"/>
                         </label>
                         <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="HOU-cY-yOZ">
-                            <rect key="frame" x="311" y="126" width="20" height="20"/>
+                            <rect key="frame" x="311" y="84.666666666666671" width="20" height="20"/>
                         </activityIndicatorView>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MOv-eW-vnE" customClass="NumuUIButton" customModule="Numu_Tracker" customModuleProvider="target">
-                            <rect key="frame" x="83" y="115" width="220" height="42"/>
+                            <rect key="frame" x="83" y="73.666666666666671" width="220" height="42"/>
                             <inset key="contentEdgeInsets" minX="10" minY="10" maxX="10" maxY="10"/>
                             <state key="normal" title="Import from Apple Music">
                                 <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -843,12 +843,13 @@ or manually search and follow artists.</string>
                     <color key="backgroundColor" red="0.1333333333" green="0.1333333333" blue="0.1333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstItem="SHE-jm-wdb" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="d5o-MA-Zs4" secondAttribute="leading" constant="18" id="3nI-S6-HU9"/>
-                        <constraint firstItem="SHE-jm-wdb" firstAttribute="top" secondItem="d5o-MA-Zs4" secondAttribute="top" constant="24" id="9Oh-y3-Grf"/>
+                        <constraint firstItem="SHE-jm-wdb" firstAttribute="top" relation="greaterThanOrEqual" secondItem="d5o-MA-Zs4" secondAttribute="top" id="9Oh-y3-Grf"/>
                         <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="SHE-jm-wdb" secondAttribute="trailing" constant="18" id="AGI-Iv-1bM"/>
                         <constraint firstItem="HOU-cY-yOZ" firstAttribute="leading" secondItem="MOv-eW-vnE" secondAttribute="trailing" constant="8" id="AuD-ZD-n4G"/>
                         <constraint firstItem="MOv-eW-vnE" firstAttribute="centerX" secondItem="d5o-MA-Zs4" secondAttribute="centerX" id="F37-a6-1qn"/>
                         <constraint firstItem="HOU-cY-yOZ" firstAttribute="centerY" secondItem="MOv-eW-vnE" secondAttribute="centerY" id="djr-W2-lfk"/>
                         <constraint firstItem="MOv-eW-vnE" firstAttribute="top" secondItem="SHE-jm-wdb" secondAttribute="bottom" constant="24" id="xGC-EZ-lVY"/>
+                        <constraint firstItem="MOv-eW-vnE" firstAttribute="centerY" secondItem="d5o-MA-Zs4" secondAttribute="centerY" id="xWA-4c-Plg"/>
                         <constraint firstItem="SHE-jm-wdb" firstAttribute="centerX" secondItem="d5o-MA-Zs4" secondAttribute="centerX" id="zfb-pz-j86"/>
                     </constraints>
                 </view>
@@ -1566,12 +1567,38 @@ or manually search and follow artists.</string>
                     </refreshControl>
                     <connections>
                         <outlet property="footerView" destination="rQn-JX-JVv" id="gdY-rr-zJy"/>
+                        <outlet property="importFromAMButton" destination="fWy-kq-qwT" id="Psw-XE-CkQ"/>
+                        <outlet property="importFromAMSpinner" destination="MZO-pL-mss" id="qzo-NG-yBE"/>
                         <outlet property="noResultsFooterView" destination="9bh-Ul-XlB" id="kfF-Cy-MYK"/>
                         <outlet property="noResultsLabel" destination="n3X-4R-CJR" id="KI1-C7-KsY"/>
+                        <outlet property="otherNoResultsFooterView" destination="Gfv-qZ-etf" id="efJ-uB-yad"/>
+                        <outlet property="otherNoResultsLabel" destination="od1-jW-DvA" id="oEW-SO-K3z"/>
                         <outlet property="releasesSegmentedControl" destination="PhI-8h-nYk" id="tya-L0-m5f"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4IP-SH-xgb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <view contentMode="scaleToFill" id="Gfv-qZ-etf">
+                    <rect key="frame" x="0.0" y="0.0" width="369" height="128"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="1000" text="Nada" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="od1-jW-DvA">
+                            <rect key="frame" x="167.66666666666666" y="55.666666666666657" width="34" height="17"/>
+                            <constraints>
+                                <constraint firstAttribute="width" relation="lessThanOrEqual" constant="288" id="EUW-MC-Syc"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <color key="textColor" cocoaTouchSystemColor="lightTextColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" red="0.1333333333" green="0.1333333333" blue="0.1333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="od1-jW-DvA" secondAttribute="trailing" constant="18" id="0iB-3p-Mqx"/>
+                        <constraint firstItem="od1-jW-DvA" firstAttribute="centerX" secondItem="Gfv-qZ-etf" secondAttribute="centerX" id="Zgj-yd-qJo"/>
+                        <constraint firstItem="od1-jW-DvA" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Gfv-qZ-etf" secondAttribute="leading" constant="18" id="ezs-Nw-D4W"/>
+                        <constraint firstItem="od1-jW-DvA" firstAttribute="centerY" secondItem="Gfv-qZ-etf" secondAttribute="centerY" id="gkS-Lm-h1d"/>
+                    </constraints>
+                </view>
                 <view contentMode="scaleToFill" id="rQn-JX-JVv">
                     <rect key="frame" x="0.0" y="0.0" width="240" height="80"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -1587,26 +1614,42 @@ or manually search and follow artists.</string>
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" id="9bh-Ul-XlB">
-                    <rect key="frame" x="0.0" y="0.0" width="386" height="129"/>
+                    <rect key="frame" x="0.0" y="0.0" width="386" height="225"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="1000" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n3X-4R-CJR">
-                            <rect key="frame" x="107.00000000000001" y="36" width="172.33333333333337" height="57"/>
+                            <rect key="frame" x="53" y="0.6666666666666643" width="280.33333333333331" height="67"/>
                             <constraints>
                                 <constraint firstAttribute="width" relation="lessThanOrEqual" constant="288" id="t8d-cY-RnP"/>
                             </constraints>
-                            <string key="text">No releases. 
-Try following some artists?</string>
+                            <string key="text">There aren't any releases here yet. You should try following more artists? Here's a quick button you can press to import some artists from Apple Music.</string>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <color key="textColor" cocoaTouchSystemColor="lightTextColor"/>
                             <nil key="highlightedColor"/>
                         </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fWy-kq-qwT" customClass="NumuUIButton" customModule="Numu_Tracker" customModuleProvider="target">
+                            <rect key="frame" x="83" y="91.666666666666671" width="220" height="42.000000000000014"/>
+                            <inset key="contentEdgeInsets" minX="10" minY="10" maxX="10" maxY="10"/>
+                            <state key="normal" title="Import from Apple Music">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </state>
+                            <connections>
+                                <action selector="importFromAMAction:" destination="xGt-pE-Rm6" eventType="touchUpInside" id="4oD-Gc-bfR"/>
+                            </connections>
+                        </button>
+                        <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="MZO-pL-mss">
+                            <rect key="frame" x="311" y="102.66666666666667" width="20" height="20"/>
+                        </activityIndicatorView>
                     </subviews>
-                    <color key="backgroundColor" red="0.13333333333333333" green="0.13333333333333333" blue="0.13333333333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <color key="backgroundColor" red="0.1333333333" green="0.1333333333" blue="0.1333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
-                        <constraint firstItem="n3X-4R-CJR" firstAttribute="top" secondItem="9bh-Ul-XlB" secondAttribute="top" constant="36" id="NLb-Ys-YzF"/>
-                        <constraint firstAttribute="bottom" secondItem="n3X-4R-CJR" secondAttribute="bottom" constant="36" id="NhY-jX-ylj"/>
+                        <constraint firstItem="fWy-kq-qwT" firstAttribute="centerY" secondItem="9bh-Ul-XlB" secondAttribute="centerY" id="1il-dW-VyA"/>
+                        <constraint firstItem="fWy-kq-qwT" firstAttribute="centerX" secondItem="9bh-Ul-XlB" secondAttribute="centerX" id="2mA-PK-cbt"/>
+                        <constraint firstItem="MZO-pL-mss" firstAttribute="leading" secondItem="fWy-kq-qwT" secondAttribute="trailing" constant="8" id="Jdq-yZ-FrO"/>
+                        <constraint firstItem="fWy-kq-qwT" firstAttribute="top" secondItem="n3X-4R-CJR" secondAttribute="bottom" constant="24" id="LHi-wn-AcQ"/>
+                        <constraint firstItem="MZO-pL-mss" firstAttribute="centerY" secondItem="fWy-kq-qwT" secondAttribute="centerY" id="LoT-h2-QOj"/>
                         <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="n3X-4R-CJR" secondAttribute="trailing" constant="18" id="Qld-Yf-UzI"/>
+                        <constraint firstItem="n3X-4R-CJR" firstAttribute="top" relation="greaterThanOrEqual" secondItem="9bh-Ul-XlB" secondAttribute="top" id="X0A-gB-Mw2"/>
                         <constraint firstItem="n3X-4R-CJR" firstAttribute="centerX" secondItem="9bh-Ul-XlB" secondAttribute="centerX" id="bap-Rq-UPt"/>
                         <constraint firstItem="n3X-4R-CJR" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="9bh-Ul-XlB" secondAttribute="leading" constant="18" id="taz-Gl-zHK"/>
                     </constraints>
@@ -2359,7 +2402,7 @@ On the Settings screen, you can adjust which types of releases you want to see. 
         <image name="yours" width="21.666666030883789" height="23"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="f0Q-AI-Q2O"/>
+        <segue reference="jcr-Ul-g7T"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
 </document>

@@ -81,6 +81,14 @@ class ArtistsTableViewController: UITableViewController, UISearchBarDelegate, UI
         importAppleMusicButton.layer.cornerRadius = 5
         importAppleMusicButton.layer.borderWidth = 1
         importAppleMusicButton.layer.borderColor = UIColor.gray.cgColor
+        
+        var newFrame = noResultsView.frame
+        var height: CGFloat = self.tableView.bounds.height
+        height -= UIApplication.shared.statusBarFrame.size.height
+        height -= (self.navigationController?.navigationBar.frame.size.height)!
+        height -= (self.tabBarController?.tabBar.frame.size.height)!
+        newFrame.size.height = height
+        noResultsView.frame = newFrame
 
         // Get list of artists...
 
