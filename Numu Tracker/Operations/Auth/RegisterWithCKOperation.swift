@@ -16,7 +16,7 @@ class RegisterWithCKOperation: AsyncOperation {
         if let loggedUserName = NumuCredential.shared.getUsername(),
             let userRecordID = UserDefaults.standard.string(forKey: "userRecordID"),
             loggedUserName != userRecordID {
-            NumuClient.shared.addCKIDtoAccount(icloud_id: userRecordID) { (result) in
+            NumuClient.shared.addCKIDtoAccount(iCloudID: userRecordID) { (result) in
                 DispatchQueue.main.async(execute: {
                     if result == "1" {
                         print("Success adding iCloud ID to existing account")
@@ -27,7 +27,7 @@ class RegisterWithCKOperation: AsyncOperation {
             }
         } else if let userRecordID = UserDefaults.standard.string(forKey: "userRecordID"),
             !defaults.logged {
-            NumuClient.shared.authorizeRegisterWithCK(icloud_id: userRecordID) { (result) in
+            NumuClient.shared.authorizeRegisterWithCK(iCloudID: userRecordID) { (result) in
                 DispatchQueue.main.async(execute: {
                     if result == "1" {
                         print("Success registering with iCloud ID")

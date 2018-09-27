@@ -93,33 +93,33 @@ class LogRegPromptSmallViewController: UIViewController, UITextFieldDelegate {
 
         let width = self.view.frame.size.width
         var height: CGFloat = 0
-        var max_length: CGFloat = 0
+        var maxLength: CGFloat = 0
         height = width / 3
-        max_length = height * 15
+        maxLength = height * 15
 
         self.topScrollView.isScrollEnabled = true
         self.topScrollView.alwaysBounceHorizontal = true
-        self.topScrollView.contentSize.width = max_length
+        self.topScrollView.contentSize.width = maxLength
 
         self.bottomScrollView.isScrollEnabled = true
         self.bottomScrollView.alwaysBounceHorizontal = true
-        self.bottomScrollView.contentSize.width = max_length
+        self.bottomScrollView.contentSize.width = maxLength
 
         // Load list of recent releases
         NumuClient.shared.getArt() {[weak self](arts) in
             self?.arts = arts
             DispatchQueue.main.async(execute: {
                 if let arts = self?.arts {
-                    let top_artists = Array(arts[0..<15])
-                    let bot_artists = Array(arts[15..<30])
-                    self?.loadArts(scrollView: (self?.topScrollView)!, images: top_artists)
-                    self?.loadArts(scrollView: (self?.bottomScrollView)!, images: bot_artists)
+                    let topArtists = Array(arts[0..<15])
+                    let botArtists = Array(arts[15..<30])
+                    self?.loadArts(scrollView: (self?.topScrollView)!, images: topArtists)
+                    self?.loadArts(scrollView: (self?.bottomScrollView)!, images: botArtists)
                     let width = self?.view.frame.size.width
                     var height: CGFloat = 0
-                    var max_length: CGFloat = 0
+                    var maxLength: CGFloat = 0
                     height = width! / 3
-                    max_length = height * 15
-                    self?.bottomScrollView.setContentOffset(CGPoint(x:max_length-width!,y:0), animated: false)
+                    maxLength = height * 15
+                    self?.bottomScrollView.setContentOffset(CGPoint(x:maxLength-width!,y:0), animated: false)
                     _ = Timer.scheduledTimer(timeInterval: 0.025, target: self!, selector: #selector(self?.autoScroll), userInfo: nil, repeats: true)
                 }
             })
@@ -148,13 +148,13 @@ class LogRegPromptSmallViewController: UIViewController, UITextFieldDelegate {
             height = width / 3
         }
 
-        let imageWidth:CGFloat = height
-        let imageHeight:CGFloat = height
-        var xPosition:CGFloat = 0
+        let imageWidth: CGFloat = height
+        let imageHeight: CGFloat = height
+        var xPosition: CGFloat = 0
 
         for image in images {
-            let image_url = NSURL(string: image)
-            if let image = image_url?.cachedImage {
+            let imageURL = NSURL(string: image)
+            if let image = imageURL?.cachedImage {
 
                 // Cached: set immediately.
                 let artImage = UIImageView()
@@ -172,7 +172,7 @@ class LogRegPromptSmallViewController: UIViewController, UITextFieldDelegate {
             } else {
                 // Not cached, so load then fade it in.
                 //cell.artImageView.alpha = 0
-                image_url?.fetchImage { image in
+                imageURL?.fetchImage { image in
                     // Check the cell hasn't recycled while loading.
 
                     let artImage = UIImageView()
@@ -200,7 +200,7 @@ class LogRegPromptSmallViewController: UIViewController, UITextFieldDelegate {
         for scrollView in scrollViewArray {
             let width = self.view.frame.size.width
             var height: CGFloat = 0
-            var max_length: CGFloat = 0
+            var maxLength: CGFloat = 0
             let offset = scrollView.contentOffset
             var newOffset: CGFloat = 0
 
@@ -210,13 +210,13 @@ class LogRegPromptSmallViewController: UIViewController, UITextFieldDelegate {
 
 
                 height = width / 3
-                max_length = height * 15
+                maxLength = height * 15
 
-            let max_offset = max_length - width
+            let maxOffset = maxLength - width
 
-            //print("Data: Max \(max_offset) and \(offset.x)")
+            //print("Data: Max \(maxOffset) and \(offset.x)")
 
-            if offset.x >= max_offset {
+            if offset.x >= maxOffset {
                 switch (scrollView.restorationIdentifier!) {
                 case "top":
                     self.topScrollDrection = 1
@@ -255,7 +255,7 @@ class LogRegPromptSmallViewController: UIViewController, UITextFieldDelegate {
                 print("Borked")
             }
 
-            //print ("Max Offset:",max_offset)
+            //print ("Max Offset:",maxOffset)
             //print ("New Offset:",newOffset)
 
 

@@ -28,12 +28,12 @@ class ArtistTableViewCell: UITableViewCell {
         } else {
             recentReleaseLabel.text = artistInfo.recentRelease
         }
-        let int_total = Int(artistInfo.total_rels)!
-        let int_unlistened = Int(artistInfo.unlistened)!
+        let intTotalReleases = Int(artistInfo.totalReleases)!
+        let intUnlistened = Int(artistInfo.unlistened)!
 
-        if int_total > 0 {
-            var percentageListened = (Double(int_unlistened) / Double(int_total))
-            percentageListened = percentageListened*100
+        if intTotalReleases > 0 {
+            var percentageListened = (Double(intUnlistened) / Double(intTotalReleases))
+            percentageListened *= 100
             releasesData.text = String(100-Int(percentageListened)) + "% Listened"
 
         } else {

@@ -95,7 +95,7 @@ struct ReleaseItem {
 
         if self.albumArtThumb == "https://www.numutracker.com/nonly3-1024.png" {
             self.thumbUrl = NSURL(string: self.artistArtFull)!
-        } else if self.albumArtThumb != "" {
+        } else if !self.albumArtThumb.isEmpty {
             self.thumbUrl = NSURL(string: self.albumArtFull)!
         } else {
             self.thumbUrl = NSURL(string: "")!
@@ -103,7 +103,7 @@ struct ReleaseItem {
 
     }
 
-    func toggleListenStatus(completion: @escaping (String) -> ()) {
+    func toggleListenStatus(completion: @escaping (String) -> Void) {
         NumuClient.shared.toggleListen(releaseId: self.releaseId) { (result) in
             completion(result)
             NumuReviewHelper.incrementAndAskForReview()
@@ -111,4 +111,3 @@ struct ReleaseItem {
     }
 
 }
-

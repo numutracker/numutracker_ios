@@ -186,7 +186,7 @@ class ArtistReleasesTableViewController: UITableViewController {
         if releaseInfo.listenStatus == "1" {
             listened.title = "Didn't Listen"
         }
-        listened.backgroundColor = .bg
+        listened.backgroundColor = .background
 
         return [listened]
 
@@ -222,14 +222,14 @@ class ArtistReleasesTableViewController: UITableViewController {
             selectedIndexPath = indexPath
         }
 
-        var indexPaths : Array<IndexPath> = []
+        var indexPaths: Array<IndexPath> = []
         if let previous = previousIndexPath {
             indexPaths += [previous]
         }
         if let current = selectedIndexPath {
             indexPaths += [current]
         }
-        if indexPaths.count > 0 {
+        if !indexPaths.isEmpty {
             tableView.beginUpdates()
             //tableView.reloadRows(at: indexPaths, with: UITableViewRowAnimation.automatic)
             tableView.endUpdates()

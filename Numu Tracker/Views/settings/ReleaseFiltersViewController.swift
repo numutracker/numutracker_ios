@@ -95,7 +95,7 @@ class ReleaseFiltersViewController: UIViewController {
             self.otherFilterSwitch.isHidden = true
             self.otherFilterSpinner.startAnimating()
             
-            NumuClient.shared.getFilters() {[weak self](json) in
+            NumuClient.shared.getFilters {[weak self](json) in
                 let user = User(json: json)
                 DispatchQueue.main.async(execute: {
                     self?.albumFilterSwitch.isOn = user?.album != "0"
@@ -106,7 +106,7 @@ class ReleaseFiltersViewController: UIViewController {
                     self?.singlesFilterSwitch.isHidden = false
                     self?.singlesFilterSpinner.stopAnimating()
                     
-                    self?.epFilterSwitch.isOn = user?.ep != "0"
+                    self?.epFilterSwitch.isOn = user?.extendedPlay != "0"
                     self?.epFilterSwitch.isHidden = false
                     self?.epFilterSpinner.stopAnimating()
                     

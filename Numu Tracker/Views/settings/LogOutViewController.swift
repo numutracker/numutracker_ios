@@ -154,35 +154,35 @@ class LogOutViewController: UIViewController {
         var increment: Bool = false
 
         if self.artistsListenedFinalInt > self.artistsListenedInt {
-            self.artistsListenedInt = self.artistsListenedInt + (self.artistsListenedFinalInt/150)
+            self.artistsListenedInt += self.artistsListenedFinalInt/150
             increment = true
         } else {
             self.artistsListenedInt = self.artistsListenedFinalInt
         }
 
         if self.artistsFollowedFinalInt > self.artistsFollowedInt {
-            self.artistsFollowedInt = self.artistsFollowedInt + (self.artistsFollowedFinalInt/150)
+            self.artistsFollowedInt += self.artistsFollowedFinalInt/150
             increment = true
         } else {
             self.artistsFollowedInt = self.artistsFollowedFinalInt
         }
 
         if self.releasesListenedFinalInt > self.releasesListenedInt {
-            self.releasesListenedInt = self.releasesListenedInt + (self.releasesListenedFinalInt/150)
+            self.releasesListenedInt += self.releasesListenedFinalInt/150
             increment = true
         } else {
             self.releasesListenedInt = self.releasesListenedFinalInt
         }
 
         if self.releasesFollowedFinalInt > self.releasesFollowedInt {
-            self.releasesFollowedInt = self.releasesFollowedInt + (self.releasesFollowedFinalInt/150)
+            self.releasesFollowedInt += self.releasesFollowedFinalInt/150
             increment = true
         } else {
             self.releasesFollowedInt = self.releasesFollowedFinalInt
         }
 
         if self.completionFinalFloat > self.completionFloat {
-            self.completionFloat = self.completionFloat + (self.completionFinalFloat/150)
+            self.completionFloat += self.completionFinalFloat/150
             increment = true
         } else {
             self.completionFinalFloat = self.completionFloat

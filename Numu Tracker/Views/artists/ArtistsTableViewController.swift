@@ -33,11 +33,11 @@ class ArtistsTableViewController: UITableViewController, UISearchBarDelegate, UI
     
     var searchTerms: String?
     
-    enum states {
+    enum States {
         case user, search
     }
     
-    var viewState = states.user {
+    var viewState = States.user {
         didSet {
             if viewState == .user {
                 self.navigationItem.title = "Your Artists"
@@ -263,7 +263,7 @@ class ArtistsTableViewController: UITableViewController, UISearchBarDelegate, UI
             }
         }
 
-        unfollow.backgroundColor = .bg
+        unfollow.backgroundColor = .background
         unfollow.title = artistInfo.followStatus == "0" ? "Follow" : "Unfollow"
 
         return [unfollow]
@@ -276,11 +276,11 @@ class ArtistsTableViewController: UITableViewController, UISearchBarDelegate, UI
         self.tableView.tableFooterView = UIView()
         self.artistRefreshControl.endRefreshing()
         self.searchController.searchBar.isHidden = false
-        if self.artists.count == 0,
+        if self.artists.isEmpty,
             self.viewState == .search {
             self.tableView.tableFooterView = self.noSearchResultsView
         }
-        if self.artists.count == 0,
+        if self.artists.isEmpty,
             self.viewState == .user {
             self.tableView.tableFooterView = self.noResultsView
         }

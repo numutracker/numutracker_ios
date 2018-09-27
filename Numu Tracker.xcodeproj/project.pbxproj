@@ -12,7 +12,6 @@
 		4461CB7F21585488001939F0 /* NumuAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4461CB7E21585488001939F0 /* NumuAPI.swift */; };
 		4461CB8121585673001939F0 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4461CB8021585673001939F0 /* CloudKit.framework */; };
 		4461CB8521588C54001939F0 /* GetCKUserOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4461CB8421588C54001939F0 /* GetCKUserOperation.swift */; };
-		4461CB89215897B7001939F0 /* AuthWithCKOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4461CB88215897B7001939F0 /* AuthWithCKOperation.swift */; };
 		4461CB8B21589AB4001939F0 /* RegisterWithCKOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4461CB8A21589AB4001939F0 /* RegisterWithCKOperation.swift */; };
 		4461CB8D21589D7A001939F0 /* AuthOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4461CB8C21589D7A001939F0 /* AuthOperation.swift */; };
 		446DBDE8215AF82400AE2AA7 /* ImportAppleMusicOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446DBDE7215AF82400AE2AA7 /* ImportAppleMusicOperation.swift */; };
@@ -60,7 +59,6 @@
 		4461CB7E21585488001939F0 /* NumuAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumuAPI.swift; sourceTree = "<group>"; };
 		4461CB8021585673001939F0 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		4461CB8421588C54001939F0 /* GetCKUserOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetCKUserOperation.swift; sourceTree = "<group>"; };
-		4461CB88215897B7001939F0 /* AuthWithCKOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthWithCKOperation.swift; sourceTree = "<group>"; };
 		4461CB8A21589AB4001939F0 /* RegisterWithCKOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterWithCKOperation.swift; sourceTree = "<group>"; };
 		4461CB8C21589D7A001939F0 /* AuthOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthOperation.swift; sourceTree = "<group>"; };
 		446DBDE7215AF82400AE2AA7 /* ImportAppleMusicOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportAppleMusicOperation.swift; sourceTree = "<group>"; };
@@ -72,9 +70,9 @@
 		B4283A811D8548F300467CE6 /* Numu Tracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Numu Tracker.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B4283A841D8548F300467CE6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B4283A8B1D8548F300467CE6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		B4283A8D1D8548F300467CE6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = interface/Assets.xcassets; sourceTree = "<group>"; };
+		B4283A8D1D8548F300467CE6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B4283A901D8548F300467CE6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		B4283A921D8548F300467CE6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = ../Info.plist; sourceTree = "<group>"; };
+		B4283A921D8548F300467CE6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B4283ABC1D8658AD00467CE6 /* ReleaseItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReleaseItem.swift; sourceTree = "<group>"; };
 		B42866071DA5FC53000E5FA6 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		B42866091DA7645C000E5FA6 /* AlbumArtCache.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlbumArtCache.swift; sourceTree = "<group>"; };
@@ -132,10 +130,44 @@
 			children = (
 				4461CB8421588C54001939F0 /* GetCKUserOperation.swift */,
 				4461CB8A21589AB4001939F0 /* RegisterWithCKOperation.swift */,
-				4461CB88215897B7001939F0 /* AuthWithCKOperation.swift */,
 				4461CB8C21589D7A001939F0 /* AuthOperation.swift */,
 			);
 			path = Auth;
+			sourceTree = "<group>";
+		};
+		441CC0A7215C516E009F4114 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				441CC0A9215C522E009F4114 /* Interface */,
+				B42866071DA5FC53000E5FA6 /* User.swift */,
+				B440D9D61DB2D19300477938 /* ArtistItem.swift */,
+				B4283ABC1D8658AD00467CE6 /* ReleaseItem.swift */,
+				B416A6631DC52FBC000F86D9 /* ReleaseData.swift */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		441CC0A8215C51DE009F4114 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				B4283A8A1D8548F300467CE6 /* Main.storyboard */,
+				B4283A8F1D8548F300467CE6 /* LaunchScreen.storyboard */,
+				B4CCFCC01DB425D900D2277B /* Settings */,
+				B4CCFCBE1DB425A000D2277B /* ArtistReleaseList */,
+				B4CCFCBD1DB4258C00D2277B /* ArtistList */,
+				B4D525E31E353187000B7ADD /* ReleaseList */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		441CC0A9215C522E009F4114 /* Interface */ = {
+			isa = PBXGroup;
+			children = (
+				B4CCFCC61DB4353E00D2277B /* NumuUIButton.swift */,
+				B471648C1F5FA24600D4E03E /* NumuTextField.swift */,
+				B40E35911DB1D88C004BA8C7 /* NumuTabBarController.swift */,
+			);
+			path = Interface;
 			sourceTree = "<group>";
 		};
 		4461CB77215844AB001939F0 /* Operations */ = {
@@ -152,6 +184,7 @@
 		B40E35931DB1F687004BA8C7 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				B4283A8D1D8548F300467CE6 /* Assets.xcassets */,
 				B43E36AF1F5DF9B9009834C9 /* NumuLogo1024.png */,
 				B4E8B9791E7F67BD00643AD1 /* bradroot-new-2880-man.png */,
 			);
@@ -180,15 +213,14 @@
 		B4283A831D8548F300467CE6 /* Numu Tracker */ = {
 			isa = PBXGroup;
 			children = (
-				4461CB77215844AB001939F0 /* Operations */,
+				B4283A921D8548F300467CE6 /* Info.plist */,
+				B4283A841D8548F300467CE6 /* AppDelegate.swift */,
 				B43AF1E31DCE4C94008F7EBD /* Numu Tracker.entitlements */,
 				B40E35931DB1F687004BA8C7 /* Images */,
+				4461CB77215844AB001939F0 /* Operations */,
+				441CC0A8215C51DE009F4114 /* Views */,
+				441CC0A7215C516E009F4114 /* Classes */,
 				B4CCFCC11DB425FD00D2277B /* Backend */,
-				B4D525E31E353187000B7ADD /* Main Views */,
-				B4CCFCBD1DB4258C00D2277B /* ArtistList */,
-				B4CCFCBE1DB425A000D2277B /* ArtistReleasesList */,
-				B4CCFCC21DB4264100D2277B /* Interface */,
-				B4CCFCC01DB425D900D2277B /* Settings */,
 			);
 			path = "Numu Tracker";
 			sourceTree = "<group>";
@@ -198,33 +230,30 @@
 			children = (
 				B440D9D41DB2D13900477938 /* ArtistsTableViewController.swift */,
 				B440D9D81DB2D28A00477938 /* ArtistTableViewCell.swift */,
-				B440D9D61DB2D19300477938 /* ArtistItem.swift */,
-				B4CCFCC41DB4311B00D2277B /* AddArtistsViewController.swift */,
 			);
 			name = ArtistList;
 			path = artists;
 			sourceTree = "<group>";
 		};
-		B4CCFCBE1DB425A000D2277B /* ArtistReleasesList */ = {
+		B4CCFCBE1DB425A000D2277B /* ArtistReleaseList */ = {
 			isa = PBXGroup;
 			children = (
 				B4CCFCB91DB3485600D2277B /* ArtistReleasesTableViewController.swift */,
 				B4CCFCBB1DB3F8EE00D2277B /* ArtistReleaseTableViewCell.swift */,
 			);
-			name = ArtistReleasesList;
+			name = ArtistReleaseList;
 			path = artistreleases;
 			sourceTree = "<group>";
 		};
 		B4CCFCC01DB425D900D2277B /* Settings */ = {
 			isa = PBXGroup;
 			children = (
-				B42866071DA5FC53000E5FA6 /* User.swift */,
+				B4CCFCC41DB4311B00D2277B /* AddArtistsViewController.swift */,
 				B4CCFCC81DB447B200D2277B /* HelpViewController.swift */,
 				B43705D71E357C8C0060E6CC /* SettingsTableViewController.swift */,
 				B47CF37A1E5E908100225B85 /* LogOutViewController.swift */,
 				B4B49B861E5EBE4B001CE1C7 /* ReleaseFiltersViewController.swift */,
 				B4B940AD1E6131B800F52027 /* NotificationsViewController.swift */,
-				B471648C1F5FA24600D4E03E /* NumuTextField.swift */,
 				B46754551F6DA64B00C80544 /* AboutViewController.swift */,
 				B46754571F6DA66F00C80544 /* InstructionsViewController.swift */,
 				B43E36B11F5DFAD0009834C9 /* LogRegPromptViewController.swift */,
@@ -237,11 +266,7 @@
 		B4CCFCC11DB425FD00D2277B /* Backend */ = {
 			isa = PBXGroup;
 			children = (
-				B4283A921D8548F300467CE6 /* Info.plist */,
-				B4283A841D8548F300467CE6 /* AppDelegate.swift */,
 				B42866091DA7645C000E5FA6 /* AlbumArtCache.swift */,
-				B40E35911DB1D88C004BA8C7 /* NumuTabBarController.swift */,
-				B4CCFCC61DB4353E00D2277B /* NumuUIButton.swift */,
 				B45A133C20548632001EBDA5 /* NumuCredential.swift */,
 				B45A133E2054CBDF001EBDA5 /* NumuClient.swift */,
 				B45A134020551C46001EBDA5 /* Extensions.swift */,
@@ -252,25 +277,13 @@
 			path = backend;
 			sourceTree = "<group>";
 		};
-		B4CCFCC21DB4264100D2277B /* Interface */ = {
-			isa = PBXGroup;
-			children = (
-				B4283A8A1D8548F300467CE6 /* Main.storyboard */,
-				B4283A8D1D8548F300467CE6 /* Assets.xcassets */,
-				B4283A8F1D8548F300467CE6 /* LaunchScreen.storyboard */,
-			);
-			name = Interface;
-			sourceTree = "<group>";
-		};
-		B4D525E31E353187000B7ADD /* Main Views */ = {
+		B4D525E31E353187000B7ADD /* ReleaseList */ = {
 			isa = PBXGroup;
 			children = (
 				B416A6611DC52DBA000F86D9 /* ReleaseTableViewCell.swift */,
-				B4283ABC1D8658AD00467CE6 /* ReleaseItem.swift */,
-				B416A6631DC52FBC000F86D9 /* ReleaseData.swift */,
 				B416A65F1DC52A91000F86D9 /* AllReleasesTableViewController.swift */,
 			);
-			name = "Main Views";
+			name = ReleaseList;
 			path = releases;
 			sourceTree = "<group>";
 		};
@@ -295,7 +308,9 @@
 				B4283A7E1D8548F300467CE6 /* Frameworks */,
 				B4283A7F1D8548F300467CE6 /* Resources */,
 				12A3AF21782474EB2C416A9D /* [CP] Embed Pods Frameworks */,
-				B48D5FE01F6CE6D70045961A /* ShellScript */,
+				B48D5FE01F6CE6D70045961A /* Fabric */,
+				441CC0AA215C583E009F4114 /* Increment Build Number */,
+				441CC0AB215C5863009F4114 /* Run SwiftLint */,
 			);
 			buildRules = (
 			);
@@ -400,7 +415,43 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Numu Tracker/Pods-Numu Tracker-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		B48D5FE01F6CE6D70045961A /* ShellScript */ = {
+		441CC0AA215C583E009F4114 /* Increment Build Number */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Increment Build Number";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "buildNumber=$(/usr/libexec/PlistBuddy -c \"Print CFBundleVersion\" \"${PROJECT_DIR}/${INFOPLIST_FILE}\")\nbuildNumber=$(($buildNumber + 1))\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildNumber\" \"${PROJECT_DIR}/${INFOPLIST_FILE}\"\n";
+		};
+		441CC0AB215C5863009F4114 /* Run SwiftLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Run SwiftLint";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\nswiftlint\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+		B48D5FE01F6CE6D70045961A /* Fabric */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -408,6 +459,7 @@
 			inputPaths = (
 				"$(BUILT_PRODUCTS_DIR)/$(INFOPLIST_PATH)",
 			);
+			name = Fabric;
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -466,7 +518,6 @@
 				B45A134120551C46001EBDA5 /* Extensions.swift in Sources */,
 				B4DA6EAE1F6DE5C50090C945 /* LogRegPromptSmallViewController.swift in Sources */,
 				B42866081DA5FC53000E5FA6 /* User.swift in Sources */,
-				4461CB89215897B7001939F0 /* AuthWithCKOperation.swift in Sources */,
 				B428660A1DA7645C000E5FA6 /* AlbumArtCache.swift in Sources */,
 				4461CB79215844C9001939F0 /* AsyncOperation.swift in Sources */,
 				B4CCFCBC1DB3F8EE00D2277B /* ArtistReleaseTableViewCell.swift in Sources */,

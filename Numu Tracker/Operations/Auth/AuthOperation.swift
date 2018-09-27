@@ -17,7 +17,6 @@ class AuthOperation: AsyncOperation {
         print("Running LocalAuthOperation...")
         if NumuCredential.shared.checkForCredential() {
             let authTest = FetchOperation(NumuAPI.shared.getAuth())
-            print("Auth Test with Username \(NumuCredential.shared.getUsername())")
             authTest.qualityOfService = .default
             authTest.completionBlock = { [unowned authTest] in
                 let json = authTest.json

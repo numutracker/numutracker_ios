@@ -98,18 +98,15 @@ Special thanks to Wes Biffar and all my beta testers (especially Andie).
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Epd-7O-Jkq" customClass="NumuUIButton" customModule="Numu_Tracker" customModuleProvider="target">
-                                <rect key="frame" x="92" y="85" width="230" height="44"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="230" id="0nV-at-Ysk"/>
-                                    <constraint firstAttribute="height" constant="44" id="elD-Bi-TKt"/>
-                                </constraints>
+                                <rect key="frame" x="97" y="85" width="220" height="42"/>
+                                <inset key="contentEdgeInsets" minX="10" minY="10" maxX="10" maxY="10"/>
                                 <state key="normal" title="Import from Apple Music"/>
                                 <connections>
                                     <action selector="addFromAppleMusicPress:" destination="m1H-bQ-zGZ" eventType="touchUpInside" id="zlg-PF-jeK"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="11" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Bv-3X-alE">
-                                <rect key="frame" x="63" y="145" width="288" height="184"/>
+                                <rect key="frame" x="63" y="143" width="288" height="184"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="lessThanOrEqual" constant="288" id="hGs-VW-1bQ"/>
                                 </constraints>
@@ -122,18 +119,18 @@ Any imported artists you've unfollowed will not be re-imported.</string>
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="VPi-vA-Mgg">
-                                <rect key="frame" x="188.66666666666666" y="88.666666666666671" width="37" height="37"/>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="VPi-vA-Mgg">
+                                <rect key="frame" x="325" y="96" width="20" height="20"/>
                             </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" red="0.13350695369999999" green="0.13364198799999999" blue="0.13352787490000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="6Bv-3X-alE" firstAttribute="centerX" secondItem="Rs2-VC-i1a" secondAttribute="centerX" id="0vx-d8-176"/>
-                            <constraint firstItem="VPi-vA-Mgg" firstAttribute="centerX" secondItem="Epd-7O-Jkq" secondAttribute="centerX" id="41o-hp-2gf"/>
                             <constraint firstItem="6Bv-3X-alE" firstAttribute="top" secondItem="Epd-7O-Jkq" secondAttribute="bottom" constant="16" id="NaL-Xo-Rj4"/>
                             <constraint firstItem="Epd-7O-Jkq" firstAttribute="top" secondItem="hiP-8M-4HH" secondAttribute="bottom" constant="21" id="Rac-v7-agf"/>
                             <constraint firstItem="Epd-7O-Jkq" firstAttribute="centerX" secondItem="Rs2-VC-i1a" secondAttribute="centerX" id="bAb-tj-2Gb"/>
-                            <constraint firstItem="Epd-7O-Jkq" firstAttribute="centerY" secondItem="VPi-vA-Mgg" secondAttribute="centerY" id="msj-ZQ-cuD"/>
+                            <constraint firstItem="VPi-vA-Mgg" firstAttribute="leading" secondItem="Epd-7O-Jkq" secondAttribute="trailing" constant="8" id="fWt-5z-QQa"/>
+                            <constraint firstItem="VPi-vA-Mgg" firstAttribute="centerY" secondItem="Epd-7O-Jkq" secondAttribute="centerY" id="ftQ-am-t6t"/>
                             <constraint firstItem="6Bv-3X-alE" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Rs2-VC-i1a" secondAttribute="leading" constant="18" id="sTI-sU-CXP"/>
                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="6Bv-3X-alE" secondAttribute="trailing" constant="18" id="trv-zt-5H2"/>
                         </constraints>
@@ -817,9 +814,8 @@ or manually search and follow artists.</string>
                         <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="HOU-cY-yOZ">
                             <rect key="frame" x="311" y="126" width="20" height="20"/>
                         </activityIndicatorView>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MOv-eW-vnE">
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MOv-eW-vnE" customClass="NumuUIButton" customModule="Numu_Tracker" customModuleProvider="target">
                             <rect key="frame" x="83" y="115" width="220" height="42"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="18"/>
                             <inset key="contentEdgeInsets" minX="10" minY="10" maxX="10" maxY="10"/>
                             <state key="normal" title="Import from Apple Music">
                                 <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1870,7 +1866,7 @@ Try following some artists?</string>
         <scene sceneID="R9c-Zd-DEE">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="50Y-BS-eDK" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" id="awc-Tb-MKY"/>
+                    <tabBarItem key="tabBarItem" title="" image="yours" id="awc-Tb-MKY"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="dlB-Kq-0Vs">
                         <rect key="frame" x="0.0" y="20" width="414" height="44"/>
@@ -2697,9 +2693,10 @@ On the Settings screen, you can adjust which types of releases you want to see. 
         <image name="bradroot-new-2880-man.png" width="2880" height="2880"/>
         <image name="drums" width="23.666666030883789" height="23"/>
         <image name="soundwave" width="31" height="21"/>
+        <image name="yours" width="21.666666030883789" height="23"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="jcr-Ul-g7T"/>
+        <segue reference="f0Q-AI-Q2O"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
 </document>

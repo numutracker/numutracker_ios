@@ -13,7 +13,7 @@ class User {
 
     var album: String = "1"
     var single: String = "1"
-    var ep: String = "1"
+    var extendedPlay: String = "1"
     var live: String = "1"
     var soundtrack: String = "1"
     var remix: String = "1"
@@ -23,7 +23,7 @@ class User {
 
         guard let album = json["album"].string,
             let single = json["single"].string,
-            let ep = json["ep"].string,
+            let extendedPlay = json["extendedPlay"].string,
             let live = json["live"].string,
             let soundtrack = json["soundtrack"].string,
             let remix = json["remix"].string,
@@ -33,7 +33,7 @@ class User {
 
         self.album = album
         self.single = single
-        self.ep = ep
+        self.extendedPlay = extendedPlay
         self.live = live
         self.soundtrack = soundtrack
         self.remix = remix

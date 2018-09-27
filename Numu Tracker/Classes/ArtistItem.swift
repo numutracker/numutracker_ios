@@ -21,14 +21,14 @@ struct ArtistItem {
     var followStatus: String
     let thumbUrl: NSURL
     let unlistened: String
-    let total_rels: String
+    let totalReleases: String
 
     init?(json: JSON) {
         guard let artistId = json["artist_id"].string,
             let followStatus = json["follow_status"].string,
             let recentRelease = json["recent_date"].string,
             let unlistened = json["unread"].string,
-            let total_rels = json["total_releases"].string,
+            let totalReleases = json["total_releases"].string,
             let artistName = json["name"].string else {
                 return nil
         }
@@ -36,7 +36,7 @@ struct ArtistItem {
         self.artistId = artistId
         self.followStatus = followStatus
         self.artistName = artistName
-        self.total_rels = total_rels
+        self.totalReleases = totalReleases
         self.unlistened = unlistened
         self.recentRelease = recentRelease
 
@@ -60,14 +60,14 @@ struct ArtistItem {
             self.artistArtXLarge = ""
         }
 
-        if self.artistArtFull != "" {
+        if !self.artistArtFull.isEmpty {
             self.thumbUrl = NSURL(string: self.artistArtFull)!
         } else {
             self.thumbUrl = NSURL(string: "")!
         }
     }
 
-    func unfollowArtist(completion: @escaping (String) -> ()) {
+    func unfollowArtist(completion: @escaping (String) -> Void) {
         NumuClient.shared.toggleFollow(artistMbid: self.artistId) { (result) in
             completion(result)
             NumuReviewHelper.incrementAndAskForReview()

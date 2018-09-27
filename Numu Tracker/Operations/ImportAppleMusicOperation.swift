@@ -37,16 +37,16 @@ class ImportAppleMusicOperation: AsyncOperation {
     func runImportArtists() {
         // Build list of artists to be imported.
         let query = MPMediaQuery.artists()
-        var artists_found: [String] = []
+        var artistsFound: [String] = []
         query.groupingType = .artist
         if let items = query.items {
             for artist in items {
-                if let artist_name = artist.artist {
-                    artists_found += [artist_name]
+                if let artistName = artist.artist {
+                    artistsFound += [artistName]
                 }
             }
         }
-        let uniques = Array(Set(artists_found))
+        let uniques = Array(Set(artistsFound))
         let json = ["artists": uniques]
         
         do {
@@ -68,6 +68,7 @@ class ImportAppleMusicOperation: AsyncOperation {
                         if let success = returnedJSON["success"] {
                             self.artistsImported = success as! Int
                             NotificationCenter.default.post(name: .UpdatedArtists, object: self)
+                            NumuReviewHelper.incrementAndAskForReview()
                             self.displaySuccessMessage()
                         }
                     }

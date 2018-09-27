@@ -128,8 +128,8 @@ extension UserDefaults {
             return string(forKey: .username)
         }
         set {
-            if let v = newValue {
-                set(v, forKey: .username)
+            if let value = newValue {
+                set(value, forKey: .username)
             }
             else {
                 removeObject(forKey: .username)
@@ -143,8 +143,8 @@ extension UserDefaults {
             return string(forKey: .password)
         }
         set {
-            if let v = newValue {
-                set(v, forKey: .password)
+            if let value = newValue {
+                set(value, forKey: .password)
             }
             else {
                 removeObject(forKey: .password)
@@ -162,9 +162,8 @@ extension Notification.Name {
 
 extension UIView {
     func fadeIn() {
-        // Move our fade out code from earlier
         UIView.animate(withDuration: 1.0, delay: 0.0, options: UIView.AnimationOptions.curveEaseIn, animations: {
-            self.alpha = 1.0 // Instead of a specific instance of, say, birdTypeLabel, we simply set [thisInstance] (ie, self)'s alpha
+            self.alpha = 1.0
         }, completion: nil)
     }
     
@@ -177,7 +176,7 @@ extension UIView {
 
 extension UIColor {
     static let shadow = UIColor(red: 28/255, green: 202/255, blue: 241/255, alpha: 1)
-    static let bg = UIColor(red: 48/255, green: 156/255, blue: 172/255, alpha: 1)
+    static let background = UIColor(red: 48/255, green: 156/255, blue: 172/255, alpha: 1)
 }
 
 
