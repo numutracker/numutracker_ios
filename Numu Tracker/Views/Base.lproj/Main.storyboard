@@ -1385,7 +1385,7 @@ or manually search and follow artists.</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dYb-Jj-Sih" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1767" y="465"/>
+            <point key="canvasLocation" x="1038" y="-1003"/>
         </scene>
         <!--All Releases Table View Controller-->
         <scene sceneID="eCT-23-ojS">
@@ -2348,7 +2348,7 @@ On the Settings screen, you can adjust which types of releases you want to see. 
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4kL-Pp-4sX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2577" y="465"/>
+            <point key="canvasLocation" x="158" y="-1003"/>
         </scene>
     </scenes>
     <resources>

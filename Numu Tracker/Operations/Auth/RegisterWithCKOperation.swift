@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Crashlytics
 
 class RegisterWithCKOperation: AsyncOperation {
 
@@ -31,6 +32,7 @@ class RegisterWithCKOperation: AsyncOperation {
                 DispatchQueue.main.async(execute: {
                     if result == "1" {
                         print("Success registering with iCloud ID")
+                        Answers.logSignUp(withMethod: "AutoCKRegistration", success: true, customAttributes: nil)
                         NumuCredential.shared.storeCredential(username: userRecordID, password: "icloud")
                         self.state = .isFinished
                     } else {
