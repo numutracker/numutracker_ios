@@ -23,7 +23,7 @@ class User {
 
         guard let album = json["album"].string,
             let single = json["single"].string,
-            let extendedPlay = json["extendedPlay"].string,
+            let extendedPlay = json["ep"].string,
             let live = json["live"].string,
             let soundtrack = json["soundtrack"].string,
             let remix = json["remix"].string,
