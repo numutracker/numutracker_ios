@@ -46,7 +46,6 @@
 		B4CCFCC51DB4311B00D2277B /* AddArtistsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4CCFCC41DB4311B00D2277B /* AddArtistsViewController.swift */; };
 		B4CCFCC71DB4353E00D2277B /* NumuUIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4CCFCC61DB4353E00D2277B /* NumuUIButton.swift */; };
 		B4CCFCC91DB447B200D2277B /* HelpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4CCFCC81DB447B200D2277B /* HelpViewController.swift */; };
-		B4DA6EAE1F6DE5C50090C945 /* LogRegPromptSmallViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4DA6EAD1F6DE5C50090C945 /* LogRegPromptSmallViewController.swift */; };
 		B4E8B97A1E7F67BD00643AD1 /* bradroot-new-2880-man.png in Resources */ = {isa = PBXBuildFile; fileRef = B4E8B9791E7F67BD00643AD1 /* bradroot-new-2880-man.png */; };
 		B4F1E3AB2058C6C100F2544A /* NumuReviewHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4F1E3AA2058C6C100F2544A /* NumuReviewHelper.swift */; };
 		E4EB5ACCF23F58468A5C04FF /* Pods_Numu_Tracker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBD0F3687066D64A7B28C145 /* Pods_Numu_Tracker.framework */; };
@@ -97,7 +96,6 @@
 		B4CCFCC41DB4311B00D2277B /* AddArtistsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddArtistsViewController.swift; sourceTree = "<group>"; };
 		B4CCFCC61DB4353E00D2277B /* NumuUIButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NumuUIButton.swift; sourceTree = "<group>"; };
 		B4CCFCC81DB447B200D2277B /* HelpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelpViewController.swift; sourceTree = "<group>"; };
-		B4DA6EAD1F6DE5C50090C945 /* LogRegPromptSmallViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogRegPromptSmallViewController.swift; sourceTree = "<group>"; };
 		B4E8B9791E7F67BD00643AD1 /* bradroot-new-2880-man.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bradroot-new-2880-man.png"; sourceTree = "<group>"; };
 		B4F1E3AA2058C6C100F2544A /* NumuReviewHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumuReviewHelper.swift; sourceTree = "<group>"; };
 		CBD0F3687066D64A7B28C145 /* Pods_Numu_Tracker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Numu_Tracker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -257,7 +255,6 @@
 				B46754551F6DA64B00C80544 /* AboutViewController.swift */,
 				B46754571F6DA66F00C80544 /* InstructionsViewController.swift */,
 				B43E36B11F5DFAD0009834C9 /* LogRegPromptViewController.swift */,
-				B4DA6EAD1F6DE5C50090C945 /* LogRegPromptSmallViewController.swift */,
 			);
 			name = Settings;
 			path = settings;
@@ -516,7 +513,6 @@
 				B440D9D91DB2D28A00477938 /* ArtistTableViewCell.swift in Sources */,
 				B416A6621DC52DBA000F86D9 /* ReleaseTableViewCell.swift in Sources */,
 				B45A134120551C46001EBDA5 /* Extensions.swift in Sources */,
-				B4DA6EAE1F6DE5C50090C945 /* LogRegPromptSmallViewController.swift in Sources */,
 				B42866081DA5FC53000E5FA6 /* User.swift in Sources */,
 				B428660A1DA7645C000E5FA6 /* AlbumArtCache.swift in Sources */,
 				4461CB79215844C9001939F0 /* AsyncOperation.swift in Sources */,
