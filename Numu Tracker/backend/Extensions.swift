@@ -10,50 +10,20 @@ import Foundation
 import UIKit
 import SwiftyJSON
 
-extension UIDevice {
-    var iPhone: Bool {
-        return UIDevice().userInterfaceIdiom == .phone
-    }
-    enum ScreenType: String {
-        case iPhone4
-        case iPhone5
-        case iPhone6
-        case iPhone6Plus
-        case unknown
-    }
-    var screenType: ScreenType {
-        guard iPhone else { return .unknown }
-        switch UIScreen.main.nativeBounds.height {
-        case 960:
-            return .iPhone4
-        case 1136:
-            return .iPhone5
-        case 1334:
-            return .iPhone6
-        case 2208:
-            return .iPhone6Plus
-        default:
-            return .unknown
-        }
-    }
-}
-
-extension Array where Element : JSONCodable {
+extension Array where Element: JSONCodable {
     init(from url: String) {
         if let url = URL(string: url),
             let data = try? Data(contentsOf: url),
             let json = try? JSON(data: data),
-            let arr = json.array  {
+            let arr = json.array {
             self = arr.compactMap { Element(json: $0) }
-        }
-        else {
+        } else {
             self = []
         }
     }
 }
 
-
-extension Array where Element : JSONCodable {
+extension Array where Element: JSONCodable {
     init(with json: JSON) {
         if let arr = json.array {
             self = arr.compactMap { Element(json: $0) }
@@ -63,7 +33,7 @@ extension Array where Element : JSONCodable {
     }
 }
 
-extension ReleaseItem : JSONCodable { }
+extension ReleaseItem: JSONCodable { }
 extension ArtistItem: JSONCodable { }
 
 extension String {
@@ -121,36 +91,6 @@ extension UserDefaults {
             set(newValue, forKey: .moreReleases)
         }
     }
-    
-    // TODO: Remove in v2
-    var username: String? {
-        get {
-            return string(forKey: .username)
-        }
-        set {
-            if let v = newValue {
-                set(v, forKey: .username)
-            }
-            else {
-                removeObject(forKey: .username)
-            }
-        }
-    }
-
-    // TODO: Remove in v2
-    var password: String? {
-        get {
-            return string(forKey: .password)
-        }
-        set {
-            if let v = newValue {
-                set(v, forKey: .password)
-            }
-            else {
-                removeObject(forKey: .password)
-            }
-        }
-    }
 }
 
 extension Notification.Name {
@@ -162,14 +102,13 @@ extension Notification.Name {
 
 extension UIView {
     func fadeIn() {
-        // Move our fade out code from earlier
-        UIView.animate(withDuration: 1.0, delay: 0.0, options: UIViewAnimationOptions.curveEaseIn, animations: {
-            self.alpha = 1.0 // Instead of a specific instance of, say, birdTypeLabel, we simply set [thisInstance] (ie, self)'s alpha
+        UIView.animate(withDuration: 1.0, delay: 0.0, options: UIView.AnimationOptions.curveEaseIn, animations: {
+            self.alpha = 1.0
         }, completion: nil)
     }
     
     func fadeOut() {
-        UIView.animate(withDuration: 1.0, delay: 0.0, options: UIViewAnimationOptions.curveEaseOut, animations: {
+        UIView.animate(withDuration: 1.0, delay: 0.0, options: UIView.AnimationOptions.curveEaseOut, animations: {
             self.alpha = 0.0
         }, completion: nil)
     }
@@ -177,14 +116,12 @@ extension UIView {
 
 extension UIColor {
     static let shadow = UIColor(red: 28/255, green: 202/255, blue: 241/255, alpha: 1)
-    static let bg = UIColor(red: 48/255, green: 156/255, blue: 172/255, alpha: 1)
+    static let background = UIColor(red: 48/255, green: 156/255, blue: 172/255, alpha: 1)
 }
 
-
 extension UIImageView {
-    func downloadImageFrom(link:String, contentMode: UIViewContentMode) {
-        URLSession.shared.dataTask(with: URL(string:link)!, completionHandler: {
-            (data, response, error) -> Void in
+    func downloadImageFrom(link: String, contentMode: UIView.ContentMode) {
+        URLSession.shared.dataTask(with: URL(string: link)!, completionHandler: { (data, _, _) -> Void in
             DispatchQueue.main.async {
                 self.contentMode =  contentMode
                 data.map { self.image = UIImage(data: $0) }

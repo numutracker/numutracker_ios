@@ -12,26 +12,37 @@ class NumuCredential {
     
     static let shared = NumuCredential()
     
-    private struct protectionSpace {
-        static let production = URLProtectionSpace(host: "www.numutracker.com", port: 443, protocol: "https", realm: "Numu Tracker", authenticationMethod: NSURLAuthenticationMethodHTTPBasic)
+    private struct ProtectionSpace {
+        static let production = URLProtectionSpace(
+            host: "www.numutracker.com",
+            port: 443,
+            protocol: "https",
+            realm: "Numu Tracker",
+            authenticationMethod: NSURLAuthenticationMethodHTTPBasic)
     }
     
     func storeCredential(username: String?, password: String?) {
         if let username = username,
             let password = password {
+            self.removeCredential() // Remove current default credential
             let credential = URLCredential(user: username, password: password, persistence: .synchronizable)
-                URLCredentialStorage.shared.setDefaultCredential(credential, for: protectionSpace.production)
+            URLCredentialStorage.shared.setDefaultCredential(credential, for: ProtectionSpace.production)
+            defaults.logged = true
         }
     }
     
     func removeCredential() {
-        if let credential = URLCredentialStorage.shared.defaultCredential(for: protectionSpace.production) {
-            URLCredentialStorage.shared.remove(credential, for: protectionSpace.production, options: ["NSURLCredentialStorageRemoveSynchronizableCredentials": true])
+        if let credential = URLCredentialStorage.shared.defaultCredential(for: ProtectionSpace.production) {
+            URLCredentialStorage.shared.remove(
+                credential,
+                for: ProtectionSpace.production,
+                options: ["NSURLCredentialStorageRemoveSynchronizableCredentials": true])
+            defaults.logged = false
         }
     }
     
     func checkForCredential() -> Bool {
-        if URLCredentialStorage.shared.defaultCredential(for: protectionSpace.production) != nil {
+        if URLCredentialStorage.shared.defaultCredential(for: ProtectionSpace.production) != nil {
             return true
         } else {
             return false
@@ -39,24 +50,10 @@ class NumuCredential {
     }
     
     func getUsername() -> String? {
-        if let credential = URLCredentialStorage.shared.defaultCredential(for: protectionSpace.production) {
+        if let credential = URLCredentialStorage.shared.defaultCredential(for: ProtectionSpace.production) {
             return credential.user
         }
         return nil
     }
-    
-    // TODO: Remove in v2.0
-    func convertCredential() {
-        // Function to convert credentials stored in UserDefaults to URLCredential
-        if let username = defaults.username, username != "",
-            let password = defaults.password, password != "" {
-            // Store credentials securely
-            storeCredential(username: username, password: password)
-            // Remove credentials from user defaults
-            defaults.username = ""
-            defaults.password = ""
-        }
-    }
-    
     
 }

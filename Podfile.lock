@@ -1,37 +1,45 @@
 PODS:
-  - Crashlytics (3.10.1):
-    - Fabric (~> 1.7.5)
+  - Crashlytics (3.10.7):
+    - Fabric (~> 1.7.11)
   - CryptoSwift (0.9.0)
-  - Fabric (1.7.6)
-  - PusherSwift (6.0.0):
+  - Fabric (1.7.11)
+  - PusherSwift (6.1.0):
     - CryptoSwift (~> 0.9.0)
     - ReachabilitySwift (~> 4.1.0)
-    - StarscreamFork (~> 3.0.6)
+    - Starscream (~> 3.0.5)
     - TaskQueue (~> 1.1.1)
   - ReachabilitySwift (4.1.0)
-  - SnapKit (4.0.0)
-  - StarscreamFork (3.0.6)
-  - SwiftyJSON (4.0.0)
+  - Starscream (3.0.5)
+  - SwiftyJSON (4.1.0)
   - TaskQueue (1.1.1)
 
 DEPENDENCIES:
-  - Crashlytics
+  - Crashlytics (~> 3.10)
   - Fabric
   - PusherSwift
-  - SnapKit (~> 4.0.0)
   - SwiftyJSON
 
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - Crashlytics
+    - CryptoSwift
+    - Fabric
+    - PusherSwift
+    - ReachabilitySwift
+    - Starscream
+    - SwiftyJSON
+    - TaskQueue
+
 SPEC CHECKSUMS:
-  Crashlytics: aee1a064cbbf99b32efa3f056a5f458d846bc8ff
+  Crashlytics: ccaac42660eb9351b9960c0d66106b0bcf99f4fa
   CryptoSwift: bca8c5b653dcc2d9734409242a070ff53bafac86
-  Fabric: f8d42c893bb187326a7968b62abe55c36a987a46
-  PusherSwift: f9312465c069707c86e9320fc3bedccb0afb38ed
+  Fabric: f233c9492b3bbc1f04e3882986740f7988a58edb
+  PusherSwift: 6f2535d616cf0d6867a58bee501999995ad37999
   ReachabilitySwift: 6849231cd4e06559f3b9ef4a97a0a0f96d41e09f
-  SnapKit: a42d492c16e80209130a3379f73596c3454b7694
-  StarscreamFork: e95299dfc1d27d55ae622edb9a3d254791dea66d
-  SwiftyJSON: 070dabdcb1beb81b247c65ffa3a79dbbfb3b48aa
+  Starscream: faf918b2f2eff7d5dd21180646bf015a669673bd
+  SwiftyJSON: c29297daf073d2aa016295d5809cdd68045c39b3
   TaskQueue: 53a3cdaf817d9ce3cd50837ff6610aeb7b968997
 
-PODFILE CHECKSUM: 0600a8d508fe6073d09e1fac3272007c4d6f0369
+PODFILE CHECKSUM: 6cf0b2eef86f6ef1c9985b44ad7702385f62b5ef
 
-COCOAPODS: 1.4.0
+COCOAPODS: 1.6.0.beta.1

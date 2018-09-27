@@ -12,19 +12,13 @@ import StoreKit
 struct NumuReviewHelper {
     
     static func incrementActivityCount() {
-        guard var activityCount = defaults.activityCount as? Int else {
-            defaults.activityCount = 1
-            return
-        }
+        var activityCount = defaults.activityCount
         activityCount += 1
         defaults.activityCount = activityCount
     }
     
     static func incrementAndAskForReview() {
-        guard var activityCount = defaults.activityCount as? Int else {
-            defaults.activityCount = 1
-            return
-        }
+        var activityCount = defaults.activityCount
         activityCount += 1
         defaults.activityCount = activityCount
         
@@ -34,7 +28,7 @@ struct NumuReviewHelper {
         case _ where activityCount % 50 == 0:
             NumuReviewHelper().requestReview()
         default:
-            print("Activity count is:",activityCount)
+            print("Activity count is:", activityCount)
         }
     }
     
