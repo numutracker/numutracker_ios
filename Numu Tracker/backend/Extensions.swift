@@ -10,34 +10,6 @@ import Foundation
 import UIKit
 import SwiftyJSON
 
-extension UIDevice {
-    var iPhone: Bool {
-        return UIDevice().userInterfaceIdiom == .phone
-    }
-    enum ScreenType: String {
-        case iPhone4
-        case iPhone5
-        case iPhone6
-        case iPhone6Plus
-        case unknown
-    }
-    var screenType: ScreenType {
-        guard iPhone else { return .unknown }
-        switch UIScreen.main.nativeBounds.height {
-        case 960:
-            return .iPhone4
-        case 1136:
-            return .iPhone5
-        case 1334:
-            return .iPhone6
-        case 2208:
-            return .iPhone6Plus
-        default:
-            return .unknown
-        }
-    }
-}
-
 extension Array where Element: JSONCodable {
     init(from url: String) {
         if let url = URL(string: url),
@@ -146,7 +118,6 @@ extension UIColor {
     static let shadow = UIColor(red: 28/255, green: 202/255, blue: 241/255, alpha: 1)
     static let background = UIColor(red: 48/255, green: 156/255, blue: 172/255, alpha: 1)
 }
-
 
 extension UIImageView {
     func downloadImageFrom(link: String, contentMode: UIView.ContentMode) {

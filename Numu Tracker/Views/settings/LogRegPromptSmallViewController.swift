@@ -52,8 +52,6 @@ class LogRegPromptSmallViewController: UIViewController, UITextFieldDelegate {
             }
             self.view.endEditing(true)
         }
-
-
     }
 
     @IBAction func signUpButtonPress(_ sender: Any) {
@@ -106,7 +104,7 @@ class LogRegPromptSmallViewController: UIViewController, UITextFieldDelegate {
         self.bottomScrollView.contentSize.width = maxLength
 
         // Load list of recent releases
-        NumuClient.shared.getArt() {[weak self](arts) in
+        NumuClient.shared.getArt {[weak self](arts) in
             self?.arts = arts
             DispatchQueue.main.async(execute: {
                 if let arts = self?.arts {
@@ -119,8 +117,13 @@ class LogRegPromptSmallViewController: UIViewController, UITextFieldDelegate {
                     var maxLength: CGFloat = 0
                     height = width! / 3
                     maxLength = height * 15
-                    self?.bottomScrollView.setContentOffset(CGPoint(x:maxLength-width!,y:0), animated: false)
-                    _ = Timer.scheduledTimer(timeInterval: 0.025, target: self!, selector: #selector(self?.autoScroll), userInfo: nil, repeats: true)
+                    self?.bottomScrollView.setContentOffset(CGPoint(x: maxLength-width!, y: 0), animated: false)
+                    _ = Timer.scheduledTimer(
+                        timeInterval: 0.025,
+                        target: self!,
+                        selector: #selector(self?.autoScroll),
+                        userInfo: nil,
+                        repeats: true)
                 }
             })
         }
@@ -195,7 +198,7 @@ class LogRegPromptSmallViewController: UIViewController, UITextFieldDelegate {
 
     @objc func autoScroll() {
 
-        let scrollViewArray: [UIScrollView] = [self.topScrollView,self.bottomScrollView]
+        let scrollViewArray: [UIScrollView] = [self.topScrollView, self.bottomScrollView]
 
         for scrollView in scrollViewArray {
             let width = self.view.frame.size.width
@@ -203,21 +206,15 @@ class LogRegPromptSmallViewController: UIViewController, UITextFieldDelegate {
             var maxLength: CGFloat = 0
             let offset = scrollView.contentOffset
             var newOffset: CGFloat = 0
-
             let intervalPixels: CGFloat = 0.50
 
-            // Determine length:
-
-
-                height = width / 3
-                maxLength = height * 15
+            height = width / 3
+            maxLength = height * 15
 
             let maxOffset = maxLength - width
 
-            //print("Data: Max \(maxOffset) and \(offset.x)")
-
             if offset.x >= maxOffset {
-                switch (scrollView.restorationIdentifier!) {
+                switch scrollView.restorationIdentifier! {
                 case "top":
                     self.topScrollDrection = 1
                 case "bottom":
@@ -228,7 +225,7 @@ class LogRegPromptSmallViewController: UIViewController, UITextFieldDelegate {
             }
 
             if offset.x <= 0 {
-                switch (scrollView.restorationIdentifier!) {
+                switch scrollView.restorationIdentifier! {
                 case "top":
                     self.topScrollDrection = 0
                 case "bottom":
@@ -255,14 +252,8 @@ class LogRegPromptSmallViewController: UIViewController, UITextFieldDelegate {
                 print("Borked")
             }
 
-            //print ("Max Offset:",maxOffset)
-            //print ("New Offset:",newOffset)
-
-
             scrollView.setContentOffset(CGPoint(x: newOffset, y: 0), animated: false)
         }
-
-
     }
 
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -295,8 +286,8 @@ class LogRegPromptSmallViewController: UIViewController, UITextFieldDelegate {
         self.logInLabel.text = "Logging in..."
         let username = self.logInEmailTextField.text
         let password = self.logInPasswordTextField.text
-        print("Username",username!)
-        print("Password",password!)
+        print("Username", username!)
+        print("Password", password!)
         
         // Check Credentials
         NumuClient.shared.authorizeLogIn(username: username!, password: password!) { (result) in
@@ -311,14 +302,14 @@ class LogRegPromptSmallViewController: UIViewController, UITextFieldDelegate {
                     // Close keyboard
                     self.logInPasswordTextField.resignFirstResponder()
                     // Log to Answers
-                    Answers.logLogin(withMethod: "LogRegPrompt",success: true,customAttributes: nil)
+                    Answers.logLogin(withMethod: "LogRegPrompt", success: true, customAttributes: nil)
                     // Pop viewcontroller
                     self.dismiss(animated: true, completion: nil)
                 } else {
                     // Login Failure
                     self.logInLabel.text = result
                     // Log to Answers
-                    Answers.logLogin(withMethod: "LogRegPrompt",success: false,customAttributes: nil)
+                    Answers.logLogin(withMethod: "LogRegPrompt", success: false, customAttributes: nil)
                 }
             })
         }
@@ -332,13 +323,13 @@ class LogRegPromptSmallViewController: UIViewController, UITextFieldDelegate {
         self.signUpLabel.text = "Signing up...\nPlease wait..."
         let username = self.signUpEmailTextField.text
         let password = self.signUpPasswordTextField.text
-        print("Username",username!)
-        print("Password",password!)
+        print("Username", username!)
+        print("Password", password!)
 
         let emailVerify = isValidEmail(testStr: username!)
         var errorText: String = ""
         var errorInt: Bool = false
-        if password == "" {
+        if password!.isEmpty {
             errorText = "Please enter a password."
             errorInt = true
         } else if password!.count < 8 {
@@ -381,11 +372,11 @@ class LogRegPromptSmallViewController: UIViewController, UITextFieldDelegate {
         }
     }
 
-    func isValidEmail(testStr:String) -> Bool {
+    func isValidEmail(testStr: String) -> Bool {
         // print("validate calendar: \(testStr)")
         let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}"
 
-        let emailTest = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
+        let emailTest = NSPredicate(format: "SELF MATCHES %@", emailRegEx)
         return emailTest.evaluate(with: testStr)
     }
 
@@ -400,4 +391,3 @@ class LogRegPromptSmallViewController: UIViewController, UITextFieldDelegate {
      */
 
 }
-

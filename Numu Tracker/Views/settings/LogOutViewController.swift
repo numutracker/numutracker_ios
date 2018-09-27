@@ -71,7 +71,7 @@ class LogOutViewController: UIViewController {
 
         if defaults.logged {
             if let user = NumuCredential.shared.getUsername() {
-                Answers.logCustomEvent(withName: "User Stats", customAttributes: ["User":user])
+                Answers.logCustomEvent(withName: "User Stats", customAttributes: ["User": user])
             }
         }
 
@@ -107,8 +107,11 @@ class LogOutViewController: UIViewController {
         dividingLineView5.layer.shadowRadius = 4
         dividingLineView5.layer.shouldRasterize = true
 
-        NotificationCenter.default.addObserver(self, selector: #selector(self.actOnClosedPrompt), name: .ClosedLogRegPrompt, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(self.actOnLoggedInNotification), name: .LoggedIn, object: nil)
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(self.actOnLoggedInNotification),
+            name: .LoggedIn,
+            object: nil)
 
         let add = UIBarButtonItem(title: "Log Out", style: .plain, target: self, action: #selector(logOut))
         if UserDefaults.standard.string(forKey: "userRecordID") == nil {
@@ -199,8 +202,6 @@ class LogOutViewController: UIViewController {
         defaults.newAnnouncements = false
         defaults.moreReleases = false
         UIApplication.shared.registerForRemoteNotifications()
-        defaults.logged = false
-        
         // Remove credentials from URLCredentialStorage
         NumuCredential.shared.removeCredential()
                 
@@ -213,29 +214,12 @@ class LogOutViewController: UIViewController {
         super.viewDidAppear(animated)
     }
 
-    @objc func actOnClosedPrompt() {
-        _ = self.navigationController?.popViewController(animated: true)
-    }
-
     @objc func actOnLoggedInNotification() {
         getUserStats()
-        //self.logOutButton.setTitle("Log Out", for: .normal)
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
-
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

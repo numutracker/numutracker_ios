@@ -10,7 +10,6 @@ import Foundation
 import UIKit
 import Crashlytics
 
-
 class LogRegPromptViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var topScrollView: UIScrollView!
@@ -112,7 +111,7 @@ class LogRegPromptViewController: UIViewController, UITextFieldDelegate {
         self.bottomScrollView.contentSize.width = maxLength
 
         // Load list of recent releases
-        NumuClient.shared.getArt() {[weak self](arts) in
+        NumuClient.shared.getArt {[weak self](arts) in
             self?.arts = arts
             DispatchQueue.main.async(execute: {
                 if let topArtists = self?.arts[0..<12],
@@ -126,7 +125,12 @@ class LogRegPromptViewController: UIViewController, UITextFieldDelegate {
                     height = width! / 3
                     maxLength = height * 12
                     //self?.bottomScrollView.setContentOffset(CGPoint(x:maxLength-width!,y:0), animated: false)
-                    _ = Timer.scheduledTimer(timeInterval: 0.025, target: self!, selector: #selector(self?.autoScroll), userInfo: nil, repeats: true)
+                    _ = Timer.scheduledTimer(
+                        timeInterval: 0.025,
+                        target: self!,
+                        selector: #selector(self?.autoScroll),
+                        userInfo: nil,
+                        repeats: true)
                 }
             })
         }
@@ -154,15 +158,14 @@ class LogRegPromptViewController: UIViewController, UITextFieldDelegate {
             height = width / 4
         }
 
-        let imageWidth:CGFloat = height
-        let imageHeight:CGFloat = height
-        var xPosition:CGFloat = 0
+        let imageWidth: CGFloat = height
+        let imageHeight: CGFloat = height
+        var xPosition: CGFloat = 0
 
         for image in images {
             let imageURL = NSURL(string: image)
             if let image = imageURL?.cachedImage {
 
-                // Cached: set immediately.
                 let artImage = UIImageView()
                 artImage.image = image
 
@@ -173,14 +176,10 @@ class LogRegPromptViewController: UIViewController, UITextFieldDelegate {
 
                 scrollView.addSubview(artImage)
                 xPosition += imageWidth
-                //self.topScrollViewSize += imageWidth
 
             } else {
-                // Not cached, so load then fade it in.
-                //cell.artImageView.alpha = 0
-                imageURL?.fetchImage { image in
-                    // Check the cell hasn't recycled while loading.
 
+                imageURL?.fetchImage { image in
                     let artImage = UIImageView()
                     artImage.image = image
 
@@ -190,8 +189,6 @@ class LogRegPromptViewController: UIViewController, UITextFieldDelegate {
                     artImage.frame.origin.y = 0
                     scrollView.addSubview(artImage)
                     xPosition += imageWidth
-                    //self.topScrollViewSize += imageWidth
-
 
                 }
             }
@@ -202,7 +199,7 @@ class LogRegPromptViewController: UIViewController, UITextFieldDelegate {
 
     @objc func autoScroll() {
 
-        let scrollViewArray: [UIScrollView] = [self.topScrollView,self.middleScrollView,self.bottomScrollView]
+        let scrollViewArray: [UIScrollView] = [self.topScrollView, self.middleScrollView, self.bottomScrollView]
 
         for scrollView in scrollViewArray {
             let width = self.view.frame.size.width
@@ -228,27 +225,27 @@ class LogRegPromptViewController: UIViewController, UITextFieldDelegate {
 
             if offset.x >= maxOffset {
                 switch scrollView.restorationIdentifier! {
-                    case "middle":
-                        self.middleScrollDrection = 1
-                    case "top":
-                        self.topScrollDrection = 1
-                    case "bottom":
-                        self.bottomScrollDrection = 1
-                    default:
-                        print("Borked")
+                case "middle":
+                    self.middleScrollDrection = 1
+                case "top":
+                    self.topScrollDrection = 1
+                case "bottom":
+                    self.bottomScrollDrection = 1
+                default:
+                    print("Borked")
                 }
             }
 
            if offset.x <= 0 {
                 switch scrollView.restorationIdentifier! {
-                    case "middle":
-                        self.middleScrollDrection = 0
-                    case "top":
-                        self.topScrollDrection = 0
-                    case "bottom":
-                        self.bottomScrollDrection = 0
-                    default:
-                        print("Borked")
+                case "middle":
+                    self.middleScrollDrection = 0
+                case "top":
+                    self.topScrollDrection = 0
+                case "bottom":
+                    self.bottomScrollDrection = 0
+                default:
+                    print("Borked")
                 }
             }
 
@@ -275,19 +272,13 @@ class LogRegPromptViewController: UIViewController, UITextFieldDelegate {
                 print("Borked")
             }
 
-            //print ("Max Offset:",maxOffset)
-            //print ("New Offset:",newOffset)
-
-
             scrollView.setContentOffset(CGPoint(x: newOffset, y: 0), animated: false)
         }
-
 
     }
 
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         if textField.returnKeyType == .next {
-            //print("Next Pressed")
             if textField.restorationIdentifier == "signEmail" {
                 signUpPasswordTextField.becomeFirstResponder()
             } else {
@@ -298,12 +289,9 @@ class LogRegPromptViewController: UIViewController, UITextFieldDelegate {
 
         if textField.returnKeyType == .go {
             if textField.restorationIdentifier == "signPassword" {
-                //print("Sign Go Pressed")
                 return self.goSignUp()
             } else {
-                //print("Log Go Pressed")
                 return self.goLogIn()
-                //self.dismiss(animated: true, completion: nil)
             }
         }
 
@@ -330,14 +318,14 @@ class LogRegPromptViewController: UIViewController, UITextFieldDelegate {
                     // Close keyboard
                     self.logInPasswordTextField.resignFirstResponder()
                     // Log to Answers
-                    Answers.logLogin(withMethod: "LogRegPrompt",success: true,customAttributes: nil)
+                    Answers.logLogin(withMethod: "LogRegPrompt", success: true, customAttributes: nil)
                     // Pop viewcontroller
                     self.dismiss(animated: true, completion: nil)
                 } else {
                     // Login Failure
                     self.logInLabel.text = result
                     // Log to Answers
-                    Answers.logLogin(withMethod: "LogRegPrompt",success: false,customAttributes: nil)
+                    Answers.logLogin(withMethod: "LogRegPrompt", success: false, customAttributes: nil)
                 }
             })
         }
@@ -350,13 +338,11 @@ class LogRegPromptViewController: UIViewController, UITextFieldDelegate {
         self.signUpLabel.text = "Signing up...\nPlease wait..."
         let username = self.signUpEmailTextField.text
         let password = self.signUpPasswordTextField.text
-        //print("Username",username!)
-        //print("Password",password!)
 
         let emailVerify = isValidEmail(testStr: username!)
         var errorText: String = ""
         var errorInt: Bool = false
-        if password == "" {
+        if password!.isEmpty {
             errorText = "Please enter a password."
             errorInt = true
         } else if password!.count < 8 {
@@ -399,22 +385,10 @@ class LogRegPromptViewController: UIViewController, UITextFieldDelegate {
         }
     }
 
-    func isValidEmail(testStr:String) -> Bool {
-        // print("validate calendar: \(testStr)")
+    func isValidEmail(testStr: String) -> Bool {
         let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}"
-
-        let emailTest = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
+        let emailTest = NSPredicate(format: "SELF MATCHES %@", emailRegEx)
         return emailTest.evaluate(with: testStr)
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

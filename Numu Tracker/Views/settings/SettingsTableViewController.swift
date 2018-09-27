@@ -23,7 +23,6 @@ class SettingsTableViewController: UITableViewController {
     @IBOutlet weak var spotifyCell: UITableViewCell!
     @IBOutlet weak var lastFmCell: UITableViewCell!
 
-
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -37,7 +36,8 @@ class SettingsTableViewController: UITableViewController {
         // Dispose of any resources that can be recreated.
     }
 
-    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+    override func tableView(
+        _ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         cell.selectionStyle = .none
     }
 
@@ -48,7 +48,6 @@ class SettingsTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return super.tableView(tableView, heightForRowAt: indexPath)
     }
-
 
     // MARK: - Navigation
 

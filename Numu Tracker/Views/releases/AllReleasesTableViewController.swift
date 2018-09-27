@@ -25,11 +25,13 @@ class AllReleasesTableViewController: UITableViewController {
                     self.tableView.tableHeaderView = self.noResultsFooterView
                     self.tableView.tableFooterView = UIView()
                     if self.slideType == 3 {
-                        self.noResultsLabel.text = "After you've followed some artists, any releases (upcoming or past) added to the system will show up here.\n\nCheck back later."
+                        self.noResultsLabel.text = "After you've followed some artists, any releases" +
+                            "(upcoming or past) added to the system will show up here.\n\nCheck back later."
                     } else if self.slideType == 2 {
                         self.noResultsLabel.text = "Any upcoming releases will appear here."
                     } else {
-                        self.noResultsLabel.text = "No results.\n\nHave you followed some artists?\n\nPull to refresh when you have."
+                        self.noResultsLabel.text = "No results.\n\nHave you followed some artists?\n\n" +
+                            "Pull to refresh when you have."
                     }
                 })
             } else {
@@ -107,7 +109,12 @@ class AllReleasesTableViewController: UITableViewController {
         let offset = releases.count
         let limit = 50
 
-        NumuClient.shared.getReleases(view: self.viewType, slide: self.slideType, page: nextPage, limit: limit, offset: offset) {[weak self](releaseData) in
+        NumuClient.shared.getReleases(
+            view: self.viewType,
+            slide: self.slideType,
+            page: nextPage,
+            limit: limit,
+            offset: offset) {[weak self](releaseData) in
             self?.releaseData = releaseData
             DispatchQueue.main.async(execute: {
                 self?.releases = (self?.releases)! + (self?.releaseData?.results)!
@@ -157,7 +164,9 @@ class AllReleasesTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> ReleaseTableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "releaseInfoCell", for: indexPath) as! ReleaseTableViewCell
+        let cell = tableView.dequeueReusableCell(
+            withIdentifier: "releaseInfoCell",
+            for: indexPath) as! ReleaseTableViewCell
 
         let releaseInfo = releases[indexPath.row]
         cell.configure(releaseInfo: releaseInfo)
@@ -204,25 +213,27 @@ class AllReleasesTableViewController: UITableViewController {
         self.loadFirstReleases()
     }
 
-    override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+    override func tableView(
+        _ tableView: UITableView,
+        editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
 
         let releaseInfo = self.releases[indexPath.row]
 
-        let listened = UITableViewRowAction(style: .normal, title: "Listened") { action, index in
+        let listened = UITableViewRowAction(style: .normal, title: "Listened") { _, index in
             
-            releaseInfo.toggleListenStatus() { (success) in
+            releaseInfo.toggleListenStatus { (success) in
                 DispatchQueue.main.async(execute: {
                     if success == "1" {
                         // remove or add unread marker back in
-                        let cell = self.tableView.cellForRow(at: indexPath) as! ReleaseTableViewCell
-                        if self.releases[indexPath.row].listenStatus == "0" {
-                            self.releases[indexPath.row].listenStatus = "1"
+                        let cell = self.tableView.cellForRow(at: index) as! ReleaseTableViewCell
+                        if self.releases[index.row].listenStatus == "0" {
+                            self.releases[index.row].listenStatus = "1"
                             cell.listenedIndicatorView.isHidden = true
                             Answers.logCustomEvent(
                                 withName: "Listened",
                                 customAttributes: ["Release ID": releaseInfo.releaseId])
                         } else {
-                            self.releases[indexPath.row].listenStatus = "0"
+                            self.releases[index.row].listenStatus = "0"
                             cell.listenedIndicatorView.isHidden = false
                              Answers.logCustomEvent(
                                 withName: "Unlistened",
@@ -254,7 +265,7 @@ class AllReleasesTableViewController: UITableViewController {
             selectedIndexPath = indexPath
         }
 
-        var indexPaths: Array<IndexPath> = []
+        var indexPaths: [IndexPath] = []
         if let previous = previousIndexPath {
             indexPaths += [previous]
         }

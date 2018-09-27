@@ -120,7 +120,6 @@ class ArtistsTableViewController: UITableViewController, UISearchBarDelegate, UI
         }
     }
 
-
     lazy var artistRefreshControl: UIRefreshControl = {
         let refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action: #selector(handleRefresh), for: .valueChanged)
@@ -191,7 +190,7 @@ class ArtistsTableViewController: UITableViewController, UISearchBarDelegate, UI
                 self?.artists = artists
                 DispatchQueue.main.async(execute: {
                     self?.loadTable()
-                    Answers.logSearch(withQuery: searchText,customAttributes: nil)
+                    Answers.logSearch(withQuery: searchText, customAttributes: nil)
                 })
             }
         }
@@ -201,9 +200,9 @@ class ArtistsTableViewController: UITableViewController, UISearchBarDelegate, UI
         self.searchController.isActive = false
     }
     
-
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "artistInfoCell", for: indexPath)  as! ArtistTableViewCell
+        let cell = tableView.dequeueReusableCell(
+            withIdentifier: "artistInfoCell", for: indexPath)  as! ArtistTableViewCell
         // Configure the cell...
         let artistInfo = artists[indexPath.row]
         cell.configure(artistInfo: artistInfo)
@@ -231,33 +230,33 @@ class ArtistsTableViewController: UITableViewController, UISearchBarDelegate, UI
         return cell
     }
 
-
-    override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+    override func tableView(
+        _ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
 
         var artistInfo = artists[indexPath.row]
 
-        let unfollow = UITableViewRowAction(style: .normal, title: "Error") { action, index in
+        let unfollow = UITableViewRowAction(style: .normal, title: "Error") { _, index in
             if !defaults.logged {
-                var loginViewController = self.storyboard?.instantiateViewController(withIdentifier: "LogRegPrompt") as! UINavigationController
-                if UIDevice().screenType == .iPhone4 {
-                    loginViewController = self.storyboard?.instantiateViewController(withIdentifier: "LogRegPromptSmall") as! UINavigationController
-                }
+                let loginViewController = self.storyboard?.instantiateViewController(
+                    withIdentifier: "LogRegPrompt") as! UINavigationController
                 DispatchQueue.main.async {
                     self.present(loginViewController, animated: true, completion: nil)
                 }
             } else {
-                artistInfo.unfollowArtist() { (success) in
+                artistInfo.unfollowArtist { (success) in
                     DispatchQueue.main.async(execute: {
                         if success == "1" {
                             artistInfo.followStatus = "0"
-                            self.artists[indexPath.row].followStatus = "0"
-                            Answers.logCustomEvent(withName: "Unfol Swipe", customAttributes: ["Artist ID":artistInfo.artistId])
+                            self.artists[index.row].followStatus = "0"
+                            Answers.logCustomEvent(
+                                withName: "Unfol Swipe", customAttributes: ["Artist ID": artistInfo.artistId])
                         } else if success == "2" {
                             artistInfo.followStatus = "1"
-                            self.artists[indexPath.row].followStatus = "1"
-                            Answers.logCustomEvent(withName: "Follo Swipe", customAttributes: ["Artist ID":artistInfo.artistId])
+                            self.artists[index.row].followStatus = "1"
+                            Answers.logCustomEvent(
+                                withName: "Follo Swipe", customAttributes: ["Artist ID": artistInfo.artistId])
                         }
-                         tableView.setEditing(false, animated: true)
+                        tableView.setEditing(false, animated: true)
                     })
                 }
             }
@@ -285,7 +284,7 @@ class ArtistsTableViewController: UITableViewController, UISearchBarDelegate, UI
             self.tableView.tableFooterView = self.noResultsView
         }
         
-        if (self.viewState == .user) {
+        if self.viewState == .user {
             self.searchController.searchBar.text = ""
         }
     }
@@ -305,7 +304,4 @@ class ArtistsTableViewController: UITableViewController, UISearchBarDelegate, UI
             destination.artistName = artistName
         }
     }
-
-    
 }
-

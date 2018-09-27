@@ -10,7 +10,7 @@ import UIKit
 import MessageUI
 import Crashlytics
 
-class HelpViewController: UIViewController,MFMailComposeViewControllerDelegate {
+class HelpViewController: UIViewController, MFMailComposeViewControllerDelegate {
 
     @IBOutlet weak var emailDeveloperButton: NumuUIButton!
 
@@ -34,7 +34,10 @@ class HelpViewController: UIViewController,MFMailComposeViewControllerDelegate {
         }
     }
 
-    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+    func mailComposeController(
+        _ controller: MFMailComposeViewController,
+        didFinishWith result: MFMailComposeResult,
+        error: Error?) {
         controller.dismiss(animated: true, completion: nil)
     }
 

@@ -11,7 +11,7 @@ import Crashlytics
 
 class ArtistReleasesTableViewController: UITableViewController {
 
-    var selectedIndexPath : IndexPath?
+    var selectedIndexPath: IndexPath?
     var releases: [ReleaseItem] = []
     var artistId: String?
     var artistName: String?
@@ -55,15 +55,9 @@ class ArtistReleasesTableViewController: UITableViewController {
                     })
                 }
             }
-            Answers.logCustomEvent(withName: "Artist Screen", customAttributes: ["Artist ID":selectedArtist])
+            Answers.logCustomEvent(withName: "Artist Screen", customAttributes: ["Artist ID": selectedArtist])
         }
 
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
 
     @objc func addTapped() {
@@ -73,24 +67,18 @@ class ArtistReleasesTableViewController: UITableViewController {
                         DispatchQueue.main.async(execute: {
                             if success == "1" {
                                self.navigationItem.rightBarButtonItem?.title = "Follow"
-                                Answers.logCustomEvent(withName: "Unfol Bar", customAttributes: ["Artist ID":artistId])
+                                Answers.logCustomEvent(withName: "Unfol Bar", customAttributes: ["Artist ID": artistId])
                             } else if success == "2" {
                                 self.navigationItem.rightBarButtonItem?.title = "Unfollow"
-                                Answers.logCustomEvent(withName: "Follo Bar", customAttributes: ["Artist ID":artistId])
+                                Answers.logCustomEvent(withName: "Follo Bar", customAttributes: ["Artist ID": artistId])
                             }
                         })
                     }
                 } else {
-                    if UIDevice().screenType == .iPhone4 {
-                        let loginViewController = self.storyboard?.instantiateViewController(withIdentifier: "LogRegPromptSmall") as! UINavigationController
-                        DispatchQueue.main.async {
-                            self.present(loginViewController, animated: true, completion: nil)
-                        }
-                    } else {
-                        let loginViewController = self.storyboard?.instantiateViewController(withIdentifier: "LogRegPrompt") as! UINavigationController
-                        DispatchQueue.main.async {
-                            self.present(loginViewController, animated: true, completion: nil)
-                        }
+                    let loginViewController = self.storyboard?.instantiateViewController(
+                        withIdentifier: "LogRegPrompt") as! UINavigationController
+                    DispatchQueue.main.async {
+                        self.present(loginViewController, animated: true, completion: nil)
                     }
                 }
             }
@@ -114,7 +102,9 @@ class ArtistReleasesTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "artistAlbumCell", for: indexPath) as! ArtistReleaseTableViewCell
+        let cell = tableView.dequeueReusableCell(
+            withIdentifier: "artistAlbumCell",
+            for: indexPath) as! ArtistReleaseTableViewCell
 
         // Configure the cell...
         let releaseInfo = releases[indexPath.row]
@@ -141,39 +131,36 @@ class ArtistReleasesTableViewController: UITableViewController {
         return cell
     }
 
-    override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+    override func tableView(_ tableView: UITableView,
+                            editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
 
         let releaseInfo = self.releases[indexPath.row]
 
-        let listened = UITableViewRowAction(style: .normal, title: "Listened") { action, index in
+        let listened = UITableViewRowAction(style: .normal, title: "Listened") { _, index in
             if !defaults.logged {
-                if UIDevice().screenType == .iPhone4 {
-                    let loginViewController = self.storyboard?.instantiateViewController(withIdentifier: "LogRegPromptSmall") as! UINavigationController
-                    DispatchQueue.main.async {
-                        self.present(loginViewController, animated: true, completion: nil)
-                    }
-                } else {
-                    let loginViewController = self.storyboard?.instantiateViewController(withIdentifier: "LogRegPrompt") as! UINavigationController
-                    DispatchQueue.main.async {
-                        self.present(loginViewController, animated: true, completion: nil)
-                    }
+                let loginViewController = self.storyboard?.instantiateViewController(
+                    withIdentifier: "LogRegPrompt") as! UINavigationController
+                DispatchQueue.main.async {
+                    self.present(loginViewController, animated: true, completion: nil)
                 }
             } else {
-                releaseInfo.toggleListenStatus() { (success) in
+                releaseInfo.toggleListenStatus { (success) in
                     DispatchQueue.main.async(execute: {
                         if success == "1" {
                             // remove or add unread marker back in
-                            let cell = self.tableView.cellForRow(at: indexPath) as! ArtistReleaseTableViewCell
+                            let cell = self.tableView.cellForRow(at: index) as! ArtistReleaseTableViewCell
                             if cell.readIndicator.isHidden && releaseInfo.listenStatus != "2" {
                                 cell.readIndicator.isHidden = false
                                 cell.listenStatus = "0"
-                                self.releases[indexPath.row].listenStatus = "0"
-                                Answers.logCustomEvent(withName: "Unlistened", customAttributes: ["Release ID":releaseInfo.releaseId])
+                                self.releases[index.row].listenStatus = "0"
+                                Answers.logCustomEvent(
+                                    withName: "Unlistened", customAttributes: ["Release ID": releaseInfo.releaseId])
                             } else {
                                 cell.readIndicator.isHidden = true
                                 cell.listenStatus = "1"
-                                self.releases[indexPath.row].listenStatus = "1"
-                                Answers.logCustomEvent(withName: "Listened", customAttributes: ["Release ID":releaseInfo.releaseId])
+                                self.releases[index.row].listenStatus = "1"
+                                Answers.logCustomEvent(
+                                    withName: "Listened", customAttributes: ["Release ID": releaseInfo.releaseId])
                             }
                             tableView.setEditing(false, animated: true)
                         }
@@ -196,24 +183,6 @@ class ArtistReleasesTableViewController: UITableViewController {
         return true
     }
 
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-    }
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let previousIndexPath = selectedIndexPath
         if indexPath == selectedIndexPath {
@@ -222,25 +191,29 @@ class ArtistReleasesTableViewController: UITableViewController {
             selectedIndexPath = indexPath
         }
 
-        var indexPaths: Array<IndexPath> = []
+        var indexPaths: [IndexPath] = []
+
         if let previous = previousIndexPath {
             indexPaths += [previous]
         }
+
         if let current = selectedIndexPath {
             indexPaths += [current]
         }
+
         if !indexPaths.isEmpty {
             tableView.beginUpdates()
-            //tableView.reloadRows(at: indexPaths, with: UITableViewRowAnimation.automatic)
             tableView.endUpdates()
         }
     }
 
-    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+    override func tableView(
+        _ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         (cell as! ArtistReleaseTableViewCell).watchFrameChanges()
     }
 
-    override func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+    override func tableView(
+        _ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         (cell as! ArtistReleaseTableViewCell).ignoreFrameChanges()
     }
 

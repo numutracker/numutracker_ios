@@ -11,7 +11,6 @@ import Crashlytics
 
 class ReleaseTableViewCell: UITableViewCell {
 
-
     @IBOutlet weak var viewMoreReleasesButton: UIButton!
     // @IBOutlet weak var listenSpofityButton: UIButton!
     @IBOutlet weak var listenButtonView: UIView!
@@ -43,16 +42,14 @@ class ReleaseTableViewCell: UITableViewCell {
     var releaseId: String = "0"
 
     // Expanding variables
-    class var expandedHeight: CGFloat { get { return 247 } }
-    class var defaultHeight: CGFloat  { get { return 136  } }
+    class var expandedHeight: CGFloat { return 247 }
+    class var defaultHeight: CGFloat { return 136 }
     var loadedListenLinks = false
     var isObserving = false
 
     var artistItem: ArtistItem?
 
     func configure(releaseInfo: ReleaseItem) {
-
-        // listenSpofityButton.layer.cornerRadius = 8
 
         viewMoreReleasesButton.setTitle("View other releases by " + releaseInfo.artistName, for: .normal)
 
@@ -69,8 +66,6 @@ class ReleaseTableViewCell: UITableViewCell {
         artImageView.layer.shadowOpacity = 0.3
         artImageView.layer.shadowOffset = .zero
         artImageView.layer.shadowRadius = 5
-        //artImageView.layer.shouldRasterize = true
-
 
         listenedIndicatorView.layer.shadowColor = UIColor.shadow.cgColor
         listenedIndicatorView.layer.shadowOpacity = 0.9
@@ -84,11 +79,9 @@ class ReleaseTableViewCell: UITableViewCell {
             listenState = "1"
         }
 
-
     }
 
 func checkHeight() {
-    //listenButtonView.isHidden = (frame.size.height < ReleaseTableViewCell.expandedHeight)
     if frame.size.height < ReleaseTableViewCell.expandedHeight {
         if loadedListenLinks {
             self.removeListenLinks()
@@ -101,26 +94,15 @@ func checkHeight() {
 }
 
     func loadListenLinks() {
-        //print("Loading Links..")
         let artist = self.artistLabel.text
         let album = self.releaseNameLabel.text
-        Answers.logCustomEvent(withName: "Loaded L Links", customAttributes: ["Release ID":self.releaseId])
+        Answers.logCustomEvent(withName: "Loaded L Links", customAttributes: ["Release ID": self.releaseId])
         DispatchQueue.global(qos: .background).async(execute: {
-            /* Find spotify link
-            JSONClient.sharedClient.getSpotifyLink(artist: self.artistLabel.text, album: self.releaseNameLabel.text) { link in
-                DispatchQueue.main.async(execute: {
-                    self.spotifyUrl = link
-                    self.listenSpofityButton.isEnabled = true
-                    print(self.spotifyUrl ?? "No Spotify Link")
-                })
-            }
-             */
 
             NumuClient.shared.getAppleMusicLink(artist: artist, album: album) { link in
                 DispatchQueue.main.async(execute: {
                     self.itunesUrl = link
                     self.listenOnItunesButton.isEnabled = true
-                    //print(self.itunesUrl ?? "No AM Link")
                 })
             }
 
@@ -131,13 +113,9 @@ func checkHeight() {
 
     func removeListenLinks() {
         self.loadedListenLinks = false
-        //self.spotifyUrl = nil
         self.itunesUrl = nil
         self.listenOnItunesButton.isEnabled = false
-        //self.listenSpofityButton.isEnabled = false
     }
-
-
 
     func watchFrameChanges() {
         if !isObserving {
@@ -153,11 +131,14 @@ func checkHeight() {
         }
     }
 
-    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
+    override func observeValue(
+        forKeyPath keyPath: String?,
+        of object: Any?,
+        change: [NSKeyValueChangeKey: Any]?,
+        context: UnsafeMutableRawPointer?) {
         if keyPath == "frame" {
             checkHeight()
         }
     }
-
 
   }

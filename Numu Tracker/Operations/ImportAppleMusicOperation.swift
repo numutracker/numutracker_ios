@@ -90,7 +90,11 @@ class ImportAppleMusicOperation: AsyncOperation {
     
     func displaySuccessMessage() {
         DispatchQueue.main.async {
-            let controller = UIAlertController(title: "Success", message: "\(self.artistsImported) artists imported. Please allow several minutes for all artists to appear.", preferredStyle: .alert)
+            let controller = UIAlertController(
+                title: "Success",
+                message: "\(self.artistsImported) artists imported." +
+                    "Please allow several minutes for all artists to appear.",
+                preferredStyle: .alert)
             controller.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
             if let appDelegate = UIApplication.shared.delegate,
                 let appWindow = appDelegate.window!,
@@ -106,7 +110,8 @@ class ImportAppleMusicOperation: AsyncOperation {
         case .restricted:
             error = "Media library access restricted by corporate or parental settings"
         case .denied:
-            error = "We cannot access your Apple Music artists because access has been denied to Numu. Please go to General -> Privacy -> Media & Apple Music to enable Numu's access."
+            error = "We cannot access your Apple Music artists because access has been denied to Numu." +
+                "Please go to General -> Privacy -> Media & Apple Music to enable Numu's access."
         default:
             error = "Unknown error"
         }
@@ -120,7 +125,4 @@ class ImportAppleMusicOperation: AsyncOperation {
             }
         }
     }
-    
-    
-    
 }

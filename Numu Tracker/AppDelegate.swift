@@ -34,6 +34,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         NumuReviewHelper.incrementActivityCount()
         
         NotificationCenter.default.addObserver(
+            self, selector: #selector(self.runLogInOperations), name: .LoggedOut, object: nil)
+        
+        NotificationCenter.default.addObserver(
             self, selector: #selector(self.ckDataChange), name: Notification.Name.CKAccountChanged, object: nil)
         
         runLogInOperations()
@@ -79,7 +82,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
     }
 
-    fileprivate func runLogInOperations() {
+    @objc fileprivate func runLogInOperations() {
         let queue = OperationQueue()
         
         // Get and store CK record ID if available
