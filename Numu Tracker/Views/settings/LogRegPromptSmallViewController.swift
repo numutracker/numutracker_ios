@@ -357,9 +357,6 @@ class LogRegPromptSmallViewController: UIViewController, UITextFieldDelegate {
                         // Registration Success
                         self.signUpLabel.text = "Registration Successful!"
                         defaults.logged = true
-                        // TODO: Remove: Store credentials in user defaults.
-                        defaults.username = username
-                        defaults.password = password
                         // Update interface elsewhere
                         NotificationCenter.default.post(name: .LoggedIn, object: self)
                         NotificationCenter.default.post(name: .UpdatedArtists, object: self)

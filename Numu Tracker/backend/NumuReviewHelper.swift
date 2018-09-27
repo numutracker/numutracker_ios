@@ -28,7 +28,7 @@ struct NumuReviewHelper {
         case _ where activityCount % 50 == 0:
             NumuReviewHelper().requestReview()
         default:
-            print("Activity count is:",activityCount)
+            print("Activity count is:", activityCount)
         }
     }
     

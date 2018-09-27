@@ -38,22 +38,20 @@ extension UIDevice {
     }
 }
 
-extension Array where Element : JSONCodable {
+extension Array where Element: JSONCodable {
     init(from url: String) {
         if let url = URL(string: url),
             let data = try? Data(contentsOf: url),
             let json = try? JSON(data: data),
-            let arr = json.array  {
+            let arr = json.array {
             self = arr.compactMap { Element(json: $0) }
-        }
-        else {
+        } else {
             self = []
         }
     }
 }
 
-
-extension Array where Element : JSONCodable {
+extension Array where Element: JSONCodable {
     init(with json: JSON) {
         if let arr = json.array {
             self = arr.compactMap { Element(json: $0) }
@@ -63,7 +61,7 @@ extension Array where Element : JSONCodable {
     }
 }
 
-extension ReleaseItem : JSONCodable { }
+extension ReleaseItem: JSONCodable { }
 extension ArtistItem: JSONCodable { }
 
 extension String {
@@ -121,36 +119,6 @@ extension UserDefaults {
             set(newValue, forKey: .moreReleases)
         }
     }
-    
-    // TODO: Remove in v2
-    var username: String? {
-        get {
-            return string(forKey: .username)
-        }
-        set {
-            if let value = newValue {
-                set(value, forKey: .username)
-            }
-            else {
-                removeObject(forKey: .username)
-            }
-        }
-    }
-
-    // TODO: Remove in v2
-    var password: String? {
-        get {
-            return string(forKey: .password)
-        }
-        set {
-            if let value = newValue {
-                set(value, forKey: .password)
-            }
-            else {
-                removeObject(forKey: .password)
-            }
-        }
-    }
 }
 
 extension Notification.Name {
@@ -181,9 +149,8 @@ extension UIColor {
 
 
 extension UIImageView {
-    func downloadImageFrom(link:String, contentMode: UIView.ContentMode) {
-        URLSession.shared.dataTask(with: URL(string:link)!, completionHandler: {
-            (data, response, error) -> Void in
+    func downloadImageFrom(link: String, contentMode: UIView.ContentMode) {
+        URLSession.shared.dataTask(with: URL(string: link)!, completionHandler: { (data, _, _) -> Void in
             DispatchQueue.main.async {
                 self.contentMode =  contentMode
                 data.map { self.image = UIImage(data: $0) }

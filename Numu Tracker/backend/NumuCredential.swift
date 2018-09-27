@@ -13,7 +13,12 @@ class NumuCredential {
     static let shared = NumuCredential()
     
     private struct ProtectionSpace {
-        static let production = URLProtectionSpace(host: "www.numutracker.com", port: 443, protocol: "https", realm: "Numu Tracker", authenticationMethod: NSURLAuthenticationMethodHTTPBasic)
+        static let production = URLProtectionSpace(
+            host: "www.numutracker.com",
+            port: 443,
+            protocol: "https",
+            realm: "Numu Tracker",
+            authenticationMethod: NSURLAuthenticationMethodHTTPBasic)
     }
     
     func storeCredential(username: String?, password: String?) {
@@ -28,7 +33,10 @@ class NumuCredential {
     
     func removeCredential() {
         if let credential = URLCredentialStorage.shared.defaultCredential(for: ProtectionSpace.production) {
-            URLCredentialStorage.shared.remove(credential, for: ProtectionSpace.production, options: ["NSURLCredentialStorageRemoveSynchronizableCredentials": true])
+            URLCredentialStorage.shared.remove(
+                credential,
+                for: ProtectionSpace.production,
+                options: ["NSURLCredentialStorageRemoveSynchronizableCredentials": true])
             defaults.logged = false
         }
     }

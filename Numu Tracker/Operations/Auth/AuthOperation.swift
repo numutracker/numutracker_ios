@@ -48,7 +48,8 @@ class AuthOperation: AsyncOperation {
     
     func showLogRegPrompt() {
         let controller = UIDevice().screenType == .iPhone4 ? "LogRegPromptSmall" : "LogRegPrompt"
-        let loginViewController = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: controller) as! UINavigationController
+        let loginViewController = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateViewController(
+                withIdentifier: controller) as! UINavigationController
         DispatchQueue.main.async {
             if let appDelegate = UIApplication.shared.delegate,
                 let appWindow = appDelegate.window!,

@@ -36,10 +36,9 @@ class ArtistReleaseTableViewCell: UITableViewCell {
 
     // Expanding variables
     class var expandedHeight: CGFloat { get { return 219 } }
-    class var defaultHeight: CGFloat  { get { return 136  } }
+    class var defaultHeight: CGFloat { get { return 136 } }
     var loadedListenLinks = false
     var isObserving = false
-
 
     var thumbUrl: NSURL!
 
@@ -142,7 +141,7 @@ class ArtistReleaseTableViewCell: UITableViewCell {
         }
     }
 
-    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
+    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey: Any]?, context: UnsafeMutableRawPointer?) {
         if keyPath == "frame" {
             checkHeight()
         }

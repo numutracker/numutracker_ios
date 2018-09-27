@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ImageCache : NSCache<NSString, UIImage> {
+class ImageCache: NSCache<NSString, UIImage> {
     init(name: String, limit: Int, totalCostLimit: Int) {
         super.init()
         self.name = name
@@ -30,7 +30,7 @@ extension NSURL {
     }
 
     func fetchImage(completion: @escaping ImageCacheCompletion) {
-        let task = URLSession.shared.dataTask(with: self as URL) { data, response, error in
+        let task = URLSession.shared.dataTask(with: self as URL) { data, _, error in
             guard error == nil, let data = data, let image = UIImage(data: data) else { return }
 
             ImageCache.shared.setObject(image,

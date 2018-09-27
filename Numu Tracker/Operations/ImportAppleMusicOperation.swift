@@ -61,10 +61,10 @@ class ImportAppleMusicOperation: AsyncOperation {
             request.setValue("application/json; charset=utf-8", forHTTPHeaderField: "Content-Type")
             request.httpBody = jsonData
             
-            dataTask = session.dataTask(with: request as URLRequest) {[unowned self] (data, response, error) in
+            dataTask = session.dataTask(with: request as URLRequest) {[unowned self] (data, _, error) in
                 guard let data = data else { return }
                 do {
-                    if let returnedJSON = try JSONSerialization.jsonObject(with: data, options: []) as? [String:Any] {
+                    if let returnedJSON = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] {
                         if let success = returnedJSON["success"] {
                             self.artistsImported = success as! Int
                             NotificationCenter.default.post(name: .UpdatedArtists, object: self)

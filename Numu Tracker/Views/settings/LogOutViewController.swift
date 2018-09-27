@@ -199,8 +199,6 @@ class LogOutViewController: UIViewController {
         defaults.newAnnouncements = false
         defaults.moreReleases = false
         UIApplication.shared.registerForRemoteNotifications()
-        defaults.username = nil
-        defaults.password = nil
         defaults.logged = false
         
         // Remove credentials from URLCredentialStorage

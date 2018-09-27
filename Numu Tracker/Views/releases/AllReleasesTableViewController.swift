@@ -15,7 +15,7 @@ class AllReleasesTableViewController: UITableViewController {
 
     var lastSelectedArtistId: String = ""
     var lastSelectedArtistName: String = ""
-    var selectedIndexPath : IndexPath?
+    var selectedIndexPath: IndexPath?
     var releases: [ReleaseItem] = []
     var viewName: String = ""
     var releaseData: ReleaseData! {
@@ -48,7 +48,6 @@ class AllReleasesTableViewController: UITableViewController {
     @IBOutlet weak var noResultsLabel: UILabel!
 
     @IBOutlet weak var releasesSegmentedControl: UISegmentedControl!
-
 
     @IBAction func changeSlide(_ sender: UISegmentedControl) {
         let segment = sender.selectedSegmentIndex
@@ -138,16 +137,7 @@ class AllReleasesTableViewController: UITableViewController {
 
         self.refreshControl?.addTarget(self, action: #selector(handleRefresh), for: .valueChanged)
 
-        // Load initial batch of releases...
         self.tableView.tableFooterView = self.footerView
-        
-        // self.loadFirstReleases()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
 
     deinit {
@@ -156,36 +146,25 @@ class AllReleasesTableViewController: UITableViewController {
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 
-    // MARK: - Table view data source
-
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
         return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
         return self.releases.count
     }
-
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> ReleaseTableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "releaseInfoCell", for: indexPath) as! ReleaseTableViewCell
 
-        // Configure the cell...
-
         let releaseInfo = releases[indexPath.row]
         cell.configure(releaseInfo: releaseInfo)
-
-        //cell.selectionStyle = .none
 
         // Image loading.
         cell.artIndicator.startAnimating()
         cell.thumbUrl = releaseInfo.thumbUrl // For recycled cells' late image loads.
-
 
         if let image = releaseInfo.thumbUrl.cachedImage {
             // Cached: set immediately.
@@ -229,7 +208,6 @@ class AllReleasesTableViewController: UITableViewController {
 
         let releaseInfo = self.releases[indexPath.row]
 
-
         let listened = UITableViewRowAction(style: .normal, title: "Listened") { action, index in
             
             releaseInfo.toggleListenStatus() { (success) in
@@ -240,18 +218,20 @@ class AllReleasesTableViewController: UITableViewController {
                         if self.releases[indexPath.row].listenStatus == "0" {
                             self.releases[indexPath.row].listenStatus = "1"
                             cell.listenedIndicatorView.isHidden = true
-                            Answers.logCustomEvent(withName: "Listened", customAttributes: ["Release ID":releaseInfo.releaseId])
+                            Answers.logCustomEvent(
+                                withName: "Listened",
+                                customAttributes: ["Release ID": releaseInfo.releaseId])
                         } else {
                             self.releases[indexPath.row].listenStatus = "0"
                             cell.listenedIndicatorView.isHidden = false
-                             Answers.logCustomEvent(withName: "Unlistened", customAttributes: ["Release ID":releaseInfo.releaseId])
+                             Answers.logCustomEvent(
+                                withName: "Unlistened",
+                                customAttributes: ["Release ID": releaseInfo.releaseId])
                         }
-
                         tableView.setEditing(false, animated: true)
                     }
                 })
             }
-            
         }
 
         if releaseInfo.listenStatus == "1" {
@@ -260,7 +240,6 @@ class AllReleasesTableViewController: UITableViewController {
         listened.backgroundColor = .background
 
         return [listened]
-
     }
 
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
@@ -275,7 +254,7 @@ class AllReleasesTableViewController: UITableViewController {
             selectedIndexPath = indexPath
         }
 
-        var indexPaths : Array<IndexPath> = []
+        var indexPaths: Array<IndexPath> = []
         if let previous = previousIndexPath {
             indexPaths += [previous]
         }
@@ -284,15 +263,20 @@ class AllReleasesTableViewController: UITableViewController {
         }
         if !indexPaths.isEmpty {
             tableView.beginUpdates()
-            //tableView.reloadRows(at: indexPaths, with: UITableViewRowAnimation.automatic)
             tableView.endUpdates()
         }
     }
-    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+    override func tableView(
+        _ tableView: UITableView,
+        willDisplay cell: UITableViewCell,
+        forRowAt indexPath: IndexPath) {
         (cell as! ReleaseTableViewCell).watchFrameChanges()
     }
 
-    override func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+    override func tableView(
+        _ tableView: UITableView,
+        didEndDisplaying cell: UITableViewCell,
+        forRowAt indexPath: IndexPath) {
         (cell as! ReleaseTableViewCell).ignoreFrameChanges()
     }
 
@@ -322,38 +306,8 @@ class AllReleasesTableViewController: UITableViewController {
         }
     }
 
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-
     // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 
         if segue.identifier == "showArtistReleases",
@@ -373,7 +327,6 @@ class AllReleasesTableViewController: UITableViewController {
     }
 
     @objc func actOnLoggedInNotification() {
-        //print("Logged in")
         releases.removeAll()
         tableView.reloadData()
         self.tableView.tableFooterView = self.footerView
@@ -387,7 +340,6 @@ class AllReleasesTableViewController: UITableViewController {
     }
 
     @objc func actOnLoggedOutNotification() {
-        //print("Logged out")
         releases.removeAll()
         tableView.reloadData()
         DispatchQueue.global(qos: .background).async(execute: {

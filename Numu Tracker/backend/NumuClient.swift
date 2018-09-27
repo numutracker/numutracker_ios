@@ -26,7 +26,8 @@ class NumuClient {
                         completion(json)
                     } catch {
                         completion(JSON.null)
-                        // TODO: Implement more robust error handling, like notifying the user when their user / password no longer works.
+                        // TODO: Implement more robust error handling
+                        // like notifying the user when their user / password no longer works.
                         print(error.localizedDescription)
                     }
                 }
@@ -148,43 +149,6 @@ class NumuClient {
         }
     }
 
-    func postArtists(artists: [String], completion: @escaping (String) -> Void) {
-        // FIXME: This function is really messy and needs to be rewritten.
-        let json = ["artists": artists]
-        do {
-            let jsonData = try JSONSerialization.data(withJSONObject: json, options: .prettyPrinted)
-
-            // create post request
-            let url = URL(string: "https://www.numutracker.com/v2/json.php?import")!
-            let request = NSMutableURLRequest(url: url)
-            request.httpMethod = "POST"
-
-            // insert json data to the request
-            request.setValue("application/json; charset=utf-8", forHTTPHeaderField: "Content-Type")
-            request.httpBody = jsonData
-
-            let task = URLSession.shared.dataTask(with: request as URLRequest){ data, response, error in
-                if error != nil{
-                    completion("Failure")
-                }
-                do {
-                    if data != nil {
-                        _ = try JSONSerialization.jsonObject(with: data!, options: []) as? [String:AnyObject]
-                        completion("Success")
-                    } else {
-                        completion("Failure")
-                    }
-                } catch {
-                    completion("Failure")
-                }
-            }
-            task.resume()
-        } catch {
-            print(error.localizedDescription)
-            completion("Failure")
-        }
-    }
-
     // MARK: - Artist Related
 
     func getArtist(search: String, completion: @escaping ([ArtistItem]) -> Void) {
@@ -225,7 +189,13 @@ class NumuClient {
     
     // MARK: - Release Related
 
-    func getReleases(view: Int, slide: Int, page: Int = 1, limit: Int = 50, offset: Int = 0, completion: @escaping (ReleaseData) -> Void) {
+    func getReleases(
+        view: Int,
+        slide: Int,
+        page: Int = 1,
+        limit: Int = 50,
+        offset: Int = 0,
+        completion: @escaping (ReleaseData) -> Void) {
         
         var endPoint: String
         let username = NumuCredential.shared.getUsername() ?? "0"
