@@ -9,6 +9,7 @@
 import Foundation
 import MediaPlayer
 import UIKit
+import Crashlytics
 
 class ImportAppleMusicOperation: AsyncOperation {
     
@@ -72,6 +73,7 @@ class ImportAppleMusicOperation: AsyncOperation {
                             DispatchQueue.main.async(execute: {
                                 NotificationCenter.default.post(name: .UpdatedArtists, object: nil)
                                 NotificationCenter.default.post(name: .LoggedIn, object: nil)
+                                Answers.logCustomEvent(withName: "AM Artist Import")
                             })
                         }
                     }

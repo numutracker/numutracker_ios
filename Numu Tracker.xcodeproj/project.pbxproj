@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		441CC0AF215DB769009F4114 /* numuIcon_1024.png in Resources */ = {isa = PBXBuildFile; fileRef = 441CC0AE215DB769009F4114 /* numuIcon_1024.png */; };
 		4461CB79215844C9001939F0 /* AsyncOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4461CB78215844C9001939F0 /* AsyncOperation.swift */; };
 		4461CB7B2158470C001939F0 /* FetchJSONOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4461CB7A2158470C001939F0 /* FetchJSONOperation.swift */; };
 		4461CB7F21585488001939F0 /* NumuAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4461CB7E21585488001939F0 /* NumuAPI.swift */; };
@@ -53,6 +54,7 @@
 
 /* Begin PBXFileReference section */
 		01361C8695313B7121751750 /* Pods-Numu Tracker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Numu Tracker.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Numu Tracker/Pods-Numu Tracker.debug.xcconfig"; sourceTree = "<group>"; };
+		441CC0AE215DB769009F4114 /* numuIcon_1024.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = numuIcon_1024.png; path = Design/icon/numuIcon_1024.png; sourceTree = SOURCE_ROOT; };
 		4461CB78215844C9001939F0 /* AsyncOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncOperation.swift; sourceTree = "<group>"; };
 		4461CB7A2158470C001939F0 /* FetchJSONOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchJSONOperation.swift; sourceTree = "<group>"; };
 		4461CB7E21585488001939F0 /* NumuAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumuAPI.swift; sourceTree = "<group>"; };
@@ -184,6 +186,7 @@
 			children = (
 				B4283A8D1D8548F300467CE6 /* Assets.xcassets */,
 				B43E36AF1F5DF9B9009834C9 /* NumuLogo1024.png */,
+				441CC0AE215DB769009F4114 /* numuIcon_1024.png */,
 				B4E8B9791E7F67BD00643AD1 /* bradroot-new-2880-man.png */,
 			);
 			name = Images;
@@ -373,6 +376,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				441CC0AF215DB769009F4114 /* numuIcon_1024.png in Resources */,
 				B4E8B97A1E7F67BD00643AD1 /* bradroot-new-2880-man.png in Resources */,
 				B4283A911D8548F300467CE6 /* LaunchScreen.storyboard in Resources */,
 				B43E36B01F5DF9BA009834C9 /* NumuLogo1024.png in Resources */,

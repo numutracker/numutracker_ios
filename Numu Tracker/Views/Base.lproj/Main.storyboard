@@ -98,7 +98,7 @@ Special thanks to Wes Biffar and all my beta testers (especially Andie).
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Epd-7O-Jkq" customClass="NumuUIButton" customModule="Numu_Tracker" customModuleProvider="target">
-                                <rect key="frame" x="97" y="85" width="220" height="42"/>
+                                <rect key="frame" x="97" y="88" width="220" height="42"/>
                                 <inset key="contentEdgeInsets" minX="10" minY="10" maxX="10" maxY="10"/>
                                 <state key="normal" title="Import from Apple Music"/>
                                 <connections>
@@ -106,7 +106,7 @@ Special thanks to Wes Biffar and all my beta testers (especially Andie).
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="11" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Bv-3X-alE">
-                                <rect key="frame" x="63" y="143" width="288" height="184"/>
+                                <rect key="frame" x="63" y="146" width="288" height="184"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="lessThanOrEqual" constant="288" id="hGs-VW-1bQ"/>
                                 </constraints>
@@ -120,14 +120,14 @@ Any imported artists you've unfollowed will not be re-imported.</string>
                                 <nil key="highlightedColor"/>
                             </label>
                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="VPi-vA-Mgg">
-                                <rect key="frame" x="325" y="96" width="20" height="20"/>
+                                <rect key="frame" x="325" y="99" width="20" height="20"/>
                             </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" red="0.13350695369999999" green="0.13364198799999999" blue="0.13352787490000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="6Bv-3X-alE" firstAttribute="centerX" secondItem="Rs2-VC-i1a" secondAttribute="centerX" id="0vx-d8-176"/>
                             <constraint firstItem="6Bv-3X-alE" firstAttribute="top" secondItem="Epd-7O-Jkq" secondAttribute="bottom" constant="16" id="NaL-Xo-Rj4"/>
-                            <constraint firstItem="Epd-7O-Jkq" firstAttribute="top" secondItem="hiP-8M-4HH" secondAttribute="bottom" constant="21" id="Rac-v7-agf"/>
+                            <constraint firstItem="Epd-7O-Jkq" firstAttribute="top" secondItem="hiP-8M-4HH" secondAttribute="bottom" constant="24" id="Rac-v7-agf"/>
                             <constraint firstItem="Epd-7O-Jkq" firstAttribute="centerX" secondItem="Rs2-VC-i1a" secondAttribute="centerX" id="bAb-tj-2Gb"/>
                             <constraint firstItem="VPi-vA-Mgg" firstAttribute="leading" secondItem="Epd-7O-Jkq" secondAttribute="trailing" constant="8" id="fWt-5z-QQa"/>
                             <constraint firstItem="VPi-vA-Mgg" firstAttribute="centerY" secondItem="Epd-7O-Jkq" secondAttribute="centerY" id="ftQ-am-t6t"/>
@@ -1677,7 +1677,7 @@ or manually search and follow artists.</string>
             </objects>
             <point key="canvasLocation" x="-819" y="465"/>
         </scene>
-        <!--Settings-->
+        <!--More-->
         <scene sceneID="2qc-ZS-hZe">
             <objects>
                 <tableViewController id="2Ma-iV-Juf" customClass="SettingsTableViewController" customModule="Numu_Tracker" customModuleProvider="target" sceneMemberID="viewController">
@@ -1831,33 +1831,8 @@ or manually search and follow artists.</string>
                                             <segue destination="yB9-74-LUJ" kind="show" id="IIV-hg-jTU"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" id="8IH-Vn-BEN">
-                                        <rect key="frame" x="0.0" y="443.33333333333337" width="414" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="8IH-Vn-BEN" id="n1L-EU-wvh">
-                                            <rect key="frame" x="0.0" y="0.0" width="376" height="43.666666666666664"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="About" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gi6-kK-N4o">
-                                                    <rect key="frame" x="18" y="11.333333333333336" width="350" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstAttribute="trailingMargin" secondItem="gi6-kK-N4o" secondAttribute="trailing" id="QtB-7i-BIl"/>
-                                                <constraint firstItem="gi6-kK-N4o" firstAttribute="leading" secondItem="n1L-EU-wvh" secondAttribute="leading" constant="18" id="edD-bE-88r"/>
-                                                <constraint firstItem="gi6-kK-N4o" firstAttribute="centerY" secondItem="n1L-EU-wvh" secondAttribute="centerY" id="hu8-6D-5Xa"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                        <color key="backgroundColor" red="0.13350695369999999" green="0.13364198799999999" blue="0.13352787490000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <connections>
-                                            <segue destination="W1t-RN-Lm0" kind="show" identifier="aboutSegue" id="5Cz-Ef-jMc"/>
-                                        </connections>
-                                    </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" id="hcg-7S-L2U">
-                                        <rect key="frame" x="0.0" y="487.33333333333337" width="414" height="44"/>
+                                        <rect key="frame" x="0.0" y="443.33333333333337" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="hcg-7S-L2U" id="m5r-Mr-Eea">
                                             <rect key="frame" x="0.0" y="0.0" width="376" height="43.666666666666664"/>
@@ -1881,6 +1856,31 @@ or manually search and follow artists.</string>
                                             <segue destination="Now-IP-Fwq" kind="show" id="Iqk-ZQ-Tsc"/>
                                         </connections>
                                     </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" id="8IH-Vn-BEN">
+                                        <rect key="frame" x="0.0" y="487.33333333333337" width="414" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="8IH-Vn-BEN" id="n1L-EU-wvh">
+                                            <rect key="frame" x="0.0" y="0.0" width="376" height="43.666666666666664"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="About" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gi6-kK-N4o">
+                                                    <rect key="frame" x="18" y="11.333333333333336" width="350" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailingMargin" secondItem="gi6-kK-N4o" secondAttribute="trailing" id="QtB-7i-BIl"/>
+                                                <constraint firstItem="gi6-kK-N4o" firstAttribute="leading" secondItem="n1L-EU-wvh" secondAttribute="leading" constant="18" id="edD-bE-88r"/>
+                                                <constraint firstItem="gi6-kK-N4o" firstAttribute="centerY" secondItem="n1L-EU-wvh" secondAttribute="centerY" id="hu8-6D-5Xa"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" red="0.13350695369999999" green="0.13364198799999999" blue="0.13352787490000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <connections>
+                                            <segue destination="W1t-RN-Lm0" kind="show" identifier="aboutSegue" id="5Cz-Ef-jMc"/>
+                                        </connections>
+                                    </tableViewCell>
                                 </cells>
                             </tableViewSection>
                         </sections>
@@ -1889,7 +1889,7 @@ or manually search and follow artists.</string>
                             <outlet property="delegate" destination="2Ma-iV-Juf" id="TLB-rc-4co"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Settings" id="UrJ-B3-jwQ"/>
+                    <navigationItem key="navigationItem" title="More" id="UrJ-B3-jwQ"/>
                     <connections>
                         <outlet property="appleMusicCell" destination="ZSc-Ll-50I" id="Tm6-q5-SUK"/>
                         <outlet property="logOutCell" destination="FbF-76-ESs" id="WdS-WM-wJ2"/>
@@ -1974,7 +1974,7 @@ or manually search and follow artists.</string>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZTT-fl-w4I">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="962"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="905"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What is Numu for?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I4e-bb-04c">
                                         <rect key="frame" x="18" y="24" width="396" height="24"/>
@@ -1996,19 +1996,142 @@ or manually search and follow artists.</string>
                                         <color key="textColor" red="0.10980392160000001" green="0.81176470590000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="redraw" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="phg-fg-dDA">
-                                        <rect key="frame" x="18" y="259.66666666666669" width="378" height="684.33333333333326"/>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="redraw" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" usesAttributedText="YES" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="phg-fg-dDA">
+                                        <rect key="frame" x="18" y="259.66666666666669" width="378" height="627.33333333333326"/>
                                         <color key="backgroundColor" red="0.13350695369999999" green="0.13364198799999999" blue="0.13352787490000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <string key="text">Register for an account, or sign into an existing account using your email address and password.
+                                        <attributedString key="attributedText">
+                                            <fragment>
+                                                <string key="content">Your first step will be to import some artists, using the page available on the Settings screen. You can also manually search and follow any artists you like on the </string>
+                                                <attributes>
+                                                    <color key="NSColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <font key="NSFont" metaFont="system" size="16"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                </attributes>
+                                            </fragment>
+                                            <fragment content="Your Artists">
+                                                <attributes>
+                                                    <color key="NSColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <font key="NSFont" size="16" name=".AppleSystemUIFontEmphasized"/>
+                                                    <font key="NSOriginalFont" size="16" name=".AppleSystemUIFontEmphasized"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                </attributes>
+                                            </fragment>
+                                            <fragment>
+                                                <string key="content"> screen, if you don't want to import your whole music library. 
+On any screen showing releases, tap on a release to reveal a drop-down with a link to Apple Music, if available. Swipe to the left over any release to reveal the </string>
+                                                <attributes>
+                                                    <color key="NSColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <font key="NSFont" metaFont="system" size="16"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                </attributes>
+                                            </fragment>
+                                            <fragment content="Listened">
+                                                <attributes>
+                                                    <color key="NSColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <font key="NSFont" size="16" name=".AppleSystemUIFontEmphasized"/>
+                                                    <font key="NSOriginalFont" size="16" name=".AppleSystemUIFontEmphasized"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                </attributes>
+                                            </fragment>
+                                            <fragment>
+                                                <string key="content"> button, to mark a release as listened. A glowing blue line next to album art means an album has not been listened to.
 
-First step will be to import some artists, using the page available on the Settings screen. You can also manually search and follow any artists you like on the "Your Artists" screen, if you don't want to import your whole music library. 
-On any screen showing releases, tap on a release to reveal a drop-down with a link to Apple Music, if available. Swipe to the left over any release to reveal the "Listened" button, to mark a release as listened. A glowing blue line next to album art means an album has not been listened to.
+In the </string>
+                                                <attributes>
+                                                    <color key="NSColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <font key="NSFont" metaFont="system" size="16"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                </attributes>
+                                            </fragment>
+                                            <fragment content="Your Artists">
+                                                <attributes>
+                                                    <color key="NSColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <font key="NSFont" size="16" name=".AppleSystemUIFontEmphasized"/>
+                                                    <font key="NSOriginalFont" size="16" name=".AppleSystemUIFontEmphasized"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                </attributes>
+                                            </fragment>
+                                            <fragment>
+                                                <string key="content"> tab you can swipe left to unfollow an artist. Use the search bar at the top of the screen to search the entire Numu Tracker artist database. If your favorite artist doesn't appear in the database, please email me by going to </string>
+                                                <attributes>
+                                                    <color key="NSColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <font key="NSFont" metaFont="system" size="16"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                </attributes>
+                                            </fragment>
+                                            <fragment content="More">
+                                                <attributes>
+                                                    <color key="NSColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <font key="NSFont" size="16" name=".AppleSystemUIFontEmphasized"/>
+                                                    <font key="NSOriginalFont" size="16" name=".AppleSystemUIFontEmphasized"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                </attributes>
+                                            </fragment>
+                                            <fragment content=" -&gt; ">
+                                                <attributes>
+                                                    <color key="NSColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <font key="NSFont" metaFont="system" size="16"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                </attributes>
+                                            </fragment>
+                                            <fragment content="Get Help">
+                                                <attributes>
+                                                    <color key="NSColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <font key="NSFont" size="16" name=".AppleSystemUIFontEmphasized"/>
+                                                    <font key="NSOriginalFont" size="16" name=".AppleSystemUIFontEmphasized"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                </attributes>
+                                            </fragment>
+                                            <fragment>
+                                                <string key="content">.
 
-In the Your Artists screen you can swipe left to unfollow an artist. Use the search bar at the top of the screen to search the entire Numu Tracker artist database. If your favorite artist doesn't appear in the database, please email me on the "Get Help" screen.
-
-On the Settings screen, you can adjust which types of releases you want to see. (I recommend leaving on Album and EP, but it's up to you.) You can turn notifictions on or off. Check out the Your Account screen to see some account stats, and to log out of your account if you need to.  If you have any problems, have suggestions, or just need help with your life, feel free to contact me.  Thanks for using Numu! 🙃</string>
-                                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+On the </string>
+                                                <attributes>
+                                                    <color key="NSColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <font key="NSFont" metaFont="system" size="16"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                </attributes>
+                                            </fragment>
+                                            <fragment content="More">
+                                                <attributes>
+                                                    <color key="NSColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <font key="NSFont" size="16" name=".AppleSystemUIFontEmphasized"/>
+                                                    <font key="NSOriginalFont" size="16" name=".AppleSystemUIFontEmphasized"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                </attributes>
+                                            </fragment>
+                                            <fragment>
+                                                <string key="content"> tab, you can adjust which types of releases you want to see. (I recommend leaving on Album and EP, but it's up to you.) You can also turn notifications on or off on this tab. Check out the </string>
+                                                <attributes>
+                                                    <color key="NSColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <font key="NSFont" metaFont="system" size="16"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                </attributes>
+                                            </fragment>
+                                            <fragment content="Listening Stats">
+                                                <attributes>
+                                                    <color key="NSColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <font key="NSFont" size="16" name=".AppleSystemUIFontEmphasized"/>
+                                                    <font key="NSOriginalFont" size="16" name=".AppleSystemUIFontEmphasized"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                </attributes>
+                                            </fragment>
+                                            <fragment>
+                                                <string key="content"> screen to see some account stats.  If you have any problems, have suggestions, or just need help with your life, feel free to contact me.  Thanks for using Numu! </string>
+                                                <attributes>
+                                                    <color key="NSColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <font key="NSFont" metaFont="system" size="16"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                </attributes>
+                                            </fragment>
+                                            <fragment content="🙃">
+                                                <attributes>
+                                                    <color key="NSColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <font key="NSFont" size="16" name=".AppleColorEmojiUI"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                </attributes>
+                                            </fragment>
+                                        </attributedString>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                         <dataDetectorType key="dataDetectorTypes" phoneNumber="YES"/>
                                     </textView>
@@ -2050,15 +2173,15 @@ On the Settings screen, you can adjust which types of releases you want to see. 
             <objects>
                 <viewController title="Get Help" automaticallyAdjustsScrollViewInsets="NO" id="Now-IP-Fwq" customClass="HelpViewController" customModule="Numu_Tracker" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="8oG-p8-MA2"/>
-                        <viewControllerLayoutGuide type="bottom" id="Omb-uB-cxv"/>
+                        <viewControllerLayoutGuide type="top" id="lfq-ax-YWJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="zQm-eQ-mzv"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="bca-Rs-n3H">
+                    <scrollView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" contentInsetAdjustmentBehavior="always" id="pGu-p7-8Qv">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mr2-U3-A9t">
-                                <rect key="frame" x="0.0" y="64" width="414" height="331.33333333333331"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="476.66666666666669"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fgj-O8-LrV" customClass="NumuUIButton" customModule="Numu_Tracker" customModuleProvider="target">
                                         <rect key="frame" x="92" y="21" width="230" height="44"/>
@@ -2072,12 +2195,12 @@ On the Settings screen, you can adjust which types of releases you want to see. 
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hAt-Rw-Lvn" customClass="NumuUIButton" customModule="Numu_Tracker" customModuleProvider="target">
-                                        <rect key="frame" x="92" y="167.33333333333334" width="230" height="44"/>
+                                        <rect key="frame" x="92" y="330.33333333333331" width="230" height="44"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="44" id="OWC-TT-M0o"/>
                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="230" id="PgQ-mC-pP9"/>
                                         </constraints>
-                                        <state key="normal" title="Discuss on Reddit"/>
+                                        <state key="normal" title="Get Updates on Reddit"/>
                                         <connections>
                                             <action selector="discussOnRedditButton:" destination="Now-IP-Fwq" eventType="touchUpInside" id="gxk-nB-pfC"/>
                                         </connections>
@@ -2092,14 +2215,35 @@ On the Settings screen, you can adjust which types of releases you want to see. 
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u5d-8K-Rpx">
-                                        <rect key="frame" x="70" y="229.33333333333331" width="274" height="83"/>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="I'll post update notes for new versions of the app and sometimes ask for feedback on our subreddit." textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u5d-8K-Rpx">
+                                        <rect key="frame" x="68.666666666666657" y="392.33333333333331" width="276.66666666666674" height="66.333333333333314"/>
                                         <color key="backgroundColor" red="0.13350695369999999" green="0.13364198799999999" blue="0.13352787490000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" relation="lessThanOrEqual" constant="288" id="QPf-Ko-92J"/>
                                         </constraints>
-                                        <string key="text">Reddit can be a good place to get my attention and discuss the app with other users, so you can work together to pressure me into new features.</string>
                                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z0y-1u-l7X" customClass="NumuUIButton" customModule="Numu_Tracker" customModuleProvider="target">
+                                        <rect key="frame" x="92" y="167.33333333333334" width="230" height="44"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="44" id="0et-WN-LiG"/>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="230" id="hz9-zI-JY6"/>
+                                        </constraints>
+                                        <state key="normal" title="Join the Numu Slack"/>
+                                        <connections>
+                                            <action selector="joinSlackButton:" destination="Now-IP-Fwq" eventType="touchUpInside" id="9P3-VM-y7v"/>
+                                        </connections>
+                                    </button>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xQO-Ds-PcJ">
+                                        <rect key="frame" x="64" y="229.33333333333337" width="286.33333333333331" height="83"/>
+                                        <color key="backgroundColor" red="0.13350695369999999" green="0.13364198799999999" blue="0.13352787490000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" relation="lessThanOrEqual" constant="288" id="gef-Es-TGY"/>
+                                        </constraints>
+                                        <string key="text">Join the slack if you'd like to ask for help, discuss the future of the app, engage with other users, or just talk about your favorite music!</string>
+                                        <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
@@ -2107,36 +2251,45 @@ On the Settings screen, you can adjust which types of releases you want to see. 
                                 <color key="backgroundColor" red="0.13350695369999999" green="0.13364198799999999" blue="0.13352787490000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="rqa-6t-OAP" secondAttribute="trailing" constant="18" id="2E3-fc-Spo"/>
-                                    <constraint firstAttribute="bottom" secondItem="u5d-8K-Rpx" secondAttribute="bottom" constant="19" id="7Sr-BS-1cE"/>
                                     <constraint firstItem="rqa-6t-OAP" firstAttribute="top" secondItem="fgj-O8-LrV" secondAttribute="bottom" constant="18" id="DJp-pa-9ii"/>
+                                    <constraint firstItem="Z0y-1u-l7X" firstAttribute="top" secondItem="rqa-6t-OAP" secondAttribute="bottom" constant="18" id="HPk-5w-2bu"/>
+                                    <constraint firstItem="xQO-Ds-PcJ" firstAttribute="top" secondItem="Z0y-1u-l7X" secondAttribute="bottom" constant="18" id="KBv-0v-NUi"/>
                                     <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="u5d-8K-Rpx" secondAttribute="trailing" constant="18" id="LBR-br-z0m"/>
+                                    <constraint firstItem="xQO-Ds-PcJ" firstAttribute="centerX" secondItem="Mr2-U3-A9t" secondAttribute="centerX" id="Lvg-6M-kRV"/>
                                     <constraint firstItem="fgj-O8-LrV" firstAttribute="top" secondItem="Mr2-U3-A9t" secondAttribute="top" constant="21" id="Pdr-Vu-75P"/>
+                                    <constraint firstItem="xQO-Ds-PcJ" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Mr2-U3-A9t" secondAttribute="leading" constant="18" id="SAb-ji-Sj2"/>
+                                    <constraint firstAttribute="bottom" secondItem="u5d-8K-Rpx" secondAttribute="bottom" constant="18" id="SRp-8l-SvW"/>
                                     <constraint firstItem="fgj-O8-LrV" firstAttribute="centerX" secondItem="Mr2-U3-A9t" secondAttribute="centerX" id="Sm7-tB-2aa"/>
                                     <constraint firstItem="hAt-Rw-Lvn" firstAttribute="centerX" secondItem="Mr2-U3-A9t" secondAttribute="centerX" id="T7e-Rc-25P"/>
                                     <constraint firstItem="rqa-6t-OAP" firstAttribute="centerX" secondItem="Mr2-U3-A9t" secondAttribute="centerX" id="Ujm-ee-CBc"/>
                                     <constraint firstItem="rqa-6t-OAP" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Mr2-U3-A9t" secondAttribute="leading" constant="18" id="XPo-RY-ySg"/>
                                     <constraint firstItem="u5d-8K-Rpx" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Mr2-U3-A9t" secondAttribute="leading" constant="18" id="Yiu-aF-YWU"/>
-                                    <constraint firstItem="hAt-Rw-Lvn" firstAttribute="top" secondItem="rqa-6t-OAP" secondAttribute="bottom" constant="18" id="gD7-yx-zDc"/>
+                                    <constraint firstItem="Z0y-1u-l7X" firstAttribute="centerX" secondItem="Mr2-U3-A9t" secondAttribute="centerX" id="i1s-Hy-c6s"/>
                                     <constraint firstItem="u5d-8K-Rpx" firstAttribute="top" secondItem="hAt-Rw-Lvn" secondAttribute="bottom" constant="18" id="iTn-hJ-qiV"/>
+                                    <constraint firstItem="hAt-Rw-Lvn" firstAttribute="top" secondItem="xQO-Ds-PcJ" secondAttribute="bottom" constant="18" id="o0v-29-tQl"/>
+                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="xQO-Ds-PcJ" secondAttribute="trailing" constant="18" id="txc-4s-mpo"/>
                                     <constraint firstItem="u5d-8K-Rpx" firstAttribute="centerX" secondItem="Mr2-U3-A9t" secondAttribute="centerX" id="vtZ-qb-ALi"/>
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" red="0.13350695369999999" green="0.13364198799999999" blue="0.13352787490000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.1333333333" green="0.1333333333" blue="0.1333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="Mr2-U3-A9t" secondAttribute="trailing" id="77C-lo-wJ3"/>
-                            <constraint firstItem="Mr2-U3-A9t" firstAttribute="top" secondItem="8oG-p8-MA2" secondAttribute="bottom" id="u1y-nB-cQg"/>
-                            <constraint firstItem="Mr2-U3-A9t" firstAttribute="leading" secondItem="bca-Rs-n3H" secondAttribute="leading" id="y28-JG-jpn"/>
+                            <constraint firstItem="Mr2-U3-A9t" firstAttribute="top" secondItem="pGu-p7-8Qv" secondAttribute="top" id="2ZK-sG-GZG"/>
+                            <constraint firstAttribute="trailing" secondItem="Mr2-U3-A9t" secondAttribute="trailing" id="IXP-WD-cfF"/>
+                            <constraint firstAttribute="bottom" secondItem="Mr2-U3-A9t" secondAttribute="bottom" id="atx-63-piD"/>
+                            <constraint firstItem="Mr2-U3-A9t" firstAttribute="leading" secondItem="pGu-p7-8Qv" secondAttribute="leading" id="byM-9m-REP"/>
+                            <constraint firstItem="Mr2-U3-A9t" firstAttribute="width" secondItem="pGu-p7-8Qv" secondAttribute="width" id="sGj-YZ-VhM"/>
                         </constraints>
-                    </view>
+                    </scrollView>
                     <connections>
                         <outlet property="discussOnRedditButtonOutlet" destination="hAt-Rw-Lvn" id="Zp7-ma-oil"/>
                         <outlet property="emailDeveloperButton" destination="fgj-O8-LrV" id="k6B-Al-hjL"/>
+                        <outlet property="joinSlackButton" destination="Z0y-1u-l7X" id="Pxw-S4-d9U"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OsD-lm-89w" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1733" y="2693"/>
+            <point key="canvasLocation" x="1731.8840579710147" y="2692.663043478261"/>
         </scene>
         <!--Stats-->
         <scene sceneID="sgH-t4-KDi">
