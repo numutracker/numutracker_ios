@@ -35,7 +35,7 @@ class ArtistReleaseTableViewCell: UITableViewCell {
     var loadedListenLinks = false
     var isObserving = false
 
-    var thumbUrl: NSURL!
+    var thumbUrl: URL!
 
     func configure(releaseInfo: ReleaseItem) {
         listenStatus = releaseInfo.listenStatus

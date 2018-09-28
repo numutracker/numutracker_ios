@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4401CBB8215DC8D000B0EB23 /* AlbumArtCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4401CBB7215DC8D000B0EB23 /* AlbumArtCache.swift */; };
 		441CC0AF215DB769009F4114 /* numuIcon_1024.png in Resources */ = {isa = PBXBuildFile; fileRef = 441CC0AE215DB769009F4114 /* numuIcon_1024.png */; };
 		4461CB79215844C9001939F0 /* AsyncOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4461CB78215844C9001939F0 /* AsyncOperation.swift */; };
 		4461CB7B2158470C001939F0 /* FetchJSONOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4461CB7A2158470C001939F0 /* FetchJSONOperation.swift */; };
@@ -26,7 +27,6 @@
 		B4283A911D8548F300467CE6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B4283A8F1D8548F300467CE6 /* LaunchScreen.storyboard */; };
 		B4283ABD1D8658AD00467CE6 /* ReleaseItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4283ABC1D8658AD00467CE6 /* ReleaseItem.swift */; };
 		B42866081DA5FC53000E5FA6 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = B42866071DA5FC53000E5FA6 /* User.swift */; };
-		B428660A1DA7645C000E5FA6 /* AlbumArtCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = B42866091DA7645C000E5FA6 /* AlbumArtCache.swift */; };
 		B43705D81E357C8C0060E6CC /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B43705D71E357C8C0060E6CC /* SettingsTableViewController.swift */; };
 		B43E36B01F5DF9BA009834C9 /* NumuLogo1024.png in Resources */ = {isa = PBXBuildFile; fileRef = B43E36AF1F5DF9B9009834C9 /* NumuLogo1024.png */; };
 		B43E36B21F5DFAD0009834C9 /* LogRegPromptViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B43E36B11F5DFAD0009834C9 /* LogRegPromptViewController.swift */; };
@@ -54,6 +54,7 @@
 
 /* Begin PBXFileReference section */
 		01361C8695313B7121751750 /* Pods-Numu Tracker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Numu Tracker.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Numu Tracker/Pods-Numu Tracker.debug.xcconfig"; sourceTree = "<group>"; };
+		4401CBB7215DC8D000B0EB23 /* AlbumArtCache.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlbumArtCache.swift; sourceTree = "<group>"; };
 		441CC0AE215DB769009F4114 /* numuIcon_1024.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = numuIcon_1024.png; path = Design/icon/numuIcon_1024.png; sourceTree = SOURCE_ROOT; };
 		4461CB78215844C9001939F0 /* AsyncOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncOperation.swift; sourceTree = "<group>"; };
 		4461CB7A2158470C001939F0 /* FetchJSONOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchJSONOperation.swift; sourceTree = "<group>"; };
@@ -76,7 +77,6 @@
 		B4283A921D8548F300467CE6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B4283ABC1D8658AD00467CE6 /* ReleaseItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReleaseItem.swift; sourceTree = "<group>"; };
 		B42866071DA5FC53000E5FA6 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
-		B42866091DA7645C000E5FA6 /* AlbumArtCache.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlbumArtCache.swift; sourceTree = "<group>"; };
 		B43705D71E357C8C0060E6CC /* SettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 		B43AF1E31DCE4C94008F7EBD /* Numu Tracker.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Numu Tracker.entitlements"; sourceTree = "<group>"; };
 		B43E36AF1F5DF9B9009834C9 /* NumuLogo1024.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = NumuLogo1024.png; sourceTree = "<group>"; };
@@ -266,7 +266,7 @@
 		B4CCFCC11DB425FD00D2277B /* Backend */ = {
 			isa = PBXGroup;
 			children = (
-				B42866091DA7645C000E5FA6 /* AlbumArtCache.swift */,
+				4401CBB7215DC8D000B0EB23 /* AlbumArtCache.swift */,
 				B45A133C20548632001EBDA5 /* NumuCredential.swift */,
 				B45A133E2054CBDF001EBDA5 /* NumuClient.swift */,
 				B45A134020551C46001EBDA5 /* Extensions.swift */,
@@ -396,6 +396,7 @@
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-Numu Tracker/Pods-Numu Tracker-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/CryptoSwift/CryptoSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
 				"${BUILT_PRODUCTS_DIR}/PusherSwift/PusherSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/ReachabilitySwift/Reachability.framework",
 				"${BUILT_PRODUCTS_DIR}/Starscream/Starscream.framework",
@@ -405,6 +406,7 @@
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CryptoSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PusherSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Reachability.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Starscream.framework",
@@ -509,6 +511,7 @@
 				B4CCFCC71DB4353E00D2277B /* NumuUIButton.swift in Sources */,
 				B4CCFCC51DB4311B00D2277B /* AddArtistsViewController.swift in Sources */,
 				4461CB8B21589AB4001939F0 /* RegisterWithCKOperation.swift in Sources */,
+				4401CBB8215DC8D000B0EB23 /* AlbumArtCache.swift in Sources */,
 				B440D9D71DB2D19300477938 /* ArtistItem.swift in Sources */,
 				B440D9D51DB2D13900477938 /* ArtistsTableViewController.swift in Sources */,
 				B4B49B871E5EBE4B001CE1C7 /* ReleaseFiltersViewController.swift in Sources */,
@@ -518,7 +521,6 @@
 				B416A6621DC52DBA000F86D9 /* ReleaseTableViewCell.swift in Sources */,
 				B45A134120551C46001EBDA5 /* Extensions.swift in Sources */,
 				B42866081DA5FC53000E5FA6 /* User.swift in Sources */,
-				B428660A1DA7645C000E5FA6 /* AlbumArtCache.swift in Sources */,
 				4461CB79215844C9001939F0 /* AsyncOperation.swift in Sources */,
 				B4CCFCBC1DB3F8EE00D2277B /* ArtistReleaseTableViewCell.swift in Sources */,
 				B40E35921DB1D88C004BA8C7 /* NumuTabBarController.swift in Sources */,

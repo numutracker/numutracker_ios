@@ -3,6 +3,7 @@ PODS:
     - Fabric (~> 1.7.12)
   - CryptoSwift (0.9.0)
   - Fabric (1.7.12)
+  - Kingfisher (4.10.0)
   - PusherSwift (6.1.0):
     - CryptoSwift (~> 0.9.0)
     - ReachabilitySwift (~> 4.1.0)
@@ -16,6 +17,7 @@ PODS:
 DEPENDENCIES:
   - Crashlytics (~> 3.10)
   - Fabric
+  - Kingfisher (~> 4.0)
   - PusherSwift
   - SwiftyJSON
 
@@ -24,6 +26,7 @@ SPEC REPOS:
     - Crashlytics
     - CryptoSwift
     - Fabric
+    - Kingfisher
     - PusherSwift
     - ReachabilitySwift
     - Starscream
@@ -34,12 +37,13 @@ SPEC CHECKSUMS:
   Crashlytics: 058dc1ba579f6c100bc60a6878703779bff383c4
   CryptoSwift: bca8c5b653dcc2d9734409242a070ff53bafac86
   Fabric: d7387db9a31aadff63b147a4b91d982c53afaa4f
+  Kingfisher: 43c4b802d8b5256cf1f4379e9cd10b329be6d3e2
   PusherSwift: 6f2535d616cf0d6867a58bee501999995ad37999
   ReachabilitySwift: 6849231cd4e06559f3b9ef4a97a0a0f96d41e09f
   Starscream: faf918b2f2eff7d5dd21180646bf015a669673bd
   SwiftyJSON: c4bcba26dd9ec7a027fc8eade48e2c911f229e96
   TaskQueue: 53a3cdaf817d9ce3cd50837ff6610aeb7b968997
 
-PODFILE CHECKSUM: 6cf0b2eef86f6ef1c9985b44ad7702385f62b5ef
+PODFILE CHECKSUM: fbda42974632f6c92e4ea2aebd1061b37c57a3ae
 
 COCOAPODS: 1.6.0.beta.1

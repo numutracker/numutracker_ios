@@ -207,24 +207,10 @@ class AllReleasesTableViewController: UITableViewController {
         // Image loading.
         cell.artIndicator.startAnimating()
         cell.thumbUrl = releaseInfo.thumbUrl // For recycled cells' late image loads.
-
-        if let image = releaseInfo.thumbUrl.cachedImage {
-            // Cached: set immediately.
-            cell.artImageView.image = image
-            cell.artImageView.alpha = 1
-        } else {
-            // Not cached, so load then fade it in.
-            cell.artImageView.alpha = 0
-            releaseInfo.thumbUrl.fetchImage { image in
-                // Check the cell hasn't recycled while loading.
-                if cell.thumbUrl == releaseInfo.thumbUrl {
-                    cell.artImageView.image = image
-                    UIView.animate(withDuration: 0.3) {
-                        cell.artImageView.alpha = 1
-                    }
-                }
-            }
-        }
+        
+        cell.artImageView.kf.setImage(
+            with: cell.thumbUrl,
+            options: [.transition(.fade(0.2))])
 
         let rowsToLoadFromBottom = 20
 

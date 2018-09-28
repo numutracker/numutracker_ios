@@ -8,6 +8,7 @@
 
 import UIKit
 import Crashlytics
+import Kingfisher
 
 class ArtistsTableViewController: UITableViewController, UISearchBarDelegate, UISearchResultsUpdating {
 
@@ -216,24 +217,10 @@ class ArtistsTableViewController: UITableViewController, UISearchBarDelegate, UI
         cell.configure(artistInfo: artistInfo)
         cell.albumActivityIndicator.startAnimating()
         cell.thumbUrl = artistInfo.thumbUrl // For recycled cells' late image loads.
-
-        if let image = artistInfo.thumbUrl.cachedImage {
-            // Cached: set immediately.
-            cell.artistArt.image = image
-            cell.artistArt.alpha = 1
-        } else {
-            // Not cached, so load then fade it in.
-            cell.artistArt.alpha = 0
-            artistInfo.thumbUrl.fetchImage { image in
-                // Check the cell hasn't recycled while loading.
-                if cell.thumbUrl == artistInfo.thumbUrl {
-                    cell.artistArt.image = image
-                    UIView.animate(withDuration: 0.3) {
-                        cell.artistArt.alpha = 1
-                    }
-                }
-            }
-        }
+        
+        cell.artistArt.kf.setImage(
+            with: cell.thumbUrl,
+            options: [.transition(.fade(0.2))])
 
         return cell
     }
