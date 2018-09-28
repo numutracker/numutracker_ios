@@ -2000,8 +2000,22 @@ or manually search and follow artists.</string>
                                         <rect key="frame" x="18" y="259.66666666666669" width="378" height="627.33333333333326"/>
                                         <color key="backgroundColor" red="0.13350695369999999" green="0.13364198799999999" blue="0.13352787490000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <attributedString key="attributedText">
-                                            <fragment>
-                                                <string key="content">Your first step will be to import some artists, using the page available on the Settings screen. You can also manually search and follow any artists you like on the </string>
+                                            <fragment content="Your first step will be to import some artists, using the page available on the ">
+                                                <attributes>
+                                                    <color key="NSColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <font key="NSFont" metaFont="system" size="16"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                </attributes>
+                                            </fragment>
+                                            <fragment content="More">
+                                                <attributes>
+                                                    <color key="NSColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <font key="NSFont" size="16" name=".AppleSystemUIFontEmphasized"/>
+                                                    <font key="NSOriginalFont" size="16" name=".AppleSystemUIFontEmphasized"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                </attributes>
+                                            </fragment>
+                                            <fragment content=" screen. You can also manually search and follow any artists you like on the ">
                                                 <attributes>
                                                     <color key="NSColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                     <font key="NSFont" metaFont="system" size="16"/>
