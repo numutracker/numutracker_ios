@@ -27,7 +27,11 @@ See also the list of [contributors](https://github.com/amiantos/numutracker_ios/
 
 ## Beta Testers
 
-If you'd like to beta test production versions of Numu Tracker, please email info@numutracker.com
+If you'd like to beta test production versions of Numu Tracker, you can join via [this TestFlight link](https://testflight.apple.com/join/Voa7rsgJ).
+
+## Slack
+
+Numu Tracker has a Slack, if you care to join (you should, especially if you're a beta tester), join here: [Join the Numu Tracker Slack](https://join.slack.com/t/numutracker/shared_invite/enQtNDQ0ODM3MzEyNDY2LTgxM2Y4ZjhkNTBmMjdhYjFiNjMxY2Y2YjEwMTljMzkzYTYwYzAyOGY4ZDAwMTg0MWMyMGUzODZjZTgzZDc3Zjc).
 
 ## License
 

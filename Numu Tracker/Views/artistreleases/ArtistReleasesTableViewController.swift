@@ -111,23 +111,11 @@ class ArtistReleasesTableViewController: UITableViewController {
         cell.configure(releaseInfo: releaseInfo)
         cell.albumArtActivityIndicator.startAnimating()
         cell.thumbUrl = releaseInfo.thumbUrl // For recycled cells' late image loads.
-        if let image = releaseInfo.thumbUrl.cachedImage {
-            // Cached: set immediately.
-            cell.albumArt.image = image
-            cell.albumArt.alpha = 1
-        } else {
-            // Not cached, so load then fade it in.
-            cell.albumArt.alpha = 0
-            releaseInfo.thumbUrl.fetchImage { image in
-                // Check the cell hasn't recycled while loading.
-                if cell.thumbUrl == releaseInfo.thumbUrl {
-                    cell.albumArt.image = image
-                    UIView.animate(withDuration: 0.3) {
-                        cell.albumArt.alpha = 1
-                    }
-                }
-            }
-        }
+        
+        cell.albumArt.kf.setImage(
+            with: cell.thumbUrl,
+            options: [.transition(.fade(0.2))])
+
         return cell
     }
 

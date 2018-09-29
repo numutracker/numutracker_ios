@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import Crashlytics
 
 class AuthOperation: AsyncOperation {
     
@@ -24,6 +25,9 @@ class AuthOperation: AsyncOperation {
                     result == "1" {
                     print("SUCCESS: AuthTest with existing credentials successful!")
                     defaults.logged = true
+                    if let username = NumuCredential.shared.getUsername() {
+                        Crashlytics.sharedInstance().setUserEmail(username)
+                    }
                     self.sendNotifcations()
                     self.state = .isFinished
                 } else {

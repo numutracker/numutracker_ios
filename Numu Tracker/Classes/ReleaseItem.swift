@@ -28,7 +28,7 @@ struct ReleaseItem {
     let artistArtLarge: String
     let artistArtXLarge: String
     let releaseType: String
-    let thumbUrl: NSURL
+    let thumbUrl: URL
     var listenStatus: String
 
     init?(json: JSON) {
@@ -94,11 +94,11 @@ struct ReleaseItem {
         self.listenStatus = json["status"].string ?? "0"
 
         if self.albumArtThumb == "https://www.numutracker.com/nonly3-1024.png" {
-            self.thumbUrl = NSURL(string: self.artistArtFull)!
+            self.thumbUrl = URL(string: self.artistArtFull)!
         } else if !self.albumArtThumb.isEmpty {
-            self.thumbUrl = NSURL(string: self.albumArtFull)!
+            self.thumbUrl = URL(string: self.albumArtFull)!
         } else {
-            self.thumbUrl = NSURL(string: "")!
+            self.thumbUrl = URL(string: "")!
         }
 
     }

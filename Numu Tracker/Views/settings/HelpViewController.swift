@@ -16,11 +16,20 @@ class HelpViewController: UIViewController, MFMailComposeViewControllerDelegate 
 
     @IBOutlet weak var discussOnRedditButtonOutlet: NumuUIButton!
 
+    @IBOutlet weak var joinSlackButton: NumuUIButton!
+
     @IBAction func discussOnRedditButton(_ sender: NumuUIButton) {
         let url = URL(string: "http://www.reddit.com/r/numutracker")
         UIApplication.shared.open(url!)
     }
 
+    @IBAction func joinSlackButton(_ sender: Any) {
+        let url = URL(string: "https://join.slack.com/t/numutracker/shared_invite/" +
+            "enQtNDQ0ODM3MzEyNDY2LTgxM2Y4ZjhkNTBmMjdhYjFiNjMxY2Y2YjEwMTljMzkzYTYwYz" +
+            "AyOGY4ZDAwMTg0MWMyMGUzODZjZTgzZDc3Zjc")
+        UIApplication.shared.open(url!)
+    }
+    
     @IBAction func emailDeveloperButtonAction(_ sender: Any) {
         if MFMailComposeViewController.canSendMail() {
             let mail = MFMailComposeViewController()
@@ -55,6 +64,7 @@ class HelpViewController: UIViewController, MFMailComposeViewControllerDelegate 
 
         setupButton(button: emailDeveloperButton)
         setupButton(button: discussOnRedditButtonOutlet)
+        setupButton(button: joinSlackButton)
 
         Answers.logCustomEvent(withName: "Help View", customAttributes: nil)
 

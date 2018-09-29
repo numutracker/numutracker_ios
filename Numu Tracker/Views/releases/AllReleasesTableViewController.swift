@@ -13,6 +13,20 @@ let defaults = UserDefaults.standard
 
 class AllReleasesTableViewController: UITableViewController {
 
+    @IBOutlet weak var importFromAMButton: NumuUIButton!
+    @IBOutlet weak var importFromAMSpinner: UIActivityIndicatorView!
+    @IBAction func importFromAMAction(_ sender: Any) {
+        importFromAMSpinner.startAnimating()
+        let importAMOperation = ImportAppleMusicOperation()
+        let queue = OperationQueue()
+        importAMOperation.qualityOfService = .userInteractive
+        importAMOperation.completionBlock = {
+            DispatchQueue.main.async {
+                self.importFromAMSpinner.stopAnimating()
+            }
+        }
+        queue.addOperation(importAMOperation)
+    }
     var lastSelectedArtistId: String = ""
     var lastSelectedArtistName: String = ""
     var selectedIndexPath: IndexPath?
@@ -22,16 +36,17 @@ class AllReleasesTableViewController: UITableViewController {
         didSet {
             if releaseData.totalPages == "0" {
                 DispatchQueue.main.async(execute: {
-                    self.tableView.tableHeaderView = self.noResultsFooterView
                     self.tableView.tableFooterView = UIView()
                     if self.slideType == 3 {
-                        self.noResultsLabel.text = "After you've followed some artists, any releases" +
-                            "(upcoming or past) added to the system will show up here.\n\nCheck back later."
+                        self.tableView.tableHeaderView = self.otherNoResultsFooterView
+                        self.otherNoResultsLabel.text = "Over time this view will fill up with any releases" +
+                            " added to the system after you've joined. These releases may be old, they may be new," +
+                            " they just weren't in Numu Tracker before now."
                     } else if self.slideType == 2 {
-                        self.noResultsLabel.text = "Any upcoming releases will appear here."
+                        self.tableView.tableHeaderView = self.otherNoResultsFooterView
+                        self.otherNoResultsLabel.text = "No upcoming releases"
                     } else {
-                        self.noResultsLabel.text = "No results.\n\nHave you followed some artists?\n\n" +
-                            "Pull to refresh when you have."
+                        self.tableView.tableHeaderView = self.noResultsFooterView
                     }
                 })
             } else {
@@ -45,6 +60,8 @@ class AllReleasesTableViewController: UITableViewController {
     var viewType: Int = 1
     var slideType: Int = 0
 
+    @IBOutlet weak var otherNoResultsLabel: UILabel!
+    @IBOutlet var otherNoResultsFooterView: UIView!
     @IBOutlet var footerView: UIView!
     @IBOutlet var noResultsFooterView: UIView!
     @IBOutlet weak var noResultsLabel: UILabel!
@@ -145,6 +162,22 @@ class AllReleasesTableViewController: UITableViewController {
         self.refreshControl?.addTarget(self, action: #selector(handleRefresh), for: .valueChanged)
 
         self.tableView.tableFooterView = self.footerView
+        
+        importFromAMButton.backgroundColor = .clear
+        importFromAMButton.layer.cornerRadius = 5
+        importFromAMButton.layer.borderWidth = 1
+        importFromAMButton.layer.borderColor = UIColor.gray.cgColor
+        
+        var newFrame = noResultsFooterView.frame
+        var height: CGFloat = self.tableView.bounds.height
+        height -= UIApplication.shared.statusBarFrame.size.height
+        height -= (self.navigationController?.navigationBar.frame.size.height)!
+        height -= (self.tabBarController?.tabBar.frame.size.height)!
+        newFrame.size.height = height
+        noResultsFooterView.frame = newFrame
+        otherNoResultsFooterView.frame = newFrame
+        footerView.frame = newFrame
+        
     }
 
     deinit {
@@ -174,24 +207,10 @@ class AllReleasesTableViewController: UITableViewController {
         // Image loading.
         cell.artIndicator.startAnimating()
         cell.thumbUrl = releaseInfo.thumbUrl // For recycled cells' late image loads.
-
-        if let image = releaseInfo.thumbUrl.cachedImage {
-            // Cached: set immediately.
-            cell.artImageView.image = image
-            cell.artImageView.alpha = 1
-        } else {
-            // Not cached, so load then fade it in.
-            cell.artImageView.alpha = 0
-            releaseInfo.thumbUrl.fetchImage { image in
-                // Check the cell hasn't recycled while loading.
-                if cell.thumbUrl == releaseInfo.thumbUrl {
-                    cell.artImageView.image = image
-                    UIView.animate(withDuration: 0.3) {
-                        cell.artImageView.alpha = 1
-                    }
-                }
-            }
-        }
+        
+        cell.artImageView.kf.setImage(
+            with: cell.thumbUrl,
+            options: [.transition(.fade(0.2))])
 
         let rowsToLoadFromBottom = 20
 

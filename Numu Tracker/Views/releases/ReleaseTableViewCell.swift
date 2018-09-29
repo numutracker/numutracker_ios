@@ -20,7 +20,7 @@ class ReleaseTableViewCell: UITableViewCell {
     @IBOutlet weak var metaLabel: UILabel!
     @IBOutlet weak var artistLabel: UILabel!
     @IBOutlet weak var releaseNameLabel: UILabel!
-    var thumbUrl: NSURL!
+    var thumbUrl: URL!
     var listenState: String! {
         didSet {
             listenedIndicatorView.isHidden = listenState == "1"

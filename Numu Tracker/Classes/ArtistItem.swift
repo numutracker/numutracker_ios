@@ -19,7 +19,7 @@ struct ArtistItem {
     let artistArtLarge: String
     let artistArtXLarge: String
     var followStatus: String
-    let thumbUrl: NSURL
+    let thumbUrl: URL
     let unlistened: String
     let totalReleases: String
 
@@ -61,9 +61,9 @@ struct ArtistItem {
         }
 
         if !self.artistArtFull.isEmpty {
-            self.thumbUrl = NSURL(string: self.artistArtFull)!
+            self.thumbUrl = URL(string: self.artistArtFull)!
         } else {
-            self.thumbUrl = NSURL(string: "")!
+            self.thumbUrl = URL(string: "")!
         }
     }
 

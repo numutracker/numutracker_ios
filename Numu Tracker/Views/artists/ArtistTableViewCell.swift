@@ -13,7 +13,7 @@ class ArtistTableViewCell: UITableViewCell {
     @IBOutlet weak var releasesData: UILabel!
     @IBOutlet weak var artistArt: UIImageView!
     @IBOutlet weak var artistNameLabel: UILabel!
-    var thumbUrl: NSURL!
+    var thumbUrl: URL!
     var followStatus: String = "0"
     @IBOutlet weak var recentReleaseLabel: UILabel!
     @IBOutlet weak var albumActivityIndicator: UIActivityIndicatorView!

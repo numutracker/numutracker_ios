@@ -9,6 +9,7 @@
 import Foundation
 import MediaPlayer
 import UIKit
+import Crashlytics
 
 class ImportAppleMusicOperation: AsyncOperation {
     
@@ -67,9 +68,13 @@ class ImportAppleMusicOperation: AsyncOperation {
                     if let returnedJSON = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] {
                         if let success = returnedJSON["success"] {
                             self.artistsImported = success as! Int
-                            NotificationCenter.default.post(name: .UpdatedArtists, object: self)
                             NumuReviewHelper.incrementAndAskForReview()
                             self.displaySuccessMessage()
+                            DispatchQueue.main.async(execute: {
+                                NotificationCenter.default.post(name: .UpdatedArtists, object: nil)
+                                NotificationCenter.default.post(name: .LoggedIn, object: nil)
+                                Answers.logCustomEvent(withName: "AM Artist Import")
+                            })
                         }
                     }
                 } catch {
@@ -92,8 +97,8 @@ class ImportAppleMusicOperation: AsyncOperation {
         DispatchQueue.main.async {
             let controller = UIAlertController(
                 title: "Success",
-                message: "\(self.artistsImported) artists imported." +
-                    "Please allow several minutes for all artists to appear.",
+                message: "Your artists have been imported." +
+                    " Please allow several minutes for all artists to appear.",
                 preferredStyle: .alert)
             controller.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
             if let appDelegate = UIApplication.shared.delegate,
@@ -111,7 +116,7 @@ class ImportAppleMusicOperation: AsyncOperation {
             error = "Media library access restricted by corporate or parental settings"
         case .denied:
             error = "We cannot access your Apple Music artists because access has been denied to Numu." +
-                "Please go to General -> Privacy -> Media & Apple Music to enable Numu's access."
+                " Please go to General -> Privacy -> Media & Apple Music to enable Numu's access."
         default:
             error = "Unknown error"
         }
