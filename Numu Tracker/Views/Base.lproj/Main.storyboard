@@ -9,82 +9,6 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--About-->
-        <scene sceneID="AMa-5S-cfg">
-            <objects>
-                <viewController title="About" automaticallyAdjustsScrollViewInsets="NO" id="W1t-RN-Lm0" customClass="AboutViewController" customModule="Numu_Tracker" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="EQD-xe-Xy8"/>
-                        <viewControllerLayoutGuide type="bottom" id="9Cq-It-Qu1"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="v02-tk-Tpu">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ocR-Vm-hgi">
-                                <rect key="frame" x="0.0" y="64" width="414" height="623"/>
-                                <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EgC-rT-eNR">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="598"/>
-                                        <subviews>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bradroot-new-2880-man.png" translatesAutoresizingMaskIntoConstraints="NO" id="1sl-2L-nDG">
-                                                <rect key="frame" x="40" y="40" width="334" height="334"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="240" id="FhO-iz-KYa"/>
-                                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="240" id="TDs-EO-cMF"/>
-                                                    <constraint firstAttribute="width" secondItem="1sl-2L-nDG" secondAttribute="height" multiplier="1:1" id="Ved-GK-dbK"/>
-                                                </constraints>
-                                            </imageView>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ui9-65-oOu">
-                                                <rect key="frame" x="22" y="392" width="370.33333333333331" height="188"/>
-                                                <color key="backgroundColor" red="0.13350695369999999" green="0.13364198799999999" blue="0.13352787490000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <string key="text">Numu Tracker was designed and programmed by Brad Root.
-
-Numu Tracker pulls release information from MusicBrainz.org, and art from Last.FM.
-
-Special thanks to Wes Biffar and all my beta testers (especially Andie).
-</string>
-                                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                            </textView>
-                                        </subviews>
-                                        <color key="backgroundColor" red="0.13350695369999999" green="0.13364198799999999" blue="0.13352787490000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <constraints>
-                                            <constraint firstItem="1sl-2L-nDG" firstAttribute="centerX" secondItem="EgC-rT-eNR" secondAttribute="centerX" id="4az-dh-liE"/>
-                                            <constraint firstItem="ui9-65-oOu" firstAttribute="centerX" secondItem="EgC-rT-eNR" secondAttribute="centerX" id="6eC-yt-y3j"/>
-                                            <constraint firstAttribute="trailing" secondItem="1sl-2L-nDG" secondAttribute="trailing" constant="40" id="Lnj-uP-zld"/>
-                                            <constraint firstItem="ui9-65-oOu" firstAttribute="top" secondItem="1sl-2L-nDG" secondAttribute="bottom" constant="18" id="Pf3-ud-fPg"/>
-                                            <constraint firstItem="1sl-2L-nDG" firstAttribute="leading" secondItem="EgC-rT-eNR" secondAttribute="leading" constant="40" id="RZu-pY-5jr"/>
-                                            <constraint firstAttribute="bottom" secondItem="ui9-65-oOu" secondAttribute="bottom" constant="18" id="VHJ-ki-Kvh"/>
-                                            <constraint firstItem="ui9-65-oOu" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="EgC-rT-eNR" secondAttribute="leading" constant="18" id="eFP-M8-gil"/>
-                                            <constraint firstItem="1sl-2L-nDG" firstAttribute="top" secondItem="EgC-rT-eNR" secondAttribute="top" constant="40" id="vdi-dX-qfb"/>
-                                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="ui9-65-oOu" secondAttribute="trailing" constant="18" id="wkp-NL-m0S"/>
-                                        </constraints>
-                                    </view>
-                                </subviews>
-                                <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="EgC-rT-eNR" secondAttribute="bottom" id="BvY-TX-IbH"/>
-                                    <constraint firstAttribute="trailing" secondItem="EgC-rT-eNR" secondAttribute="trailing" id="KDo-1V-Rgy"/>
-                                    <constraint firstItem="EgC-rT-eNR" firstAttribute="width" secondItem="ocR-Vm-hgi" secondAttribute="width" id="q6i-ML-NuX"/>
-                                    <constraint firstItem="EgC-rT-eNR" firstAttribute="leading" secondItem="ocR-Vm-hgi" secondAttribute="leading" id="rjd-0R-831"/>
-                                    <constraint firstItem="EgC-rT-eNR" firstAttribute="top" secondItem="ocR-Vm-hgi" secondAttribute="top" id="wVP-Ft-KSE"/>
-                                </constraints>
-                            </scrollView>
-                        </subviews>
-                        <color key="backgroundColor" red="0.13350695369999999" green="0.13364198799999999" blue="0.13352787490000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <constraints>
-                            <constraint firstItem="9Cq-It-Qu1" firstAttribute="top" secondItem="ocR-Vm-hgi" secondAttribute="bottom" id="P2u-xp-dPE"/>
-                            <constraint firstItem="ocR-Vm-hgi" firstAttribute="leading" secondItem="v02-tk-Tpu" secondAttribute="leading" id="gYg-dj-aUK"/>
-                            <constraint firstAttribute="trailing" secondItem="ocR-Vm-hgi" secondAttribute="trailing" id="ohe-p7-e9I"/>
-                            <constraint firstItem="ocR-Vm-hgi" firstAttribute="top" secondItem="EQD-xe-Xy8" secondAttribute="bottom" id="qyS-Xo-ORG"/>
-                        </constraints>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="8so-fw-TSE" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="158" y="2694"/>
-        </scene>
         <!--Apple Music-->
         <scene sceneID="Rdb-Mj-gZl">
             <objects>
@@ -1784,7 +1708,7 @@ or manually search and follow artists.</string>
                                             <rect key="frame" x="0.0" y="0.0" width="376" height="43.666666666666664"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Apple Music Import" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nu8-hd-nq8">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Apple Music" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nu8-hd-nq8">
                                                     <rect key="frame" x="18" y="11.333333333333336" width="350" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -1804,7 +1728,7 @@ or manually search and follow artists.</string>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
-                            <tableViewSection headerTitle="More" id="x6o-5p-VrU">
+                            <tableViewSection headerTitle="Help" id="x6o-5p-VrU">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" id="wai-bd-eEh">
                                         <rect key="frame" x="0.0" y="399.33333333333337" width="414" height="44"/>
@@ -1854,31 +1778,6 @@ or manually search and follow artists.</string>
                                         <color key="backgroundColor" red="0.13350695369999999" green="0.13364198799999999" blue="0.13352787490000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <connections>
                                             <segue destination="Now-IP-Fwq" kind="show" id="Iqk-ZQ-Tsc"/>
-                                        </connections>
-                                    </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" id="8IH-Vn-BEN">
-                                        <rect key="frame" x="0.0" y="487.33333333333337" width="414" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="8IH-Vn-BEN" id="n1L-EU-wvh">
-                                            <rect key="frame" x="0.0" y="0.0" width="376" height="43.666666666666664"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="About" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gi6-kK-N4o">
-                                                    <rect key="frame" x="18" y="11.333333333333336" width="350" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstAttribute="trailingMargin" secondItem="gi6-kK-N4o" secondAttribute="trailing" id="QtB-7i-BIl"/>
-                                                <constraint firstItem="gi6-kK-N4o" firstAttribute="leading" secondItem="n1L-EU-wvh" secondAttribute="leading" constant="18" id="edD-bE-88r"/>
-                                                <constraint firstItem="gi6-kK-N4o" firstAttribute="centerY" secondItem="n1L-EU-wvh" secondAttribute="centerY" id="hu8-6D-5Xa"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                        <color key="backgroundColor" red="0.13350695369999999" green="0.13364198799999999" blue="0.13352787490000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <connections>
-                                            <segue destination="W1t-RN-Lm0" kind="show" identifier="aboutSegue" id="5Cz-Ef-jMc"/>
                                         </connections>
                                     </tableViewCell>
                                 </cells>
@@ -2180,7 +2079,7 @@ On the </string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6bQ-br-uwt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="945" y="2694"/>
+            <point key="canvasLocation" x="3339" y="1971"/>
         </scene>
         <!--Get Help-->
         <scene sceneID="pvz-Oh-qRb">
@@ -2195,7 +2094,7 @@ On the </string>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mr2-U3-A9t">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="476.66666666666669"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="512.66666666666663"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fgj-O8-LrV" customClass="NumuUIButton" customModule="Numu_Tracker" customModuleProvider="target">
                                         <rect key="frame" x="92" y="21" width="230" height="44"/>
@@ -2209,7 +2108,7 @@ On the </string>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hAt-Rw-Lvn" customClass="NumuUIButton" customModule="Numu_Tracker" customModuleProvider="target">
-                                        <rect key="frame" x="92" y="330.33333333333331" width="230" height="44"/>
+                                        <rect key="frame" x="92" y="366.33333333333331" width="230" height="44"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="44" id="OWC-TT-M0o"/>
                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="230" id="PgQ-mC-pP9"/>
@@ -2219,8 +2118,8 @@ On the </string>
                                             <action selector="discussOnRedditButton:" destination="Now-IP-Fwq" eventType="touchUpInside" id="gxk-nB-pfC"/>
                                         </connections>
                                     </button>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="Feel free to email me (Hi, I'm Brad) any time with any problems you have or feature suggestions / ideas." textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rqa-6t-OAP">
-                                        <rect key="frame" x="63" y="83" width="288" height="66.333333333333314"/>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="Hi! I'm Brad. Feel free to email me any time with problems you have or feature suggestions / ideas." textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rqa-6t-OAP">
+                                        <rect key="frame" x="63.666666666666657" y="83" width="287" height="66.333333333333314"/>
                                         <color key="backgroundColor" red="0.13350695369999999" green="0.13364198799999999" blue="0.13352787490000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" relation="lessThanOrEqual" constant="288" id="Vao-IS-8Zf"/>
@@ -2229,8 +2128,8 @@ On the </string>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="I'll post update notes for new versions of the app and sometimes ask for feedback on our subreddit." textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u5d-8K-Rpx">
-                                        <rect key="frame" x="68.666666666666657" y="392.33333333333331" width="276.66666666666674" height="66.333333333333314"/>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="I'll post update notes for new versions of the app and sometimes ask for feedback on our subreddit. I'm u/staires on reddit." textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u5d-8K-Rpx">
+                                        <rect key="frame" x="68.666666666666657" y="428.33333333333331" width="276.66666666666674" height="66.333333333333314"/>
                                         <color key="backgroundColor" red="0.13350695369999999" green="0.13364198799999999" blue="0.13352787490000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" relation="lessThanOrEqual" constant="288" id="QPf-Ko-92J"/>
@@ -2240,7 +2139,7 @@ On the </string>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z0y-1u-l7X" customClass="NumuUIButton" customModule="Numu_Tracker" customModuleProvider="target">
-                                        <rect key="frame" x="92" y="167.33333333333334" width="230" height="44"/>
+                                        <rect key="frame" x="92" y="185.33333333333334" width="230" height="44"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="44" id="0et-WN-LiG"/>
                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="230" id="hz9-zI-JY6"/>
@@ -2251,12 +2150,12 @@ On the </string>
                                         </connections>
                                     </button>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xQO-Ds-PcJ">
-                                        <rect key="frame" x="64" y="229.33333333333337" width="286.33333333333331" height="83"/>
+                                        <rect key="frame" x="64" y="247.33333333333337" width="286.33333333333331" height="83"/>
                                         <color key="backgroundColor" red="0.13350695369999999" green="0.13364198799999999" blue="0.13352787490000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" relation="lessThanOrEqual" constant="288" id="gef-Es-TGY"/>
                                         </constraints>
-                                        <string key="text">Join the slack if you'd like to ask for help, discuss the future of the app, engage with other users, or just talk about your favorite music!</string>
+                                        <string key="text">Join the Slack if you'd like to ask for help, discuss the future of the app, engage with other users, or just talk about your favorite music! I'm @amiantos on Slack.</string>
                                         <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -2266,7 +2165,7 @@ On the </string>
                                 <constraints>
                                     <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="rqa-6t-OAP" secondAttribute="trailing" constant="18" id="2E3-fc-Spo"/>
                                     <constraint firstItem="rqa-6t-OAP" firstAttribute="top" secondItem="fgj-O8-LrV" secondAttribute="bottom" constant="18" id="DJp-pa-9ii"/>
-                                    <constraint firstItem="Z0y-1u-l7X" firstAttribute="top" secondItem="rqa-6t-OAP" secondAttribute="bottom" constant="18" id="HPk-5w-2bu"/>
+                                    <constraint firstItem="Z0y-1u-l7X" firstAttribute="top" secondItem="rqa-6t-OAP" secondAttribute="bottom" constant="36" id="HPk-5w-2bu"/>
                                     <constraint firstItem="xQO-Ds-PcJ" firstAttribute="top" secondItem="Z0y-1u-l7X" secondAttribute="bottom" constant="18" id="KBv-0v-NUi"/>
                                     <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="u5d-8K-Rpx" secondAttribute="trailing" constant="18" id="LBR-br-z0m"/>
                                     <constraint firstItem="xQO-Ds-PcJ" firstAttribute="centerX" secondItem="Mr2-U3-A9t" secondAttribute="centerX" id="Lvg-6M-kRV"/>
@@ -2280,7 +2179,7 @@ On the </string>
                                     <constraint firstItem="u5d-8K-Rpx" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Mr2-U3-A9t" secondAttribute="leading" constant="18" id="Yiu-aF-YWU"/>
                                     <constraint firstItem="Z0y-1u-l7X" firstAttribute="centerX" secondItem="Mr2-U3-A9t" secondAttribute="centerX" id="i1s-Hy-c6s"/>
                                     <constraint firstItem="u5d-8K-Rpx" firstAttribute="top" secondItem="hAt-Rw-Lvn" secondAttribute="bottom" constant="18" id="iTn-hJ-qiV"/>
-                                    <constraint firstItem="hAt-Rw-Lvn" firstAttribute="top" secondItem="xQO-Ds-PcJ" secondAttribute="bottom" constant="18" id="o0v-29-tQl"/>
+                                    <constraint firstItem="hAt-Rw-Lvn" firstAttribute="top" secondItem="xQO-Ds-PcJ" secondAttribute="bottom" constant="36" id="o0v-29-tQl"/>
                                     <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="xQO-Ds-PcJ" secondAttribute="trailing" constant="18" id="txc-4s-mpo"/>
                                     <constraint firstItem="u5d-8K-Rpx" firstAttribute="centerX" secondItem="Mr2-U3-A9t" secondAttribute="centerX" id="vtZ-qb-ALi"/>
                                 </constraints>
@@ -2303,7 +2202,7 @@ On the </string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OsD-lm-89w" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1731.8840579710147" y="2692.663043478261"/>
+            <point key="canvasLocation" x="4104" y="1971"/>
         </scene>
         <!--Stats-->
         <scene sceneID="sgH-t4-KDi">
@@ -2563,7 +2462,6 @@ On the </string>
     </scenes>
     <resources>
         <image name="appleMusic" width="128" height="47"/>
-        <image name="bradroot-new-2880-man.png" width="2880" height="2880"/>
         <image name="drums" width="23.666666030883789" height="23"/>
         <image name="soundwave" width="31" height="21"/>
         <image name="yours" width="21.666666030883789" height="23"/>
