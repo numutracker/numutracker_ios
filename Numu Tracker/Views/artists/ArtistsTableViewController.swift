@@ -27,13 +27,35 @@ class ArtistsTableViewController: UITableViewController, UISearchBarDelegate, UI
         queue.addOperation(importAMOperation)
     }
     var artists: [ArtistItem] = []
+
+    var sortMethod: String = UserDefaults.standard.string(forKey: "sortArtists") ?? "date" {
+        didSet {
+            UserDefaults.standard.set(self.sortMethod, forKey: "sortArtists")
+            loadArtists()
+        }
+    }
     
-    var sortMethod: String = "date"
     var lastSelectedArtistId: String = ""
     var lastSelectedArtistName: String = ""
     
     var searchTerms: String?
     
+    @IBOutlet weak var sortButton: UIBarButtonItem!
+    @IBAction func sortButtonAction(_ sender: Any) {
+        
+        let sortView = NumuSortView()
+        sortView.providesPresentationContextTransitionStyle = true
+        sortView.definesPresentationContext = true
+        sortView.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
+        sortView.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
+        sortView.sortDelegate = self
+        if let appDelegate = UIApplication.shared.delegate,
+            let appWindow = appDelegate.window!,
+            let rootViewController = appWindow.rootViewController {
+            rootViewController.present(sortView, animated: true, completion: nil)
+        }        
+    }
+
     enum States {
         case user, search
     }
@@ -42,8 +64,10 @@ class ArtistsTableViewController: UITableViewController, UISearchBarDelegate, UI
         didSet {
             if viewState == .user {
                 self.navigationItem.title = "Your Artists"
+                self.sortButton.isEnabled = true
             } else {
                 self.navigationItem.title = "Search Artists"
+                self.sortButton.isEnabled = false
             }
         }
     }
@@ -57,6 +81,17 @@ class ArtistsTableViewController: UITableViewController, UISearchBarDelegate, UI
 
     @IBOutlet var footerView: UIView!
 
+    fileprivate func loadArtists() {
+        // Get list of artists...
+        
+        NumuClient.shared.getArtists(sortBy: self.sortMethod) {[weak self](artists) in
+            self?.artists = artists
+            DispatchQueue.main.async(execute: {
+                self?.loadTable()
+            })
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.tableFooterView = footerView
@@ -76,6 +111,8 @@ class ArtistsTableViewController: UITableViewController, UISearchBarDelegate, UI
         searchController.dimsBackgroundDuringPresentation = false
         tableView.tableHeaderView = searchController.searchBar
         
+        sortButton.tintColor = UIColor.white
+        
         self.view?.snapshotView(afterScreenUpdates: true)
         
         importAppleMusicButton.backgroundColor = .clear
@@ -91,14 +128,7 @@ class ArtistsTableViewController: UITableViewController, UISearchBarDelegate, UI
         newFrame.size.height = height
         noResultsView.frame = newFrame
 
-        // Get list of artists...
-
-        NumuClient.shared.getArtists(sortBy: self.sortMethod) {[weak self](artists) in
-            self?.artists = artists
-            DispatchQueue.main.async(execute: {
-                self?.loadTable()
-            })
-        }
+        loadArtists()
 
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(actOnImportNotification),
@@ -121,12 +151,7 @@ class ArtistsTableViewController: UITableViewController, UISearchBarDelegate, UI
     }
 
     @objc func actOnImportNotification() {
-        NumuClient.shared.getArtists(sortBy: self.sortMethod) {[weak self](artists) in
-            self?.artists = artists
-            DispatchQueue.main.async(execute: {
-                self?.loadTable()
-            })
-        }
+        loadArtists()
     }
 
     lazy var artistRefreshControl: UIRefreshControl = {
@@ -298,5 +323,11 @@ class ArtistsTableViewController: UITableViewController, UISearchBarDelegate, UI
             destination.artistId = artistId
             destination.artistName = artistName
         }
+    }
+}
+
+extension ArtistsTableViewController: SortViewDelegate {
+    func sortOptionTapped(name: String) {
+        self.sortMethod = name
     }
 }

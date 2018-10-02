@@ -705,13 +705,21 @@ Any imported artists you've unfollowed will not be re-imported.</string>
                             <outlet property="delegate" destination="VYe-bB-NhT" id="tYP-Bm-vUN"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Artists" id="CZK-ah-BQs"/>
+                    <navigationItem key="navigationItem" title="Artists" id="CZK-ah-BQs">
+                        <barButtonItem key="rightBarButtonItem" title="Sort" image="sort" id="rwo-Jh-RDC">
+                            <color key="tintColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                            <connections>
+                                <action selector="sortButtonAction:" destination="VYe-bB-NhT" id="tRM-RL-dv1"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="footerView" destination="ehb-Cy-MJ4" id="ZNm-gz-Iey"/>
                         <outlet property="importAppleMusicActivityIndicator" destination="HOU-cY-yOZ" id="2Yx-0Z-3O3"/>
                         <outlet property="importAppleMusicButton" destination="MOv-eW-vnE" id="ybe-vU-nfr"/>
                         <outlet property="noResultsView" destination="d5o-MA-Zs4" id="kLs-sN-1Je"/>
                         <outlet property="noSearchResultsView" destination="0xk-gl-YmH" id="vs5-Ds-xcM"/>
+                        <outlet property="sortButton" destination="rwo-Jh-RDC" id="psu-Z4-2Tm"/>
                     </connections>
                 </tableViewController>
                 <view contentMode="scaleToFill" id="ehb-Cy-MJ4">
@@ -2463,11 +2471,12 @@ On the </string>
     <resources>
         <image name="appleMusic" width="128" height="47"/>
         <image name="drums" width="23.666666030883789" height="23"/>
+        <image name="sort" width="22" height="22"/>
         <image name="soundwave" width="31" height="21"/>
         <image name="yours" width="21.666666030883789" height="23"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="jcr-Ul-g7T"/>
+        <segue reference="f0Q-AI-Q2O"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
 </document>

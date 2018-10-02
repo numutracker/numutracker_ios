@@ -49,7 +49,7 @@ class ArtistReleasesTableViewController: UITableViewController {
                         self?.tableView.beginUpdates()
                         self?.tableView.endUpdates()
                         self?.tableView.tableFooterView = UIView()
-                        if (self?.releases.isEmpty)! {
+                        if self?.releases.isEmpty ?? true {
                             self?.tableView.tableFooterView = self?.noResultsView
                         }
                     })

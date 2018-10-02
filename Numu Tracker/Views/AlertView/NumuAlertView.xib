@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina3_5" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="NumuAlertView" customModule="Numu_Tracker" customModuleProvider="target">
+            <connections>
+                <outlet property="acceptButton" destination="IAI-ri-ajW" id="IH6-3p-3pc"/>
+                <outlet property="alertView" destination="fQ2-gx-kpS" id="2ln-2A-WaT"/>
+                <outlet property="messageLabel" destination="gDR-w4-J9C" id="vCb-CZ-1r1"/>
+                <outlet property="titleLabel" destination="7jo-hI-4ze" id="DFK-ws-1MH"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fQ2-gx-kpS">
+                    <rect key="frame" x="40" y="164" width="240" height="172"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Success" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7jo-hI-4ze">
+                            <rect key="frame" x="87.5" y="18" width="65" height="21"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="21" id="0n7-pa-c1F"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IAI-ri-ajW">
+                            <rect key="frame" x="0.0" y="132" width="240" height="40"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="40" id="gq0-Fg-AaF"/>
+                            </constraints>
+                            <inset key="contentEdgeInsets" minX="10" minY="10" maxX="10" maxY="10"/>
+                            <state key="normal" title="Groovy">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </state>
+                            <connections>
+                                <action selector="acceptButtonAction:" destination="-1" eventType="touchUpInside" id="VNY-oc-qzb"/>
+                            </connections>
+                        </button>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="top" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your artists have been imported. Please wait several minutes for all artists to appear in your collection." textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gDR-w4-J9C">
+                            <rect key="frame" x="24" y="47" width="192" height="62.5"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                            <color key="textColor" cocoaTouchSystemColor="lightTextColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZcA-MY-yFP">
+                            <rect key="frame" x="0.0" y="131" width="240" height="1"/>
+                            <color key="backgroundColor" white="0.2870826198630137" alpha="0.50390625" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="1" id="1Y1-g7-zVw"/>
+                                <constraint firstAttribute="width" constant="240" id="e54-i4-haG"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                    <color key="backgroundColor" red="0.1333333333" green="0.1333333333" blue="0.1333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstItem="IAI-ri-ajW" firstAttribute="top" secondItem="gDR-w4-J9C" secondAttribute="bottom" constant="22.5" id="Lvq-bW-arr"/>
+                        <constraint firstItem="7jo-hI-4ze" firstAttribute="top" secondItem="fQ2-gx-kpS" secondAttribute="top" constant="18" id="O2b-NY-UeW"/>
+                        <constraint firstItem="IAI-ri-ajW" firstAttribute="leading" secondItem="fQ2-gx-kpS" secondAttribute="leading" id="RRb-uT-YoH"/>
+                        <constraint firstItem="IAI-ri-ajW" firstAttribute="top" secondItem="ZcA-MY-yFP" secondAttribute="bottom" id="SOT-48-pai"/>
+                        <constraint firstAttribute="trailing" secondItem="IAI-ri-ajW" secondAttribute="trailing" id="UCb-rU-5Av"/>
+                        <constraint firstItem="gDR-w4-J9C" firstAttribute="top" secondItem="7jo-hI-4ze" secondAttribute="bottom" constant="8" id="V5E-Zq-S7y"/>
+                        <constraint firstAttribute="bottom" secondItem="IAI-ri-ajW" secondAttribute="bottom" id="gM3-kK-u2k"/>
+                        <constraint firstAttribute="width" constant="240" id="hDL-Cr-yBM"/>
+                        <constraint firstItem="gDR-w4-J9C" firstAttribute="leading" secondItem="fQ2-gx-kpS" secondAttribute="leading" constant="24" id="qWs-4Y-mtx"/>
+                        <constraint firstItem="ZcA-MY-yFP" firstAttribute="centerX" secondItem="fQ2-gx-kpS" secondAttribute="centerX" id="vcY-th-mKZ"/>
+                        <constraint firstAttribute="trailing" secondItem="gDR-w4-J9C" secondAttribute="trailing" constant="24" id="xMb-R5-bb2"/>
+                        <constraint firstItem="7jo-hI-4ze" firstAttribute="centerX" secondItem="fQ2-gx-kpS" secondAttribute="centerX" id="zuZ-GV-Qh2"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="fQ2-gx-kpS" firstAttribute="centerY" secondItem="fnl-2z-Ty3" secondAttribute="centerY" id="rct-4N-reA"/>
+                <constraint firstItem="fQ2-gx-kpS" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="tmA-DC-jyB"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <point key="canvasLocation" x="52.5" y="113.75"/>
+        </view>
+    </objects>
+</document>
