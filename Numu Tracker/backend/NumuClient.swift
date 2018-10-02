@@ -127,6 +127,8 @@ class NumuClient {
         self.getJSON(with: endPoint) { (json) in
             if let result = json["result"].string {
                 result == "1" ? completion(true) : completion(false)
+            } else {
+                completion(false)
             }
         }
     }
@@ -136,6 +138,8 @@ class NumuClient {
         self.getJSON(with: endPoint) { (json) in
             if let result = json["result"].string {
                 result == "1" ? completion("1") : completion("0")
+            } else {
+                completion("0")
             }
         }
     }
@@ -145,6 +149,8 @@ class NumuClient {
         self.getJSON(with: endPoint) { (json) in
             if let result = json["result"].string {
                 result != "0" ? completion(result) : completion("0")
+            } else {
+                completion("0")
             }
         }
     }
@@ -156,7 +162,7 @@ class NumuClient {
         let endPoint = "/v2/json.php?single_artist=" + username + "&search=" + search
         self.getJSON(with: endPoint) { (json) in
             completion(.init(with: json))
-        }
+        } 
     }
 
     func getArtists(sortBy: String, completion: @escaping ([ArtistItem]) -> Void) {
