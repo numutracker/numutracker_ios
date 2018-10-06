@@ -1,8 +1,8 @@
 PODS:
-  - Crashlytics (3.10.8):
-    - Fabric (~> 1.7.12)
+  - Crashlytics (3.10.9):
+    - Fabric (~> 1.7.13)
   - CryptoSwift (0.9.0)
-  - Fabric (1.7.12)
+  - Fabric (1.7.13)
   - Kingfisher (4.10.0)
   - PusherSwift (6.1.0):
     - CryptoSwift (~> 0.9.0)
@@ -34,9 +34,9 @@ SPEC REPOS:
     - TaskQueue
 
 SPEC CHECKSUMS:
-  Crashlytics: 058dc1ba579f6c100bc60a6878703779bff383c4
+  Crashlytics: 55e24fc23989680285a21cb1146578d9d18e432c
   CryptoSwift: bca8c5b653dcc2d9734409242a070ff53bafac86
-  Fabric: d7387db9a31aadff63b147a4b91d982c53afaa4f
+  Fabric: 25d0963b691fc97be566392243ff0ecef5a68338
   Kingfisher: 43c4b802d8b5256cf1f4379e9cd10b329be6d3e2
   PusherSwift: 6f2535d616cf0d6867a58bee501999995ad37999
   ReachabilitySwift: 6849231cd4e06559f3b9ef4a97a0a0f96d41e09f
