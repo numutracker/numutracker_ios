@@ -41,7 +41,7 @@ class NumuAlertView: UIViewController {
         alertView.layer.shadowRadius = 20
         acceptButton.setTitleColor(.white, for: .normal)
         acceptButton.setTitleColor(.white, for: .highlighted)
-        self.view.backgroundColor = UIColor.black.withAlphaComponent(0)
+        self.view.backgroundColor = UIColor.black.withAlphaComponent(0.5)
         
         if let message = self.messageText {
             self.messageLabel.text = message

@@ -57,7 +57,7 @@ class NumuSortView: UIViewController {
         sortOptionsView.layer.shadowOffset = CGSize.zero
         sortOptionsView.layer.shadowRadius = 20
         
-        self.view.backgroundColor = UIColor.black.withAlphaComponent(0.2)
+        self.view.backgroundColor = UIColor.black.withAlphaComponent(0.5)
     }
     
     func animateView() {

@@ -23,10 +23,10 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MV0-Ki-jfG">
-                    <rect key="frame" x="16" y="599" width="343" height="48"/>
+                    <rect key="frame" x="16" y="553" width="343" height="54"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w2m-yT-NaJ">
-                            <rect key="frame" x="0.0" y="0.0" width="343" height="48"/>
+                            <rect key="frame" x="0.0" y="0.0" width="343" height="54"/>
                             <color key="tintColor" cocoaTouchSystemColor="lightTextColor"/>
                             <state key="normal" title="Cancel">
                                 <color key="titleColor" cocoaTouchSystemColor="lightTextColor"/>
@@ -41,41 +41,41 @@
                         <constraint firstItem="w2m-yT-NaJ" firstAttribute="top" secondItem="MV0-Ki-jfG" secondAttribute="top" id="6qt-6o-v52"/>
                         <constraint firstAttribute="trailing" secondItem="w2m-yT-NaJ" secondAttribute="trailing" id="9zj-Jf-DTa"/>
                         <constraint firstItem="w2m-yT-NaJ" firstAttribute="leading" secondItem="MV0-Ki-jfG" secondAttribute="leading" id="Fx8-zR-5AF"/>
-                        <constraint firstAttribute="height" constant="48" id="Mam-vr-rKe"/>
+                        <constraint firstAttribute="height" constant="54" id="Mam-vr-rKe"/>
                         <constraint firstAttribute="bottom" secondItem="w2m-yT-NaJ" secondAttribute="bottom" id="Syn-9D-6pz"/>
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zRK-r9-KBt">
-                    <rect key="frame" x="16" y="387" width="343" height="192"/>
+                    <rect key="frame" x="16" y="317" width="343" height="216"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vje-cL-4aZ">
-                            <rect key="frame" x="0.0" y="48" width="343" height="1"/>
-                            <color key="backgroundColor" white="0.2870826199" alpha="0.50390625" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <rect key="frame" x="0.0" y="54" width="343" height="1"/>
+                            <color key="backgroundColor" white="0.2870826199" alpha="0.1973191352739726" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="1" id="bTN-Fa-nuq"/>
                             </constraints>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Oho-gZ-qZi">
-                            <rect key="frame" x="0.0" y="96" width="343" height="1"/>
-                            <color key="backgroundColor" white="0.2870826199" alpha="0.50390625" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <rect key="frame" x="0.0" y="108" width="343" height="1"/>
+                            <color key="backgroundColor" white="0.2870826199" alpha="0.1973191352739726" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="1" id="Glb-Gf-jOt"/>
                             </constraints>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XfS-1R-P5d">
-                            <rect key="frame" x="0.0" y="143" width="343" height="1"/>
-                            <color key="backgroundColor" white="0.2870826199" alpha="0.50390625" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <rect key="frame" x="0.0" y="161" width="343" height="1"/>
+                            <color key="backgroundColor" white="0.2870826199" alpha="0.1973191352739726" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="1" id="U4p-8j-L0S"/>
                             </constraints>
                         </view>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GQ5-YL-nwp">
-                            <rect key="frame" x="0.0" y="144" width="343" height="48"/>
+                            <rect key="frame" x="0.0" y="162" width="343" height="54"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="48" id="U42-bf-Fz2"/>
+                                <constraint firstAttribute="height" constant="54" id="U42-bf-Fz2"/>
                             </constraints>
                             <color key="tintColor" cocoaTouchSystemColor="lightTextColor"/>
-                            <state key="normal" title="Artist Name">
+                            <state key="normal" title="Artist Name (Alphabetical)">
                                 <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </state>
                             <connections>
@@ -83,9 +83,9 @@
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e4g-3b-f5D">
-                            <rect key="frame" x="0.0" y="96" width="343" height="48"/>
+                            <rect key="frame" x="0.0" y="108" width="343" height="54"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="48" id="JSP-cw-vsD"/>
+                                <constraint firstAttribute="height" constant="54" id="JSP-cw-vsD"/>
                             </constraints>
                             <color key="tintColor" cocoaTouchSystemColor="lightTextColor"/>
                             <state key="normal" title="Artist Name (Last, First)">
@@ -96,9 +96,9 @@
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BIj-bx-Unp">
-                            <rect key="frame" x="0.0" y="48" width="343" height="48"/>
+                            <rect key="frame" x="0.0" y="54" width="343" height="54"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="48" id="yJd-DQ-iHA"/>
+                                <constraint firstAttribute="height" constant="54" id="yJd-DQ-iHA"/>
                             </constraints>
                             <color key="tintColor" cocoaTouchSystemColor="lightTextColor"/>
                             <state key="normal" title="Release Date (Descending)">
@@ -108,12 +108,12 @@
                                 <action selector="sortByReleaseAction:" destination="-1" eventType="touchUpInside" id="vYc-CC-YSJ"/>
                             </connections>
                         </button>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sort by" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2je-UX-nxA">
-                            <rect key="frame" x="0.0" y="0.0" width="343" height="48"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sort by..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2je-UX-nxA">
+                            <rect key="frame" x="0.0" y="0.0" width="343" height="54"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="48" id="adM-ga-TGP"/>
+                                <constraint firstAttribute="height" constant="54" id="adM-ga-TGP"/>
                             </constraints>
-                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
                             <color key="textColor" cocoaTouchSystemColor="lightTextColor"/>
                             <nil key="highlightedColor"/>
                         </label>
@@ -147,7 +147,7 @@
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="MV0-Ki-jfG" secondAttribute="bottom" constant="20" id="Dcj-vo-oYf"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="MV0-Ki-jfG" secondAttribute="bottom" constant="60" id="Dcj-vo-oYf"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="zRK-r9-KBt" secondAttribute="trailing" constant="16" id="IMl-xw-9D1"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="MV0-Ki-jfG" secondAttribute="trailing" constant="16" id="LnN-gD-8S0"/>
                 <constraint firstItem="MV0-Ki-jfG" firstAttribute="top" secondItem="zRK-r9-KBt" secondAttribute="bottom" constant="20" id="bfQ-FN-7t2"/>
