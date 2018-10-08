@@ -1734,12 +1734,37 @@ or manually search and follow artists.</string>
                                             <segue destination="m1H-bQ-zGZ" kind="show" id="9wy-G8-N8S"/>
                                         </connections>
                                     </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" id="b5r-cn-G1v">
+                                        <rect key="frame" x="0.0" y="343.33333333333337" width="414" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="b5r-cn-G1v" id="nfv-bZ-Toy">
+                                            <rect key="frame" x="0.0" y="0.0" width="376" height="43.666666666666664"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Spotify" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="klP-41-I8G">
+                                                    <rect key="frame" x="18" y="11.333333333333336" width="350" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="klP-41-I8G" firstAttribute="leading" secondItem="nfv-bZ-Toy" secondAttribute="leading" constant="18" id="U8N-Mg-l1O"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="klP-41-I8G" secondAttribute="trailing" id="dBn-Ak-BIs"/>
+                                                <constraint firstItem="klP-41-I8G" firstAttribute="centerY" secondItem="nfv-bZ-Toy" secondAttribute="centerY" id="zGC-n0-2pZ"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" red="0.13350695369999999" green="0.13364198799999999" blue="0.13352787490000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <connections>
+                                            <segue destination="qIZ-Em-4yq" kind="show" id="G24-UN-N2R"/>
+                                        </connections>
+                                    </tableViewCell>
                                 </cells>
                             </tableViewSection>
                             <tableViewSection headerTitle="Help" id="x6o-5p-VrU">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" id="wai-bd-eEh">
-                                        <rect key="frame" x="0.0" y="399.33333333333337" width="414" height="44"/>
+                                        <rect key="frame" x="0.0" y="443.33333333333337" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="wai-bd-eEh" id="PiK-ej-qHy">
                                             <rect key="frame" x="0.0" y="0.0" width="376" height="43.666666666666664"/>
@@ -1764,7 +1789,7 @@ or manually search and follow artists.</string>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" id="hcg-7S-L2U">
-                                        <rect key="frame" x="0.0" y="443.33333333333337" width="414" height="44"/>
+                                        <rect key="frame" x="0.0" y="487.33333333333337" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="hcg-7S-L2U" id="m5r-Mr-Eea">
                                             <rect key="frame" x="0.0" y="0.0" width="376" height="43.666666666666664"/>
@@ -1806,6 +1831,24 @@ or manually search and follow artists.</string>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YWa-9r-bfs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1039" y="1220"/>
+        </scene>
+        <!--Import Spotify View Controller-->
+        <scene sceneID="n8Z-qq-sus">
+            <objects>
+                <viewController id="qIZ-Em-4yq" customClass="ImportSpotifyViewController" customModule="Numu_Tracker" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="8kP-CU-bUH"/>
+                        <viewControllerLayoutGuide type="bottom" id="WUy-yp-kU0"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="gae-I2-OW4">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.1333333333" green="0.1333333333" blue="0.1333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gqw-a7-uHp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1865" y="1218"/>
         </scene>
         <!--Your Artists-->
         <scene sceneID="hjy-Ge-Nda">
@@ -2471,7 +2514,7 @@ On the </string>
     <resources>
         <image name="appleMusic" width="128" height="47"/>
         <image name="drums" width="23.666666030883789" height="23"/>
-        <image name="sort" width="22" height="22"/>
+        <image name="sort" width="20.666666030883789" height="16"/>
         <image name="soundwave" width="31" height="21"/>
         <image name="yours" width="21.666666030883789" height="23"/>
     </resources>

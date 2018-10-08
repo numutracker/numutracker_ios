@@ -15,5 +15,5 @@ target 'Numu Tracker' do
     pod 'Fabric'
     pod 'Crashlytics', '~>  3.10'
     pod 'Kingfisher', '~> 4.0'
-
+    pod 'SpotifyLogin', '~> 0.1'
 end
