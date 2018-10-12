@@ -1,5 +1,5 @@
 //
-//  ImportSpotifyViewController.swift
+//  LoginSpotifyViewController.swift
 //  Numu Tracker
 //
 //  Created by Brad Root on 10/11/18.
@@ -7,37 +7,32 @@
 //
 
 import UIKit
+import SpotifyLogin
 
-class ImportSpotifyViewController: UIViewController {
-    
-    @IBOutlet weak var importSpotifyIndicator: UIActivityIndicatorView!
-    @IBAction func importSpotifyAction(_ sender: Any) {
-    }
-    
+class LoginSpotifyViewController: UIViewController {
 
+    var loginButton: UIButton?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
         
-        let spotifyLogin = LoginSpotifyViewController()
+        self.title = "Spotify Login"
         
+        let button = SpotifyLoginButton(viewController: self, scopes: [.streaming, .userLibraryRead])
         
-        // present(spotifyLogin, animated: true, completion: nil)
+        self.view.addSubview(button)
         
-        //self.navigationController?.addChild(spotifyLogin)
-        //self.navigationController?.prese
-        
-        show(spotifyLogin, sender: nil)
-        
-        
+        self.loginButton = button
         
     }
     
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
+        loginButton?.center = self.view.center
     }
-    
+
 
     /*
     // MARK: - Navigation

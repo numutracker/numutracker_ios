@@ -1832,10 +1832,10 @@ or manually search and follow artists.</string>
             </objects>
             <point key="canvasLocation" x="1039" y="1220"/>
         </scene>
-        <!--Import Spotify View Controller-->
+        <!--Spotify-->
         <scene sceneID="n8Z-qq-sus">
             <objects>
-                <viewController id="qIZ-Em-4yq" customClass="ImportSpotifyViewController" customModule="Numu_Tracker" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Spotify" id="qIZ-Em-4yq" customClass="ImportSpotifyViewController" customModule="Numu_Tracker" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="8kP-CU-bUH"/>
                         <viewControllerLayoutGuide type="bottom" id="WUy-yp-kU0"/>
@@ -1843,8 +1843,48 @@ or manually search and follow artists.</string>
                     <view key="view" contentMode="scaleToFill" id="gae-I2-OW4">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sHL-Xp-MiE" customClass="NumuUIButton" customModule="Numu_Tracker" customModuleProvider="target">
+                                <rect key="frame" x="118" y="88" width="178" height="42"/>
+                                <inset key="contentEdgeInsets" minX="10" minY="10" maxX="10" maxY="10"/>
+                                <state key="normal" title="Import from Spotify"/>
+                                <connections>
+                                    <action selector="importSpotifyAction:" destination="qIZ-Em-4yq" eventType="touchUpInside" id="9fm-9n-d4v"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="11" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gV3-9k-5qm">
+                                <rect key="frame" x="63" y="146" width="288" height="184"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="lessThanOrEqual" constant="288" id="XGB-ep-ME5"/>
+                                </constraints>
+                                <string key="text">This will download only the list of artists you have in your library into the Numu Tracker database. 
+
+Your artists are only imported when you hit the button, so come back here occasionally to catch new artists you've added to your library.
+
+Any imported artists you've unfollowed will not be re-imported.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="8zH-BM-ldc">
+                                <rect key="frame" x="304" y="99" width="20" height="20"/>
+                            </activityIndicatorView>
+                        </subviews>
                         <color key="backgroundColor" red="0.1333333333" green="0.1333333333" blue="0.1333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="sHL-Xp-MiE" firstAttribute="top" secondItem="8kP-CU-bUH" secondAttribute="bottom" constant="24" id="6hi-A6-I63"/>
+                            <constraint firstItem="gV3-9k-5qm" firstAttribute="top" secondItem="sHL-Xp-MiE" secondAttribute="bottom" constant="16" id="Hw9-Cz-PkY"/>
+                            <constraint firstItem="sHL-Xp-MiE" firstAttribute="centerX" secondItem="gae-I2-OW4" secondAttribute="centerX" id="Kf5-tl-b7k"/>
+                            <constraint firstItem="8zH-BM-ldc" firstAttribute="centerY" secondItem="sHL-Xp-MiE" secondAttribute="centerY" id="T1I-Fb-feL"/>
+                            <constraint firstItem="gV3-9k-5qm" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="gae-I2-OW4" secondAttribute="leading" constant="18" id="Y28-1S-IWX"/>
+                            <constraint firstItem="gV3-9k-5qm" firstAttribute="centerX" secondItem="gae-I2-OW4" secondAttribute="centerX" id="gFr-sZ-Qyq"/>
+                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="gV3-9k-5qm" secondAttribute="trailing" constant="18" id="oKk-Mx-SkO"/>
+                            <constraint firstItem="8zH-BM-ldc" firstAttribute="leading" secondItem="sHL-Xp-MiE" secondAttribute="trailing" constant="8" id="vi4-jG-3ik"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="importSpotifyIndicator" destination="8zH-BM-ldc" id="0wQ-2w-MLr"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gqw-a7-uHp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

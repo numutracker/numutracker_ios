@@ -10,6 +10,10 @@
 		4401CBB8215DC8D000B0EB23 /* AlbumArtCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4401CBB7215DC8D000B0EB23 /* AlbumArtCache.swift */; };
 		441CC0AF215DB769009F4114 /* numuIcon_1024.png in Resources */ = {isa = PBXBuildFile; fileRef = 441CC0AE215DB769009F4114 /* numuIcon_1024.png */; };
 		443EBB8821702D430071A11D /* ImportSpotifyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 443EBB8721702D430071A11D /* ImportSpotifyViewController.swift */; };
+		443EBB8B217053530071A11D /* LoginSpotifyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 443EBB89217053530071A11D /* LoginSpotifyViewController.swift */; };
+		443EBB8C217053530071A11D /* LoginSpotifyViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 443EBB8A217053530071A11D /* LoginSpotifyViewController.xib */; };
+		443EBB8F2170547A0071A11D /* ReleaseDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 443EBB8D2170547A0071A11D /* ReleaseDetailsViewController.swift */; };
+		443EBB902170547A0071A11D /* ReleaseDetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 443EBB8E2170547A0071A11D /* ReleaseDetailsViewController.xib */; };
 		4459C3D02164444F00EB4048 /* SpotifyiOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4459C3CF2164444F00EB4048 /* SpotifyiOS.framework */; };
 		4459C3D721658A7900EB4048 /* NumuAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4459C3D521658A7900EB4048 /* NumuAlertView.swift */; };
 		4459C3D821658A7900EB4048 /* NumuAlertView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4459C3D621658A7900EB4048 /* NumuAlertView.xib */; };
@@ -63,6 +67,10 @@
 		4401CBB7215DC8D000B0EB23 /* AlbumArtCache.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlbumArtCache.swift; sourceTree = "<group>"; };
 		441CC0AE215DB769009F4114 /* numuIcon_1024.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = numuIcon_1024.png; path = Design/icon/numuIcon_1024.png; sourceTree = SOURCE_ROOT; };
 		443EBB8721702D430071A11D /* ImportSpotifyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportSpotifyViewController.swift; sourceTree = "<group>"; };
+		443EBB89217053530071A11D /* LoginSpotifyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginSpotifyViewController.swift; sourceTree = "<group>"; };
+		443EBB8A217053530071A11D /* LoginSpotifyViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginSpotifyViewController.xib; sourceTree = "<group>"; };
+		443EBB8D2170547A0071A11D /* ReleaseDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReleaseDetailsViewController.swift; sourceTree = "<group>"; };
+		443EBB8E2170547A0071A11D /* ReleaseDetailsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ReleaseDetailsViewController.xib; sourceTree = "<group>"; };
 		4459C3CF2164444F00EB4048 /* SpotifyiOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SpotifyiOS.framework; sourceTree = "<group>"; };
 		4459C3D12164469800EB4048 /* Numu Tracker-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Numu Tracker-Bridging-Header.h"; sourceTree = "<group>"; };
 		4459C3D521658A7900EB4048 /* NumuAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumuAlertView.swift; sourceTree = "<group>"; };
@@ -173,6 +181,9 @@
 				B4D525E31E353187000B7ADD /* ReleaseList */,
 				44D3916D21691D3100CFB9A3 /* AlertView */,
 				44D3917221691D5400CFB9A3 /* SortView */,
+				443EBB89217053530071A11D /* LoginSpotifyViewController.swift */,
+				443EBB8A217053530071A11D /* LoginSpotifyViewController.xib */,
+				443EBB91217054800071A11D /* ReleaseDetails */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -185,6 +196,15 @@
 				B40E35911DB1D88C004BA8C7 /* NumuTabBarController.swift */,
 			);
 			path = Interface;
+			sourceTree = "<group>";
+		};
+		443EBB91217054800071A11D /* ReleaseDetails */ = {
+			isa = PBXGroup;
+			children = (
+				443EBB8D2170547A0071A11D /* ReleaseDetailsViewController.swift */,
+				443EBB8E2170547A0071A11D /* ReleaseDetailsViewController.xib */,
+			);
+			path = ReleaseDetails;
 			sourceTree = "<group>";
 		};
 		4461CB77215844AB001939F0 /* Operations */ = {
@@ -415,8 +435,10 @@
 			files = (
 				441CC0AF215DB769009F4114 /* numuIcon_1024.png in Resources */,
 				44D3917121691D5000CFB9A3 /* NumuSortView.xib in Resources */,
+				443EBB902170547A0071A11D /* ReleaseDetailsViewController.xib in Resources */,
 				4459C3D821658A7900EB4048 /* NumuAlertView.xib in Resources */,
 				B4E8B97A1E7F67BD00643AD1 /* bradroot-new-2880-man.png in Resources */,
+				443EBB8C217053530071A11D /* LoginSpotifyViewController.xib in Resources */,
 				B4283A911D8548F300467CE6 /* LaunchScreen.storyboard in Resources */,
 				B43E36B01F5DF9BA009834C9 /* NumuLogo1024.png in Resources */,
 				B4283A8E1D8548F300467CE6 /* Assets.xcassets in Resources */,
@@ -538,6 +560,7 @@
 				B45A133D20548632001EBDA5 /* NumuCredential.swift in Sources */,
 				4461CB7B2158470C001939F0 /* FetchJSONOperation.swift in Sources */,
 				4461CB8521588C54001939F0 /* GetCKUserOperation.swift in Sources */,
+				443EBB8B217053530071A11D /* LoginSpotifyViewController.swift in Sources */,
 				B45A133F2054CBDF001EBDA5 /* NumuClient.swift in Sources */,
 				446DBDE8215AF82400AE2AA7 /* ImportAppleMusicOperation.swift in Sources */,
 				4461CB8D21589D7A001939F0 /* AuthOperation.swift in Sources */,
@@ -565,6 +588,7 @@
 				B45A134120551C46001EBDA5 /* Extensions.swift in Sources */,
 				B42866081DA5FC53000E5FA6 /* User.swift in Sources */,
 				4461CB79215844C9001939F0 /* AsyncOperation.swift in Sources */,
+				443EBB8F2170547A0071A11D /* ReleaseDetailsViewController.swift in Sources */,
 				44D3917021691D5000CFB9A3 /* NumuSortView.swift in Sources */,
 				B4CCFCBC1DB3F8EE00D2277B /* ArtistReleaseTableViewCell.swift in Sources */,
 				B40E35921DB1D88C004BA8C7 /* NumuTabBarController.swift in Sources */,
