@@ -1888,7 +1888,7 @@ Any imported artists you've unfollowed will not be re-imported.</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gqw-a7-uHp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1865" y="1218"/>
+            <point key="canvasLocation" x="4901" y="1971"/>
         </scene>
         <!--Your Artists-->
         <scene sceneID="hjy-Ge-Nda">

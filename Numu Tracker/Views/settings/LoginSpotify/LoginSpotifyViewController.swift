@@ -20,7 +20,7 @@ class LoginSpotifyViewController: UIViewController {
         
         self.title = "Spotify Login"
         
-        let button = SpotifyLoginButton(viewController: self, scopes: [.streaming, .userLibraryRead])
+        let button = SpotifyLoginButton(viewController: self, scopes: [.userLibraryRead])
         
         self.view.addSubview(button)
         
@@ -32,16 +32,5 @@ class LoginSpotifyViewController: UIViewController {
         super.viewWillLayoutSubviews()
         loginButton?.center = self.view.center
     }
-
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
