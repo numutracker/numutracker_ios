@@ -98,6 +98,7 @@ extension Notification.Name {
     static let LoggedOut = Notification.Name(rawValue: "com.numutracker.loggedOut")
     static let UpdatedArtists = Notification.Name(rawValue: "com.numutracker.artistsImported")
     static let ClosedLogRegPrompt = Notification.Name(rawValue: "com.numutracker.closedLogRegPrompt")
+    static let CancelledSpotifyLogin = Notification.Name(rawValue: "com.numutracker.cancelledSpotifyLogin")
 }
 
 extension UIView {

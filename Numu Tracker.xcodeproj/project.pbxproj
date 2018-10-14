@@ -8,7 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		4401CBB8215DC8D000B0EB23 /* AlbumArtCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4401CBB7215DC8D000B0EB23 /* AlbumArtCache.swift */; };
+		4406A0032173A674002900E8 /* ImportSpotifyOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4406A0022173A674002900E8 /* ImportSpotifyOperation.swift */; };
 		441CC0AF215DB769009F4114 /* numuIcon_1024.png in Resources */ = {isa = PBXBuildFile; fileRef = 441CC0AE215DB769009F4114 /* numuIcon_1024.png */; };
+		443EBB8821702D430071A11D /* ImportSpotifyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 443EBB8721702D430071A11D /* ImportSpotifyViewController.swift */; };
+		443EBB8B217053530071A11D /* LoginSpotifyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 443EBB89217053530071A11D /* LoginSpotifyViewController.swift */; };
+		443EBB8C217053530071A11D /* LoginSpotifyViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 443EBB8A217053530071A11D /* LoginSpotifyViewController.xib */; };
+		443EBB8F2170547A0071A11D /* ReleaseDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 443EBB8D2170547A0071A11D /* ReleaseDetailsViewController.swift */; };
+		443EBB902170547A0071A11D /* ReleaseDetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 443EBB8E2170547A0071A11D /* ReleaseDetailsViewController.xib */; };
+		4459C3D02164444F00EB4048 /* SpotifyiOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4459C3CF2164444F00EB4048 /* SpotifyiOS.framework */; };
 		4459C3D721658A7900EB4048 /* NumuAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4459C3D521658A7900EB4048 /* NumuAlertView.swift */; };
 		4459C3D821658A7900EB4048 /* NumuAlertView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4459C3D621658A7900EB4048 /* NumuAlertView.xib */; };
 		4461CB79215844C9001939F0 /* AsyncOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4461CB78215844C9001939F0 /* AsyncOperation.swift */; };
@@ -59,7 +66,15 @@
 /* Begin PBXFileReference section */
 		01361C8695313B7121751750 /* Pods-Numu Tracker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Numu Tracker.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Numu Tracker/Pods-Numu Tracker.debug.xcconfig"; sourceTree = "<group>"; };
 		4401CBB7215DC8D000B0EB23 /* AlbumArtCache.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlbumArtCache.swift; sourceTree = "<group>"; };
+		4406A0022173A674002900E8 /* ImportSpotifyOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportSpotifyOperation.swift; sourceTree = "<group>"; };
 		441CC0AE215DB769009F4114 /* numuIcon_1024.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = numuIcon_1024.png; path = Design/icon/numuIcon_1024.png; sourceTree = SOURCE_ROOT; };
+		443EBB8721702D430071A11D /* ImportSpotifyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportSpotifyViewController.swift; sourceTree = "<group>"; };
+		443EBB89217053530071A11D /* LoginSpotifyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginSpotifyViewController.swift; sourceTree = "<group>"; };
+		443EBB8A217053530071A11D /* LoginSpotifyViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginSpotifyViewController.xib; sourceTree = "<group>"; };
+		443EBB8D2170547A0071A11D /* ReleaseDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReleaseDetailsViewController.swift; sourceTree = "<group>"; };
+		443EBB8E2170547A0071A11D /* ReleaseDetailsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ReleaseDetailsViewController.xib; sourceTree = "<group>"; };
+		4459C3CF2164444F00EB4048 /* SpotifyiOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SpotifyiOS.framework; sourceTree = "<group>"; };
+		4459C3D12164469800EB4048 /* Numu Tracker-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Numu Tracker-Bridging-Header.h"; sourceTree = "<group>"; };
 		4459C3D521658A7900EB4048 /* NumuAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumuAlertView.swift; sourceTree = "<group>"; };
 		4459C3D621658A7900EB4048 /* NumuAlertView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NumuAlertView.xib; sourceTree = "<group>"; };
 		4461CB78215844C9001939F0 /* AsyncOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncOperation.swift; sourceTree = "<group>"; };
@@ -117,6 +132,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E4EB5ACCF23F58468A5C04FF /* Pods_Numu_Tracker.framework in Frameworks */,
+				4459C3D02164444F00EB4048 /* SpotifyiOS.framework in Frameworks */,
 				4461CB8121585673001939F0 /* CloudKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -127,6 +143,7 @@
 		14F28C739AD176DB0069BA7E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				4459C3CF2164444F00EB4048 /* SpotifyiOS.framework */,
 				4461CB8021585673001939F0 /* CloudKit.framework */,
 				CBD0F3687066D64A7B28C145 /* Pods_Numu_Tracker.framework */,
 			);
@@ -166,6 +183,7 @@
 				B4D525E31E353187000B7ADD /* ReleaseList */,
 				44D3916D21691D3100CFB9A3 /* AlertView */,
 				44D3917221691D5400CFB9A3 /* SortView */,
+				443EBB91217054800071A11D /* ReleaseDetails */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -180,6 +198,24 @@
 			path = Interface;
 			sourceTree = "<group>";
 		};
+		443EBB91217054800071A11D /* ReleaseDetails */ = {
+			isa = PBXGroup;
+			children = (
+				443EBB8D2170547A0071A11D /* ReleaseDetailsViewController.swift */,
+				443EBB8E2170547A0071A11D /* ReleaseDetailsViewController.xib */,
+			);
+			path = ReleaseDetails;
+			sourceTree = "<group>";
+		};
+		443EBB922170600E0071A11D /* LoginSpotify */ = {
+			isa = PBXGroup;
+			children = (
+				443EBB89217053530071A11D /* LoginSpotifyViewController.swift */,
+				443EBB8A217053530071A11D /* LoginSpotifyViewController.xib */,
+			);
+			path = LoginSpotify;
+			sourceTree = "<group>";
+		};
 		4461CB77215844AB001939F0 /* Operations */ = {
 			isa = PBXGroup;
 			children = (
@@ -187,6 +223,7 @@
 				4461CB78215844C9001939F0 /* AsyncOperation.swift */,
 				4461CB7A2158470C001939F0 /* FetchJSONOperation.swift */,
 				446DBDE7215AF82400AE2AA7 /* ImportAppleMusicOperation.swift */,
+				4406A0022173A674002900E8 /* ImportSpotifyOperation.swift */,
 			);
 			path = Operations;
 			sourceTree = "<group>";
@@ -250,6 +287,7 @@
 				441CC0A8215C51DE009F4114 /* Views */,
 				441CC0A7215C516E009F4114 /* Classes */,
 				B4CCFCC11DB425FD00D2277B /* Backend */,
+				4459C3D12164469800EB4048 /* Numu Tracker-Bridging-Header.h */,
 			);
 			path = "Numu Tracker";
 			sourceTree = "<group>";
@@ -277,6 +315,7 @@
 		B4CCFCC01DB425D900D2277B /* Settings */ = {
 			isa = PBXGroup;
 			children = (
+				443EBB922170600E0071A11D /* LoginSpotify */,
 				B4CCFCC41DB4311B00D2277B /* AddArtistsViewController.swift */,
 				B4CCFCC81DB447B200D2277B /* HelpViewController.swift */,
 				B43705D71E357C8C0060E6CC /* SettingsTableViewController.swift */,
@@ -286,6 +325,7 @@
 				B46754551F6DA64B00C80544 /* AboutViewController.swift */,
 				B46754571F6DA66F00C80544 /* InstructionsViewController.swift */,
 				B43E36B11F5DFAD0009834C9 /* LogRegPromptViewController.swift */,
+				443EBB8721702D430071A11D /* ImportSpotifyViewController.swift */,
 			);
 			name = Settings;
 			path = settings;
@@ -406,8 +446,10 @@
 			files = (
 				441CC0AF215DB769009F4114 /* numuIcon_1024.png in Resources */,
 				44D3917121691D5000CFB9A3 /* NumuSortView.xib in Resources */,
+				443EBB902170547A0071A11D /* ReleaseDetailsViewController.xib in Resources */,
 				4459C3D821658A7900EB4048 /* NumuAlertView.xib in Resources */,
 				B4E8B97A1E7F67BD00643AD1 /* bradroot-new-2880-man.png in Resources */,
+				443EBB8C217053530071A11D /* LoginSpotifyViewController.xib in Resources */,
 				B4283A911D8548F300467CE6 /* LaunchScreen.storyboard in Resources */,
 				B43E36B01F5DF9BA009834C9 /* NumuLogo1024.png in Resources */,
 				B4283A8E1D8548F300467CE6 /* Assets.xcassets in Resources */,
@@ -425,20 +467,32 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-Numu Tracker/Pods-Numu Tracker-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/AlamoRecord/AlamoRecord.framework",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/AlamofireObjectMapper/AlamofireObjectMapper.framework",
 				"${BUILT_PRODUCTS_DIR}/CryptoSwift/CryptoSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
+				"${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework",
 				"${BUILT_PRODUCTS_DIR}/PusherSwift/PusherSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/ReachabilitySwift/Reachability.framework",
+				"${BUILT_PRODUCTS_DIR}/Spartan/Spartan.framework",
+				"${BUILT_PRODUCTS_DIR}/SpotifyLogin/SpotifyLogin.framework",
 				"${BUILT_PRODUCTS_DIR}/Starscream/Starscream.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 				"${BUILT_PRODUCTS_DIR}/TaskQueue/TaskQueue.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamoRecord.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireObjectMapper.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CryptoSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PusherSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Reachability.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Spartan.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SpotifyLogin.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Starscream.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TaskQueue.framework",
@@ -527,9 +581,11 @@
 				B45A133D20548632001EBDA5 /* NumuCredential.swift in Sources */,
 				4461CB7B2158470C001939F0 /* FetchJSONOperation.swift in Sources */,
 				4461CB8521588C54001939F0 /* GetCKUserOperation.swift in Sources */,
+				443EBB8B217053530071A11D /* LoginSpotifyViewController.swift in Sources */,
 				B45A133F2054CBDF001EBDA5 /* NumuClient.swift in Sources */,
 				446DBDE8215AF82400AE2AA7 /* ImportAppleMusicOperation.swift in Sources */,
 				4461CB8D21589D7A001939F0 /* AuthOperation.swift in Sources */,
+				443EBB8821702D430071A11D /* ImportSpotifyViewController.swift in Sources */,
 				B4283ABD1D8658AD00467CE6 /* ReleaseItem.swift in Sources */,
 				B4CCFCC91DB447B200D2277B /* HelpViewController.swift in Sources */,
 				B4F1E3AB2058C6C100F2544A /* NumuReviewHelper.swift in Sources */,
@@ -550,9 +606,11 @@
 				B416A6641DC52FBC000F86D9 /* ReleaseData.swift in Sources */,
 				B440D9D91DB2D28A00477938 /* ArtistTableViewCell.swift in Sources */,
 				B416A6621DC52DBA000F86D9 /* ReleaseTableViewCell.swift in Sources */,
+				4406A0032173A674002900E8 /* ImportSpotifyOperation.swift in Sources */,
 				B45A134120551C46001EBDA5 /* Extensions.swift in Sources */,
 				B42866081DA5FC53000E5FA6 /* User.swift in Sources */,
 				4461CB79215844C9001939F0 /* AsyncOperation.swift in Sources */,
+				443EBB8F2170547A0071A11D /* ReleaseDetailsViewController.swift in Sources */,
 				44D3917021691D5000CFB9A3 /* NumuSortView.swift in Sources */,
 				B4CCFCBC1DB3F8EE00D2277B /* ArtistReleaseTableViewCell.swift in Sources */,
 				B40E35921DB1D88C004BA8C7 /* NumuTabBarController.swift in Sources */,
@@ -703,13 +761,20 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = "Numu Tracker/Numu Tracker.entitlements";
 				DEVELOPMENT_TEAM = 2Y9M69QJKZ;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = "Numu Tracker/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.numutracker.Numu-Tracker";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Numu Tracker/Numu Tracker-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -721,13 +786,19 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = "Numu Tracker/Numu Tracker.entitlements";
 				DEVELOPMENT_TEAM = 2Y9M69QJKZ;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = "Numu Tracker/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.numutracker.Numu-Tracker";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Numu Tracker/Numu Tracker-Bridging-Header.h";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
