@@ -12,6 +12,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ReleaseDetailsViewController" customModule="Numu_Tracker" customModuleProvider="target">
             <connections>
+                <outlet property="albumArtImageView" destination="CUo-xS-P79" id="We9-Km-hjt"/>
+                <outlet property="releaseDetailsView" destination="MsS-rH-eyb" id="JVL-EC-v3w"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -20,14 +22,32 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MsS-rH-eyb">
-                    <rect key="frame" x="67" y="228" width="240" height="206"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MsS-rH-eyb">
+                    <rect key="frame" x="18" y="228" width="339" height="231"/>
+                    <subviews>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="CUo-xS-P79">
+                            <rect key="frame" x="18" y="18" width="100" height="100"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="100" id="77R-0v-jQ6"/>
+                                <constraint firstAttribute="height" constant="100" id="9YV-wU-Gue"/>
+                            </constraints>
+                        </imageView>
+                    </subviews>
                     <color key="backgroundColor" red="0.1333333333" green="0.1333333333" blue="0.1333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstItem="CUo-xS-P79" firstAttribute="top" secondItem="MsS-rH-eyb" secondAttribute="top" constant="18" id="3kC-jy-916"/>
+                        <constraint firstItem="CUo-xS-P79" firstAttribute="leading" secondItem="MsS-rH-eyb" secondAttribute="leading" constant="18" id="RnO-gi-RMP"/>
+                        <constraint firstAttribute="bottom" secondItem="CUo-xS-P79" secondAttribute="bottom" constant="113" id="lf3-Ro-1rT"/>
+                    </constraints>
                 </view>
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="MsS-rH-eyb" firstAttribute="centerY" secondItem="fnl-2z-Ty3" secondAttribute="centerY" id="biI-Jl-F4f"/>
+                <constraint firstItem="MsS-rH-eyb" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="18" id="hFT-ot-91X"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="MsS-rH-eyb" secondAttribute="trailing" constant="18" id="yhv-yE-BqM"/>
+            </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <point key="canvasLocation" x="138.40000000000001" y="152.47376311844079"/>
         </view>

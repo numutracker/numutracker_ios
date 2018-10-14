@@ -42,7 +42,6 @@ class ArtistsTableViewController: UITableViewController, UISearchBarDelegate, UI
     
     @IBOutlet weak var sortButton: UIBarButtonItem!
     @IBAction func sortButtonAction(_ sender: Any) {
-        
         let sortView = NumuSortView()
         sortView.providesPresentationContextTransitionStyle = true
         sortView.definesPresentationContext = true

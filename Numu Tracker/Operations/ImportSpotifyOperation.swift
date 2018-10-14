@@ -207,6 +207,7 @@ class ImportSpotifyOperation: AsyncOperation {
                 let rootViewController = appWindow.rootViewController {
                 rootViewController.present(alertView, animated: true, completion: nil)
             }
+            self.state = .isFinished
         }
     }
 }
