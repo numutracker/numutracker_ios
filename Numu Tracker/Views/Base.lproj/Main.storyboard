@@ -1853,13 +1853,13 @@ or manually search and follow artists.</string>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="11" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gV3-9k-5qm">
-                                <rect key="frame" x="63" y="146" width="288" height="184"/>
+                                <rect key="frame" x="64.666666666666629" y="146" width="284.66666666666674" height="184"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="lessThanOrEqual" constant="288" id="XGB-ep-ME5"/>
                                 </constraints>
-                                <string key="text">This will download only the list of artists you have in your library into the Numu Tracker database. 
+                                <string key="text">This will download only your Top and Followed artists from Spotify into the Numu Tracker database. 
 
-Your artists are only imported when you hit the button, so come back here occasionally to catch new artists you've added to your library.
+Your artists are only imported when you hit the button, so come back here occasionally to catch new artists you've listened to or followed on Spotify.
 
 Any imported artists you've unfollowed will not be re-imported.</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -1884,6 +1884,7 @@ Any imported artists you've unfollowed will not be re-imported.</string>
                     </view>
                     <connections>
                         <outlet property="importSpotifyIndicator" destination="8zH-BM-ldc" id="0wQ-2w-MLr"/>
+                        <outlet property="spotifyButton" destination="sHL-Xp-MiE" id="az1-ii-hog"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gqw-a7-uHp" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -2559,7 +2560,7 @@ On the </string>
         <image name="yours" width="21.666666030883789" height="23"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="f0Q-AI-Q2O"/>
+        <segue reference="jcr-Ul-g7T"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
 </document>

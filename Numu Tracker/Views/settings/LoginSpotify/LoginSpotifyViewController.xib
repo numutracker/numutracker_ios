@@ -19,7 +19,22 @@
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rox-U7-iSI">
+                    <rect key="frame" x="150" y="378.5" width="75" height="30"/>
+                    <state key="normal" title="Nevermind">
+                        <color key="titleColor" cocoaTouchSystemColor="lightTextColor"/>
+                    </state>
+                    <connections>
+                        <action selector="closeButtonAction:" destination="-1" eventType="touchUpInside" id="3xf-IU-L8z"/>
+                    </connections>
+                </button>
+            </subviews>
             <color key="backgroundColor" red="0.1333333333" green="0.1333333333" blue="0.1333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="rox-U7-iSI" firstAttribute="centerY" secondItem="fnl-2z-Ty3" secondAttribute="centerY" constant="50" id="2gt-Lt-F1g"/>
+                <constraint firstItem="rox-U7-iSI" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="LGb-Ja-se6"/>
+            </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
         </view>
     </objects>

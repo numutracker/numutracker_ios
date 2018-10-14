@@ -36,6 +36,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let redirectURL: URL = URL(string: "numu://spotifyLogin")!
         SpotifyLogin.shared.configure(clientID: "SPOTIFY_CLIENT_ID", clientSecret: "SPOTIFY_CLIENT_SECRET", redirectURL: redirectURL)
+        let redirectURL: URL = URL(string: "numu://")!
         
         NotificationCenter.default.addObserver(
             self, selector: #selector(self.runLogInOperations), name: .LoggedOut, object: nil)

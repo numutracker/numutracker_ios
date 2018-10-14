@@ -12,6 +12,10 @@ import SpotifyLogin
 class LoginSpotifyViewController: UIViewController {
 
     var loginButton: UIButton?
+    @IBAction func closeButtonAction(_ sender: Any) {
+        NotificationCenter.default.post(name: .CancelledSpotifyLogin, object: nil)
+        self.dismiss(animated: true, completion: nil)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,7 +50,7 @@ class LoginSpotifyViewController: UIViewController {
     
     @objc func loginSuccessful() {
         print("Spotify Login Successful")
-        self.navigationController?.popViewController(animated: true)
+        self.dismiss(animated: true, completion: nil)
     }
 
 }

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		4401CBB8215DC8D000B0EB23 /* AlbumArtCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4401CBB7215DC8D000B0EB23 /* AlbumArtCache.swift */; };
+		4406A0032173A674002900E8 /* ImportSpotifyOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4406A0022173A674002900E8 /* ImportSpotifyOperation.swift */; };
 		441CC0AF215DB769009F4114 /* numuIcon_1024.png in Resources */ = {isa = PBXBuildFile; fileRef = 441CC0AE215DB769009F4114 /* numuIcon_1024.png */; };
 		443EBB8821702D430071A11D /* ImportSpotifyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 443EBB8721702D430071A11D /* ImportSpotifyViewController.swift */; };
 		443EBB8B217053530071A11D /* LoginSpotifyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 443EBB89217053530071A11D /* LoginSpotifyViewController.swift */; };
@@ -65,6 +66,7 @@
 /* Begin PBXFileReference section */
 		01361C8695313B7121751750 /* Pods-Numu Tracker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Numu Tracker.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Numu Tracker/Pods-Numu Tracker.debug.xcconfig"; sourceTree = "<group>"; };
 		4401CBB7215DC8D000B0EB23 /* AlbumArtCache.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlbumArtCache.swift; sourceTree = "<group>"; };
+		4406A0022173A674002900E8 /* ImportSpotifyOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportSpotifyOperation.swift; sourceTree = "<group>"; };
 		441CC0AE215DB769009F4114 /* numuIcon_1024.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = numuIcon_1024.png; path = Design/icon/numuIcon_1024.png; sourceTree = SOURCE_ROOT; };
 		443EBB8721702D430071A11D /* ImportSpotifyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportSpotifyViewController.swift; sourceTree = "<group>"; };
 		443EBB89217053530071A11D /* LoginSpotifyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginSpotifyViewController.swift; sourceTree = "<group>"; };
@@ -221,6 +223,7 @@
 				4461CB78215844C9001939F0 /* AsyncOperation.swift */,
 				4461CB7A2158470C001939F0 /* FetchJSONOperation.swift */,
 				446DBDE7215AF82400AE2AA7 /* ImportAppleMusicOperation.swift */,
+				4406A0022173A674002900E8 /* ImportSpotifyOperation.swift */,
 			);
 			path = Operations;
 			sourceTree = "<group>";
@@ -603,6 +606,7 @@
 				B416A6641DC52FBC000F86D9 /* ReleaseData.swift in Sources */,
 				B440D9D91DB2D28A00477938 /* ArtistTableViewCell.swift in Sources */,
 				B416A6621DC52DBA000F86D9 /* ReleaseTableViewCell.swift in Sources */,
+				4406A0032173A674002900E8 /* ImportSpotifyOperation.swift in Sources */,
 				B45A134120551C46001EBDA5 /* Extensions.swift in Sources */,
 				B42866081DA5FC53000E5FA6 /* User.swift in Sources */,
 				4461CB79215844C9001939F0 /* AsyncOperation.swift in Sources */,
