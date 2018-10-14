@@ -14,6 +14,7 @@
             <connections>
                 <outlet property="albumArtImageView" destination="CUo-xS-P79" id="We9-Km-hjt"/>
                 <outlet property="releaseDetailsView" destination="MsS-rH-eyb" id="JVL-EC-v3w"/>
+                <outlet property="tapRecognizerView" destination="WtJ-0J-XP6" id="eNh-mr-toi"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -22,6 +23,11 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WtJ-0J-XP6">
+                    <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MsS-rH-eyb">
                     <rect key="frame" x="18" y="228" width="339" height="231"/>
                     <subviews>
@@ -44,6 +50,10 @@
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
+                <constraint firstItem="WtJ-0J-XP6" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="M9a-T6-23j"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="WtJ-0J-XP6" secondAttribute="trailing" id="MLw-W3-hS5"/>
+                <constraint firstItem="WtJ-0J-XP6" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="TfL-VD-315"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="WtJ-0J-XP6" secondAttribute="bottom" id="VyW-g5-taD"/>
                 <constraint firstItem="MsS-rH-eyb" firstAttribute="centerY" secondItem="fnl-2z-Ty3" secondAttribute="centerY" id="biI-Jl-F4f"/>
                 <constraint firstItem="MsS-rH-eyb" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="18" id="hFT-ot-91X"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="MsS-rH-eyb" secondAttribute="trailing" constant="18" id="yhv-yE-BqM"/>

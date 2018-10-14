@@ -16,6 +16,13 @@ class NumuSortView: UIViewController {
     
     var sortDelegate: SortViewDelegate!
     
+    override var prefersStatusBarHidden: Bool {
+        return true
+    }
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
+    
     @IBOutlet weak var cancelView: UIView!
     @IBOutlet weak var sortOptionsView: UIView!
     @IBAction func cancelButtonAction(_ sender: Any) {
@@ -46,18 +53,29 @@ class NumuSortView: UIViewController {
     
     func setupView() {
         cancelView.layer.cornerRadius = 15
-        cancelView.layer.shadowColor = UIColor.black.cgColor
-        cancelView.layer.shadowOpacity = 0.2
-        cancelView.layer.shadowOffset = CGSize.zero
-        cancelView.layer.shadowRadius = 20
         
-        sortOptionsView.layer.cornerRadius = 15
-        sortOptionsView.layer.shadowColor = UIColor.black.cgColor
-        sortOptionsView.layer.shadowOpacity = 0.2
-        sortOptionsView.layer.shadowOffset = CGSize.zero
-        sortOptionsView.layer.shadowRadius = 20
-        
-        self.view.backgroundColor = UIColor.black.withAlphaComponent(0.5)
+        if !UIAccessibility.isReduceTransparencyEnabled {
+            sortOptionsView.backgroundColor = .clear
+            
+            let detailBlurEffect = UIBlurEffect(style: .dark)
+            let detailBlurEffectView = UIVisualEffectView(effect: detailBlurEffect)
+            detailBlurEffectView.frame = sortOptionsView.bounds
+            detailBlurEffectView.layer.cornerRadius = 15
+            detailBlurEffectView.clipsToBounds = true
+            detailBlurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+            sortOptionsView.insertSubview(detailBlurEffectView, at: 0)
+            
+            self.view.backgroundColor = .clear
+            
+            let bgBlurEffect = UIBlurEffect(style: .regular)
+            let bgBlurEffectView = UIVisualEffectView(effect: bgBlurEffect)
+            bgBlurEffectView.frame = self.view.bounds
+            bgBlurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+            self.view.insertSubview(bgBlurEffectView, at: 0)
+            
+        } else {
+            self.view.backgroundColor = UIColor.black.withAlphaComponent(0.5)
+        }
     }
     
     func animateView() {

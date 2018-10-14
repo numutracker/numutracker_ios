@@ -45,8 +45,9 @@ class ArtistsTableViewController: UITableViewController, UISearchBarDelegate, UI
         let sortView = NumuSortView()
         sortView.providesPresentationContextTransitionStyle = true
         sortView.definesPresentationContext = true
-        sortView.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
+        sortView.modalPresentationStyle = UIModalPresentationStyle.overFullScreen
         sortView.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
+        sortView.modalPresentationCapturesStatusBarAppearance = true
         sortView.sortDelegate = self
         if let appDelegate = UIApplication.shared.delegate,
             let appWindow = appDelegate.window!,

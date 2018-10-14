@@ -12,6 +12,14 @@ class ReleaseDetailsViewController: UIViewController {
 
     @IBOutlet weak var releaseDetailsView: UIView!
     @IBOutlet weak var albumArtImageView: UIImageView!
+    @IBOutlet weak var tapRecognizerView: UIView!
+    
+    override var prefersStatusBarHidden: Bool {
+        return true
+    }
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,21 +44,45 @@ class ReleaseDetailsViewController: UIViewController {
             options: [.transition(.fade(0.2))])
 
     }
-    
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        let touch: UITouch? = touches.first
-        if touch?.view != releaseDetailsView {
-            self.dismiss(animated: true, completion: nil)
-        }
-    }
-    
+
     func setupView() {
         releaseDetailsView.layer.cornerRadius = 15
         releaseDetailsView.layer.shadowColor = UIColor.black.cgColor
         releaseDetailsView.layer.shadowOpacity = 0.2
         releaseDetailsView.layer.shadowOffset = CGSize.zero
         releaseDetailsView.layer.shadowRadius = 20
-        self.view.backgroundColor = UIColor.black.withAlphaComponent(0.5)
+        
+        if !UIAccessibility.isReduceTransparencyEnabled {
+            releaseDetailsView.backgroundColor = .clear
+            
+            let detailBlurEffect = UIBlurEffect(style: .dark)
+            let detailBlurEffectView = UIVisualEffectView(effect: detailBlurEffect)
+            //always fill the view
+            detailBlurEffectView.frame = releaseDetailsView.bounds
+            detailBlurEffectView.layer.cornerRadius = 15
+            detailBlurEffectView.clipsToBounds = true
+            detailBlurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+            releaseDetailsView.insertSubview(detailBlurEffectView, at: 0)
+            
+            self.view.backgroundColor = .clear
+            
+            let bgBlurEffect = UIBlurEffect(style: .regular)
+            let bgBlurEffectView = UIVisualEffectView(effect: bgBlurEffect)
+            //always fill the view
+            bgBlurEffectView.frame = self.view.bounds
+            bgBlurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+            self.view.insertSubview(bgBlurEffectView, at: 0)
+            
+        } else {
+            self.view.backgroundColor = UIColor.black.withAlphaComponent(0.5)
+        }
+        
+        let tap = UITapGestureRecognizer(target: self, action: #selector(ReleaseDetailsViewController.dismissView))
+        self.tapRecognizerView.addGestureRecognizer(tap)
+    }
+    
+    @objc func dismissView() {
+        self.dismiss(animated: true, completion: nil)
     }
     
     func animateView() {

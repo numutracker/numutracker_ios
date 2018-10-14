@@ -182,8 +182,9 @@ class ImportSpotifyOperation: AsyncOperation {
             let alertView = NumuAlertView()
             alertView.providesPresentationContextTransitionStyle = true
             alertView.definesPresentationContext = true
-            alertView.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
+            alertView.modalPresentationStyle = UIModalPresentationStyle.overFullScreen
             alertView.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
+            alertView.modalPresentationCapturesStatusBarAppearance = true
             if let appDelegate = UIApplication.shared.delegate,
                 let appWindow = appDelegate.window!,
                 let rootViewController = appWindow.rootViewController {
@@ -197,8 +198,9 @@ class ImportSpotifyOperation: AsyncOperation {
             let alertView = NumuAlertView()
             alertView.providesPresentationContextTransitionStyle = true
             alertView.definesPresentationContext = true
-            alertView.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
+            alertView.modalPresentationStyle = UIModalPresentationStyle.overFullScreen
             alertView.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
+            alertView.modalPresentationCapturesStatusBarAppearance = true
             alertView.titleText = "Error"
             alertView.messageText = error
             alertView.buttonText = "Oh no"

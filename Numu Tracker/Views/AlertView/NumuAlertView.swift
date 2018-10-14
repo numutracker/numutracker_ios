@@ -27,6 +27,14 @@ class NumuAlertView: UIViewController {
         super.viewDidLoad()
     }
     
+    override var prefersStatusBarHidden: Bool {
+        return true
+    }
+
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         setupView()
@@ -35,13 +43,33 @@ class NumuAlertView: UIViewController {
 
     func setupView() {
         alertView.layer.cornerRadius = 15
-        alertView.layer.shadowColor = UIColor.black.cgColor
-        alertView.layer.shadowOpacity = 0.2
-        alertView.layer.shadowOffset = CGSize.zero
-        alertView.layer.shadowRadius = 20
         acceptButton.setTitleColor(.white, for: .normal)
         acceptButton.setTitleColor(.white, for: .highlighted)
-        self.view.backgroundColor = UIColor.black.withAlphaComponent(0.5)
+        
+        if !UIAccessibility.isReduceTransparencyEnabled {
+            alertView.backgroundColor = .clear
+            
+            let detailBlurEffect = UIBlurEffect(style: .dark)
+            let detailBlurEffectView = UIVisualEffectView(effect: detailBlurEffect)
+            //always fill the view
+            detailBlurEffectView.frame = alertView.bounds
+            detailBlurEffectView.layer.cornerRadius = 15
+            detailBlurEffectView.clipsToBounds = true
+            detailBlurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+            alertView.insertSubview(detailBlurEffectView, at: 0)
+            
+            self.view.backgroundColor = .clear
+            
+            let bgBlurEffect = UIBlurEffect(style: .regular)
+            let bgBlurEffectView = UIVisualEffectView(effect: bgBlurEffect)
+            //always fill the view
+            bgBlurEffectView.frame = self.view.bounds
+            bgBlurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+            self.view.insertSubview(bgBlurEffectView, at: 0)
+            
+        } else {
+            self.view.backgroundColor = UIColor.black.withAlphaComponent(0.5)
+        }
         
         if let message = self.messageText {
             self.messageLabel.text = message
@@ -64,15 +92,5 @@ class NumuAlertView: UIViewController {
             self.alertView.frame.origin.y -= 50
         })
     }
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

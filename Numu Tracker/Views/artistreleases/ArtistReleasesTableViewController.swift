@@ -170,7 +170,20 @@ class ArtistReleasesTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+        print("Touched View Cell...")
+        let releaseDetails = ReleaseDetailsViewController()
+        releaseDetails.providesPresentationContextTransitionStyle = true
+        releaseDetails.definesPresentationContext = true
+        releaseDetails.modalPresentationStyle = UIModalPresentationStyle.overFullScreen
+        releaseDetails.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
+        releaseDetails.modalPresentationCapturesStatusBarAppearance = true
+        if let appDelegate = UIApplication.shared.delegate,
+            let appWindow = appDelegate.window!,
+            let rootViewController = appWindow.rootViewController {
+            rootViewController.present(releaseDetails, animated: true, completion: nil)
+            releaseDetails.configure(release: self.releases[indexPath.row])
+            self.tableView.deselectRow(at: indexPath, animated: true)
+        }
     }
 
 }

@@ -23,7 +23,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MV0-Ki-jfG">
-                    <rect key="frame" x="16" y="553" width="343" height="54"/>
+                    <rect key="frame" x="16" y="597" width="343" height="54"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w2m-yT-NaJ">
                             <rect key="frame" x="0.0" y="0.0" width="343" height="54"/>
@@ -46,7 +46,7 @@
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zRK-r9-KBt">
-                    <rect key="frame" x="16" y="317" width="343" height="216"/>
+                    <rect key="frame" x="16" y="361" width="343" height="216"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vje-cL-4aZ">
                             <rect key="frame" x="0.0" y="54" width="343" height="1"/>
@@ -74,6 +74,7 @@
                             <constraints>
                                 <constraint firstAttribute="height" constant="54" id="U42-bf-Fz2"/>
                             </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <color key="tintColor" cocoaTouchSystemColor="lightTextColor"/>
                             <state key="normal" title="Artist Name (Alphabetical)">
                                 <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -87,6 +88,7 @@
                             <constraints>
                                 <constraint firstAttribute="height" constant="54" id="JSP-cw-vsD"/>
                             </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <color key="tintColor" cocoaTouchSystemColor="lightTextColor"/>
                             <state key="normal" title="Artist Name (Last, First)">
                                 <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -100,6 +102,7 @@
                             <constraints>
                                 <constraint firstAttribute="height" constant="54" id="yJd-DQ-iHA"/>
                             </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <color key="tintColor" cocoaTouchSystemColor="lightTextColor"/>
                             <state key="normal" title="Release Date (Descending)">
                                 <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -147,7 +150,7 @@
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="MV0-Ki-jfG" secondAttribute="bottom" constant="60" id="Dcj-vo-oYf"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="MV0-Ki-jfG" secondAttribute="bottom" constant="16" id="Dcj-vo-oYf"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="zRK-r9-KBt" secondAttribute="trailing" constant="16" id="IMl-xw-9D1"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="MV0-Ki-jfG" secondAttribute="trailing" constant="16" id="LnN-gD-8S0"/>
                 <constraint firstItem="MV0-Ki-jfG" firstAttribute="top" secondItem="zRK-r9-KBt" secondAttribute="bottom" constant="20" id="bfQ-FN-7t2"/>
