@@ -8,7 +8,9 @@
 
 import UIKit
 
-class ReleaseDetailsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class ReleaseDetailsViewController: UIViewController, UITableViewDataSource {
+    
+    var releaseData: ReleaseItem?
     
     @IBOutlet weak var releaseDetailsView: UIView!
     @IBOutlet weak var albumArtImageView: UIImageView!
@@ -27,7 +29,8 @@ class ReleaseDetailsViewController: UIViewController, UITableViewDelegate, UITab
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.releaseOptionsTableView.delegate = self
+        self.releaseOptionsTableView.register(UINib(nibName: "ListenAMTableViewCell", bundle: nil), forCellReuseIdentifier: "listenAMCell")
+        
         self.releaseOptionsTableView.dataSource = self
         
         self.listenedButton.clipsToBounds = true
@@ -55,6 +58,7 @@ class ReleaseDetailsViewController: UIViewController, UITableViewDelegate, UITab
     }
 
     func configure(release: ReleaseItem) {
+        self.releaseData = release
         self.albumArtImageView.layer.shadowColor = UIColor.black.cgColor
         self.albumArtImageView.layer.shadowOpacity = 0.3
         self.albumArtImageView.layer.shadowOffset = .zero
@@ -116,15 +120,14 @@ class ReleaseDetailsViewController: UIViewController, UITableViewDelegate, UITab
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 2
+        return 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         print("Loading row")
-        let tableRow = UITableViewCell(style: .default, reuseIdentifier: nil)
-        tableRow.backgroundColor = .clear
-        tableRow.frame.size.height = 46
-        return tableRow
+        let cell = tableView.dequeueReusableCell(withIdentifier: "listenAMCell", for: indexPath) as! ListenAMTableViewCell
+        cell.configure(release: self.releaseData!)
+        return cell
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
