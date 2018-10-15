@@ -13,8 +13,11 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ReleaseDetailsViewController" customModule="Numu_Tracker" customModuleProvider="target">
             <connections>
                 <outlet property="albumArtImageView" destination="CUo-xS-P79" id="We9-Km-hjt"/>
+                <outlet property="artistNameLabel" destination="MxF-8V-j5d" id="yuX-O3-VDt"/>
                 <outlet property="listenedButton" destination="Fj9-UP-YXH" id="WZC-7R-4k6"/>
                 <outlet property="releaseDetailsView" destination="MsS-rH-eyb" id="JVL-EC-v3w"/>
+                <outlet property="releaseMetaLabel" destination="741-7s-Ri9" id="48f-kh-KZp"/>
+                <outlet property="releaseNameLabel" destination="ecd-2Q-RD2" id="OyY-Lh-dbf"/>
                 <outlet property="releaseOptionsHeightConstraint" destination="Vun-lX-hW5" id="Dqc-Fa-big"/>
                 <outlet property="releaseOptionsTableView" destination="kmA-4S-e0y" id="dYE-WD-r44"/>
                 <outlet property="tapRecognizerView" destination="WtJ-0J-XP6" id="eNh-mr-toi"/>
@@ -67,20 +70,47 @@
                                 <constraint firstAttribute="height" constant="0.5" id="0kW-6x-2eu"/>
                             </constraints>
                         </view>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Delusion Moon" textAlignment="natural" lineBreakMode="tailTruncation" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ecd-2Q-RD2">
+                            <rect key="frame" x="136" y="58" width="185" height="20"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                            <color key="textColor" red="0.10980392160000001" green="0.81176470590000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Album" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="741-7s-Ri9">
+                            <rect key="frame" x="136" y="82" width="185" height="16"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                            <color key="textColor" cocoaTouchSystemColor="lightTextColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Meat Wave" textAlignment="natural" lineBreakMode="tailTruncation" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MxF-8V-j5d">
+                            <rect key="frame" x="136" y="31" width="185" height="24"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <nil key="highlightedColor"/>
+                        </label>
                     </subviews>
                     <color key="backgroundColor" red="0.1333333333" green="0.1333333333" blue="0.1333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstItem="CUo-xS-P79" firstAttribute="top" secondItem="MsS-rH-eyb" secondAttribute="top" constant="18" id="3kC-jy-916"/>
+                        <constraint firstItem="ecd-2Q-RD2" firstAttribute="centerY" secondItem="CUo-xS-P79" secondAttribute="centerY" id="5OJ-KU-OBb"/>
                         <constraint firstItem="KXX-v2-sUD" firstAttribute="leading" secondItem="MsS-rH-eyb" secondAttribute="leading" id="97J-DL-0fL"/>
+                        <constraint firstItem="MxF-8V-j5d" firstAttribute="leading" secondItem="CUo-xS-P79" secondAttribute="trailing" constant="18" id="Ae9-1f-tAa"/>
+                        <constraint firstItem="741-7s-Ri9" firstAttribute="leading" secondItem="CUo-xS-P79" secondAttribute="trailing" constant="18" id="Bz3-K0-6Hi"/>
+                        <constraint firstItem="741-7s-Ri9" firstAttribute="top" secondItem="ecd-2Q-RD2" secondAttribute="bottom" constant="4" id="Ei4-f3-PHg"/>
                         <constraint firstAttribute="trailing" secondItem="KXX-v2-sUD" secondAttribute="trailing" id="Qvf-gs-rjB"/>
                         <constraint firstItem="CUo-xS-P79" firstAttribute="leading" secondItem="MsS-rH-eyb" secondAttribute="leading" constant="18" id="RnO-gi-RMP"/>
+                        <constraint firstAttribute="trailing" secondItem="741-7s-Ri9" secondAttribute="trailing" constant="18" id="Rw1-rg-tgs"/>
                         <constraint firstItem="kmA-4S-e0y" firstAttribute="top" secondItem="KXX-v2-sUD" secondAttribute="bottom" id="XCT-Sl-Uil"/>
                         <constraint firstItem="Fj9-UP-YXH" firstAttribute="leading" secondItem="MsS-rH-eyb" secondAttribute="leading" id="Zlo-5D-EGf"/>
                         <constraint firstItem="kmA-4S-e0y" firstAttribute="leading" secondItem="MsS-rH-eyb" secondAttribute="leading" id="aMt-NT-JQi"/>
                         <constraint firstItem="kmA-4S-e0y" firstAttribute="top" secondItem="CUo-xS-P79" secondAttribute="bottom" constant="18" id="au7-Kz-QaW"/>
                         <constraint firstAttribute="bottom" secondItem="Fj9-UP-YXH" secondAttribute="bottom" id="dJr-cD-EON"/>
+                        <constraint firstItem="ecd-2Q-RD2" firstAttribute="top" secondItem="MxF-8V-j5d" secondAttribute="bottom" constant="3" id="eIz-5h-4zL"/>
                         <constraint firstAttribute="trailing" secondItem="Fj9-UP-YXH" secondAttribute="trailing" id="eKM-mE-ntG"/>
                         <constraint firstItem="Fj9-UP-YXH" firstAttribute="top" secondItem="kmA-4S-e0y" secondAttribute="bottom" id="lbX-5z-aUy"/>
+                        <constraint firstAttribute="trailing" secondItem="ecd-2Q-RD2" secondAttribute="trailing" constant="18" id="skk-sL-iPD"/>
+                        <constraint firstItem="ecd-2Q-RD2" firstAttribute="leading" secondItem="CUo-xS-P79" secondAttribute="trailing" constant="18" id="stB-Ra-Q7h"/>
+                        <constraint firstAttribute="trailing" secondItem="MxF-8V-j5d" secondAttribute="trailing" constant="18" id="vw1-ef-jXa"/>
                         <constraint firstAttribute="trailing" secondItem="kmA-4S-e0y" secondAttribute="trailing" id="xgJ-RP-1yr"/>
                     </constraints>
                 </view>

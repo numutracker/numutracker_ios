@@ -12,6 +12,9 @@ class ReleaseDetailsViewController: UIViewController, UITableViewDataSource {
     
     var releaseData: ReleaseItem?
     
+    @IBOutlet weak var releaseMetaLabel: UILabel!
+    @IBOutlet weak var releaseNameLabel: UILabel!
+    @IBOutlet weak var artistNameLabel: UILabel!
     @IBOutlet weak var releaseDetailsView: UIView!
     @IBOutlet weak var albumArtImageView: UIImageView!
     @IBOutlet weak var tapRecognizerView: UIView!
@@ -67,6 +70,10 @@ class ReleaseDetailsViewController: UIViewController, UITableViewDataSource {
         self.albumArtImageView.kf.setImage(
             with: release.thumbUrl,
             options: [.transition(.fade(0.2))])
+        
+        self.releaseNameLabel.text = release.albumName
+        self.artistNameLabel.text = release.artistName
+        self.releaseMetaLabel.text = release.releaseType + " • " + release.releaseDate
 
     }
 
