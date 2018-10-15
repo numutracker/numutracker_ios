@@ -127,6 +127,7 @@ class ReleaseDetailsViewController: UIViewController, UITableViewDataSource {
         print("Loading row")
         let cell = tableView.dequeueReusableCell(withIdentifier: "listenAMCell", for: indexPath) as! ListenAMTableViewCell
         cell.configure(release: self.releaseData!)
+        cell.contentView.frame.size.width = self.view.frame.size.width
         return cell
     }
     

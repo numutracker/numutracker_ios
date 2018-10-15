@@ -23,7 +23,6 @@ class ListenAMTableViewCell: UITableViewCell {
     }
     
     func configure(release: ReleaseItem) {
-        self.selectionStyle = .none
         self.releaseData = release
         self.listenButtonOutlet.isEnabled = false
         self.loadListenLinks()
