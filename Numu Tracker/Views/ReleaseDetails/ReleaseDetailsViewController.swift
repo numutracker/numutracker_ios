@@ -8,11 +8,14 @@
 
 import UIKit
 
-class ReleaseDetailsViewController: UIViewController {
-
+class ReleaseDetailsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    
     @IBOutlet weak var releaseDetailsView: UIView!
     @IBOutlet weak var albumArtImageView: UIImageView!
     @IBOutlet weak var tapRecognizerView: UIView!
+    @IBOutlet weak var releaseOptionsTableView: UITableView!
+    @IBOutlet weak var releaseOptionsHeightConstraint: NSLayoutConstraint!
+    @IBOutlet weak var listenedButton: UIButton!
     
     override var prefersStatusBarHidden: Bool {
         return true
@@ -23,14 +26,32 @@ class ReleaseDetailsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.releaseOptionsTableView.delegate = self
+        self.releaseOptionsTableView.dataSource = self
+        
+        self.listenedButton.clipsToBounds = true
+        self.listenedButton.backgroundColor = UIColor.background
+        self.listenedButton.layer.cornerRadius = 15
+        self.listenedButton.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner]
 
-        // Do any additional setup after loading the view.
     }
     
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+        super.updateViewConstraints()
+        
+        self.releaseOptionsHeightConstraint.constant = self.releaseOptionsTableView.contentSize.height
+    }
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         setupView()
         animateView()
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        self.viewWillLayoutSubviews()
     }
 
     func configure(release: ReleaseItem) {
@@ -92,6 +113,22 @@ class ReleaseDetailsViewController: UIViewController {
             self.releaseDetailsView.alpha = 1.0
             self.releaseDetailsView.frame.origin.y -= 50
         })
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 2
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        print("Loading row")
+        let tableRow = UITableViewCell(style: .default, reuseIdentifier: nil)
+        tableRow.backgroundColor = .clear
+        tableRow.frame.size.height = 46
+        return tableRow
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 46
     }
 
 }

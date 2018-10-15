@@ -153,7 +153,7 @@ class ImportSpotifyOperation: AsyncOperation {
                 guard let data = data else { return }
                 do {
                     if let returnedJSON = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] {
-                        if let success = returnedJSON["success"] {
+                        if returnedJSON["success"] != nil {
                             NumuReviewHelper.incrementAndAskForReview()
                             self?.displaySuccessMessage()
                             DispatchQueue.main.async(execute: {
