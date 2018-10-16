@@ -205,10 +205,9 @@
 		443EBB91217054800071A11D /* ReleaseDetails */ = {
 			isa = PBXGroup;
 			children = (
+				44B613B2217562A7004A4F3F /* Rows */,
 				443EBB8D2170547A0071A11D /* ReleaseDetailsViewController.swift */,
 				443EBB8E2170547A0071A11D /* ReleaseDetailsViewController.xib */,
-				4406A00621744F38002900E8 /* ListenAMTableViewCell.swift */,
-				4406A00721744F38002900E8 /* ListenAMTableViewCell.xib */,
 			);
 			path = ReleaseDetails;
 			sourceTree = "<group>";
@@ -232,6 +231,15 @@
 				4406A0022173A674002900E8 /* ImportSpotifyOperation.swift */,
 			);
 			path = Operations;
+			sourceTree = "<group>";
+		};
+		44B613B2217562A7004A4F3F /* Rows */ = {
+			isa = PBXGroup;
+			children = (
+				4406A00621744F38002900E8 /* ListenAMTableViewCell.swift */,
+				4406A00721744F38002900E8 /* ListenAMTableViewCell.xib */,
+			);
+			path = Rows;
 			sourceTree = "<group>";
 		};
 		44D3916D21691D3100CFB9A3 /* AlertView */ = {

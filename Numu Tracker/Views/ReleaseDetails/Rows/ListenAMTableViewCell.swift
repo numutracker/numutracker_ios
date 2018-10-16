@@ -25,6 +25,9 @@ class ListenAMTableViewCell: UITableViewCell {
     func configure(release: ReleaseItem) {
         self.releaseData = release
         self.listenButtonOutlet.isEnabled = false
+        self.listenButtonLabel.textColor = UIColor.init(white: 1, alpha: 0.1)
+        self.listenButtonIcon.image = self.listenButtonIcon.image?.withRenderingMode(.alwaysTemplate)
+        self.listenButtonIcon.tintColor = UIColor.init(white: 1, alpha: 0.1)
         self.loadListenLinks()
     }
     
@@ -36,7 +39,9 @@ class ListenAMTableViewCell: UITableViewCell {
             UIApplication.shared.open(URL(string: urlString + "&app=music")!)
         }
     }
-
+    @IBOutlet weak var listenButtonLabel: UILabel!
+    @IBOutlet weak var listenButtonIcon: UIImageView!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -56,10 +61,11 @@ class ListenAMTableViewCell: UITableViewCell {
                 DispatchQueue.main.async(execute: {
                     self.itunesUrl = link
                     self.listenButtonOutlet.isEnabled = true
+                    self.listenButtonLabel.textColor = .white
+                    self.listenButtonIcon.tintColor = .white
                 })
             }
         })
     }
 
-    
 }

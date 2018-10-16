@@ -275,12 +275,21 @@ class AllReleasesTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("Touched View Cell...")
+        
+        let cellPosition = tableView.convert(tableView.rectForRow(at: indexPath), to: tableView.superview)
+        print("Position: \(cellPosition)")
+        print("MidY: \(cellPosition.midY)")
+        let windowHeight = tableView.superview!.frame.size.height
+        print("windowHeight: \(windowHeight)")
+        let highOrLow = (cellPosition.midY / windowHeight) * 100
+        print("High Or Low: \(highOrLow)")
+
         let releaseDetails = ReleaseDetailsViewController()
+        releaseDetails.animationDirection = highOrLow
         releaseDetails.providesPresentationContextTransitionStyle = true
         releaseDetails.definesPresentationContext = true
-        releaseDetails.modalPresentationStyle = UIModalPresentationStyle.overFullScreen
+        releaseDetails.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
         releaseDetails.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
-        releaseDetails.modalPresentationCapturesStatusBarAppearance = true
         if let appDelegate = UIApplication.shared.delegate,
             let appWindow = appDelegate.window!,
             let rootViewController = appWindow.rootViewController {
