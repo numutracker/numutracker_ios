@@ -12,16 +12,6 @@ class ListenAMTableViewCell: UITableViewCell {
     
     var releaseData: ReleaseItem?
     
-    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
-        super.init(style: style, reuseIdentifier: reuseIdentifier)
-        
-        print("Print from table view cell")
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-    }
-    
     func configure(release: ReleaseItem) {
         self.releaseData = release
         self.listenButtonOutlet.isEnabled = false
@@ -45,12 +35,6 @@ class ListenAMTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
     
     func loadListenLinks() {

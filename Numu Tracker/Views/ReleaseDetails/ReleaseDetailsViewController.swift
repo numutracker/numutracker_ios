@@ -12,6 +12,7 @@ class ReleaseDetailsViewController: UIViewController, UITableViewDataSource {
     
     var releaseData: ReleaseItem?
     var animationDirection: CGFloat = 50.00
+    var options: [String] = []
     
     @IBOutlet weak var releaseMetaLabel: UILabel!
     @IBOutlet weak var releaseNameLabel: UILabel!
@@ -24,17 +25,18 @@ class ReleaseDetailsViewController: UIViewController, UITableViewDataSource {
     @IBOutlet weak var listenedButton: UIButton!
     @IBOutlet weak var releaseDetailsContainer: UIView!
     
-    override var prefersStatusBarHidden: Bool {
-        return true
-    }
-    
     // MARK: - Initialization
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.buildOptions()
+        self.releaseOptionsTableView.rowHeight = 54
         self.releaseOptionsTableView.register(
             UINib(nibName: "ListenAMTableViewCell", bundle: nil),
             forCellReuseIdentifier: "listenAMCell")
+        self.releaseOptionsTableView.register(
+            UINib(nibName: "MoreReleasesTableViewCell", bundle: nil),
+            forCellReuseIdentifier: "moreReleasesCell")
         self.releaseOptionsTableView.dataSource = self
         let tap = UITapGestureRecognizer(target: self, action: #selector(ReleaseDetailsViewController.dismissView))
         self.tapRecognizerView.addGestureRecognizer(tap)
@@ -67,6 +69,16 @@ class ReleaseDetailsViewController: UIViewController, UITableViewDataSource {
         self.releaseNameLabel.text = release.albumName
         self.artistNameLabel.text = release.artistName
         self.releaseMetaLabel.text = release.releaseType + " • " + release.releaseDate
+    }
+    
+    func buildOptions() {
+        if true {
+            self.options.append("apple-music")
+        }
+        
+        if true {
+            self.options.append("more-releases")
+        }
     }
     
     // MARK: - Appearance
@@ -109,27 +121,17 @@ class ReleaseDetailsViewController: UIViewController, UITableViewDataSource {
     }
     
     func animateView() {
-        var offset: CGFloat = 0
-        
-        switch self.animationDirection {
-        case 0 ... 20:
-            offset = -200
-        case 20 ... 40:
-            offset = -50
-        case 60 ... 75:
-            offset = 50
-        case 75 ... 100:
-            offset = 200
-        default:
-            offset = 0
-        }
-
+        let originalPosition = self.releaseDetailsContainer.center
         releaseDetailsContainer.alpha = 0
-        self.releaseDetailsContainer.frame.origin.y += offset
-        self.releaseDetailsContainer.transform = CGAffineTransform(scaleX: 0.5, y: 0.5)
+        var newPosition = originalPosition
+        newPosition.y = self.animationDirection
+
+        self.releaseDetailsContainer.center = newPosition
+        self.releaseDetailsContainer.transform = CGAffineTransform(scaleX: 0.7, y: 0.7)
+
         UIView.animate(withDuration: 0.3, animations: { () -> Void in
             self.releaseDetailsContainer.alpha = 1.0
-            self.releaseDetailsContainer.frame.origin.y -= offset
+            self.releaseDetailsContainer.center = originalPosition
             self.releaseDetailsContainer.transform = CGAffineTransform(scaleX: 1, y: 1)
         })
     }
@@ -141,16 +143,53 @@ class ReleaseDetailsViewController: UIViewController, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return self.options.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        print("Loading row")
-        let cell = tableView.dequeueReusableCell(
-             withIdentifier: "listenAMCell",
-             for: indexPath) as! ListenAMTableViewCell
-        cell.configure(release: self.releaseData!)
-        return cell
+        switch self.options[indexPath.row] {
+        case "apple-music":
+            let cell = tableView.dequeueReusableCell(
+                 withIdentifier: "listenAMCell",
+                 for: indexPath) as! ListenAMTableViewCell
+            cell.configure(release: self.releaseData!)
+            return cell
+        case "more-releases":
+            let cell = tableView.dequeueReusableCell(
+                withIdentifier: "moreReleasesCell",
+                for: indexPath) as! MoreReleasesTableViewCell
+            cell.moreReleasesDelegate = self
+            cell.configure(release: self.releaseData!)
+            return cell
+        case "spotify":
+            break
+        case "youtube":
+            break
+        case "soundcloud":
+            break
+        default:
+            break
+        }
+        return UITableViewCell()
     }
 
+}
+
+extension ReleaseDetailsViewController: MoreReleasesDelegate {
+    func showMoreReleases(artistId: String) {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let releasesView = storyboard.instantiateViewController(withIdentifier: "artistReleasesController") as! ArtistReleasesTableViewController
+        releasesView.artistId = artistId
+
+        self.presentingViewController?.navigationController?.pushViewController(releasesView, animated: true)
+        
+        if let tabBar = self.presentingViewController as? UITabBarController,
+            let window = tabBar.selectedViewController as? UINavigationController {
+            window.pushViewController(releasesView, animated: true)
+        }
+        self.dismiss(animated: false, completion: nil)
+    }
+    
+    
+    
 }

@@ -28,6 +28,8 @@
 		4461CB8B21589AB4001939F0 /* RegisterWithCKOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4461CB8A21589AB4001939F0 /* RegisterWithCKOperation.swift */; };
 		4461CB8D21589D7A001939F0 /* AuthOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4461CB8C21589D7A001939F0 /* AuthOperation.swift */; };
 		446DBDE8215AF82400AE2AA7 /* ImportAppleMusicOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446DBDE7215AF82400AE2AA7 /* ImportAppleMusicOperation.swift */; };
+		449F5A7B2176B99900B9C919 /* MoreReleasesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 449F5A792176B99900B9C919 /* MoreReleasesTableViewCell.swift */; };
+		449F5A7C2176B99900B9C919 /* MoreReleasesTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 449F5A7A2176B99900B9C919 /* MoreReleasesTableViewCell.xib */; };
 		44D3917021691D5000CFB9A3 /* NumuSortView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44D3916E21691D5000CFB9A3 /* NumuSortView.swift */; };
 		44D3917121691D5000CFB9A3 /* NumuSortView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 44D3916F21691D5000CFB9A3 /* NumuSortView.xib */; };
 		B40E35921DB1D88C004BA8C7 /* NumuTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B40E35911DB1D88C004BA8C7 /* NumuTabBarController.swift */; };
@@ -89,6 +91,8 @@
 		4461CB8A21589AB4001939F0 /* RegisterWithCKOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterWithCKOperation.swift; sourceTree = "<group>"; };
 		4461CB8C21589D7A001939F0 /* AuthOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthOperation.swift; sourceTree = "<group>"; };
 		446DBDE7215AF82400AE2AA7 /* ImportAppleMusicOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportAppleMusicOperation.swift; sourceTree = "<group>"; };
+		449F5A792176B99900B9C919 /* MoreReleasesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreReleasesTableViewCell.swift; sourceTree = "<group>"; };
+		449F5A7A2176B99900B9C919 /* MoreReleasesTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MoreReleasesTableViewCell.xib; sourceTree = "<group>"; };
 		44D3916E21691D5000CFB9A3 /* NumuSortView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumuSortView.swift; sourceTree = "<group>"; };
 		44D3916F21691D5000CFB9A3 /* NumuSortView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NumuSortView.xib; sourceTree = "<group>"; };
 		AE619F4A3C507ABD0012177C /* Pods-Numu Tracker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Numu Tracker.release.xcconfig"; path = "Pods/Target Support Files/Pods-Numu Tracker/Pods-Numu Tracker.release.xcconfig"; sourceTree = "<group>"; };
@@ -238,6 +242,8 @@
 			children = (
 				4406A00621744F38002900E8 /* ListenAMTableViewCell.swift */,
 				4406A00721744F38002900E8 /* ListenAMTableViewCell.xib */,
+				449F5A792176B99900B9C919 /* MoreReleasesTableViewCell.swift */,
+				449F5A7A2176B99900B9C919 /* MoreReleasesTableViewCell.xib */,
 			);
 			path = Rows;
 			sourceTree = "<group>";
@@ -466,6 +472,7 @@
 				443EBB8C217053530071A11D /* LoginSpotifyViewController.xib in Resources */,
 				B4283A911D8548F300467CE6 /* LaunchScreen.storyboard in Resources */,
 				B43E36B01F5DF9BA009834C9 /* NumuLogo1024.png in Resources */,
+				449F5A7C2176B99900B9C919 /* MoreReleasesTableViewCell.xib in Resources */,
 				B4283A8E1D8548F300467CE6 /* Assets.xcassets in Resources */,
 				4406A00921744F38002900E8 /* ListenAMTableViewCell.xib in Resources */,
 				B4283A8C1D8548F300467CE6 /* Main.storyboard in Resources */,
@@ -628,6 +635,7 @@
 				443EBB8F2170547A0071A11D /* ReleaseDetailsViewController.swift in Sources */,
 				44D3917021691D5000CFB9A3 /* NumuSortView.swift in Sources */,
 				B4CCFCBC1DB3F8EE00D2277B /* ArtistReleaseTableViewCell.swift in Sources */,
+				449F5A7B2176B99900B9C919 /* MoreReleasesTableViewCell.swift in Sources */,
 				B40E35921DB1D88C004BA8C7 /* NumuTabBarController.swift in Sources */,
 				B43E36B21F5DFAD0009834C9 /* LogRegPromptViewController.swift in Sources */,
 				B4CCFCBA1DB3485600D2277B /* ArtistReleasesTableViewController.swift in Sources */,

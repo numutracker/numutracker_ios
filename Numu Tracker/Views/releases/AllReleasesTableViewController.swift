@@ -278,14 +278,14 @@ class AllReleasesTableViewController: UITableViewController {
         
         let cellPosition = tableView.convert(tableView.rectForRow(at: indexPath), to: tableView.superview)
         print("Position: \(cellPosition)")
-        print("MidY: \(cellPosition.midY)")
+        print("MinY: \(cellPosition.minY) - MidY: \(cellPosition.midY) - MaxY: \(cellPosition.maxY)")
         let windowHeight = tableView.superview!.frame.size.height
         print("windowHeight: \(windowHeight)")
         let highOrLow = (cellPosition.midY / windowHeight) * 100
         print("High Or Low: \(highOrLow)")
 
         let releaseDetails = ReleaseDetailsViewController()
-        releaseDetails.animationDirection = highOrLow
+        releaseDetails.animationDirection = cellPosition.midY
         releaseDetails.providesPresentationContextTransitionStyle = true
         releaseDetails.definesPresentationContext = true
         releaseDetails.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext

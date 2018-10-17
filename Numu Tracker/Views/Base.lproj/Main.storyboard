@@ -810,7 +810,7 @@ or manually search and follow artists.</string>
         <!--Artist Releases Table View Controller-->
         <scene sceneID="H5x-GQ-2Tb">
             <objects>
-                <tableViewController id="Wkd-P3-oas" customClass="ArtistReleasesTableViewController" customModule="Numu_Tracker" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="artistReleasesController" id="Wkd-P3-oas" customClass="ArtistReleasesTableViewController" customModule="Numu_Tracker" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="140" sectionHeaderHeight="28" sectionFooterHeight="28" id="KFU-9P-Mi9">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
