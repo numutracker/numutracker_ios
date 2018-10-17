@@ -36,7 +36,7 @@
                     <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zQp-aT-rzR">
-                    <rect key="frame" x="18" y="229.5" width="339" height="228"/>
+                    <rect key="frame" x="18" y="225.5" width="339" height="236"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MsS-rH-eyb">
                             <rect key="frame" x="0.0" y="0.0" width="339" height="182"/>
@@ -107,13 +107,16 @@
                                 <constraint firstAttribute="trailing" secondItem="kmA-4S-e0y" secondAttribute="trailing" id="xgJ-RP-1yr"/>
                             </constraints>
                         </view>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fj9-UP-YXH">
-                            <rect key="frame" x="0.0" y="182" width="339" height="46"/>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fj9-UP-YXH">
+                            <rect key="frame" x="0.0" y="182" width="339" height="54"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="46" id="cFL-f1-9Tx"/>
+                                <constraint firstAttribute="height" constant="54" id="cFL-f1-9Tx"/>
                             </constraints>
                             <inset key="contentEdgeInsets" minX="10" minY="10" maxX="10" maxY="10"/>
-                            <state key="normal" title="Listened"/>
+                            <state key="normal" title="  Listened" image="unchecked"/>
+                            <connections>
+                                <action selector="listenButtonAction:" destination="-1" eventType="touchUpInside" id="NPE-gh-o7V"/>
+                            </connections>
                         </button>
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -145,4 +148,7 @@
             <point key="canvasLocation" x="138.40000000000001" y="152.47376311844079"/>
         </view>
     </objects>
+    <resources>
+        <image name="unchecked" width="24" height="24"/>
+    </resources>
 </document>

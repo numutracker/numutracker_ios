@@ -25,6 +25,11 @@ class ReleaseDetailsViewController: UIViewController, UITableViewDataSource {
     @IBOutlet weak var listenedButton: UIButton!
     @IBOutlet weak var releaseDetailsContainer: UIView!
     
+    @IBAction func listenButtonAction(_ sender: Any) {
+        self.listenedButton.setImage(
+            UIImage(named: "checked")?.withRenderingMode(.alwaysTemplate),
+            for: .normal)
+    }
     // MARK: - Initialization
     
     override func viewDidLoad() {
@@ -76,9 +81,14 @@ class ReleaseDetailsViewController: UIViewController, UITableViewDataSource {
             self.options.append("apple-music")
         }
         
-        if true {
-            self.options.append("more-releases")
+        if let tabBar = self.presentingViewController as? UITabBarController,
+            let window = tabBar.selectedViewController as? UINavigationController,
+            let viewController = window.visibleViewController {
+            if !(viewController is ArtistReleasesTableViewController) {
+                self.options.append("more-releases")
+            }
         }
+        
     }
     
     // MARK: - Appearance
@@ -96,6 +106,15 @@ class ReleaseDetailsViewController: UIViewController, UITableViewDataSource {
         
         releaseDetailsView.layer.cornerRadius = 15
         releaseDetailsView.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMinXMinYCorner]
+        
+        //let listenedImage = UIImage(named: "unchecked")
+        //listenedImage.image = self.listenButtonIcon.image?.withRenderingMode(.alwaysTemplate)
+        //listenedImage.tintColor = UIColor.init(white: 1, alpha: 0.1)
+        self.listenedButton.setImage(
+            self.listenedButton.image(for: .normal)?.withRenderingMode(.alwaysTemplate),
+            for: .normal)
+        self.listenedButton.tintColor = .white
+        
         
         if !UIAccessibility.isReduceTransparencyEnabled {
             releaseDetailsView.backgroundColor = .clear
