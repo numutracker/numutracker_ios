@@ -170,8 +170,9 @@ class ArtistReleasesTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("Touched View Cell...")
         let releaseDetails = ReleaseDetailsViewController()
+        let cellPosition = tableView.convert(tableView.rectForRow(at: indexPath), to: tableView.superview)
+        releaseDetails.animationDirection = cellPosition.midY
         releaseDetails.providesPresentationContextTransitionStyle = true
         releaseDetails.definesPresentationContext = true
         releaseDetails.modalPresentationStyle = UIModalPresentationStyle.overFullScreen
