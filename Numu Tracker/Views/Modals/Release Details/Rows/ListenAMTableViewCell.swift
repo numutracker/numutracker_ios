@@ -11,33 +11,27 @@ import UIKit
 class ListenAMTableViewCell: UITableViewCell {
     
     var releaseData: ReleaseItem?
-    
-    func configure(release: ReleaseItem) {
-        self.releaseData = release
-        self.listenButtonOutlet.isEnabled = false
-        self.listenButtonLabel.textColor = UIColor.init(white: 1, alpha: 0.1)
-        self.listenButtonIcon.image = self.listenButtonIcon.image?.withRenderingMode(.alwaysTemplate)
-        self.listenButtonIcon.tintColor = UIColor.init(white: 1, alpha: 0.1)
-        self.loadListenLinks()
-    }
-    
-    @IBOutlet weak var listenButtonOutlet: UIButton!
     var itunesUrl: String?
+
+    @IBOutlet weak var listenButtonOutlet: UIButton!
     @IBAction func listenButton(_ sender: Any) {
-        print("listen on am...")
         if let urlString = self.itunesUrl {
             UIApplication.shared.open(URL(string: urlString + "&app=music")!)
         }
     }
     @IBOutlet weak var listenButtonLabel: UILabel!
     @IBOutlet weak var listenButtonIcon: UIImageView!
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
+
+    func configure(release: ReleaseItem) {
+        self.releaseData = release
+        self.listenButtonOutlet.isEnabled = false
+        self.listenButtonLabel.textColor = UIColor.init(white: 1, alpha: 0.1)
+        self.listenButtonIcon.image = self.listenButtonIcon.image?.withRenderingMode(.alwaysTemplate)
+        self.listenButtonIcon.tintColor = UIColor.init(white: 1, alpha: 0.1)
+        self.getItunesLink()
     }
-    
-    func loadListenLinks() {
+
+    func getItunesLink() {
         let artist = self.releaseData?.artistName
         let album = self.releaseData?.albumName
         DispatchQueue.global(qos: .background).async(execute: {
