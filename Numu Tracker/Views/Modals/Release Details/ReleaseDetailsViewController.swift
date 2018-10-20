@@ -75,11 +75,11 @@ class ReleaseDetailsViewController: UIViewController, UITableViewDataSource {
     }
     
     func buildOptions() {
-        if true {
+        if !defaults.disabledAppleMusic {
             self.options.append("apple-music")
         }
         
-        if true {
+        if defaults.enabledSpotify {
             self.options.append("spotify")
         }
         
@@ -174,6 +174,7 @@ class ReleaseDetailsViewController: UIViewController, UITableViewDataSource {
             let cell = tableView.dequeueReusableCell(
                 withIdentifier: "listenSpotifyCell",
                 for: indexPath) as! ListenSpotifyTableViewCell
+            cell.configure(release: self.releaseData!)
             return cell
 
         case "youtube":

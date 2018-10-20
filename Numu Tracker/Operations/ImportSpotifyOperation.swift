@@ -90,7 +90,8 @@ class ImportSpotifyOperation: AsyncOperation {
             }
 
             if timeRange == .shortTerm {
-                self.grabSpotifyFollowedArtists()
+                //self.grabSpotifyFollowedArtists()
+                self.getFollowing(after: nil)
             }
             
         }, failure: { (error) in
@@ -98,33 +99,23 @@ class ImportSpotifyOperation: AsyncOperation {
         })
     }
     
-    func grabSpotifyFollowedArtists() {
-        _ = Spartan.getMyFollowedArtists(limit: 50, after: nil, success: { (object) in
-            self.artistObject = object
-            self.parseArtists()
-            self.fetchAllItems()
+    func getFollowing(after: String?) {
+        _ = Spartan.getMyFollowedArtists(limit: 10, after: after, success: { (pagingObject) in
+             self.artistObject = pagingObject
+             self.parseArtists()
+            
+            if pagingObject.canMakeNextRequest {
+                usleep(100000)
+                self.getFollowing(after: pagingObject.cursors?.after)
+            } else {
+                print(self.artists)
+                self.sendArtistsToNumu()
+            }
         }, failure: { (error) in
             self.displaySpotifyError(error: error.errorMessage)
         })
     }
 
-    func fetchAllItems() {
-        if let artists = self.artistObject {
-            if artists.canMakeNextRequest {
-                artists.getNext(success: { (object) in
-                    self.artistObject = object
-                    self.parseArtists()
-                    self.fetchAllItems()
-                }, failure: { (error) in
-                    print(error)
-                })
-            } else {
-                print(self.artists)
-                self.sendArtistsToNumu()
-            }
-        }
-    }
-    
     func parseArtists() {
         if let artists = self.artistObject?.items {
             for artist in artists {

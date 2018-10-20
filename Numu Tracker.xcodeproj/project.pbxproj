@@ -29,6 +29,7 @@
 		446DBDE8215AF82400AE2AA7 /* ImportAppleMusicOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446DBDE7215AF82400AE2AA7 /* ImportAppleMusicOperation.swift */; };
 		447FED3621780B410084530E /* ListenSpotifyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 447FED3421780B410084530E /* ListenSpotifyTableViewCell.swift */; };
 		447FED3721780B410084530E /* ListenSpotifyTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 447FED3521780B410084530E /* ListenSpotifyTableViewCell.xib */; };
+		447FED3E217B839F0084530E /* MusicServicesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 447FED3D217B839F0084530E /* MusicServicesViewController.swift */; };
 		449F5A7B2176B99900B9C919 /* MoreReleasesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 449F5A792176B99900B9C919 /* MoreReleasesTableViewCell.swift */; };
 		449F5A7C2176B99900B9C919 /* MoreReleasesTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 449F5A7A2176B99900B9C919 /* MoreReleasesTableViewCell.xib */; };
 		44D3917021691D5000CFB9A3 /* NumuSortView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44D3916E21691D5000CFB9A3 /* NumuSortView.swift */; };
@@ -43,7 +44,6 @@
 		B4283A911D8548F300467CE6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B4283A8F1D8548F300467CE6 /* LaunchScreen.storyboard */; };
 		B4283ABD1D8658AD00467CE6 /* ReleaseItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4283ABC1D8658AD00467CE6 /* ReleaseItem.swift */; };
 		B42866081DA5FC53000E5FA6 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = B42866071DA5FC53000E5FA6 /* User.swift */; };
-		B43705D81E357C8C0060E6CC /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B43705D71E357C8C0060E6CC /* SettingsTableViewController.swift */; };
 		B43E36B21F5DFAD0009834C9 /* LogRegPromptViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B43E36B11F5DFAD0009834C9 /* LogRegPromptViewController.swift */; };
 		B440D9D51DB2D13900477938 /* ArtistsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B440D9D41DB2D13900477938 /* ArtistsTableViewController.swift */; };
 		B440D9D71DB2D19300477938 /* ArtistItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B440D9D61DB2D19300477938 /* ArtistItem.swift */; };
@@ -51,15 +51,14 @@
 		B45A133D20548632001EBDA5 /* NumuCredential.swift in Sources */ = {isa = PBXBuildFile; fileRef = B45A133C20548632001EBDA5 /* NumuCredential.swift */; };
 		B45A133F2054CBDF001EBDA5 /* NumuClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = B45A133E2054CBDF001EBDA5 /* NumuClient.swift */; };
 		B45A134120551C46001EBDA5 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B45A134020551C46001EBDA5 /* Extensions.swift */; };
-		B46754561F6DA64B00C80544 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B46754551F6DA64B00C80544 /* AboutViewController.swift */; };
 		B46754581F6DA66F00C80544 /* InstructionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B46754571F6DA66F00C80544 /* InstructionsViewController.swift */; };
 		B471648D1F5FA24600D4E03E /* NumuTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = B471648C1F5FA24600D4E03E /* NumuTextField.swift */; };
-		B47CF37B1E5E908100225B85 /* LogOutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B47CF37A1E5E908100225B85 /* LogOutViewController.swift */; };
+		B47CF37B1E5E908100225B85 /* StatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B47CF37A1E5E908100225B85 /* StatsViewController.swift */; };
 		B4B49B871E5EBE4B001CE1C7 /* ReleaseFiltersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4B49B861E5EBE4B001CE1C7 /* ReleaseFiltersViewController.swift */; };
 		B4B940AE1E6131B800F52027 /* NotificationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4B940AD1E6131B800F52027 /* NotificationsViewController.swift */; };
 		B4CCFCBA1DB3485600D2277B /* ArtistReleasesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4CCFCB91DB3485600D2277B /* ArtistReleasesTableViewController.swift */; };
 		B4CCFCBC1DB3F8EE00D2277B /* ArtistReleaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4CCFCBB1DB3F8EE00D2277B /* ArtistReleaseTableViewCell.swift */; };
-		B4CCFCC51DB4311B00D2277B /* AddArtistsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4CCFCC41DB4311B00D2277B /* AddArtistsViewController.swift */; };
+		B4CCFCC51DB4311B00D2277B /* ImportAppleMusicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4CCFCC41DB4311B00D2277B /* ImportAppleMusicViewController.swift */; };
 		B4CCFCC71DB4353E00D2277B /* NumuUIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4CCFCC61DB4353E00D2277B /* NumuUIButton.swift */; };
 		B4CCFCC91DB447B200D2277B /* HelpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4CCFCC81DB447B200D2277B /* HelpViewController.swift */; };
 		B4F1E3AB2058C6C100F2544A /* NumuReviewHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4F1E3AA2058C6C100F2544A /* NumuReviewHelper.swift */; };
@@ -91,6 +90,7 @@
 		446DBDE7215AF82400AE2AA7 /* ImportAppleMusicOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportAppleMusicOperation.swift; sourceTree = "<group>"; };
 		447FED3421780B410084530E /* ListenSpotifyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListenSpotifyTableViewCell.swift; sourceTree = "<group>"; };
 		447FED3521780B410084530E /* ListenSpotifyTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ListenSpotifyTableViewCell.xib; sourceTree = "<group>"; };
+		447FED3D217B839F0084530E /* MusicServicesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicServicesViewController.swift; sourceTree = "<group>"; };
 		449F5A792176B99900B9C919 /* MoreReleasesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreReleasesTableViewCell.swift; sourceTree = "<group>"; };
 		449F5A7A2176B99900B9C919 /* MoreReleasesTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MoreReleasesTableViewCell.xib; sourceTree = "<group>"; };
 		44D3916E21691D5000CFB9A3 /* NumuSortView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumuSortView.swift; sourceTree = "<group>"; };
@@ -108,7 +108,6 @@
 		B4283A921D8548F300467CE6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B4283ABC1D8658AD00467CE6 /* ReleaseItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReleaseItem.swift; sourceTree = "<group>"; };
 		B42866071DA5FC53000E5FA6 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
-		B43705D71E357C8C0060E6CC /* SettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 		B43AF1E31DCE4C94008F7EBD /* Numu Tracker.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Numu Tracker.entitlements"; sourceTree = "<group>"; };
 		B43E36B11F5DFAD0009834C9 /* LogRegPromptViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogRegPromptViewController.swift; sourceTree = "<group>"; };
 		B440D9D41DB2D13900477938 /* ArtistsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArtistsTableViewController.swift; sourceTree = "<group>"; };
@@ -117,15 +116,14 @@
 		B45A133C20548632001EBDA5 /* NumuCredential.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumuCredential.swift; sourceTree = "<group>"; };
 		B45A133E2054CBDF001EBDA5 /* NumuClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumuClient.swift; sourceTree = "<group>"; };
 		B45A134020551C46001EBDA5 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
-		B46754551F6DA64B00C80544 /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		B46754571F6DA66F00C80544 /* InstructionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstructionsViewController.swift; sourceTree = "<group>"; };
 		B471648C1F5FA24600D4E03E /* NumuTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumuTextField.swift; sourceTree = "<group>"; };
-		B47CF37A1E5E908100225B85 /* LogOutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogOutViewController.swift; sourceTree = "<group>"; };
+		B47CF37A1E5E908100225B85 /* StatsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatsViewController.swift; sourceTree = "<group>"; };
 		B4B49B861E5EBE4B001CE1C7 /* ReleaseFiltersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReleaseFiltersViewController.swift; sourceTree = "<group>"; };
 		B4B940AD1E6131B800F52027 /* NotificationsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationsViewController.swift; sourceTree = "<group>"; };
 		B4CCFCB91DB3485600D2277B /* ArtistReleasesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArtistReleasesTableViewController.swift; sourceTree = "<group>"; };
 		B4CCFCBB1DB3F8EE00D2277B /* ArtistReleaseTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArtistReleaseTableViewCell.swift; sourceTree = "<group>"; };
-		B4CCFCC41DB4311B00D2277B /* AddArtistsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddArtistsViewController.swift; sourceTree = "<group>"; };
+		B4CCFCC41DB4311B00D2277B /* ImportAppleMusicViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImportAppleMusicViewController.swift; sourceTree = "<group>"; };
 		B4CCFCC61DB4353E00D2277B /* NumuUIButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NumuUIButton.swift; sourceTree = "<group>"; };
 		B4CCFCC81DB447B200D2277B /* HelpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelpViewController.swift; sourceTree = "<group>"; };
 		B4F1E3AA2058C6C100F2544A /* NumuReviewHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumuReviewHelper.swift; sourceTree = "<group>"; };
@@ -186,7 +184,7 @@
 				B4D525E31E353187000B7ADD /* Releases */,
 				B4CCFCBE1DB425A000D2277B /* Artist Releases */,
 				B4CCFCBD1DB4258C00D2277B /* Artists */,
-				B4CCFCC01DB425D900D2277B /* Settings */,
+				B4CCFCC01DB425D900D2277B /* More */,
 				447FED38217811810084530E /* Modals */,
 			);
 			path = Views;
@@ -212,13 +210,13 @@
 			path = "Release Details";
 			sourceTree = "<group>";
 		};
-		443EBB922170600E0071A11D /* LoginSpotify */ = {
+		443EBB922170600E0071A11D /* Spotify Login */ = {
 			isa = PBXGroup;
 			children = (
 				443EBB89217053530071A11D /* LoginSpotifyViewController.swift */,
 				443EBB8A217053530071A11D /* LoginSpotifyViewController.xib */,
 			);
-			path = LoginSpotify;
+			path = "Spotify Login";
 			sourceTree = "<group>";
 		};
 		4461CB77215844AB001939F0 /* Operations */ = {
@@ -241,6 +239,15 @@
 				443EBB91217054800071A11D /* Release Details */,
 			);
 			path = Modals;
+			sourceTree = "<group>";
+		};
+		447FED3A217B819E0084530E /* Import Artists */ = {
+			isa = PBXGroup;
+			children = (
+				B4CCFCC41DB4311B00D2277B /* ImportAppleMusicViewController.swift */,
+				443EBB8721702D430071A11D /* ImportSpotifyViewController.swift */,
+			);
+			path = "Import Artists";
 			sourceTree = "<group>";
 		};
 		44B613B2217562A7004A4F3F /* Rows */ = {
@@ -328,22 +335,20 @@
 			path = artistreleases;
 			sourceTree = "<group>";
 		};
-		B4CCFCC01DB425D900D2277B /* Settings */ = {
+		B4CCFCC01DB425D900D2277B /* More */ = {
 			isa = PBXGroup;
 			children = (
-				443EBB922170600E0071A11D /* LoginSpotify */,
-				B4CCFCC41DB4311B00D2277B /* AddArtistsViewController.swift */,
+				447FED3A217B819E0084530E /* Import Artists */,
+				443EBB922170600E0071A11D /* Spotify Login */,
 				B4CCFCC81DB447B200D2277B /* HelpViewController.swift */,
-				B43705D71E357C8C0060E6CC /* SettingsTableViewController.swift */,
-				B47CF37A1E5E908100225B85 /* LogOutViewController.swift */,
+				B47CF37A1E5E908100225B85 /* StatsViewController.swift */,
 				B4B49B861E5EBE4B001CE1C7 /* ReleaseFiltersViewController.swift */,
 				B4B940AD1E6131B800F52027 /* NotificationsViewController.swift */,
-				B46754551F6DA64B00C80544 /* AboutViewController.swift */,
 				B46754571F6DA66F00C80544 /* InstructionsViewController.swift */,
 				B43E36B11F5DFAD0009834C9 /* LogRegPromptViewController.swift */,
-				443EBB8721702D430071A11D /* ImportSpotifyViewController.swift */,
+				447FED3D217B839F0084530E /* MusicServicesViewController.swift */,
 			);
-			name = Settings;
+			name = More;
 			path = settings;
 			sourceTree = "<group>";
 		};
@@ -608,10 +613,11 @@
 				B46754581F6DA66F00C80544 /* InstructionsViewController.swift in Sources */,
 				4461CB7F21585488001939F0 /* NumuAPI.swift in Sources */,
 				B4B940AE1E6131B800F52027 /* NotificationsViewController.swift in Sources */,
+				447FED3E217B839F0084530E /* MusicServicesViewController.swift in Sources */,
 				B4283A851D8548F300467CE6 /* AppDelegate.swift in Sources */,
-				B47CF37B1E5E908100225B85 /* LogOutViewController.swift in Sources */,
+				B47CF37B1E5E908100225B85 /* StatsViewController.swift in Sources */,
 				B4CCFCC71DB4353E00D2277B /* NumuUIButton.swift in Sources */,
-				B4CCFCC51DB4311B00D2277B /* AddArtistsViewController.swift in Sources */,
+				B4CCFCC51DB4311B00D2277B /* ImportAppleMusicViewController.swift in Sources */,
 				4461CB8B21589AB4001939F0 /* RegisterWithCKOperation.swift in Sources */,
 				4401CBB8215DC8D000B0EB23 /* AlbumArtCache.swift in Sources */,
 				4459C3D721658A7900EB4048 /* NumuAlertView.swift in Sources */,
@@ -635,9 +641,7 @@
 				B43E36B21F5DFAD0009834C9 /* LogRegPromptViewController.swift in Sources */,
 				B4CCFCBA1DB3485600D2277B /* ArtistReleasesTableViewController.swift in Sources */,
 				B416A6601DC52A91000F86D9 /* AllReleasesTableViewController.swift in Sources */,
-				B46754561F6DA64B00C80544 /* AboutViewController.swift in Sources */,
 				4406A00821744F38002900E8 /* ListenAMTableViewCell.swift in Sources */,
-				B43705D81E357C8C0060E6CC /* SettingsTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -21,8 +21,8 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rox-U7-iSI">
-                    <rect key="frame" x="150" y="378.5" width="75" height="30"/>
-                    <state key="normal" title="Nevermind">
+                    <rect key="frame" x="141" y="378.5" width="93" height="30"/>
+                    <state key="normal" title="Maybe later...">
                         <color key="titleColor" cocoaTouchSystemColor="lightTextColor"/>
                     </state>
                     <connections>

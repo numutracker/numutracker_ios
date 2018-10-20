@@ -1,5 +1,5 @@
 //
-//  AddArtistsViewController.swift
+//  ImportAppleMusicViewController.swift
 //  Numu Tracker
 //
 //  Created by Bradley Root on 10/16/16.
@@ -10,7 +10,7 @@ import UIKit
 import MediaPlayer
 import Crashlytics
 
-class AddArtistsViewController: UIViewController {
+class ImportAppleMusicViewController: UIViewController {
 
     @IBOutlet weak var addFromAppleMusic: UIButton!
     @IBAction func addFromAppleMusicPress(_ sender: AnyObject) {

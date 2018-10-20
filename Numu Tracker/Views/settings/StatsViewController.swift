@@ -1,5 +1,5 @@
 //
-//  LogOutViewController.swift
+//  StatsViewController.swift
 //  Numu Tracker
 //
 //  Created by Bradley Root on 2/22/17.
@@ -12,7 +12,7 @@ import PusherSwift
 import Crashlytics
 import SwiftyJSON
 
-class LogOutViewController: UIViewController {
+class StatsViewController: UIViewController {
 
     @IBOutlet weak var dividingLineView1: UIView!
     @IBOutlet weak var dividingLineView2: UIView!

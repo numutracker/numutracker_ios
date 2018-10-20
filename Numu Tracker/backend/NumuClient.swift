@@ -254,17 +254,4 @@ class NumuClient {
         }
     }
 
-    func getSpotifyLink(artist: String?, album: String?, completion: @escaping (String) -> Void) {
-        if let artist = artist?.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed),
-            let album = album?.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) {
-            let urlString = "https://api.spotify.com/v1/search?q=artist:\(artist)%20album:\(album)&type=album"
-            if let url = URL(string: urlString),
-                let data = try? Data(contentsOf: url),
-                let json = try? JSON(data: data),
-                let results = json["albums"]["items"][0]["external_urls"]["spotify"].string {
-                    completion(results)
-            }
-        }
-    }
-
 }

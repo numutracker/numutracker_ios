@@ -32,21 +32,41 @@
                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zg4-KO-xpw">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="57.5"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <state key="normal">
+                            <color key="titleColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </state>
+                        <connections>
+                            <action selector="spotifyAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="ref-aX-SMG"/>
+                        </connections>
+                    </button>
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
                     <constraint firstItem="MaZ-dh-q8D" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="9zf-KZ-mlg"/>
                     <constraint firstItem="6H3-CR-87S" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="IaH-MQ-a9Q"/>
+                    <constraint firstAttribute="trailing" secondItem="zg4-KO-xpw" secondAttribute="trailing" id="LTY-Zl-hcM"/>
                     <constraint firstAttribute="trailing" secondItem="MaZ-dh-q8D" secondAttribute="trailing" constant="16" id="UMm-Su-L2V"/>
+                    <constraint firstItem="zg4-KO-xpw" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="XJb-xv-hIO"/>
                     <constraint firstItem="6H3-CR-87S" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="18" id="Z3o-om-5xm"/>
                     <constraint firstAttribute="trailing" secondItem="6H3-CR-87S" secondAttribute="trailing" id="jBO-xB-rjS"/>
+                    <constraint firstAttribute="bottom" secondItem="zg4-KO-xpw" secondAttribute="bottom" id="m0j-3U-Da6"/>
+                    <constraint firstItem="zg4-KO-xpw" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="y4v-ZH-YMX"/>
                     <constraint firstAttribute="bottom" secondItem="6H3-CR-87S" secondAttribute="bottom" id="zKy-7y-ted"/>
                 </constraints>
             </tableViewCellContentView>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="spotifyButton" destination="zg4-KO-xpw" id="dJA-nm-h4K"/>
+                <outlet property="spotifyIcon" destination="MaZ-dh-q8D" id="oD2-dI-gCB"/>
+                <outlet property="spotifyLabel" destination="6H3-CR-87S" id="Xmd-so-wmu"/>
+            </connections>
             <point key="canvasLocation" x="137.59999999999999" y="141.22938530734635"/>
         </tableViewCell>
     </objects>
