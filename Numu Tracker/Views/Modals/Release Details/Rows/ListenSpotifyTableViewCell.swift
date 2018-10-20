@@ -17,7 +17,7 @@ class ListenSpotifyTableViewCell: UITableViewCell {
 
     @IBOutlet weak var spotifyIcon: UIImageView!
     @IBOutlet weak var spotifyLabel: UILabel!
-    @IBOutlet weak var spotifyButton: UIButton!
+    @IBOutlet weak var spotifyButton: NumuModalButton!
     
     @IBAction func spotifyAction(_ sender: Any) {
         if let urlString = self.spotifyUrl {

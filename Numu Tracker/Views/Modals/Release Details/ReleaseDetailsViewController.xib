@@ -54,7 +54,7 @@
                                     <constraints>
                                         <constraint firstAttribute="height" constant="46" id="Vun-lX-hW5"/>
                                     </constraints>
-                                    <color key="separatorColor" white="0.22946459993924181" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="separatorColor" white="1" alpha="0.10000000000000001" colorSpace="calibratedWhite"/>
                                     <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </tableView>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KXX-v2-sUD" userLabel="Separator">

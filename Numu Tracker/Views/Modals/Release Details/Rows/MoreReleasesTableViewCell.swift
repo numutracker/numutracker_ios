@@ -20,7 +20,7 @@ class MoreReleasesTableViewCell: UITableViewCell {
     
     @IBOutlet weak var cellLabel: UILabel!
     @IBOutlet weak var cellIcon: UIImageView!
-    @IBOutlet weak var buttonOutlet: UIButton!
+    @IBOutlet weak var buttonOutlet: NumuModalButton!
     @IBAction func buttonAction(_ sender: Any) {
         if let artistId = self.releaseData?.artistId {
             moreReleasesDelegate.showMoreReleases(artistId: artistId)

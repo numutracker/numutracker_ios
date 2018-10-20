@@ -12,7 +12,7 @@ class SearchSoundCloudTableViewCell: UITableViewCell {
 
     @IBOutlet weak var cellLabel: UILabel!
     @IBOutlet weak var cellIcon: UIImageView!
-    @IBOutlet weak var cellButton: UIButton!
+    @IBOutlet weak var cellButton: NumuModalButton!
     
     var releaseData: ReleaseItem?
     var searchUrl: String?

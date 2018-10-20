@@ -12,7 +12,7 @@ class SearchYouTubeTableViewCell: UITableViewCell {
 
     @IBOutlet weak var cellLabel: UILabel!
     @IBOutlet weak var cellImage: UIImageView!
-    @IBOutlet weak var cellButton: UIButton!
+    @IBOutlet weak var cellButton: NumuModalButton!
     
     @IBAction func searchYouTube(_ sender: Any) {
         if let urlString = self.searchUrl {

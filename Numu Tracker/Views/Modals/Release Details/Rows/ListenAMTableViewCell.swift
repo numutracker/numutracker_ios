@@ -13,7 +13,7 @@ class ListenAMTableViewCell: UITableViewCell {
     var releaseData: ReleaseItem?
     var itunesUrl: String?
 
-    @IBOutlet weak var listenButtonOutlet: UIButton!
+    @IBOutlet weak var listenButtonOutlet: NumuModalButton!
     @IBAction func listenButton(_ sender: Any) {
         if let urlString = self.itunesUrl {
             UIApplication.shared.open(URL(string: urlString + "&app=music")!)
@@ -45,5 +45,7 @@ class ListenAMTableViewCell: UITableViewCell {
             }
         })
     }
+    
+    
 
 }
