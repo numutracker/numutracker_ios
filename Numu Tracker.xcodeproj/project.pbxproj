@@ -30,6 +30,10 @@
 		447FED3621780B410084530E /* ListenSpotifyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 447FED3421780B410084530E /* ListenSpotifyTableViewCell.swift */; };
 		447FED3721780B410084530E /* ListenSpotifyTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 447FED3521780B410084530E /* ListenSpotifyTableViewCell.xib */; };
 		447FED3E217B839F0084530E /* MusicServicesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 447FED3D217B839F0084530E /* MusicServicesViewController.swift */; };
+		447FED41217BA34A0084530E /* SearchSoundCloudTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 447FED3F217BA34A0084530E /* SearchSoundCloudTableViewCell.swift */; };
+		447FED42217BA34A0084530E /* SearchSoundCloudTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 447FED40217BA34A0084530E /* SearchSoundCloudTableViewCell.xib */; };
+		447FED45217BB68D0084530E /* SearchYouTubeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 447FED43217BB68D0084530E /* SearchYouTubeTableViewCell.swift */; };
+		447FED46217BB68D0084530E /* SearchYouTubeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 447FED44217BB68D0084530E /* SearchYouTubeTableViewCell.xib */; };
 		449F5A7B2176B99900B9C919 /* MoreReleasesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 449F5A792176B99900B9C919 /* MoreReleasesTableViewCell.swift */; };
 		449F5A7C2176B99900B9C919 /* MoreReleasesTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 449F5A7A2176B99900B9C919 /* MoreReleasesTableViewCell.xib */; };
 		44D3917021691D5000CFB9A3 /* NumuSortView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44D3916E21691D5000CFB9A3 /* NumuSortView.swift */; };
@@ -91,6 +95,10 @@
 		447FED3421780B410084530E /* ListenSpotifyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListenSpotifyTableViewCell.swift; sourceTree = "<group>"; };
 		447FED3521780B410084530E /* ListenSpotifyTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ListenSpotifyTableViewCell.xib; sourceTree = "<group>"; };
 		447FED3D217B839F0084530E /* MusicServicesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicServicesViewController.swift; sourceTree = "<group>"; };
+		447FED3F217BA34A0084530E /* SearchSoundCloudTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchSoundCloudTableViewCell.swift; sourceTree = "<group>"; };
+		447FED40217BA34A0084530E /* SearchSoundCloudTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchSoundCloudTableViewCell.xib; sourceTree = "<group>"; };
+		447FED43217BB68D0084530E /* SearchYouTubeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchYouTubeTableViewCell.swift; sourceTree = "<group>"; };
+		447FED44217BB68D0084530E /* SearchYouTubeTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchYouTubeTableViewCell.xib; sourceTree = "<group>"; };
 		449F5A792176B99900B9C919 /* MoreReleasesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreReleasesTableViewCell.swift; sourceTree = "<group>"; };
 		449F5A7A2176B99900B9C919 /* MoreReleasesTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MoreReleasesTableViewCell.xib; sourceTree = "<group>"; };
 		44D3916E21691D5000CFB9A3 /* NumuSortView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumuSortView.swift; sourceTree = "<group>"; };
@@ -259,6 +267,10 @@
 				449F5A7A2176B99900B9C919 /* MoreReleasesTableViewCell.xib */,
 				447FED3421780B410084530E /* ListenSpotifyTableViewCell.swift */,
 				447FED3521780B410084530E /* ListenSpotifyTableViewCell.xib */,
+				447FED3F217BA34A0084530E /* SearchSoundCloudTableViewCell.swift */,
+				447FED40217BA34A0084530E /* SearchSoundCloudTableViewCell.xib */,
+				447FED43217BB68D0084530E /* SearchYouTubeTableViewCell.swift */,
+				447FED44217BB68D0084530E /* SearchYouTubeTableViewCell.xib */,
 			);
 			path = Rows;
 			sourceTree = "<group>";
@@ -465,6 +477,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				447FED42217BA34A0084530E /* SearchSoundCloudTableViewCell.xib in Resources */,
 				44D3917121691D5000CFB9A3 /* NumuSortView.xib in Resources */,
 				443EBB902170547A0071A11D /* ReleaseDetailsViewController.xib in Resources */,
 				4459C3D821658A7900EB4048 /* NumuAlertView.xib in Resources */,
@@ -473,6 +486,7 @@
 				449F5A7C2176B99900B9C919 /* MoreReleasesTableViewCell.xib in Resources */,
 				447FED3721780B410084530E /* ListenSpotifyTableViewCell.xib in Resources */,
 				B4283A8E1D8548F300467CE6 /* Assets.xcassets in Resources */,
+				447FED46217BB68D0084530E /* SearchYouTubeTableViewCell.xib in Resources */,
 				4406A00921744F38002900E8 /* ListenAMTableViewCell.xib in Resources */,
 				B4283A8C1D8548F300467CE6 /* Main.storyboard in Resources */,
 			);
@@ -622,7 +636,9 @@
 				4401CBB8215DC8D000B0EB23 /* AlbumArtCache.swift in Sources */,
 				4459C3D721658A7900EB4048 /* NumuAlertView.swift in Sources */,
 				B440D9D71DB2D19300477938 /* ArtistItem.swift in Sources */,
+				447FED41217BA34A0084530E /* SearchSoundCloudTableViewCell.swift in Sources */,
 				B440D9D51DB2D13900477938 /* ArtistsTableViewController.swift in Sources */,
+				447FED45217BB68D0084530E /* SearchYouTubeTableViewCell.swift in Sources */,
 				B4B49B871E5EBE4B001CE1C7 /* ReleaseFiltersViewController.swift in Sources */,
 				B471648D1F5FA24600D4E03E /* NumuTextField.swift in Sources */,
 				B416A6641DC52FBC000F86D9 /* ReleaseData.swift in Sources */,

@@ -25,10 +25,10 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fQ2-gx-kpS">
-                    <rect key="frame" x="40" y="164" width="240" height="172"/>
+                    <rect key="frame" x="30" y="172" width="260" height="156.5"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Success" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7jo-hI-4ze">
-                            <rect key="frame" x="87.5" y="18" width="65" height="21"/>
+                            <rect key="frame" x="97.5" y="18" width="65" height="21"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="21" id="0n7-pa-c1F"/>
                             </constraints>
@@ -37,7 +37,7 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IAI-ri-ajW">
-                            <rect key="frame" x="0.0" y="132" width="240" height="40"/>
+                            <rect key="frame" x="0.0" y="116.5" width="260" height="40"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="40" id="gq0-Fg-AaF"/>
                             </constraints>
@@ -50,13 +50,13 @@
                             </connections>
                         </button>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="top" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your artists have been imported. Please wait several minutes for all artists to appear in your collection." textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gDR-w4-J9C">
-                            <rect key="frame" x="24" y="47" width="192" height="62.5"/>
+                            <rect key="frame" x="24" y="47" width="212" height="47"/>
                             <fontDescription key="fontDescription" type="system" pointSize="13"/>
                             <color key="textColor" cocoaTouchSystemColor="lightTextColor"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZcA-MY-yFP">
-                            <rect key="frame" x="0.0" y="131" width="240" height="1"/>
+                            <rect key="frame" x="10" y="115.5" width="240" height="1"/>
                             <color key="backgroundColor" white="0.2870826198630137" alpha="0.50390625" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="1" id="1Y1-g7-zVw"/>
@@ -73,7 +73,7 @@
                         <constraint firstAttribute="trailing" secondItem="IAI-ri-ajW" secondAttribute="trailing" id="UCb-rU-5Av"/>
                         <constraint firstItem="gDR-w4-J9C" firstAttribute="top" secondItem="7jo-hI-4ze" secondAttribute="bottom" constant="8" id="V5E-Zq-S7y"/>
                         <constraint firstAttribute="bottom" secondItem="IAI-ri-ajW" secondAttribute="bottom" id="gM3-kK-u2k"/>
-                        <constraint firstAttribute="width" constant="240" id="hDL-Cr-yBM"/>
+                        <constraint firstAttribute="width" constant="260" id="hDL-Cr-yBM"/>
                         <constraint firstItem="gDR-w4-J9C" firstAttribute="leading" secondItem="fQ2-gx-kpS" secondAttribute="leading" constant="24" id="qWs-4Y-mtx"/>
                         <constraint firstItem="ZcA-MY-yFP" firstAttribute="centerX" secondItem="fQ2-gx-kpS" secondAttribute="centerX" id="vcY-th-mKZ"/>
                         <constraint firstAttribute="trailing" secondItem="gDR-w4-J9C" secondAttribute="trailing" constant="24" id="xMb-R5-bb2"/>

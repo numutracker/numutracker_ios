@@ -39,6 +39,12 @@ class ReleaseDetailsViewController: UIViewController, UITableViewDataSource {
         self.releaseOptionsTableView.register(
             UINib(nibName: "ListenSpotifyTableViewCell", bundle: nil),
             forCellReuseIdentifier: "listenSpotifyCell")
+        self.releaseOptionsTableView.register(
+            UINib(nibName: "SearchSoundCloudTableViewCell", bundle: nil),
+            forCellReuseIdentifier: "searchSoundCloudCell")
+        self.releaseOptionsTableView.register(
+            UINib(nibName: "SearchYouTubeTableViewCell", bundle: nil),
+            forCellReuseIdentifier: "searchYouTubeCell")
         self.releaseOptionsTableView.dataSource = self
         let tap = UITapGestureRecognizer(target: self, action: #selector(ReleaseDetailsViewController.dismissView))
         self.tapRecognizerView.addGestureRecognizer(tap)
@@ -81,6 +87,14 @@ class ReleaseDetailsViewController: UIViewController, UITableViewDataSource {
         
         if defaults.enabledSpotify {
             self.options.append("spotify")
+        }
+        
+        if defaults.enabledSoundCloud {
+            self.options.append("soundcloud")
+        }
+        
+        if defaults.enabledYouTube {
+            self.options.append("youtube")
         }
         
         if let tabBar = self.presentingViewController as? UITabBarController,
@@ -178,9 +192,17 @@ class ReleaseDetailsViewController: UIViewController, UITableViewDataSource {
             return cell
 
         case "youtube":
-            break
+            let cell = tableView.dequeueReusableCell(
+                withIdentifier: "searchYouTubeCell",
+                for: indexPath) as! SearchYouTubeTableViewCell
+            cell.configure(release: self.releaseData!)
+            return cell
         case "soundcloud":
-            break
+            let cell = tableView.dequeueReusableCell(
+                withIdentifier: "searchSoundCloudCell",
+                for: indexPath) as! SearchSoundCloudTableViewCell
+            cell.configure(release: self.releaseData!)
+            return cell
         default:
             break
         }

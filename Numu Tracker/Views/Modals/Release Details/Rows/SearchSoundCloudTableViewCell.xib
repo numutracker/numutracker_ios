@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" id="KGk-i7-Jjw" customClass="SearchSoundCloudTableViewCell" customModule="Numu_Tracker" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Search SoundCloud" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C2E-Mm-XMz">
+                        <rect key="frame" x="18" y="0.0" width="302" height="43.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="soundcloud" translatesAutoresizingMaskIntoConstraints="NO" id="Sbo-kt-VIk">
+                        <rect key="frame" x="280" y="10" width="24" height="24"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="24" id="EL9-K3-mtG"/>
+                            <constraint firstAttribute="height" constant="24" id="ELj-GU-OEz"/>
+                        </constraints>
+                    </imageView>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Da-OQ-8qg">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <connections>
+                            <action selector="searchSoundCloud:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="TEo-Lf-8aC"/>
+                        </connections>
+                    </button>
+                </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                <constraints>
+                    <constraint firstItem="C2E-Mm-XMz" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="18" id="2sk-yi-Vhb"/>
+                    <constraint firstItem="Sbo-kt-VIk" firstAttribute="centerY" secondItem="C2E-Mm-XMz" secondAttribute="centerY" id="AF4-Nm-qJo"/>
+                    <constraint firstAttribute="bottom" secondItem="C2E-Mm-XMz" secondAttribute="bottom" id="Nny-Wh-Gyb"/>
+                    <constraint firstAttribute="trailing" secondItem="C2E-Mm-XMz" secondAttribute="trailing" id="VCR-u3-qCO"/>
+                    <constraint firstAttribute="trailing" secondItem="Sbo-kt-VIk" secondAttribute="trailing" constant="16" id="WGW-ad-V3I"/>
+                    <constraint firstAttribute="bottom" secondItem="4Da-OQ-8qg" secondAttribute="bottom" id="YCo-LL-OSZ"/>
+                    <constraint firstAttribute="trailing" secondItem="4Da-OQ-8qg" secondAttribute="trailing" id="c04-nZ-77V"/>
+                    <constraint firstItem="C2E-Mm-XMz" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="f05-gR-69l"/>
+                    <constraint firstItem="4Da-OQ-8qg" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="kQj-S2-UuR"/>
+                    <constraint firstItem="4Da-OQ-8qg" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="ozC-Z0-14a"/>
+                </constraints>
+            </tableViewCellContentView>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="cellButton" destination="4Da-OQ-8qg" id="nDw-tX-gPo"/>
+                <outlet property="cellIcon" destination="Sbo-kt-VIk" id="IBZ-c2-8ZB"/>
+                <outlet property="cellLabel" destination="C2E-Mm-XMz" id="e8w-ws-nxS"/>
+            </connections>
+            <point key="canvasLocation" x="137.59999999999999" y="134.93253373313345"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="soundcloud" width="24" height="24"/>
+    </resources>
+</document>
