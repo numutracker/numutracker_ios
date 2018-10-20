@@ -16,7 +16,6 @@
 		443EBB8C217053530071A11D /* LoginSpotifyViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 443EBB8A217053530071A11D /* LoginSpotifyViewController.xib */; };
 		443EBB8F2170547A0071A11D /* ReleaseDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 443EBB8D2170547A0071A11D /* ReleaseDetailsViewController.swift */; };
 		443EBB902170547A0071A11D /* ReleaseDetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 443EBB8E2170547A0071A11D /* ReleaseDetailsViewController.xib */; };
-		4459C3D02164444F00EB4048 /* SpotifyiOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4459C3CF2164444F00EB4048 /* SpotifyiOS.framework */; };
 		4459C3D721658A7900EB4048 /* NumuAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4459C3D521658A7900EB4048 /* NumuAlertView.swift */; };
 		4459C3D821658A7900EB4048 /* NumuAlertView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4459C3D621658A7900EB4048 /* NumuAlertView.xib */; };
 		4461CB79215844C9001939F0 /* AsyncOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4461CB78215844C9001939F0 /* AsyncOperation.swift */; };
@@ -81,8 +80,6 @@
 		443EBB8A217053530071A11D /* LoginSpotifyViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginSpotifyViewController.xib; sourceTree = "<group>"; };
 		443EBB8D2170547A0071A11D /* ReleaseDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReleaseDetailsViewController.swift; sourceTree = "<group>"; };
 		443EBB8E2170547A0071A11D /* ReleaseDetailsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ReleaseDetailsViewController.xib; sourceTree = "<group>"; };
-		4459C3CF2164444F00EB4048 /* SpotifyiOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SpotifyiOS.framework; sourceTree = "<group>"; };
-		4459C3D12164469800EB4048 /* Numu Tracker-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Numu Tracker-Bridging-Header.h"; sourceTree = "<group>"; };
 		4459C3D521658A7900EB4048 /* NumuAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumuAlertView.swift; sourceTree = "<group>"; };
 		4459C3D621658A7900EB4048 /* NumuAlertView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NumuAlertView.xib; sourceTree = "<group>"; };
 		4461CB78215844C9001939F0 /* AsyncOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncOperation.swift; sourceTree = "<group>"; };
@@ -146,7 +143,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				E4EB5ACCF23F58468A5C04FF /* Pods_Numu_Tracker.framework in Frameworks */,
-				4459C3D02164444F00EB4048 /* SpotifyiOS.framework in Frameworks */,
 				4461CB8121585673001939F0 /* CloudKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -157,7 +153,6 @@
 		14F28C739AD176DB0069BA7E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				4459C3CF2164444F00EB4048 /* SpotifyiOS.framework */,
 				4461CB8021585673001939F0 /* CloudKit.framework */,
 				CBD0F3687066D64A7B28C145 /* Pods_Numu_Tracker.framework */,
 			);
@@ -325,7 +320,6 @@
 				441CC0A8215C51DE009F4114 /* Views */,
 				441CC0A7215C516E009F4114 /* Classes */,
 				B4CCFCC11DB425FD00D2277B /* Backend */,
-				4459C3D12164469800EB4048 /* Numu Tracker-Bridging-Header.h */,
 			);
 			path = "Numu Tracker";
 			sourceTree = "<group>";
@@ -816,7 +810,6 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.numutracker.Numu-Tracker";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "Numu Tracker/Numu Tracker-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -841,7 +834,6 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.numutracker.Numu-Tracker";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "Numu Tracker/Numu Tracker-Bridging-Header.h";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
