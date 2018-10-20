@@ -26,6 +26,24 @@ class ArtistsTableViewController: UITableViewController, UISearchBarDelegate, UI
         }
         queue.addOperation(importAMOperation)
     }
+    
+    @IBOutlet weak var importSpotifyActivityIndicator: UIActivityIndicatorView!
+    @IBOutlet weak var importSpotifyButton: NumuUIButton!
+    @IBAction func importSpotifyButton(_ sender: NumuUIButton) {
+        importSpotifyActivityIndicator.startAnimating()
+        let importSpotifyOperation = ImportSpotifyOperation()
+        let queue = OperationQueue()
+        importSpotifyOperation.qualityOfService = .userInteractive
+        importSpotifyOperation.completionBlock = {
+            DispatchQueue.main.async {
+                self.importSpotifyActivityIndicator.stopAnimating()
+            }
+        }
+        queue.addOperation(importSpotifyOperation)
+    }
+    
+    
+    
     var artists: [ArtistItem] = []
 
     var sortMethod: String = UserDefaults.standard.string(forKey: "sortArtists") ?? "date" {
@@ -119,6 +137,11 @@ class ArtistsTableViewController: UITableViewController, UISearchBarDelegate, UI
         importAppleMusicButton.layer.cornerRadius = 5
         importAppleMusicButton.layer.borderWidth = 1
         importAppleMusicButton.layer.borderColor = UIColor.gray.cgColor
+        
+        importSpotifyButton.backgroundColor = .clear
+        importSpotifyButton.layer.cornerRadius = 5
+        importSpotifyButton.layer.borderWidth = 1
+        importSpotifyButton.layer.borderColor = UIColor.gray.cgColor
         
         var newFrame = noResultsView.frame
         var height: CGFloat = self.tableView.bounds.height

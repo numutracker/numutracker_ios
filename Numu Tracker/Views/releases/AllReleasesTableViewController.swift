@@ -27,6 +27,22 @@ class AllReleasesTableViewController: UITableViewController {
         }
         queue.addOperation(importAMOperation)
     }
+    
+    @IBOutlet weak var importSpotifyActivityIndicator: UIActivityIndicatorView!
+    @IBOutlet weak var importSpotifyButton: NumuUIButton!
+    @IBAction func importSpotifyButton(_ sender: NumuUIButton) {
+        importSpotifyActivityIndicator.startAnimating()
+        let importSpotifyOperation = ImportSpotifyOperation()
+        let queue = OperationQueue()
+        importSpotifyOperation.qualityOfService = .userInteractive
+        importSpotifyOperation.completionBlock = {
+            DispatchQueue.main.async {
+                self.importSpotifyActivityIndicator.stopAnimating()
+            }
+        }
+        queue.addOperation(importSpotifyOperation)
+    }
+    
 
     var releases: [ReleaseItem] = []
     var viewName: String = ""
@@ -164,6 +180,11 @@ class AllReleasesTableViewController: UITableViewController {
         importFromAMButton.layer.cornerRadius = 5
         importFromAMButton.layer.borderWidth = 1
         importFromAMButton.layer.borderColor = UIColor.gray.cgColor
+        
+        importSpotifyButton.backgroundColor = .clear
+        importSpotifyButton.layer.cornerRadius = 5
+        importSpotifyButton.layer.borderWidth = 1
+        importSpotifyButton.layer.borderColor = UIColor.gray.cgColor
         
         var newFrame = noResultsFooterView.frame
         var height: CGFloat = self.tableView.bounds.height

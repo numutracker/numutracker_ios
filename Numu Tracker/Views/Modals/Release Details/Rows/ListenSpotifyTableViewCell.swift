@@ -44,7 +44,10 @@ class ListenSpotifyTableViewCell: UITableViewCell {
                 if token != nil {
                     Spartan.authorizationToken = token
                     Spartan.loggingEnabled = true
-                    _ = Spartan.search(query: query, type: .album, success: { (pagingObject: PagingObject<SimplifiedAlbum>) in
+                    _ = Spartan.search(
+                        query: query,
+                        type: .album,
+                        success: { (pagingObject: PagingObject<SimplifiedAlbum>) in
                         
                         if !pagingObject.items.isEmpty {
                             let release = pagingObject.items[0]
@@ -58,12 +61,8 @@ class ListenSpotifyTableViewCell: UITableViewCell {
                         print(error)
                     })
                 }
-            
             }
-            
-            
         }
-
     }
     
     override func awakeFromNib() {

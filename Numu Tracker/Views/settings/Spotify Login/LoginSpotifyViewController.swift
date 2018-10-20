@@ -50,6 +50,7 @@ class LoginSpotifyViewController: UIViewController {
     
     @objc func loginSuccessful() {
         print("Spotify Login Successful")
+        defaults.enabledSpotify = true
         self.dismiss(animated: true, completion: nil)
     }
 
