@@ -104,7 +104,7 @@
                             </constraints>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <color key="tintColor" cocoaTouchSystemColor="lightTextColor"/>
-                            <state key="normal" title="Release Date (Descending)">
+                            <state key="normal" title="Recent Release (Descending)">
                                 <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </state>
                             <connections>
