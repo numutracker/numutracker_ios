@@ -176,7 +176,7 @@ class ArtistsTableViewController: UITableViewController, UISearchBarDelegate, UI
             })
         }
     }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.tableFooterView = footerView
@@ -194,6 +194,7 @@ class ArtistsTableViewController: UITableViewController, UISearchBarDelegate, UI
         searchController.searchResultsUpdater = self
         searchController.hidesNavigationBarDuringPresentation = false
         searchController.dimsBackgroundDuringPresentation = false
+        searchController.definesPresentationContext = true
         tableView.tableHeaderView = searchController.searchBar
         
         sortButton.tintColor = UIColor.white
@@ -484,5 +485,12 @@ class ArtistsTableViewController: UITableViewController, UISearchBarDelegate, UI
 extension ArtistsTableViewController: SortViewDelegate {
     func sortOptionTapped(name: String) {
         self.sortMethod = name
+    }
+}
+
+extension UISearchController {
+    override open func viewDidDisappear(_ animated: Bool) {
+        self.dismiss(animated: false, completion: nil)
+        super.viewDidDisappear(animated)
     }
 }
