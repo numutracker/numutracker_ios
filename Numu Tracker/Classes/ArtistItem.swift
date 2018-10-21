@@ -22,6 +22,7 @@ struct ArtistItem {
     let thumbUrl: URL
     let unlistened: String
     let totalReleases: String
+    let sortName: String
 
     init?(json: JSON) {
         guard let artistId = json["artist_id"].string,
@@ -29,7 +30,8 @@ struct ArtistItem {
             let recentRelease = json["recent_date"].string,
             let unlistened = json["unread"].string,
             let totalReleases = json["total_releases"].string,
-            let artistName = json["name"].string else {
+            let artistName = json["name"].string,
+            let sortName = json["sort_name"].string else {
                 return nil
         }
 
@@ -39,6 +41,7 @@ struct ArtistItem {
         self.totalReleases = totalReleases
         self.unlistened = unlistened
         self.recentRelease = recentRelease
+        self.sortName = sortName
 
         if json["artist_art"].int != 0 && json["artist_art"].int != 2 {
 

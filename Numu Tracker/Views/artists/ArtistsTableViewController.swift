@@ -42,9 +42,76 @@ class ArtistsTableViewController: UITableViewController, UISearchBarDelegate, UI
         queue.addOperation(importSpotifyOperation)
     }
     
-    
-    
-    var artists: [ArtistItem] = []
+    var artists: [ArtistItem] = [] {
+        didSet {
+            if viewState == .user {
+                artistsDictionary = [:]
+                artistsSectionTitles = []
+                for artist in artists {
+                    var artistKey = String(artist.artistName.prefix(1).uppercased())
+                    switch sortMethod {
+                    case "name_first":
+                        artistKey = String(artist.artistName.prefix(1).uppercased())
+                        if CharacterSet.decimalDigits.isSuperset(of: CharacterSet(charactersIn: artistKey)) || !CharacterSet.alphanumerics.isSuperset(of: CharacterSet(charactersIn: artistKey)) {
+                            artistKey = "#"
+                        }
+                    case "name":
+                        artistKey = String(artist.sortName.prefix(1).uppercased())
+                        if CharacterSet.decimalDigits.isSuperset(of: CharacterSet(charactersIn: artistKey)) || !CharacterSet.alphanumerics.isSuperset(of: CharacterSet(charactersIn: artistKey)) {
+                            artistKey = "#"
+                        }
+                    default:
+                        let dateFormatter = DateFormatter()
+                        dateFormatter.dateFormat = "MMMM d, yyyy" //Your date format
+                        guard let date = dateFormatter.date(from: artist.recentRelease) else {
+                            fatalError()
+                        }
+                        dateFormatter.dateFormat = "yyyy"
+                        if artist.recentRelease == "December 31, 1969" {
+                            artistKey = "None"
+                        } else {
+                            artistKey = String(dateFormatter.string(from: date).prefix(4))
+                        }
+                    }
+                    if var artistValues = artistsDictionary[artistKey] {
+                        artistValues.append(artist)
+                        artistsDictionary[artistKey] = artistValues
+                    } else {
+                        artistsDictionary[artistKey] = [artist]
+                    }
+                }
+                artistsSectionTitles = [String](artistsDictionary.keys)
+                switch sortMethod {
+                case "name_first":
+                    artistsSectionTitles = artistsSectionTitles.sorted(by: { $0 < $1 })
+                    if !artistsSectionTitles.isEmpty {
+                        if artistsSectionTitles[0] == "#" {
+                            artistsSectionTitles.remove(at: 0)
+                            artistsSectionTitles.append("#")
+                        }
+                    }
+                case "name":
+                    artistsSectionTitles = artistsSectionTitles.sorted(by: { $0 < $1 })
+                    if !artistsSectionTitles.isEmpty {
+                        if artistsSectionTitles[0] == "#" {
+                            artistsSectionTitles.remove(at: 0)
+                            artistsSectionTitles.append("#")
+                        }
+                    }
+                default:
+                    artistsSectionTitles = artistsSectionTitles.sorted(by: { $0 > $1 })
+                    if !artistsSectionTitles.isEmpty {
+                        if artistsSectionTitles[0] == "None" {
+                            artistsSectionTitles.remove(at: 0)
+                            artistsSectionTitles.append("None")
+                        }
+                    }
+                }
+            }
+        }
+    }
+    var artistsDictionary: [String: [ArtistItem]] = [:]
+    var artistsSectionTitles: [String] = []
 
     var sortMethod: String = UserDefaults.standard.string(forKey: "sortArtists") ?? "date" {
         didSet {
@@ -206,11 +273,20 @@ class ArtistsTableViewController: UITableViewController, UISearchBarDelegate, UI
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-       return 1
+        if viewState == .user {
+            return artistsSectionTitles.count
+        }
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-       return artists.count
+        if viewState == .user {
+            let artistKey = artistsSectionTitles[section]
+            if let artistValues = artistsDictionary[artistKey] {
+                return artistValues.count
+            }
+        }
+        return artists.count
 
     }
     
@@ -261,6 +337,23 @@ class ArtistsTableViewController: UITableViewController, UISearchBarDelegate, UI
         let cell = tableView.dequeueReusableCell(
             withIdentifier: "artistInfoCell", for: indexPath)  as! ArtistTableViewCell
         // Configure the cell...
+        
+        if viewState == .user {
+            let artistKey = artistsSectionTitles[indexPath.section]
+            if let artistValues = artistsDictionary[artistKey] {
+                let artistInfo = artistValues[indexPath.row]
+                cell.configure(artistInfo: artistInfo)
+                cell.albumActivityIndicator.startAnimating()
+                cell.thumbUrl = artistInfo.thumbUrl // For recycled cells' late image loads.
+                
+                cell.artistArt.kf.setImage(
+                    with: cell.thumbUrl,
+                    options: [.transition(.fade(0.2))])
+                
+                return cell
+            }
+        }
+
         let artistInfo = artists[indexPath.row]
         cell.configure(artistInfo: artistInfo)
         cell.albumActivityIndicator.startAnimating()
@@ -269,8 +362,31 @@ class ArtistsTableViewController: UITableViewController, UISearchBarDelegate, UI
         cell.artistArt.kf.setImage(
             with: cell.thumbUrl,
             options: [.transition(.fade(0.2))])
-
+        
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        if viewState == .user {
+            return "  " + artistsSectionTitles[section]
+        }
+        return nil
+    }
+    
+    override func sectionIndexTitles(for tableView: UITableView) -> [String]? {
+        if viewState == .user {
+            if sortMethod == "date" {
+                var result: [String] = []
+                for year in artistsSectionTitles {
+                    if year != "None" {
+                        result.append("’" + String(year.suffix(2)))
+                    }
+                }
+                return result
+            }
+            return artistsSectionTitles
+        }
+        return nil
     }
 
     override func tableView(
@@ -331,16 +447,32 @@ class ArtistsTableViewController: UITableViewController, UISearchBarDelegate, UI
             self.searchController.searchBar.text = ""
         }
     }
+    
+    override func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+        view.tintColor = UIColor(red: 0.17, green: 0.17, blue: 0.17, alpha: 1)
+        let header = view as! UITableViewHeaderFooterView
+        header.textLabel?.textColor = UIColor.lightText
+    }
 
     // MARK: - Navigation
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showArtistReleases",
             let destination = segue.destination as? ArtistReleasesTableViewController,
-            let releaseIndex = tableView.indexPathForSelectedRow?.row {
+            let releaseIndex = tableView.indexPathForSelectedRow?.row,
+            let sectionIndex = tableView.indexPathForSelectedRow?.section {
             self.searchTerms = searchController.searchBar.text
-            let artistId = artists[releaseIndex].artistId
-            let artistName = artists[releaseIndex].artistName
+            
+            var artistId = artists[releaseIndex].artistId
+            var artistName = artists[releaseIndex].artistName
+            if viewState == .user {
+                let section = artistsSectionTitles[sectionIndex]
+                let dict = artistsDictionary[section]
+                let artist = dict![releaseIndex]
+                artistId = artist.artistId
+                artistName = artist.artistName
+            }
+            
             self.lastSelectedArtistId = artistId
             self.lastSelectedArtistName = artistName
             destination.artistId = artistId
