@@ -113,7 +113,7 @@ class ArtistsTableViewController: UITableViewController, UISearchBarDelegate, UI
     var artistsDictionary: [String: [ArtistItem]] = [:]
     var artistsSectionTitles: [String] = []
 
-    var sortMethod: String = UserDefaults.standard.string(forKey: "sortArtists") ?? "date" {
+    var sortMethod: String = UserDefaults.standard.string(forKey: "sortArtists") ?? "name" {
         didSet {
             UserDefaults.standard.set(self.sortMethod, forKey: "sortArtists")
             loadArtists()
