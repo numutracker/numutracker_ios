@@ -37,6 +37,7 @@ class RegisterWithCKOperation: AsyncOperation {
                         self.state = .isFinished
                     } else {
                         print("Registering failed...")
+                        NumuCredential.shared.storeCredential(username: userRecordID, password: "icloud")
                         self.state = .isFinished
                     }
                 })

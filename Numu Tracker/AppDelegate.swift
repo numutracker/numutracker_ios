@@ -42,7 +42,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         NotificationCenter.default.addObserver(
             self, selector: #selector(self.ckDataChange), name: Notification.Name.CKAccountChanged, object: nil)
-        
+
         runLogInOperations()
         
         return true
