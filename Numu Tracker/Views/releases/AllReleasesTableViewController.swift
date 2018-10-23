@@ -27,9 +27,23 @@ class AllReleasesTableViewController: UITableViewController {
         }
         queue.addOperation(importAMOperation)
     }
-    var lastSelectedArtistId: String = ""
-    var lastSelectedArtistName: String = ""
-    var selectedIndexPath: IndexPath?
+    
+    @IBOutlet weak var importSpotifyActivityIndicator: UIActivityIndicatorView!
+    @IBOutlet weak var importSpotifyButton: NumuUIButton!
+    @IBAction func importSpotifyButton(_ sender: NumuUIButton) {
+        importSpotifyActivityIndicator.startAnimating()
+        let importSpotifyOperation = ImportSpotifyOperation()
+        let queue = OperationQueue()
+        importSpotifyOperation.qualityOfService = .userInteractive
+        importSpotifyOperation.completionBlock = {
+            DispatchQueue.main.async {
+                self.importSpotifyActivityIndicator.stopAnimating()
+            }
+        }
+        queue.addOperation(importSpotifyOperation)
+    }
+    
+
     var releases: [ReleaseItem] = []
     var viewName: String = ""
     var releaseData: ReleaseData! {
@@ -72,7 +86,6 @@ class AllReleasesTableViewController: UITableViewController {
         let segment = sender.selectedSegmentIndex
         self.slideType = segment
         self.tableView.tableFooterView = self.footerView
-        self.selectedIndexPath = nil
         releases.removeAll()
         tableView.reloadData()
         self.loadFirstReleases()
@@ -167,6 +180,11 @@ class AllReleasesTableViewController: UITableViewController {
         importFromAMButton.layer.cornerRadius = 5
         importFromAMButton.layer.borderWidth = 1
         importFromAMButton.layer.borderColor = UIColor.gray.cgColor
+        
+        importSpotifyButton.backgroundColor = .clear
+        importSpotifyButton.layer.cornerRadius = 5
+        importSpotifyButton.layer.borderWidth = 1
+        importSpotifyButton.layer.borderColor = UIColor.gray.cgColor
         
         var newFrame = noResultsFooterView.frame
         var height: CGFloat = self.tableView.bounds.height
@@ -275,84 +293,21 @@ class AllReleasesTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         return true
     }
-
+    
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let previousIndexPath = selectedIndexPath
-        if indexPath == selectedIndexPath {
-            selectedIndexPath = nil
-        } else {
-            selectedIndexPath = indexPath
-        }
-
-        var indexPaths: [IndexPath] = []
-        if let previous = previousIndexPath {
-            indexPaths += [previous]
-        }
-        if let current = selectedIndexPath {
-            indexPaths += [current]
-        }
-        if !indexPaths.isEmpty {
-            tableView.beginUpdates()
-            tableView.endUpdates()
-        }
-    }
-    override func tableView(
-        _ tableView: UITableView,
-        willDisplay cell: UITableViewCell,
-        forRowAt indexPath: IndexPath) {
-        (cell as! ReleaseTableViewCell).watchFrameChanges()
-    }
-
-    override func tableView(
-        _ tableView: UITableView,
-        didEndDisplaying cell: UITableViewCell,
-        forRowAt indexPath: IndexPath) {
-        (cell as! ReleaseTableViewCell).ignoreFrameChanges()
-    }
-
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        for cell in tableView.visibleCells as! [ReleaseTableViewCell] {
-            cell.ignoreFrameChanges()
-        }
-    }
-
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        for cell in tableView.visibleCells as! [ReleaseTableViewCell] {
-            cell.watchFrameChanges()
-        }
-    }
-
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-    }
-
-    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if indexPath == selectedIndexPath {
-            return ReleaseTableViewCell.expandedHeight
-        } else {
-            return ReleaseTableViewCell.defaultHeight
-        }
-    }
-
-    // MARK: - Navigation
-
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-
-        if segue.identifier == "showArtistReleases",
-            let destination = segue.destination as? ArtistReleasesTableViewController,
-            let releaseIndex = tableView.indexPathForSelectedRow?.row {
-            let artistId = releases[releaseIndex].artistId
-            let artistName = releases[releaseIndex].artistName
-            self.lastSelectedArtistId = artistId
-            self.lastSelectedArtistName = artistName
-            destination.artistId = artistId
-            destination.artistName = artistName
-        } else if segue.identifier == "showArtistReleases",
-            let destination = segue.destination as? ArtistReleasesTableViewController {
-            destination.artistId = self.lastSelectedArtistId
-            destination.artistName = self.lastSelectedArtistName
+        let releaseDetails = ReleaseDetailsViewController()
+        let cellPosition = tableView.convert(tableView.rectForRow(at: indexPath), to: tableView.superview)
+        releaseDetails.animationDirection = cellPosition.midY
+        releaseDetails.providesPresentationContextTransitionStyle = true
+        releaseDetails.definesPresentationContext = true
+        releaseDetails.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
+        releaseDetails.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
+        if let appDelegate = UIApplication.shared.delegate,
+            let appWindow = appDelegate.window!,
+            let rootViewController = appWindow.rootViewController {
+            rootViewController.present(releaseDetails, animated: true, completion: nil)
+            releaseDetails.configure(release: self.releases[indexPath.row])
+            self.tableView.deselectRow(at: indexPath, animated: true)
         }
     }
 

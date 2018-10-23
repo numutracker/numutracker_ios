@@ -13,6 +13,7 @@ import SwiftyJSON
 import Fabric
 import Crashlytics
 import CloudKit
+import SpotifyLogin
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -33,15 +34,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         NumuReviewHelper.incrementActivityCount()
         
+        let redirectURL: URL = URL(string: "numu://")!
+        SpotifyLogin.shared.configure(clientID: "SPOTIFY_CLIENT_ID", clientSecret: "SPOTIFY_CLIENT_SECRET", redirectURL: redirectURL)
+        
         NotificationCenter.default.addObserver(
             self, selector: #selector(self.runLogInOperations), name: .LoggedOut, object: nil)
         
         NotificationCenter.default.addObserver(
             self, selector: #selector(self.ckDataChange), name: Notification.Name.CKAccountChanged, object: nil)
-        
+
         runLogInOperations()
         
         return true
+    }
+    
+    func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
+        let handled = SpotifyLogin.shared.applicationOpenURL(url) { (error) in }
+        return handled
     }
     
     @objc func ckDataChange() {

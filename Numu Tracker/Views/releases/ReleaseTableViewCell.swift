@@ -11,9 +11,6 @@ import Crashlytics
 
 class ReleaseTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var viewMoreReleasesButton: UIButton!
-    // @IBOutlet weak var listenSpofityButton: UIButton!
-    @IBOutlet weak var listenButtonView: UIView!
     @IBOutlet weak var artIndicator: UIActivityIndicatorView!
     @IBOutlet weak var listenedIndicatorView: UIView!
     @IBOutlet weak var artImageView: UIImageView!
@@ -26,33 +23,13 @@ class ReleaseTableViewCell: UITableViewCell {
             listenedIndicatorView.isHidden = listenState == "1"
         }
     }
-    var spotifyUrl: String?
-    @IBAction func listenOnSpotifyButton(_ sender: Any) {
-        if let urlString = self.spotifyUrl {
-            UIApplication.shared.open(URL(string: urlString)!)
-        }
-    }
-    var itunesUrl: String?
-    @IBOutlet weak var listenOnItunesButton: UIButton!
-    @IBAction func listenOnItunesButtonAction(_ sender: Any) {
-        if let urlString = self.itunesUrl {
-            UIApplication.shared.open(URL(string: urlString + "&app=music")!)
-        }
-    }
-    var releaseId: String = "0"
 
-    // Expanding variables
-    class var expandedHeight: CGFloat { return 247 }
-    class var defaultHeight: CGFloat { return 136 }
-    var loadedListenLinks = false
-    var isObserving = false
+    var releaseId: String = "0"
 
     var artistItem: ArtistItem?
 
     func configure(releaseInfo: ReleaseItem) {
-
-        viewMoreReleasesButton.setTitle("View other releases by " + releaseInfo.artistName, for: .normal)
-
+        
         artistLabel.text = releaseInfo.artistName
         releaseNameLabel.text = releaseInfo.albumName
 
@@ -78,67 +55,30 @@ class ReleaseTableViewCell: UITableViewCell {
         } else {
             listenState = "1"
         }
-
+        
+        self.selectionStyle = .default
+        let bgColorView = UIView()
+        bgColorView.backgroundColor = UIColor(red: 0.17, green: 0.17, blue: 0.17, alpha: 1.0)
+        self.selectedBackgroundView = bgColorView
+        
     }
-
-func checkHeight() {
-    if frame.size.height < ReleaseTableViewCell.expandedHeight {
-        if loadedListenLinks {
-            self.removeListenLinks()
-        }
-    } else {
-        if !loadedListenLinks {
-            self.loadListenLinks()
+    
+    override func setSelected(_ selected: Bool, animated: Bool) {
+        let bgColor = listenedIndicatorView.backgroundColor
+        super.setSelected(selected, animated: animated)
+        
+        if selected {
+            listenedIndicatorView.backgroundColor = bgColor
         }
     }
+    
+    override func setHighlighted(_ highlighted: Bool, animated: Bool) {
+        let bgColor = listenedIndicatorView.backgroundColor
+        super.setHighlighted(highlighted, animated: animated)
+        
+        if highlighted {
+            listenedIndicatorView.backgroundColor = bgColor
+        }
+    }
+    
 }
-
-    func loadListenLinks() {
-        let artist = self.artistLabel.text
-        let album = self.releaseNameLabel.text
-        Answers.logCustomEvent(withName: "Loaded L Links", customAttributes: ["Release ID": self.releaseId])
-        DispatchQueue.global(qos: .background).async(execute: {
-
-            NumuClient.shared.getAppleMusicLink(artist: artist, album: album) { link in
-                DispatchQueue.main.async(execute: {
-                    self.itunesUrl = link
-                    self.listenOnItunesButton.isEnabled = true
-                })
-            }
-
-        })
-
-        self.loadedListenLinks = true
-    }
-
-    func removeListenLinks() {
-        self.loadedListenLinks = false
-        self.itunesUrl = nil
-        self.listenOnItunesButton.isEnabled = false
-    }
-
-    func watchFrameChanges() {
-        if !isObserving {
-            addObserver(self, forKeyPath: "frame", options: [.new, .initial], context: nil)
-            isObserving = true
-        }
-    }
-
-    func ignoreFrameChanges() {
-        if isObserving {
-            removeObserver(self, forKeyPath: "frame")
-            isObserving = false
-        }
-    }
-
-    override func observeValue(
-        forKeyPath keyPath: String?,
-        of object: Any?,
-        change: [NSKeyValueChangeKey: Any]?,
-        context: UnsafeMutableRawPointer?) {
-        if keyPath == "frame" {
-            checkHeight()
-        }
-    }
-
-  }

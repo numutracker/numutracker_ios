@@ -49,7 +49,7 @@ class ArtistReleasesTableViewController: UITableViewController {
                         self?.tableView.beginUpdates()
                         self?.tableView.endUpdates()
                         self?.tableView.tableFooterView = UIView()
-                        if (self?.releases.isEmpty)! {
+                        if self?.releases.isEmpty ?? true {
                             self?.tableView.tableFooterView = self?.noResultsView
                         }
                     })
@@ -92,12 +92,10 @@ class ArtistReleasesTableViewController: UITableViewController {
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
         return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
         return releases.count
     }
 
@@ -172,58 +170,21 @@ class ArtistReleasesTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let previousIndexPath = selectedIndexPath
-        if indexPath == selectedIndexPath {
-            selectedIndexPath = nil
-        } else {
-            selectedIndexPath = indexPath
-        }
-
-        var indexPaths: [IndexPath] = []
-
-        if let previous = previousIndexPath {
-            indexPaths += [previous]
-        }
-
-        if let current = selectedIndexPath {
-            indexPaths += [current]
-        }
-
-        if !indexPaths.isEmpty {
-            tableView.beginUpdates()
-            tableView.endUpdates()
+        let releaseDetails = ReleaseDetailsViewController()
+        let cellPosition = tableView.convert(tableView.rectForRow(at: indexPath), to: tableView.superview)
+        releaseDetails.animationDirection = cellPosition.midY
+        releaseDetails.providesPresentationContextTransitionStyle = true
+        releaseDetails.definesPresentationContext = true
+        releaseDetails.modalPresentationStyle = UIModalPresentationStyle.overFullScreen
+        releaseDetails.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
+        releaseDetails.modalPresentationCapturesStatusBarAppearance = true
+        if let appDelegate = UIApplication.shared.delegate,
+            let appWindow = appDelegate.window!,
+            let rootViewController = appWindow.rootViewController {
+            rootViewController.present(releaseDetails, animated: true, completion: nil)
+            releaseDetails.configure(release: self.releases[indexPath.row])
+            self.tableView.deselectRow(at: indexPath, animated: true)
         }
     }
 
-    override func tableView(
-        _ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        (cell as! ArtistReleaseTableViewCell).watchFrameChanges()
-    }
-
-    override func tableView(
-        _ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        (cell as! ArtistReleaseTableViewCell).ignoreFrameChanges()
-    }
-
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        for cell in tableView.visibleCells as! [ArtistReleaseTableViewCell] {
-            cell.ignoreFrameChanges()
-        }
-    }
-
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        for cell in tableView.visibleCells as! [ArtistReleaseTableViewCell] {
-            cell.watchFrameChanges()
-        }
-    }
-
-    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if indexPath == selectedIndexPath {
-            return ArtistReleaseTableViewCell.expandedHeight
-        } else {
-            return ArtistReleaseTableViewCell.defaultHeight
-        }
-    }
 }

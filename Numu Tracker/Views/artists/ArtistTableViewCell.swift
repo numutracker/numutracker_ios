@@ -44,7 +44,6 @@ class ArtistTableViewCell: UITableViewCell {
         artistArt.layer.shadowOpacity = 0.3
         artistArt.layer.shadowOffset = .zero
         artistArt.layer.shadowRadius = 5
-        //artistArt.layer.shouldRasterize = true
 
     }
 

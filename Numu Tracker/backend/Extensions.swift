@@ -44,52 +44,56 @@ extension String {
     static let username = "username"
     static let password = "password"
     static let activityCount = "activityCount"
+    static let disabledAppleMusic = "disabledAppleMusic"
+    static let enabledSpotify = "enabledSpotify"
+    static let enabledYouTube = "enabledYouTube"
+    static let enabledSoundCloud = "enabledSoundCloud"
 }
 
 extension UserDefaults {
     var logged: Bool {
-        get {
-            return bool(forKey: .logged)
-        }
-        set {
-            set(newValue, forKey: .logged)
-        }
+        get { return bool(forKey: .logged) }
+        set { set(newValue, forKey: .logged) }
     }
     
     var activityCount: Int {
-        get {
-            return integer(forKey: .activityCount)
-        }
-        set {
-            set(newValue, forKey: .activityCount)
-        }
+        get { return integer(forKey: .activityCount) }
+        set { set(newValue, forKey: .activityCount) }
     }
     
     var newReleased: Bool {
-        get {
-            return bool(forKey: .newReleased)
-        }
-        set {
-            set(newValue, forKey: .newReleased)
-        }
+        get { return bool(forKey: .newReleased) }
+        set { set(newValue, forKey: .newReleased) }
     }
     
     var newAnnouncements: Bool {
-        get {
-            return bool(forKey: .newAnnouncements)
-        }
-        set {
-            set(newValue, forKey: .newAnnouncements)
-        }
+        get { return bool(forKey: .newAnnouncements) }
+        set { set(newValue, forKey: .newAnnouncements) }
     }
     
     var moreReleases: Bool {
-        get {
-            return bool(forKey: .moreReleases)
-        }
-        set {
-            set(newValue, forKey: .moreReleases)
-        }
+        get { return bool(forKey: .moreReleases) }
+        set { set(newValue, forKey: .moreReleases) }
+    }
+
+    var disabledAppleMusic: Bool {
+        get { return bool(forKey: .disabledAppleMusic) }
+        set { set(newValue, forKey: .disabledAppleMusic) }
+    }
+
+    var enabledSpotify: Bool {
+        get { return bool(forKey: .enabledSpotify) }
+        set { set(newValue, forKey: .enabledSpotify) }
+    }
+
+    var enabledYouTube: Bool {
+        get { return bool(forKey: .enabledYouTube) }
+        set { set(newValue, forKey: .enabledYouTube) }
+    }
+
+    var enabledSoundCloud: Bool {
+        get { return bool(forKey: .enabledSoundCloud) }
+        set { set(newValue, forKey: .enabledSoundCloud) }
     }
 }
 
@@ -98,6 +102,7 @@ extension Notification.Name {
     static let LoggedOut = Notification.Name(rawValue: "com.numutracker.loggedOut")
     static let UpdatedArtists = Notification.Name(rawValue: "com.numutracker.artistsImported")
     static let ClosedLogRegPrompt = Notification.Name(rawValue: "com.numutracker.closedLogRegPrompt")
+    static let CancelledSpotifyLogin = Notification.Name(rawValue: "com.numutracker.cancelledSpotifyLogin")
 }
 
 extension UIView {

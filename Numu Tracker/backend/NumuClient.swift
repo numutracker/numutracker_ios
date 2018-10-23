@@ -127,6 +127,8 @@ class NumuClient {
         self.getJSON(with: endPoint) { (json) in
             if let result = json["result"].string {
                 result == "1" ? completion(true) : completion(false)
+            } else {
+                completion(false)
             }
         }
     }
@@ -136,6 +138,8 @@ class NumuClient {
         self.getJSON(with: endPoint) { (json) in
             if let result = json["result"].string {
                 result == "1" ? completion("1") : completion("0")
+            } else {
+                completion("0")
             }
         }
     }
@@ -145,6 +149,8 @@ class NumuClient {
         self.getJSON(with: endPoint) { (json) in
             if let result = json["result"].string {
                 result != "0" ? completion(result) : completion("0")
+            } else {
+                completion("0")
             }
         }
     }
@@ -156,7 +162,7 @@ class NumuClient {
         let endPoint = "/v2/json.php?single_artist=" + username + "&search=" + search
         self.getJSON(with: endPoint) { (json) in
             completion(.init(with: json))
-        }
+        } 
     }
 
     func getArtists(sortBy: String, completion: @escaping ([ArtistItem]) -> Void) {
@@ -243,19 +249,6 @@ class NumuClient {
                 let data = try? Data(contentsOf: url),
                 let json = try? JSON(data: data),
                 let results = json["results"][0]["collectionViewUrl"].string {
-                    completion(results)
-            }
-        }
-    }
-
-    func getSpotifyLink(artist: String?, album: String?, completion: @escaping (String) -> Void) {
-        if let artist = artist?.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed),
-            let album = album?.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) {
-            let urlString = "https://api.spotify.com/v1/search?q=artist:\(artist)%20album:\(album)&type=album"
-            if let url = URL(string: urlString),
-                let data = try? Data(contentsOf: url),
-                let json = try? JSON(data: data),
-                let results = json["albums"]["items"][0]["external_urls"]["spotify"].string {
                     completion(results)
             }
         }

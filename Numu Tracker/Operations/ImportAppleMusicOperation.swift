@@ -95,16 +95,16 @@ class ImportAppleMusicOperation: AsyncOperation {
     
     func displaySuccessMessage() {
         DispatchQueue.main.async {
-            let controller = UIAlertController(
-                title: "Success",
-                message: "Your artists have been imported." +
-                    " Please allow several minutes for all artists to appear.",
-                preferredStyle: .alert)
-            controller.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            let alertView = NumuAlertView()
+            alertView.providesPresentationContextTransitionStyle = true
+            alertView.definesPresentationContext = true
+            alertView.modalPresentationStyle = UIModalPresentationStyle.overFullScreen
+            alertView.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
+            alertView.modalPresentationCapturesStatusBarAppearance = true
             if let appDelegate = UIApplication.shared.delegate,
                 let appWindow = appDelegate.window!,
                 let rootViewController = appWindow.rootViewController {
-                rootViewController.present(controller, animated: true, completion: nil)
+                rootViewController.present(alertView, animated: true, completion: nil)
             }
         }
     }
@@ -121,12 +121,19 @@ class ImportAppleMusicOperation: AsyncOperation {
             error = "Unknown error"
         }
         DispatchQueue.main.async {
-            let controller = UIAlertController(title: "Error", message: error, preferredStyle: .alert)
-            controller.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            let alertView = NumuAlertView()
+            alertView.providesPresentationContextTransitionStyle = true
+            alertView.definesPresentationContext = true
+            alertView.modalPresentationStyle = UIModalPresentationStyle.overFullScreen
+            alertView.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
+            alertView.modalPresentationCapturesStatusBarAppearance = true
+            alertView.titleText = "Error"
+            alertView.messageText = error
+            alertView.buttonText = "Oh no"
             if let appDelegate = UIApplication.shared.delegate,
                 let appWindow = appDelegate.window!,
                 let rootViewController = appWindow.rootViewController {
-                    rootViewController.present(controller, animated: true, completion: nil)
+                rootViewController.present(alertView, animated: true, completion: nil)
             }
         }
     }

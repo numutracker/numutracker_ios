@@ -12,7 +12,7 @@
         <!--Apple Music-->
         <scene sceneID="Rdb-Mj-gZl">
             <objects>
-                <viewController title="Apple Music" id="m1H-bQ-zGZ" customClass="AddArtistsViewController" customModule="Numu_Tracker" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Apple Music" id="m1H-bQ-zGZ" customClass="ImportAppleMusicViewController" customModule="Numu_Tracker" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="hiP-8M-4HH"/>
                         <viewControllerLayoutGuide type="bottom" id="XU0-5v-af1"/>
@@ -627,12 +627,13 @@ Any imported artists you've unfollowed will not be re-imported.</string>
         <scene sceneID="QT8-L6-wPZ">
             <objects>
                 <tableViewController extendedLayoutIncludesOpaqueBars="YES" id="VYe-bB-NhT" customClass="ArtistsTableViewController" customModule="Numu_Tracker" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="136" sectionHeaderHeight="28" sectionFooterHeight="28" id="mlj-7x-Twt">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" sectionIndexMinimumDisplayRowCount="10" rowHeight="136" sectionHeaderHeight="28" sectionFooterHeight="28" id="mlj-7x-Twt">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.13350695369999999" green="0.13364198799999999" blue="0.13352787490000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="separatorColor" red="0.20060706140000001" green="0.20079019670000001" blue="0.20063543319999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        <color key="sectionIndexColor" white="0.70141267123287676" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="artistInfoCell" rowHeight="136" id="orZ-mw-u9Y" customClass="ArtistTableViewCell" customModule="Numu_Tracker" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="414" height="136"/>
@@ -705,13 +706,23 @@ Any imported artists you've unfollowed will not be re-imported.</string>
                             <outlet property="delegate" destination="VYe-bB-NhT" id="tYP-Bm-vUN"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Artists" id="CZK-ah-BQs"/>
+                    <navigationItem key="navigationItem" title="Artists" id="CZK-ah-BQs">
+                        <barButtonItem key="rightBarButtonItem" title="Sort" image="sort" id="rwo-Jh-RDC">
+                            <color key="tintColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                            <connections>
+                                <action selector="sortButtonAction:" destination="VYe-bB-NhT" id="tRM-RL-dv1"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="footerView" destination="ehb-Cy-MJ4" id="ZNm-gz-Iey"/>
                         <outlet property="importAppleMusicActivityIndicator" destination="HOU-cY-yOZ" id="2Yx-0Z-3O3"/>
                         <outlet property="importAppleMusicButton" destination="MOv-eW-vnE" id="ybe-vU-nfr"/>
+                        <outlet property="importSpotifyActivityIndicator" destination="ANb-AM-HaH" id="eqW-uD-46Q"/>
+                        <outlet property="importSpotifyButton" destination="HUi-0S-hdp" id="m0R-QY-d9v"/>
                         <outlet property="noResultsView" destination="d5o-MA-Zs4" id="kLs-sN-1Je"/>
                         <outlet property="noSearchResultsView" destination="0xk-gl-YmH" id="vs5-Ds-xcM"/>
+                        <outlet property="sortButton" destination="rwo-Jh-RDC" id="psu-Z4-2Tm"/>
                     </connections>
                 </tableViewController>
                 <view contentMode="scaleToFill" id="ehb-Cy-MJ4">
@@ -734,33 +745,45 @@ Any imported artists you've unfollowed will not be re-imported.</string>
                 </view>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Dfg-zq-cyv" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <view contentMode="scaleToFill" id="d5o-MA-Zs4">
-                    <rect key="frame" x="0.0" y="0.0" width="386" height="189"/>
+                    <rect key="frame" x="0.0" y="0.0" width="386" height="357"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SHE-jm-wdb">
-                            <rect key="frame" x="61.666666666666657" y="0.0" width="262.66666666666674" height="49.666666666666664"/>
+                            <rect key="frame" x="60" y="50.000000000000007" width="266.33333333333331" height="83.666666666666686"/>
                             <constraints>
                                 <constraint firstAttribute="width" relation="lessThanOrEqual" constant="288" id="Vcd-vU-Ez1"/>
                             </constraints>
                             <string key="text">You're not following any artists yet.
 
-You can import artists from Apple Music,
-or manually search and follow artists.</string>
+You can import artists from Apple Music, Spotify, or manually search and follow artists.</string>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <color key="textColor" cocoaTouchSystemColor="lightTextColor"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="HOU-cY-yOZ">
-                            <rect key="frame" x="311" y="84.666666666666671" width="20" height="20"/>
+                            <rect key="frame" x="311" y="168.66666666666666" width="20" height="20"/>
                         </activityIndicatorView>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MOv-eW-vnE" customClass="NumuUIButton" customModule="Numu_Tracker" customModuleProvider="target">
-                            <rect key="frame" x="83" y="73.666666666666671" width="220" height="42"/>
+                            <rect key="frame" x="83" y="157.66666666666666" width="220" height="42"/>
                             <inset key="contentEdgeInsets" minX="10" minY="10" maxX="10" maxY="10"/>
                             <state key="normal" title="Import from Apple Music">
                                 <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </state>
                             <connections>
                                 <action selector="importAppleMusicButton:" destination="VYe-bB-NhT" eventType="touchUpInside" id="th6-P1-lxs"/>
+                            </connections>
+                        </button>
+                        <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="ANb-AM-HaH">
+                            <rect key="frame" x="290" y="234.66666666666666" width="20" height="20"/>
+                        </activityIndicatorView>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HUi-0S-hdp" customClass="NumuUIButton" customModule="Numu_Tracker" customModuleProvider="target">
+                            <rect key="frame" x="104" y="223.66666666666666" width="178" height="41.999999999999972"/>
+                            <inset key="contentEdgeInsets" minX="10" minY="10" maxX="10" maxY="10"/>
+                            <state key="normal" title="Import from Spotify">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </state>
+                            <connections>
+                                <action selector="importSpotifyButton:" destination="VYe-bB-NhT" eventType="touchUpInside" id="xxf-Ua-PfK"/>
                             </connections>
                         </button>
                     </subviews>
@@ -771,9 +794,13 @@ or manually search and follow artists.</string>
                         <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="SHE-jm-wdb" secondAttribute="trailing" constant="18" id="AGI-Iv-1bM"/>
                         <constraint firstItem="HOU-cY-yOZ" firstAttribute="leading" secondItem="MOv-eW-vnE" secondAttribute="trailing" constant="8" id="AuD-ZD-n4G"/>
                         <constraint firstItem="MOv-eW-vnE" firstAttribute="centerX" secondItem="d5o-MA-Zs4" secondAttribute="centerX" id="F37-a6-1qn"/>
+                        <constraint firstItem="ANb-AM-HaH" firstAttribute="centerY" secondItem="HUi-0S-hdp" secondAttribute="centerY" id="H5i-mj-m1O"/>
+                        <constraint firstItem="ANb-AM-HaH" firstAttribute="leading" secondItem="HUi-0S-hdp" secondAttribute="trailing" constant="8" id="Nr2-K0-Vit"/>
                         <constraint firstItem="HOU-cY-yOZ" firstAttribute="centerY" secondItem="MOv-eW-vnE" secondAttribute="centerY" id="djr-W2-lfk"/>
+                        <constraint firstItem="HUi-0S-hdp" firstAttribute="centerX" secondItem="d5o-MA-Zs4" secondAttribute="centerX" id="lY2-CV-EYs"/>
                         <constraint firstItem="MOv-eW-vnE" firstAttribute="top" secondItem="SHE-jm-wdb" secondAttribute="bottom" constant="24" id="xGC-EZ-lVY"/>
                         <constraint firstItem="MOv-eW-vnE" firstAttribute="centerY" secondItem="d5o-MA-Zs4" secondAttribute="centerY" id="xWA-4c-Plg"/>
+                        <constraint firstItem="HUi-0S-hdp" firstAttribute="top" secondItem="MOv-eW-vnE" secondAttribute="bottom" constant="24" id="xkh-UJ-5K9"/>
                         <constraint firstItem="SHE-jm-wdb" firstAttribute="centerX" secondItem="d5o-MA-Zs4" secondAttribute="centerX" id="zfb-pz-j86"/>
                     </constraints>
                 </view>
@@ -802,8 +829,8 @@ or manually search and follow artists.</string>
         <!--Artist Releases Table View Controller-->
         <scene sceneID="H5x-GQ-2Tb">
             <objects>
-                <tableViewController id="Wkd-P3-oas" customClass="ArtistReleasesTableViewController" customModule="Numu_Tracker" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="219" sectionHeaderHeight="28" sectionFooterHeight="28" id="KFU-9P-Mi9">
+                <tableViewController storyboardIdentifier="artistReleasesController" id="Wkd-P3-oas" customClass="ArtistReleasesTableViewController" customModule="Numu_Tracker" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="140" sectionHeaderHeight="28" sectionFooterHeight="28" id="KFU-9P-Mi9">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.13350695369999999" green="0.13364198799999999" blue="0.13352787490000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -811,11 +838,11 @@ or manually search and follow artists.</string>
                         <color key="separatorColor" red="0.20060706140000001" green="0.20079019670000001" blue="0.20063543319999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="artistAlbumCell" rowHeight="219" id="U2O-L3-feA" customClass="ArtistReleaseTableViewCell" customModule="Numu_Tracker" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="414" height="219"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="artistAlbumCell" rowHeight="136" id="U2O-L3-feA" customClass="ArtistReleaseTableViewCell" customModule="Numu_Tracker" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="414" height="136"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="U2O-L3-feA" id="6Lz-Uy-d3S">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="218.66666666666666"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="135.66666666666666"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="9fR-E8-Key">
@@ -848,55 +875,12 @@ or manually search and follow artists.</string>
                                             <color key="textColor" cocoaTouchSystemColor="lightTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Meat Wave" textAlignment="natural" lineBreakMode="tailTruncation" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="gcS-ZP-G7n">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Meat Wave" textAlignment="natural" lineBreakMode="tailTruncation" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gcS-ZP-G7n">
                                             <rect key="frame" x="149" y="31" width="245" height="24"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZK3-VO-TTS">
-                                            <rect key="frame" x="0.0" y="135.66666666666666" width="414" height="83"/>
-                                            <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kev-qL-0iX">
-                                                    <rect key="frame" x="143" y="18" width="128" height="47"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="128" id="DPJ-s6-hoe"/>
-                                                        <constraint firstAttribute="height" constant="47" id="Q53-pa-qhN"/>
-                                                    </constraints>
-                                                    <state key="normal" image="appleMusic">
-                                                        <color key="titleColor" red="0.10980392160000001" green="0.81176470590000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    </state>
-                                                    <connections>
-                                                        <action selector="listenOnItunesButtonAction:" destination="U2O-L3-feA" eventType="touchUpInside" id="Lg0-9x-UsP"/>
-                                                    </connections>
-                                                </button>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oK3-hQ-FcA">
-                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="0.33333333333333331"/>
-                                                    <color key="backgroundColor" red="0.20060706140000001" green="0.20079019670000001" blue="0.20063543319999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="0.5" id="W3D-F0-swl"/>
-                                                    </constraints>
-                                                </view>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xCQ-CT-mD9">
-                                                    <rect key="frame" x="206.66666666666666" y="41" width="1" height="1"/>
-                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="1" id="JZc-AU-lpA"/>
-                                                        <constraint firstAttribute="width" constant="1" id="hrL-3Y-OQk"/>
-                                                    </constraints>
-                                                </view>
-                                            </subviews>
-                                            <color key="backgroundColor" red="0.086274509799999996" green="0.086274509799999996" blue="0.086274509799999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <constraints>
-                                                <constraint firstItem="xCQ-CT-mD9" firstAttribute="centerX" secondItem="ZK3-VO-TTS" secondAttribute="centerX" id="BaO-tv-b8x"/>
-                                                <constraint firstItem="oK3-hQ-FcA" firstAttribute="top" secondItem="ZK3-VO-TTS" secondAttribute="top" id="Bxn-qC-2xi"/>
-                                                <constraint firstItem="oK3-hQ-FcA" firstAttribute="leading" secondItem="ZK3-VO-TTS" secondAttribute="leading" id="GvX-QW-ZaN"/>
-                                                <constraint firstItem="kev-qL-0iX" firstAttribute="top" secondItem="ZK3-VO-TTS" secondAttribute="top" constant="18" id="Up8-ky-iwo"/>
-                                                <constraint firstItem="xCQ-CT-mD9" firstAttribute="centerY" secondItem="ZK3-VO-TTS" secondAttribute="centerY" id="XEf-I4-UPa"/>
-                                                <constraint firstAttribute="trailing" secondItem="oK3-hQ-FcA" secondAttribute="trailing" id="lEc-nj-0vl"/>
-                                                <constraint firstItem="kev-qL-0iX" firstAttribute="centerX" secondItem="ZK3-VO-TTS" secondAttribute="centerX" id="mXw-I5-X0f"/>
-                                            </constraints>
-                                        </view>
                                     </subviews>
                                     <color key="backgroundColor" red="0.13350695369999999" green="0.13364198799999999" blue="0.13352787490000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <constraints>
@@ -906,17 +890,13 @@ or manually search and follow artists.</string>
                                         <constraint firstItem="xkR-VI-wng" firstAttribute="leading" secondItem="tUn-gL-6MJ" secondAttribute="trailing" constant="18" id="5e2-D6-DuL"/>
                                         <constraint firstItem="xkR-VI-wng" firstAttribute="top" secondItem="gcS-ZP-G7n" secondAttribute="bottom" constant="3" id="5xY-UJ-6cB"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="gcS-ZP-G7n" secondAttribute="trailing" id="EiD-70-GQr"/>
-                                        <constraint firstAttribute="trailing" secondItem="ZK3-VO-TTS" secondAttribute="trailing" id="HeA-nL-Daj"/>
                                         <constraint firstItem="9fR-E8-Key" firstAttribute="centerX" secondItem="tUn-gL-6MJ" secondAttribute="centerX" id="Krs-0W-k0h"/>
                                         <constraint firstItem="xkR-VI-wng" firstAttribute="centerY" secondItem="tUn-gL-6MJ" secondAttribute="centerY" id="MaM-rw-Len"/>
                                         <constraint firstItem="9fR-E8-Key" firstAttribute="centerY" secondItem="tUn-gL-6MJ" secondAttribute="centerY" id="Veh-5f-J8w"/>
                                         <constraint firstItem="plt-37-BYB" firstAttribute="leading" secondItem="tUn-gL-6MJ" secondAttribute="trailing" constant="18" id="Xrv-9Y-aWK"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="plt-37-BYB" secondAttribute="trailing" id="ZEp-9t-xxs"/>
-                                        <constraint firstItem="ZK3-VO-TTS" firstAttribute="leading" secondItem="6Lz-Uy-d3S" secondAttribute="leading" id="ZFM-aE-AN7"/>
-                                        <constraint firstAttribute="bottom" secondItem="ZK3-VO-TTS" secondAttribute="bottom" id="af9-X7-Kja"/>
                                         <constraint firstItem="plt-37-BYB" firstAttribute="top" secondItem="xkR-VI-wng" secondAttribute="bottom" constant="4" id="j2N-7n-aNR"/>
                                         <constraint firstItem="tUn-gL-6MJ" firstAttribute="top" secondItem="6Lz-Uy-d3S" secondAttribute="top" constant="18" id="pz9-w4-Dsv"/>
-                                        <constraint firstItem="ZK3-VO-TTS" firstAttribute="top" secondItem="tUn-gL-6MJ" secondAttribute="bottom" constant="17.5" id="tLN-YI-xFK"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="xkR-VI-wng" secondAttribute="trailing" id="uIP-pK-2Sf"/>
                                         <constraint firstItem="tUn-gL-6MJ" firstAttribute="leading" secondItem="6Lz-Uy-d3S" secondAttribute="leadingMargin" constant="11" id="yUf-SJ-4Ut"/>
                                     </constraints>
@@ -927,8 +907,6 @@ or manually search and follow artists.</string>
                                     <outlet property="albumArtActivityIndicator" destination="9fR-E8-Key" id="zo1-fZ-nVs"/>
                                     <outlet property="artistName" destination="gcS-ZP-G7n" id="Hq7-YL-fV4"/>
                                     <outlet property="dateLabel" destination="plt-37-BYB" id="GEI-ze-V0t"/>
-                                    <outlet property="listenButtonView" destination="ZK3-VO-TTS" id="yNY-IK-PAW"/>
-                                    <outlet property="listenOnItunesButton" destination="kev-qL-0iX" id="bzz-ET-BQt"/>
                                     <outlet property="readIndicator" destination="Fgn-db-JYf" id="XqQ-b2-SvX"/>
                                     <outlet property="releaseTitle" destination="xkR-VI-wng" id="SEu-hM-jc3"/>
                                 </connections>
@@ -978,7 +956,7 @@ or manually search and follow artists.</string>
                     </constraints>
                 </view>
             </objects>
-            <point key="canvasLocation" x="2041" y="88"/>
+            <point key="canvasLocation" x="2040.5797101449277" y="87.228260869565219"/>
         </scene>
         <!--Full Log Reg Prompt-->
         <scene sceneID="z5e-qH-IdS">
@@ -1316,7 +1294,7 @@ or manually search and follow artists.</string>
         <scene sceneID="eCT-23-ojS">
             <objects>
                 <tableViewController id="xGt-pE-Rm6" customClass="AllReleasesTableViewController" customModule="Numu_Tracker" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" indicatorStyle="black" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="244" sectionHeaderHeight="28" sectionFooterHeight="28" id="out-SO-RhK">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" indicatorStyle="black" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="138" sectionHeaderHeight="28" sectionFooterHeight="28" id="out-SO-RhK">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.13350695369999999" green="0.13364198799999999" blue="0.13352787490000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1324,11 +1302,11 @@ or manually search and follow artists.</string>
                         <color key="separatorColor" red="0.20060706140000001" green="0.20079019670000001" blue="0.20063543319999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="releaseInfoCell" rowHeight="244" id="9Oy-Vj-WM4" customClass="ReleaseTableViewCell" customModule="Numu_Tracker" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="414" height="244"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="releaseInfoCell" rowHeight="136" id="9Oy-Vj-WM4" customClass="ReleaseTableViewCell" customModule="Numu_Tracker" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="414" height="136"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="9Oy-Vj-WM4" id="URL-Ie-01f">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="243.66666666666666"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="135.66666666666666"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="jZk-ho-uST">
@@ -1367,61 +1345,6 @@ or manually search and follow artists.</string>
                                                 <constraint firstAttribute="height" constant="50" id="jhS-kp-3ey"/>
                                             </constraints>
                                         </view>
-                                        <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nCT-hA-tw2">
-                                            <rect key="frame" x="0.0" y="135.66666666666666" width="414" height="108"/>
-                                            <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dmT-lI-To1">
-                                                    <rect key="frame" x="143" y="18" width="128" height="47"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="128" id="70z-vE-Q6a"/>
-                                                        <constraint firstAttribute="height" constant="47" id="CSx-cR-een"/>
-                                                    </constraints>
-                                                    <state key="normal" image="appleMusic">
-                                                        <color key="titleColor" red="0.10980392160000001" green="0.81176470590000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    </state>
-                                                    <connections>
-                                                        <action selector="listenOnItunesButtonAction:" destination="9Oy-Vj-WM4" eventType="touchUpInside" id="bAD-gj-UWW"/>
-                                                    </connections>
-                                                </button>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ECc-LH-9vP">
-                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="0.33333333333333331"/>
-                                                    <color key="backgroundColor" red="0.20060706140000001" green="0.20079019670000001" blue="0.20063543319999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="0.5" id="Jj8-WI-eW1"/>
-                                                    </constraints>
-                                                </view>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IRj-RX-Ojc">
-                                                    <rect key="frame" x="206.66666666666666" y="53.333333333333343" width="1" height="1"/>
-                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="1" id="e3T-bC-2CW"/>
-                                                        <constraint firstAttribute="width" constant="1" id="hld-5h-FKe"/>
-                                                    </constraints>
-                                                </view>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oxH-AK-9O3">
-                                                    <rect key="frame" x="108.66666666666669" y="73" width="197" height="28"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                                    <state key="normal" title="View more releases by this artist">
-                                                        <color key="titleColor" red="0.10980392160000001" green="0.81176470590000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    </state>
-                                                    <connections>
-                                                        <segue destination="Wkd-P3-oas" kind="show" identifier="showArtistReleases" id="jcr-Ul-g7T"/>
-                                                    </connections>
-                                                </button>
-                                            </subviews>
-                                            <color key="backgroundColor" red="0.086274509803921567" green="0.086274509803921567" blue="0.086274509803921567" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <constraints>
-                                                <constraint firstItem="dmT-lI-To1" firstAttribute="centerX" secondItem="nCT-hA-tw2" secondAttribute="centerX" id="G3x-cQ-4R7"/>
-                                                <constraint firstItem="IRj-RX-Ojc" firstAttribute="centerX" secondItem="nCT-hA-tw2" secondAttribute="centerX" id="U6j-qy-Rz7"/>
-                                                <constraint firstItem="dmT-lI-To1" firstAttribute="top" secondItem="nCT-hA-tw2" secondAttribute="top" constant="18" id="W4A-fL-nT0"/>
-                                                <constraint firstItem="oxH-AK-9O3" firstAttribute="centerX" secondItem="nCT-hA-tw2" secondAttribute="centerX" id="a6i-oa-E0V"/>
-                                                <constraint firstItem="oxH-AK-9O3" firstAttribute="top" secondItem="dmT-lI-To1" secondAttribute="bottom" constant="8" id="aMO-JM-vdG"/>
-                                                <constraint firstItem="ECc-LH-9vP" firstAttribute="leading" secondItem="nCT-hA-tw2" secondAttribute="leading" id="dOP-he-Mwy"/>
-                                                <constraint firstItem="IRj-RX-Ojc" firstAttribute="centerY" secondItem="nCT-hA-tw2" secondAttribute="centerY" id="f0R-ae-9RL"/>
-                                                <constraint firstItem="ECc-LH-9vP" firstAttribute="top" secondItem="nCT-hA-tw2" secondAttribute="top" id="riT-kf-9AU"/>
-                                                <constraint firstAttribute="trailing" secondItem="ECc-LH-9vP" secondAttribute="trailing" id="xdv-Vg-a0K"/>
-                                            </constraints>
-                                        </view>
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="7Wh-LQ-SXB" firstAttribute="top" secondItem="URL-Ie-01f" secondAttribute="top" constant="18" id="00C-Mu-GPU"/>
@@ -1430,16 +1353,12 @@ or manually search and follow artists.</string>
                                         <constraint firstAttribute="leadingMargin" secondItem="7Wh-LQ-SXB" secondAttribute="leading" constant="-11" id="Gtn-yN-tUj"/>
                                         <constraint firstItem="p7b-vT-nmz" firstAttribute="centerY" secondItem="7Wh-LQ-SXB" secondAttribute="centerY" id="HGA-VU-Ek3"/>
                                         <constraint firstItem="jZk-ho-uST" firstAttribute="centerY" secondItem="7Wh-LQ-SXB" secondAttribute="centerY" id="Nbb-rI-ws9"/>
-                                        <constraint firstItem="nCT-hA-tw2" firstAttribute="leading" secondItem="URL-Ie-01f" secondAttribute="leading" id="Nwr-cY-q5H"/>
                                         <constraint firstItem="vts-KZ-zYJ" firstAttribute="top" secondItem="vSI-EG-u7Z" secondAttribute="bottom" constant="3" id="REX-7n-Mqp"/>
                                         <constraint firstItem="vts-KZ-zYJ" firstAttribute="leading" secondItem="7Wh-LQ-SXB" secondAttribute="trailing" constant="18" id="UQn-mQ-UOc"/>
-                                        <constraint firstAttribute="trailing" secondItem="nCT-hA-tw2" secondAttribute="trailing" id="X30-eP-0Ky"/>
                                         <constraint firstItem="vSI-EG-u7Z" firstAttribute="leading" secondItem="7Wh-LQ-SXB" secondAttribute="trailing" constant="18" id="agD-zG-0h4"/>
-                                        <constraint firstAttribute="bottom" secondItem="nCT-hA-tw2" secondAttribute="bottom" id="fFe-h9-KS2"/>
                                         <constraint firstItem="vts-KZ-zYJ" firstAttribute="centerY" secondItem="7Wh-LQ-SXB" secondAttribute="centerY" id="jzX-5Z-o0e"/>
                                         <constraint firstItem="7Wh-LQ-SXB" firstAttribute="leading" secondItem="p7b-vT-nmz" secondAttribute="trailing" constant="9" id="sWm-hR-A2r"/>
                                         <constraint firstItem="jZk-ho-uST" firstAttribute="centerX" secondItem="7Wh-LQ-SXB" secondAttribute="centerX" id="vBT-G5-UEb"/>
-                                        <constraint firstItem="nCT-hA-tw2" firstAttribute="top" secondItem="7Wh-LQ-SXB" secondAttribute="bottom" constant="17.5" id="wIt-8o-sIr"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" red="0.13333333333333333" green="0.13333333333333333" blue="0.13333333333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1454,12 +1373,9 @@ or manually search and follow artists.</string>
                                     <outlet property="artImageView" destination="7Wh-LQ-SXB" id="yln-Fz-2eX"/>
                                     <outlet property="artIndicator" destination="jZk-ho-uST" id="oqb-RJ-M9W"/>
                                     <outlet property="artistLabel" destination="vSI-EG-u7Z" id="Oej-Va-qYr"/>
-                                    <outlet property="listenButtonView" destination="nCT-hA-tw2" id="qpO-NC-4Cs"/>
-                                    <outlet property="listenOnItunesButton" destination="dmT-lI-To1" id="x6r-8I-38O"/>
                                     <outlet property="listenedIndicatorView" destination="p7b-vT-nmz" id="SzF-Ea-oyy"/>
                                     <outlet property="metaLabel" destination="osf-QW-Zdf" id="Y7a-ti-HMt"/>
                                     <outlet property="releaseNameLabel" destination="vts-KZ-zYJ" id="7lx-d8-rnd"/>
-                                    <outlet property="viewMoreReleasesButton" destination="oxH-AK-9O3" id="YRp-vu-8te"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -1493,6 +1409,8 @@ or manually search and follow artists.</string>
                         <outlet property="footerView" destination="rQn-JX-JVv" id="gdY-rr-zJy"/>
                         <outlet property="importFromAMButton" destination="fWy-kq-qwT" id="Psw-XE-CkQ"/>
                         <outlet property="importFromAMSpinner" destination="MZO-pL-mss" id="qzo-NG-yBE"/>
+                        <outlet property="importSpotifyActivityIndicator" destination="aBc-08-6ZF" id="HYk-hA-rmB"/>
+                        <outlet property="importSpotifyButton" destination="PSZ-Nf-eqb" id="3wu-Rn-fRY"/>
                         <outlet property="noResultsFooterView" destination="9bh-Ul-XlB" id="kfF-Cy-MYK"/>
                         <outlet property="noResultsLabel" destination="n3X-4R-CJR" id="KI1-C7-KsY"/>
                         <outlet property="otherNoResultsFooterView" destination="Gfv-qZ-etf" id="efJ-uB-yad"/>
@@ -1538,21 +1456,21 @@ or manually search and follow artists.</string>
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" id="9bh-Ul-XlB">
-                    <rect key="frame" x="0.0" y="0.0" width="386" height="225"/>
+                    <rect key="frame" x="0.0" y="0.0" width="386" height="297"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="1000" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n3X-4R-CJR">
-                            <rect key="frame" x="53" y="0.6666666666666643" width="280.33333333333331" height="67"/>
+                            <rect key="frame" x="53" y="36.666666666666657" width="280.33333333333331" height="67"/>
                             <constraints>
                                 <constraint firstAttribute="width" relation="lessThanOrEqual" constant="288" id="t8d-cY-RnP"/>
                             </constraints>
-                            <string key="text">There aren't any releases here yet. You should try following more artists? Here's a quick button you can press to import some artists from Apple Music.</string>
+                            <string key="text">There aren't any releases here yet. You should try following more artists? Here's a quick button you can press to import some artists from Apple Music or Spotify.</string>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <color key="textColor" cocoaTouchSystemColor="lightTextColor"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fWy-kq-qwT" customClass="NumuUIButton" customModule="Numu_Tracker" customModuleProvider="target">
-                            <rect key="frame" x="83" y="91.666666666666671" width="220" height="42.000000000000014"/>
+                            <rect key="frame" x="83" y="127.66666666666669" width="220" height="42"/>
                             <inset key="contentEdgeInsets" minX="10" minY="10" maxX="10" maxY="10"/>
                             <state key="normal" title="Import from Apple Music">
                                 <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1562,24 +1480,41 @@ or manually search and follow artists.</string>
                             </connections>
                         </button>
                         <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="MZO-pL-mss">
-                            <rect key="frame" x="311" y="102.66666666666667" width="20" height="20"/>
+                            <rect key="frame" x="311" y="138.66666666666666" width="20" height="20"/>
+                        </activityIndicatorView>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PSZ-Nf-eqb" customClass="NumuUIButton" customModule="Numu_Tracker" customModuleProvider="target">
+                            <rect key="frame" x="104" y="193.66666666666666" width="178" height="42"/>
+                            <inset key="contentEdgeInsets" minX="10" minY="10" maxX="10" maxY="10"/>
+                            <state key="normal" title="Import from Spotify">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </state>
+                            <connections>
+                                <action selector="importSpotifyButton:" destination="xGt-pE-Rm6" eventType="touchUpInside" id="VR7-6u-afo"/>
+                            </connections>
+                        </button>
+                        <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="aBc-08-6ZF">
+                            <rect key="frame" x="290" y="204.66666666666666" width="20" height="20"/>
                         </activityIndicatorView>
                     </subviews>
                     <color key="backgroundColor" red="0.1333333333" green="0.1333333333" blue="0.1333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstItem="fWy-kq-qwT" firstAttribute="centerY" secondItem="9bh-Ul-XlB" secondAttribute="centerY" id="1il-dW-VyA"/>
+                        <constraint firstItem="PSZ-Nf-eqb" firstAttribute="centerX" secondItem="9bh-Ul-XlB" secondAttribute="centerX" id="2NO-6z-Ze0"/>
                         <constraint firstItem="fWy-kq-qwT" firstAttribute="centerX" secondItem="9bh-Ul-XlB" secondAttribute="centerX" id="2mA-PK-cbt"/>
+                        <constraint firstItem="aBc-08-6ZF" firstAttribute="leading" secondItem="PSZ-Nf-eqb" secondAttribute="trailing" constant="8" id="E4d-cL-isE"/>
                         <constraint firstItem="MZO-pL-mss" firstAttribute="leading" secondItem="fWy-kq-qwT" secondAttribute="trailing" constant="8" id="Jdq-yZ-FrO"/>
                         <constraint firstItem="fWy-kq-qwT" firstAttribute="top" secondItem="n3X-4R-CJR" secondAttribute="bottom" constant="24" id="LHi-wn-AcQ"/>
                         <constraint firstItem="MZO-pL-mss" firstAttribute="centerY" secondItem="fWy-kq-qwT" secondAttribute="centerY" id="LoT-h2-QOj"/>
                         <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="n3X-4R-CJR" secondAttribute="trailing" constant="18" id="Qld-Yf-UzI"/>
                         <constraint firstItem="n3X-4R-CJR" firstAttribute="top" relation="greaterThanOrEqual" secondItem="9bh-Ul-XlB" secondAttribute="top" id="X0A-gB-Mw2"/>
                         <constraint firstItem="n3X-4R-CJR" firstAttribute="centerX" secondItem="9bh-Ul-XlB" secondAttribute="centerX" id="bap-Rq-UPt"/>
+                        <constraint firstItem="aBc-08-6ZF" firstAttribute="centerY" secondItem="PSZ-Nf-eqb" secondAttribute="centerY" id="fPX-b0-ysO"/>
+                        <constraint firstItem="PSZ-Nf-eqb" firstAttribute="top" secondItem="fWy-kq-qwT" secondAttribute="bottom" constant="24" id="geQ-4o-DJO"/>
                         <constraint firstItem="n3X-4R-CJR" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="9bh-Ul-XlB" secondAttribute="leading" constant="18" id="taz-Gl-zHK"/>
                     </constraints>
                 </view>
             </objects>
-            <point key="canvasLocation" x="1040.5797101449275" y="-252.71739130434784"/>
+            <point key="canvasLocation" x="1039.1304347826087" y="-252.71739130434784"/>
         </scene>
         <!--Numu Tab Bar Controller-->
         <scene sceneID="pPo-Hq-Xts">
@@ -1604,7 +1539,7 @@ or manually search and follow artists.</string>
         <!--More-->
         <scene sceneID="2qc-ZS-hZe">
             <objects>
-                <tableViewController id="2Ma-iV-Juf" customClass="SettingsTableViewController" customModule="Numu_Tracker" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="2Ma-iV-Juf" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" indicatorStyle="black" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="Zu9-SL-MUL">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1618,7 +1553,7 @@ or manually search and follow artists.</string>
                         <sections>
                             <tableViewSection headerTitle="Your Account" id="s6m-ba-v6D">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" id="FbF-76-ESs">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" accessoryType="disclosureIndicator" indentationWidth="10" id="FbF-76-ESs">
                                         <rect key="frame" x="0.0" y="55.333333333333343" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="FbF-76-ESs" id="vEA-bK-p65">
@@ -1647,7 +1582,7 @@ or manually search and follow artists.</string>
                             </tableViewSection>
                             <tableViewSection headerTitle="Settings" id="trL-jy-MaK">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" id="VuD-wH-c27">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" accessoryType="disclosureIndicator" indentationWidth="10" id="VuD-wH-c27">
                                         <rect key="frame" x="0.0" y="155.33333333333334" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="VuD-wH-c27" id="ezt-OF-4v5">
@@ -1672,7 +1607,7 @@ or manually search and follow artists.</string>
                                             <segue destination="cvB-f6-UI7" kind="show" id="six-HA-Ef4"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" id="4YR-mJ-m9F">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" accessoryType="disclosureIndicator" indentationWidth="10" id="4YR-mJ-m9F">
                                         <rect key="frame" x="0.0" y="199.33333333333334" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="4YR-mJ-m9F" id="iUA-7R-pkt">
@@ -1697,12 +1632,37 @@ or manually search and follow artists.</string>
                                             <segue destination="g0w-XR-p2v" kind="show" id="Mft-DN-qMu"/>
                                         </connections>
                                     </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" accessoryType="disclosureIndicator" indentationWidth="10" id="K6h-3Z-gL6">
+                                        <rect key="frame" x="0.0" y="243.33333333333337" width="414" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="K6h-3Z-gL6" id="P87-BZ-Ym9">
+                                            <rect key="frame" x="0.0" y="0.0" width="376" height="43.666666666666664"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Music Services" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6yT-6x-atl">
+                                                    <rect key="frame" x="18" y="11.333333333333336" width="350" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="6yT-6x-atl" firstAttribute="centerY" secondItem="P87-BZ-Ym9" secondAttribute="centerY" id="08r-b0-aWF"/>
+                                                <constraint firstItem="6yT-6x-atl" firstAttribute="leading" secondItem="P87-BZ-Ym9" secondAttribute="leading" constant="18" id="8KR-lY-ldv"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="6yT-6x-atl" secondAttribute="trailing" id="9gF-x4-siE"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" red="0.13350695369999999" green="0.13364198799999999" blue="0.13352787490000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <connections>
+                                            <segue destination="qvW-4a-08r" kind="show" id="EGn-tc-A80"/>
+                                        </connections>
+                                    </tableViewCell>
                                 </cells>
                             </tableViewSection>
                             <tableViewSection headerTitle="Import Artists" id="xxB-3B-v8R">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" id="ZSc-Ll-50I">
-                                        <rect key="frame" x="0.0" y="299.33333333333337" width="414" height="44"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" accessoryType="disclosureIndicator" indentationWidth="10" id="ZSc-Ll-50I">
+                                        <rect key="frame" x="0.0" y="343.33333333333337" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ZSc-Ll-50I" id="4oc-U4-3Fn">
                                             <rect key="frame" x="0.0" y="0.0" width="376" height="43.666666666666664"/>
@@ -1726,12 +1686,37 @@ or manually search and follow artists.</string>
                                             <segue destination="m1H-bQ-zGZ" kind="show" id="9wy-G8-N8S"/>
                                         </connections>
                                     </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" accessoryType="disclosureIndicator" indentationWidth="10" id="b5r-cn-G1v">
+                                        <rect key="frame" x="0.0" y="387.33333333333337" width="414" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="b5r-cn-G1v" id="nfv-bZ-Toy">
+                                            <rect key="frame" x="0.0" y="0.0" width="376" height="43.666666666666664"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Spotify" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="klP-41-I8G">
+                                                    <rect key="frame" x="18" y="11.333333333333336" width="350" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="klP-41-I8G" firstAttribute="leading" secondItem="nfv-bZ-Toy" secondAttribute="leading" constant="18" id="U8N-Mg-l1O"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="klP-41-I8G" secondAttribute="trailing" id="dBn-Ak-BIs"/>
+                                                <constraint firstItem="klP-41-I8G" firstAttribute="centerY" secondItem="nfv-bZ-Toy" secondAttribute="centerY" id="zGC-n0-2pZ"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" red="0.13350695369999999" green="0.13364198799999999" blue="0.13352787490000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <connections>
+                                            <segue destination="qIZ-Em-4yq" kind="show" id="G24-UN-N2R"/>
+                                        </connections>
+                                    </tableViewCell>
                                 </cells>
                             </tableViewSection>
                             <tableViewSection headerTitle="Help" id="x6o-5p-VrU">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" id="wai-bd-eEh">
-                                        <rect key="frame" x="0.0" y="399.33333333333337" width="414" height="44"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" accessoryType="disclosureIndicator" indentationWidth="10" id="wai-bd-eEh">
+                                        <rect key="frame" x="0.0" y="487.33333333333337" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="wai-bd-eEh" id="PiK-ej-qHy">
                                             <rect key="frame" x="0.0" y="0.0" width="376" height="43.666666666666664"/>
@@ -1755,8 +1740,8 @@ or manually search and follow artists.</string>
                                             <segue destination="yB9-74-LUJ" kind="show" id="IIV-hg-jTU"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" id="hcg-7S-L2U">
-                                        <rect key="frame" x="0.0" y="443.33333333333337" width="414" height="44"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" accessoryType="disclosureIndicator" indentationWidth="10" id="hcg-7S-L2U">
+                                        <rect key="frame" x="0.0" y="531.33333333333337" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="hcg-7S-L2U" id="m5r-Mr-Eea">
                                             <rect key="frame" x="0.0" y="0.0" width="376" height="43.666666666666664"/>
@@ -1789,15 +1774,263 @@ or manually search and follow artists.</string>
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="More" id="UrJ-B3-jwQ"/>
-                    <connections>
-                        <outlet property="appleMusicCell" destination="ZSc-Ll-50I" id="Tm6-q5-SUK"/>
-                        <outlet property="logOutCell" destination="FbF-76-ESs" id="WdS-WM-wJ2"/>
-                        <outlet property="releaseFiltersCell" destination="VuD-wH-c27" id="URn-3k-TRv"/>
-                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YWa-9r-bfs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1039" y="1220"/>
+        </scene>
+        <!--Music Services-->
+        <scene sceneID="UP1-cZ-CZ3">
+            <objects>
+                <viewController title="Music Services" id="qvW-4a-08r" customClass="MusicServicesViewController" customModule="Numu_Tracker" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="k0e-vT-ecR"/>
+                        <viewControllerLayoutGuide type="bottom" id="cZf-ZK-L4S"/>
+                    </layoutGuides>
+                    <scrollView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="Jar-fP-e7n">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Gf7-8t-Rvm">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="433.33333333333331"/>
+                                <subviews>
+                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Adj-x8-Myn">
+                                        <rect key="frame" x="347" y="13" width="51" height="31"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="31" id="Fn6-2k-VPH"/>
+                                            <constraint firstAttribute="width" constant="49" id="z81-lk-yMs"/>
+                                        </constraints>
+                                        <color key="onTintColor" red="0.1199414805" green="0.62484174969999995" blue="0.69512790440000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <connections>
+                                            <action selector="albumFilterSwitch:" destination="cvB-f6-UI7" eventType="valueChanged" id="C6S-s0-Meq"/>
+                                            <action selector="appleMusicAction:" destination="qvW-4a-08r" eventType="valueChanged" id="58A-28-rgl"/>
+                                        </connections>
+                                    </switch>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Apple Music" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eKP-Od-q2r">
+                                        <rect key="frame" x="18" y="18" width="95" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KcO-MC-c1X">
+                                        <rect key="frame" x="18" y="57" width="378" height="1"/>
+                                        <color key="backgroundColor" red="0.20060706140000001" green="0.20079019670000001" blue="0.20063543319999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="1" id="Ale-b8-Ddk"/>
+                                        </constraints>
+                                    </view>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Spotify" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V3T-Uc-Bze">
+                                        <rect key="frame" x="18" y="76" width="55" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="mvN-e6-CQX">
+                                        <rect key="frame" x="347" y="71" width="51" height="31"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="31" id="5QL-J9-O8o"/>
+                                            <constraint firstAttribute="width" constant="49" id="eAh-VQ-QyX"/>
+                                        </constraints>
+                                        <color key="onTintColor" red="0.1199414805" green="0.62484174969999995" blue="0.69512790440000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <connections>
+                                            <action selector="singlesFilterSwitch:" destination="cvB-f6-UI7" eventType="valueChanged" id="XWu-Vc-mvo"/>
+                                            <action selector="spotifyAction:" destination="qvW-4a-08r" eventType="valueChanged" id="J0d-Zc-gk0"/>
+                                        </connections>
+                                    </switch>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="K1d-zl-9Y7">
+                                        <rect key="frame" x="18" y="115" width="378" height="1"/>
+                                        <color key="backgroundColor" red="0.20060706140000001" green="0.20079019670000001" blue="0.20063543319999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="1" id="1tb-YL-fnO"/>
+                                        </constraints>
+                                    </view>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="YouTube" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ImA-kn-r48">
+                                        <rect key="frame" x="18" y="134" width="66" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="8bH-Dt-H1z">
+                                        <rect key="frame" x="347" y="129" width="51" height="31"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="31" id="PXZ-73-Vdu"/>
+                                            <constraint firstAttribute="width" constant="49" id="j51-e1-bEN"/>
+                                        </constraints>
+                                        <color key="onTintColor" red="0.1199414805" green="0.62484174969999995" blue="0.69512790440000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <connections>
+                                            <action selector="epFilterSwitch:" destination="cvB-f6-UI7" eventType="valueChanged" id="IYt-sm-0ng"/>
+                                            <action selector="youTubeAction:" destination="qvW-4a-08r" eventType="valueChanged" id="UIH-pn-K0e"/>
+                                        </connections>
+                                    </switch>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3vp-bZ-Un2">
+                                        <rect key="frame" x="18" y="173" width="378" height="1"/>
+                                        <color key="backgroundColor" red="0.20060706140000001" green="0.20079019670000001" blue="0.20063543319999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="1" id="jf0-Zr-rV9"/>
+                                        </constraints>
+                                    </view>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SoundCloud" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Ma-R2-lg7">
+                                        <rect key="frame" x="18" y="192" width="95" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="90x-0f-v45">
+                                        <rect key="frame" x="347" y="187" width="51" height="31"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="31" id="Ygk-7E-Ywj"/>
+                                            <constraint firstAttribute="width" constant="49" id="s0o-NG-3jA"/>
+                                        </constraints>
+                                        <color key="onTintColor" red="0.1199414805" green="0.62484174969999995" blue="0.69512790440000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <connections>
+                                            <action selector="liveFilterSwitch:" destination="cvB-f6-UI7" eventType="valueChanged" id="C6A-cS-zgV"/>
+                                            <action selector="soundCloudAction:" destination="qvW-4a-08r" eventType="valueChanged" id="aOx-xK-tXE"/>
+                                        </connections>
+                                    </switch>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="A05-Dh-Joc">
+                                        <rect key="frame" x="18" y="231" width="378" height="1"/>
+                                        <color key="backgroundColor" red="0.20060706140000001" green="0.20079019670000001" blue="0.20063543319999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="1" id="0zx-1C-XEz"/>
+                                        </constraints>
+                                    </view>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="52X-6z-VVa">
+                                        <rect key="frame" x="63" y="248" width="288" height="167.33333333333337"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" relation="lessThanOrEqual" constant="288" id="uhA-md-4RF"/>
+                                        </constraints>
+                                        <string key="text">These switches determine which music services appear in the release detail modal. Turn off any services you don't use, and they won't appear in that menu anymore.
+
+Turning on certain services may require you to log in to them. Numu values your privacy, under no circumstances do we access your accounts for any purpose other than helping you find music.</string>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.1333333333" green="0.1333333333" blue="0.1333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstItem="ImA-kn-r48" firstAttribute="top" secondItem="K1d-zl-9Y7" secondAttribute="bottom" constant="18" id="0cB-Ee-6Pp"/>
+                                    <constraint firstAttribute="trailing" secondItem="A05-Dh-Joc" secondAttribute="trailing" constant="18" id="0vh-zf-ceY"/>
+                                    <constraint firstItem="eKP-Od-q2r" firstAttribute="leading" secondItem="Gf7-8t-Rvm" secondAttribute="leading" constant="18" id="1bb-Z7-4r6"/>
+                                    <constraint firstAttribute="trailing" secondItem="KcO-MC-c1X" secondAttribute="trailing" constant="18" id="4fc-SO-Rez"/>
+                                    <constraint firstItem="K1d-zl-9Y7" firstAttribute="top" secondItem="V3T-Uc-Bze" secondAttribute="bottom" constant="18" id="Bis-zU-N1a"/>
+                                    <constraint firstAttribute="bottom" secondItem="52X-6z-VVa" secondAttribute="bottom" constant="18" id="Ek7-XS-BEC"/>
+                                    <constraint firstItem="52X-6z-VVa" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Gf7-8t-Rvm" secondAttribute="leadingMargin" constant="18" id="GVe-Md-3MO"/>
+                                    <constraint firstItem="KcO-MC-c1X" firstAttribute="top" secondItem="eKP-Od-q2r" secondAttribute="bottom" constant="18" id="K5Z-oj-sYm"/>
+                                    <constraint firstAttribute="trailing" secondItem="90x-0f-v45" secondAttribute="trailing" constant="18" id="MSx-lR-qZP"/>
+                                    <constraint firstItem="8bH-Dt-H1z" firstAttribute="centerY" secondItem="ImA-kn-r48" secondAttribute="centerY" id="Pdj-0P-8pS"/>
+                                    <constraint firstItem="90x-0f-v45" firstAttribute="top" secondItem="3vp-bZ-Un2" secondAttribute="bottom" constant="13" id="Prw-Nf-l1s"/>
+                                    <constraint firstItem="A05-Dh-Joc" firstAttribute="top" secondItem="9Ma-R2-lg7" secondAttribute="bottom" constant="18" id="QWx-Cs-ZaY"/>
+                                    <constraint firstItem="3vp-bZ-Un2" firstAttribute="leading" secondItem="Gf7-8t-Rvm" secondAttribute="leading" constant="18" id="UvW-58-MQA"/>
+                                    <constraint firstItem="V3T-Uc-Bze" firstAttribute="top" secondItem="KcO-MC-c1X" secondAttribute="bottom" constant="18" id="WT8-jG-y6n"/>
+                                    <constraint firstItem="mvN-e6-CQX" firstAttribute="top" secondItem="KcO-MC-c1X" secondAttribute="bottom" constant="13" id="Xsx-1B-dDc"/>
+                                    <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="52X-6z-VVa" secondAttribute="trailing" constant="18" id="Yiy-az-hGC"/>
+                                    <constraint firstItem="KcO-MC-c1X" firstAttribute="leading" secondItem="Gf7-8t-Rvm" secondAttribute="leading" constant="18" id="aHF-2t-42Z"/>
+                                    <constraint firstItem="52X-6z-VVa" firstAttribute="top" secondItem="A05-Dh-Joc" secondAttribute="bottom" constant="16" id="bE1-bI-6O4"/>
+                                    <constraint firstItem="mvN-e6-CQX" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="V3T-Uc-Bze" secondAttribute="trailing" id="bgP-4B-fZK"/>
+                                    <constraint firstItem="A05-Dh-Joc" firstAttribute="leading" secondItem="Gf7-8t-Rvm" secondAttribute="leading" constant="18" id="d3b-cx-OyJ"/>
+                                    <constraint firstItem="90x-0f-v45" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="9Ma-R2-lg7" secondAttribute="trailing" id="dfU-Tv-9qm"/>
+                                    <constraint firstItem="K1d-zl-9Y7" firstAttribute="leading" secondItem="Gf7-8t-Rvm" secondAttribute="leading" constant="18" id="dmE-oa-7jT"/>
+                                    <constraint firstItem="Adj-x8-Myn" firstAttribute="centerY" secondItem="eKP-Od-q2r" secondAttribute="centerY" id="dtE-wT-GgR"/>
+                                    <constraint firstItem="8bH-Dt-H1z" firstAttribute="top" secondItem="K1d-zl-9Y7" secondAttribute="bottom" constant="13" id="eQt-ah-EKk"/>
+                                    <constraint firstAttribute="trailing" secondItem="K1d-zl-9Y7" secondAttribute="trailing" constant="18" id="gLM-US-og7"/>
+                                    <constraint firstItem="KcO-MC-c1X" firstAttribute="top" secondItem="Adj-x8-Myn" secondAttribute="bottom" constant="13" id="geo-lt-h0d"/>
+                                    <constraint firstItem="V3T-Uc-Bze" firstAttribute="leading" secondItem="Gf7-8t-Rvm" secondAttribute="leading" constant="18" id="iC3-lc-qFI"/>
+                                    <constraint firstItem="ImA-kn-r48" firstAttribute="leading" secondItem="Gf7-8t-Rvm" secondAttribute="leading" constant="18" id="ldy-Cv-zy8"/>
+                                    <constraint firstItem="Adj-x8-Myn" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="eKP-Od-q2r" secondAttribute="trailing" id="mfv-ts-rqU"/>
+                                    <constraint firstItem="mvN-e6-CQX" firstAttribute="centerY" secondItem="V3T-Uc-Bze" secondAttribute="centerY" id="paa-cv-NUh"/>
+                                    <constraint firstItem="52X-6z-VVa" firstAttribute="centerX" secondItem="Gf7-8t-Rvm" secondAttribute="centerX" id="rJk-7E-n4r"/>
+                                    <constraint firstItem="3vp-bZ-Un2" firstAttribute="top" secondItem="ImA-kn-r48" secondAttribute="bottom" constant="18" id="tqR-Bd-Bok"/>
+                                    <constraint firstItem="9Ma-R2-lg7" firstAttribute="top" secondItem="3vp-bZ-Un2" secondAttribute="bottom" constant="18" id="uD8-LT-3mO"/>
+                                    <constraint firstAttribute="trailing" secondItem="mvN-e6-CQX" secondAttribute="trailing" constant="18" id="v27-Pb-LWo"/>
+                                    <constraint firstAttribute="trailing" secondItem="Adj-x8-Myn" secondAttribute="trailing" constant="18" id="v98-su-qly"/>
+                                    <constraint firstItem="8bH-Dt-H1z" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="ImA-kn-r48" secondAttribute="trailing" id="vJS-ki-uXD"/>
+                                    <constraint firstItem="eKP-Od-q2r" firstAttribute="top" secondItem="Gf7-8t-Rvm" secondAttribute="top" constant="18" id="vaf-1N-Jab"/>
+                                    <constraint firstAttribute="trailing" secondItem="8bH-Dt-H1z" secondAttribute="trailing" constant="18" id="wvY-0U-9rD"/>
+                                    <constraint firstItem="90x-0f-v45" firstAttribute="centerY" secondItem="9Ma-R2-lg7" secondAttribute="centerY" id="xG9-Ts-dbi"/>
+                                    <constraint firstAttribute="trailing" secondItem="3vp-bZ-Un2" secondAttribute="trailing" constant="18" id="xyf-iB-pso"/>
+                                    <constraint firstItem="9Ma-R2-lg7" firstAttribute="leading" secondItem="Gf7-8t-Rvm" secondAttribute="leading" constant="18" id="y5D-Bi-4Vb"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="0.1333333333" green="0.1333333333" blue="0.1333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="Gf7-8t-Rvm" firstAttribute="top" secondItem="Jar-fP-e7n" secondAttribute="top" id="42T-w5-OTM"/>
+                            <constraint firstAttribute="trailing" secondItem="Gf7-8t-Rvm" secondAttribute="trailing" id="8y1-Pm-sYa"/>
+                            <constraint firstItem="Gf7-8t-Rvm" firstAttribute="centerX" secondItem="Jar-fP-e7n" secondAttribute="centerX" id="gAM-fV-T0d"/>
+                            <constraint firstAttribute="bottom" secondItem="Gf7-8t-Rvm" secondAttribute="bottom" id="q41-dg-EOh"/>
+                            <constraint firstItem="Gf7-8t-Rvm" firstAttribute="leading" secondItem="Jar-fP-e7n" secondAttribute="leading" id="va0-3M-iOu"/>
+                        </constraints>
+                    </scrollView>
+                    <connections>
+                        <outlet property="appleMusicSwitch" destination="Adj-x8-Myn" id="n13-Bg-hHF"/>
+                        <outlet property="soundCloudSwitch" destination="90x-0f-v45" id="W0h-1T-CZa"/>
+                        <outlet property="spotifySwitch" destination="mvN-e6-CQX" id="cuF-Sq-W2i"/>
+                        <outlet property="youTubeSwitch" destination="8bH-Dt-H1z" id="aEq-77-RtC"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1gi-n9-T5b" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5749" y="1971"/>
+        </scene>
+        <!--Spotify-->
+        <scene sceneID="n8Z-qq-sus">
+            <objects>
+                <viewController title="Spotify" id="qIZ-Em-4yq" customClass="ImportSpotifyViewController" customModule="Numu_Tracker" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="8kP-CU-bUH"/>
+                        <viewControllerLayoutGuide type="bottom" id="WUy-yp-kU0"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="gae-I2-OW4">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sHL-Xp-MiE" customClass="NumuUIButton" customModule="Numu_Tracker" customModuleProvider="target">
+                                <rect key="frame" x="118" y="88" width="178" height="42"/>
+                                <inset key="contentEdgeInsets" minX="10" minY="10" maxX="10" maxY="10"/>
+                                <state key="normal" title="Import from Spotify"/>
+                                <connections>
+                                    <action selector="importSpotifyAction:" destination="qIZ-Em-4yq" eventType="touchUpInside" id="9fm-9n-d4v"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="11" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gV3-9k-5qm">
+                                <rect key="frame" x="64.666666666666657" y="146" width="284.66666666666674" height="184"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="lessThanOrEqual" constant="288" id="XGB-ep-ME5"/>
+                                </constraints>
+                                <string key="text">This will download only your Top and Followed artists from Spotify into the Numu Tracker database. 
+
+Your artists are only imported when you hit the button, so come back here occasionally to catch new artists you've listened to or followed on Spotify.
+
+Any imported artists you've unfollowed will not be re-imported.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="8zH-BM-ldc">
+                                <rect key="frame" x="304" y="99" width="20" height="20"/>
+                            </activityIndicatorView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.1333333333" green="0.1333333333" blue="0.1333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="sHL-Xp-MiE" firstAttribute="top" secondItem="8kP-CU-bUH" secondAttribute="bottom" constant="24" id="6hi-A6-I63"/>
+                            <constraint firstItem="gV3-9k-5qm" firstAttribute="top" secondItem="sHL-Xp-MiE" secondAttribute="bottom" constant="16" id="Hw9-Cz-PkY"/>
+                            <constraint firstItem="sHL-Xp-MiE" firstAttribute="centerX" secondItem="gae-I2-OW4" secondAttribute="centerX" id="Kf5-tl-b7k"/>
+                            <constraint firstItem="8zH-BM-ldc" firstAttribute="centerY" secondItem="sHL-Xp-MiE" secondAttribute="centerY" id="T1I-Fb-feL"/>
+                            <constraint firstItem="gV3-9k-5qm" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="gae-I2-OW4" secondAttribute="leading" constant="18" id="Y28-1S-IWX"/>
+                            <constraint firstItem="gV3-9k-5qm" firstAttribute="centerX" secondItem="gae-I2-OW4" secondAttribute="centerX" id="gFr-sZ-Qyq"/>
+                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="gV3-9k-5qm" secondAttribute="trailing" constant="18" id="oKk-Mx-SkO"/>
+                            <constraint firstItem="8zH-BM-ldc" firstAttribute="leading" secondItem="sHL-Xp-MiE" secondAttribute="trailing" constant="8" id="vi4-jG-3ik"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="importSpotifyIndicator" destination="8zH-BM-ldc" id="0wQ-2w-MLr"/>
+                        <outlet property="spotifyButton" destination="sHL-Xp-MiE" id="az1-ii-hog"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gqw-a7-uHp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4901" y="1971"/>
         </scene>
         <!--Your Artists-->
         <scene sceneID="hjy-Ge-Nda">
@@ -1873,7 +2106,7 @@ or manually search and follow artists.</string>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZTT-fl-w4I">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="905"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="924"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What is Numu for?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I4e-bb-04c">
                                         <rect key="frame" x="18" y="24" width="396" height="24"/>
@@ -1896,7 +2129,7 @@ or manually search and follow artists.</string>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="redraw" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" usesAttributedText="YES" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="phg-fg-dDA">
-                                        <rect key="frame" x="18" y="259.66666666666669" width="378" height="627.33333333333326"/>
+                                        <rect key="frame" x="18" y="259.66666666666669" width="378" height="646.33333333333326"/>
                                         <color key="backgroundColor" red="0.13350695369999999" green="0.13364198799999999" blue="0.13352787490000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <attributedString key="attributedText">
                                             <fragment content="Your first step will be to import some artists, using the page available on the ">
@@ -1931,7 +2164,52 @@ or manually search and follow artists.</string>
                                             </fragment>
                                             <fragment>
                                                 <string key="content"> screen, if you don't want to import your whole music library. 
-On any screen showing releases, tap on a release to reveal a drop-down with a link to Apple Music, if available. Swipe to the left over any release to reveal the </string>
+On any screen showing releases, tap on a release to reveal a modal with links to the release on the services you configure in </string>
+                                                <attributes>
+                                                    <color key="NSColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <font key="NSFont" metaFont="system" size="16"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                </attributes>
+                                            </fragment>
+                                            <fragment content="Music Services">
+                                                <attributes>
+                                                    <color key="NSColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <font key="NSFont" size="16" name=".AppleSystemUIFontEmphasized"/>
+                                                    <font key="NSOriginalFont" size="16" name=".AppleSystemUIFontEmphasized"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                </attributes>
+                                            </fragment>
+                                            <fragment content=" ">
+                                                <attributes>
+                                                    <color key="NSColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <font key="NSFont" size="16" name=".AppleSystemUIFontEmphasized"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                </attributes>
+                                            </fragment>
+                                            <fragment content="(on the ">
+                                                <attributes>
+                                                    <color key="NSColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <font key="NSFont" size="16" name=".AppleSystemUIFont"/>
+                                                    <font key="NSOriginalFont" size="16" name=".AppleSystemUIFont"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                </attributes>
+                                            </fragment>
+                                            <fragment content="More ">
+                                                <attributes>
+                                                    <color key="NSColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <font key="NSFont" size="16" name=".AppleSystemUIFontEmphasized"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                </attributes>
+                                            </fragment>
+                                            <fragment content="screen)">
+                                                <attributes>
+                                                    <color key="NSColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <font key="NSFont" size="16" name=".AppleSystemUIFont"/>
+                                                    <font key="NSOriginalFont" size="16" name=".AppleSystemUIFont"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                </attributes>
+                                            </fragment>
+                                            <fragment content=". Swipe to the left over any release to reveal the ">
                                                 <attributes>
                                                     <color key="NSColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                     <font key="NSFont" metaFont="system" size="16"/>
@@ -2207,7 +2485,7 @@ On the </string>
         <!--Stats-->
         <scene sceneID="sgH-t4-KDi">
             <objects>
-                <viewController title="Stats" id="tPw-Dw-vLI" customClass="LogOutViewController" customModule="Numu_Tracker" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Stats" id="tPw-Dw-vLI" customClass="StatsViewController" customModule="Numu_Tracker" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="YtP-cc-CgT"/>
                         <viewControllerLayoutGuide type="bottom" id="M3b-Sw-YEI"/>
@@ -2461,13 +2739,10 @@ On the </string>
         </scene>
     </scenes>
     <resources>
-        <image name="appleMusic" width="128" height="47"/>
         <image name="drums" width="23.666666030883789" height="23"/>
+        <image name="sort" width="20.666666030883789" height="16"/>
         <image name="soundwave" width="31" height="21"/>
         <image name="yours" width="21.666666030883789" height="23"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="jcr-Ul-g7T"/>
-    </inferredMetricsTieBreakers>
     <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
 </document>
