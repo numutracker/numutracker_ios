@@ -33,7 +33,7 @@ class ArtistReleasesTableViewController: UITableViewController {
             let selectedArtist: String = artistId
             self.title = artistName
             self.tableView.tableFooterView = footerView
-            
+
             NumuClient.shared.getArtist(search: selectedArtist) {[weak self](artists) in
                 self?.artistItem = artists
                 NumuClient.shared.getArtistReleases(artist: selectedArtist) {[weak self](releases) in
@@ -61,27 +61,28 @@ class ArtistReleasesTableViewController: UITableViewController {
     }
 
     @objc func addTapped() {
-            if let artistId = self.artistId {
-                if defaults.logged {
-                    NumuClient.shared.toggleFollow(artistMbid: artistId) { (success) in
-                        DispatchQueue.main.async(execute: {
-                            if success == "1" {
-                               self.navigationItem.rightBarButtonItem?.title = "Follow"
-                                Answers.logCustomEvent(withName: "Unfol Bar", customAttributes: ["Artist ID": artistId])
-                            } else if success == "2" {
-                                self.navigationItem.rightBarButtonItem?.title = "Unfollow"
-                                Answers.logCustomEvent(withName: "Follo Bar", customAttributes: ["Artist ID": artistId])
-                            }
-                        })
-                    }
-                } else {
-                    let loginViewController = self.storyboard?.instantiateViewController(
-                        withIdentifier: "LogRegPrompt") as! UINavigationController
+        if let artistId = self.artistId {
+            if defaults.logged {
+                NumuClient.shared.toggleFollow(artistMbid: artistId) { (success) in
+                    DispatchQueue.main.async(execute: {
+                        if success == "1" {
+                           self.navigationItem.rightBarButtonItem?.title = "Follow"
+                            Answers.logCustomEvent(withName: "Unfol Bar", customAttributes: ["Artist ID": artistId])
+                        } else if success == "2" {
+                            self.navigationItem.rightBarButtonItem?.title = "Unfollow"
+                            Answers.logCustomEvent(withName: "Follo Bar", customAttributes: ["Artist ID": artistId])
+                        }
+                    })
+                }
+            } else {
+                if let loginViewController = self.storyboard?.instantiateViewController(
+                        withIdentifier: "LogRegPrompt") as? UINavigationController {
                     DispatchQueue.main.async {
                         self.present(loginViewController, animated: true, completion: nil)
                     }
                 }
             }
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -100,16 +101,18 @@ class ArtistReleasesTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(
+        guard let cell = tableView.dequeueReusableCell(
             withIdentifier: "artistAlbumCell",
-            for: indexPath) as! ArtistReleaseTableViewCell
+            for: indexPath) as? ArtistReleaseTableViewCell else {
+                return UITableViewCell()
+        }
 
         // Configure the cell...
         let releaseInfo = releases[indexPath.row]
         cell.configure(releaseInfo: releaseInfo)
         cell.albumArtActivityIndicator.startAnimating()
         cell.thumbUrl = releaseInfo.thumbUrl // For recycled cells' late image loads.
-        
+
         cell.albumArt.kf.setImage(
             with: cell.thumbUrl,
             options: [.transition(.fade(0.2))])
@@ -124,31 +127,35 @@ class ArtistReleasesTableViewController: UITableViewController {
 
         let listened = UITableViewRowAction(style: .normal, title: "Listened") { _, index in
             if !defaults.logged {
-                let loginViewController = self.storyboard?.instantiateViewController(
-                    withIdentifier: "LogRegPrompt") as! UINavigationController
-                DispatchQueue.main.async {
-                    self.present(loginViewController, animated: true, completion: nil)
+                if let loginViewController = self.storyboard?.instantiateViewController(
+                        withIdentifier: "LogRegPrompt") as? UINavigationController {
+                    DispatchQueue.main.async {
+                        self.present(loginViewController, animated: true, completion: nil)
+                    }
+                } else {
+                    // Display error message?
                 }
             } else {
                 releaseInfo.toggleListenStatus { (success) in
                     DispatchQueue.main.async(execute: {
                         if success == "1" {
                             // remove or add unread marker back in
-                            let cell = self.tableView.cellForRow(at: index) as! ArtistReleaseTableViewCell
-                            if cell.readIndicator.isHidden && releaseInfo.listenStatus != "2" {
-                                cell.readIndicator.isHidden = false
-                                cell.listenStatus = "0"
-                                self.releases[index.row].listenStatus = "0"
-                                Answers.logCustomEvent(
-                                    withName: "Unlistened", customAttributes: ["Release ID": releaseInfo.releaseId])
-                            } else {
-                                cell.readIndicator.isHidden = true
-                                cell.listenStatus = "1"
-                                self.releases[index.row].listenStatus = "1"
-                                Answers.logCustomEvent(
-                                    withName: "Listened", customAttributes: ["Release ID": releaseInfo.releaseId])
+                            if let cell = self.tableView.cellForRow(at: index) as? ArtistReleaseTableViewCell {
+                                if cell.readIndicator.isHidden && releaseInfo.listenStatus != "2" {
+                                    cell.readIndicator.isHidden = false
+                                    cell.listenStatus = "0"
+                                    self.releases[index.row].listenStatus = "0"
+                                    Answers.logCustomEvent(
+                                        withName: "Unlistened", customAttributes: ["Release ID": releaseInfo.releaseId])
+                                } else {
+                                    cell.readIndicator.isHidden = true
+                                    cell.listenStatus = "1"
+                                    self.releases[index.row].listenStatus = "1"
+                                    Answers.logCustomEvent(
+                                        withName: "Listened", customAttributes: ["Release ID": releaseInfo.releaseId])
+                                }
+                                tableView.setEditing(false, animated: true)
                             }
-                            tableView.setEditing(false, animated: true)
                         }
                     })
                 }

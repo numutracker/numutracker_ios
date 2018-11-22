@@ -10,14 +10,14 @@ import Foundation
 import StoreKit
 
 struct NumuReviewHelper {
-    
+
     static func incrementActivityCount() {
         defaults.activityCount += 1
     }
-    
+
     static func incrementAndAskForReview() {
         defaults.activityCount += 1
-        
+
         switch defaults.activityCount {
         case 20:
             NumuReviewHelper().requestReview()
@@ -27,11 +27,11 @@ struct NumuReviewHelper {
             print("Activity count is:", defaults.activityCount)
         }
     }
-    
+
     fileprivate func requestReview() {
         if #available(iOS 10.3, *) {
             SKStoreReviewController.requestReview()
         }
     }
-    
+
 }

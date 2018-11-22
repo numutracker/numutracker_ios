@@ -26,7 +26,7 @@ class ArtistsTableViewController: UITableViewController, UISearchBarDelegate, UI
         }
         queue.addOperation(importAMOperation)
     }
-    
+
     @IBOutlet weak var importSpotifyActivityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var importSpotifyButton: NumuUIButton!
     @IBAction func importSpotifyButton(_ sender: NumuUIButton) {
@@ -41,7 +41,7 @@ class ArtistsTableViewController: UITableViewController, UISearchBarDelegate, UI
         }
         queue.addOperation(importSpotifyOperation)
     }
-    
+
     var artists: [ArtistItem] = [] {
         didSet {
             if viewState == .user {
@@ -119,12 +119,12 @@ class ArtistsTableViewController: UITableViewController, UISearchBarDelegate, UI
             loadArtists()
         }
     }
-    
+
     var lastSelectedArtistId: String = ""
     var lastSelectedArtistName: String = ""
-    
+
     var searchTerms: String?
-    
+
     @IBOutlet weak var sortButton: UIBarButtonItem!
     @IBAction func sortButtonAction(_ sender: Any) {
         let sortView = NumuSortView()
@@ -138,13 +138,13 @@ class ArtistsTableViewController: UITableViewController, UISearchBarDelegate, UI
             let appWindow = appDelegate.window!,
             let rootViewController = appWindow.rootViewController {
             rootViewController.present(sortView, animated: true, completion: nil)
-        }        
+        }
     }
 
     enum States {
         case user, search
     }
-    
+
     var viewState = States.user {
         didSet {
             if viewState == .user {
@@ -168,7 +168,7 @@ class ArtistsTableViewController: UITableViewController, UISearchBarDelegate, UI
 
     fileprivate func loadArtists() {
         // Get list of artists...
-        
+
         NumuClient.shared.getArtists(sortBy: self.sortMethod) {[weak self](artists) in
             self?.artists = artists
             DispatchQueue.main.async(execute: {
@@ -196,21 +196,21 @@ class ArtistsTableViewController: UITableViewController, UISearchBarDelegate, UI
         searchController.dimsBackgroundDuringPresentation = false
         searchController.definesPresentationContext = true
         tableView.tableHeaderView = searchController.searchBar
-        
+
         sortButton.tintColor = UIColor.white
-        
+
         self.view?.snapshotView(afterScreenUpdates: true)
-        
+
         importAppleMusicButton.backgroundColor = .clear
         importAppleMusicButton.layer.cornerRadius = 5
         importAppleMusicButton.layer.borderWidth = 1
         importAppleMusicButton.layer.borderColor = UIColor.gray.cgColor
-        
+
         importSpotifyButton.backgroundColor = .clear
         importSpotifyButton.layer.cornerRadius = 5
         importSpotifyButton.layer.borderWidth = 1
         importSpotifyButton.layer.borderColor = UIColor.gray.cgColor
-        
+
         var newFrame = noResultsView.frame
         var height: CGFloat = self.tableView.bounds.height
         height -= UIApplication.shared.statusBarFrame.size.height
@@ -290,7 +290,7 @@ class ArtistsTableViewController: UITableViewController, UISearchBarDelegate, UI
         return artists.count
 
     }
-    
+
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
         self.viewState = .search
     }
@@ -304,9 +304,9 @@ class ArtistsTableViewController: UITableViewController, UISearchBarDelegate, UI
         self.tableView.tableFooterView = footerView
         self.actOnImportNotification()
     }
-    
+
     func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
-        
+
     }
 
     func updateSearchResults(for searchController: UISearchController) {
@@ -329,16 +329,18 @@ class ArtistsTableViewController: UITableViewController, UISearchBarDelegate, UI
             }
         }
     }
-    
+
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.searchController.isActive = false
     }
-    
+
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(
-            withIdentifier: "artistInfoCell", for: indexPath)  as! ArtistTableViewCell
+        guard let cell = tableView.dequeueReusableCell(
+            withIdentifier: "artistInfoCell", for: indexPath) as? ArtistTableViewCell else {
+                return UITableViewCell()
+        }
         // Configure the cell...
-        
+
         if viewState == .user {
             let artistKey = artistsSectionTitles[indexPath.section]
             if let artistValues = artistsDictionary[artistKey] {
@@ -346,11 +348,11 @@ class ArtistsTableViewController: UITableViewController, UISearchBarDelegate, UI
                 cell.configure(artistInfo: artistInfo)
                 cell.albumActivityIndicator.startAnimating()
                 cell.thumbUrl = artistInfo.thumbUrl // For recycled cells' late image loads.
-                
+
                 cell.artistArt.kf.setImage(
                     with: cell.thumbUrl,
                     options: [.transition(.fade(0.2))])
-                
+
                 return cell
             }
         }
@@ -359,21 +361,21 @@ class ArtistsTableViewController: UITableViewController, UISearchBarDelegate, UI
         cell.configure(artistInfo: artistInfo)
         cell.albumActivityIndicator.startAnimating()
         cell.thumbUrl = artistInfo.thumbUrl // For recycled cells' late image loads.
-        
+
         cell.artistArt.kf.setImage(
             with: cell.thumbUrl,
             options: [.transition(.fade(0.2))])
-        
+
         return cell
     }
-    
+
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         if viewState == .user {
             return "  " + artistsSectionTitles[section]
         }
         return nil
     }
-    
+
     override func sectionIndexTitles(for tableView: UITableView) -> [String]? {
         if viewState == .user {
             if sortMethod == "date" {
@@ -397,10 +399,11 @@ class ArtistsTableViewController: UITableViewController, UISearchBarDelegate, UI
 
         let unfollow = UITableViewRowAction(style: .normal, title: "Error") { _, index in
             if !defaults.logged {
-                let loginViewController = self.storyboard?.instantiateViewController(
-                    withIdentifier: "LogRegPrompt") as! UINavigationController
-                DispatchQueue.main.async {
-                    self.present(loginViewController, animated: true, completion: nil)
+                if let loginViewController = self.storyboard?.instantiateViewController(
+                        withIdentifier: "LogRegPrompt") as? UINavigationController {
+                    DispatchQueue.main.async {
+                        self.present(loginViewController, animated: true, completion: nil)
+                    }
                 }
             } else {
                 artistInfo.unfollowArtist { (success) in
@@ -427,7 +430,7 @@ class ArtistsTableViewController: UITableViewController, UISearchBarDelegate, UI
 
         return [unfollow]
     }
-    
+
     func loadTable() {
         self.tableView.reloadData()
         self.tableView.beginUpdates()
@@ -443,16 +446,17 @@ class ArtistsTableViewController: UITableViewController, UISearchBarDelegate, UI
             self.viewState == .user {
             self.tableView.tableFooterView = self.noResultsView
         }
-        
+
         if self.viewState == .user {
             self.searchController.searchBar.text = ""
         }
     }
-    
+
     override func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
         view.tintColor = UIColor(red: 0.17, green: 0.17, blue: 0.17, alpha: 1)
-        let header = view as! UITableViewHeaderFooterView
-        header.textLabel?.textColor = UIColor.lightText
+        if let header = view as? UITableViewHeaderFooterView {
+            header.textLabel?.textColor = UIColor.lightText
+        }
     }
 
     // MARK: - Navigation
@@ -463,7 +467,7 @@ class ArtistsTableViewController: UITableViewController, UISearchBarDelegate, UI
             let releaseIndex = tableView.indexPathForSelectedRow?.row,
             let sectionIndex = tableView.indexPathForSelectedRow?.section {
             self.searchTerms = searchController.searchBar.text
-            
+
             var artistId = artists[releaseIndex].artistId
             var artistName = artists[releaseIndex].artistName
             if viewState == .user {
@@ -473,7 +477,7 @@ class ArtistsTableViewController: UITableViewController, UISearchBarDelegate, UI
                 artistId = artist.artistId
                 artistName = artist.artistName
             }
-            
+
             self.lastSelectedArtistId = artistId
             self.lastSelectedArtistName = artistName
             destination.artistId = artistId

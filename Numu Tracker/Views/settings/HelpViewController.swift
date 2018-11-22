@@ -29,7 +29,7 @@ class HelpViewController: UIViewController, MFMailComposeViewControllerDelegate 
             "AyOGY4ZDAwMTg0MWMyMGUzODZjZTgzZDc3Zjc")
         UIApplication.shared.open(url!)
     }
-    
+
     @IBAction func emailDeveloperButtonAction(_ sender: Any) {
         if MFMailComposeViewController.canSendMail() {
             let mail = MFMailComposeViewController()
@@ -56,7 +56,7 @@ class HelpViewController: UIViewController, MFMailComposeViewControllerDelegate 
         button.layer.borderWidth = 1
         button.layer.borderColor = UIColor.gray.cgColor
     }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
 

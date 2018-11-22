@@ -29,7 +29,7 @@ class ReleaseTableViewCell: UITableViewCell {
     var artistItem: ArtistItem?
 
     func configure(releaseInfo: ReleaseItem) {
-        
+
         artistLabel.text = releaseInfo.artistName
         releaseNameLabel.text = releaseInfo.albumName
 
@@ -55,30 +55,30 @@ class ReleaseTableViewCell: UITableViewCell {
         } else {
             listenState = "1"
         }
-        
+
         self.selectionStyle = .default
         let bgColorView = UIView()
         bgColorView.backgroundColor = UIColor(red: 0.17, green: 0.17, blue: 0.17, alpha: 1.0)
         self.selectedBackgroundView = bgColorView
-        
+
     }
-    
+
     override func setSelected(_ selected: Bool, animated: Bool) {
         let bgColor = listenedIndicatorView.backgroundColor
         super.setSelected(selected, animated: animated)
-        
+
         if selected {
             listenedIndicatorView.backgroundColor = bgColor
         }
     }
-    
+
     override func setHighlighted(_ highlighted: Bool, animated: Bool) {
         let bgColor = listenedIndicatorView.backgroundColor
         super.setHighlighted(highlighted, animated: animated)
-        
+
         if highlighted {
             listenedIndicatorView.backgroundColor = bgColor
         }
     }
-    
+
 }

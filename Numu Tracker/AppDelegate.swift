@@ -25,34 +25,34 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     // Development
     //let pusher = Pusher(key: "")
-    
+
     func application(
         _ application: UIApplication,
         didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 
         Fabric.with([Crashlytics.self])
-        
+
         NumuReviewHelper.incrementActivityCount()
-        
+
         let redirectURL: URL = URL(string: "numu://")!
         SpotifyLogin.shared.configure(clientID: "SPOTIFY_CLIENT_ID", clientSecret: "SPOTIFY_CLIENT_SECRET", redirectURL: redirectURL)
-        
+
         NotificationCenter.default.addObserver(
             self, selector: #selector(self.runLogInOperations), name: .LoggedOut, object: nil)
-        
+
         NotificationCenter.default.addObserver(
             self, selector: #selector(self.ckDataChange), name: Notification.Name.CKAccountChanged, object: nil)
 
         runLogInOperations()
-        
+
         return true
     }
-    
-    func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
-        let handled = SpotifyLogin.shared.applicationOpenURL(url) { (error) in }
+
+    func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey: Any] = [:]) -> Bool {
+        let handled = SpotifyLogin.shared.applicationOpenURL(url) { (_) in }
         return handled
     }
-    
+
     @objc func ckDataChange() {
         // Need to re-run authorization procedure here.
         runLogInOperations()
@@ -93,14 +93,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     @objc fileprivate func runLogInOperations() {
         let queue = OperationQueue()
-        
+
         // Get and store CK record ID if available
         let getCKUserOperation = GetCKUserOperation()
         // If user account exists already, link it to CK or create new account
         let registerWithCKOperation = RegisterWithCKOperation()
         // Try to auth with any credentials
         let authOperation = AuthOperation()
-        
+
         registerWithCKOperation.addDependency(getCKUserOperation)
         authOperation.addDependency(registerWithCKOperation)
         authOperation.completionBlock = {

@@ -15,5 +15,5 @@ class NumuUIButton: UIButton {
             self.backgroundColor = isHighlighted ? .black : .clear
         }
     }
-    
+
 }

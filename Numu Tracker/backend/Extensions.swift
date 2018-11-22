@@ -55,22 +55,22 @@ extension UserDefaults {
         get { return bool(forKey: .logged) }
         set { set(newValue, forKey: .logged) }
     }
-    
+
     var activityCount: Int {
         get { return integer(forKey: .activityCount) }
         set { set(newValue, forKey: .activityCount) }
     }
-    
+
     var newReleased: Bool {
         get { return bool(forKey: .newReleased) }
         set { set(newValue, forKey: .newReleased) }
     }
-    
+
     var newAnnouncements: Bool {
         get { return bool(forKey: .newAnnouncements) }
         set { set(newValue, forKey: .newAnnouncements) }
     }
-    
+
     var moreReleases: Bool {
         get { return bool(forKey: .moreReleases) }
         set { set(newValue, forKey: .moreReleases) }
@@ -111,7 +111,7 @@ extension UIView {
             self.alpha = 1.0
         }, completion: nil)
     }
-    
+
     func fadeOut() {
         UIView.animate(withDuration: 1.0, delay: 0.0, options: UIView.AnimationOptions.curveEaseOut, animations: {
             self.alpha = 0.0

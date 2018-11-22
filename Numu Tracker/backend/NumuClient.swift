@@ -10,11 +10,11 @@ import Foundation
 import SwiftyJSON
 
 class NumuClient {
-    
+
     private let urlPrefix = "https://www.numutracker.com"
-    
+
     static let shared = NumuClient()
-    
+
     func getJSON(with endPoint: String, completion: @escaping (JSON) -> Void) {
         if let url = URL(string: urlPrefix + endPoint) {
             print(url)
@@ -35,7 +35,7 @@ class NumuClient {
             task.resume()
         }
     }
-    
+
     func postJSON(with endPoint: String, content: JSON) {
         // TODO: Create function and convert postArtists to use it.
         // When we have more user submittable parts of the app this'll be needed.
@@ -74,7 +74,7 @@ class NumuClient {
             }
         }
     }
-    
+
     func authorizeRegisterWithCK(iCloudID: String, completion: @escaping (String) -> Void) {
         let endPoint = "/v2/json.php?register_ck=" + iCloudID
         self.getJSON(with: endPoint) { (json) in
@@ -91,7 +91,7 @@ class NumuClient {
             }
         }
     }
-    
+
     func addCKIDtoAccount(iCloudID: String, completion: @escaping (String) -> Void) {
         let endPoint = "/v2/json.php?add_ck=" + iCloudID
         self.getJSON(with: endPoint) { (json) in
@@ -107,7 +107,7 @@ class NumuClient {
     }
 
     // MARK: - User Related
-    
+
     func getFilters(completion: @escaping (JSON) -> Void) {
         let endPoint = "/v2/json.php?filters"
         self.getJSON(with: endPoint) { (json) in
@@ -162,7 +162,7 @@ class NumuClient {
         let endPoint = "/v2/json.php?single_artist=" + username + "&search=" + search
         self.getJSON(with: endPoint) { (json) in
             completion(.init(with: json))
-        } 
+        }
     }
 
     func getArtists(sortBy: String, completion: @escaping ([ArtistItem]) -> Void) {
@@ -192,7 +192,7 @@ class NumuClient {
             completion(.init(with: json))
         }
     }
-    
+
     // MARK: - Release Related
 
     func getReleases(
@@ -202,7 +202,7 @@ class NumuClient {
         limit: Int = 50,
         offset: Int = 0,
         completion: @escaping (ReleaseData) -> Void) {
-        
+
         var endPoint: String
         let username = NumuCredential.shared.getUsername() ?? "0"
 
@@ -231,7 +231,7 @@ class NumuClient {
     }
 
     // MARK: - Miscellaneous
-    
+
     func getArt(completion: @escaping ([String]) -> Void) {
         let endPoint = "/v2/json.php?arts=1"
         self.getJSON(with: endPoint) { (json) in
@@ -240,7 +240,7 @@ class NumuClient {
             }
         }
     }
-    
+
     func getAppleMusicLink(artist: String?, album: String?, completion: @escaping (String) -> Void) {
         if let artist = artist?.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed),
             let album = album?.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) {

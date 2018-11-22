@@ -9,7 +9,7 @@
 import UIKit
 
 class ListenAMTableViewCell: UITableViewCell {
-    
+
     var releaseData: ReleaseItem?
     var itunesUrl: String?
 
@@ -45,7 +45,5 @@ class ListenAMTableViewCell: UITableViewCell {
             }
         })
     }
-    
-    
 
 }

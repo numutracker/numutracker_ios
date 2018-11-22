@@ -13,16 +13,16 @@ protocol SortViewDelegate {
 }
 
 class NumuSortView: UIViewController {
-    
+
     var sortDelegate: SortViewDelegate!
-    
+
     override var prefersStatusBarHidden: Bool {
         return true
     }
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
     }
-    
+
     @IBOutlet weak var cancelView: UIView!
     @IBOutlet weak var sortOptionsView: UIView!
     @IBAction func cancelButtonAction(_ sender: Any) {
@@ -40,23 +40,23 @@ class NumuSortView: UIViewController {
         sortDelegate.sortOptionTapped(name: "name_first")
         self.dismiss(animated: true, completion: nil)
     }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
     }
-    
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         setupView()
         animateView()
     }
-    
+
     func setupView() {
         cancelView.layer.cornerRadius = 15
-        
+
         if !UIAccessibility.isReduceTransparencyEnabled {
             sortOptionsView.backgroundColor = .clear
-            
+
             let detailBlurEffect = UIBlurEffect(style: .dark)
             let detailBlurEffectView = UIVisualEffectView(effect: detailBlurEffect)
             detailBlurEffectView.frame = sortOptionsView.bounds
@@ -64,20 +64,20 @@ class NumuSortView: UIViewController {
             detailBlurEffectView.clipsToBounds = true
             detailBlurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
             sortOptionsView.insertSubview(detailBlurEffectView, at: 0)
-            
+
             self.view.backgroundColor = .clear
-            
+
             let bgBlurEffect = UIBlurEffect(style: .regular)
             let bgBlurEffectView = UIVisualEffectView(effect: bgBlurEffect)
             bgBlurEffectView.frame = self.view.bounds
             bgBlurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
             self.view.insertSubview(bgBlurEffectView, at: 0)
-            
+
         } else {
             self.view.backgroundColor = UIColor.black.withAlphaComponent(0.5)
         }
     }
-    
+
     func animateView() {
         sortOptionsView.alpha = 0
         self.sortOptionsView.frame.origin.y += 50

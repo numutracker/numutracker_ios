@@ -11,7 +11,7 @@ import UIKit
 import Crashlytics
 
 class AuthOperation: AsyncOperation {
-    
+
     let queue = OperationQueue()
 
     override func main() {
@@ -42,24 +42,26 @@ class AuthOperation: AsyncOperation {
             self.showLogRegPrompt()
         }
     }
-    
+
     func sendNotifcations() {
         DispatchQueue.main.async(execute: {
             NotificationCenter.default.post(name: .LoggedIn, object: self)
             NotificationCenter.default.post(name: .UpdatedArtists, object: self)
         })
     }
-    
+
     func showLogRegPrompt() {
-        let loginViewController = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateViewController(
-                withIdentifier: "LogRegPrompt") as! UINavigationController
-        DispatchQueue.main.async {
-            if let appDelegate = UIApplication.shared.delegate,
-                let appWindow = appDelegate.window!,
-                let rootViewController = appWindow.rootViewController {
-                rootViewController.present(loginViewController, animated: false, completion: nil)
+        if let loginViewController = UIStoryboard(name: "Main", bundle: Bundle.main)
+            .instantiateViewController(withIdentifier: "LogRegPrompt") as? UINavigationController {
+            DispatchQueue.main.async {
+                if let appDelegate = UIApplication.shared.delegate,
+                    let appWindow = appDelegate.window!,
+                    let rootViewController = appWindow.rootViewController {
+                    rootViewController.present(loginViewController, animated: false, completion: nil)
+                }
             }
+        } else {
+            // Display error message?
         }
     }
-    
 }
