@@ -189,7 +189,7 @@ class ArtistsTableViewController: UITableViewController, UISearchBarDelegate, UI
         searchController.searchBar.showsCancelButton = false
         searchController.searchBar.delegate = self
         searchController.searchBar.barStyle = .blackTranslucent
-        searchController.searchBar.keyboardType = .alphabet
+        searchController.searchBar.keyboardType = .default
         searchController.searchBar.keyboardAppearance = .dark
         searchController.searchBar.searchBarStyle = .default
         searchController.searchBar.backgroundColor = .black
@@ -316,6 +316,7 @@ class ArtistsTableViewController: UITableViewController, UISearchBarDelegate, UI
         NSObject.cancelPreviousPerformRequests(withTarget: self, selector: #selector(self.reload), object: nil)
         self.perform(#selector(self.reload), with: nil, afterDelay: 1)
     }
+    
 
     @objc func reload() {
         if let searchText = searchController.searchBar.text, !searchText.isEmpty, searchText.count > 2 {
