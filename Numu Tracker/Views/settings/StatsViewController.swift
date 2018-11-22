@@ -204,7 +204,7 @@ class StatsViewController: UIViewController {
         UIApplication.shared.registerForRemoteNotifications()
         // Remove credentials from URLCredentialStorage
         NumuCredential.shared.removeCredential()
-                
+
         NotificationCenter.default.post(name: .LoggedOut, object: self)
         NotificationCenter.default.post(name: .UpdatedArtists, object: self)
         _ = self.navigationController?.popViewController(animated: true)

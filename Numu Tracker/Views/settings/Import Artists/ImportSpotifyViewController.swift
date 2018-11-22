@@ -11,7 +11,7 @@ import SpotifyLogin
 import Spartan
 
 class ImportSpotifyViewController: UIViewController {
-    
+
     @IBOutlet weak var spotifyButton: NumuUIButton!
     @IBOutlet weak var importSpotifyIndicator: UIActivityIndicatorView!
     @IBAction func importSpotifyAction(_ sender: Any) {
@@ -26,7 +26,7 @@ class ImportSpotifyViewController: UIViewController {
         }
         queue.addOperation(importSpotifyOperation)
     }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         spotifyButton.backgroundColor = .clear

@@ -10,7 +10,7 @@ import Foundation
 import CloudKit
 
 class GetCKUserOperation: AsyncOperation {
-    
+
     override func main() {
         print("Running CKUserRecordIDOperation..")
         if UserDefaults.standard.string(forKey: "userRecordID") == nil {
@@ -28,5 +28,5 @@ class GetCKUserOperation: AsyncOperation {
             self.state = .isFinished
         }
     }
-    
+
 }

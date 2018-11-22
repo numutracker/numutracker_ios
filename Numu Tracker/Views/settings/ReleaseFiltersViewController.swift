@@ -77,7 +77,7 @@ class ReleaseFiltersViewController: UIViewController {
     func loadSettings() {
 
         if NumuCredential.shared.checkForCredential() {
-           
+
             self.albumFilterSwitch.isHidden = true
             self.albumFilterSpinner.startAnimating()
             self.singlesFilterSwitch.isHidden = true
@@ -92,34 +92,34 @@ class ReleaseFiltersViewController: UIViewController {
             self.remixFilterSpinner.startAnimating()
             self.otherFilterSwitch.isHidden = true
             self.otherFilterSpinner.startAnimating()
-            
+
             NumuClient.shared.getFilters {[weak self](json) in
                 let user = User(json: json)
                 DispatchQueue.main.async(execute: {
                     self?.albumFilterSwitch.isOn = user?.album != "0"
                     self?.albumFilterSwitch.isHidden = false
                     self?.albumFilterSpinner.stopAnimating()
-                    
+
                     self?.singlesFilterSwitch.isOn = user?.single != "0"
                     self?.singlesFilterSwitch.isHidden = false
                     self?.singlesFilterSpinner.stopAnimating()
-                    
+
                     self?.epFilterSwitch.isOn = user?.extendedPlay != "0"
                     self?.epFilterSwitch.isHidden = false
                     self?.epFilterSpinner.stopAnimating()
-                    
+
                     self?.liveFilterSwitch.isOn = user?.live != "0"
                     self?.liveFilterSwitch.isHidden = false
                     self?.liveFilterSpinner.stopAnimating()
-                    
+
                     self?.compFilterSwitch.isOn = user?.soundtrack != "0"
                     self?.compFilterSwitch.isHidden = false
                     self?.compFilterSpinner.stopAnimating()
-                    
+
                     self?.remixFilterSwitch.isOn = user?.remix != "0"
                     self?.remixFilterSwitch.isHidden = false
                     self?.remixFilterSpinner.stopAnimating()
-                    
+
                     self?.otherFilterSwitch.isOn = user?.other != "0"
                     self?.otherFilterSwitch.isHidden = false
                     self?.otherFilterSpinner.stopAnimating()

@@ -13,11 +13,11 @@ protocol MoreReleasesDelegate {
 }
 
 class MoreReleasesTableViewCell: UITableViewCell {
-    
+
     var moreReleasesDelegate: MoreReleasesDelegate!
-    
+
     var releaseData: ReleaseItem?
-    
+
     @IBOutlet weak var cellLabel: UILabel!
     @IBOutlet weak var cellIcon: UIImageView!
     @IBOutlet weak var buttonOutlet: NumuModalButton!
@@ -26,7 +26,7 @@ class MoreReleasesTableViewCell: UITableViewCell {
             moreReleasesDelegate.showMoreReleases(artistId: artistId)
         }
     }
-    
+
     func configure(release: ReleaseItem) {
         self.releaseData = release
         self.cellLabel.textColor = .white
@@ -47,5 +47,5 @@ class MoreReleasesTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-    
+
 }

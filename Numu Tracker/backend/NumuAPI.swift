@@ -9,11 +9,11 @@
 import Foundation
 
 class NumuAPI {
-    
+
     private let urlPrefix = "https://www.numutracker.com"
-    
+
     static let shared = NumuAPI()
-    
+
     func getAuth() -> String {
         return urlPrefix + "/v2/json.php?auth=1"
     }
@@ -21,7 +21,7 @@ class NumuAPI {
     func getFilters() -> String {
         return urlPrefix + "/v2/json.php?filters"
     }
-    
+
     func getStats() -> String {
         return urlPrefix +  "/v2/json.php?stats"
     }

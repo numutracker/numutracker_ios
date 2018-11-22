@@ -46,27 +46,27 @@ class ArtistReleaseTableViewCell: UITableViewCell {
         } else {
             readIndicator.isHidden = true
         }
-        
+
         self.selectionStyle = .default
         let bgColorView = UIView()
         bgColorView.backgroundColor = UIColor(red: 0.17, green: 0.17, blue: 0.17, alpha: 1.0)
         self.selectedBackgroundView = bgColorView
 
     }
-    
+
     override func setSelected(_ selected: Bool, animated: Bool) {
         let bgColor = readIndicator.backgroundColor
         super.setSelected(selected, animated: animated)
-        
+
         if selected {
             readIndicator.backgroundColor = bgColor
         }
     }
-    
+
     override func setHighlighted(_ highlighted: Bool, animated: Bool) {
         let bgColor = readIndicator.backgroundColor
         super.setHighlighted(highlighted, animated: animated)
-        
+
         if highlighted {
             readIndicator.backgroundColor = bgColor
         }

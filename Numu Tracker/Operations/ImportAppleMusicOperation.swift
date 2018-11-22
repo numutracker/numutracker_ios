@@ -12,19 +12,19 @@ import UIKit
 import Crashlytics
 
 class ImportAppleMusicOperation: AsyncOperation {
-    
+
     private let session = URLSession(configuration: .default)
     private var dataTask: URLSessionDataTask?
-    
+
     var artistsImported: Int = 0
-    
+
     override func main() {
         print("Running ImportAppleMusicOperation...")
         if !defaults.logged {
             self.state = .isFinished
             return
         }
-        
+
         MPMediaLibrary.requestAuthorization { (status) in
             if status == .authorized {
                 self.runImportArtists()
@@ -34,7 +34,7 @@ class ImportAppleMusicOperation: AsyncOperation {
             }
         }
     }
-    
+
     func runImportArtists() {
         // Build list of artists to be imported.
         let query = MPMediaQuery.artists()
@@ -49,25 +49,25 @@ class ImportAppleMusicOperation: AsyncOperation {
         }
         let uniques = Array(Set(artistsFound))
         let json = ["artists": uniques]
-        
+
         do {
             let jsonData = try JSONSerialization.data(withJSONObject: json, options: .prettyPrinted)
-            
+
             // create post request
             let url = URL(string: "https://www.numutracker.com/v2/json.php?import")!
             let request = NSMutableURLRequest(url: url)
             request.httpMethod = "POST"
-            
+
             // insert json data to the request
             request.setValue("application/json; charset=utf-8", forHTTPHeaderField: "Content-Type")
             request.httpBody = jsonData
-            
+
             dataTask = session.dataTask(with: request as URLRequest) {[unowned self] (data, _, error) in
                 guard let data = data else { return }
                 do {
                     if let returnedJSON = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] {
-                        if let success = returnedJSON["success"] {
-                            self.artistsImported = success as! Int
+                        if let success = returnedJSON["success"] as? Int {
+                            self.artistsImported = success
                             NumuReviewHelper.incrementAndAskForReview()
                             self.displaySuccessMessage()
                             DispatchQueue.main.async(execute: {
@@ -83,16 +83,16 @@ class ImportAppleMusicOperation: AsyncOperation {
                 print(self.artistsImported)
                 self.state = .isFinished
             }
-            
+
             dataTask?.resume()
-            
+
         } catch {
             print(error.localizedDescription)
             self.state = .isFinished
         }
-        
+
     }
-    
+
     func displaySuccessMessage() {
         DispatchQueue.main.async {
             let alertView = NumuAlertView()
@@ -108,7 +108,7 @@ class ImportAppleMusicOperation: AsyncOperation {
             }
         }
     }
-    
+
     func displayAMError() {
         var error: String
         switch MPMediaLibrary.authorizationStatus() {

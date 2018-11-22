@@ -27,7 +27,7 @@ class AllReleasesTableViewController: UITableViewController {
         }
         queue.addOperation(importAMOperation)
     }
-    
+
     @IBOutlet weak var importSpotifyActivityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var importSpotifyButton: NumuUIButton!
     @IBAction func importSpotifyButton(_ sender: NumuUIButton) {
@@ -42,7 +42,6 @@ class AllReleasesTableViewController: UITableViewController {
         }
         queue.addOperation(importSpotifyOperation)
     }
-    
 
     var releases: [ReleaseItem] = []
     var viewName: String = ""
@@ -156,7 +155,7 @@ class AllReleasesTableViewController: UITableViewController {
     }
 
     override func viewDidLoad() {
-        
+
         super.viewDidLoad()
 
         viewType = 1
@@ -175,17 +174,17 @@ class AllReleasesTableViewController: UITableViewController {
         self.refreshControl?.addTarget(self, action: #selector(handleRefresh), for: .valueChanged)
 
         self.tableView.tableFooterView = self.footerView
-        
+
         importFromAMButton.backgroundColor = .clear
         importFromAMButton.layer.cornerRadius = 5
         importFromAMButton.layer.borderWidth = 1
         importFromAMButton.layer.borderColor = UIColor.gray.cgColor
-        
+
         importSpotifyButton.backgroundColor = .clear
         importSpotifyButton.layer.cornerRadius = 5
         importSpotifyButton.layer.borderWidth = 1
         importSpotifyButton.layer.borderColor = UIColor.gray.cgColor
-        
+
         var newFrame = noResultsFooterView.frame
         var height: CGFloat = self.tableView.bounds.height
         height -= UIApplication.shared.statusBarFrame.size.height
@@ -195,7 +194,7 @@ class AllReleasesTableViewController: UITableViewController {
         noResultsFooterView.frame = newFrame
         otherNoResultsFooterView.frame = newFrame
         footerView.frame = newFrame
-        
+
     }
 
     deinit {
@@ -214,10 +213,12 @@ class AllReleasesTableViewController: UITableViewController {
         return self.releases.count
     }
 
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> ReleaseTableViewCell {
-        let cell = tableView.dequeueReusableCell(
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(
             withIdentifier: "releaseInfoCell",
-            for: indexPath) as! ReleaseTableViewCell
+            for: indexPath) as? ReleaseTableViewCell else {
+                return UITableViewCell()
+        }
 
         let releaseInfo = releases[indexPath.row]
         cell.configure(releaseInfo: releaseInfo)
@@ -225,7 +226,7 @@ class AllReleasesTableViewController: UITableViewController {
         // Image loading.
         cell.artIndicator.startAnimating()
         cell.thumbUrl = releaseInfo.thumbUrl // For recycled cells' late image loads.
-        
+
         cell.artImageView.kf.setImage(
             with: cell.thumbUrl,
             options: [.transition(.fade(0.2))])
@@ -257,26 +258,26 @@ class AllReleasesTableViewController: UITableViewController {
         let releaseInfo = self.releases[indexPath.row]
 
         let listened = UITableViewRowAction(style: .normal, title: "Listened") { _, index in
-            
             releaseInfo.toggleListenStatus { (success) in
                 DispatchQueue.main.async(execute: {
                     if success == "1" {
                         // remove or add unread marker back in
-                        let cell = self.tableView.cellForRow(at: index) as! ReleaseTableViewCell
-                        if self.releases[index.row].listenStatus == "0" {
-                            self.releases[index.row].listenStatus = "1"
-                            cell.listenedIndicatorView.isHidden = true
-                            Answers.logCustomEvent(
-                                withName: "Listened",
-                                customAttributes: ["Release ID": releaseInfo.releaseId])
-                        } else {
-                            self.releases[index.row].listenStatus = "0"
-                            cell.listenedIndicatorView.isHidden = false
-                             Answers.logCustomEvent(
-                                withName: "Unlistened",
-                                customAttributes: ["Release ID": releaseInfo.releaseId])
+                        if let cell = self.tableView.cellForRow(at: index) as? ReleaseTableViewCell {
+                            if self.releases[index.row].listenStatus == "0" {
+                                self.releases[index.row].listenStatus = "1"
+                                cell.listenedIndicatorView.isHidden = true
+                                Answers.logCustomEvent(
+                                    withName: "Listened",
+                                    customAttributes: ["Release ID": releaseInfo.releaseId])
+                            } else {
+                                self.releases[index.row].listenStatus = "0"
+                                cell.listenedIndicatorView.isHidden = false
+                                 Answers.logCustomEvent(
+                                    withName: "Unlistened",
+                                    customAttributes: ["Release ID": releaseInfo.releaseId])
+                            }
+                            tableView.setEditing(false, animated: true)
                         }
-                        tableView.setEditing(false, animated: true)
                     }
                 })
             }
@@ -293,7 +294,7 @@ class AllReleasesTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         return true
     }
-    
+
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let releaseDetails = ReleaseDetailsViewController()
         let cellPosition = tableView.convert(tableView.rectForRow(at: indexPath), to: tableView.superview)

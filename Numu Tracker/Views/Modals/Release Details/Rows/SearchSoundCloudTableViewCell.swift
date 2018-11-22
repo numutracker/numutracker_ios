@@ -13,16 +13,16 @@ class SearchSoundCloudTableViewCell: UITableViewCell {
     @IBOutlet weak var cellLabel: UILabel!
     @IBOutlet weak var cellIcon: UIImageView!
     @IBOutlet weak var cellButton: NumuModalButton!
-    
+
     var releaseData: ReleaseItem?
     var searchUrl: String?
-    
+
     @IBAction func searchSoundCloud(_ sender: Any) {
         if let urlString = self.searchUrl {
             UIApplication.shared.open(URL(string: urlString)!)
         }
     }
-    
+
     func configure(release: ReleaseItem) {
         self.releaseData = release
         self.cellButton.isEnabled = false
@@ -31,7 +31,7 @@ class SearchSoundCloudTableViewCell: UITableViewCell {
         self.cellIcon.tintColor = UIColor.init(white: 1, alpha: 0.1)
         self.makeSearchURL()
     }
-    
+
     func makeSearchURL() {
         if let artist = self.releaseData?.artistName,
             let album = self.releaseData?.albumName {
@@ -43,7 +43,7 @@ class SearchSoundCloudTableViewCell: UITableViewCell {
             }
         }
     }
-    
+
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -54,5 +54,5 @@ class SearchSoundCloudTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-    
+
 }

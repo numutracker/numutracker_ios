@@ -13,16 +13,16 @@ class SearchYouTubeTableViewCell: UITableViewCell {
     @IBOutlet weak var cellLabel: UILabel!
     @IBOutlet weak var cellImage: UIImageView!
     @IBOutlet weak var cellButton: NumuModalButton!
-    
+
     @IBAction func searchYouTube(_ sender: Any) {
         if let urlString = self.searchUrl {
             UIApplication.shared.open(URL(string: urlString)!)
         }
     }
-    
+
     var releaseData: ReleaseItem?
     var searchUrl: String?
-    
+
     func configure(release: ReleaseItem) {
         self.releaseData = release
         self.cellButton.isEnabled = false
@@ -31,7 +31,7 @@ class SearchYouTubeTableViewCell: UITableViewCell {
         self.cellImage.tintColor = UIColor.init(white: 1, alpha: 0.1)
         self.makeSearchURL()
     }
-    
+
     func makeSearchURL() {
         if let artist = self.releaseData?.artistName,
             let album = self.releaseData?.albumName {
@@ -54,5 +54,5 @@ class SearchYouTubeTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-    
+
 }

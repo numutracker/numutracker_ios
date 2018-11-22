@@ -11,20 +11,20 @@ import Spartan
 import SpotifyLogin
 
 class ListenSpotifyTableViewCell: UITableViewCell {
-    
+
     var releaseData: ReleaseItem?
     var spotifyUrl: String?
 
     @IBOutlet weak var spotifyIcon: UIImageView!
     @IBOutlet weak var spotifyLabel: UILabel!
     @IBOutlet weak var spotifyButton: NumuModalButton!
-    
+
     @IBAction func spotifyAction(_ sender: Any) {
         if let urlString = self.spotifyUrl {
             UIApplication.shared.open(URL(string: urlString)!)
         }
     }
-    
+
     func configure(release: ReleaseItem) {
         self.releaseData = release
         self.spotifyButton.isEnabled = false
@@ -33,11 +33,11 @@ class ListenSpotifyTableViewCell: UITableViewCell {
         self.spotifyIcon.tintColor = UIColor.init(white: 1, alpha: 0.1)
         self.getSpotifyLink()
     }
-    
+
     func getSpotifyLink() {
         if let artist = self.releaseData?.artistName,
             let album = self.releaseData?.albumName {
-        
+
             let query = "\(artist) \(album)"
             print(query)
             SpotifyLogin.shared.getAccessToken { [weak self] (token, error) in
@@ -48,7 +48,7 @@ class ListenSpotifyTableViewCell: UITableViewCell {
                         query: query,
                         type: .album,
                         success: { (pagingObject: PagingObject<SimplifiedAlbum>) in
-                        
+
                         if !pagingObject.items.isEmpty {
                             let release = pagingObject.items[0]
                             self?.spotifyUrl = release.externalUrls["spotify"]
@@ -64,7 +64,7 @@ class ListenSpotifyTableViewCell: UITableViewCell {
             }
         }
     }
-    
+
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -75,5 +75,5 @@ class ListenSpotifyTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-    
+
 }
