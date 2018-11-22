@@ -52,25 +52,29 @@ class ArtistsTableViewController: UITableViewController, UISearchBarDelegate, UI
                     switch sortMethod {
                     case "name_first":
                         artistKey = String(artist.artistName.prefix(1).uppercased())
-                        if CharacterSet.decimalDigits.isSuperset(of: CharacterSet(charactersIn: artistKey)) || !CharacterSet.alphanumerics.isSuperset(of: CharacterSet(charactersIn: artistKey)) {
+                        if CharacterSet.decimalDigits.isSuperset(of: CharacterSet(charactersIn: artistKey))
+                                || !CharacterSet.alphanumerics.isSuperset(of: CharacterSet(charactersIn: artistKey)) {
                             artistKey = "#"
                         }
                     case "name":
                         artistKey = String(artist.sortName.prefix(1).uppercased())
-                        if CharacterSet.decimalDigits.isSuperset(of: CharacterSet(charactersIn: artistKey)) || !CharacterSet.alphanumerics.isSuperset(of: CharacterSet(charactersIn: artistKey)) {
+                        if CharacterSet.decimalDigits.isSuperset(of: CharacterSet(charactersIn: artistKey))
+                                || !CharacterSet.alphanumerics.isSuperset(of: CharacterSet(charactersIn: artistKey)) {
                             artistKey = "#"
                         }
                     default:
                         let dateFormatter = DateFormatter()
                         dateFormatter.dateFormat = "MMMM d, yyyy" //Your date format
-                        guard let date = dateFormatter.date(from: artist.recentRelease) else {
-                            fatalError()
-                        }
-                        dateFormatter.dateFormat = "yyyy"
-                        if artist.recentRelease == "December 31, 1969" {
-                            artistKey = "None"
+                        print("Date: \(artist.recentRelease)")
+                        if let date = dateFormatter.date(from: artist.recentRelease) {
+                            dateFormatter.dateFormat = "yyyy"
+                            if artist.recentRelease == "December 31, 1969" {
+                                artistKey = "None"
+                            } else {
+                                artistKey = String(dateFormatter.string(from: date).prefix(4))
+                            }
                         } else {
-                            artistKey = String(dateFormatter.string(from: date).prefix(4))
+                            artistKey = "None"
                         }
                     }
                     if var artistValues = artistsDictionary[artistKey] {
