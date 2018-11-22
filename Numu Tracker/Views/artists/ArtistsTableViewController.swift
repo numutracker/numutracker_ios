@@ -64,8 +64,7 @@ class ArtistsTableViewController: UITableViewController, UISearchBarDelegate, UI
                         }
                     default:
                         let dateFormatter = DateFormatter()
-                        dateFormatter.dateFormat = "MMMM d, yyyy" //Your date format
-                        print("Date: \(artist.recentRelease)")
+                        dateFormatter.dateFormat = "MMMM d, yyyy"
                         if let date = dateFormatter.date(from: artist.recentRelease) {
                             dateFormatter.dateFormat = "yyyy"
                             if artist.recentRelease == "December 31, 1969" {
