@@ -117,7 +117,6 @@ class ReleaseDetailsViewController: UIViewController, UITableViewDataSource {
         
         releaseDetailsView.layer.cornerRadius = 15
         self.releaseOptionsTableView.layer.cornerRadius = 15
-        self.releaseOptionsTableView.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner]
 
         if !UIAccessibility.isReduceTransparencyEnabled {
             releaseDetailsView.backgroundColor = .clear
