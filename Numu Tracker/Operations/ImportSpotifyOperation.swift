@@ -170,36 +170,23 @@ class ImportSpotifyOperation: AsyncOperation {
 
     func displaySuccessMessage() {
         DispatchQueue.main.async {
-            let alertView = NumuAlertView()
-            alertView.providesPresentationContextTransitionStyle = true
-            alertView.definesPresentationContext = true
-            alertView.modalPresentationStyle = UIModalPresentationStyle.overFullScreen
-            alertView.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
-            alertView.modalPresentationCapturesStatusBarAppearance = true
-            if let appDelegate = UIApplication.shared.delegate,
-                let appWindow = appDelegate.window!,
-                let rootViewController = appWindow.rootViewController {
-                rootViewController.present(alertView, animated: true, completion: nil)
-            }
+            AlertModal(
+                title: "Success",
+                button: "Groovy",
+                message: "Your artists have been imported. "
+                        + "Please wait several minutes for all artists "
+                        + "to appear in your collection."
+            ).present()
         }
     }
 
     func displaySpotifyError(error: String) {
         DispatchQueue.main.async {
-            let alertView = NumuAlertView()
-            alertView.providesPresentationContextTransitionStyle = true
-            alertView.definesPresentationContext = true
-            alertView.modalPresentationStyle = UIModalPresentationStyle.overFullScreen
-            alertView.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
-            alertView.modalPresentationCapturesStatusBarAppearance = true
-            alertView.titleText = "Error"
-            alertView.messageText = error
-            alertView.buttonText = "Oh no"
-            if let appDelegate = UIApplication.shared.delegate,
-                let appWindow = appDelegate.window!,
-                let rootViewController = appWindow.rootViewController {
-                rootViewController.present(alertView, animated: true, completion: nil)
-            }
+            AlertModal(
+                title: "Error",
+                button: "Oh no",
+                message: error
+            ).present()
             self.state = .isFinished
         }
     }

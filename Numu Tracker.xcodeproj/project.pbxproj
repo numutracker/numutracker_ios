@@ -34,6 +34,7 @@
 		447FED45217BB68D0084530E /* SearchYouTubeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 447FED43217BB68D0084530E /* SearchYouTubeTableViewCell.swift */; };
 		447FED46217BB68D0084530E /* SearchYouTubeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 447FED44217BB68D0084530E /* SearchYouTubeTableViewCell.xib */; };
 		447FED48217BC17C0084530E /* NumuModalButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 447FED47217BC17C0084530E /* NumuModalButton.swift */; };
+		448C68EB21CB092B00ECEC61 /* AlertModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 448C68EA21CB092B00ECEC61 /* AlertModal.swift */; };
 		449F5A7B2176B99900B9C919 /* MoreReleasesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 449F5A792176B99900B9C919 /* MoreReleasesTableViewCell.swift */; };
 		449F5A7C2176B99900B9C919 /* MoreReleasesTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 449F5A7A2176B99900B9C919 /* MoreReleasesTableViewCell.xib */; };
 		44D3917021691D5000CFB9A3 /* NumuSortView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44D3916E21691D5000CFB9A3 /* NumuSortView.swift */; };
@@ -98,6 +99,7 @@
 		447FED43217BB68D0084530E /* SearchYouTubeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchYouTubeTableViewCell.swift; sourceTree = "<group>"; };
 		447FED44217BB68D0084530E /* SearchYouTubeTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchYouTubeTableViewCell.xib; sourceTree = "<group>"; };
 		447FED47217BC17C0084530E /* NumuModalButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumuModalButton.swift; sourceTree = "<group>"; };
+		448C68EA21CB092B00ECEC61 /* AlertModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertModal.swift; sourceTree = "<group>"; };
 		449F5A792176B99900B9C919 /* MoreReleasesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreReleasesTableViewCell.swift; sourceTree = "<group>"; };
 		449F5A7A2176B99900B9C919 /* MoreReleasesTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MoreReleasesTableViewCell.xib; sourceTree = "<group>"; };
 		44D3916E21691D5000CFB9A3 /* NumuSortView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumuSortView.swift; sourceTree = "<group>"; };
@@ -232,6 +234,7 @@
 				4461CB7A2158470C001939F0 /* FetchJSONOperation.swift */,
 				446DBDE7215AF82400AE2AA7 /* ImportAppleMusicOperation.swift */,
 				4406A0022173A674002900E8 /* ImportSpotifyOperation.swift */,
+				448C68EA21CB092B00ECEC61 /* AlertModal.swift */,
 			);
 			path = Operations;
 			sourceTree = "<group>";
@@ -624,6 +627,7 @@
 				B4F1E3AB2058C6C100F2544A /* NumuReviewHelper.swift in Sources */,
 				B46754581F6DA66F00C80544 /* InstructionsViewController.swift in Sources */,
 				4461CB7F21585488001939F0 /* NumuAPI.swift in Sources */,
+				448C68EB21CB092B00ECEC61 /* AlertModal.swift in Sources */,
 				B4B940AE1E6131B800F52027 /* NotificationsViewController.swift in Sources */,
 				447FED3E217B839F0084530E /* MusicServicesViewController.swift in Sources */,
 				B4283A851D8548F300467CE6 /* AppDelegate.swift in Sources */,
