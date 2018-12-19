@@ -316,7 +316,6 @@ class ArtistsTableViewController: UITableViewController, UISearchBarDelegate, UI
         NSObject.cancelPreviousPerformRequests(withTarget: self, selector: #selector(self.reload), object: nil)
         self.perform(#selector(self.reload), with: nil, afterDelay: 1)
     }
-    
 
     @objc func reload() {
         if let searchText = searchController.searchBar.text, !searchText.isEmpty, searchText.count > 2 {
@@ -384,10 +383,8 @@ class ArtistsTableViewController: UITableViewController, UISearchBarDelegate, UI
         if viewState == .user {
             if sortMethod == "date" {
                 var result: [String] = []
-                for year in artistsSectionTitles {
-                    if year != "None" {
-                        result.append("’" + String(year.suffix(2)))
-                    }
+                for year in artistsSectionTitles where year != "None" {
+                    result.append("’" + String(year.suffix(2)))
                 }
                 return result
             }

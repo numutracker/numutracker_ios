@@ -38,16 +38,13 @@ class MusicServicesViewController: UIViewController {
     @IBAction func soundCloudAction(_ sender: UISwitch) {
         self.serviceSwitch(state: sender.isOn, type: "enabledSoundCloud")
         if sender.isOn {
-            let alertView = NumuAlertView()
-            alertView.providesPresentationContextTransitionStyle = true
-            alertView.definesPresentationContext = true
-            alertView.modalPresentationStyle = UIModalPresentationStyle.overFullScreen
-            alertView.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
-            alertView.modalPresentationCapturesStatusBarAppearance = true
-            self.present(alertView, animated: true, completion: nil)
-            alertView.titleText = "Important Notice"
-            alertView.buttonText = "Oh, okay"
-            alertView.messageText = "SoundCloud's iOS app is buggy, and the 'Search on SoundCloud' button will not work properly. I've notified SoundCloud and hopefully they will issue a fix."
+            AlertModal(
+                title: "Important Notice",
+                button: "Oh, okay",
+                message: "SoundCloud's iOS app is buggy, and the 'Search on SoundCloud' "
+                        + "button will not work properly. I've notified SoundCloud and "
+                        + "hopefully they will issue a fix."
+            ).present()
         }
     }
 
