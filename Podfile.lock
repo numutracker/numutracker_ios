@@ -21,6 +21,7 @@ PODS:
     - AlamoRecord (~> 1.2.0)
   - SpotifyLogin (0.1.6)
   - Starscream (3.0.6)
+  - SwiftLint (0.29.2)
   - SwiftyJSON (4.2.0)
   - TaskQueue (1.1.1)
 
@@ -31,6 +32,7 @@ DEPENDENCIES:
   - PusherSwift
   - Spartan
   - SpotifyLogin (~> 0.1)
+  - SwiftLint
   - SwiftyJSON
 
 SPEC REPOS:
@@ -48,6 +50,7 @@ SPEC REPOS:
     - Spartan
     - SpotifyLogin
     - Starscream
+    - SwiftLint
     - SwiftyJSON
     - TaskQueue
 
@@ -65,9 +68,10 @@ SPEC CHECKSUMS:
   Spartan: 2fb99ad25f2b0e8182799f251c800091977f0a40
   SpotifyLogin: 9cdf82ff13e5f37e5ddc7fd07cf9793a9ebd1124
   Starscream: ef3ece99d765eeccb67de105bfa143f929026cf5
+  SwiftLint: 47df60bdea6e7e902b193b6596db8683aafd86a3
   SwiftyJSON: c4bcba26dd9ec7a027fc8eade48e2c911f229e96
   TaskQueue: 53a3cdaf817d9ce3cd50837ff6610aeb7b968997
 
-PODFILE CHECKSUM: f348482704458ff8a102bfbdece7724c0c380ffc
+PODFILE CHECKSUM: c6b1bb7e314f6a235aa19b7a0e75454f2fccab41
 
-COCOAPODS: 1.6.0.beta.1
+COCOAPODS: 1.5.3
