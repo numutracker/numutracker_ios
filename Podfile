@@ -6,7 +6,6 @@ target 'Numu Tracker' do
   use_frameworks!
 
   # Pods for Numu Tracker
-  pod 'Alamofire', '~> 4.1'
   pod 'Kingfisher', '~> 4.0'
   pod 'Spartan'
   pod 'SwiftLint'
