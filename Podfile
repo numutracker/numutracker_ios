@@ -7,7 +7,6 @@ target 'Numu Tracker' do
 
   # Pods for Numu Tracker
   pod 'Kingfisher', '~> 4.0'
-  pod 'Spartan'
   pod 'SwiftLint'
   pod 'PushNotifications'
 
