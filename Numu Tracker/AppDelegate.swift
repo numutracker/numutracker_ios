@@ -22,7 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         self.pushNotifications.start(instanceId: "088d60ee-7163-47af-9f40-89aa54b1babb")
         self.pushNotifications.registerForRemoteNotifications()
-        try? self.pushNotifications.subscribe(interest: "hello")
+        // try? self.pushNotifications.subscribe(interest: "debug-hello")
         
         // Override point for customization after application launch.
         return true
