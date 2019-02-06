@@ -2,116 +2,110 @@
 //  AppDelegate.swift
 //  Numu Tracker
 //
-//  Created by Bradley Root on 9/11/16.
-//  Copyright © 2016 Numu Tracker. All rights reserved.
+//  Created by Brad Root on 2/5/19.
+//  Copyright © 2019 Brad Root. All rights reserved.
 //
 
 import UIKit
-import PusherSwift
-import UserNotifications
-import SwiftyJSON
-import Fabric
-import Crashlytics
-import CloudKit
-import SpotifyLogin
+import CoreData
+import PushNotifications
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
+    
+    let pushNotifications = PushNotifications.shared
 
     var window: UIWindow?
 
-    // Production
-    let pusher = Pusher(key: "")
 
-    // Development
-    //let pusher = Pusher(key: "")
-
-    func application(
-        _ application: UIApplication,
-        didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-
-        Fabric.with([Crashlytics.self])
-
-        NumuReviewHelper.incrementActivityCount()
-
-        let redirectURL: URL = URL(string: "numu://")!
-        SpotifyLogin.shared.configure(clientID: "SPOTIFY_CLIENT_ID", clientSecret: "SPOTIFY_CLIENT_SECRET", redirectURL: redirectURL)
-
-        NotificationCenter.default.addObserver(
-            self, selector: #selector(self.runLogInOperations), name: .LoggedOut, object: nil)
-
-        NotificationCenter.default.addObserver(
-            self, selector: #selector(self.ckDataChange), name: Notification.Name.CKAccountChanged, object: nil)
-
-        runLogInOperations()
-
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        
+        self.pushNotifications.start(instanceId: "088d60ee-7163-47af-9f40-89aa54b1babb")
+        self.pushNotifications.registerForRemoteNotifications()
+        try? self.pushNotifications.subscribe(interest: "hello")
+        
+        // Override point for customization after application launch.
         return true
     }
 
-    func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey: Any] = [:]) -> Bool {
-        let handled = SpotifyLogin.shared.applicationOpenURL(url) { (_) in }
-        return handled
+    func applicationWillResignActive(_ application: UIApplication) {
+        // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
+        // Use this method to pause ongoing tasks, disable timers, and invalidate graphics rendering callbacks. Games should use this method to pause the game.
     }
 
-    @objc func ckDataChange() {
-        // Need to re-run authorization procedure here.
-        runLogInOperations()
+    func applicationDidEnterBackground(_ application: UIApplication) {
+        // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
+        // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
     }
 
-    deinit {
-        NotificationCenter.default.removeObserver(self)
+    func applicationWillEnterForeground(_ application: UIApplication) {
+        // Called as part of the transition from the background to the active state; here you can undo many of the changes made on entering the background.
     }
 
+    func applicationDidBecomeActive(_ application: UIApplication) {
+        // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+    }
+
+    func applicationWillTerminate(_ application: UIApplication) {
+        // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+        // Saves changes in the application's managed object context before the application terminates.
+        self.saveContext()
+    }
+    
+    // MARK: - Pusher Beams
+    
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
-        pusher.nativePusher.register(deviceToken: deviceToken)
-        if let username = NumuCredential.shared.getUsername() {
-            if defaults.newReleased {
-                pusher.nativePusher.subscribe(interestName: "newReleased_" + username)
-                print("Turned on new notifications")
-            } else {
-                pusher.nativePusher.unsubscribe(interestName: "newReleased_" + username)
-                print("Turned off new notifications")
-            }
-
-            if defaults.newAnnouncements {
-                pusher.nativePusher.subscribe(interestName: "newAnnouncements_" + username)
-                print("Turned on new music friday notifications")
-            } else {
-                pusher.nativePusher.unsubscribe(interestName: "newAnnouncements_" + username)
-                print("Turned off new music friday notifications")
-            }
-
-            if defaults.moreReleases {
-                pusher.nativePusher.subscribe(interestName: "moreReleases_" + username)
-                print("Turned on more releases notifications")
-            } else {
-                pusher.nativePusher.unsubscribe(interestName: "moreReleases_" + username)
-                print("Turned off more releases notifications")
-            }
-        }
+        self.pushNotifications.registerDeviceToken(deviceToken)
+    }
+    
+    func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable: Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
+        self.pushNotifications.handleNotification(userInfo: userInfo)
     }
 
-    @objc fileprivate func runLogInOperations() {
-        let queue = OperationQueue()
+    // MARK: - Core Data stack
 
-        // Get and store CK record ID if available
-        let getCKUserOperation = GetCKUserOperation()
-        // If user account exists already, link it to CK or create new account
-        let registerWithCKOperation = RegisterWithCKOperation()
-        // Try to auth with any credentials
-        let authOperation = AuthOperation()
+    lazy var persistentContainer: NSPersistentContainer = {
+        /*
+         The persistent container for the application. This implementation
+         creates and returns a container, having loaded the store for the
+         application to it. This property is optional since there are legitimate
+         error conditions that could cause the creation of the store to fail.
+        */
+        let container = NSPersistentContainer(name: "Numu_Tracker")
+        container.loadPersistentStores(completionHandler: { (storeDescription, error) in
+            if let error = error as NSError? {
+                // Replace this implementation with code to handle the error appropriately.
+                // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
+                 
+                /*
+                 Typical reasons for an error here include:
+                 * The parent directory does not exist, cannot be created, or disallows writing.
+                 * The persistent store is not accessible, due to permissions or data protection when the device is locked.
+                 * The device is out of space.
+                 * The store could not be migrated to the current model version.
+                 Check the error message to determine what the actual problem was.
+                 */
+                fatalError("Unresolved error \(error), \(error.userInfo)")
+            }
+        })
+        return container
+    }()
 
-        registerWithCKOperation.addDependency(getCKUserOperation)
-        authOperation.addDependency(registerWithCKOperation)
-        authOperation.completionBlock = {
-            print("Finished Auth Process!!!")
-            DispatchQueue.main.async(execute: {
-                if defaults.logged {
-                    UIApplication.shared.registerForRemoteNotifications()
-                }
-            })
+    // MARK: - Core Data Saving support
+
+    func saveContext () {
+        let context = persistentContainer.viewContext
+        if context.hasChanges {
+            do {
+                try context.save()
+            } catch {
+                // Replace this implementation with code to handle the error appropriately.
+                // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
+                let nserror = error as NSError
+                fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
+            }
         }
-        queue.addOperations([getCKUserOperation, registerWithCKOperation, authOperation], waitUntilFinished: false)
     }
 
 }
+
