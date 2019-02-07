@@ -7,3 +7,11 @@
 //
 
 import Foundation
+
+class NumuAPI {
+    
+    static let shared = NumuAPI()
+    
+    
+    
+}
