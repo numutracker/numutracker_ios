@@ -9,9 +9,9 @@
 import Foundation
 
 class NumuCredential {
-    
+
     static let shared = NumuCredential()
-    
+
     private struct ProtectionSpace {
         static let production = URLProtectionSpace(
             host: "api.numutracker.com",
@@ -26,7 +26,7 @@ class NumuCredential {
             realm: "Numu Tracker",
             authenticationMethod: NSURLAuthenticationMethodHTTPBasic)
     }
-    
+
     func storeCredential(username: String?, password: String?) {
         if let username = username,
             let password = password {
@@ -34,7 +34,7 @@ class NumuCredential {
             URLCredentialStorage.shared.setDefaultCredential(credential, for: ProtectionSpace.production)
         }
     }
-    
+
     func removeCredential() {
         if let credential = URLCredentialStorage.shared.defaultCredential(for: ProtectionSpace.production) {
             URLCredentialStorage.shared.remove(
@@ -43,7 +43,7 @@ class NumuCredential {
                 options: ["NSURLCredentialStorageRemoveSynchronizableCredentials": true])
         }
     }
-    
+
     func checkForCredential() -> Bool {
         if URLCredentialStorage.shared.defaultCredential(for: ProtectionSpace.production) != nil {
             return true
@@ -51,19 +51,19 @@ class NumuCredential {
             return false
         }
     }
-    
+
     func getUsername() -> String? {
         if let credential = URLCredentialStorage.shared.defaultCredential(for: ProtectionSpace.production) {
             return credential.user
         }
         return nil
     }
-    
+
     func getV2Details() -> (String?, String?) {
         if let credential = URLCredentialStorage.shared.defaultCredential(for: ProtectionSpace.v2production) {
             return (credential.user, credential.password)
         }
         return (nil, nil)
     }
-    
+
 }

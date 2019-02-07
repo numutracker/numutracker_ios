@@ -8,7 +8,7 @@
 
 import XCTest
 
-class Numu_TrackerUITests: XCTestCase {
+class NumuTrackerUITests: XCTestCase {
 
     override func setUp() {
         // Put setup code here. This method is called before the invocation of each test method in the class.

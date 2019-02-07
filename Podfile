@@ -7,8 +7,8 @@ target 'Numu Tracker' do
 
   # Pods for Numu Tracker
   pod 'Kingfisher', '~> 4.0'
-  pod 'SwiftLint'
   pod 'PushNotifications'
+  pod 'SwiftLint'
 
   target 'Numu TrackerTests' do
     inherit! :search_paths
