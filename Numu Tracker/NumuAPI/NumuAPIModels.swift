@@ -14,11 +14,10 @@ struct NumuAPIResponse: Codable {
 }
 
 struct NumuAPIResult: Codable {
-    let page: Int
-    let nextPage: Int?
-    let prevPage: Int?
-    let totalPages: Int
-    let perPage: Int
+    let offset: Int
+    let resultsPerRequest: Int
+    let resultsRemaining: Int
+    let totalResults: Int
 
     let message: String?
 

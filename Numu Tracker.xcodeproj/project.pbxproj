@@ -20,7 +20,7 @@
 		446B5DE1220A5F6800948BCB /* Numu_TrackerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446B5DE0220A5F6800948BCB /* Numu_TrackerTests.swift */; };
 		446B5DEC220A5F6800948BCB /* Numu_TrackerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446B5DEB220A5F6800948BCB /* Numu_TrackerUITests.swift */; };
 		446B5DFB220A629E00948BCB /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 446B5DFA220A629E00948BCB /* CloudKit.framework */; };
-		446B5E00220A695600948BCB /* NumuCredential.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446B5DFF220A695600948BCB /* NumuCredential.swift */; };
+		446B5E00220A695600948BCB /* NumuAPICredential.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446B5DFF220A695600948BCB /* NumuAPICredential.swift */; };
 		CF625BB6FB626EB1E645F233 /* Pods_Numu_TrackerUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5382359D098D262B4A0189C0 /* Pods_Numu_TrackerUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -62,7 +62,7 @@
 		446B5DED220A5F6800948BCB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		446B5DF9220A627100948BCB /* Numu Tracker.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Numu Tracker.entitlements"; sourceTree = "<group>"; };
 		446B5DFA220A629E00948BCB /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
-		446B5DFF220A695600948BCB /* NumuCredential.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumuCredential.swift; sourceTree = "<group>"; };
+		446B5DFF220A695600948BCB /* NumuAPICredential.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumuAPICredential.swift; sourceTree = "<group>"; };
 		4A79F69CAA97D478B9C08A85 /* Pods_Numu_TrackerTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Numu_TrackerTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5382359D098D262B4A0189C0 /* Pods_Numu_TrackerUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Numu_TrackerUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A9AF8031F444BF6DC08A8D6 /* Pods-Numu TrackerTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Numu TrackerTests.release.xcconfig"; path = "Target Support Files/Pods-Numu TrackerTests/Pods-Numu TrackerTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -104,7 +104,7 @@
 		44583E6E220BBC44007E0020 /* NumuAPI */ = {
 			isa = PBXGroup;
 			children = (
-				446B5DFF220A695600948BCB /* NumuCredential.swift */,
+				446B5DFF220A695600948BCB /* NumuAPICredential.swift */,
 				44583E6F220BBC59007E0020 /* NumuAPI.swift */,
 				44583E71220BBC68007E0020 /* NumuAPIModels.swift */,
 			);
@@ -453,7 +453,7 @@
 				446B5DCB220A5F6800948BCB /* ViewController.swift in Sources */,
 				446B5DD1220A5F6800948BCB /* Numu_Tracker.xcdatamodeld in Sources */,
 				446B5DC9220A5F6800948BCB /* AppDelegate.swift in Sources */,
-				446B5E00220A695600948BCB /* NumuCredential.swift in Sources */,
+				446B5E00220A695600948BCB /* NumuAPICredential.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

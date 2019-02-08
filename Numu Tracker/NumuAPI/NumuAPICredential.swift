@@ -1,5 +1,5 @@
 //
-//  NumuCredential.swift
+//  NumuAPICredential.swift
 //  Numu Tracker
 //
 //  Created by Brad Root on 2/5/19.
@@ -8,9 +8,9 @@
 
 import Foundation
 
-class NumuCredential {
+class NumuAPICredential {
 
-    static let shared = NumuCredential()
+    static let shared = NumuAPICredential()
 
     private struct ProtectionSpace {
         static let production = URLProtectionSpace(
@@ -59,7 +59,7 @@ class NumuCredential {
         return nil
     }
 
-    func getV2Details() -> (String?, String?) {
+    func getV2UserDetails() -> (String?, String?) {
         if let credential = URLCredentialStorage.shared.defaultCredential(for: ProtectionSpace.v2production) {
             return (credential.user, credential.password)
         }

@@ -14,9 +14,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
 
-        print(NumuCredential.shared.getV2Details())
-
-        NumuCredential.shared.storeCredential(username: "test@test.com", password: "TestingP@ssword")
+        NumuAPICredential.shared.storeCredential(username: "test@test.com", password: "TestingP@ssword")
 
         if let URL = URL(string: "https://api.numutracker.com/v3/user/releases/unlistened") {
             let task = URLSession.shared.dataTask(with: URL) { (data, response, error) in
