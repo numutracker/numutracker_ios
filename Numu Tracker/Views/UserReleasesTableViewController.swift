@@ -51,20 +51,18 @@ class UserReleasesTableViewController: UITableViewController {
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
         return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
         return self.releases.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "releaseCell", for: indexPath) as? ReleaseTableViewCell
+        guard let releaseCell = tableView.dequeueReusableCell(
+            withIdentifier: "releaseCell", for: indexPath
+        ) as? ReleaseTableViewCell else { return UITableViewCell() }
 
-        guard let releaseCell = cell else { return UITableViewCell() }
-        // Configure the cell...
         releaseCell.release = self.releases[indexPath.row]
 
         return releaseCell

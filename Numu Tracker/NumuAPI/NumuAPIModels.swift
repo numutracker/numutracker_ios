@@ -37,7 +37,7 @@ struct Artist: Codable {
     let sortName: String
     let disambiguation: String?
 
-    let dateUpdated: Date
+    let dateUpdated: Date?
     let recentReleaseDate: Date? // TODO: This should probably be returned by API always if possible.
 
     let art: ArtUrls?
