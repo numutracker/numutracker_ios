@@ -71,10 +71,11 @@ struct Release: Codable {
 
 struct ReleaseUserData: Codable {
     let uuid: UUID
-    let dateAdded: Date
+    let dateFollowed: Date
     let dateListened: Date?
     let dateUpdated: Date
     let listened: Bool
+    let following: Bool
 
     let userArtists: Artist?
 }
