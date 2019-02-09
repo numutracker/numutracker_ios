@@ -10,35 +10,38 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    let releasesEngine = NumuAPIReleases(releaseType: .unlistened)
+
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
 
         NumuAPICredential.shared.storeCredential(username: "test@test.com", password: "TestingP@ssword")
+        //NumuAPICredential.shared.removeCredential()
 
-        if let URL = URL(string: "https://api.numutracker.com/v3/user/releases/unlistened") {
-            let task = URLSession.shared.dataTask(with: URL) { (data, response, error) in
-                guard let dataResponse = data,
-                    error == nil else {
-                        print(error?.localizedDescription ?? "Response Error")
-                        return
-                }
-                do {
-                    let response = try JSONDecoder().decode(NumuAPIResponse.self, from: dataResponse)
-
-                    guard let releases = response.result?.userReleases else { return }
-
-                    for release in releases {
-                        print(release.artistNames, release.title)
+        self.releasesEngine.get {
+            self.printreleases()
+            if self.releasesEngine.isMoreAvailable() {
+                self.releasesEngine.getMore {
+                    self.printreleases()
+                    if self.releasesEngine.isMoreAvailable() {
+                        self.releasesEngine.getMore {
+                            self.printreleases()
+                        }
                     }
-
-                } catch let parsingError {
-                    print("Error", parsingError)
                 }
             }
-            task.resume()
         }
 
+    }
+
+    func printreleases() {
+        for release in self.releasesEngine.releases {
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateStyle = .long
+            let date = dateFormatter.string(from: release.dateRelease)
+            print(date, "-", release.artistNames, "-", release.title)
+        }
     }
 
 }

@@ -14,10 +14,10 @@ struct NumuAPIResponse: Codable {
 }
 
 struct NumuAPIResult: Codable {
-    let offset: Int
-    let resultsPerRequest: Int
-    let resultsRemaining: Int
-    let totalResults: Int
+    let offset: Int?
+    let resultsPerRequest: Int?
+    let resultsRemaining: Int?
+    let totalResults: Int?
 
     let message: String?
 
@@ -37,10 +37,10 @@ struct Artist: Codable {
     let sortName: String
     let disambiguation: String?
 
-    let dateUpdated: String
-    let recentReleaseDate: String? // TODO: This should probably be returned by API always if possible.
+    let dateUpdated: Date
+    let recentReleaseDate: Date? // TODO: This should probably be returned by API always if possible.
 
-    let art: ArtUrls
+    let art: ArtUrls?
 
     let userData: ArtistUserData?
 }
@@ -50,8 +50,8 @@ struct ArtistUserData: Codable {
     let following: Bool
     let listenedReleases: Int
     let totalReleases: Int
-    let dateFollowed: String
-    let dateUpdated: String
+    let dateFollowed: Date
+    let dateUpdated: Date
 }
 
 struct Release: Codable {
@@ -59,21 +59,21 @@ struct Release: Codable {
     let title: String
     let artistNames: String
     let type: String
-    let dateAdded: String
-    let dateRelease: String
-    let dateUpdated: String
+    let dateAdded: Date
+    let dateRelease: Date
+    let dateUpdated: Date
 
-    let art: ArtUrls
+    let art: ArtUrls?
     let artists: [Artist]
 
-    let userDate: ReleaseUserData?
+    let userData: ReleaseUserData?
 }
 
 struct ReleaseUserData: Codable {
     let uuid: UUID
-    let dateAdded: String
-    let dateListened: String
-    let dateUpdated: String
+    let dateAdded: Date
+    let dateListened: Date?
+    let dateUpdated: Date
     let listened: Bool
 
     let userArtists: Artist?

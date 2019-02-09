@@ -15,12 +15,25 @@ enum ReleaseType: String {
     case newAdditions = "/user/releases/new"
 }
 
+extension DateFormatter {
+    static let numuDate: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "EEE, d MMM yyyy H:m:s z"
+        formatter.calendar = Calendar(identifier: .iso8601)
+        formatter.timeZone = TimeZone(secondsFromGMT: 0)
+        formatter.locale = Locale(identifier: "en_US_POSIX")
+        return formatter
+    }()
+}
+
 class NumuAPI {
+
+    let urlPrefix = "https://api.numutracker.com/v3"
 
     static let shared = NumuAPI()
 
     fileprivate func getResponse(url: URL, withCompletion completion: @escaping (NumuAPIResponse?) -> Void) {
-        let configuration = URLSessionConfiguration.ephemeral
+        let configuration = URLSessionConfiguration.default
         let session = URLSession(configuration: configuration, delegate: nil, delegateQueue: OperationQueue.main)
         let task = session.dataTask(with: url) { (data, response, error) -> Void in
             guard let dataResponse = data,
@@ -30,7 +43,9 @@ class NumuAPI {
                     return
             }
             do {
-                let response = try JSONDecoder().decode(NumuAPIResponse.self, from: dataResponse)
+                let decoder = JSONDecoder()
+                decoder.dateDecodingStrategy = .formatted(.numuDate)
+                let response = try decoder.decode(NumuAPIResponse.self, from: dataResponse)
                 completion(response)
             } catch let parsingError {
                 print("Error", parsingError)
@@ -40,16 +55,24 @@ class NumuAPI {
         task.resume()
     }
 
-    public func getReleases(type: ReleaseType, offset: Int) {
-        let urlPrefix = "https://api.numutracker.com/v3"
-        guard let resourceUrl = URL(string: urlPrefix + type.rawValue) else { return }
+    fileprivate func processResponse(response: NumuAPIResponse) -> NumuAPIResult? {
+        if response.success == true {
+            return response.result
+        }
+        print(String(describing: response.result?.message))
+        return nil
+    }
 
-        getResponse(url: resourceUrl) { response in
-            guard let releases = response?.result?.userReleases else { return }
-
-            for release in releases {
-                print(release.artistNames, release.title)
+    public func getReleases(type: ReleaseType, offset: Int, withCompletion completion: @escaping (NumuAPIResult?) -> Void) {
+        guard let resourceUrl = URL(string: urlPrefix + type.rawValue + "/\(offset)") else { return }
+        print(resourceUrl)
+        self.getResponse(url: resourceUrl) { response in
+            guard let response = response else {
+                completion(nil)
+                return
             }
+            let result = self.processResponse(response: response)
+            completion(result)
         }
 
     }

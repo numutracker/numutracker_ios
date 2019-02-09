@@ -11,6 +11,7 @@
 		2E96D024D64C88B59F3DDF9D /* Pods_Numu_Tracker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2B582D332C28500143A3A4E /* Pods_Numu_Tracker.framework */; };
 		44583E70220BBC59007E0020 /* NumuAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44583E6F220BBC59007E0020 /* NumuAPI.swift */; };
 		44583E72220BBC68007E0020 /* NumuAPIModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44583E71220BBC68007E0020 /* NumuAPIModels.swift */; };
+		44583E76220E526B007E0020 /* NumuAPIReleases.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44583E75220E526B007E0020 /* NumuAPIReleases.swift */; };
 		446B5DC9220A5F6800948BCB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446B5DC8220A5F6800948BCB /* AppDelegate.swift */; };
 		446B5DCB220A5F6800948BCB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446B5DCA220A5F6800948BCB /* ViewController.swift */; };
 		446B5DCE220A5F6800948BCB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 446B5DCC220A5F6800948BCB /* Main.storyboard */; };
@@ -46,6 +47,7 @@
 		38B620B0C71D8EA423629A39 /* Pods-Numu Tracker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Numu Tracker.release.xcconfig"; path = "Target Support Files/Pods-Numu Tracker/Pods-Numu Tracker.release.xcconfig"; sourceTree = "<group>"; };
 		44583E6F220BBC59007E0020 /* NumuAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumuAPI.swift; sourceTree = "<group>"; };
 		44583E71220BBC68007E0020 /* NumuAPIModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumuAPIModels.swift; sourceTree = "<group>"; };
+		44583E75220E526B007E0020 /* NumuAPIReleases.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumuAPIReleases.swift; sourceTree = "<group>"; };
 		446B5DC5220A5F6800948BCB /* Numu Tracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Numu Tracker.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		446B5DC8220A5F6800948BCB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		446B5DCA220A5F6800948BCB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -107,6 +109,7 @@
 				446B5DFF220A695600948BCB /* NumuAPICredential.swift */,
 				44583E6F220BBC59007E0020 /* NumuAPI.swift */,
 				44583E71220BBC68007E0020 /* NumuAPIModels.swift */,
+				44583E75220E526B007E0020 /* NumuAPIReleases.swift */,
 			);
 			path = NumuAPI;
 			sourceTree = "<group>";
@@ -454,6 +457,7 @@
 				446B5DD1220A5F6800948BCB /* Numu_Tracker.xcdatamodeld in Sources */,
 				446B5DC9220A5F6800948BCB /* AppDelegate.swift in Sources */,
 				446B5E00220A695600948BCB /* NumuAPICredential.swift in Sources */,
+				44583E76220E526B007E0020 /* NumuAPIReleases.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
