@@ -25,6 +25,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // try? self.pushNotifications.subscribe(interest: "debug-hello")
 
         // Override point for customization after application launch.
+
+        NumuAPICredential.shared.storeCredential(username: "test@test.com", password: "TestingP@ssword")
+
         return true
     }
 

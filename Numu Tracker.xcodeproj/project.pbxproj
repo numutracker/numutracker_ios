@@ -22,6 +22,10 @@
 		446B5DEC220A5F6800948BCB /* Numu_TrackerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446B5DEB220A5F6800948BCB /* Numu_TrackerUITests.swift */; };
 		446B5DFB220A629E00948BCB /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 446B5DFA220A629E00948BCB /* CloudKit.framework */; };
 		446B5E00220A695600948BCB /* NumuAPICredential.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446B5DFF220A695600948BCB /* NumuAPICredential.swift */; };
+		B4E8F25C220F624300BDEA30 /* ReleaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4E8F25A220F624300BDEA30 /* ReleaseTableViewCell.swift */; };
+		B4E8F25D220F624300BDEA30 /* ReleaseTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B4E8F25B220F624300BDEA30 /* ReleaseTableViewCell.xib */; };
+		B4E8F260220F650900BDEA30 /* UserReleasesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4E8F25F220F650900BDEA30 /* UserReleasesTableViewController.swift */; };
+		B4E8F262220F72BF00BDEA30 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4E8F261220F72BF00BDEA30 /* Extensions.swift */; };
 		CF625BB6FB626EB1E645F233 /* Pods_Numu_TrackerUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5382359D098D262B4A0189C0 /* Pods_Numu_TrackerUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -68,6 +72,10 @@
 		4A79F69CAA97D478B9C08A85 /* Pods_Numu_TrackerTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Numu_TrackerTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5382359D098D262B4A0189C0 /* Pods_Numu_TrackerUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Numu_TrackerUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A9AF8031F444BF6DC08A8D6 /* Pods-Numu TrackerTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Numu TrackerTests.release.xcconfig"; path = "Target Support Files/Pods-Numu TrackerTests/Pods-Numu TrackerTests.release.xcconfig"; sourceTree = "<group>"; };
+		B4E8F25A220F624300BDEA30 /* ReleaseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReleaseTableViewCell.swift; sourceTree = "<group>"; };
+		B4E8F25B220F624300BDEA30 /* ReleaseTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ReleaseTableViewCell.xib; sourceTree = "<group>"; };
+		B4E8F25F220F650900BDEA30 /* UserReleasesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserReleasesTableViewController.swift; sourceTree = "<group>"; };
+		B4E8F261220F72BF00BDEA30 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		BB57731F05FACFEB06572125 /* Pods-Numu Tracker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Numu Tracker.debug.xcconfig"; path = "Target Support Files/Pods-Numu Tracker/Pods-Numu Tracker.debug.xcconfig"; sourceTree = "<group>"; };
 		D2B582D332C28500143A3A4E /* Pods_Numu_Tracker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Numu_Tracker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EDB004DE51A363F2213F0047 /* Pods-Numu TrackerTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Numu TrackerTests.debug.xcconfig"; path = "Target Support Files/Pods-Numu TrackerTests/Pods-Numu TrackerTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -140,14 +148,14 @@
 			isa = PBXGroup;
 			children = (
 				44583E6E220BBC44007E0020 /* NumuAPI */,
+				B4E8F259220F5B3000BDEA30 /* Views */,
 				446B5DF9220A627100948BCB /* Numu Tracker.entitlements */,
 				446B5DC8220A5F6800948BCB /* AppDelegate.swift */,
 				446B5DCA220A5F6800948BCB /* ViewController.swift */,
-				446B5DCC220A5F6800948BCB /* Main.storyboard */,
 				446B5DD2220A5F6800948BCB /* Assets.xcassets */,
-				446B5DD4220A5F6800948BCB /* LaunchScreen.storyboard */,
 				446B5DD7220A5F6800948BCB /* Info.plist */,
 				446B5DCF220A5F6800948BCB /* Numu_Tracker.xcdatamodeld */,
+				B4E8F261220F72BF00BDEA30 /* Extensions.swift */,
 			);
 			path = "Numu Tracker";
 			sourceTree = "<group>";
@@ -181,6 +189,26 @@
 				FB648D0B281ABA271A3E4662 /* Pods-Numu TrackerUITests.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		B4E8F259220F5B3000BDEA30 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				B4E8F25E220F624B00BDEA30 /* ReleaseTableViewCell */,
+				446B5DCC220A5F6800948BCB /* Main.storyboard */,
+				446B5DD4220A5F6800948BCB /* LaunchScreen.storyboard */,
+				B4E8F25F220F650900BDEA30 /* UserReleasesTableViewController.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		B4E8F25E220F624B00BDEA30 /* ReleaseTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				B4E8F25A220F624300BDEA30 /* ReleaseTableViewCell.swift */,
+				B4E8F25B220F624300BDEA30 /* ReleaseTableViewCell.xib */,
+			);
+			path = ReleaseTableViewCell;
 			sourceTree = "<group>";
 		};
 		C00199818FBC70EB2E2A76D5 /* Frameworks */ = {
@@ -315,6 +343,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				446B5DD6220A5F6800948BCB /* LaunchScreen.storyboard in Resources */,
+				B4E8F25D220F624300BDEA30 /* ReleaseTableViewCell.xib in Resources */,
 				446B5DD3220A5F6800948BCB /* Assets.xcassets in Resources */,
 				446B5DCE220A5F6800948BCB /* Main.storyboard in Resources */,
 			);
@@ -452,11 +481,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				44583E70220BBC59007E0020 /* NumuAPI.swift in Sources */,
+				B4E8F25C220F624300BDEA30 /* ReleaseTableViewCell.swift in Sources */,
 				44583E72220BBC68007E0020 /* NumuAPIModels.swift in Sources */,
 				446B5DCB220A5F6800948BCB /* ViewController.swift in Sources */,
 				446B5DD1220A5F6800948BCB /* Numu_Tracker.xcdatamodeld in Sources */,
+				B4E8F262220F72BF00BDEA30 /* Extensions.swift in Sources */,
 				446B5DC9220A5F6800948BCB /* AppDelegate.swift in Sources */,
 				446B5E00220A695600948BCB /* NumuAPICredential.swift in Sources */,
+				B4E8F260220F650900BDEA30 /* UserReleasesTableViewController.swift in Sources */,
 				44583E76220E526B007E0020 /* NumuAPIReleases.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -47,7 +47,7 @@ struct Artist: Codable {
 
 struct ArtistUserData: Codable {
     let uuid: UUID
-    let following: Bool
+    var following: Bool
     let listenedReleases: Int
     let totalReleases: Int
     let dateFollowed: Date
@@ -66,7 +66,7 @@ struct Release: Codable {
     let art: ArtUrls?
     let artists: [Artist]
 
-    let userData: ReleaseUserData?
+    var userData: ReleaseUserData?
 }
 
 struct ReleaseUserData: Codable {
@@ -74,7 +74,7 @@ struct ReleaseUserData: Codable {
     let dateFollowed: Date
     let dateListened: Date?
     let dateUpdated: Date
-    let listened: Bool
+    var listened: Bool
     let following: Bool
 
     let userArtists: Artist?

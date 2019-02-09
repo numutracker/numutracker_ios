@@ -1,10 +1,10 @@
 PODS:
-  - Kingfisher (4.10.1)
+  - Kingfisher (5.1.0)
   - PushNotifications (1.2.0)
   - SwiftLint (0.30.1)
 
 DEPENDENCIES:
-  - Kingfisher (~> 4.0)
+  - Kingfisher (~> 5.0)
   - PushNotifications
   - SwiftLint
 
@@ -15,10 +15,10 @@ SPEC REPOS:
     - SwiftLint
 
 SPEC CHECKSUMS:
-  Kingfisher: c148cd7b47ebde9989f6bc7c27dcaa79d81279a0
+  Kingfisher: fcec238063d17404fca89bf0a850583211c4cbf6
   PushNotifications: bc2fe25ee7e6f1d10ec29970feddb51738c46200
   SwiftLint: a54bf1fe12b55c68560eb2a7689dfc81458508f7
 
-PODFILE CHECKSUM: 488d666746e493a8272fa0722028c1412f7cd6f6
+PODFILE CHECKSUM: aa167006905d775f801af7d312fbb57ba36e81f9
 
-COCOAPODS: 1.6.0.beta.1
+COCOAPODS: 1.6.0.rc.2

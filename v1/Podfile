@@ -14,7 +14,7 @@ target 'Numu Tracker' do
     pod 'SwiftyJSON'
     pod 'Fabric'
     pod 'Crashlytics', '~>  3.10'
-    pod 'Kingfisher', '~> 4.0'
+    pod 'Kingfisher', '~> 5.1.0'
     pod 'SpotifyLogin', '~> 0.1'
     pod 'Spartan'
     pod 'SwiftLint'
