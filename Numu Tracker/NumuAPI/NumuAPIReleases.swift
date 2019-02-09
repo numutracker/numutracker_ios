@@ -49,8 +49,6 @@ class NumuAPIReleases {
                     completion()
                 }
             }
-        } else {
-            completion()
         }
     }
 
