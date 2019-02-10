@@ -34,20 +34,25 @@ class ArtistTableViewCell: UITableViewCell {
     fileprivate func setupCell() {
         self.setupViewElements()
 
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateStyle = .long
-        let date = dateFormatter.string(from: (self.artist?.recentReleaseDate)!)
+        var recentReleaseDate = "No Releases"
+        if let date = self.artist?.recentReleaseDate {
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateStyle = .long
+            recentReleaseDate = dateFormatter.string(from: date)
+        }
 
         var percentage: Float = 0
         if let listened = self.artist?.userData?.listenedReleases, let total = self.artist?.userData?.totalReleases {
-            percentage = (listened / total) * 100
-            print(listened, total, percentage)
-        } else {
-            percentage = 0
+            if total == 0 {
+                percentage = 100
+            } else {
+                percentage = (listened / total) * 100
+            }
+            print(self.artist?.name, listened, total, percentage)
         }
 
         self.artistNameLabel.text = self.artist?.name
-        self.artistRecentReleaseLabel.text = date
+        self.artistRecentReleaseLabel.text = recentReleaseDate
         self.artistListenPercentageLabel.text = "\(Int(percentage))% Listened"
 
         var artUrl = URL(string: "https://www.numutracker.com/nonly3-1024.png")

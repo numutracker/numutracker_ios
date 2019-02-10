@@ -21,7 +21,7 @@
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eNW-7q-BXU">
                         <rect key="frame" x="28" y="18" width="99.5" height="99.5"/>
-                        <color key="backgroundColor" red="0.047449135670000003" green="0.04791892909" blue="0.04791892909" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="0aQ-1z-yXs">
                         <rect key="frame" x="59.5" y="49.5" width="37" height="37"/>
