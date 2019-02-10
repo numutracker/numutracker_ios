@@ -71,7 +71,15 @@ class ArtistTableViewCell: UITableViewCell {
         artistArtLoadingShadowView.layer.shadowOpacity = 0.3
         artistArtLoadingShadowView.layer.shadowOffset = .zero
         artistArtLoadingShadowView.layer.shadowRadius = 5
+    }
 
+    public func getEditActions() -> [UITableViewRowAction] {
+        let followAction = UITableViewRowAction(style: .normal, title: "Unfollow") { (_, index) in
+            print(index)
+        }
+        followAction.backgroundColor = .background
+
+        return [followAction]
     }
 
 }

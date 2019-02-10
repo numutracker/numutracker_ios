@@ -22,6 +22,7 @@
 		446B5DEC220A5F6800948BCB /* Numu_TrackerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446B5DEB220A5F6800948BCB /* Numu_TrackerUITests.swift */; };
 		446B5DFB220A629E00948BCB /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 446B5DFA220A629E00948BCB /* CloudKit.framework */; };
 		446B5E00220A695600948BCB /* NumuAPICredential.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446B5DFF220A695600948BCB /* NumuAPICredential.swift */; };
+		B47733372210C364005D2EAE /* ArtistReleasesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B47733362210C364005D2EAE /* ArtistReleasesTableViewController.swift */; };
 		B4E8F25C220F624300BDEA30 /* ReleaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4E8F25A220F624300BDEA30 /* ReleaseTableViewCell.swift */; };
 		B4E8F25D220F624300BDEA30 /* ReleaseTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B4E8F25B220F624300BDEA30 /* ReleaseTableViewCell.xib */; };
 		B4E8F260220F650900BDEA30 /* UserReleasesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4E8F25F220F650900BDEA30 /* UserReleasesTableViewController.swift */; };
@@ -76,6 +77,7 @@
 		4A79F69CAA97D478B9C08A85 /* Pods_Numu_TrackerTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Numu_TrackerTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5382359D098D262B4A0189C0 /* Pods_Numu_TrackerUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Numu_TrackerUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A9AF8031F444BF6DC08A8D6 /* Pods-Numu TrackerTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Numu TrackerTests.release.xcconfig"; path = "Target Support Files/Pods-Numu TrackerTests/Pods-Numu TrackerTests.release.xcconfig"; sourceTree = "<group>"; };
+		B47733362210C364005D2EAE /* ArtistReleasesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistReleasesTableViewController.swift; sourceTree = "<group>"; };
 		B4E8F25A220F624300BDEA30 /* ReleaseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReleaseTableViewCell.swift; sourceTree = "<group>"; };
 		B4E8F25B220F624300BDEA30 /* ReleaseTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ReleaseTableViewCell.xib; sourceTree = "<group>"; };
 		B4E8F25F220F650900BDEA30 /* UserReleasesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserReleasesTableViewController.swift; sourceTree = "<group>"; };
@@ -200,9 +202,18 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		B47733382210C594005D2EAE /* ArtistReleasesTableViewController */ = {
+			isa = PBXGroup;
+			children = (
+				B47733362210C364005D2EAE /* ArtistReleasesTableViewController.swift */,
+			);
+			path = ArtistReleasesTableViewController;
+			sourceTree = "<group>";
+		};
 		B4E8F259220F5B3000BDEA30 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				B47733382210C594005D2EAE /* ArtistReleasesTableViewController */,
 				B4E8F263220FBCCC00BDEA30 /* ArtistTableViewCell */,
 				B4E8F25E220F624B00BDEA30 /* ReleaseTableViewCell */,
 				446B5DCC220A5F6800948BCB /* Main.storyboard */,
@@ -511,6 +522,7 @@
 				446B5DC9220A5F6800948BCB /* AppDelegate.swift in Sources */,
 				446B5E00220A695600948BCB /* NumuAPICredential.swift in Sources */,
 				B4E8F260220F650900BDEA30 /* UserReleasesTableViewController.swift in Sources */,
+				B47733372210C364005D2EAE /* ArtistReleasesTableViewController.swift in Sources */,
 				B4E8F26C220FC17F00BDEA30 /* NumuAPIArtists.swift in Sources */,
 				44583E76220E526B007E0020 /* NumuAPIReleases.swift in Sources */,
 				B4E8F26A220FC0E900BDEA30 /* UserArtistsTableViewController.swift in Sources */,
