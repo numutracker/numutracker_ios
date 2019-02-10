@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="0.0" rowHeight="100" id="KGk-i7-Jjw" customClass="ArtistTableViewCell" customModule="Numu_Tracker" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="100"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="99.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eNW-7q-BXU">
+                        <rect key="frame" x="28" y="18" width="63.5" height="63.5"/>
+                        <color key="backgroundColor" red="0.047449135670000003" green="0.04791892909" blue="0.04791892909" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </view>
+                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="0aQ-1z-yXs">
+                        <rect key="frame" x="41.5" y="31.5" width="37" height="37"/>
+                    </activityIndicatorView>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="PzN-sF-oBX">
+                        <rect key="frame" x="28" y="18" width="63.5" height="63.5"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="PzN-sF-oBX" secondAttribute="height" multiplier="1:1" id="Anp-32-0qG"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Artist Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zgj-Nc-MMK">
+                        <rect key="frame" x="109.5" y="26" width="192.5" height="24"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="znf-d4-Oku">
+                        <rect key="frame" x="109.5" y="50" width="0.0" height="0.0"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="height" id="QaF-ku-2XB"/>
+                            <constraint firstAttribute="width" id="RTW-sd-m5P"/>
+                        </constraints>
+                    </view>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Following" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="lAT-WW-2Ae">
+                        <rect key="frame" x="109.5" y="55" width="192.5" height="16"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <color key="textColor" red="0.10980392160000001" green="0.81176470590000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <color key="backgroundColor" red="0.1333333333" green="0.1333333333" blue="0.1333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                <constraints>
+                    <constraint firstItem="lAT-WW-2Ae" firstAttribute="top" secondItem="znf-d4-Oku" secondAttribute="bottom" constant="5" id="4bQ-b6-NB5"/>
+                    <constraint firstItem="znf-d4-Oku" firstAttribute="leading" secondItem="PzN-sF-oBX" secondAttribute="trailing" constant="18" id="9rU-7u-kUY"/>
+                    <constraint firstAttribute="trailing" secondItem="lAT-WW-2Ae" secondAttribute="trailing" constant="18" id="AHS-3q-yMU"/>
+                    <constraint firstItem="0aQ-1z-yXs" firstAttribute="centerX" secondItem="PzN-sF-oBX" secondAttribute="centerX" id="ASE-5n-3ra"/>
+                    <constraint firstAttribute="bottom" secondItem="PzN-sF-oBX" secondAttribute="bottom" constant="18" id="Abl-WW-kA9"/>
+                    <constraint firstItem="eNW-7q-BXU" firstAttribute="height" secondItem="PzN-sF-oBX" secondAttribute="height" id="FE0-OD-pJ8"/>
+                    <constraint firstItem="eNW-7q-BXU" firstAttribute="centerY" secondItem="PzN-sF-oBX" secondAttribute="centerY" id="TbN-BN-lkn"/>
+                    <constraint firstItem="Zgj-Nc-MMK" firstAttribute="leading" secondItem="PzN-sF-oBX" secondAttribute="trailing" constant="18" id="XEC-bW-jUc"/>
+                    <constraint firstItem="0aQ-1z-yXs" firstAttribute="centerY" secondItem="PzN-sF-oBX" secondAttribute="centerY" id="Yff-sl-KCR"/>
+                    <constraint firstItem="znf-d4-Oku" firstAttribute="top" secondItem="Zgj-Nc-MMK" secondAttribute="bottom" id="a9T-jj-A2T"/>
+                    <constraint firstItem="eNW-7q-BXU" firstAttribute="width" secondItem="PzN-sF-oBX" secondAttribute="width" id="aKq-8u-E8i"/>
+                    <constraint firstItem="PzN-sF-oBX" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="28" id="cyB-7d-8CT"/>
+                    <constraint firstItem="znf-d4-Oku" firstAttribute="centerY" secondItem="PzN-sF-oBX" secondAttribute="centerY" id="hHo-oK-EMr"/>
+                    <constraint firstAttribute="trailing" secondItem="Zgj-Nc-MMK" secondAttribute="trailing" constant="18" id="i0F-bo-HbM"/>
+                    <constraint firstItem="lAT-WW-2Ae" firstAttribute="leading" secondItem="PzN-sF-oBX" secondAttribute="trailing" constant="18" id="lCt-7V-srx"/>
+                    <constraint firstItem="eNW-7q-BXU" firstAttribute="centerX" secondItem="PzN-sF-oBX" secondAttribute="centerX" id="qfI-2I-oNk"/>
+                    <constraint firstItem="PzN-sF-oBX" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="18" id="vfE-bh-8Si"/>
+                </constraints>
+            </tableViewCellContentView>
+            <color key="backgroundColor" red="0.13350695369999999" green="0.13364198799999999" blue="0.13352787490000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="artistArtActivityIndicator" destination="0aQ-1z-yXs" id="JKd-Hy-BIy"/>
+                <outlet property="artistArtImageView" destination="PzN-sF-oBX" id="KyS-tv-sD6"/>
+                <outlet property="artistArtLoadingShadowView" destination="eNW-7q-BXU" id="J6s-cf-C64"/>
+                <outlet property="artistListenPercentageLabel" destination="lAT-WW-2Ae" id="RPC-Ry-hFi"/>
+                <outlet property="artistNameLabel" destination="Zgj-Nc-MMK" id="baO-0F-FS5"/>
+            </connections>
+        </tableViewCell>
+    </objects>
+</document>

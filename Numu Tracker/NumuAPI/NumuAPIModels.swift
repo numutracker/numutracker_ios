@@ -38,7 +38,7 @@ struct Artist: Codable {
     let disambiguation: String?
 
     let dateUpdated: Date?
-    let recentReleaseDate: Date? // TODO: This should probably be returned by API always if possible.
+    //let recentReleaseDate: Date? // TODO: This should probably be returned by API always if possible.
 
     let art: ArtUrls?
 
@@ -48,8 +48,8 @@ struct Artist: Codable {
 struct ArtistUserData: Codable {
     let uuid: UUID
     var following: Bool
-    let listenedReleases: Int
-    let totalReleases: Int
+    //let listenedReleases: Int
+    //let totalReleases: Int
     let dateFollowed: Date
     let dateUpdated: Date
 }

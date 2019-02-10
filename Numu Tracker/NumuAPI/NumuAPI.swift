@@ -74,6 +74,19 @@ class NumuAPI {
             let result = self.processResponse(response: response)
             completion(result)
         }
+    }
+
+    public func getArtists(offset: Int, withCompletion completion: @escaping (NumuAPIResult?) -> Void) {
+        guard let resourceUrl = URL(string: urlPrefix + "/user/artists" + "/\(offset)") else { return }
+        print(resourceUrl)
+        self.getResponse(url: resourceUrl) { (response) in
+            guard let response = response else {
+                completion(nil)
+                return
+            }
+            let result = self.processResponse(response: response)
+            completion(result)
+        }
 
     }
 }
