@@ -10,7 +10,7 @@ import UIKit
 
 class ListenAMTableViewCell: UITableViewCell {
 
-    var releaseData: ReleaseItem?
+    var release: Release?
     var itunesUrl: String?
 
     @IBOutlet weak var listenButtonOutlet: NumuModalButton!
@@ -22,8 +22,8 @@ class ListenAMTableViewCell: UITableViewCell {
     @IBOutlet weak var listenButtonLabel: UILabel!
     @IBOutlet weak var listenButtonIcon: UIImageView!
 
-    func configure(release: ReleaseItem) {
-        self.releaseData = release
+    func configure(release: Release) {
+        self.release = release
         self.listenButtonOutlet.isEnabled = false
         self.listenButtonLabel.textColor = UIColor.init(white: 1, alpha: 0.1)
         self.listenButtonIcon.image = self.listenButtonIcon.image?.withRenderingMode(.alwaysTemplate)
@@ -31,9 +31,9 @@ class ListenAMTableViewCell: UITableViewCell {
         self.getItunesLink()
     }
 
-    func getItunesLink() {
-        let artist = self.releaseData?.artistName
-        let album = self.releaseData?.albumName
+    func getItunesLink() { /*
+        let artist = self.release?.artistNames
+        let album = self.release?.title
         DispatchQueue.global(qos: .background).async(execute: {
             NumuClient.shared.getAppleMusicLink(artist: artist, album: album) { link in
                 DispatchQueue.main.async(execute: {
@@ -44,6 +44,6 @@ class ListenAMTableViewCell: UITableViewCell {
                 })
             }
         })
-    }
+    */}
 
 }

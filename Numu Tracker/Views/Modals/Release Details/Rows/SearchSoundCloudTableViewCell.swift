@@ -14,7 +14,7 @@ class SearchSoundCloudTableViewCell: UITableViewCell {
     @IBOutlet weak var cellIcon: UIImageView!
     @IBOutlet weak var cellButton: NumuModalButton!
 
-    var releaseData: ReleaseItem?
+    var release: Release?
     var searchUrl: String?
 
     @IBAction func searchSoundCloud(_ sender: Any) {
@@ -23,8 +23,8 @@ class SearchSoundCloudTableViewCell: UITableViewCell {
         }
     }
 
-    func configure(release: ReleaseItem) {
-        self.releaseData = release
+    func configure(release: Release) {
+        self.release = release
         self.cellButton.isEnabled = false
         self.cellLabel.textColor = UIColor.init(white: 1, alpha: 0.1)
         self.cellIcon.image = self.cellIcon.image?.withRenderingMode(.alwaysTemplate)
@@ -33,8 +33,8 @@ class SearchSoundCloudTableViewCell: UITableViewCell {
     }
 
     func makeSearchURL() {
-        if let artist = self.releaseData?.artistName,
-            let album = self.releaseData?.albumName {
+        if let artist = self.release?.artistNames,
+            let album = self.release?.title {
             if let query = "\(artist) \(album)".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) {
                 self.searchUrl = "https://soundcloud.com/search?q=\(query)"
                 self.cellButton.isEnabled = true
