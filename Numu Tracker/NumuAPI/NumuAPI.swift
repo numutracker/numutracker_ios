@@ -64,7 +64,10 @@ class NumuAPI {
     }
 
     public func getReleases(type: ReleaseType, offset: Int, withCompletion completion: @escaping (NumuAPIResult?) -> Void) {
-        guard let resourceUrl = URL(string: urlPrefix + type.rawValue + "/\(offset)") else { return }
+        guard let resourceUrl = URL(string: urlPrefix + type.rawValue + "/\(offset)") else {
+            completion(nil)
+            return
+        }
         print(resourceUrl)
         self.getResponse(url: resourceUrl) { response in
             guard let response = response else {
@@ -76,8 +79,12 @@ class NumuAPI {
         }
     }
 
-    public func getArtists(offset: Int, withCompletion completion: @escaping (NumuAPIResult?) -> Void) {
-        guard let resourceUrl = URL(string: urlPrefix + "/user/artists" + "/\(offset)") else { return }
+    public func getReleases(forArtist artist: Artist, offset: Int, withCompletion completion: @escaping (NumuAPIResult?) -> Void) {
+        let urlString = urlPrefix + "/user/artist/" + artist.mbid.uuidString.lowercased() + "/releases/\(offset)"
+        guard let resourceUrl = URL(string: urlString) else {
+            completion(nil)
+            return
+        }
         print(resourceUrl)
         self.getResponse(url: resourceUrl) { (response) in
             guard let response = response else {
@@ -87,6 +94,22 @@ class NumuAPI {
             let result = self.processResponse(response: response)
             completion(result)
         }
-
     }
+
+    public func getArtists(offset: Int, withCompletion completion: @escaping (NumuAPIResult?) -> Void) {
+        guard let resourceUrl = URL(string: urlPrefix + "/user/artists" + "/\(offset)") else {
+            completion(nil)
+            return
+        }
+        print(resourceUrl)
+        self.getResponse(url: resourceUrl) { (response) in
+            guard let response = response else {
+                completion(nil)
+                return
+            }
+            let result = self.processResponse(response: response)
+            completion(result)
+        }
+    }
+
 }

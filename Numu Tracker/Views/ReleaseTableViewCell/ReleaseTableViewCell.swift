@@ -27,10 +27,6 @@ class ReleaseTableViewCell: UITableViewCell {
         super.awakeFromNib()
     }
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-    }
-
     fileprivate func updateListenMarkerView() {
         if let userData = self.release?.userData, userData.listened == true {
             self.releaseListenMarkerView.isHidden = true
@@ -53,19 +49,8 @@ class ReleaseTableViewCell: UITableViewCell {
 
         self.updateListenMarkerView()
 
-        var artUrl = URL(string: "https://www.numutracker.com/nonly3-1024.png")
-        if let releaseArt = self.release?.art {
-            artUrl = releaseArt.fullUrl
-        } else {
-            for artist in self.release!.artists {
-                if let artistArt = artist.art {
-                    artUrl = artistArt.fullUrl
-                }
-            }
-        }
-
         self.releaseArtImageView.kf.setImage(
-            with: artUrl,
+            with: self.release?.primaryArtUrl,
             options: [.transition(.fade(0.2))])
 
     }
@@ -84,6 +69,11 @@ class ReleaseTableViewCell: UITableViewCell {
         releaseListenMarkerView.layer.shadowOffset = .zero
         releaseListenMarkerView.layer.shadowRadius = 4
         releaseListenMarkerView.layer.shouldRasterize = true
+
+        self.selectionStyle = .default
+        let bgColorView = UIView()
+        bgColorView.backgroundColor = UIColor(red: 0.17, green: 0.17, blue: 0.17, alpha: 1.0)
+        self.selectedBackgroundView = bgColorView
     }
 
     public func getEditActions() -> [UITableViewRowAction] {
@@ -98,6 +88,24 @@ class ReleaseTableViewCell: UITableViewCell {
         addOrRemoveAction.backgroundColor = .lightBackground
 
         return [listenedActon, addOrRemoveAction]
+    }
+
+    override func setSelected(_ selected: Bool, animated: Bool) {
+        let bgColor = releaseListenMarkerView.backgroundColor
+        super.setSelected(selected, animated: animated)
+
+        if selected {
+            releaseListenMarkerView.backgroundColor = bgColor
+        }
+    }
+
+    override func setHighlighted(_ highlighted: Bool, animated: Bool) {
+        let bgColor = releaseListenMarkerView.backgroundColor
+        super.setHighlighted(highlighted, animated: animated)
+
+        if highlighted {
+            releaseListenMarkerView.backgroundColor = bgColor
+        }
     }
 
 }

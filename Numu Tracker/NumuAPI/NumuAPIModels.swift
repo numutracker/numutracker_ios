@@ -42,6 +42,14 @@ struct Artist: Codable {
 
     let art: ArtUrls?
 
+    var primaryArtUrl: URL {
+        var artUrl = URL(string: "https://www.numutracker.com/nonly3-1024.png")
+        if let artistArt = self.art {
+            artUrl = artistArt.fullUrl
+        }
+        return artUrl!
+    }
+
     let userData: ArtistUserData?
 }
 
@@ -64,6 +72,20 @@ struct Release: Codable {
     let dateUpdated: Date
 
     let art: ArtUrls?
+    var primaryArtUrl: URL {
+        var artUrl = URL(string: "https://www.numutracker.com/nonly3-1024.png")
+        if let releaseArt = self.art {
+            artUrl = releaseArt.fullUrl
+        } else {
+            for artist in self.artists {
+                if let artistArt = artist.art {
+                    artUrl = artistArt.fullUrl
+                }
+            }
+        }
+        return artUrl!
+    }
+
     let artists: [Artist]
 
     var userData: ReleaseUserData?

@@ -75,4 +75,22 @@ class UserReleasesTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         return true
     }
+
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let releaseDetails = ReleaseDetailsViewController()
+        let cellPosition = tableView.convert(tableView.rectForRow(at: indexPath), to: tableView.superview)
+        releaseDetails.animationDirection = cellPosition.midY
+        releaseDetails.providesPresentationContextTransitionStyle = true
+        releaseDetails.definesPresentationContext = true
+        releaseDetails.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
+        releaseDetails.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
+
+        if let appDelegate = UIApplication.shared.delegate,
+            let appWindow = appDelegate.window!,
+            let rootViewController = appWindow.rootViewController {
+            rootViewController.present(releaseDetails, animated: true, completion: nil)
+            releaseDetails.configure(release: self.releaseEngine.releases[indexPath.row], presentingArtist: nil)
+            self.tableView.deselectRow(at: indexPath, animated: true)
+        }
+    }
 }

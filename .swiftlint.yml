@@ -35,4 +35,5 @@ identifier_name:
     - art
     - URL
     - GlobalAPIKey
+    - app
 reporter: "xcode"

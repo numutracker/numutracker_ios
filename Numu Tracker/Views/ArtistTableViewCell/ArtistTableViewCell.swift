@@ -55,12 +55,7 @@ class ArtistTableViewCell: UITableViewCell {
         self.artistRecentReleaseLabel.text = recentReleaseDate
         self.artistListenPercentageLabel.text = "\(Int(percentage))% Listened"
 
-        var artUrl = URL(string: "https://www.numutracker.com/nonly3-1024.png")
-        if let artistArt = self.artist?.art {
-            artUrl = artistArt.fullUrl
-        }
-
-        self.artistArtImageView.kf.setImage(with: artUrl, options: [.transition(.fade(0.2))])
+        self.artistArtImageView.kf.setImage(with: self.artist?.primaryArtUrl, options: [.transition(.fade(0.2))])
     }
 
     fileprivate func setupViewElements() {

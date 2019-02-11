@@ -9,6 +9,9 @@
 import UIKit
 import CoreData
 import PushNotifications
+import SpotifyLogin
+
+let defaults = UserDefaults.standard
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -25,10 +28,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // try? self.pushNotifications.subscribe(interest: "debug-hello")
 
         // Override point for customization after application launch.
+        let redirectURL: URL = URL(string: "numu://")!
+        SpotifyLogin.shared.configure(clientID: "SPOTIFY_CLIENT_ID", clientSecret: "SPOTIFY_CLIENT_SECRET", redirectURL: redirectURL)
 
         NumuAPICredential.shared.storeCredential(username: "test@test.com", password: "TestingP@ssword")
 
         return true
+    }
+
+    func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey: Any] = [:]) -> Bool {
+        let handled = SpotifyLogin.shared.applicationOpenURL(url) { (_) in }
+        return handled
     }
 
     func applicationWillResignActive(_ application: UIApplication) {
