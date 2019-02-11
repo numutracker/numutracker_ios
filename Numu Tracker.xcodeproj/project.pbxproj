@@ -270,8 +270,8 @@
 		B47733922210DF50005D2EAE /* Release Details */ = {
 			isa = PBXGroup;
 			children = (
-				B47733932210DF50005D2EAE /* ReleaseDetailsViewController.xib */,
 				B47733942210DF50005D2EAE /* Rows */,
+				B47733932210DF50005D2EAE /* ReleaseDetailsViewController.xib */,
 				B47733A02210DF50005D2EAE /* ReleaseDetailsViewController.swift */,
 			);
 			path = "Release Details";
@@ -295,15 +295,31 @@
 			path = Rows;
 			sourceTree = "<group>";
 		};
+		B47733B22210F6D1005D2EAE /* ReleaseViews */ = {
+			isa = PBXGroup;
+			children = (
+				B4E8F25E220F624B00BDEA30 /* ReleaseTableViewCell */,
+				B47733362210C364005D2EAE /* ArtistReleasesTableViewController.swift */,
+				B4E8F25F220F650900BDEA30 /* UserReleasesTableViewController.swift */,
+			);
+			path = ReleaseViews;
+			sourceTree = "<group>";
+		};
+		B47733B32210F6E3005D2EAE /* ArtistViews */ = {
+			isa = PBXGroup;
+			children = (
+				B4E8F263220FBCCC00BDEA30 /* ArtistTableViewCell */,
+				B4E8F269220FC0E900BDEA30 /* UserArtistsTableViewController.swift */,
+			);
+			path = ArtistViews;
+			sourceTree = "<group>";
+		};
 		B4E8F259220F5B3000BDEA30 /* Views */ = {
 			isa = PBXGroup;
 			children = (
 				B477338B2210DF50005D2EAE /* Modals */,
-				B4E8F25E220F624B00BDEA30 /* ReleaseTableViewCell */,
-				B4E8F263220FBCCC00BDEA30 /* ArtistTableViewCell */,
-				B47733362210C364005D2EAE /* ArtistReleasesTableViewController.swift */,
-				B4E8F25F220F650900BDEA30 /* UserReleasesTableViewController.swift */,
-				B4E8F269220FC0E900BDEA30 /* UserArtistsTableViewController.swift */,
+				B47733B22210F6D1005D2EAE /* ReleaseViews */,
+				B47733B32210F6E3005D2EAE /* ArtistViews */,
 				446B5DCC220A5F6800948BCB /* Main.storyboard */,
 				446B5DD4220A5F6800948BCB /* LaunchScreen.storyboard */,
 			);

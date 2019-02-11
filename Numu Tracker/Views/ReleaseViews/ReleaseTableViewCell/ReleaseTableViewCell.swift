@@ -82,7 +82,7 @@ class ReleaseTableViewCell: UITableViewCell {
         }
         listenedActon.backgroundColor = .background
 
-        let addOrRemoveAction = UITableViewRowAction(style: .normal, title: "Remove from Library") { (_, index) in
+        let addOrRemoveAction = UITableViewRowAction(style: .normal, title: "Remove") { (_, index) in
             print(self.release?.title)
         }
         addOrRemoveAction.backgroundColor = .lightBackground
