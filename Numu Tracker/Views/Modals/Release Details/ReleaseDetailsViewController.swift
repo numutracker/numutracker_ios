@@ -10,9 +10,10 @@ import UIKit
 
 class ReleaseDetailsViewController: UIViewController, UITableViewDataSource {
 
-    var releaseData: ReleaseItem?
+    var release: Release?
+    var artist: Artist?
     var animationDirection: CGFloat = 50.00
-    var options: [String] = []
+    var options: [[String: Any]] = []
 
     @IBOutlet weak var releaseMetaLabel: UILabel!
     @IBOutlet weak var releaseNameLabel: UILabel!
@@ -28,7 +29,6 @@ class ReleaseDetailsViewController: UIViewController, UITableViewDataSource {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.buildOptions()
         self.releaseOptionsTableView.rowHeight = 54
         self.releaseOptionsTableView.register(
             UINib(nibName: "ListenAMTableViewCell", bundle: nil),
@@ -46,8 +46,8 @@ class ReleaseDetailsViewController: UIViewController, UITableViewDataSource {
             UINib(nibName: "SearchYouTubeTableViewCell", bundle: nil),
             forCellReuseIdentifier: "searchYouTubeCell")
         self.releaseOptionsTableView.dataSource = self
-        let tap = UITapGestureRecognizer(target: self, action: #selector(ReleaseDetailsViewController.dismissView))
-        self.tapRecognizerView.addGestureRecognizer(tap)
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(ReleaseDetailsViewController.dismissView))
+        self.tapRecognizerView.addGestureRecognizer(tapGestureRecognizer)
     }
 
     override func viewWillLayoutSubviews() {
@@ -68,40 +68,43 @@ class ReleaseDetailsViewController: UIViewController, UITableViewDataSource {
         self.dismiss(animated: true, completion: nil)
     }
 
-    func configure(release: ReleaseItem) {
-        self.releaseData = release
+    func configure(release: Release, presentingArtist artist: Artist?) {
+        self.release = release
+        self.artist = artist
+        self.buildOptions()
 
         self.albumArtImageView.kf.setImage(
-            with: release.thumbUrl,
+            with: release.primaryArtUrl,
             options: [.transition(.fade(0.2))])
 
-        self.releaseNameLabel.text = release.albumName
-        self.artistNameLabel.text = release.artistName
-        self.releaseMetaLabel.text = release.releaseType + " • " + release.releaseDate
+        self.releaseNameLabel.text = release.title
+        self.artistNameLabel.text = release.artistNames
+        self.releaseMetaLabel.text = release.type + " • " // + release.dateRelease
     }
 
     func buildOptions() {
         if !defaults.disabledAppleMusic {
-            self.options.append("apple-music")
+            self.options.append(["option": "apple-music"])
         }
 
         if defaults.enabledSpotify {
-            self.options.append("spotify")
+            self.options.append(["option": "spotify"])
         }
 
         if defaults.enabledSoundCloud {
-            self.options.append("soundcloud")
+            self.options.append(["option": "soundcloud"])
         }
 
         if defaults.enabledYouTube {
-            self.options.append("youtube")
+            self.options.append(["option": "youtube"])
         }
 
-        if let tabBar = self.presentingViewController as? UITabBarController,
-            let window = tabBar.selectedViewController as? UINavigationController,
-            let viewController = window.visibleViewController {
-            if !(viewController is ArtistReleasesTableViewController) {
-                self.options.append("more-releases")
+        guard let artists = self.release?.artists else { return }
+        for artist in artists {
+            if let currentArtistUnwrapped = self.artist, currentArtistUnwrapped.name == artist.name {
+                // Do nothing...
+            } else {
+                self.options.append(["option": "more-releases", "artist": artist])
             }
         }
 
@@ -167,12 +170,13 @@ class ReleaseDetailsViewController: UIViewController, UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        switch self.options[indexPath.row] {
+        var optionName = self.options[indexPath.row]["option"] as! String
+        switch optionName {
         case "apple-music":
             if let cell = tableView.dequeueReusableCell(
                      withIdentifier: "listenAMCell",
                      for: indexPath) as? ListenAMTableViewCell {
-                cell.configure(release: self.releaseData!)
+                cell.configure(release: self.release!)
                 return cell
             }
 
@@ -181,7 +185,7 @@ class ReleaseDetailsViewController: UIViewController, UITableViewDataSource {
                     withIdentifier: "moreReleasesCell",
                     for: indexPath) as? MoreReleasesTableViewCell {
                 cell.moreReleasesDelegate = self
-                cell.configure(release: self.releaseData!)
+                cell.configure(artist: self.options[indexPath.row]["artist"] as! Artist)
                 return cell
             }
 
@@ -189,7 +193,7 @@ class ReleaseDetailsViewController: UIViewController, UITableViewDataSource {
             if let cell = tableView.dequeueReusableCell(
                     withIdentifier: "listenSpotifyCell",
                     for: indexPath) as? ListenSpotifyTableViewCell {
-                cell.configure(release: self.releaseData!)
+                cell.configure(release: self.release!)
                 return cell
             }
 
@@ -197,14 +201,14 @@ class ReleaseDetailsViewController: UIViewController, UITableViewDataSource {
             if let cell = tableView.dequeueReusableCell(
                     withIdentifier: "searchYouTubeCell",
                     for: indexPath) as? SearchYouTubeTableViewCell {
-                cell.configure(release: self.releaseData!)
+                cell.configure(release: self.release!)
                 return cell
             }
         case "soundcloud":
             if let cell = tableView.dequeueReusableCell(
                     withIdentifier: "searchSoundCloudCell",
                     for: indexPath) as? SearchSoundCloudTableViewCell {
-                cell.configure(release: self.releaseData!)
+                cell.configure(release: self.release!)
                 return cell
             }
         default:
@@ -216,11 +220,12 @@ class ReleaseDetailsViewController: UIViewController, UITableViewDataSource {
 }
 
 extension ReleaseDetailsViewController: MoreReleasesDelegate {
-    func showMoreReleases(artistId: String) {
+    func showMoreReleases(artist: Artist) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        if let releasesView = storyboard.instantiateViewController(
-                withIdentifier: "artistReleasesController") as? ArtistReleasesTableViewController {
-            releasesView.artistId = artistId
+        guard let releasesView = storyboard.instantiateViewController(
+            withIdentifier: "artistReleasesTableViewControler") as? ArtistReleasesTableViewController else { return }
+
+            releasesView.artist = artist
 
             self.presentingViewController?.navigationController?.pushViewController(releasesView, animated: true)
 
@@ -230,5 +235,4 @@ extension ReleaseDetailsViewController: MoreReleasesDelegate {
             }
             self.dismiss(animated: false, completion: nil)
         }
-    }
 }

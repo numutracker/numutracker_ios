@@ -9,28 +9,27 @@
 import UIKit
 
 protocol MoreReleasesDelegate {
-    func showMoreReleases(artistId: String)
+    func showMoreReleases(artist: Artist)
 }
 
 class MoreReleasesTableViewCell: UITableViewCell {
-
     var moreReleasesDelegate: MoreReleasesDelegate!
 
-    var releaseData: ReleaseItem?
+    var artist: Artist?
 
     @IBOutlet weak var cellLabel: UILabel!
     @IBOutlet weak var cellIcon: UIImageView!
     @IBOutlet weak var buttonOutlet: NumuModalButton!
     @IBAction func buttonAction(_ sender: Any) {
-        if let artistId = self.releaseData?.artistId {
-            moreReleasesDelegate.showMoreReleases(artistId: artistId)
+        if let artist = self.artist {
+            moreReleasesDelegate.showMoreReleases(artist: artist)
         }
     }
 
-    func configure(release: ReleaseItem) {
-        self.releaseData = release
+    func configure(artist: Artist) {
+        self.artist = artist
         self.cellLabel.textColor = .white
-        if let artistName = self.releaseData?.artistName {
+        if let artistName = self.artist?.name {
             self.cellLabel.text = "More releases by \(artistName)"
         }
         self.cellIcon.image = self.cellIcon.image?.withRenderingMode(.alwaysTemplate)
@@ -47,5 +46,4 @@ class MoreReleasesTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-
 }

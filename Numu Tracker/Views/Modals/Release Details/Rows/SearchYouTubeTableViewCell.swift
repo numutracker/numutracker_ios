@@ -20,11 +20,11 @@ class SearchYouTubeTableViewCell: UITableViewCell {
         }
     }
 
-    var releaseData: ReleaseItem?
+    var release: Release?
     var searchUrl: String?
 
-    func configure(release: ReleaseItem) {
-        self.releaseData = release
+    func configure(release: Release) {
+        self.release = release
         self.cellButton.isEnabled = false
         self.cellLabel.textColor = UIColor.init(white: 1, alpha: 0.1)
         self.cellImage.image = self.cellImage.image?.withRenderingMode(.alwaysTemplate)
@@ -33,8 +33,8 @@ class SearchYouTubeTableViewCell: UITableViewCell {
     }
 
     func makeSearchURL() {
-        if let artist = self.releaseData?.artistName,
-            let album = self.releaseData?.albumName {
+        if let artist = self.release?.artistNames,
+            let album = self.release?.title {
             if let query = "\(artist) \(album)".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) {
                 self.searchUrl = "https://www.youtube.com/results?search_query=\(query)"
                 self.cellButton.isEnabled = true

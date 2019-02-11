@@ -12,7 +12,7 @@ import SpotifyLogin
 
 class ListenSpotifyTableViewCell: UITableViewCell {
 
-    var releaseData: ReleaseItem?
+    var release: Release?
     var spotifyUrl: String?
 
     @IBOutlet weak var spotifyIcon: UIImageView!
@@ -25,8 +25,8 @@ class ListenSpotifyTableViewCell: UITableViewCell {
         }
     }
 
-    func configure(release: ReleaseItem) {
-        self.releaseData = release
+    func configure(release: Release) {
+        self.release = release
         self.spotifyButton.isEnabled = false
         self.spotifyLabel.textColor = UIColor.init(white: 1, alpha: 0.1)
         self.spotifyIcon.image = self.spotifyIcon.image?.withRenderingMode(.alwaysTemplate)
@@ -35,8 +35,8 @@ class ListenSpotifyTableViewCell: UITableViewCell {
     }
 
     func getSpotifyLink() {
-        if let artist = self.releaseData?.artistName,
-            let album = self.releaseData?.albumName {
+        if let artist = self.release?.artistNames,
+            let album = self.release?.title {
 
             let query = "\(artist) \(album)"
             print(query)
