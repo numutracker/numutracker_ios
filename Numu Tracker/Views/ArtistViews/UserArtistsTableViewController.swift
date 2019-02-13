@@ -12,6 +12,9 @@ class UserArtistsTableViewController: UITableViewController {
 
     var artistEngine: NumuAPIArtists = NumuAPIArtists()
 
+    @IBAction func refresh(_ sender: UIRefreshControl) {
+        print("Refreshed")
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
 

@@ -13,6 +13,10 @@ class ArtistReleasesTableViewController: UITableViewController {
     private var releaseEngine: NumuAPIArtistReleases?
     var artist: Artist?
 
+    @IBAction func refresh(_ sender: UIRefreshControl) {
+        print("Refreshed")
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
