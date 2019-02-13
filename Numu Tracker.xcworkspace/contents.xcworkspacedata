@@ -2,6 +2,18 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:Numu Tracker/CDRelease+CoreDataClass.swift">
+   </FileRef>
+   <FileRef
+      location = "group:Numu Tracker/CDRelease+CoreDataProperties.swift">
+   </FileRef>
+   <FileRef
+      location = "group:Numu Tracker/CDArtist+CoreDataClass.swift">
+   </FileRef>
+   <FileRef
+      location = "group:Numu Tracker/CDArtist+CoreDataProperties.swift">
+   </FileRef>
+   <FileRef
       location = "group:Numu Tracker.xcodeproj">
    </FileRef>
    <FileRef
