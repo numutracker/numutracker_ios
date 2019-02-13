@@ -12,6 +12,11 @@ class UserReleasesTableViewController: UITableViewController {
 
     var releaseEngine: NumuAPIReleases = NumuAPIReleases(releaseType: .unlistened)
 
+    @IBAction func refresh(_ sender: UIRefreshControl) {
+        print("Refreshed")
+    }
+
+
     @IBAction func releaseTypeChanged(_ sender: UISegmentedControl) {
         self.changeDataSource(segmentIndex: sender.selectedSegmentIndex)
     }
