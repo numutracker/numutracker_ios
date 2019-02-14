@@ -9,7 +9,7 @@
 import Foundation
 
 class NumuAPIReleases {
-    public var releases: [Release] = []
+    public var releases: [NumuAPIRelease] = []
     private var lastResult: NumuAPIResult?
     public var releaseType: ReleaseType
 

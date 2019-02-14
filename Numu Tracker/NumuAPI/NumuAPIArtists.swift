@@ -9,7 +9,7 @@
 import Foundation
 
 class NumuAPIArtists {
-    public var artists: [Artist] = []
+    public var artists: [NumuAPIArtist] = []
     private var lastResult: NumuAPIResult?
 
     public func reset() {

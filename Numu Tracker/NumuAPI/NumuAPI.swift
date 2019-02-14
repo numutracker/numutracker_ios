@@ -79,7 +79,7 @@ class NumuAPI {
         }
     }
 
-    public func getReleases(forArtist artist: Artist, offset: Int, withCompletion completion: @escaping (NumuAPIResult?) -> Void) {
+    public func getReleases(forArtist artist: NumuAPIArtist, offset: Int, withCompletion completion: @escaping (NumuAPIResult?) -> Void) {
         let urlString = urlPrefix + "/user/artist/" + artist.mbid.uuidString.lowercased() + "/releases/\(offset)"
         guard let resourceUrl = URL(string: urlString) else {
             completion(nil)

@@ -10,7 +10,7 @@ import UIKit
 
 class ArtistTableViewCell: UITableViewCell {
 
-    var artist: Artist? {
+    var artist: NumuAPIArtist? {
         didSet {
             self.setupCell()
         }

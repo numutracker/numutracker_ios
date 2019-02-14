@@ -9,11 +9,11 @@
 import Foundation
 
 class NumuAPIArtistReleases {
-    public var releases: [Release] = []
+    public var releases: [NumuAPIRelease] = []
     private var lastResult: NumuAPIResult?
-    private var artist: Artist
+    private var artist: NumuAPIArtist
 
-    init(artist: Artist) {
+    init(artist: NumuAPIArtist) {
         self.artist = artist
     }
 
