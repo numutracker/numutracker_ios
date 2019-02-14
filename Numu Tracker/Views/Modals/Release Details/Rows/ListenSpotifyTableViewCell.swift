@@ -12,7 +12,7 @@ import SpotifyLogin
 
 class ListenSpotifyTableViewCell: UITableViewCell {
 
-    var release: Release?
+    var release: NumuAPIRelease?
     var spotifyUrl: String?
 
     @IBOutlet weak var spotifyIcon: UIImageView!
@@ -25,7 +25,7 @@ class ListenSpotifyTableViewCell: UITableViewCell {
         }
     }
 
-    func configure(release: Release) {
+    func configure(release: NumuAPIRelease) {
         self.release = release
         self.spotifyButton.isEnabled = false
         self.spotifyLabel.textColor = UIColor.init(white: 1, alpha: 0.1)

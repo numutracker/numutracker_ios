@@ -78,12 +78,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     // MARK: - Core Data stack
 
     lazy var persistentContainer: NSPersistentContainer = {
-        /*
-         The persistent container for the application. This implementation
-         creates and returns a container, having loaded the store for the
-         application to it. This property is optional since there are legitimate
-         error conditions that could cause the creation of the store to fail.
-        */
         let container = NSPersistentContainer(name: "Numu_Tracker")
         container.loadPersistentStores(completionHandler: { (_, error) in
             if let error = error as NSError? {
@@ -103,6 +97,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         })
         return container
     }()
+
+    static var persistentContainer: NSPersistentContainer {
+        return (UIApplication.shared.delegate as! AppDelegate).persistentContainer
+    }
+
+    static var viewContext: NSManagedObjectContext {
+        return persistentContainer.viewContext
+    }
 
     // MARK: - Core Data Saving support
 

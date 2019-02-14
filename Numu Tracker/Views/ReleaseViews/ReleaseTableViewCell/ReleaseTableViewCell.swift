@@ -10,7 +10,7 @@ import UIKit
 import Kingfisher
 
 class ReleaseTableViewCell: UITableViewCell {
-    var release: Release? {
+    var release: NumuAPIRelease? {
         didSet {
             self.setupCell()
         }

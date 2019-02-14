@@ -21,17 +21,17 @@ struct NumuAPIResult: Codable {
 
     let message: String?
 
-    let userArtists: [Artist]?
-    let userReleases: [Release]?
+    let userArtists: [NumuAPIArtist]?
+    let userReleases: [NumuAPIRelease]?
 }
 
-struct ArtUrls: Codable {
+struct NumuAPIArtUrls: Codable {
     let thumbUrl: URL
     let fullUrl: URL
     let largeUrl: URL
 }
 
-struct Artist: Codable {
+struct NumuAPIArtist: Codable {
     let mbid: UUID
     let name: String
     let sortName: String
@@ -40,7 +40,7 @@ struct Artist: Codable {
     let dateUpdated: Date?
     let recentReleaseDate: Date? // TODO: This should probably be returned by API always if possible.
 
-    let art: ArtUrls?
+    let art: NumuAPIArtUrls?
 
     var primaryArtUrl: URL {
         var artUrl = URL(string: "https://www.numutracker.com/nonly3-1024.png")
@@ -50,10 +50,10 @@ struct Artist: Codable {
         return artUrl!
     }
 
-    let userData: ArtistUserData?
+    let userData: NumuAPIArtistUserData?
 }
 
-struct ArtistUserData: Codable {
+struct NumuAPIArtistUserData: Codable {
     let uuid: UUID
     var following: Bool
     let listenedReleases: Float
@@ -62,7 +62,7 @@ struct ArtistUserData: Codable {
     let dateUpdated: Date
 }
 
-struct Release: Codable {
+struct NumuAPIRelease: Codable {
     let mbid: UUID
     let title: String
     let artistNames: String
@@ -71,7 +71,7 @@ struct Release: Codable {
     let dateRelease: Date
     let dateUpdated: Date
 
-    let art: ArtUrls?
+    let art: NumuAPIArtUrls?
     var primaryArtUrl: URL {
         var artUrl = URL(string: "https://www.numutracker.com/nonly3-1024.png")
         if let releaseArt = self.art {
@@ -86,12 +86,12 @@ struct Release: Codable {
         return artUrl!
     }
 
-    let artists: [Artist]
+    let artists: [NumuAPIArtist]
 
-    var userData: ReleaseUserData?
+    var userData: NumuAPIReleaseUserData?
 }
 
-struct ReleaseUserData: Codable {
+struct NumuAPIReleaseUserData: Codable {
     let uuid: UUID
     let dateFollowed: Date
     let dateListened: Date?
@@ -99,5 +99,5 @@ struct ReleaseUserData: Codable {
     var listened: Bool
     let following: Bool
 
-    let userArtists: Artist?
+    let userArtists: NumuAPIArtist?
 }

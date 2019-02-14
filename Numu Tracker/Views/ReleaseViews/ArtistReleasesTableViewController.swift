@@ -11,7 +11,7 @@ import UIKit
 class ArtistReleasesTableViewController: UITableViewController {
 
     private var releaseEngine: NumuAPIArtistReleases?
-    var artist: Artist?
+    var artist: NumuAPIArtist?
 
     @IBAction func refresh(_ sender: UIRefreshControl) {
         print("Refreshed")

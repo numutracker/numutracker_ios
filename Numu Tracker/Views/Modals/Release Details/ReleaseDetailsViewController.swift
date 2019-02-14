@@ -10,8 +10,8 @@ import UIKit
 
 class ReleaseDetailsViewController: UIViewController, UITableViewDataSource {
 
-    var release: Release?
-    var artist: Artist?
+    var release: NumuAPIRelease?
+    var artist: NumuAPIArtist?
     var animationDirection: CGFloat = 50.00
     var options: [[String: Any]] = []
 
@@ -68,7 +68,7 @@ class ReleaseDetailsViewController: UIViewController, UITableViewDataSource {
         self.dismiss(animated: true, completion: nil)
     }
 
-    func configure(release: Release, presentingArtist artist: Artist?) {
+    func configure(release: NumuAPIRelease, presentingArtist artist: NumuAPIArtist?) {
         self.release = release
         self.artist = artist
         self.buildOptions()
@@ -185,7 +185,7 @@ class ReleaseDetailsViewController: UIViewController, UITableViewDataSource {
                     withIdentifier: "moreReleasesCell",
                     for: indexPath) as? MoreReleasesTableViewCell {
                 cell.moreReleasesDelegate = self
-                cell.configure(artist: self.options[indexPath.row]["artist"] as! Artist)
+                cell.configure(artist: self.options[indexPath.row]["artist"] as! NumuAPIArtist)
                 return cell
             }
 
@@ -220,7 +220,7 @@ class ReleaseDetailsViewController: UIViewController, UITableViewDataSource {
 }
 
 extension ReleaseDetailsViewController: MoreReleasesDelegate {
-    func showMoreReleases(artist: Artist) {
+    func showMoreReleases(artist: NumuAPIArtist) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         guard let releasesView = storyboard.instantiateViewController(
             withIdentifier: "artistReleasesTableViewControler") as? ArtistReleasesTableViewController else { return }
