@@ -60,6 +60,9 @@
 		B4F20DC02219065800B24244 /* APIRelease.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4F20DBF2219065800B24244 /* APIRelease.swift */; };
 		B4F20DC22219067100B24244 /* APIArtist.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4F20DC12219067100B24244 /* APIArtist.swift */; };
 		B4F20DC42219067C00B24244 /* APIUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4F20DC32219067C00B24244 /* APIUser.swift */; };
+		B4F20DD022190F6E00B24244 /* ReleaseDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4F20DCF22190F6E00B24244 /* ReleaseDataStore.swift */; };
+		B4F20DD222190F7A00B24244 /* ArtistDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4F20DD122190F7A00B24244 /* ArtistDataStore.swift */; };
+		B4F20DD422190F8C00B24244 /* UserDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4F20DD322190F8C00B24244 /* UserDataStore.swift */; };
 		CF625BB6FB626EB1E645F233 /* Pods_Numu_TrackerUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5382359D098D262B4A0189C0 /* Pods_Numu_TrackerUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -144,6 +147,9 @@
 		B4F20DBF2219065800B24244 /* APIRelease.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRelease.swift; sourceTree = "<group>"; };
 		B4F20DC12219067100B24244 /* APIArtist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIArtist.swift; sourceTree = "<group>"; };
 		B4F20DC32219067C00B24244 /* APIUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIUser.swift; sourceTree = "<group>"; };
+		B4F20DCF22190F6E00B24244 /* ReleaseDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReleaseDataStore.swift; sourceTree = "<group>"; };
+		B4F20DD122190F7A00B24244 /* ArtistDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistDataStore.swift; sourceTree = "<group>"; };
+		B4F20DD322190F8C00B24244 /* UserDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataStore.swift; sourceTree = "<group>"; };
 		BB57731F05FACFEB06572125 /* Pods-Numu Tracker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Numu Tracker.debug.xcconfig"; path = "Target Support Files/Pods-Numu Tracker/Pods-Numu Tracker.debug.xcconfig"; sourceTree = "<group>"; };
 		D2B582D332C28500143A3A4E /* Pods_Numu_Tracker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Numu_Tracker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EDB004DE51A363F2213F0047 /* Pods-Numu TrackerTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Numu TrackerTests.debug.xcconfig"; path = "Target Support Files/Pods-Numu TrackerTests/Pods-Numu TrackerTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -204,17 +210,13 @@
 		446B5DC7220A5F6800948BCB /* Numu Tracker */ = {
 			isa = PBXGroup;
 			children = (
-				446B5DD2220A5F6800948BCB /* Assets.xcassets */,
-				446B5DCF220A5F6800948BCB /* Numu_Tracker.xcdatamodeld */,
-				B4E8F261220F72BF00BDEA30 /* Extensions.swift */,
-				446B5DC8220A5F6800948BCB /* AppDelegate.swift */,
 				446B5DD7220A5F6800948BCB /* Info.plist */,
-				B4F20DBD221905BE00B24244 /* Storyboards */,
+				446B5DC8220A5F6800948BCB /* AppDelegate.swift */,
+				B4F20DDA2219112600B24244 /* Assets */,
 				B4F20DBC2219055000B24244 /* Models */,
 				B4F20DBE221905F900B24244 /* Services */,
 				B4F20DC82219071E00B24244 /* Scenes */,
-				B4E8F259220F5B3000BDEA30 /* Views */,
-				446B5DF9220A627100948BCB /* Numu Tracker.entitlements */,
+				B4E8F259220F5B3000BDEA30 /* Components */,
 				44200CD12214E0DA00200896 /* TestingViewController.swift */,
 			);
 			path = "Numu Tracker";
@@ -256,7 +258,8 @@
 			children = (
 				B477338C2210DF50005D2EAE /* Sort */,
 				B477338F2210DF50005D2EAE /* Alert */,
-				B47733922210DF50005D2EAE /* Release Details */,
+				B47733922210DF50005D2EAE /* ReleaseDetails */,
+				B477339D2210DF50005D2EAE /* NumuModalButton.swift */,
 			);
 			path = Modals;
 			sourceTree = "<group>";
@@ -279,59 +282,41 @@
 			path = Alert;
 			sourceTree = "<group>";
 		};
-		B47733922210DF50005D2EAE /* Release Details */ = {
+		B47733922210DF50005D2EAE /* ReleaseDetails */ = {
 			isa = PBXGroup;
 			children = (
-				B47733942210DF50005D2EAE /* Rows */,
 				B47733932210DF50005D2EAE /* ReleaseDetailsViewController.xib */,
 				B47733A02210DF50005D2EAE /* ReleaseDetailsViewController.swift */,
 			);
-			path = "Release Details";
+			path = ReleaseDetails;
 			sourceTree = "<group>";
 		};
-		B47733942210DF50005D2EAE /* Rows */ = {
+		B4E8F259220F5B3000BDEA30 /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				B47733952210DF50005D2EAE /* ListenSpotifyTableViewCell.xib */,
-				B47733962210DF50005D2EAE /* MoreReleasesTableViewCell.swift */,
-				B47733972210DF50005D2EAE /* SearchSoundCloudTableViewCell.swift */,
-				B47733982210DF50005D2EAE /* MoreReleasesTableViewCell.xib */,
-				B47733992210DF50005D2EAE /* ListenAMTableViewCell.xib */,
-				B477339A2210DF50005D2EAE /* ListenAMTableViewCell.swift */,
-				B477339B2210DF50005D2EAE /* SearchYouTubeTableViewCell.xib */,
-				B477339C2210DF50005D2EAE /* SearchYouTubeTableViewCell.swift */,
-				B477339D2210DF50005D2EAE /* NumuModalButton.swift */,
-				B477339E2210DF50005D2EAE /* ListenSpotifyTableViewCell.swift */,
-				B477339F2210DF50005D2EAE /* SearchSoundCloudTableViewCell.xib */,
-			);
-			path = Rows;
-			sourceTree = "<group>";
-		};
-		B4E8F259220F5B3000BDEA30 /* Views */ = {
-			isa = PBXGroup;
-			children = (
+				B4E8F261220F72BF00BDEA30 /* Extensions.swift */,
 				B4F20DCC2219078400B24244 /* TableViewCells */,
 				B477338B2210DF50005D2EAE /* Modals */,
 			);
-			path = Views;
+			path = Components;
 			sourceTree = "<group>";
 		};
-		B4E8F25E220F624B00BDEA30 /* ReleaseTableViewCell */ = {
+		B4E8F25E220F624B00BDEA30 /* Release */ = {
 			isa = PBXGroup;
 			children = (
 				B4E8F25A220F624300BDEA30 /* ReleaseTableViewCell.swift */,
 				B4E8F25B220F624300BDEA30 /* ReleaseTableViewCell.xib */,
 			);
-			path = ReleaseTableViewCell;
+			path = Release;
 			sourceTree = "<group>";
 		};
-		B4E8F263220FBCCC00BDEA30 /* ArtistTableViewCell */ = {
+		B4E8F263220FBCCC00BDEA30 /* Artist */ = {
 			isa = PBXGroup;
 			children = (
 				B4E8F264220FBEE500BDEA30 /* ArtistTableViewCell.swift */,
 				B4E8F265220FBEE500BDEA30 /* ArtistTableViewCell.xib */,
 			);
-			path = ArtistTableViewCell;
+			path = Artist;
 			sourceTree = "<group>";
 		};
 		B4F20DBC2219055000B24244 /* Models */ = {
@@ -346,19 +331,13 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
-		B4F20DBD221905BE00B24244 /* Storyboards */ = {
-			isa = PBXGroup;
-			children = (
-				446B5DCC220A5F6800948BCB /* Main.storyboard */,
-				446B5DD4220A5F6800948BCB /* LaunchScreen.storyboard */,
-			);
-			path = Storyboards;
-			sourceTree = "<group>";
-		};
 		B4F20DBE221905F900B24244 /* Services */ = {
 			isa = PBXGroup;
 			children = (
 				B4F20DC7221906F400B24244 /* NumuAPI */,
+				B4F20DCF22190F6E00B24244 /* ReleaseDataStore.swift */,
+				B4F20DD122190F7A00B24244 /* ArtistDataStore.swift */,
+				B4F20DD322190F8C00B24244 /* UserDataStore.swift */,
 				446B5DFF220A695600948BCB /* NumuCredential.swift */,
 				44200CCF2214DD0300200896 /* NumuCoreDataStore.swift */,
 			);
@@ -401,9 +380,11 @@
 		B4F20DC82219071E00B24244 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
-				B4F20DCB2219076500B24244 /* UserArtists */,
-				B4F20DCA2219075800B24244 /* ArtistReleases */,
 				B4F20DC92219073200B24244 /* UserReleases */,
+				B4F20DCB2219076500B24244 /* UserArtists */,
+				B4F20DDC2219117100B24244 /* Search */,
+				B4F20DCA2219075800B24244 /* ArtistReleases */,
+				B4F20DDB2219115200B24244 /* More */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -435,10 +416,86 @@
 		B4F20DCC2219078400B24244 /* TableViewCells */ = {
 			isa = PBXGroup;
 			children = (
-				B4E8F263220FBCCC00BDEA30 /* ArtistTableViewCell */,
-				B4E8F25E220F624B00BDEA30 /* ReleaseTableViewCell */,
+				B4E8F263220FBCCC00BDEA30 /* Artist */,
+				B4E8F25E220F624B00BDEA30 /* Release */,
+				B4F20DD9221910B200B24244 /* MoreReleases */,
+				B4F20DD82219109E00B24244 /* SearchSoundCloud */,
+				B4F20DD72219109500B24244 /* ListenAppleMusic */,
+				B4F20DD62219107200B24244 /* SearchYouTube */,
+				B4F20DD52219105900B24244 /* ListenSpotify */,
 			);
 			path = TableViewCells;
+			sourceTree = "<group>";
+		};
+		B4F20DD52219105900B24244 /* ListenSpotify */ = {
+			isa = PBXGroup;
+			children = (
+				B47733952210DF50005D2EAE /* ListenSpotifyTableViewCell.xib */,
+				B477339E2210DF50005D2EAE /* ListenSpotifyTableViewCell.swift */,
+			);
+			path = ListenSpotify;
+			sourceTree = "<group>";
+		};
+		B4F20DD62219107200B24244 /* SearchYouTube */ = {
+			isa = PBXGroup;
+			children = (
+				B477339B2210DF50005D2EAE /* SearchYouTubeTableViewCell.xib */,
+				B477339C2210DF50005D2EAE /* SearchYouTubeTableViewCell.swift */,
+			);
+			path = SearchYouTube;
+			sourceTree = "<group>";
+		};
+		B4F20DD72219109500B24244 /* ListenAppleMusic */ = {
+			isa = PBXGroup;
+			children = (
+				B47733992210DF50005D2EAE /* ListenAMTableViewCell.xib */,
+				B477339A2210DF50005D2EAE /* ListenAMTableViewCell.swift */,
+			);
+			path = ListenAppleMusic;
+			sourceTree = "<group>";
+		};
+		B4F20DD82219109E00B24244 /* SearchSoundCloud */ = {
+			isa = PBXGroup;
+			children = (
+				B47733972210DF50005D2EAE /* SearchSoundCloudTableViewCell.swift */,
+				B477339F2210DF50005D2EAE /* SearchSoundCloudTableViewCell.xib */,
+			);
+			path = SearchSoundCloud;
+			sourceTree = "<group>";
+		};
+		B4F20DD9221910B200B24244 /* MoreReleases */ = {
+			isa = PBXGroup;
+			children = (
+				B47733962210DF50005D2EAE /* MoreReleasesTableViewCell.swift */,
+				B47733982210DF50005D2EAE /* MoreReleasesTableViewCell.xib */,
+			);
+			path = MoreReleases;
+			sourceTree = "<group>";
+		};
+		B4F20DDA2219112600B24244 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				446B5DF9220A627100948BCB /* Numu Tracker.entitlements */,
+				446B5DCC220A5F6800948BCB /* Main.storyboard */,
+				446B5DD4220A5F6800948BCB /* LaunchScreen.storyboard */,
+				446B5DD2220A5F6800948BCB /* Assets.xcassets */,
+				446B5DCF220A5F6800948BCB /* Numu_Tracker.xcdatamodeld */,
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
+		B4F20DDB2219115200B24244 /* More */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = More;
+			sourceTree = "<group>";
+		};
+		B4F20DDC2219117100B24244 /* Search */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Search;
 			sourceTree = "<group>";
 		};
 		C00199818FBC70EB2E2A76D5 /* Frameworks */ = {
@@ -763,6 +820,7 @@
 				B47733B12210DF51005D2EAE /* ReleaseDetailsViewController.swift in Sources */,
 				B4F20DB52218F25600B24244 /* ManagedRelease+CoreDataClass.swift in Sources */,
 				B4F20DC22219067100B24244 /* APIArtist.swift in Sources */,
+				B4F20DD422190F8C00B24244 /* UserDataStore.swift in Sources */,
 				44200CD02214DD0300200896 /* NumuCoreDataStore.swift in Sources */,
 				B47733A22210DF51005D2EAE /* NumuSortView.swift in Sources */,
 				B4F20DC42219067C00B24244 /* APIUser.swift in Sources */,
@@ -773,11 +831,13 @@
 				B477333C2210D882005D2EAE /* APIArtistReleases.swift in Sources */,
 				B47733AE2210DF51005D2EAE /* NumuModalButton.swift in Sources */,
 				446B5DC9220A5F6800948BCB /* AppDelegate.swift in Sources */,
+				B4F20DD222190F7A00B24244 /* ArtistDataStore.swift in Sources */,
 				446B5E00220A695600948BCB /* NumuCredential.swift in Sources */,
 				B4F20DC02219065800B24244 /* APIRelease.swift in Sources */,
 				44200CD22214E0DA00200896 /* TestingViewController.swift in Sources */,
 				B4E8F260220F650900BDEA30 /* UserReleasesTableViewController.swift in Sources */,
 				B47733372210C364005D2EAE /* ArtistReleasesTableViewController.swift in Sources */,
+				B4F20DD022190F6E00B24244 /* ReleaseDataStore.swift in Sources */,
 				B4E8F26C220FC17F00BDEA30 /* APIArtists.swift in Sources */,
 				B4F20DB32218F25600B24244 /* ManagedArtist+CoreDataProperties.swift in Sources */,
 				B47733A32210DF51005D2EAE /* NumuAlertView.swift in Sources */,
