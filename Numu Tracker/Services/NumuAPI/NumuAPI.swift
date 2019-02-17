@@ -32,7 +32,7 @@ class NumuAPI {
 
     static let shared = NumuAPI()
 
-    fileprivate func getResponse(url: URL, withCompletion completion: @escaping (NumuAPIResponse?) -> Void) {
+    fileprivate func getResponse(url: URL, withCompletion completion: @escaping (APIResponse?) -> Void) {
         let configuration = URLSessionConfiguration.default
         let session = URLSession(configuration: configuration, delegate: nil, delegateQueue: OperationQueue.main)
         let task = session.dataTask(with: url) { (data, response, error) -> Void in
@@ -45,7 +45,7 @@ class NumuAPI {
             do {
                 let decoder = JSONDecoder()
                 decoder.dateDecodingStrategy = .formatted(.numuDate)
-                let response = try decoder.decode(NumuAPIResponse.self, from: dataResponse)
+                let response = try decoder.decode(APIResponse.self, from: dataResponse)
                 completion(response)
             } catch let parsingError {
                 print("Error", parsingError)
@@ -55,7 +55,7 @@ class NumuAPI {
         task.resume()
     }
 
-    fileprivate func processResponse(response: NumuAPIResponse) -> NumuAPIResult? {
+    fileprivate func processResponse(response: APIResponse) -> APIResult? {
         if response.success == true {
             return response.result
         }
@@ -63,7 +63,7 @@ class NumuAPI {
         return nil
     }
 
-    public func getReleases(type: ReleaseType, offset: Int, withCompletion completion: @escaping (NumuAPIResult?) -> Void) {
+    public func getReleases(type: ReleaseType, offset: Int, withCompletion completion: @escaping (APIResult?) -> Void) {
         guard let resourceUrl = URL(string: urlPrefix + type.rawValue + "/\(offset)") else {
             completion(nil)
             return
@@ -79,7 +79,7 @@ class NumuAPI {
         }
     }
 
-    public func getReleases(forArtist artist: NumuAPIArtist, offset: Int, withCompletion completion: @escaping (NumuAPIResult?) -> Void) {
+    public func getReleases(forArtist artist: APIArtist, offset: Int, withCompletion completion: @escaping (APIResult?) -> Void) {
         let urlString = urlPrefix + "/user/artist/" + artist.mbid.uuidString.lowercased() + "/releases/\(offset)"
         guard let resourceUrl = URL(string: urlString) else {
             completion(nil)
@@ -96,7 +96,7 @@ class NumuAPI {
         }
     }
 
-    public func getArtists(offset: Int, withCompletion completion: @escaping (NumuAPIResult?) -> Void) {
+    public func getArtists(offset: Int, withCompletion completion: @escaping (APIResult?) -> Void) {
         guard let resourceUrl = URL(string: urlPrefix + "/user/artists" + "/\(offset)") else {
             completion(nil)
             return

@@ -1,24 +1,20 @@
 //
-//  UserReleasesTableViewController.swift
+//  ArtistReleasesTableViewController.swift
 //  Numu Tracker
 //
-//  Created by Bradley Root on 2/9/19.
+//  Created by Bradley Root on 2/10/19.
 //  Copyright © 2019 Brad Root. All rights reserved.
 //
 
 import UIKit
 
-class UserReleasesTableViewController: UITableViewController {
+class ArtistReleasesTableViewController: UITableViewController {
 
-    var releaseEngine: NumuAPIReleases = NumuAPIReleases(releaseType: .unlistened)
+    private var releaseEngine: APIArtistReleases?
+    var artist: APIArtist?
 
     @IBAction func refresh(_ sender: UIRefreshControl) {
         print("Refreshed")
-    }
-
-
-    @IBAction func releaseTypeChanged(_ sender: UISegmentedControl) {
-        self.changeDataSource(segmentIndex: sender.selectedSegmentIndex)
     }
 
     override func viewDidLoad() {
@@ -26,30 +22,13 @@ class UserReleasesTableViewController: UITableViewController {
 
         self.tableView.register(UINib(nibName: "ReleaseTableViewCell", bundle: nil), forCellReuseIdentifier: "releaseCell")
 
-        self.releaseEngine.get {
-            self.tableView.reloadData()
+        if let artist = self.artist {
+            self.title = artist.name
+            self.releaseEngine = APIArtistReleases.init(artist: artist)
+            self.releaseEngine?.get {
+                self.tableView.reloadData()
+            }
         }
-    }
-
-    func changeDataSource(segmentIndex: Int) {
-        self.releaseEngine.reset()
-        self.tableView.reloadData()
-
-        switch segmentIndex {
-        case 1:
-            self.releaseEngine.releaseType = .released
-        case 2:
-            self.releaseEngine.releaseType = .upcoming
-        case 3:
-            self.releaseEngine.releaseType = .newAdditions
-        default:
-            self.releaseEngine.releaseType = .unlistened
-        }
-
-        self.releaseEngine.get {
-            self.tableView.reloadData()
-        }
-
     }
 
     // MARK: - Table view data source
@@ -59,26 +38,28 @@ class UserReleasesTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.releaseEngine.releases.count
+        guard let releases = self.releaseEngine?.releases else { return 0 }
+        return releases.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let releaseCell = tableView.dequeueReusableCell(
-            withIdentifier: "releaseCell", for: indexPath
-        ) as? ReleaseTableViewCell else { return UITableViewCell() }
+            withIdentifier: "releaseCell", for: indexPath) as? ReleaseTableViewCell else {
+                return UITableViewCell()
+        }
+        guard let release = self.releaseEngine?.releases[indexPath.row] else { return UITableViewCell() }
 
-        releaseCell.release = self.releaseEngine.releases[indexPath.row]
-
+        releaseCell.release = release
         return releaseCell
+    }
+
+    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
     }
 
     override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         guard let releaseCell = self.tableView.cellForRow(at: indexPath) as? ReleaseTableViewCell else { return nil }
         return releaseCell.getEditActions()
-    }
-
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        return true
     }
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -94,8 +75,9 @@ class UserReleasesTableViewController: UITableViewController {
             let appWindow = appDelegate.window!,
             let rootViewController = appWindow.rootViewController {
             rootViewController.present(releaseDetails, animated: true, completion: nil)
-            releaseDetails.configure(release: self.releaseEngine.releases[indexPath.row], presentingArtist: nil)
+            releaseDetails.configure(release: self.releaseEngine!.releases[indexPath.row], presentingArtist: self.artist)
             self.tableView.deselectRow(at: indexPath, animated: true)
         }
     }
+
 }

@@ -10,7 +10,7 @@ import UIKit
 
 class UserArtistsTableViewController: UITableViewController {
 
-    var artistEngine: NumuAPIArtists = NumuAPIArtists()
+    var artistEngine: APIArtists = APIArtists()
 
     @IBAction func refresh(_ sender: UIRefreshControl) {
         print("Refreshed")

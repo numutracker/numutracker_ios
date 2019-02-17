@@ -31,7 +31,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let redirectURL: URL = URL(string: "numu://")!
         SpotifyLogin.shared.configure(clientID: "SPOTIFY_CLIENT_ID", clientSecret: "SPOTIFY_CLIENT_SECRET", redirectURL: redirectURL)
 
-        NumuAPICredential.shared.storeCredential(username: "test@test.com", password: "TestingP@ssword")
+        NumuCredential.shared.storeCredential(username: "test@test.com", password: "TestingP@ssword")
 
         return true
     }

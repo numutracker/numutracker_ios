@@ -1,5 +1,5 @@
 //
-//  NumuAPIReleases.swift
+//  APIReleases.swift
 //  Numu Tracker
 //
 //  Created by Brad Root on 2/8/19.
@@ -8,9 +8,9 @@
 
 import Foundation
 
-class NumuAPIReleases {
-    public var releases: [NumuAPIRelease] = []
-    private var lastResult: NumuAPIResult?
+class APIReleases {
+    public var releases: [APIRelease] = []
+    private var lastResult: APIResult?
     public var releaseType: ReleaseType
 
     init(releaseType: ReleaseType) {

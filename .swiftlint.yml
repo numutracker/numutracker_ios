@@ -36,4 +36,6 @@ identifier_name:
     - URL
     - GlobalAPIKey
     - app
+    - lhs
+    - rhs
 reporter: "xcode"

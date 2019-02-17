@@ -9,13 +9,13 @@
 import UIKit
 
 protocol MoreReleasesDelegate {
-    func showMoreReleases(artist: NumuAPIArtist)
+    func showMoreReleases(artist: APIArtist)
 }
 
 class MoreReleasesTableViewCell: UITableViewCell {
     var moreReleasesDelegate: MoreReleasesDelegate!
 
-    var artist: NumuAPIArtist?
+    var artist: APIArtist?
 
     @IBOutlet weak var cellLabel: UILabel!
     @IBOutlet weak var cellIcon: UIImageView!
@@ -26,7 +26,7 @@ class MoreReleasesTableViewCell: UITableViewCell {
         }
     }
 
-    func configure(artist: NumuAPIArtist) {
+    func configure(artist: APIArtist) {
         self.artist = artist
         self.cellLabel.textColor = .white
         if let artistName = self.artist?.name {

@@ -13,7 +13,7 @@ class StorageController {
 
     fileprivate func printPersistedArtists() {
         let context = AppDelegate.viewContext
-        let request: NSFetchRequest<ArtistMO> = ArtistMO.fetchRequest()
+        let request: NSFetchRequest<ManagedArtist> = ManagedArtist.fetchRequest()
         request.sortDescriptors = [NSSortDescriptor(key: "name", ascending: true, selector: #selector(NSString.localizedCaseInsensitiveCompare(_:)))]
         let results = try? context.fetch(request)
         if let results = results {
@@ -25,7 +25,7 @@ class StorageController {
 
     fileprivate func printPersistedReleases() {
         let context = AppDelegate.viewContext
-        let request: NSFetchRequest<ReleaseMO> = ReleaseMO.fetchRequest()
+        let request: NSFetchRequest<ManagedRelease> = ManagedRelease.fetchRequest()
         request.sortDescriptors = [
             NSSortDescriptor(key: "dateRelease", ascending: false),
             NSSortDescriptor(key: "artistNames", ascending: true)
@@ -38,9 +38,9 @@ class StorageController {
         }
     }
 
-    fileprivate func getArtist(byMbid mbid: UUID) -> ArtistMO? {
+    fileprivate func getArtist(byMbid mbid: UUID) -> ManagedArtist? {
         let context = AppDelegate.viewContext
-        let request: NSFetchRequest<ArtistMO> = ArtistMO.fetchRequest()
+        let request: NSFetchRequest<ManagedArtist> = ManagedArtist.fetchRequest()
         request.predicate = NSPredicate(format: "mbid = %@", mbid as CVarArg)
         let result = try? context.fetch(request)
         if let result = result, let artist = result.first {
@@ -49,9 +49,9 @@ class StorageController {
         return nil
     }
 
-    fileprivate func getRelease(byMbid mbid: UUID) -> ReleaseMO? {
+    fileprivate func getRelease(byMbid mbid: UUID) -> ManagedRelease? {
         let context = AppDelegate.viewContext
-        let request: NSFetchRequest<ReleaseMO> = ReleaseMO.fetchRequest()
+        let request: NSFetchRequest<ManagedRelease> = ManagedRelease.fetchRequest()
         request.predicate = NSPredicate(format: "mbid = %@", mbid as CVarArg)
         let result = try? context.fetch(request)
         if let result = result, let release = result.first {
@@ -60,7 +60,7 @@ class StorageController {
         return nil
     }
 
-    func updateArtistMO(artistMO: ArtistMO, apiArtist: NumuAPIArtist) {
+    func updateManagedArtist(artistMO: ManagedArtist, apiArtist: APIArtist) {
         artistMO.following = apiArtist.userData?.following ?? false
         artistMO.dateFollowed = apiArtist.userData?.dateFollowed as NSDate?
         artistMO.name = apiArtist.name
@@ -68,10 +68,10 @@ class StorageController {
         artistMO.nameSort = apiArtist.sortName
         artistMO.primaryArtUrl = apiArtist.primaryArtUrl
         artistMO.dateFollowed = apiArtist.userData?.dateFollowed as NSDate?
-        artistMO.dateUpdated = apiArtist.dateUpdated! as NSDate
+        artistMO.dateUpdated = apiArtist.dateUpdated as NSDate
     }
 
-    func updateReleaseMO(releaseMO: ReleaseMO, apiRelease: NumuAPIRelease) {
+    func updateManagedRelease(releaseMO: ManagedRelease, apiRelease: APIRelease) {
         let context = AppDelegate.viewContext
         releaseMO.mbid = apiRelease.mbid
         releaseMO.artistNames = apiRelease.artistNames
@@ -88,23 +88,23 @@ class StorageController {
             if let persistedArtist = self.getArtist(byMbid: apiArtist.mbid) {
                 releaseMO.addToArtists(persistedArtist)
             } else {
-                let persistedArtist = ArtistMO(context: context)
-                self.updateArtistMO(artistMO: persistedArtist, apiArtist: apiArtist)
+                let persistedArtist = ManagedArtist(context: context)
+                self.updateManagedArtist(artistMO: persistedArtist, apiArtist: apiArtist)
                 releaseMO.addToArtists(persistedArtist)
             }
         }
     }
 
     func populateReleases() {
-        let releaseEngine: NumuAPIReleases = NumuAPIReleases(releaseType: .released)
+        let releaseEngine: APIReleases = APIReleases(releaseType: .released)
         let context = AppDelegate.viewContext
         releaseEngine.get {
             for release in releaseEngine.releases {
                 if let persistedRelease = self.getRelease(byMbid: release.mbid) {
-                    self.updateReleaseMO(releaseMO: persistedRelease, apiRelease: release)
+                    self.updateManagedRelease(releaseMO: persistedRelease, apiRelease: release)
                 } else {
-                    let persistedRelease = ReleaseMO(context: context)
-                    self.updateReleaseMO(releaseMO: persistedRelease, apiRelease: release)
+                    let persistedRelease = ManagedRelease(context: context)
+                    self.updateManagedRelease(releaseMO: persistedRelease, apiRelease: release)
                 }
             }
             do {
@@ -117,15 +117,15 @@ class StorageController {
     }
 
     func populateArtists() {
-        let artistEngine: NumuAPIArtists = NumuAPIArtists()
+        let artistEngine: APIArtists = APIArtists()
         let context = AppDelegate.viewContext
         artistEngine.get {
             for artist in artistEngine.artists {
                 if let persistedArtist = self.getArtist(byMbid: artist.mbid) {
-                    self.updateArtistMO(artistMO: persistedArtist, apiArtist: artist)
+                    self.updateManagedArtist(artistMO: persistedArtist, apiArtist: artist)
                 } else {
-                    let persistedArtist = ArtistMO(context: context)
-                    self.updateArtistMO(artistMO: persistedArtist, apiArtist: artist)
+                    let persistedArtist = ManagedArtist(context: context)
+                    self.updateManagedArtist(artistMO: persistedArtist, apiArtist: artist)
                 }
             }
             do {

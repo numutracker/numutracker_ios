@@ -20,10 +20,10 @@ class SearchYouTubeTableViewCell: UITableViewCell {
         }
     }
 
-    var release: NumuAPIRelease?
+    var release: APIRelease?
     var searchUrl: String?
 
-    func configure(release: NumuAPIRelease) {
+    func configure(release: APIRelease) {
         self.release = release
         self.cellButton.isEnabled = false
         self.cellLabel.textColor = UIColor.init(white: 1, alpha: 0.1)
