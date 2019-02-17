@@ -212,6 +212,7 @@
 			children = (
 				446B5DD7220A5F6800948BCB /* Info.plist */,
 				446B5DC8220A5F6800948BCB /* AppDelegate.swift */,
+				446B5DF9220A627100948BCB /* Numu Tracker.entitlements */,
 				B4F20DDA2219112600B24244 /* Assets */,
 				B4F20DBC2219055000B24244 /* Models */,
 				B4F20DBE221905F900B24244 /* Services */,
@@ -475,7 +476,6 @@
 		B4F20DDA2219112600B24244 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
-				446B5DF9220A627100948BCB /* Numu Tracker.entitlements */,
 				446B5DCC220A5F6800948BCB /* Main.storyboard */,
 				446B5DD4220A5F6800948BCB /* LaunchScreen.storyboard */,
 				446B5DD2220A5F6800948BCB /* Assets.xcassets */,
