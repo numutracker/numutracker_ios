@@ -1,5 +1,5 @@
 //
-//  NumuAPIArtistReleases.swift
+//  APIArtistReleases.swift
 //  Numu Tracker
 //
 //  Created by Bradley Root on 2/10/19.
@@ -8,12 +8,12 @@
 
 import Foundation
 
-class NumuAPIArtistReleases {
-    public var releases: [NumuAPIRelease] = []
-    private var lastResult: NumuAPIResult?
-    private var artist: NumuAPIArtist
+class APIArtistReleases {
+    public var releases: [APIRelease] = []
+    private var lastResult: APIResult?
+    private var artist: APIArtist
 
-    init(artist: NumuAPIArtist) {
+    init(artist: APIArtist) {
         self.artist = artist
     }
 

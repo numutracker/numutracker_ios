@@ -10,7 +10,7 @@ import UIKit
 
 class ListenAMTableViewCell: UITableViewCell {
 
-    var release: NumuAPIRelease?
+    var release: APIRelease?
     var itunesUrl: String?
 
     @IBOutlet weak var listenButtonOutlet: NumuModalButton!
@@ -22,7 +22,7 @@ class ListenAMTableViewCell: UITableViewCell {
     @IBOutlet weak var listenButtonLabel: UILabel!
     @IBOutlet weak var listenButtonIcon: UIImageView!
 
-    func configure(release: NumuAPIRelease) {
+    func configure(release: APIRelease) {
         self.release = release
         self.listenButtonOutlet.isEnabled = false
         self.listenButtonLabel.textColor = UIColor.init(white: 1, alpha: 0.1)

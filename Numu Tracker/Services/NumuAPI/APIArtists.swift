@@ -1,5 +1,5 @@
 //
-//  NumuAPIArtists.swift
+//  APIArtists.swift
 //  Numu Tracker
 //
 //  Created by Bradley Root on 2/9/19.
@@ -8,9 +8,9 @@
 
 import Foundation
 
-class NumuAPIArtists {
-    public var artists: [NumuAPIArtist] = []
-    private var lastResult: NumuAPIResult?
+class APIArtists {
+    public var artists: [APIArtist] = []
+    private var lastResult: APIResult?
 
     public func reset() {
         self.artists.removeAll()
