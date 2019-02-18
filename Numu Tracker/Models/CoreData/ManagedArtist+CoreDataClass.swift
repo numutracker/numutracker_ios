@@ -20,12 +20,17 @@ public class ManagedArtist: NSManagedObject {
             primaryArtUrl: primaryArtUrl!,
             largeArtUrl: largeArtUrl!,
             dateUpdated: dateUpdated! as Date,
-            dateFollowed: dateFollowed! as Date,
+            dateFollowed: dateFollowed as Date?,
             following: following
         )
     }
 
     func fromArtist(artist: Artist) {
+        mbid = artist.mbid
+        name = artist.name
+        nameSort = artist.nameSort
+        primaryArtUrl = artist.primaryArtUrl
+        largeArtUrl = artist.largeArtUrl
         dateFollowed = artist.dateFollowed as NSDate?
         dateUpdated = artist.dateUpdated as NSDate?
         following = artist.following

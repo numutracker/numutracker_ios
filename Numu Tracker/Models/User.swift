@@ -17,4 +17,5 @@ struct User {
     var soundtrackFilter: Bool
     var remixFilter: Bool
     var otherFilter: Bool
+    var dateLastActivity: Date
 }

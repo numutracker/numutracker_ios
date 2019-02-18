@@ -34,7 +34,7 @@ extension ManagedRelease {
     @NSManaged public var deezerUrl: URL?
     @NSManaged public var spotifyUrl: URL?
 
-    @NSManaged public var artists: NSSet?
+    @NSManaged public var artists: Set<ManagedArtist>
 
 }
 

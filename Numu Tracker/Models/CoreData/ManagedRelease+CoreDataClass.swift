@@ -14,7 +14,7 @@ public class ManagedRelease: NSManagedObject {
 
     func toRelease() -> Release {
         var artists: [Artist] = []
-        for case let artist as ManagedArtist in self.artists! {
+        for artist in self.artists {
             artists.append(artist.toArtist())
         }
         return Release.init(
