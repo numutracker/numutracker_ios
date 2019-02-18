@@ -15,26 +15,24 @@ class TestingViewController: UIViewController {
 
         // Do any additional setup after loading the view.
 
-        let cdWorker = NumuWorker(numuStore: CoreDataStore())
+        let apiDataStore = APIDataStore()
+        let coreDataStore = CoreDataStore()
 
-        let artist = Artist.init(
-            mbid: UUID(uuidString: "00d8d4c2-af97-47c1-b205-cb71937be54d")!,
-            name: "blah 2",
-            nameSort: "blah 2",
-            primaryArtUrl: URL(string: "http://wwww.numutracker.com")!,
-            largeArtUrl: URL(string: "http://wwww.numutracker.com")!,
-            dateUpdated: Date(timeIntervalSince1970: 0),
-            dateFollowed: nil,
-            following: true
-        )
-
-        cdWorker.numuStore.createArtist(artistToCreate: artist) { (artist, error) in
-            print(artist, error)
+        coreDataStore.fetchArtists(sinceDateUpdated: nil) { (artists, error) in
+            if error == nil {
+                print(artists.last)
+            }
         }
-
-        cdWorker.numuStore.fetchArtists(sinceDateUpdated: nil) { (artists, error) in
-            print(artists, error)
-        }
+//
+//        apiDataStore.fetchArtists(sinceDateUpdated: Date(timeIntervalSince1970: TimeInterval(exactly: 1548993722)!)) { (artists, error) in
+//            if error == nil {
+//                coreDataStore.createArtists(artistsToCreate: artists, completionHandler: { (artists, error) in
+//                    if error == nil {
+//                        print(artists.count)
+//                    }
+//                })
+//            }
+//        }
 
     }
 

@@ -86,9 +86,15 @@ class CoreDataStore: NumuStorageProtocol {
             do {
                 var artists: [Artist] = []
                 for artistToCreate in artistsToCreate {
-                    let managedArtist = ManagedArtist(context: self.privateManagedObjectContext)
+                    let fetchRequest: NSFetchRequest<ManagedArtist> = ManagedArtist.fetchRequest()
+                    fetchRequest.predicate = NSPredicate(format: "mbid == %@", artistToCreate.mbid as CVarArg)
+                    if let managedArtist = try self.privateManagedObjectContext.fetch(fetchRequest).first {
+                        managedArtist.fromArtist(artist: artistToCreate)
+                    } else {
+                        let managedArtist = ManagedArtist(context: self.privateManagedObjectContext)
+                        managedArtist.fromArtist(artist: artistToCreate)
+                    }
                     artists.append(artistToCreate)
-                    managedArtist.fromArtist(artist: artistToCreate)
                 }
                 try self.privateManagedObjectContext.save()
                 completionHandler(artists, nil)
@@ -167,9 +173,15 @@ class CoreDataStore: NumuStorageProtocol {
             do {
                 var releases: [Release] = []
                 for releaseToCreate in releasesToCreate {
-                    let managedRelease = ManagedRelease(context: self.privateManagedObjectContext)
+                    let fetchRequest: NSFetchRequest<ManagedRelease> = ManagedRelease.fetchRequest()
+                    fetchRequest.predicate = NSPredicate(format: "mbid == %@", releaseToCreate.mbid as CVarArg)
+                    if let managedRelease = try self.privateManagedObjectContext.fetch(fetchRequest).first {
+                        managedRelease.fromRelease(release: releaseToCreate)
+                    } else {
+                        let managedRelease = ManagedRelease(context: self.privateManagedObjectContext)
+                        managedRelease.fromRelease(release: releaseToCreate)
+                    }
                     releases.append(releaseToCreate)
-                    managedRelease.fromRelease(release: releaseToCreate)
                 }
                 try self.privateManagedObjectContext.save()
                 completionHandler(releases, nil)

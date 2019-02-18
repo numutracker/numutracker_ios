@@ -34,8 +34,8 @@ identifier_name:
     - url
     - art
     - URL
-    - GlobalAPIKey
     - app
     - lhs
     - rhs
+    - key
 reporter: "xcode"
