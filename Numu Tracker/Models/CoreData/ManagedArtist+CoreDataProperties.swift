@@ -26,7 +26,7 @@ extension ManagedArtist {
     @NSManaged public var dateUpdated: NSDate?
     @NSManaged public var following: Bool
 
-    @NSManaged public var releases: NSSet?
+    @NSManaged public var releases: Set<ManagedRelease>
 
 }
 

@@ -28,8 +28,20 @@
         <attribute name="title" attributeType="String" syncable="YES"/>
         <relationship name="artists" toMany="YES" minCount="1" deletionRule="Nullify" destinationEntity="Artist" inverseName="releases" inverseEntity="Artist" syncable="YES"/>
     </entity>
+    <entity name="User" representedClassName="ManagedUser" syncable="YES">
+        <attribute name="albumFilter" attributeType="Boolean" defaultValueString="YES" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="dateLastActivity" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="epFilter" attributeType="Boolean" defaultValueString="YES" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="id" attributeType="Integer 64" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="liveFilter" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="otherFilter" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="remixFilter" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="singleFilter" attributeType="Boolean" defaultValueString="YES" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="soundtrackFilter" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES" syncable="YES"/>
+    </entity>
     <elements>
         <element name="Artist" positionX="-65.2578125" positionY="-216.109375" width="128" height="180"/>
         <element name="Release" positionX="140.5859375" positionY="-90.55078125" width="128" height="270"/>
+        <element name="User" positionX="36" positionY="-63" width="128" height="180"/>
     </elements>
 </model>

@@ -15,12 +15,26 @@ class TestingViewController: UIViewController {
 
         // Do any additional setup after loading the view.
 
-        let storageController = StorageController()
-        //storageController.populateArtists()
+        let cdWorker = NumuWorker(numuStore: CoreDataStore())
 
-        storageController.populateReleases()
+        let artist = Artist.init(
+            mbid: UUID(uuidString: "00d8d4c2-af97-47c1-b205-cb71937be54d")!,
+            name: "blah 2",
+            nameSort: "blah 2",
+            primaryArtUrl: URL(string: "http://wwww.numutracker.com")!,
+            largeArtUrl: URL(string: "http://wwww.numutracker.com")!,
+            dateUpdated: Date(timeIntervalSince1970: 0),
+            dateFollowed: nil,
+            following: true
+        )
 
-        storageController.populateArtists()
+        cdWorker.numuStore.createArtist(artistToCreate: artist) { (artist, error) in
+            print(artist, error)
+        }
+
+        cdWorker.numuStore.fetchArtists(sinceDateUpdated: nil) { (artists, error) in
+            print(artists, error)
+        }
 
     }
 
