@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="QfB-2I-NEJ">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="QfB-2I-NEJ">
     <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -627,7 +627,7 @@ Any imported artists you've unfollowed will not be re-imported.</string>
         <scene sceneID="QT8-L6-wPZ">
             <objects>
                 <tableViewController extendedLayoutIncludesOpaqueBars="YES" id="VYe-bB-NhT" customClass="ArtistsTableViewController" customModule="Numu_Tracker" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" sectionIndexMinimumDisplayRowCount="10" rowHeight="136" sectionHeaderHeight="28" sectionFooterHeight="28" id="mlj-7x-Twt">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" sectionIndexMinimumDisplayRowCount="10" rowHeight="-1" estimatedRowHeight="136" sectionHeaderHeight="-1" sectionFooterHeight="-1" id="mlj-7x-Twt">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.13350695369999999" green="0.13364198799999999" blue="0.13352787490000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -655,21 +655,21 @@ Any imported artists you've unfollowed will not be re-imported.</string>
                                                 <constraint firstAttribute="height" constant="100" id="cn5-Jf-7lF"/>
                                             </constraints>
                                         </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Artist Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WnE-zm-8s7">
-                                            <rect key="frame" x="148" y="31" width="246" height="24"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Artist Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WnE-zm-8s7">
+                                            <rect key="frame" x="148" y="34" width="246" height="24"/>
+                                            <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2016-10-01" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="04E-UC-Imt">
-                                            <rect key="frame" x="148" y="58" width="84.666666666666686" height="20"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2016-10-01" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="04E-UC-Imt">
+                                            <rect key="frame" x="148" y="59" width="80" height="18"/>
+                                            <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
                                             <color key="textColor" red="0.10980392160000001" green="0.81176470590000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Album" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="Rjv-DU-zIu">
-                                            <rect key="frame" x="148" y="82" width="39" height="16"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Album" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="8" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Rjv-DU-zIu">
+                                            <rect key="frame" x="148" y="81" width="39" height="15.666666666666671"/>
+                                            <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
                                             <color key="textColor" cocoaTouchSystemColor="lightTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
@@ -683,10 +683,12 @@ Any imported artists you've unfollowed will not be re-imported.</string>
                                         <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="04E-UC-Imt" secondAttribute="trailing" id="IXY-qw-Ozy"/>
                                         <constraint firstItem="NGO-7l-svC" firstAttribute="centerX" secondItem="DqJ-ou-sTq" secondAttribute="centerX" id="NIi-WH-uig"/>
                                         <constraint firstItem="Rjv-DU-zIu" firstAttribute="top" secondItem="04E-UC-Imt" secondAttribute="bottom" constant="4" id="PlA-m4-s15"/>
+                                        <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="Rjv-DU-zIu" secondAttribute="bottom" constant="37.666666666666657" id="VjJ-L7-EQj"/>
                                         <constraint firstItem="WnE-zm-8s7" firstAttribute="leading" secondItem="DqJ-ou-sTq" secondAttribute="trailing" constant="18" id="d7b-ir-xtV"/>
-                                        <constraint firstItem="04E-UC-Imt" firstAttribute="top" secondItem="WnE-zm-8s7" secondAttribute="bottom" constant="3" id="dVb-BS-3ip"/>
+                                        <constraint firstItem="04E-UC-Imt" firstAttribute="top" secondItem="WnE-zm-8s7" secondAttribute="bottom" constant="1" id="dVb-BS-3ip"/>
                                         <constraint firstItem="Rjv-DU-zIu" firstAttribute="leading" secondItem="DqJ-ou-sTq" secondAttribute="trailing" constant="18" id="nC4-2a-DQh"/>
                                         <constraint firstItem="DqJ-ou-sTq" firstAttribute="leading" secondItem="KAx-t2-NsI" secondAttribute="leadingMargin" constant="10" id="s4D-X5-sKp"/>
+                                        <constraint firstItem="WnE-zm-8s7" firstAttribute="top" relation="greaterThanOrEqual" secondItem="KAx-t2-NsI" secondAttribute="top" constant="31" id="tae-5P-bQ9"/>
                                         <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="Rjv-DU-zIu" secondAttribute="trailing" id="xTJ-nu-Oro"/>
                                     </constraints>
                                 </tableViewCellContentView>
@@ -830,7 +832,7 @@ You can import artists from Apple Music, Spotify, or manually search and follow 
         <scene sceneID="H5x-GQ-2Tb">
             <objects>
                 <tableViewController storyboardIdentifier="artistReleasesController" id="Wkd-P3-oas" customClass="ArtistReleasesTableViewController" customModule="Numu_Tracker" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="140" sectionHeaderHeight="28" sectionFooterHeight="28" id="KFU-9P-Mi9">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="136" sectionHeaderHeight="-1" sectionFooterHeight="-1" id="KFU-9P-Mi9">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.13350695369999999" green="0.13364198799999999" blue="0.13352787490000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -863,21 +865,21 @@ You can import artists from Apple Music, Spotify, or manually search and follow 
                                                 <constraint firstAttribute="width" constant="1" id="fLc-nh-RLg"/>
                                             </constraints>
                                         </view>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Delusion Moon" textAlignment="natural" lineBreakMode="tailTruncation" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xkR-VI-wng">
-                                            <rect key="frame" x="149" y="58" width="245" height="20"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Delusion Moon" textAlignment="natural" lineBreakMode="tailTruncation" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xkR-VI-wng">
+                                            <rect key="frame" x="149" y="59" width="245" height="18"/>
+                                            <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
                                             <color key="textColor" red="0.10980392160000001" green="0.81176470590000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Album" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="plt-37-BYB">
-                                            <rect key="frame" x="149" y="82" width="245" height="16"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Album" lineBreakMode="tailTruncation" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="plt-37-BYB">
+                                            <rect key="frame" x="149" y="81" width="245" height="15.666666666666671"/>
+                                            <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
                                             <color key="textColor" cocoaTouchSystemColor="lightTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Meat Wave" textAlignment="natural" lineBreakMode="tailTruncation" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gcS-ZP-G7n">
-                                            <rect key="frame" x="149" y="31" width="245" height="24"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Meat Wave" textAlignment="natural" lineBreakMode="tailTruncation" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gcS-ZP-G7n">
+                                            <rect key="frame" x="149" y="34" width="245" height="24"/>
+                                            <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
@@ -888,16 +890,18 @@ You can import artists from Apple Music, Spotify, or manually search and follow 
                                         <constraint firstItem="gcS-ZP-G7n" firstAttribute="leading" secondItem="tUn-gL-6MJ" secondAttribute="trailing" constant="18" id="1IJ-L2-sBj"/>
                                         <constraint firstItem="tUn-gL-6MJ" firstAttribute="leading" secondItem="Fgn-db-JYf" secondAttribute="trailing" constant="9" id="1xK-kz-HMc"/>
                                         <constraint firstItem="xkR-VI-wng" firstAttribute="leading" secondItem="tUn-gL-6MJ" secondAttribute="trailing" constant="18" id="5e2-D6-DuL"/>
-                                        <constraint firstItem="xkR-VI-wng" firstAttribute="top" secondItem="gcS-ZP-G7n" secondAttribute="bottom" constant="3" id="5xY-UJ-6cB"/>
+                                        <constraint firstItem="xkR-VI-wng" firstAttribute="top" secondItem="gcS-ZP-G7n" secondAttribute="bottom" constant="1" id="5xY-UJ-6cB"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="gcS-ZP-G7n" secondAttribute="trailing" id="EiD-70-GQr"/>
+                                        <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="plt-37-BYB" secondAttribute="bottom" constant="37" id="F3l-9T-ql8"/>
                                         <constraint firstItem="9fR-E8-Key" firstAttribute="centerX" secondItem="tUn-gL-6MJ" secondAttribute="centerX" id="Krs-0W-k0h"/>
-                                        <constraint firstItem="xkR-VI-wng" firstAttribute="centerY" secondItem="tUn-gL-6MJ" secondAttribute="centerY" id="MaM-rw-Len"/>
+                                        <constraint firstItem="xkR-VI-wng" firstAttribute="centerY" secondItem="tUn-gL-6MJ" secondAttribute="centerY" id="Nw7-tL-HaZ"/>
                                         <constraint firstItem="9fR-E8-Key" firstAttribute="centerY" secondItem="tUn-gL-6MJ" secondAttribute="centerY" id="Veh-5f-J8w"/>
                                         <constraint firstItem="plt-37-BYB" firstAttribute="leading" secondItem="tUn-gL-6MJ" secondAttribute="trailing" constant="18" id="Xrv-9Y-aWK"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="plt-37-BYB" secondAttribute="trailing" id="ZEp-9t-xxs"/>
                                         <constraint firstItem="plt-37-BYB" firstAttribute="top" secondItem="xkR-VI-wng" secondAttribute="bottom" constant="4" id="j2N-7n-aNR"/>
-                                        <constraint firstItem="tUn-gL-6MJ" firstAttribute="top" secondItem="6Lz-Uy-d3S" secondAttribute="top" constant="18" id="pz9-w4-Dsv"/>
+                                        <constraint firstItem="gcS-ZP-G7n" firstAttribute="top" relation="greaterThanOrEqual" secondItem="6Lz-Uy-d3S" secondAttribute="top" constant="31" id="rbN-3Z-b3Y"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="xkR-VI-wng" secondAttribute="trailing" id="uIP-pK-2Sf"/>
+                                        <constraint firstItem="tUn-gL-6MJ" firstAttribute="centerY" secondItem="6Lz-Uy-d3S" secondAttribute="centerY" id="veN-tw-OLL"/>
                                         <constraint firstItem="tUn-gL-6MJ" firstAttribute="leading" secondItem="6Lz-Uy-d3S" secondAttribute="leadingMargin" constant="11" id="yUf-SJ-4Ut"/>
                                     </constraints>
                                 </tableViewCellContentView>
@@ -1294,7 +1298,7 @@ You can import artists from Apple Music, Spotify, or manually search and follow 
         <scene sceneID="eCT-23-ojS">
             <objects>
                 <tableViewController id="xGt-pE-Rm6" customClass="AllReleasesTableViewController" customModule="Numu_Tracker" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" indicatorStyle="black" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="138" sectionHeaderHeight="28" sectionFooterHeight="28" id="out-SO-RhK">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" indicatorStyle="black" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" sectionFooterHeight="-1" id="out-SO-RhK">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.13350695369999999" green="0.13364198799999999" blue="0.13352787490000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1319,21 +1323,21 @@ You can import artists from Apple Music, Spotify, or manually search and follow 
                                                 <constraint firstAttribute="height" constant="100" id="JJn-I1-PUm"/>
                                             </constraints>
                                         </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Album" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="osf-QW-Zdf">
-                                            <rect key="frame" x="149" y="82" width="247" height="16"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Album" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="osf-QW-Zdf">
+                                            <rect key="frame" x="149" y="81" width="247" height="15.666666666666671"/>
+                                            <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
                                             <color key="textColor" cocoaTouchSystemColor="lightTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Meat Wave" textAlignment="natural" lineBreakMode="tailTruncation" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vSI-EG-u7Z">
-                                            <rect key="frame" x="149" y="31" width="247" height="24"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Meat Wave" textAlignment="natural" lineBreakMode="tailTruncation" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vSI-EG-u7Z">
+                                            <rect key="frame" x="149" y="34" width="247" height="24"/>
+                                            <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Delusion Moon" textAlignment="natural" lineBreakMode="tailTruncation" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vts-KZ-zYJ">
-                                            <rect key="frame" x="149" y="58" width="247" height="20"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Delusion Moon" textAlignment="natural" lineBreakMode="tailTruncation" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vts-KZ-zYJ">
+                                            <rect key="frame" x="149" y="59" width="247" height="18"/>
+                                            <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
                                             <color key="textColor" red="0.10980392160000001" green="0.81176470590000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
@@ -1347,16 +1351,18 @@ You can import artists from Apple Music, Spotify, or manually search and follow 
                                         </view>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="7Wh-LQ-SXB" firstAttribute="top" secondItem="URL-Ie-01f" secondAttribute="top" constant="18" id="00C-Mu-GPU"/>
+                                        <constraint firstItem="7Wh-LQ-SXB" firstAttribute="centerY" secondItem="URL-Ie-01f" secondAttribute="centerY" id="5OV-ZO-MC2"/>
                                         <constraint firstItem="osf-QW-Zdf" firstAttribute="top" secondItem="vts-KZ-zYJ" secondAttribute="bottom" constant="4" id="EWh-V2-mT6"/>
                                         <constraint firstItem="osf-QW-Zdf" firstAttribute="leading" secondItem="7Wh-LQ-SXB" secondAttribute="trailing" constant="18" id="GSu-wG-7ew"/>
                                         <constraint firstAttribute="leadingMargin" secondItem="7Wh-LQ-SXB" secondAttribute="leading" constant="-11" id="Gtn-yN-tUj"/>
                                         <constraint firstItem="p7b-vT-nmz" firstAttribute="centerY" secondItem="7Wh-LQ-SXB" secondAttribute="centerY" id="HGA-VU-Ek3"/>
+                                        <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="osf-QW-Zdf" secondAttribute="bottom" constant="37.666666666666657" id="NTO-6d-UuO"/>
                                         <constraint firstItem="jZk-ho-uST" firstAttribute="centerY" secondItem="7Wh-LQ-SXB" secondAttribute="centerY" id="Nbb-rI-ws9"/>
-                                        <constraint firstItem="vts-KZ-zYJ" firstAttribute="top" secondItem="vSI-EG-u7Z" secondAttribute="bottom" constant="3" id="REX-7n-Mqp"/>
+                                        <constraint firstItem="vts-KZ-zYJ" firstAttribute="top" secondItem="vSI-EG-u7Z" secondAttribute="bottom" constant="1" id="REX-7n-Mqp"/>
                                         <constraint firstItem="vts-KZ-zYJ" firstAttribute="leading" secondItem="7Wh-LQ-SXB" secondAttribute="trailing" constant="18" id="UQn-mQ-UOc"/>
                                         <constraint firstItem="vSI-EG-u7Z" firstAttribute="leading" secondItem="7Wh-LQ-SXB" secondAttribute="trailing" constant="18" id="agD-zG-0h4"/>
                                         <constraint firstItem="vts-KZ-zYJ" firstAttribute="centerY" secondItem="7Wh-LQ-SXB" secondAttribute="centerY" id="jzX-5Z-o0e"/>
+                                        <constraint firstItem="vSI-EG-u7Z" firstAttribute="top" relation="greaterThanOrEqual" secondItem="URL-Ie-01f" secondAttribute="top" constant="31" id="m5F-8O-qiX"/>
                                         <constraint firstItem="7Wh-LQ-SXB" firstAttribute="leading" secondItem="p7b-vT-nmz" secondAttribute="trailing" constant="9" id="sWm-hR-A2r"/>
                                         <constraint firstItem="jZk-ho-uST" firstAttribute="centerX" secondItem="7Wh-LQ-SXB" secondAttribute="centerX" id="vBT-G5-UEb"/>
                                     </constraints>
