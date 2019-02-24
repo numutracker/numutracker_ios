@@ -42,7 +42,7 @@ class ArtistReleasesTableViewController: UITableViewController {
                         if !defaults.logged {
                             self?.navigationItem.rightBarButtonItem?.title = "Follow"
                         } else {
-                            let title = self?.artistItem[0].followStatus == "1" ? "Unfollow" : "Follow"
+                            let title = self?.artistItem[0].followStatus == "1" ? "Remove" : "Follow"
                             self?.navigationItem.rightBarButtonItem?.title = title
                         }
                         self?.tableView.reloadData()
@@ -69,7 +69,7 @@ class ArtistReleasesTableViewController: UITableViewController {
                            self.navigationItem.rightBarButtonItem?.title = "Follow"
                             Answers.logCustomEvent(withName: "Unfol Bar", customAttributes: ["Artist ID": artistId])
                         } else if success == "2" {
-                            self.navigationItem.rightBarButtonItem?.title = "Unfollow"
+                            self.navigationItem.rightBarButtonItem?.title = "Remove"
                             Answers.logCustomEvent(withName: "Follo Bar", customAttributes: ["Artist ID": artistId])
                         }
                     })

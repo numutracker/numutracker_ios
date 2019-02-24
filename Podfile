@@ -17,4 +17,5 @@ target 'Numu Tracker' do
     pod 'Kingfisher', '~> 4.0'
     pod 'SpotifyLogin', '~> 0.1'
     pod 'Spartan'
+    pod 'SwiftLint'
 end
