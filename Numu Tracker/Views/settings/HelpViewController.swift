@@ -24,9 +24,7 @@ class HelpViewController: UIViewController, MFMailComposeViewControllerDelegate 
     }
 
     @IBAction func joinSlackButton(_ sender: Any) {
-        let url = URL(string: "https://join.slack.com/t/numutracker/shared_invite/" +
-            "enQtNDQ0ODM3MzEyNDY2LTgxM2Y4ZjhkNTBmMjdhYjFiNjMxY2Y2YjEwMTljMzkzYTYwYz" +
-            "AyOGY4ZDAwMTg0MWMyMGUzODZjZTgzZDc3Zjc")
+        let url = URL(string: "https://www.twitter.com/amiantos")
         UIApplication.shared.open(url!)
     }
 

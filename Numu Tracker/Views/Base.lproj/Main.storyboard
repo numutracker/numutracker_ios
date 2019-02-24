@@ -2428,18 +2428,18 @@ On the </string>
                                             <constraint firstAttribute="height" constant="44" id="0et-WN-LiG"/>
                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="230" id="hz9-zI-JY6"/>
                                         </constraints>
-                                        <state key="normal" title="Join the Numu Slack"/>
+                                        <state key="normal" title="Follow me on Twitter"/>
                                         <connections>
                                             <action selector="joinSlackButton:" destination="Now-IP-Fwq" eventType="touchUpInside" id="9P3-VM-y7v"/>
                                         </connections>
                                     </button>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xQO-Ds-PcJ">
-                                        <rect key="frame" x="64" y="247.33333333333337" width="286.33333333333331" height="83"/>
+                                        <rect key="frame" x="70.666666666666686" y="247.33333333333337" width="273" height="83"/>
                                         <color key="backgroundColor" red="0.13350695369999999" green="0.13364198799999999" blue="0.13352787490000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" relation="lessThanOrEqual" constant="288" id="gef-Es-TGY"/>
                                         </constraints>
-                                        <string key="text">Join the Slack if you'd like to ask for help, discuss the future of the app, engage with other users, or just talk about your favorite music! I'm @amiantos on Slack.</string>
+                                        <string key="text">I'm @amiantos on Twitter. Feel free to @ me with ideas, problems, or just to chat. Follow me to get updates on Numu and what I'm up to.</string>
                                         <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
