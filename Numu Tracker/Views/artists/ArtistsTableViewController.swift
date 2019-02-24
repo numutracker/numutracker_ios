@@ -115,6 +115,7 @@ class ArtistsTableViewController: UITableViewController, UISearchBarDelegate, UI
     }
     var artistsDictionary: [String: [ArtistItem]] = [:]
     var artistsSectionTitles: [String] = []
+    var artistsSorted: [ArtistItem] = []
 
     var sortMethod: String = UserDefaults.standard.string(forKey: "sortArtists") ?? "name" {
         didSet {
@@ -395,10 +396,8 @@ class ArtistsTableViewController: UITableViewController, UISearchBarDelegate, UI
 
     override func tableView(
         _ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
-
-        var artistInfo = artists[indexPath.row]
-
-        let unfollow = UITableViewRowAction(style: .normal, title: "Error") { _, index in
+        guard let cell = tableView.cellForRow(at: indexPath) as? ArtistTableViewCell else { return nil }
+        let unfollow = UITableViewRowAction(style: .normal, title: "Error") { action, _ in
             if !defaults.logged {
                 if let loginViewController = self.storyboard?.instantiateViewController(
                         withIdentifier: "LogRegPrompt") as? UINavigationController {
@@ -407,27 +406,14 @@ class ArtistsTableViewController: UITableViewController, UISearchBarDelegate, UI
                     }
                 }
             } else {
-                artistInfo.unfollowArtist { (success) in
-                    DispatchQueue.main.async(execute: {
-                        if success == "1" {
-                            artistInfo.followStatus = "0"
-                            self.artists[index.row].followStatus = "0"
-                            Answers.logCustomEvent(
-                                withName: "Unfol Swipe", customAttributes: ["Artist ID": artistInfo.artistId])
-                        } else if success == "2" {
-                            artistInfo.followStatus = "1"
-                            self.artists[index.row].followStatus = "1"
-                            Answers.logCustomEvent(
-                                withName: "Follo Swipe", customAttributes: ["Artist ID": artistInfo.artistId])
-                        }
-                        tableView.setEditing(false, animated: true)
-                    })
-                }
+                cell.toggleFollow()
+                action.title = cell.followStatus == "0" ? "Follow" : "Remove"
+                tableView.setEditing(false, animated: true)
             }
         }
 
         unfollow.backgroundColor = .background
-        unfollow.title = artistInfo.followStatus == "0" ? "Follow" : "Unfollow"
+        unfollow.title = cell.followStatus == "0" ? "Follow" : "Remove"
 
         return [unfollow]
     }
