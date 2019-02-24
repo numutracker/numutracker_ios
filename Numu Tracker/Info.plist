@@ -17,7 +17,7 @@
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>1.3.1</string>
+	<string>1.3.2</string>
 	<key>CFBundleURLTypes</key>
 	<array>
 		<dict>
@@ -32,7 +32,7 @@
 		</dict>
 	</array>
 	<key>CFBundleVersion</key>
-	<string>882</string>
+	<string>948</string>
 	<key>Fabric</key>
 	<dict>
 		<key>APIKey</key>
@@ -52,6 +52,7 @@
 	<key>LSApplicationQueriesSchemes</key>
 	<array>
 		<string>spotify-action</string>
+		<string>twitter</string>
 	</array>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>

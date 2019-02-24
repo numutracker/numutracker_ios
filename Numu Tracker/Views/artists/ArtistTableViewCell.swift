@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Crashlytics
 
 class ArtistTableViewCell: UITableViewCell {
 
@@ -17,8 +18,10 @@ class ArtistTableViewCell: UITableViewCell {
     var followStatus: String = "0"
     @IBOutlet weak var recentReleaseLabel: UILabel!
     @IBOutlet weak var albumActivityIndicator: UIActivityIndicatorView!
+    var artistItem: ArtistItem?
 
     func configure(artistInfo: ArtistItem) {
+        artistItem = artistInfo
         artistNameLabel.text = artistInfo.artistName
         thumbUrl = artistInfo.thumbUrl
         followStatus = artistInfo.followStatus
@@ -44,7 +47,29 @@ class ArtistTableViewCell: UITableViewCell {
         artistArt.layer.shadowOpacity = 0.3
         artistArt.layer.shadowOffset = .zero
         artistArt.layer.shadowRadius = 5
+    }
 
+    public func toggleFollow() {
+        switch followStatus {
+        case "0":
+            followStatus = "1"
+        case "1":
+            followStatus = "0"
+        default:
+            break
+        }
+        guard let artistItem = artistItem else { return }
+        artistItem.unfollowArtist { (success) in
+            DispatchQueue.main.async(execute: {
+                if success == "1" {
+                    Answers.logCustomEvent(
+                        withName: "Unfol Swipe", customAttributes: ["Artist ID": artistItem.artistId])
+                } else if success == "2" {
+                    Answers.logCustomEvent(
+                        withName: "Follo Swipe", customAttributes: ["Artist ID": artistItem.artistId])
+                }
+            })
+        }
     }
 
 }
