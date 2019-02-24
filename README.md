@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/amiantos/numutracker_ios.svg?branch=master)](https://travis-ci.org/amiantos/numutracker_ios)
+[![Build Status](https://travis-ci.org/numutracker/numutracker_ios.svg?branch=master)](https://travis-ci.org/numutracker/numutracker_ios)
 
 # Numu Tracker for iOS
 
