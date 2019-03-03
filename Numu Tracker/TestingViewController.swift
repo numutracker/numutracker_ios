@@ -15,12 +15,12 @@ class TestingViewController: UIViewController {
 
         // Do any additional setup after loading the view.
 
-        let apiDataStore = APIDataStore()
+        //let apiDataStore = NumuAPIDataStore()
         let coreDataStore = CoreDataStore()
 
-        coreDataStore.fetchArtists(sinceDateUpdated: nil) { (artists, error) in
+        coreDataStore.fetchUserArtists(sinceDateUpdated: nil, offset: 0) { (result, error) in
             if error == nil {
-                print(artists.last)
+                print(result!)
             }
         }
 //

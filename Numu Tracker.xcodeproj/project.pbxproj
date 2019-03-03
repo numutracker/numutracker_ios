@@ -42,13 +42,14 @@
 		B47733AF2210DF51005D2EAE /* ListenSpotifyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B477339E2210DF50005D2EAE /* ListenSpotifyTableViewCell.swift */; };
 		B47733B02210DF51005D2EAE /* SearchSoundCloudTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B477339F2210DF50005D2EAE /* SearchSoundCloudTableViewCell.xib */; };
 		B47733B12210DF51005D2EAE /* ReleaseDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B47733A02210DF50005D2EAE /* ReleaseDetailsViewController.swift */; };
+		B481FD34222C603B009907B3 /* StorageResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = B481FD33222C603B009907B3 /* StorageResult.swift */; };
 		B4C078E2221A11B60036F9F3 /* NumuDataCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C078E1221A11B60036F9F3 /* NumuDataCoordinator.swift */; };
 		B4C078E4221A17C50036F9F3 /* ArtistImport.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C078E3221A17C50036F9F3 /* ArtistImport.swift */; };
 		B4C078E6221A19770036F9F3 /* CoreDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C078E5221A19770036F9F3 /* CoreDataStore.swift */; };
 		B4C078E9221A273F0036F9F3 /* ManagedUser+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C078E7221A273F0036F9F3 /* ManagedUser+CoreDataClass.swift */; };
 		B4C078EA221A273F0036F9F3 /* ManagedUser+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C078E8221A273F0036F9F3 /* ManagedUser+CoreDataProperties.swift */; };
-		B4C078EC221A2AC30036F9F3 /* ServiceProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C078EB221A2AC30036F9F3 /* ServiceProtocols.swift */; };
-		B4C078EE221A39AC0036F9F3 /* APIDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C078ED221A39AC0036F9F3 /* APIDataStore.swift */; };
+		B4C078EC221A2AC30036F9F3 /* NumuDataProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C078EB221A2AC30036F9F3 /* NumuDataProtocol.swift */; };
+		B4C078EE221A39AC0036F9F3 /* NumuAPIDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C078ED221A39AC0036F9F3 /* NumuAPIDataStore.swift */; };
 		B4E8F25C220F624300BDEA30 /* ReleaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4E8F25A220F624300BDEA30 /* ReleaseTableViewCell.swift */; };
 		B4E8F25D220F624300BDEA30 /* ReleaseTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B4E8F25B220F624300BDEA30 /* ReleaseTableViewCell.xib */; };
 		B4E8F260220F650900BDEA30 /* UserReleasesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4E8F25F220F650900BDEA30 /* UserReleasesTableViewController.swift */; };
@@ -132,13 +133,14 @@
 		B477339E2210DF50005D2EAE /* ListenSpotifyTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListenSpotifyTableViewCell.swift; sourceTree = "<group>"; };
 		B477339F2210DF50005D2EAE /* SearchSoundCloudTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchSoundCloudTableViewCell.xib; sourceTree = "<group>"; };
 		B47733A02210DF50005D2EAE /* ReleaseDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReleaseDetailsViewController.swift; sourceTree = "<group>"; };
+		B481FD33222C603B009907B3 /* StorageResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageResult.swift; sourceTree = "<group>"; };
 		B4C078E1221A11B60036F9F3 /* NumuDataCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumuDataCoordinator.swift; sourceTree = "<group>"; };
 		B4C078E3221A17C50036F9F3 /* ArtistImport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistImport.swift; sourceTree = "<group>"; };
 		B4C078E5221A19770036F9F3 /* CoreDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStore.swift; sourceTree = "<group>"; };
 		B4C078E7221A273F0036F9F3 /* ManagedUser+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ManagedUser+CoreDataClass.swift"; sourceTree = "<group>"; };
 		B4C078E8221A273F0036F9F3 /* ManagedUser+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ManagedUser+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		B4C078EB221A2AC30036F9F3 /* ServiceProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceProtocols.swift; sourceTree = "<group>"; };
-		B4C078ED221A39AC0036F9F3 /* APIDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIDataStore.swift; sourceTree = "<group>"; };
+		B4C078EB221A2AC30036F9F3 /* NumuDataProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumuDataProtocol.swift; sourceTree = "<group>"; };
+		B4C078ED221A39AC0036F9F3 /* NumuAPIDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumuAPIDataStore.swift; sourceTree = "<group>"; };
 		B4E8F25A220F624300BDEA30 /* ReleaseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReleaseTableViewCell.swift; sourceTree = "<group>"; };
 		B4E8F25B220F624300BDEA30 /* ReleaseTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ReleaseTableViewCell.xib; sourceTree = "<group>"; };
 		B4E8F25F220F650900BDEA30 /* UserReleasesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserReleasesTableViewController.swift; sourceTree = "<group>"; };
@@ -318,13 +320,13 @@
 			path = "Local Storage";
 			sourceTree = "<group>";
 		};
-		B481FD32222C5C12009907B3 /* Remote */ = {
+		B481FD32222C5C12009907B3 /* Remote Storage */ = {
 			isa = PBXGroup;
 			children = (
 				B4F20DC7221906F400B24244 /* NumuAPI */,
-				B4C078ED221A39AC0036F9F3 /* APIDataStore.swift */,
+				B4C078ED221A39AC0036F9F3 /* NumuAPIDataStore.swift */,
 			);
-			path = Remote;
+			path = "Remote Storage";
 			sourceTree = "<group>";
 		};
 		B4E8F259220F5B3000BDEA30 /* Components */ = {
@@ -364,6 +366,7 @@
 				44200CC42214D5F100200896 /* User.swift */,
 				B4F20DBA2218F37400B24244 /* Artist.swift */,
 				B4C078E3221A17C50036F9F3 /* ArtistImport.swift */,
+				B481FD33222C603B009907B3 /* StorageResult.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -371,9 +374,9 @@
 		B4F20DBE221905F900B24244 /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				B4C078EB221A2AC30036F9F3 /* ServiceProtocols.swift */,
+				B4C078EB221A2AC30036F9F3 /* NumuDataProtocol.swift */,
 				446B5DFF220A695600948BCB /* NumuCredential.swift */,
-				B481FD32222C5C12009907B3 /* Remote */,
+				B481FD32222C5C12009907B3 /* Remote Storage */,
 				B481FD31222C5C08009907B3 /* Local Storage */,
 				B4C078E1221A11B60036F9F3 /* NumuDataCoordinator.swift */,
 			);
@@ -844,7 +847,7 @@
 				B47733AF2210DF51005D2EAE /* ListenSpotifyTableViewCell.swift in Sources */,
 				B47733A72210DF51005D2EAE /* MoreReleasesTableViewCell.swift in Sources */,
 				44583E70220BBC59007E0020 /* NumuAPI.swift in Sources */,
-				B4C078EC221A2AC30036F9F3 /* ServiceProtocols.swift in Sources */,
+				B4C078EC221A2AC30036F9F3 /* NumuDataProtocol.swift in Sources */,
 				B4F20DB22218F25600B24244 /* ManagedRelease+CoreDataProperties.swift in Sources */,
 				B4E8F25C220F624300BDEA30 /* ReleaseTableViewCell.swift in Sources */,
 				44200CC52214D5F100200896 /* User.swift in Sources */,
@@ -854,7 +857,7 @@
 				B47733B12210DF51005D2EAE /* ReleaseDetailsViewController.swift in Sources */,
 				B4F20DB52218F25600B24244 /* ManagedRelease+CoreDataClass.swift in Sources */,
 				B4F20DC22219067100B24244 /* APIArtist.swift in Sources */,
-				B4C078EE221A39AC0036F9F3 /* APIDataStore.swift in Sources */,
+				B4C078EE221A39AC0036F9F3 /* NumuAPIDataStore.swift in Sources */,
 				B47733A22210DF51005D2EAE /* NumuSortView.swift in Sources */,
 				B4F20DC42219067C00B24244 /* APIUser.swift in Sources */,
 				B4F20DBB2218F37400B24244 /* Artist.swift in Sources */,
@@ -873,6 +876,7 @@
 				B4E8F260220F650900BDEA30 /* UserReleasesTableViewController.swift in Sources */,
 				B47733372210C364005D2EAE /* ArtistReleasesTableViewController.swift in Sources */,
 				B4C078E4221A17C50036F9F3 /* ArtistImport.swift in Sources */,
+				B481FD34222C603B009907B3 /* StorageResult.swift in Sources */,
 				B4E8F26C220FC17F00BDEA30 /* APIArtists.swift in Sources */,
 				B4F20DB32218F25600B24244 /* ManagedArtist+CoreDataProperties.swift in Sources */,
 				B47733A32210DF51005D2EAE /* NumuAlertView.swift in Sources */,
