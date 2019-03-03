@@ -299,6 +299,18 @@
 			path = ReleaseDetails;
 			sourceTree = "<group>";
 		};
+		B481FD30222C561B009907B3 /* Release Detail Cells */ = {
+			isa = PBXGroup;
+			children = (
+				B4F20DD72219109500B24244 /* ListenAppleMusic */,
+				B4F20DD52219105900B24244 /* ListenSpotify */,
+				B4F20DD82219109E00B24244 /* SearchSoundCloud */,
+				B4F20DD62219107200B24244 /* SearchYouTube */,
+				B4F20DD9221910B200B24244 /* MoreReleases */,
+			);
+			path = "Release Detail Cells";
+			sourceTree = "<group>";
+		};
 		B4C078DC2219D59C0036F9F3 /* Workers */ = {
 			isa = PBXGroup;
 			children = (
@@ -436,11 +448,7 @@
 			children = (
 				B4E8F263220FBCCC00BDEA30 /* Artist */,
 				B4E8F25E220F624B00BDEA30 /* Release */,
-				B4F20DD9221910B200B24244 /* MoreReleases */,
-				B4F20DD82219109E00B24244 /* SearchSoundCloud */,
-				B4F20DD72219109500B24244 /* ListenAppleMusic */,
-				B4F20DD62219107200B24244 /* SearchYouTube */,
-				B4F20DD52219105900B24244 /* ListenSpotify */,
+				B481FD30222C561B009907B3 /* Release Detail Cells */,
 			);
 			path = TableViewCells;
 			sourceTree = "<group>";
@@ -1045,6 +1053,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2Y9M69QJKZ;
 				INFOPLIST_FILE = "Numu Tracker/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1065,6 +1074,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2Y9M69QJKZ;
 				INFOPLIST_FILE = "Numu Tracker/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
