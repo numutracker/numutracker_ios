@@ -9,7 +9,7 @@
 import Foundation
 import CoreData
 
-class CoreDataStore: NumuStorageProtocol {
+class CoreDataStore: NumuDataProtocol {
 
     var mainManagedObjectContext: NSManagedObjectContext
     var privateManagedObjectContext: NSManagedObjectContext
@@ -54,197 +54,6 @@ class CoreDataStore: NumuStorageProtocol {
                 // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
                 let nserror = error as NSError
                 fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
-            }
-        }
-    }
-
-    // MARK: - Artists
-
-    func createArtist(artistToCreate: Artist, completionHandler: @escaping (Artist?, NumuStoreError?) -> Void) {
-        privateManagedObjectContext.perform {
-            do {
-                let fetchRequest: NSFetchRequest<ManagedArtist> = ManagedArtist.fetchRequest()
-                fetchRequest.predicate = NSPredicate(format: "mbid == %@", artistToCreate.mbid as CVarArg)
-                if let managedArtist = try self.privateManagedObjectContext.fetch(fetchRequest).first {
-                    managedArtist.fromArtist(artist: artistToCreate)
-                } else {
-                    let managedArtist = ManagedArtist(context: self.privateManagedObjectContext)
-                    managedArtist.fromArtist(artist: artistToCreate)
-                }
-                let artist = artistToCreate
-                try self.privateManagedObjectContext.save()
-                completionHandler(artist, nil)
-            } catch {
-                print(error)
-                completionHandler(nil, NumuStoreError.cannotCreate("Cannot create artist with mbid \(String(describing: artistToCreate.mbid))"))
-            }
-        }
-    }
-
-    func createArtists(artistsToCreate: [Artist], completionHandler: @escaping ([Artist], NumuStoreError?) -> Void) {
-        privateManagedObjectContext.perform {
-            do {
-                var artists: [Artist] = []
-                for artistToCreate in artistsToCreate {
-                    let fetchRequest: NSFetchRequest<ManagedArtist> = ManagedArtist.fetchRequest()
-                    fetchRequest.predicate = NSPredicate(format: "mbid == %@", artistToCreate.mbid as CVarArg)
-                    if let managedArtist = try self.privateManagedObjectContext.fetch(fetchRequest).first {
-                        managedArtist.fromArtist(artist: artistToCreate)
-                    } else {
-                        let managedArtist = ManagedArtist(context: self.privateManagedObjectContext)
-                        managedArtist.fromArtist(artist: artistToCreate)
-                    }
-                    artists.append(artistToCreate)
-                }
-                try self.privateManagedObjectContext.save()
-                completionHandler(artists, nil)
-            } catch {
-                completionHandler([], NumuStoreError.cannotCreate("Could not create artist batch"))
-            }
-        }
-    }
-
-    func fetchArtists(sinceDateUpdated date: Date?, completionHandler: @escaping ([Artist], NumuStoreError?) -> Void) {
-        privateManagedObjectContext.perform {
-            do {
-                let fetchRequest: NSFetchRequest<ManagedArtist> = ManagedArtist.fetchRequest()
-                fetchRequest.predicate = NSPredicate(format: "following == %@", NSNumber(value: true))
-                let results = try self.privateManagedObjectContext.fetch(fetchRequest)
-                let artists = results.map { $0.toArtist() }
-                completionHandler(artists, nil)
-            } catch {
-                completionHandler([], NumuStoreError.cannotFetch("Cannot fetch artists"))
-            }
-        }
-    }
-
-    func updateArtist(artistToUpdate: Artist, completionHandler: @escaping (Artist?, NumuStoreError?) -> Void) {
-        privateManagedObjectContext.perform {
-            do {
-                let fetchRequest: NSFetchRequest<ManagedArtist> = ManagedArtist.fetchRequest()
-                fetchRequest.predicate = NSPredicate(format: "mbid == %@", artistToUpdate.mbid as CVarArg)
-                let results = try self.privateManagedObjectContext.fetch(fetchRequest)
-                if let managedArtist = results.first {
-                    do {
-                        managedArtist.fromArtist(artist: artistToUpdate)
-                        let artist = managedArtist.toArtist()
-                        try self.privateManagedObjectContext.save()
-                        completionHandler(artist, nil)
-                    } catch {
-                        completionHandler(
-                            nil,
-                            NumuStoreError.cannotUpdate("Cannot update artist with mbid \(String(describing: artistToUpdate.mbid))")
-                        )
-                    }
-                }
-            } catch {
-                completionHandler(
-                    nil,
-                    NumuStoreError.cannotUpdate("Cannot fetch artist with mbid \(String(describing: artistToUpdate.mbid)) to update")
-                )
-            }
-        }
-    }
-
-    // MARK: - Releases
-
-    func createRelease(releaseToCreate: Release, completionHandler: @escaping (Release?, NumuStoreError?) -> Void) {
-        privateManagedObjectContext.perform {
-            do {
-                let fetchRequest: NSFetchRequest<ManagedRelease> = ManagedRelease.fetchRequest()
-                fetchRequest.predicate = NSPredicate(format: "mbid == %@", releaseToCreate.mbid as CVarArg)
-                if let managedRelease = try self.privateManagedObjectContext.fetch(fetchRequest).first {
-                    managedRelease.fromRelease(release: releaseToCreate)
-                } else {
-                    let managedRelease = ManagedRelease(context: self.privateManagedObjectContext)
-                    managedRelease.fromRelease(release: releaseToCreate)
-                }
-                let release = releaseToCreate
-                try self.privateManagedObjectContext.save()
-                completionHandler(release, nil)
-            } catch {
-                completionHandler(nil, NumuStoreError.cannotCreate("Cannot create release with mbid \(String(describing: releaseToCreate.mbid))"))
-            }
-        }
-    }
-
-    func createReleases(releasesToCreate: [Release], completionHandler: @escaping ([Release], NumuStoreError?) -> Void) {
-        privateManagedObjectContext.perform {
-            do {
-                var releases: [Release] = []
-                for releaseToCreate in releasesToCreate {
-                    let fetchRequest: NSFetchRequest<ManagedRelease> = ManagedRelease.fetchRequest()
-                    fetchRequest.predicate = NSPredicate(format: "mbid == %@", releaseToCreate.mbid as CVarArg)
-                    if let managedRelease = try self.privateManagedObjectContext.fetch(fetchRequest).first {
-                        managedRelease.fromRelease(release: releaseToCreate)
-                    } else {
-                        let managedRelease = ManagedRelease(context: self.privateManagedObjectContext)
-                        managedRelease.fromRelease(release: releaseToCreate)
-                    }
-                    releases.append(releaseToCreate)
-                }
-                try self.privateManagedObjectContext.save()
-                completionHandler(releases, nil)
-            } catch {
-                completionHandler([], NumuStoreError.cannotCreate("Could not create release batch"))
-            }
-        }
-    }
-
-    func fetchReleases(sinceDateUpdated date: Date?, completionHandler: @escaping ([Release], NumuStoreError?) -> Void) {
-        privateManagedObjectContext.perform {
-            do {
-                let fetchRequest: NSFetchRequest<ManagedRelease> = ManagedRelease.fetchRequest()
-                fetchRequest.predicate = NSPredicate(format: "following == %@", NSNumber(value: true))
-                let results = try self.privateManagedObjectContext.fetch(fetchRequest)
-                let releases = results.map { $0.toRelease() }
-                completionHandler(releases, nil)
-            } catch {
-                completionHandler([], NumuStoreError.cannotFetch("Cannot fetch releases"))
-            }
-        }
-    }
-
-    func fetchReleases(forArtist: Artist, completionHandler: @escaping ([Release], NumuStoreError?) -> Void) {
-        completionHandler([], nil)
-        privateManagedObjectContext.perform {
-            do {
-                let fetchRequest: NSFetchRequest<ManagedArtist> = ManagedArtist.fetchRequest()
-                fetchRequest.predicate = NSPredicate(format: "mbid == %@", forArtist.mbid as CVarArg)
-                let artist = try self.privateManagedObjectContext.fetch(fetchRequest).first
-                let managedReleases = Array(artist!.releases)
-                let releases = managedReleases.map { $0.toRelease() }
-                completionHandler(releases, nil)
-            } catch {
-                completionHandler([], NumuStoreError.cannotFetch("Cannot find artist to fetch releases."))
-            }
-        }
-    }
-
-    func updateRelease(releaseToUpdate: Release, completionHandler: @escaping (Release?, NumuStoreError?) -> Void) {
-        privateManagedObjectContext.perform {
-            do {
-                let fetchRequest: NSFetchRequest<ManagedRelease> = ManagedRelease.fetchRequest()
-                fetchRequest.predicate = NSPredicate(format: "mbid == %@", releaseToUpdate.mbid as CVarArg)
-                let results = try self.privateManagedObjectContext.fetch(fetchRequest)
-                if let managedRelease = results.first {
-                    do {
-                        managedRelease.fromRelease(release: releaseToUpdate)
-                        let release = managedRelease.toRelease()
-                        try self.privateManagedObjectContext.save()
-                        completionHandler(release, nil)
-                    } catch {
-                        completionHandler(
-                            nil,
-                            NumuStoreError.cannotUpdate("Cannot update artist with mbid \(String(describing: releaseToUpdate.mbid))")
-                        )
-                    }
-                }
-            } catch {
-                completionHandler(
-                    nil,
-                    NumuStoreError.cannotUpdate("Cannot fetch release with mbid \(String(describing: releaseToUpdate.mbid)) to update")
-                )
             }
         }
     }
@@ -301,6 +110,204 @@ class CoreDataStore: NumuStorageProtocol {
                 )
             }
         }
+    }
+
+    // MARK: - Artists
+
+    func createUserArtist(artistToCreate: Artist, completionHandler: @escaping (Artist?, NumuStoreError?) -> Void) {
+        privateManagedObjectContext.perform {
+            do {
+                let fetchRequest: NSFetchRequest<ManagedArtist> = ManagedArtist.fetchRequest()
+                fetchRequest.predicate = NSPredicate(format: "mbid == %@", artistToCreate.mbid as CVarArg)
+                if let managedArtist = try self.privateManagedObjectContext.fetch(fetchRequest).first {
+                    managedArtist.fromArtist(artist: artistToCreate)
+                } else {
+                    let managedArtist = ManagedArtist(context: self.privateManagedObjectContext)
+                    managedArtist.fromArtist(artist: artistToCreate)
+                }
+                let artist = artistToCreate
+                try self.privateManagedObjectContext.save()
+                completionHandler(artist, nil)
+            } catch {
+                print(error)
+                completionHandler(nil, NumuStoreError.cannotCreate("Cannot create artist with mbid \(String(describing: artistToCreate.mbid))"))
+            }
+        }
+    }
+
+    func createUserArtists(artistsToCreate: [Artist], completionHandler: @escaping ([Artist], NumuStoreError?) -> Void) {
+        privateManagedObjectContext.perform {
+            do {
+                var artists: [Artist] = []
+                for artistToCreate in artistsToCreate {
+                    let fetchRequest: NSFetchRequest<ManagedArtist> = ManagedArtist.fetchRequest()
+                    fetchRequest.predicate = NSPredicate(format: "mbid == %@", artistToCreate.mbid as CVarArg)
+                    if let managedArtist = try self.privateManagedObjectContext.fetch(fetchRequest).first {
+                        managedArtist.fromArtist(artist: artistToCreate)
+                    } else {
+                        let managedArtist = ManagedArtist(context: self.privateManagedObjectContext)
+                        managedArtist.fromArtist(artist: artistToCreate)
+                    }
+                    artists.append(artistToCreate)
+                }
+                try self.privateManagedObjectContext.save()
+                completionHandler(artists, nil)
+            } catch {
+                completionHandler([], NumuStoreError.cannotCreate("Could not create artist batch"))
+            }
+        }
+    }
+
+    func fetchUserArtists(sinceDateUpdated: Date?, offset: Int, completionHandler: @escaping ([Artist], NumuStoreError?) -> Void) {
+        privateManagedObjectContext.perform {
+            do {
+                let fetchRequest: NSFetchRequest<ManagedArtist> = ManagedArtist.fetchRequest()
+                fetchRequest.predicate = NSPredicate(format: "following == %@", NSNumber(value: true))
+                fetchRequest.fetchLimit = 50
+                fetchRequest.fetchOffset = offset
+                let results = try self.privateManagedObjectContext.fetch(fetchRequest)
+                let artists = results.map { $0.toArtist() }
+                completionHandler(artists, nil)
+            } catch {
+                completionHandler([], NumuStoreError.cannotFetch("Cannot fetch artists"))
+            }
+        }
+    }
+
+    func updateUserArtist(artistToUpdate: Artist, completionHandler: @escaping (Artist?, NumuStoreError?) -> Void) {
+        privateManagedObjectContext.perform {
+            do {
+                let fetchRequest: NSFetchRequest<ManagedArtist> = ManagedArtist.fetchRequest()
+                fetchRequest.predicate = NSPredicate(format: "mbid == %@", artistToUpdate.mbid as CVarArg)
+                let results = try self.privateManagedObjectContext.fetch(fetchRequest)
+                if let managedArtist = results.first {
+                    do {
+                        managedArtist.fromArtist(artist: artistToUpdate)
+                        let artist = managedArtist.toArtist()
+                        try self.privateManagedObjectContext.save()
+                        completionHandler(artist, nil)
+                    } catch {
+                        completionHandler(
+                            nil,
+                            NumuStoreError.cannotUpdate("Cannot update artist with mbid \(String(describing: artistToUpdate.mbid))")
+                        )
+                    }
+                }
+            } catch {
+                completionHandler(
+                    nil,
+                    NumuStoreError.cannotUpdate("Cannot fetch artist with mbid \(String(describing: artistToUpdate.mbid)) to update")
+                )
+            }
+        }
+    }
+
+    // MARK: - Releases
+
+    func createUserRelease(releaseToCreate: Release, completionHandler: @escaping (Release?, NumuStoreError?) -> Void) {
+        privateManagedObjectContext.perform {
+            do {
+                let fetchRequest: NSFetchRequest<ManagedRelease> = ManagedRelease.fetchRequest()
+                fetchRequest.predicate = NSPredicate(format: "mbid == %@", releaseToCreate.mbid as CVarArg)
+                if let managedRelease = try self.privateManagedObjectContext.fetch(fetchRequest).first {
+                    managedRelease.fromRelease(release: releaseToCreate)
+                } else {
+                    let managedRelease = ManagedRelease(context: self.privateManagedObjectContext)
+                    managedRelease.fromRelease(release: releaseToCreate)
+                }
+                let release = releaseToCreate
+                try self.privateManagedObjectContext.save()
+                completionHandler(release, nil)
+            } catch {
+                completionHandler(nil, NumuStoreError.cannotCreate("Cannot create release with mbid \(String(describing: releaseToCreate.mbid))"))
+            }
+        }
+    }
+
+    func createUserReleases(releasesToCreate: [Release], completionHandler: @escaping ([Release], NumuStoreError?) -> Void) {
+        privateManagedObjectContext.perform {
+            do {
+                var releases: [Release] = []
+                for releaseToCreate in releasesToCreate {
+                    let fetchRequest: NSFetchRequest<ManagedRelease> = ManagedRelease.fetchRequest()
+                    fetchRequest.predicate = NSPredicate(format: "mbid == %@", releaseToCreate.mbid as CVarArg)
+                    if let managedRelease = try self.privateManagedObjectContext.fetch(fetchRequest).first {
+                        managedRelease.fromRelease(release: releaseToCreate)
+                    } else {
+                        let managedRelease = ManagedRelease(context: self.privateManagedObjectContext)
+                        managedRelease.fromRelease(release: releaseToCreate)
+                    }
+                    releases.append(releaseToCreate)
+                }
+                try self.privateManagedObjectContext.save()
+                completionHandler(releases, nil)
+            } catch {
+                completionHandler([], NumuStoreError.cannotCreate("Could not create release batch"))
+            }
+        }
+    }
+
+    func fetchUserReleases(sinceDateUpdated: Date?, offset: Int, completionHandler: @escaping ([Release], NumuStoreError?) -> Void) {
+        privateManagedObjectContext.perform {
+            do {
+                let fetchRequest: NSFetchRequest<ManagedRelease> = ManagedRelease.fetchRequest()
+                fetchRequest.predicate = NSPredicate(format: "following == %@", NSNumber(value: true))
+                fetchRequest.fetchLimit = 50
+                fetchRequest.fetchOffset = offset
+                let results = try self.privateManagedObjectContext.fetch(fetchRequest)
+                let releases = results.map { $0.toRelease() }
+                completionHandler(releases, nil)
+            } catch {
+                completionHandler([], NumuStoreError.cannotFetch("Cannot fetch releases"))
+            }
+        }
+    }
+
+    func fetchReleases(forArtist: Artist, offset: Int, completionHandler: @escaping ([Release], NumuStoreError?) -> Void) {
+        privateManagedObjectContext.perform {
+            do {
+                let fetchRequest: NSFetchRequest<ManagedArtist> = ManagedArtist.fetchRequest()
+                fetchRequest.predicate = NSPredicate(format: "mbid == %@", forArtist.mbid as CVarArg)
+                let artist = try self.privateManagedObjectContext.fetch(fetchRequest).first
+                let managedReleases = Array(artist!.releases)
+                let releases = managedReleases.map { $0.toRelease() }
+                completionHandler(releases, nil)
+            } catch {
+                completionHandler([], NumuStoreError.cannotFetch("Cannot find artist to fetch releases."))
+            }
+        }
+    }
+
+    func updateUserRelease(releaseToUpdate: Release, completionHandler: @escaping (Release?, NumuStoreError?) -> Void) {
+        privateManagedObjectContext.perform {
+            do {
+                let fetchRequest: NSFetchRequest<ManagedRelease> = ManagedRelease.fetchRequest()
+                fetchRequest.predicate = NSPredicate(format: "mbid == %@", releaseToUpdate.mbid as CVarArg)
+                let results = try self.privateManagedObjectContext.fetch(fetchRequest)
+                if let managedRelease = results.first {
+                    do {
+                        managedRelease.fromRelease(release: releaseToUpdate)
+                        let release = managedRelease.toRelease()
+                        try self.privateManagedObjectContext.save()
+                        completionHandler(release, nil)
+                    } catch {
+                        completionHandler(
+                            nil,
+                            NumuStoreError.cannotUpdate("Cannot update artist with mbid \(String(describing: releaseToUpdate.mbid))")
+                        )
+                    }
+                }
+            } catch {
+                completionHandler(
+                    nil,
+                    NumuStoreError.cannotUpdate("Cannot fetch release with mbid \(String(describing: releaseToUpdate.mbid)) to update")
+                )
+            }
+        }
+    }
+
+    func createUserArtistImports(importsToCreate: [ArtistImport], completionHandler: @escaping ([ArtistImport], NumuStoreError?) -> Void) {
+        fatalError("User Artist Imports are not stored locally.")
     }
 
 }

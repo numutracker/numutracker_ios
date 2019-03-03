@@ -8,10 +8,10 @@
 
 import Foundation
 
-class APIDataStore {
+class APIDataStore: NumuDataProtocol {
 
     let urlPrefix = "https://api.numutracker.com/v3"
-    let apiKey = "0efaacb4-14dd-40d4-a6bd-379f8783c853" // development API key
+    let apiKey = "0efaacb4-14dd-40d4-a6bd-379f8783c853"  // development API key
 
     fileprivate func buildURLRequest(endpoint: String, parameters: [String: String]) -> URLRequest {
         var components = URLComponents(string: urlPrefix + endpoint)!
@@ -55,10 +55,7 @@ class APIDataStore {
         print(String(describing: response.result?.message))
         return nil
     }
-//    func createArtistImports(importsToCreate: [ArtistImport], completionHandler: @escaping ([ArtistImport], NumuStoreError?) -> Void) {
-//        <#code#>
-//    }
-//
+
     func fetchArtists(sinceDateUpdated: Date?, completionHandler: @escaping ([Artist], NumuStoreError?) -> Void) {
         var parameters = ["offset": "0"]
         if let date = sinceDateUpdated {
@@ -76,11 +73,7 @@ class APIDataStore {
             }
         }
     }
-//
-//    func updateArtist(artistToUpdate: Artist, completionHandler: @escaping (Artist?, NumuStoreError?) -> Void) {
-//        <#code#>
-//    }
-//
+
     func fetchReleases(sinceDateUpdated: Date?, completionHandler: @escaping ([Release], NumuStoreError?) -> Void) {
         var parameters = ["offset": "0"]
         if let date = sinceDateUpdated {
@@ -98,21 +91,59 @@ class APIDataStore {
             }
         }
     }
-//
-//    func fetchReleases(forArtist: Artist, completionHandler: @escaping ([Release], NumuStoreError?) -> Void) {
-//        <#code#>
-//    }
-//
-//    func updateRelease(releaseToUpdate: Release, completionHandler: @escaping (Release?, NumuStoreError?) -> Void) {
-//        <#code#>
-//    }
-//
-//    func fetchUser(completionHandler: @escaping (User?, NumuStoreError?) -> Void) {
-//        <#code#>
-//    }
-//
-//    func updateUser(userToUpdate: User, completionHandler: @escaping (User?, NumuStoreError?) -> Void) {
-//        <#code#>
-//    }
+
+    // TODO: - Implement Protocol
+
+    func createUserArtist(artistToCreate: Artist, completionHandler: @escaping (Artist?, NumuStoreError?) -> Void) {
+        <#code#>
+    }
+
+    func createUserArtists(artistsToCreate: [Artist], completionHandler: @escaping ([Artist], NumuStoreError?) -> Void) {
+        <#code#>
+    }
+
+    func fetchUserArtists(sinceDateUpdated: Date?, offset: Int, completionHandler: @escaping ([Artist], NumuStoreError?) -> Void) {
+        <#code#>
+    }
+
+    func updateUserArtist(artistToUpdate: Artist, completionHandler: @escaping (Artist?, NumuStoreError?) -> Void) {
+        <#code#>
+    }
+
+    func createUserRelease(releaseToCreate: Release, completionHandler: @escaping (Release?, NumuStoreError?) -> Void) {
+        <#code#>
+    }
+
+    func createUserReleases(releasesToCreate: [Release], completionHandler: @escaping ([Release], NumuStoreError?) -> Void) {
+        <#code#>
+    }
+
+    func fetchUserReleases(sinceDateUpdated: Date?, offset: Int, completionHandler: @escaping ([Release], NumuStoreError?) -> Void) {
+        <#code#>
+    }
+
+    func fetchReleases(forArtist: Artist, offset: Int, completionHandler: @escaping ([Release], NumuStoreError?) -> Void) {
+        <#code#>
+    }
+
+    func updateUserRelease(releaseToUpdate: Release, completionHandler: @escaping (Release?, NumuStoreError?) -> Void) {
+        <#code#>
+    }
+
+    func createUser(userToCreate: User, completionHandler: @escaping (User?, NumuStoreError?) -> Void) {
+        <#code#>
+    }
+
+    func fetchUser(completionHandler: @escaping (User?, NumuStoreError?) -> Void) {
+        <#code#>
+    }
+
+    func updateUser(userToUpdate: User, completionHandler: @escaping (User?, NumuStoreError?) -> Void) {
+        <#code#>
+    }
+
+    func createUserArtistImports(importsToCreate: [ArtistImport], completionHandler: @escaping ([ArtistImport], NumuStoreError?) -> Void) {
+        <#code#>
+    }
 
 }
