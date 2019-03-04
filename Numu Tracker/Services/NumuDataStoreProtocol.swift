@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol NumuDataProtocol {
+protocol NumuDataStoreProtocol {
     // MARK: - Artist
     func createUserArtist(artistToCreate: Artist, completionHandler: @escaping (StorageResult?, StorageError?) -> Void)
     func createUserArtists(artistsToCreate: [Artist], completionHandler: @escaping (StorageResult?, StorageError?) -> Void)

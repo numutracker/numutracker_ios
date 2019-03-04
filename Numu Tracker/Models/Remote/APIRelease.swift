@@ -78,7 +78,6 @@ struct APIRelease: Codable {
 }
 
 struct APIReleaseUserData: Codable {
-    let uuid: UUID
     let dateFollowed: Date
     let dateListened: Date?
     let dateUpdated: Date

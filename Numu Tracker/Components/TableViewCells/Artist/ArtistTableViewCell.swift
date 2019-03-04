@@ -10,7 +10,7 @@ import UIKit
 
 class ArtistTableViewCell: UITableViewCell {
 
-    var artist: APIArtist? {
+    var artist: Artist? {
         didSet {
             self.setupCell()
         }

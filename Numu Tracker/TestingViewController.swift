@@ -15,13 +15,10 @@ class TestingViewController: UIViewController {
 
         // Do any additional setup after loading the view.
 
-        //let apiDataStore = NumuAPIDataStore()
-        let coreDataStore = CoreDataStore()
+        let numuDataCoordinator = NumuDataCoordinator(localStorage: CoreDataStore(), remoteStorage: NumuAPIDataStore())
 
-        coreDataStore.fetchUserArtists(sinceDateUpdated: nil, offset: 0) { (result, error) in
-            if error == nil {
-                print(result!)
-            }
+        numuDataCoordinator.fetchUserArtists(sinceDateUpdated: nil, offset: 0) { (result, error) in
+            print(result, error)
         }
 //
 //        apiDataStore.fetchArtists(sinceDateUpdated: Date(timeIntervalSince1970: TimeInterval(exactly: 1548993722)!)) { (artists, error) in

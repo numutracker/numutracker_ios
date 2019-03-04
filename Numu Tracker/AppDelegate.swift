@@ -13,6 +13,8 @@ import SpotifyLogin
 
 let defaults = UserDefaults.standard
 
+let numuDataCoordinator: NumuDataCoordinator = NumuDataCoordinator(localStorage: CoreDataStore(), remoteStorage: NumuAPIDataStore())
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 

@@ -9,7 +9,7 @@
 import Foundation
 import CoreData
 
-class CoreDataStore: NumuDataProtocol {
+class CoreDataStore: NumuDataStoreProtocol {
 
     var mainManagedObjectContext: NSManagedObjectContext
     var privateManagedObjectContext: NSManagedObjectContext
@@ -67,6 +67,7 @@ class CoreDataStore: NumuDataProtocol {
                 let user = userToCreate
                 managedUser.fromUser(user: userToCreate)
                 try self.privateManagedObjectContext.save()
+                self.saveContext()
                 let result = StorageResult.init(
                     offset: 0,
                     resultsTotal: 1,
@@ -108,6 +109,7 @@ class CoreDataStore: NumuDataProtocol {
                         managedUser.fromUser(user: userToUpdate)
                         let user = managedUser.toUser()
                         try self.privateManagedObjectContext.save()
+                        self.saveContext()
                         let result = StorageResult.init(
                             offset: 0,
                             resultsTotal: 1,
@@ -142,6 +144,7 @@ class CoreDataStore: NumuDataProtocol {
                 }
                 let artist = artistToCreate
                 try self.privateManagedObjectContext.save()
+                self.saveContext()
                 let result = StorageResult.init(
                     offset: 0,
                     resultsTotal: 1,
@@ -171,6 +174,7 @@ class CoreDataStore: NumuDataProtocol {
                     artists.append(artistToCreate)
                 }
                 try self.privateManagedObjectContext.save()
+                self.saveContext()
                 let result = StorageResult.init(
                     offset: 0,
                     resultsTotal: artists.count,
@@ -188,13 +192,13 @@ class CoreDataStore: NumuDataProtocol {
             do {
                 let fetchRequest: NSFetchRequest<ManagedArtist> = ManagedArtist.fetchRequest()
                 fetchRequest.predicate = NSPredicate(format: "following == %@", NSNumber(value: true))
-                let totalCount = try! self.privateManagedObjectContext.count(for: fetchRequest)
-                fetchRequest.fetchLimit = 50
+                let totalCount = try self.privateManagedObjectContext.count(for: fetchRequest)
+                fetchRequest.fetchLimit = 1000
                 fetchRequest.fetchOffset = offset
                 let results = try self.privateManagedObjectContext.fetch(fetchRequest)
                 let artists = results.map { $0.toArtist() }
                 let result = StorageResult.init(
-                    offset: 0,
+                    offset: offset,
                     resultsTotal: totalCount,
                     resultsRemaining: totalCount - offset - artists.count,
                     items: artists)
@@ -216,6 +220,7 @@ class CoreDataStore: NumuDataProtocol {
                         managedArtist.fromArtist(artist: artistToUpdate)
                         let artist = managedArtist.toArtist()
                         try self.privateManagedObjectContext.save()
+                        self.saveContext()
                         let result = StorageResult.init(
                             offset: 0,
                             resultsTotal: 1,
@@ -253,6 +258,7 @@ class CoreDataStore: NumuDataProtocol {
                 }
                 let release = releaseToCreate
                 try self.privateManagedObjectContext.save()
+                self.saveContext()
                 let result = StorageResult.init(
                     offset: 0,
                     resultsTotal: 1,
@@ -281,6 +287,7 @@ class CoreDataStore: NumuDataProtocol {
                     releases.append(releaseToCreate)
                 }
                 try self.privateManagedObjectContext.save()
+                self.saveContext()
                 let result = StorageResult.init(
                     offset: 0,
                     resultsTotal: releases.count,
@@ -347,6 +354,7 @@ class CoreDataStore: NumuDataProtocol {
                         managedRelease.fromRelease(release: releaseToUpdate)
                         let release = managedRelease.toRelease()
                         try self.privateManagedObjectContext.save()
+                        self.saveContext()
                         let result = StorageResult.init(
                             offset: 0,
                             resultsTotal: 1,

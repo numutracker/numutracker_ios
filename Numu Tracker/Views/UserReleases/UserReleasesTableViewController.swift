@@ -26,9 +26,9 @@ class UserReleasesTableViewController: UITableViewController {
 
         self.tableView.register(UINib(nibName: "ReleaseTableViewCell", bundle: nil), forCellReuseIdentifier: "releaseCell")
 
-        self.releaseEngine.get {
-            self.tableView.reloadData()
-        }
+//        self.releaseEngine.get {
+//            self.tableView.reloadData()
+//        }
     }
 
     func changeDataSource(segmentIndex: Int) {

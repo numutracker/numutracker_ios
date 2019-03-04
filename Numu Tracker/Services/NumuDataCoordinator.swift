@@ -8,83 +8,82 @@
 
 import Foundation
 
-class NumuDataCoordinator {
-    var localStorage: NumuDataProtocol
-    var remoteStorage: NumuDataProtocol
+class NumuDataCoordinator: NumuDataStoreProtocol {
+    var localStorage: NumuDataStoreProtocol
+    var remoteStorage: NumuDataStoreProtocol
 
-    init(localStorage: NumuDataProtocol, remoteStorage: NumuDataProtocol) {
+    init(localStorage: NumuDataStoreProtocol, remoteStorage: NumuDataStoreProtocol) {
         self.localStorage = localStorage
         self.remoteStorage = remoteStorage
     }
 
-//    func fetchArtists(sinceDateUpdated: Date?, completionHandler: @escaping ([Artist], NumuStoreError?) -> Void) {
-//        // First try to fetch from local storage
-//        self.localStorage.fetchArtists(sinceDateUpdated: sinceDateUpdated) { (artists, error) in
-//            if error == nil, !artists.isEmpty {
-//                completionHandler(artists, nil)
-//            }
-//        }
-//        // Then try to fetch from remote storage
-//        self.remoteStorage.fetchArtists(sinceDateUpdated: sinceDateUpdated) { (artists, error) in
-//            if error == nil, !artists.isEmpty {
-//                self.localStorage.createArtists(artistsToCreate: artists, completionHandler: { (artists, _) in
-//                    completionHandler(artists, nil)
-//                })
-//            }
-//        }
-//    }
+    func createUserArtist(artistToCreate: Artist, completionHandler: @escaping (StorageResult?, StorageError?) -> Void) {
+        fatalError("Not implemented...")
+    }
 
-//    func createUserArtist(artistToCreate: Artist, completionHandler: @escaping (StorageResult?, StorageError?) -> Void) {
-//        <#code#>
-//    }
-//
-//    func createUserArtists(artistsToCreate: [Artist], completionHandler: @escaping (StorageResult?, StorageError?) -> Void) {
-//        <#code#>
-//    }
-//
-//    func fetchUserArtists(sinceDateUpdated: Date?, offset: Int, completionHandler: @escaping (StorageResult?, StorageError?) -> Void) {
-//        <#code#>
-//    }
-//
-//    func updateUserArtist(artistToUpdate: Artist, completionHandler: @escaping (StorageResult?, StorageError?) -> Void) {
-//        <#code#>
-//    }
-//
-//    func createUserRelease(releaseToCreate: Release, completionHandler: @escaping (StorageResult?, StorageError?) -> Void) {
-//        <#code#>
-//    }
-//
-//    func createUserReleases(releasesToCreate: [Release], completionHandler: @escaping (StorageResult?, StorageError?) -> Void) {
-//        <#code#>
-//    }
-//
-//    func fetchUserReleases(sinceDateUpdated: Date?, offset: Int, completionHandler: @escaping (StorageResult?, StorageError?) -> Void) {
-//        <#code#>
-//    }
-//
-//    func fetchReleases(forArtist: Artist, offset: Int, completionHandler: @escaping (StorageResult?, StorageError?) -> Void) {
-//        <#code#>
-//    }
-//
-//    func updateUserRelease(releaseToUpdate: Release, completionHandler: @escaping (StorageResult?, StorageError?) -> Void) {
-//        <#code#>
-//    }
-//
-//    func createUser(userToCreate: User, completionHandler: @escaping (StorageResult?, StorageError?) -> Void) {
-//        <#code#>
-//    }
-//
-//    func fetchUser(completionHandler: @escaping (StorageResult?, StorageError?) -> Void) {
-//        <#code#>
-//    }
-//
-//    func updateUser(userToUpdate: User, completionHandler: @escaping (StorageResult?, StorageError?) -> Void) {
-//        <#code#>
-//    }
-//
-//    func createUserArtistImports(importsToCreate: [ArtistImport], completionHandler: @escaping (StorageResult?, StorageError?) -> Void) {
-//        <#code#>
-//    }
+    func createUserArtists(artistsToCreate: [Artist], completionHandler: @escaping (StorageResult?, StorageError?) -> Void) {
+        fatalError("Not implemented...")
+    }
+
+    func fetchUserArtists(sinceDateUpdated: Date?, offset: Int, completionHandler: @escaping (StorageResult?, StorageError?) -> Void) {
+        // First try to fetch from local storage
+        print("Trying local storage...")
+        self.localStorage.fetchUserArtists(sinceDateUpdated: sinceDateUpdated, offset: offset) { (result, error) in
+            guard let artists = result!.items as? [Artist], !artists.isEmpty else {
+                print("Trying remote storage...")
+                self.remoteStorage.fetchUserArtists(sinceDateUpdated: sinceDateUpdated, offset: offset) { (result, error) in
+                    if error == nil, let userArtists = result?.items as? [Artist] {
+                        self.localStorage.createUserArtists(artistsToCreate: userArtists, completionHandler: { (saveResult, _) in
+                            print("Saved to local storage...")
+                        })
+                    }
+                    completionHandler(result, error)
+                }
+                return
+            }
+            completionHandler(result, error)
+        }
+    }
+
+    func updateUserArtist(artistToUpdate: Artist, completionHandler: @escaping (StorageResult?, StorageError?) -> Void) {
+        fatalError("Not implemented...")
+    }
+
+    func createUserRelease(releaseToCreate: Release, completionHandler: @escaping (StorageResult?, StorageError?) -> Void) {
+        fatalError("Not implemented...")
+    }
+
+    func createUserReleases(releasesToCreate: [Release], completionHandler: @escaping (StorageResult?, StorageError?) -> Void) {
+        fatalError("Not implemented...")
+    }
+
+    func fetchUserReleases(sinceDateUpdated: Date?, offset: Int, completionHandler: @escaping (StorageResult?, StorageError?) -> Void) {
+        fatalError("Not implemented...")
+    }
+
+    func fetchReleases(forArtist: Artist, offset: Int, completionHandler: @escaping (StorageResult?, StorageError?) -> Void) {
+        fatalError("Not implemented...")
+    }
+
+    func updateUserRelease(releaseToUpdate: Release, completionHandler: @escaping (StorageResult?, StorageError?) -> Void) {
+        fatalError("Not implemented...")
+    }
+
+    func createUser(userToCreate: User, completionHandler: @escaping (StorageResult?, StorageError?) -> Void) {
+        fatalError("Not implemented...")
+    }
+
+    func fetchUser(completionHandler: @escaping (StorageResult?, StorageError?) -> Void) {
+        fatalError("Not implemented...")
+    }
+
+    func updateUser(userToUpdate: User, completionHandler: @escaping (StorageResult?, StorageError?) -> Void) {
+        fatalError("Not implemented...")
+    }
+
+    func createUserArtistImports(importsToCreate: [ArtistImport], completionHandler: @escaping (StorageResult?, StorageError?) -> Void) {
+        fatalError("Not implemented...")
+    }
 
 }
 

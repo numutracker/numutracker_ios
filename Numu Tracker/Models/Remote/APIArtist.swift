@@ -51,7 +51,6 @@ struct APIArtist: Codable {
 }
 
 struct APIArtistUserData: Codable {
-    let uuid: UUID
     var following: Bool
     let dateFollowed: Date
     let dateUpdated: Date
