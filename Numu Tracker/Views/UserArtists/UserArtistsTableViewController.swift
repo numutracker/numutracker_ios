@@ -17,7 +17,21 @@ class UserArtistsTableViewController: UITableViewController {
 
     @IBOutlet weak var artistRefreshControl: UIRefreshControl!
     @IBAction func refresh(_ sender: UIRefreshControl) {
-        print("Refreshed")
+        self.viewModel?.loadArtists()
+    }
+
+    @IBAction func sortButtonTapped(_ sender: UIBarButtonItem) {
+        let sortView = NumuSortView()
+        sortView.providesPresentationContextTransitionStyle = true
+        sortView.definesPresentationContext = true
+        sortView.modalPresentationStyle = UIModalPresentationStyle.overFullScreen
+        sortView.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
+        sortView.sortDelegate = self.viewModel
+        if let appDelegate = UIApplication.shared.delegate,
+            let appWindow = appDelegate.window!,
+            let rootViewController = appWindow.rootViewController {
+            rootViewController.present(sortView, animated: true, completion: nil)
+        }
     }
 
     override func viewDidLoad() {
@@ -28,9 +42,9 @@ class UserArtistsTableViewController: UITableViewController {
         self.tableView.register(UINib(nibName: "ArtistTableViewCell", bundle: nil), forCellReuseIdentifier: "artistCell")
 
         // Hacky workaround to get refresh control to be white
-        artistRefreshControl.tintColor = .white
+        artistRefreshControl.tintColor = UIColor.lightGray
         self.tableView.contentOffset = CGPoint(x: 0, y: -artistRefreshControl.frame.size.height)
-        self.refreshControl?.beginRefreshing()
+        artistRefreshControl.beginRefreshing()
 
         self.viewModel?.loadArtists()
     }
@@ -99,14 +113,16 @@ class UserArtistsTableViewController: UITableViewController {
 
 }
 
+// MARK: - View Model Delegate
+
 extension UserArtistsTableViewController: UserArtistsViewModelDelegate {
     func refreshData() {
-        if let artists = self.viewModel?.artists, let sections = self.viewModel?.artistsSectionTitles, let sectionDictionaries = self.viewModel?.artistsSectionDictionaries {
-            self.artistsSectionTitles = sections
-            self.artistsSectionDictionaries = sectionDictionaries
-            artistRefreshControl.endRefreshing()
-            self.tableView.reloadData()
+        if let sections = self.viewModel?.artistsSectionTitles,
+            let sectionDictionaries = self.viewModel?.artistsSectionDictionaries {
+                self.artistsSectionTitles = sections
+                self.artistsSectionDictionaries = sectionDictionaries
+                self.tableView.reloadData()
+                artistRefreshControl.endRefreshing()
         }
-
     }
 }

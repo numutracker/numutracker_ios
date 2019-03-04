@@ -14,15 +14,17 @@ protocol UserArtistsViewModelDelegate {
 
 class UserArtistsViewModel {
     let delegate: UserArtistsViewModelDelegate
-    public var artists: [Artist] = []
+    fileprivate var artists: [Artist] = []
 
     public var artistsSectionTitles: [String] = []
     public var artistsSectionDictionaries: [String: [Artist]] = [:]
 
-    var sortMethod: String = UserDefaults.standard.string(forKey: "sortArtists") ?? "name_first" {
+    var sortMethod: String = defaults.artistSortMethod {
         didSet {
-            UserDefaults.standard.set(self.sortMethod, forKey: "sortArtists")
-            //self.loadArtists()
+            defaults.artistSortMethod = self.sortMethod
+            sortArray()
+            createSections()
+            delegate.refreshData()
         }
     }
 
@@ -36,30 +38,36 @@ class UserArtistsViewModel {
         self.artists = self.artists.sorted(by: { $0.name.caseInsensitiveCompare($1.name) == .orderedAscending })
     }
 
+    fileprivate func checkForSpecialCharacter(_ artistKey: String) -> Bool {
+        return CharacterSet.decimalDigits.isSuperset(of: CharacterSet(charactersIn: artistKey))
+            || !CharacterSet.alphanumerics.isSuperset(of: CharacterSet(charactersIn: artistKey))
+    }
+
+    fileprivate func setupNameSort() {
+        artistsSectionTitles = artistsSectionTitles.sorted(by: { $0 < $1 })
+        if !artistsSectionTitles.isEmpty {
+            if artistsSectionTitles[0] == "#" {
+                artistsSectionTitles.remove(at: 0)
+                artistsSectionTitles.append("#")
+            }
+        }
+    }
+
     fileprivate func createSections() {
         artistsSectionDictionaries = [:]
         artistsSectionTitles = []
         for artist in self.artists {
-            var artistKey = String(artist.name.prefix(1).uppercased())
+            var artistKey = ""
             switch sortMethod {
             case "name_first":
                 artistKey = String(artist.name.prefix(1).uppercased())
-                if CharacterSet.decimalDigits.isSuperset(of: CharacterSet(charactersIn: artistKey))
-                    || !CharacterSet.alphanumerics.isSuperset(of: CharacterSet(charactersIn: artistKey)) {
-                    artistKey = "#"
-                }
+                if checkForSpecialCharacter(artistKey) { artistKey = "#" }
             case "name":
                 artistKey = String(artist.nameSort.prefix(1).uppercased())
-                if CharacterSet.decimalDigits.isSuperset(of: CharacterSet(charactersIn: artistKey))
-                    || !CharacterSet.alphanumerics.isSuperset(of: CharacterSet(charactersIn: artistKey)) {
-                    artistKey = "#"
-                }
+                if checkForSpecialCharacter(artistKey) { artistKey = "#" }
             default:
                 artistKey = String(artist.name.prefix(1).uppercased())
-                if CharacterSet.decimalDigits.isSuperset(of: CharacterSet(charactersIn: artistKey))
-                    || !CharacterSet.alphanumerics.isSuperset(of: CharacterSet(charactersIn: artistKey)) {
-                    artistKey = "#"
-                }
+                if checkForSpecialCharacter(artistKey) { artistKey = "#" }
 //                let dateFormatter = DateFormatter()
 //                dateFormatter.dateFormat = "MMMM d, yyyy"
 //                if let date = dateFormatter.date(from: artist.recentRelease) {
@@ -83,29 +91,18 @@ class UserArtistsViewModel {
         artistsSectionTitles = [String](artistsSectionDictionaries.keys)
         switch sortMethod {
         case "name_first":
-            artistsSectionTitles = artistsSectionTitles.sorted(by: { $0 < $1 })
-            if !artistsSectionTitles.isEmpty {
-                if artistsSectionTitles[0] == "#" {
-                    artistsSectionTitles.remove(at: 0)
-                    artistsSectionTitles.append("#")
-                }
-            }
+            setupNameSort()
         case "name":
-            artistsSectionTitles = artistsSectionTitles.sorted(by: { $0 < $1 })
-            if !artistsSectionTitles.isEmpty {
-                if artistsSectionTitles[0] == "#" {
-                    artistsSectionTitles.remove(at: 0)
-                    artistsSectionTitles.append("#")
-                }
-            }
+            setupNameSort()
         default:
-            artistsSectionTitles = artistsSectionTitles.sorted(by: { $0 > $1 })
-            if !artistsSectionTitles.isEmpty {
-                if artistsSectionTitles[0] == "None" {
-                    artistsSectionTitles.remove(at: 0)
-                    artistsSectionTitles.append("None")
-                }
-            }
+            setupNameSort()
+//            artistsSectionTitles = artistsSectionTitles.sorted(by: { $0 > $1 })
+//            if !artistsSectionTitles.isEmpty {
+//                if artistsSectionTitles[0] == "None" {
+//                    artistsSectionTitles.remove(at: 0)
+//                    artistsSectionTitles.append("None")
+//                }
+//            }
         }
     }
 
@@ -127,4 +124,10 @@ class UserArtistsViewModel {
         }
     }
 
+}
+
+extension UserArtistsViewModel: SortViewDelegate {
+    func sortOptionTapped(name: String) {
+        self.sortMethod = name
+    }
 }

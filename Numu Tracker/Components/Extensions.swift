@@ -25,6 +25,7 @@ extension String {
     static let enabledSpotify = "enabledSpotify"
     static let enabledYouTube = "enabledYouTube"
     static let enabledSoundCloud = "enabledSoundCloud"
+    static let artistSortMethod = "artistSortMethod"
 }
 
 extension UserDefaults {
@@ -56,5 +57,10 @@ extension UserDefaults {
     var enabledSoundCloud: Bool {
         get { return bool(forKey: .enabledSoundCloud) }
         set { set(newValue, forKey: .enabledSoundCloud) }
+    }
+
+    var artistSortMethod: String {
+        get { return string(forKey: .artistSortMethod) ?? "name" }
+        set { set(newValue, forKey: .artistSortMethod) }
     }
 }

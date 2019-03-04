@@ -8,20 +8,20 @@
 
 import UIKit
 
-protocol SortViewDelegate {
+protocol SortViewDelegate: class {
     func sortOptionTapped(name: String)
 }
 
 class NumuSortView: UIViewController {
 
-    var sortDelegate: SortViewDelegate!
+    weak var sortDelegate: SortViewDelegate!
 
-    override var prefersStatusBarHidden: Bool {
-        return true
-    }
-    override var preferredStatusBarStyle: UIStatusBarStyle {
-        return .lightContent
-    }
+//    override var prefersStatusBarHidden: Bool {
+//        return true
+//    }
+//    override var preferredStatusBarStyle: UIStatusBarStyle {
+//        return .lightContent
+//    }
 
     @IBOutlet weak var cancelView: UIView!
     @IBOutlet weak var sortOptionsView: UIView!
