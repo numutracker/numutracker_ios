@@ -77,17 +77,18 @@ class ReleaseTableViewCell: UITableViewCell {
     }
 
     public func getEditActions() -> [UITableViewRowAction] {
-        let listenedActon = UITableViewRowAction(style: .normal, title: "Listened") { (_, index) in
-
-        }
-        listenedActon.backgroundColor = .background
-
-        let addOrRemoveAction = UITableViewRowAction(style: .normal, title: "Remove") { (_, index) in
-            print(self.release?.title)
-        }
-        addOrRemoveAction.backgroundColor = .lightBackground
-
-        return [listenedActon, addOrRemoveAction]
+//        let listenedActon = UITableViewRowAction(style: .normal, title: "Listened") { (_, index) in
+//
+//        }
+//        listenedActon.backgroundColor = .background
+//
+//        let addOrRemoveAction = UITableViewRowAction(style: .normal, title: "Remove") { (_, index) in
+//            print(self.release?.title)
+//        }
+//        addOrRemoveAction.backgroundColor = .lightBackground
+//
+//        return [listenedActon, addOrRemoveAction]
+        return []
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

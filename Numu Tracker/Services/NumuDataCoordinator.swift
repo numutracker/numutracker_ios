@@ -33,7 +33,7 @@ class NumuDataCoordinator: NumuDataStoreProtocol {
                 print("Trying remote storage...")
                 self.remoteStorage.fetchUserArtists(sinceDateUpdated: sinceDateUpdated, offset: offset) { (result, error) in
                     if error == nil, let userArtists = result?.items as? [Artist] {
-                        self.localStorage.createUserArtists(artistsToCreate: userArtists, completionHandler: { (saveResult, _) in
+                        self.localStorage.createUserArtists(artistsToCreate: userArtists, completionHandler: { (_, _) in
                             print("Saved to local storage...")
                         })
                     }
@@ -86,4 +86,3 @@ class NumuDataCoordinator: NumuDataStoreProtocol {
     }
 
 }
-

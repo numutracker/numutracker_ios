@@ -8,12 +8,12 @@
 
 import UIKit
 
-protocol MoreReleasesDelegate {
+protocol MoreReleasesDelegate: class {
     func showMoreReleases(artist: APIArtist)
 }
 
 class MoreReleasesTableViewCell: UITableViewCell {
-    var moreReleasesDelegate: MoreReleasesDelegate!
+    weak var moreReleasesDelegate: MoreReleasesDelegate!
 
     var artist: APIArtist?
 

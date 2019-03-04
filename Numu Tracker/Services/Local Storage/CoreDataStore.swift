@@ -305,7 +305,7 @@ class CoreDataStore: NumuDataStoreProtocol {
             do {
                 let fetchRequest: NSFetchRequest<ManagedRelease> = ManagedRelease.fetchRequest()
                 fetchRequest.predicate = NSPredicate(format: "following == %@", NSNumber(value: true))
-                let totalCount = try! self.privateManagedObjectContext.count(for: fetchRequest)
+                let totalCount = try self.privateManagedObjectContext.count(for: fetchRequest)
                 fetchRequest.fetchLimit = 50
                 fetchRequest.fetchOffset = offset
                 let results = try self.privateManagedObjectContext.fetch(fetchRequest)
@@ -327,7 +327,7 @@ class CoreDataStore: NumuDataStoreProtocol {
             do {
                 let fetchRequest: NSFetchRequest<ManagedArtist> = ManagedArtist.fetchRequest()
                 fetchRequest.predicate = NSPredicate(format: "mbid == %@", forArtist.mbid as CVarArg)
-                let totalCount = try! self.privateManagedObjectContext.count(for: fetchRequest)
+                let totalCount = try self.privateManagedObjectContext.count(for: fetchRequest)
                 let artist = try self.privateManagedObjectContext.fetch(fetchRequest).first
                 let managedReleases = Array(artist!.releases)
                 let releases = managedReleases.map { $0.toRelease() }

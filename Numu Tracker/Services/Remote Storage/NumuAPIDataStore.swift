@@ -148,5 +148,4 @@ class NumuAPIDataStore: NumuDataStoreProtocol {
         fatalError("Not implemented...")
     }
 
-
 }

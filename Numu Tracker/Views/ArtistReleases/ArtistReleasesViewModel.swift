@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol ArtistReleasesViewModelDelegate {
+protocol ArtistReleasesViewModelDelegate: class {
     func refreshData()
 }
 

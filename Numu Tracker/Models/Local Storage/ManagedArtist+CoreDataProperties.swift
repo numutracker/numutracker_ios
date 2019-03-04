@@ -9,7 +9,6 @@
 import Foundation
 import CoreData
 
-
 extension ManagedArtist {
 
     @nonobjc public class func fetchRequest() -> NSFetchRequest<ManagedArtist> {

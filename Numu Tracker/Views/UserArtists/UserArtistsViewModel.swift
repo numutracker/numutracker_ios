@@ -8,12 +8,12 @@
 
 import Foundation
 
-protocol UserArtistsViewModelDelegate {
+protocol UserArtistsViewModelDelegate: class {
     func refreshData()
 }
 
 class UserArtistsViewModel {
-    let delegate: UserArtistsViewModelDelegate
+    weak var delegate: UserArtistsViewModelDelegate?
     fileprivate var artists: [Artist] = []
 
     public var artistsSectionTitles: [String] = []
@@ -24,7 +24,7 @@ class UserArtistsViewModel {
             defaults.artistSortMethod = self.sortMethod
             sortArray()
             createSections()
-            delegate.refreshData()
+            delegate?.refreshData()
         }
     }
 
@@ -117,7 +117,7 @@ class UserArtistsViewModel {
                     self.sortArray()
                     self.createSections()
                     DispatchQueue.main.async {
-                        self.delegate.refreshData()
+                        self.delegate?.refreshData()
                     }
                 }
             }

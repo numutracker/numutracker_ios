@@ -16,7 +16,6 @@ class UserReleasesTableViewController: UITableViewController {
         print("Refreshed")
     }
 
-
     @IBAction func releaseTypeChanged(_ sender: UISegmentedControl) {
         self.changeDataSource(segmentIndex: sender.selectedSegmentIndex)
     }
