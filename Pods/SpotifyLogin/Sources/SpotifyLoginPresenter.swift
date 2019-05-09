@@ -28,7 +28,7 @@ public class SpotifyLoginPresenter {
         if let appAuthenticationURL = urlBuilder?.authenticationURL(type: .app, scopes: scopes),
             UIApplication.shared.canOpenURL(appAuthenticationURL) {
             if #available(iOS 10.0, *) {
-                UIApplication.shared.open(appAuthenticationURL, options: [:], completionHandler: nil)
+                UIApplication.shared.open(appAuthenticationURL, options: convertToUIApplicationOpenExternalURLOptionsKeyDictionary([:]), completionHandler: nil)
             } else {
                 UIApplication.shared.openURL(appAuthenticationURL)
             }
@@ -44,4 +44,9 @@ public class SpotifyLoginPresenter {
         }
     }
 
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertToUIApplicationOpenExternalURLOptionsKeyDictionary(_ input: [String: Any]) -> [UIApplication.OpenExternalURLOptionsKey: Any] {
+	return Dictionary(uniqueKeysWithValues: input.map { key, value in (UIApplication.OpenExternalURLOptionsKey(rawValue: key), value)})
 }

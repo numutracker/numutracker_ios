@@ -19,13 +19,16 @@ struct EventTypeHandler {
             return nil
         }
 
+        let persistenceService: UserPersistable = PersistenceService(service: UserDefaults(suiteName: Constants.UserDefaults.suiteName)!)
+        let userId = persistenceService.getUserId()
+
         switch applicationState {
         case .active:
-            eventType = DeliveryEventType(publishId: publishId, deviceId: deviceId, timestampSecs: timestampSecs, appInBackground: false, hasDisplayableContent: hasDisplayableContent, hasData: hasData)
+            eventType = DeliveryEventType(publishId: publishId, deviceId: deviceId, userId: userId, timestampSecs: timestampSecs, appInBackground: false, hasDisplayableContent: hasDisplayableContent, hasData: hasData)
         case .background:
-            eventType = DeliveryEventType(publishId: publishId, deviceId: deviceId, timestampSecs: timestampSecs, appInBackground: true, hasDisplayableContent: hasDisplayableContent, hasData: hasData)
+            eventType = DeliveryEventType(publishId: publishId, deviceId: deviceId, userId: userId, timestampSecs: timestampSecs, appInBackground: true, hasDisplayableContent: hasDisplayableContent, hasData: hasData)
         case .inactive:
-            eventType = OpenEventType(publishId: publishId, deviceId: deviceId, timestampSecs: timestampSecs)
+            eventType = OpenEventType(publishId: publishId, deviceId: deviceId, userId: userId, timestampSecs: timestampSecs)
         }
 
         return eventType
@@ -44,13 +47,16 @@ struct EventTypeHandler {
             return nil
         }
 
+        let persistenceService: UserPersistable = PersistenceService(service: UserDefaults(suiteName: Constants.UserDefaults.suiteName)!)
+        let userId = persistenceService.getUserId()
+
         switch applicationState {
         case .active:
-            eventType = DeliveryEventType(publishId: publishId, deviceId: deviceId, timestampSecs: timestampSecs, appInBackground: false, hasDisplayableContent: hasDisplayableContent, hasData: hasData)
+            eventType = DeliveryEventType(publishId: publishId, deviceId: deviceId, userId: userId, timestampSecs: timestampSecs, appInBackground: false, hasDisplayableContent: hasDisplayableContent, hasData: hasData)
         case .background:
-            eventType = DeliveryEventType(publishId: publishId, deviceId: deviceId, timestampSecs: timestampSecs, appInBackground: true, hasDisplayableContent: hasDisplayableContent, hasData: hasData)
+            eventType = DeliveryEventType(publishId: publishId, deviceId: deviceId, userId: userId, timestampSecs: timestampSecs, appInBackground: true, hasDisplayableContent: hasDisplayableContent, hasData: hasData)
         case .inactive:
-            eventType = OpenEventType(publishId: publishId, deviceId: deviceId, timestampSecs: timestampSecs)
+            eventType = OpenEventType(publishId: publishId, deviceId: deviceId, userId: userId, timestampSecs: timestampSecs)
         }
 
         return eventType
@@ -66,7 +72,10 @@ struct EventTypeHandler {
             return nil
         }
 
-        return OpenEventType(publishId: publishId, deviceId: deviceId, timestampSecs: timestampSecs)
+        let persistenceService: UserPersistable = PersistenceService(service: UserDefaults(suiteName: Constants.UserDefaults.suiteName)!)
+        let userId = persistenceService.getUserId()
+
+        return OpenEventType(publishId: publishId, deviceId: deviceId, userId: userId, timestampSecs: timestampSecs)
     }
     #endif
 
@@ -108,6 +117,18 @@ struct EventTypeHandler {
             let data = userInfo["data"] as? [String: Any],
             let pusher = data["pusher"] as? [String: Any]
         else {
+            return .ShouldProcess
+        }
+
+        #if os(iOS) && swift(>=4.0)
+        let isForeground = UIApplication.shared.applicationState != .background
+        #elseif os(OSX)
+        let isForeground = true
+        #endif
+
+        let hasCustomerData = data.count > 1 // checks if there's anything other than the `pusher` key
+
+        if (hasCustomerData && isForeground) {
             return .ShouldProcess
         }
 

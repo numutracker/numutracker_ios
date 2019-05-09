@@ -1,17 +1,17 @@
 PODS:
-  - Alamofire (4.8.1)
+  - Alamofire (4.8.2)
   - AlamofireObjectMapper (5.2.0):
     - Alamofire (~> 4.7)
     - ObjectMapper (~> 3.4)
   - AlamoRecord (1.2.2):
     - AlamofireObjectMapper (~> 5.1)
-  - Kingfisher (5.1.0)
+  - Kingfisher (5.4.0)
   - ObjectMapper (3.4.2)
-  - PushNotifications (1.2.0)
+  - PushNotifications (2.0.0)
   - Spartan (1.2.1):
     - AlamoRecord (~> 1.2.0)
   - SpotifyLogin (0.1.6)
-  - SwiftLint (0.30.1)
+  - SwiftLint (0.32.0)
 
 DEPENDENCIES:
   - Kingfisher (~> 5.0)
@@ -33,16 +33,16 @@ SPEC REPOS:
     - SwiftLint
 
 SPEC CHECKSUMS:
-  Alamofire: 16ce2c353fb72865124ddae8a57c5942388f4f11
+  Alamofire: ae5c501addb7afdbb13687d7f2f722c78734c2d3
   AlamofireObjectMapper: 92b6ce2423a9d159e686f6a1d514a009bf903ddc
   AlamoRecord: 5850c563a811fdca40cd361b1b27622004bccef3
-  Kingfisher: fcec238063d17404fca89bf0a850583211c4cbf6
+  Kingfisher: 9c8f2cc6710334e06f32ba2b45e77707d5e2f0c9
   ObjectMapper: 0d4402610f4e468903ae64629eec4784531e5c51
-  PushNotifications: bc2fe25ee7e6f1d10ec29970feddb51738c46200
+  PushNotifications: db23723ad406eeeae365b9ba8f473bf0a54be093
   Spartan: 2fb99ad25f2b0e8182799f251c800091977f0a40
   SpotifyLogin: 9cdf82ff13e5f37e5ddc7fd07cf9793a9ebd1124
-  SwiftLint: a54bf1fe12b55c68560eb2a7689dfc81458508f7
+  SwiftLint: 009a898ef2a1c851f45e1b59349bf6ff2ddc990d
 
 PODFILE CHECKSUM: f05d1932fed7d5e3d404677bba870f03797c42ba
 
-COCOAPODS: 1.6.0.rc.2
+COCOAPODS: 1.7.0.beta.3
