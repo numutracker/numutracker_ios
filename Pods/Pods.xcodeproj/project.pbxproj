@@ -2079,19 +2079,56 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0930;
-				LastUpgradeCheck = 0930;
+				LastUpgradeCheck = 1020;
 				TargetAttributes = {
+					0882708950626A3ECBCB6A065347330B = {
+						LastSwiftMigration = 1020;
+					};
+					1780C14C19D0C1935B5AC4D68FB773C0 = {
+						LastSwiftMigration = 1020;
+					};
+					3383968E74B5371B20BB519B170DC7FD = {
+						LastSwiftMigration = 1020;
+					};
+					464A7D341C2A3C9ABE8E7EF25CA59657 = {
+						LastSwiftMigration = 1020;
+					};
+					4A0A22DC77365EB37D44E9B9E0F3ABD4 = {
+						LastSwiftMigration = 1020;
+					};
+					743E4A349913BA26BF7AEE81D0D0DC34 = {
+						LastSwiftMigration = 1020;
+					};
 					75252EE503C70690FEAE769E7B2BEFA0 = {
-						LastSwiftMigration = 1010;
+						LastSwiftMigration = 1020;
+					};
+					90DFF15BFABD5F2337D3A71747F0BE35 = {
+						LastSwiftMigration = 1020;
+					};
+					AB7C08C1EB0EAF7D1F392B8C08144D51 = {
+						LastSwiftMigration = 1020;
+					};
+					B8D70028BC542B2A1ECC63134BF9C8C6 = {
+						LastSwiftMigration = 1020;
+					};
+					C96DAD7E39A2D336B0233A69073F19DF = {
+						LastSwiftMigration = 1020;
+					};
+					DFBB750E924C65F3574C45E497FFD9AC = {
+						LastSwiftMigration = 1020;
+					};
+					F954FC9297BDF88E463223E96E915841 = {
+						LastSwiftMigration = 1020;
 					};
 				};
 			};
 			buildConfigurationList = 4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 3.2";
-			developmentRegion = English;
+			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				Base,
 			);
 			mainGroup = CF1408CF629C7361332E53B88F7BD30C;
 			productRefGroup = 199F6B3C03B13121012979AD2AE13321 /* Products */;
@@ -2777,6 +2814,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -2975,6 +3013,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
