@@ -48,6 +48,8 @@ extension String {
     static let enabledSpotify = "enabledSpotify"
     static let enabledYouTube = "enabledYouTube"
     static let enabledSoundCloud = "enabledSoundCloud"
+    static let enabledAmazon = "enabledAmazon"
+    static let enabledDeezer = "enabledDeezer"
 }
 
 extension UserDefaults {
@@ -94,6 +96,16 @@ extension UserDefaults {
     var enabledSoundCloud: Bool {
         get { return bool(forKey: .enabledSoundCloud) }
         set { set(newValue, forKey: .enabledSoundCloud) }
+    }
+
+    var enabledAmazon: Bool {
+        get { return bool(forKey: .enabledAmazon) }
+        set { set(newValue, forKey: .enabledAmazon) }
+    }
+
+    var enabledDeezer: Bool {
+        get { return bool(forKey: .enabledDeezer) }
+        set { set(newValue, forKey: .enabledDeezer) }
     }
 }
 

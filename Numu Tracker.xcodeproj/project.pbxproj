@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		4401CBB8215DC8D000B0EB23 /* AlbumArtCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4401CBB7215DC8D000B0EB23 /* AlbumArtCache.swift */; };
+		4403C1FB22A0597E003A09B0 /* SearchDeezerViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4403C1FA22A0597E003A09B0 /* SearchDeezerViewCell.swift */; };
+		4403C1FD22A05991003A09B0 /* SearchDeezerTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4403C1FC22A05991003A09B0 /* SearchDeezerTableViewCell.xib */; };
 		4406A0032173A674002900E8 /* ImportSpotifyOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4406A0022173A674002900E8 /* ImportSpotifyOperation.swift */; };
 		4406A00821744F38002900E8 /* ListenAMTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4406A00621744F38002900E8 /* ListenAMTableViewCell.swift */; };
 		4406A00921744F38002900E8 /* ListenAMTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4406A00721744F38002900E8 /* ListenAMTableViewCell.xib */; };
@@ -73,6 +75,8 @@
 /* Begin PBXFileReference section */
 		01361C8695313B7121751750 /* Pods-Numu Tracker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Numu Tracker.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Numu Tracker/Pods-Numu Tracker.debug.xcconfig"; sourceTree = "<group>"; };
 		4401CBB7215DC8D000B0EB23 /* AlbumArtCache.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlbumArtCache.swift; sourceTree = "<group>"; };
+		4403C1FA22A0597E003A09B0 /* SearchDeezerViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchDeezerViewCell.swift; sourceTree = "<group>"; };
+		4403C1FC22A05991003A09B0 /* SearchDeezerTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchDeezerTableViewCell.xib; sourceTree = "<group>"; };
 		4406A0022173A674002900E8 /* ImportSpotifyOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportSpotifyOperation.swift; sourceTree = "<group>"; };
 		4406A00621744F38002900E8 /* ListenAMTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListenAMTableViewCell.swift; sourceTree = "<group>"; };
 		4406A00721744F38002900E8 /* ListenAMTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ListenAMTableViewCell.xib; sourceTree = "<group>"; };
@@ -271,6 +275,8 @@
 				447FED40217BA34A0084530E /* SearchSoundCloudTableViewCell.xib */,
 				447FED43217BB68D0084530E /* SearchYouTubeTableViewCell.swift */,
 				447FED44217BB68D0084530E /* SearchYouTubeTableViewCell.xib */,
+				4403C1FC22A05991003A09B0 /* SearchDeezerTableViewCell.xib */,
+				4403C1FA22A0597E003A09B0 /* SearchDeezerViewCell.swift */,
 				447FED47217BC17C0084530E /* NumuModalButton.swift */,
 			);
 			path = Rows;
@@ -486,6 +492,7 @@
 				449F5A7C2176B99900B9C919 /* MoreReleasesTableViewCell.xib in Resources */,
 				447FED3721780B410084530E /* ListenSpotifyTableViewCell.xib in Resources */,
 				B4283A8E1D8548F300467CE6 /* Assets.xcassets in Resources */,
+				4403C1FD22A05991003A09B0 /* SearchDeezerTableViewCell.xib in Resources */,
 				447FED46217BB68D0084530E /* SearchYouTubeTableViewCell.xib in Resources */,
 				4406A00921744F38002900E8 /* ListenAMTableViewCell.xib in Resources */,
 				B4283A8C1D8548F300467CE6 /* Main.storyboard in Resources */,
@@ -650,6 +657,7 @@
 				B45A134120551C46001EBDA5 /* Extensions.swift in Sources */,
 				B42866081DA5FC53000E5FA6 /* User.swift in Sources */,
 				4461CB79215844C9001939F0 /* AsyncOperation.swift in Sources */,
+				4403C1FB22A0597E003A09B0 /* SearchDeezerViewCell.swift in Sources */,
 				443EBB8F2170547A0071A11D /* ReleaseDetailsViewController.swift in Sources */,
 				44D3917021691D5000CFB9A3 /* NumuSortView.swift in Sources */,
 				447FED3621780B410084530E /* ListenSpotifyTableViewCell.swift in Sources */,

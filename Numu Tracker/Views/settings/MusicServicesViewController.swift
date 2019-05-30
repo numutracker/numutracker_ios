@@ -15,6 +15,8 @@ class MusicServicesViewController: UIViewController {
     @IBOutlet weak var spotifySwitch: UISwitch!
     @IBOutlet weak var youTubeSwitch: UISwitch!
     @IBOutlet weak var soundCloudSwitch: UISwitch!
+    @IBOutlet weak var deezerSwitch: UISwitch!
+    @IBOutlet weak var amazonSwitch: UISwitch!
 
     @IBAction func appleMusicAction(_ sender: UISwitch) {
         self.serviceSwitch(state: !sender.isOn, type: "disabledAppleMusic")
@@ -48,6 +50,13 @@ class MusicServicesViewController: UIViewController {
         }
     }
 
+    @IBAction func deezerAction(_ sender: UISwitch) {
+        self.serviceSwitch(state: sender.isOn, type: "enabledDeezer")
+    }
+    @IBAction func amazonAction(_ sender: UISwitch) {
+        self.serviceSwitch(state: sender.isOn, type: "enabledAmazon")
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpSwitches()
@@ -67,6 +76,8 @@ class MusicServicesViewController: UIViewController {
         if defaults.enabledSpotify { spotifySwitch.isOn = true }
         if defaults.enabledYouTube { youTubeSwitch.isOn = true }
         if defaults.enabledSoundCloud { soundCloudSwitch.isOn = true }
+        if defaults.enabledDeezer { deezerSwitch.isOn = true }
+        if defaults.enabledAmazon { amazonSwitch.isOn = true }
     }
 
     func serviceSwitch(state: Bool, type: String) {

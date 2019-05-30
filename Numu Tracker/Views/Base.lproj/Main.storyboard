@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="QfB-2I-NEJ">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="QfB-2I-NEJ">
     <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -1798,7 +1798,7 @@ You can import artists from Apple Music, Spotify, or manually search and follow 
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Gf7-8t-Rvm">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="433.33333333333331"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="557.33333333333337"/>
                                 <subviews>
                                     <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Adj-x8-Myn">
                                         <rect key="frame" x="347" y="13" width="51" height="31"/>
@@ -1900,8 +1900,56 @@ You can import artists from Apple Music, Spotify, or manually search and follow 
                                             <constraint firstAttribute="height" constant="1" id="0zx-1C-XEz"/>
                                         </constraints>
                                     </view>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Deezer" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="czB-eh-bje">
+                                        <rect key="frame" x="18" y="253" width="55" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="P24-tL-6wN">
+                                        <rect key="frame" x="347" y="248" width="51" height="31"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="31" id="Oni-lG-faD"/>
+                                            <constraint firstAttribute="width" constant="49" id="nK2-PS-MkC"/>
+                                        </constraints>
+                                        <color key="onTintColor" red="0.1199414805" green="0.62484174969999995" blue="0.69512790440000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <connections>
+                                            <action selector="deezerAction:" destination="qvW-4a-08r" eventType="valueChanged" id="7oZ-n2-mHU"/>
+                                        </connections>
+                                    </switch>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xkq-qf-nwq">
+                                        <rect key="frame" x="18" y="292" width="378" height="1"/>
+                                        <color key="backgroundColor" red="0.20060706140000001" green="0.20079019670000001" blue="0.20063543319999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="1" id="ai4-s4-V1e"/>
+                                        </constraints>
+                                    </view>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Amazon Music" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Ca-Yf-jLA">
+                                        <rect key="frame" x="18" y="314" width="113" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="UrG-tn-EjW">
+                                        <rect key="frame" x="347" y="309" width="51" height="31"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="49" id="Ckz-LK-9En"/>
+                                            <constraint firstAttribute="height" constant="31" id="bji-na-elr"/>
+                                        </constraints>
+                                        <color key="onTintColor" red="0.1199414805" green="0.62484174969999995" blue="0.69512790440000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <connections>
+                                            <action selector="amazonAction:" destination="qvW-4a-08r" eventType="valueChanged" id="PuJ-yP-l21"/>
+                                        </connections>
+                                    </switch>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EXA-1H-EzD">
+                                        <rect key="frame" x="18" y="353" width="378" height="1"/>
+                                        <color key="backgroundColor" red="0.20060706140000001" green="0.20079019670000001" blue="0.20063543319999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="1" id="iu8-lj-I2F"/>
+                                        </constraints>
+                                    </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="52X-6z-VVa">
-                                        <rect key="frame" x="63" y="248" width="288" height="167.33333333333337"/>
+                                        <rect key="frame" x="63" y="372" width="288" height="167.33333333333337"/>
                                         <constraints>
                                             <constraint firstAttribute="width" relation="lessThanOrEqual" constant="288" id="uhA-md-4RF"/>
                                         </constraints>
@@ -1915,24 +1963,35 @@ Turning on certain services may require you to log in to them. Numu values your 
                                 </subviews>
                                 <color key="backgroundColor" red="0.1333333333" green="0.1333333333" blue="0.1333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
+                                    <constraint firstItem="UrG-tn-EjW" firstAttribute="top" secondItem="xkq-qf-nwq" secondAttribute="bottom" constant="16" id="0On-qX-9b3"/>
                                     <constraint firstItem="ImA-kn-r48" firstAttribute="top" secondItem="K1d-zl-9Y7" secondAttribute="bottom" constant="18" id="0cB-Ee-6Pp"/>
                                     <constraint firstAttribute="trailing" secondItem="A05-Dh-Joc" secondAttribute="trailing" constant="18" id="0vh-zf-ceY"/>
                                     <constraint firstItem="eKP-Od-q2r" firstAttribute="leading" secondItem="Gf7-8t-Rvm" secondAttribute="leading" constant="18" id="1bb-Z7-4r6"/>
                                     <constraint firstAttribute="trailing" secondItem="KcO-MC-c1X" secondAttribute="trailing" constant="18" id="4fc-SO-Rez"/>
+                                    <constraint firstItem="P24-tL-6wN" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="czB-eh-bje" secondAttribute="trailing" id="4qp-rH-8Zk"/>
+                                    <constraint firstItem="xkq-qf-nwq" firstAttribute="top" secondItem="czB-eh-bje" secondAttribute="bottom" constant="18" id="76k-yI-vnH"/>
+                                    <constraint firstItem="czB-eh-bje" firstAttribute="top" secondItem="A05-Dh-Joc" secondAttribute="bottom" constant="21" id="8gi-SU-a9o"/>
                                     <constraint firstItem="K1d-zl-9Y7" firstAttribute="top" secondItem="V3T-Uc-Bze" secondAttribute="bottom" constant="18" id="Bis-zU-N1a"/>
+                                    <constraint firstItem="P24-tL-6wN" firstAttribute="top" secondItem="A05-Dh-Joc" secondAttribute="bottom" constant="16" id="Efd-K2-pNK"/>
                                     <constraint firstAttribute="bottom" secondItem="52X-6z-VVa" secondAttribute="bottom" constant="18" id="Ek7-XS-BEC"/>
+                                    <constraint firstAttribute="trailing" secondItem="xkq-qf-nwq" secondAttribute="trailing" constant="18" id="G9P-rr-SkI"/>
                                     <constraint firstItem="52X-6z-VVa" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Gf7-8t-Rvm" secondAttribute="leadingMargin" constant="18" id="GVe-Md-3MO"/>
                                     <constraint firstItem="KcO-MC-c1X" firstAttribute="top" secondItem="eKP-Od-q2r" secondAttribute="bottom" constant="18" id="K5Z-oj-sYm"/>
                                     <constraint firstAttribute="trailing" secondItem="90x-0f-v45" secondAttribute="trailing" constant="18" id="MSx-lR-qZP"/>
                                     <constraint firstItem="8bH-Dt-H1z" firstAttribute="centerY" secondItem="ImA-kn-r48" secondAttribute="centerY" id="Pdj-0P-8pS"/>
                                     <constraint firstItem="90x-0f-v45" firstAttribute="top" secondItem="3vp-bZ-Un2" secondAttribute="bottom" constant="13" id="Prw-Nf-l1s"/>
+                                    <constraint firstItem="EXA-1H-EzD" firstAttribute="leading" secondItem="Gf7-8t-Rvm" secondAttribute="leading" constant="18" id="Q0e-AP-CKp"/>
                                     <constraint firstItem="A05-Dh-Joc" firstAttribute="top" secondItem="9Ma-R2-lg7" secondAttribute="bottom" constant="18" id="QWx-Cs-ZaY"/>
+                                    <constraint firstItem="UrG-tn-EjW" firstAttribute="centerY" secondItem="6Ca-Yf-jLA" secondAttribute="centerY" id="SaB-Cc-693"/>
+                                    <constraint firstItem="6Ca-Yf-jLA" firstAttribute="leading" secondItem="Gf7-8t-Rvm" secondAttribute="leading" constant="18" id="UAY-L2-Esd"/>
                                     <constraint firstItem="3vp-bZ-Un2" firstAttribute="leading" secondItem="Gf7-8t-Rvm" secondAttribute="leading" constant="18" id="UvW-58-MQA"/>
                                     <constraint firstItem="V3T-Uc-Bze" firstAttribute="top" secondItem="KcO-MC-c1X" secondAttribute="bottom" constant="18" id="WT8-jG-y6n"/>
                                     <constraint firstItem="mvN-e6-CQX" firstAttribute="top" secondItem="KcO-MC-c1X" secondAttribute="bottom" constant="13" id="Xsx-1B-dDc"/>
                                     <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="52X-6z-VVa" secondAttribute="trailing" constant="18" id="Yiy-az-hGC"/>
+                                    <constraint firstItem="xkq-qf-nwq" firstAttribute="leading" secondItem="Gf7-8t-Rvm" secondAttribute="leading" constant="18" id="Yu3-Y5-ohR"/>
+                                    <constraint firstItem="P24-tL-6wN" firstAttribute="centerY" secondItem="czB-eh-bje" secondAttribute="centerY" id="ZWX-YC-aQy"/>
                                     <constraint firstItem="KcO-MC-c1X" firstAttribute="leading" secondItem="Gf7-8t-Rvm" secondAttribute="leading" constant="18" id="aHF-2t-42Z"/>
-                                    <constraint firstItem="52X-6z-VVa" firstAttribute="top" secondItem="A05-Dh-Joc" secondAttribute="bottom" constant="16" id="bE1-bI-6O4"/>
+                                    <constraint firstItem="UrG-tn-EjW" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="6Ca-Yf-jLA" secondAttribute="trailing" id="bXk-Cf-Pe0"/>
                                     <constraint firstItem="mvN-e6-CQX" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="V3T-Uc-Bze" secondAttribute="trailing" id="bgP-4B-fZK"/>
                                     <constraint firstItem="A05-Dh-Joc" firstAttribute="leading" secondItem="Gf7-8t-Rvm" secondAttribute="leading" constant="18" id="d3b-cx-OyJ"/>
                                     <constraint firstItem="90x-0f-v45" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="9Ma-R2-lg7" secondAttribute="trailing" id="dfU-Tv-9qm"/>
@@ -1940,20 +1999,27 @@ Turning on certain services may require you to log in to them. Numu values your 
                                     <constraint firstItem="Adj-x8-Myn" firstAttribute="centerY" secondItem="eKP-Od-q2r" secondAttribute="centerY" id="dtE-wT-GgR"/>
                                     <constraint firstItem="8bH-Dt-H1z" firstAttribute="top" secondItem="K1d-zl-9Y7" secondAttribute="bottom" constant="13" id="eQt-ah-EKk"/>
                                     <constraint firstAttribute="trailing" secondItem="K1d-zl-9Y7" secondAttribute="trailing" constant="18" id="gLM-US-og7"/>
+                                    <constraint firstAttribute="trailing" secondItem="P24-tL-6wN" secondAttribute="trailing" constant="18" id="gO6-Qt-vN2"/>
                                     <constraint firstItem="KcO-MC-c1X" firstAttribute="top" secondItem="Adj-x8-Myn" secondAttribute="bottom" constant="13" id="geo-lt-h0d"/>
                                     <constraint firstItem="V3T-Uc-Bze" firstAttribute="leading" secondItem="Gf7-8t-Rvm" secondAttribute="leading" constant="18" id="iC3-lc-qFI"/>
+                                    <constraint firstItem="6Ca-Yf-jLA" firstAttribute="top" secondItem="xkq-qf-nwq" secondAttribute="bottom" constant="21" id="ikv-a5-psa"/>
                                     <constraint firstItem="ImA-kn-r48" firstAttribute="leading" secondItem="Gf7-8t-Rvm" secondAttribute="leading" constant="18" id="ldy-Cv-zy8"/>
+                                    <constraint firstAttribute="trailing" secondItem="EXA-1H-EzD" secondAttribute="trailing" constant="18" id="lsB-1R-fqa"/>
                                     <constraint firstItem="Adj-x8-Myn" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="eKP-Od-q2r" secondAttribute="trailing" id="mfv-ts-rqU"/>
                                     <constraint firstItem="mvN-e6-CQX" firstAttribute="centerY" secondItem="V3T-Uc-Bze" secondAttribute="centerY" id="paa-cv-NUh"/>
                                     <constraint firstItem="52X-6z-VVa" firstAttribute="centerX" secondItem="Gf7-8t-Rvm" secondAttribute="centerX" id="rJk-7E-n4r"/>
+                                    <constraint firstAttribute="trailing" secondItem="UrG-tn-EjW" secondAttribute="trailing" constant="18" id="t03-P8-xfq"/>
                                     <constraint firstItem="3vp-bZ-Un2" firstAttribute="top" secondItem="ImA-kn-r48" secondAttribute="bottom" constant="18" id="tqR-Bd-Bok"/>
                                     <constraint firstItem="9Ma-R2-lg7" firstAttribute="top" secondItem="3vp-bZ-Un2" secondAttribute="bottom" constant="18" id="uD8-LT-3mO"/>
                                     <constraint firstAttribute="trailing" secondItem="mvN-e6-CQX" secondAttribute="trailing" constant="18" id="v27-Pb-LWo"/>
                                     <constraint firstAttribute="trailing" secondItem="Adj-x8-Myn" secondAttribute="trailing" constant="18" id="v98-su-qly"/>
                                     <constraint firstItem="8bH-Dt-H1z" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="ImA-kn-r48" secondAttribute="trailing" id="vJS-ki-uXD"/>
                                     <constraint firstItem="eKP-Od-q2r" firstAttribute="top" secondItem="Gf7-8t-Rvm" secondAttribute="top" constant="18" id="vaf-1N-Jab"/>
+                                    <constraint firstItem="52X-6z-VVa" firstAttribute="top" secondItem="EXA-1H-EzD" secondAttribute="bottom" constant="18" id="wdg-Ld-hcc"/>
+                                    <constraint firstItem="czB-eh-bje" firstAttribute="leading" secondItem="Gf7-8t-Rvm" secondAttribute="leading" constant="18" id="wfL-3k-DKI"/>
                                     <constraint firstAttribute="trailing" secondItem="8bH-Dt-H1z" secondAttribute="trailing" constant="18" id="wvY-0U-9rD"/>
                                     <constraint firstItem="90x-0f-v45" firstAttribute="centerY" secondItem="9Ma-R2-lg7" secondAttribute="centerY" id="xG9-Ts-dbi"/>
+                                    <constraint firstItem="EXA-1H-EzD" firstAttribute="top" secondItem="6Ca-Yf-jLA" secondAttribute="bottom" constant="18" id="xPI-YW-iSm"/>
                                     <constraint firstAttribute="trailing" secondItem="3vp-bZ-Un2" secondAttribute="trailing" constant="18" id="xyf-iB-pso"/>
                                     <constraint firstItem="9Ma-R2-lg7" firstAttribute="leading" secondItem="Gf7-8t-Rvm" secondAttribute="leading" constant="18" id="y5D-Bi-4Vb"/>
                                 </constraints>
@@ -1970,6 +2036,7 @@ Turning on certain services may require you to log in to them. Numu values your 
                     </scrollView>
                     <connections>
                         <outlet property="appleMusicSwitch" destination="Adj-x8-Myn" id="n13-Bg-hHF"/>
+                        <outlet property="deezerSwitch" destination="P24-tL-6wN" id="e6N-yV-V0r"/>
                         <outlet property="soundCloudSwitch" destination="90x-0f-v45" id="W0h-1T-CZa"/>
                         <outlet property="spotifySwitch" destination="mvN-e6-CQX" id="cuF-Sq-W2i"/>
                         <outlet property="youTubeSwitch" destination="8bH-Dt-H1z" id="aEq-77-RtC"/>
@@ -1977,7 +2044,7 @@ Turning on certain services may require you to log in to them. Numu values your 
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1gi-n9-T5b" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5749" y="1971"/>
+            <point key="canvasLocation" x="5747.826086956522" y="1970.3804347826087"/>
         </scene>
         <!--Spotify-->
         <scene sceneID="n8Z-qq-sus">
