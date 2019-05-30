@@ -48,6 +48,9 @@ class ReleaseDetailsViewController: UIViewController, UITableViewDataSource {
         self.releaseOptionsTableView.register(
             UINib(nibName: "SearchDeezerTableViewCell", bundle: nil),
             forCellReuseIdentifier: "searchDeezerCell")
+        self.releaseOptionsTableView.register(
+            UINib(nibName: "SearchAmazonTableViewCell", bundle: nil),
+            forCellReuseIdentifier: "searchAmazonCell")
         self.releaseOptionsTableView.dataSource = self
         let tap = UITapGestureRecognizer(target: self, action: #selector(ReleaseDetailsViewController.dismissView))
         self.tapRecognizerView.addGestureRecognizer(tap)
@@ -102,6 +105,10 @@ class ReleaseDetailsViewController: UIViewController, UITableViewDataSource {
 
         if defaults.enabledDeezer {
             self.options.append("deezer")
+        }
+
+        if defaults.enabledAmazon {
+            self.options.append("amazon")
         }
 
         if let tabBar = self.presentingViewController as? UITabBarController,
@@ -218,6 +225,13 @@ class ReleaseDetailsViewController: UIViewController, UITableViewDataSource {
             if let cell = tableView.dequeueReusableCell(
                 withIdentifier: "searchDeezerCell",
                 for: indexPath) as? SearchDeezerTableViewCell {
+                cell.configure(release: self.releaseData!)
+                return cell
+            }
+        case "amazon":
+            if let cell = tableView.dequeueReusableCell(
+                withIdentifier: "searchAmazonCell",
+                for: indexPath) as? SearchAmazonTableViewCell {
                 cell.configure(release: self.releaseData!)
                 return cell
             }

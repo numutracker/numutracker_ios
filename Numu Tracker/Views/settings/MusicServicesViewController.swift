@@ -55,6 +55,16 @@ class MusicServicesViewController: UIViewController {
     }
     @IBAction func amazonAction(_ sender: UISwitch) {
         self.serviceSwitch(state: sender.isOn, type: "enabledAmazon")
+        if sender.isOn {
+            AlertModal(
+                title: "Important Notice",
+                button: "Oh, okay",
+                message: "Amazon's iOS app doesn't work very well when it comes to finding streaming music, "
+                    + "as a result this option doesn't work as well as it should. "
+                    + "If you're upset about it, contact Amazon and tell them to enable "
+                    + "deep-linking for search in their iOS Amazon Music app."
+                ).present()
+        }
     }
 
     override func viewDidLoad() {

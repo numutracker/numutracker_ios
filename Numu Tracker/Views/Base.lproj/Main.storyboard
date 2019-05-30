@@ -1924,8 +1924,8 @@ You can import artists from Apple Music, Spotify, or manually search and follow 
                                             <constraint firstAttribute="height" constant="1" id="ai4-s4-V1e"/>
                                         </constraints>
                                     </view>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Amazon Music" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Ca-Yf-jLA">
-                                        <rect key="frame" x="18" y="314" width="113" height="21"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Amazon" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Ca-Yf-jLA">
+                                        <rect key="frame" x="18" y="314" width="63" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
@@ -2035,6 +2035,7 @@ Turning on certain services may require you to log in to them. Numu values your 
                         </constraints>
                     </scrollView>
                     <connections>
+                        <outlet property="amazonSwitch" destination="UrG-tn-EjW" id="JxT-a3-WYc"/>
                         <outlet property="appleMusicSwitch" destination="Adj-x8-Myn" id="n13-Bg-hHF"/>
                         <outlet property="deezerSwitch" destination="P24-tL-6wN" id="e6N-yV-V0r"/>
                         <outlet property="soundCloudSwitch" destination="90x-0f-v45" id="W0h-1T-CZa"/>
