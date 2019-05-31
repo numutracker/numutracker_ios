@@ -22,7 +22,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     // Production
     let pusher = Pusher(key: "")
-    let oldPusher = Pusher(key: "")
 
     // Development
     //let pusher = Pusher(key: "")
@@ -65,11 +64,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
         pusher.nativePusher.register(deviceToken: deviceToken)
-        oldPusher.nativePusher.register(deviceToken: deviceToken)
         if let username = NumuCredential.shared.getUsername() {
-            oldPusher.nativePusher.unsubscribe(interestName: "newReleased_" + username)
-            oldPusher.nativePusher.unsubscribe(interestName: "newAnnouncements_" + username)
-            oldPusher.nativePusher.unsubscribe(interestName: "moreReleases_" + username)
             if defaults.newReleased {
                 pusher.nativePusher.subscribe(interestName: "newReleased_" + username)
                 print("Turned on new notifications")
