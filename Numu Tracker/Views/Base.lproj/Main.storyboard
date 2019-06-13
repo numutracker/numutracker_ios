@@ -76,15 +76,15 @@ Any imported artists you've unfollowed will not be re-imported.</string>
                         <viewControllerLayoutGuide type="top" id="IzD-WA-0P2"/>
                         <viewControllerLayoutGuide type="bottom" id="Dh5-FS-0hG"/>
                     </layoutGuides>
-                    <scrollView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="mXQ-GX-qfT">
+                    <scrollView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" id="mXQ-GX-qfT">
                         <rect key="frame" x="0.0" y="0.0" width="834" height="1112"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ucg-Sm-nZu">
-                                <rect key="frame" x="0.0" y="0.0" width="834" height="499.5"/>
+                                <rect key="frame" x="207.5" y="0.0" width="419" height="499.5"/>
                                 <subviews>
                                     <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7nY-rM-ZJM">
-                                        <rect key="frame" x="767" y="20" width="51" height="31"/>
+                                        <rect key="frame" x="352" y="20" width="51" height="31"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="31" id="V80-vJ-cX9"/>
                                             <constraint firstAttribute="width" constant="49" id="sxQ-nX-y8K"/>
@@ -101,7 +101,7 @@ Any imported artists you've unfollowed will not be re-imported.</string>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eyr-bA-c1y">
-                                        <rect key="frame" x="18" y="64" width="798" height="1"/>
+                                        <rect key="frame" x="18" y="64" width="383" height="1"/>
                                         <color key="backgroundColor" red="0.20060706140000001" green="0.20079019670000001" blue="0.20063543319999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="1" id="2mk-OR-eyj"/>
@@ -114,7 +114,7 @@ Any imported artists you've unfollowed will not be re-imported.</string>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="a4b-ZH-M8w">
-                                        <rect key="frame" x="767" y="78" width="51" height="31"/>
+                                        <rect key="frame" x="352" y="78" width="51" height="31"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="49" id="0eX-fi-nOH"/>
                                             <constraint firstAttribute="height" constant="31" id="aQa-nw-clJ"/>
@@ -125,7 +125,7 @@ Any imported artists you've unfollowed will not be re-imported.</string>
                                         </connections>
                                     </switch>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="c3B-96-RUB">
-                                        <rect key="frame" x="18" y="122" width="798" height="1"/>
+                                        <rect key="frame" x="18" y="122" width="383" height="1"/>
                                         <color key="backgroundColor" red="0.20060706140000001" green="0.20079019670000001" blue="0.20063543319999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="1" id="ZlB-OT-y4D"/>
@@ -138,7 +138,7 @@ Any imported artists you've unfollowed will not be re-imported.</string>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="I1D-pu-OTS">
-                                        <rect key="frame" x="767" y="136" width="51" height="31"/>
+                                        <rect key="frame" x="352" y="136" width="51" height="31"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="49" id="rFO-iN-E2F"/>
                                             <constraint firstAttribute="height" constant="31" id="zts-BZ-NEy"/>
@@ -149,7 +149,7 @@ Any imported artists you've unfollowed will not be re-imported.</string>
                                         </connections>
                                     </switch>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sGB-nZ-trO">
-                                        <rect key="frame" x="18" y="180" width="798" height="1"/>
+                                        <rect key="frame" x="18" y="180" width="383" height="1"/>
                                         <color key="backgroundColor" red="0.20060706140000001" green="0.20079019670000001" blue="0.20063543319999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="1" id="d4P-AS-KvJ"/>
@@ -162,7 +162,7 @@ Any imported artists you've unfollowed will not be re-imported.</string>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="3Kn-f8-cPP">
-                                        <rect key="frame" x="767" y="194" width="51" height="31"/>
+                                        <rect key="frame" x="352" y="194" width="51" height="31"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="31" id="03C-HJ-9sf"/>
                                             <constraint firstAttribute="width" constant="49" id="dVa-i9-mko"/>
@@ -173,7 +173,7 @@ Any imported artists you've unfollowed will not be re-imported.</string>
                                         </connections>
                                     </switch>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="N8m-o9-DYV">
-                                        <rect key="frame" x="18" y="238" width="798" height="1"/>
+                                        <rect key="frame" x="18" y="238" width="383" height="1"/>
                                         <color key="backgroundColor" red="0.20060706140000001" green="0.20079019670000001" blue="0.20063543319999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="1" id="8QD-AQ-mfC"/>
@@ -186,7 +186,7 @@ Any imported artists you've unfollowed will not be re-imported.</string>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="625-Lf-Ote">
-                                        <rect key="frame" x="767" y="252" width="51" height="31"/>
+                                        <rect key="frame" x="352" y="252" width="51" height="31"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="31" id="JOQ-tx-ppr"/>
                                             <constraint firstAttribute="width" constant="49" id="xj4-Sr-XLY"/>
@@ -197,20 +197,20 @@ Any imported artists you've unfollowed will not be re-imported.</string>
                                         </connections>
                                     </switch>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ULg-iM-vuc">
-                                        <rect key="frame" x="18" y="296" width="798" height="1"/>
+                                        <rect key="frame" x="18" y="296" width="383" height="1"/>
                                         <color key="backgroundColor" red="0.20060706140000001" green="0.20079019670000001" blue="0.20063543319999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="1" id="Wzi-Wi-kS4"/>
                                         </constraints>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Remixes" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R04-yR-Fut">
-                                        <rect key="frame" x="18" y="315" width="750" height="21"/>
+                                        <rect key="frame" x="18" y="315" width="335" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Vk3-dv-33A">
-                                        <rect key="frame" x="767" y="310" width="51" height="31"/>
+                                        <rect key="frame" x="352" y="310" width="51" height="31"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="49" id="KJj-BR-UZ1"/>
                                             <constraint firstAttribute="height" constant="31" id="KO1-Lg-o7G"/>
@@ -221,14 +221,14 @@ Any imported artists you've unfollowed will not be re-imported.</string>
                                         </connections>
                                     </switch>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9cM-9q-kgZ">
-                                        <rect key="frame" x="18" y="354" width="798" height="1"/>
+                                        <rect key="frame" x="18" y="354" width="383" height="1"/>
                                         <color key="backgroundColor" red="0.20060706140000001" green="0.20079019670000001" blue="0.20063543319999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="1" id="vMa-Ik-efa"/>
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eQF-EM-aEM">
-                                        <rect key="frame" x="0.0" y="412" width="834" height="1"/>
+                                        <rect key="frame" x="0.0" y="412" width="419" height="1"/>
                                         <color key="backgroundColor" red="0.20060706140000001" green="0.20079019670000001" blue="0.20063543319999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="1" id="Q0x-0C-7tw"/>
@@ -241,7 +241,7 @@ Any imported artists you've unfollowed will not be re-imported.</string>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="BOb-3N-z7Z">
-                                        <rect key="frame" x="767" y="368" width="51" height="31"/>
+                                        <rect key="frame" x="352" y="368" width="51" height="31"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="31" id="yVo-uT-heK"/>
                                             <constraint firstAttribute="width" constant="49" id="zge-VH-aqI"/>
@@ -252,28 +252,28 @@ Any imported artists you've unfollowed will not be re-imported.</string>
                                         </connections>
                                     </switch>
                                     <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="trZ-Ma-Vfu">
-                                        <rect key="frame" x="782" y="25" width="19" height="21"/>
+                                        <rect key="frame" x="367" y="25" width="19" height="21"/>
                                     </activityIndicatorView>
                                     <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="v2D-U6-kw9">
-                                        <rect key="frame" x="782" y="83" width="19" height="21"/>
+                                        <rect key="frame" x="367" y="83" width="19" height="21"/>
                                     </activityIndicatorView>
                                     <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="ZfL-GA-MIX">
-                                        <rect key="frame" x="782" y="141" width="19" height="21"/>
+                                        <rect key="frame" x="367" y="141" width="19" height="21"/>
                                     </activityIndicatorView>
                                     <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="68o-gW-TCz">
-                                        <rect key="frame" x="782" y="199" width="19" height="21"/>
+                                        <rect key="frame" x="367" y="199" width="19" height="21"/>
                                     </activityIndicatorView>
                                     <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="wnd-7v-XoF">
-                                        <rect key="frame" x="782" y="257" width="19" height="21"/>
+                                        <rect key="frame" x="367" y="257" width="19" height="21"/>
                                     </activityIndicatorView>
                                     <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="GoK-bP-BUy">
-                                        <rect key="frame" x="782" y="315" width="19" height="21"/>
+                                        <rect key="frame" x="367" y="315" width="19" height="21"/>
                                     </activityIndicatorView>
                                     <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="nI7-kF-eXb">
-                                        <rect key="frame" x="782" y="373" width="19" height="21"/>
+                                        <rect key="frame" x="367" y="373" width="19" height="21"/>
                                     </activityIndicatorView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M7T-mL-29N">
-                                        <rect key="frame" x="223.5" y="429" width="387" height="50.5"/>
+                                        <rect key="frame" x="16" y="429" width="387" height="50.5"/>
                                         <constraints>
                                             <constraint firstAttribute="width" relation="lessThanOrEqual" constant="400" id="Ot1-7e-uDK"/>
                                         </constraints>
@@ -390,8 +390,8 @@ Any imported artists you've unfollowed will not be re-imported.</string>
                             <constraint firstItem="Ucg-Sm-nZu" firstAttribute="centerX" secondItem="mXQ-GX-qfT" secondAttribute="centerX" id="9rM-IO-YWY"/>
                             <constraint firstAttribute="bottom" secondItem="Ucg-Sm-nZu" secondAttribute="bottom" id="MGX-Oi-FRs"/>
                             <constraint firstItem="Ucg-Sm-nZu" firstAttribute="top" secondItem="mXQ-GX-qfT" secondAttribute="top" id="O2Y-9Q-2aY"/>
-                            <constraint firstItem="Ucg-Sm-nZu" firstAttribute="leading" secondItem="mXQ-GX-qfT" secondAttribute="leading" id="T7P-Cl-9nJ"/>
-                            <constraint firstAttribute="trailing" secondItem="Ucg-Sm-nZu" secondAttribute="trailing" id="jyZ-cv-ADS"/>
+                            <constraint firstItem="Ucg-Sm-nZu" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="mXQ-GX-qfT" secondAttribute="leading" id="T7P-Cl-9nJ"/>
+                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Ucg-Sm-nZu" secondAttribute="trailing" id="jyZ-cv-ADS"/>
                         </constraints>
                     </scrollView>
                     <connections>
@@ -423,12 +423,12 @@ Any imported artists you've unfollowed will not be re-imported.</string>
                         <viewControllerLayoutGuide type="top" id="lM4-sL-HIe"/>
                         <viewControllerLayoutGuide type="bottom" id="gZu-pb-wA5"/>
                     </layoutGuides>
-                    <scrollView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" id="sbg-CK-1Dp">
+                    <scrollView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="sbg-CK-1Dp">
                         <rect key="frame" x="0.0" y="0.0" width="834" height="1112"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mPs-9E-dO4">
-                                <rect key="frame" x="0.0" y="0.0" width="834" height="421"/>
+                                <rect key="frame" x="217" y="0.0" width="400" height="393"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="New Releases Available" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TdO-7z-jPZ">
                                         <rect key="frame" x="16" y="21" width="179" height="21"/>
@@ -437,7 +437,7 @@ Any imported artists you've unfollowed will not be re-imported.</string>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="ULW-sw-FOr">
-                                        <rect key="frame" x="769" y="16" width="51" height="31"/>
+                                        <rect key="frame" x="335" y="16" width="51" height="31"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="49" id="PAP-wp-OZF"/>
                                             <constraint firstAttribute="height" constant="31" id="w7D-hi-Vfy"/>
@@ -448,34 +448,34 @@ Any imported artists you've unfollowed will not be re-imported.</string>
                                         </connections>
                                     </switch>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CZS-6C-3vS">
-                                        <rect key="frame" x="16" y="139" width="802" height="1"/>
+                                        <rect key="frame" x="16" y="130" width="368" height="1"/>
                                         <color key="backgroundColor" red="0.20060706140000001" green="0.20079019670000001" blue="0.20063543319999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="1" id="Wiv-2T-DYN"/>
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="82E-V7-ENp">
-                                        <rect key="frame" x="16" y="203" width="802" height="1"/>
+                                        <rect key="frame" x="16" y="194" width="368" height="1"/>
                                         <color key="backgroundColor" red="0.20060706140000001" green="0.20079019670000001" blue="0.20063543319999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="1" id="6YR-gE-3t8"/>
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xnm-3g-sAf">
-                                        <rect key="frame" x="16" y="63" width="802" height="1"/>
+                                        <rect key="frame" x="16" y="63" width="368" height="1"/>
                                         <color key="backgroundColor" red="0.20060706140000001" green="0.20079019670000001" blue="0.20063543319999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="1" id="Gd7-GN-E9i"/>
                                         </constraints>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="New Release Announced" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="soU-3x-4Aa">
-                                        <rect key="frame" x="16" y="161" width="190.5" height="21"/>
+                                        <rect key="frame" x="16" y="152" width="191" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="eHj-Wa-k1h">
-                                        <rect key="frame" x="769" y="156" width="51" height="31"/>
+                                        <rect key="frame" x="335" y="147" width="51" height="31"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="49" id="RCG-aD-3DO"/>
                                             <constraint firstAttribute="height" constant="31" id="cdt-wN-qKj"/>
@@ -486,9 +486,9 @@ Any imported artists you've unfollowed will not be re-imported.</string>
                                         </connections>
                                     </switch>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Get a heads up on days your artists release new music, so you can't forget." textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pgw-Eo-QBf">
-                                        <rect key="frame" x="228" y="80" width="378" height="43"/>
+                                        <rect key="frame" x="20.5" y="80" width="359" height="34"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="43" id="gDR-qx-0sJ"/>
+                                            <constraint firstAttribute="height" constant="34" id="WI9-d8-ohz"/>
                                             <constraint firstAttribute="width" relation="lessThanOrEqual" constant="400" id="pDb-Mf-2kK"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -496,9 +496,9 @@ Any imported artists you've unfollowed will not be re-imported.</string>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Numu will let you know when upcoming releases by your artists are announced." textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VEP-RN-tan">
-                                        <rect key="frame" x="233.5" y="220" width="367.5" height="43"/>
+                                        <rect key="frame" x="18" y="211" width="364" height="34"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="43" id="FkO-hm-MvO"/>
+                                            <constraint firstAttribute="height" constant="34" id="1Y1-IM-pIq"/>
                                             <constraint firstAttribute="width" relation="lessThanOrEqual" constant="400" id="GEw-ns-egO"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -506,20 +506,20 @@ Any imported artists you've unfollowed will not be re-imported.</string>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vl8-Sc-enq">
-                                        <rect key="frame" x="16" y="279" width="802" height="1"/>
+                                        <rect key="frame" x="16" y="261" width="368" height="1"/>
                                         <color key="backgroundColor" red="0.20060706140000001" green="0.20079019670000001" blue="0.20063543319999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="1" id="C9V-A9-OSD"/>
                                         </constraints>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="More Releases Added" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4uA-c8-I6f">
-                                        <rect key="frame" x="16" y="301" width="166.5" height="21"/>
+                                        <rect key="frame" x="16" y="283" width="167" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="MvH-Jv-RgW">
-                                        <rect key="frame" x="769" y="296" width="51" height="31"/>
+                                        <rect key="frame" x="335" y="278" width="51" height="31"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="49" id="m6P-e8-v05"/>
                                             <constraint firstAttribute="height" constant="31" id="wCG-Qv-cOO"/>
@@ -530,9 +530,8 @@ Any imported artists you've unfollowed will not be re-imported.</string>
                                         </connections>
                                     </switch>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Get notified any time past releases by your artists are added to Numu." textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gd3-Yu-jnp">
-                                        <rect key="frame" x="221" y="360" width="392.5" height="43"/>
+                                        <rect key="frame" x="26" y="342" width="348" height="33"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="43" id="Icn-dq-a5l"/>
                                             <constraint firstAttribute="width" relation="lessThanOrEqual" constant="400" id="Q0S-Za-PcK"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -540,14 +539,14 @@ Any imported artists you've unfollowed will not be re-imported.</string>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6mm-7m-os9">
-                                        <rect key="frame" x="0.0" y="419" width="834" height="2"/>
+                                        <rect key="frame" x="0.0" y="391" width="400" height="2"/>
                                         <color key="backgroundColor" red="0.20060706140000001" green="0.20079019670000001" blue="0.20063543319999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="2" id="9BE-Qg-hiL"/>
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="l3G-21-HTP">
-                                        <rect key="frame" x="16" y="343" width="802" height="1"/>
+                                        <rect key="frame" x="16" y="325" width="368" height="1"/>
                                         <color key="backgroundColor" red="0.20060706140000001" green="0.20079019670000001" blue="0.20063543319999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="1" id="XRI-Nr-DNc"/>
@@ -558,6 +557,7 @@ Any imported artists you've unfollowed will not be re-imported.</string>
                                 <constraints>
                                     <constraint firstItem="MvH-Jv-RgW" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="4uA-c8-I6f" secondAttribute="trailing" id="1bN-9m-scu"/>
                                     <constraint firstItem="82E-V7-ENp" firstAttribute="top" secondItem="eHj-Wa-k1h" secondAttribute="bottom" constant="16" id="1bq-2f-BLK"/>
+                                    <constraint firstAttribute="height" constant="393" id="3JE-Kf-2n8"/>
                                     <constraint firstItem="pgw-Eo-QBf" firstAttribute="top" secondItem="xnm-3g-sAf" secondAttribute="bottom" constant="16" id="4S7-Tq-vse"/>
                                     <constraint firstItem="MvH-Jv-RgW" firstAttribute="centerY" secondItem="4uA-c8-I6f" secondAttribute="centerY" id="4cj-kK-UoL"/>
                                     <constraint firstItem="TdO-7z-jPZ" firstAttribute="leading" secondItem="mPs-9E-dO4" secondAttribute="leading" constant="16" id="835-bE-URF"/>
@@ -596,6 +596,7 @@ Any imported artists you've unfollowed will not be re-imported.</string>
                                     <constraint firstAttribute="trailing" secondItem="vl8-Sc-enq" secondAttribute="trailing" constant="16" id="hwX-p4-NV6"/>
                                     <constraint firstItem="ULW-sw-FOr" firstAttribute="centerY" secondItem="TdO-7z-jPZ" secondAttribute="centerY" id="m0e-nf-q4r"/>
                                     <constraint firstItem="xnm-3g-sAf" firstAttribute="top" secondItem="ULW-sw-FOr" secondAttribute="bottom" constant="16" id="mPa-At-mHe"/>
+                                    <constraint firstAttribute="width" constant="400" id="n9Q-Ks-KBI"/>
                                     <constraint firstItem="l3G-21-HTP" firstAttribute="top" secondItem="MvH-Jv-RgW" secondAttribute="bottom" constant="16" id="nEV-57-fxp"/>
                                     <constraint firstItem="ULW-sw-FOr" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="TdO-7z-jPZ" secondAttribute="trailing" id="pVH-ch-hpq"/>
                                     <constraint firstItem="Gd3-Yu-jnp" firstAttribute="top" secondItem="l3G-21-HTP" secondAttribute="bottom" constant="16" id="pmQ-Jy-6Yx"/>
@@ -607,9 +608,11 @@ Any imported artists you've unfollowed will not be re-imported.</string>
                         </subviews>
                         <color key="backgroundColor" red="0.13350695369999999" green="0.13364198799999999" blue="0.13352787490000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="mPs-9E-dO4" firstAttribute="leading" secondItem="sbg-CK-1Dp" secondAttribute="leading" id="9cC-Ui-YF4"/>
-                            <constraint firstAttribute="trailing" secondItem="mPs-9E-dO4" secondAttribute="trailing" id="9yo-Oo-CpZ"/>
-                            <constraint firstItem="mPs-9E-dO4" firstAttribute="centerX" secondItem="sbg-CK-1Dp" secondAttribute="centerX" id="Wzv-Tu-SL6"/>
+                            <constraint firstAttribute="bottom" secondItem="mPs-9E-dO4" secondAttribute="bottom" id="307-t6-LPD"/>
+                            <constraint firstItem="mPs-9E-dO4" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="sbg-CK-1Dp" secondAttribute="leading" id="9cC-Ui-YF4"/>
+                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="mPs-9E-dO4" secondAttribute="trailing" id="9yo-Oo-CpZ"/>
+                            <constraint firstAttribute="trailing" secondItem="mPs-9E-dO4" secondAttribute="trailing" constant="226" id="A23-LR-YE4"/>
+                            <constraint firstItem="mPs-9E-dO4" firstAttribute="centerX" secondItem="sbg-CK-1Dp" secondAttribute="centerX" id="efw-8J-ehK"/>
                             <constraint firstItem="mPs-9E-dO4" firstAttribute="top" secondItem="sbg-CK-1Dp" secondAttribute="top" id="leK-mG-o2f"/>
                         </constraints>
                     </scrollView>
@@ -1810,10 +1813,10 @@ You can import artists from Apple Music, Spotify, or manually search and follow 
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Gf7-8t-Rvm">
-                                <rect key="frame" x="0.0" y="0.0" width="834" height="524"/>
+                                <rect key="frame" x="217" y="0.0" width="400" height="541"/>
                                 <subviews>
                                     <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Adj-x8-Myn">
-                                        <rect key="frame" x="767" y="13" width="51" height="31"/>
+                                        <rect key="frame" x="333" y="13" width="51" height="31"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="31" id="Fn6-2k-VPH"/>
                                             <constraint firstAttribute="width" constant="49" id="z81-lk-yMs"/>
@@ -1831,7 +1834,7 @@ You can import artists from Apple Music, Spotify, or manually search and follow 
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KcO-MC-c1X">
-                                        <rect key="frame" x="18" y="57" width="798" height="1"/>
+                                        <rect key="frame" x="18" y="57" width="364" height="1"/>
                                         <color key="backgroundColor" red="0.20060706140000001" green="0.20079019670000001" blue="0.20063543319999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="1" id="Ale-b8-Ddk"/>
@@ -1844,7 +1847,7 @@ You can import artists from Apple Music, Spotify, or manually search and follow 
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="mvN-e6-CQX">
-                                        <rect key="frame" x="767" y="71" width="51" height="31"/>
+                                        <rect key="frame" x="333" y="71" width="51" height="31"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="31" id="5QL-J9-O8o"/>
                                             <constraint firstAttribute="width" constant="49" id="eAh-VQ-QyX"/>
@@ -1856,7 +1859,7 @@ You can import artists from Apple Music, Spotify, or manually search and follow 
                                         </connections>
                                     </switch>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="K1d-zl-9Y7">
-                                        <rect key="frame" x="18" y="115" width="798" height="1"/>
+                                        <rect key="frame" x="18" y="115" width="364" height="1"/>
                                         <color key="backgroundColor" red="0.20060706140000001" green="0.20079019670000001" blue="0.20063543319999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="1" id="1tb-YL-fnO"/>
@@ -1869,7 +1872,7 @@ You can import artists from Apple Music, Spotify, or manually search and follow 
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="8bH-Dt-H1z">
-                                        <rect key="frame" x="767" y="129" width="51" height="31"/>
+                                        <rect key="frame" x="333" y="129" width="51" height="31"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="31" id="PXZ-73-Vdu"/>
                                             <constraint firstAttribute="width" constant="49" id="j51-e1-bEN"/>
@@ -1881,7 +1884,7 @@ You can import artists from Apple Music, Spotify, or manually search and follow 
                                         </connections>
                                     </switch>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3vp-bZ-Un2">
-                                        <rect key="frame" x="18" y="173" width="798" height="1"/>
+                                        <rect key="frame" x="18" y="173" width="364" height="1"/>
                                         <color key="backgroundColor" red="0.20060706140000001" green="0.20079019670000001" blue="0.20063543319999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="1" id="jf0-Zr-rV9"/>
@@ -1894,7 +1897,7 @@ You can import artists from Apple Music, Spotify, or manually search and follow 
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="90x-0f-v45">
-                                        <rect key="frame" x="767" y="187" width="51" height="31"/>
+                                        <rect key="frame" x="333" y="187" width="51" height="31"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="31" id="Ygk-7E-Ywj"/>
                                             <constraint firstAttribute="width" constant="49" id="s0o-NG-3jA"/>
@@ -1906,7 +1909,7 @@ You can import artists from Apple Music, Spotify, or manually search and follow 
                                         </connections>
                                     </switch>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="A05-Dh-Joc">
-                                        <rect key="frame" x="18" y="231" width="798" height="1"/>
+                                        <rect key="frame" x="18" y="231" width="364" height="1"/>
                                         <color key="backgroundColor" red="0.20060706140000001" green="0.20079019670000001" blue="0.20063543319999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="1" id="0zx-1C-XEz"/>
@@ -1919,7 +1922,7 @@ You can import artists from Apple Music, Spotify, or manually search and follow 
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="P24-tL-6wN">
-                                        <rect key="frame" x="767" y="248" width="51" height="31"/>
+                                        <rect key="frame" x="333" y="248" width="51" height="31"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="31" id="Oni-lG-faD"/>
                                             <constraint firstAttribute="width" constant="49" id="nK2-PS-MkC"/>
@@ -1930,7 +1933,7 @@ You can import artists from Apple Music, Spotify, or manually search and follow 
                                         </connections>
                                     </switch>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xkq-qf-nwq">
-                                        <rect key="frame" x="18" y="292" width="798" height="1"/>
+                                        <rect key="frame" x="18" y="292" width="364" height="1"/>
                                         <color key="backgroundColor" red="0.20060706140000001" green="0.20079019670000001" blue="0.20063543319999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="1" id="ai4-s4-V1e"/>
@@ -1943,7 +1946,7 @@ You can import artists from Apple Music, Spotify, or manually search and follow 
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="UrG-tn-EjW">
-                                        <rect key="frame" x="767" y="309" width="51" height="31"/>
+                                        <rect key="frame" x="333" y="309" width="51" height="31"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="49" id="Ckz-LK-9En"/>
                                             <constraint firstAttribute="height" constant="31" id="bji-na-elr"/>
@@ -1954,14 +1957,14 @@ You can import artists from Apple Music, Spotify, or manually search and follow 
                                         </connections>
                                     </switch>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EXA-1H-EzD">
-                                        <rect key="frame" x="18" y="353" width="798" height="1"/>
+                                        <rect key="frame" x="18" y="353" width="364" height="1"/>
                                         <color key="backgroundColor" red="0.20060706140000001" green="0.20079019670000001" blue="0.20063543319999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="1" id="iu8-lj-I2F"/>
                                         </constraints>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="52X-6z-VVa">
-                                        <rect key="frame" x="217" y="372" width="400" height="134"/>
+                                        <rect key="frame" x="28" y="372" width="344" height="151"/>
                                         <constraints>
                                             <constraint firstAttribute="width" relation="lessThanOrEqual" constant="400" id="uhA-md-4RF"/>
                                         </constraints>
@@ -1988,8 +1991,10 @@ Turning on certain services may require you to log in to them. Numu values your 
                                     <constraint firstAttribute="bottom" secondItem="52X-6z-VVa" secondAttribute="bottom" constant="18" id="Ek7-XS-BEC"/>
                                     <constraint firstAttribute="trailing" secondItem="xkq-qf-nwq" secondAttribute="trailing" constant="18" id="G9P-rr-SkI"/>
                                     <constraint firstItem="52X-6z-VVa" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Gf7-8t-Rvm" secondAttribute="leadingMargin" constant="18" id="GVe-Md-3MO"/>
+                                    <constraint firstAttribute="width" relation="lessThanOrEqual" constant="400" id="I12-ss-tvb"/>
                                     <constraint firstItem="KcO-MC-c1X" firstAttribute="top" secondItem="eKP-Od-q2r" secondAttribute="bottom" constant="18" id="K5Z-oj-sYm"/>
                                     <constraint firstAttribute="trailing" secondItem="90x-0f-v45" secondAttribute="trailing" constant="18" id="MSx-lR-qZP"/>
+                                    <constraint firstAttribute="height" constant="541" id="NlI-07-Z6F"/>
                                     <constraint firstItem="8bH-Dt-H1z" firstAttribute="centerY" secondItem="ImA-kn-r48" secondAttribute="centerY" id="Pdj-0P-8pS"/>
                                     <constraint firstItem="90x-0f-v45" firstAttribute="top" secondItem="3vp-bZ-Un2" secondAttribute="bottom" constant="13" id="Prw-Nf-l1s"/>
                                     <constraint firstItem="EXA-1H-EzD" firstAttribute="leading" secondItem="Gf7-8t-Rvm" secondAttribute="leading" constant="18" id="Q0e-AP-CKp"/>
@@ -2021,6 +2026,7 @@ Turning on certain services may require you to log in to them. Numu values your 
                                     <constraint firstItem="mvN-e6-CQX" firstAttribute="centerY" secondItem="V3T-Uc-Bze" secondAttribute="centerY" id="paa-cv-NUh"/>
                                     <constraint firstItem="52X-6z-VVa" firstAttribute="centerX" secondItem="Gf7-8t-Rvm" secondAttribute="centerX" id="rJk-7E-n4r"/>
                                     <constraint firstAttribute="trailing" secondItem="UrG-tn-EjW" secondAttribute="trailing" constant="18" id="t03-P8-xfq"/>
+                                    <constraint firstItem="52X-6z-VVa" firstAttribute="leading" secondItem="Gf7-8t-Rvm" secondAttribute="leading" constant="28" id="toC-qj-2PQ"/>
                                     <constraint firstItem="3vp-bZ-Un2" firstAttribute="top" secondItem="ImA-kn-r48" secondAttribute="bottom" constant="18" id="tqR-Bd-Bok"/>
                                     <constraint firstItem="9Ma-R2-lg7" firstAttribute="top" secondItem="3vp-bZ-Un2" secondAttribute="bottom" constant="18" id="uD8-LT-3mO"/>
                                     <constraint firstAttribute="trailing" secondItem="mvN-e6-CQX" secondAttribute="trailing" constant="18" id="v27-Pb-LWo"/>
@@ -2039,11 +2045,12 @@ Turning on certain services may require you to log in to them. Numu values your 
                         </subviews>
                         <color key="backgroundColor" red="0.1333333333" green="0.1333333333" blue="0.1333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstAttribute="trailing" secondItem="Gf7-8t-Rvm" secondAttribute="trailing" constant="217" id="3d1-9J-Avi"/>
                             <constraint firstItem="Gf7-8t-Rvm" firstAttribute="top" secondItem="Jar-fP-e7n" secondAttribute="top" id="42T-w5-OTM"/>
-                            <constraint firstAttribute="trailing" secondItem="Gf7-8t-Rvm" secondAttribute="trailing" id="8y1-Pm-sYa"/>
+                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Gf7-8t-Rvm" secondAttribute="trailing" id="8y1-Pm-sYa"/>
                             <constraint firstItem="Gf7-8t-Rvm" firstAttribute="centerX" secondItem="Jar-fP-e7n" secondAttribute="centerX" id="gAM-fV-T0d"/>
                             <constraint firstAttribute="bottom" secondItem="Gf7-8t-Rvm" secondAttribute="bottom" id="q41-dg-EOh"/>
-                            <constraint firstItem="Gf7-8t-Rvm" firstAttribute="leading" secondItem="Jar-fP-e7n" secondAttribute="leading" id="va0-3M-iOu"/>
+                            <constraint firstItem="Gf7-8t-Rvm" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Jar-fP-e7n" secondAttribute="leading" id="va0-3M-iOu"/>
                         </constraints>
                     </scrollView>
                     <connections>
@@ -2117,23 +2124,6 @@ Any imported artists you've unfollowed will not be re-imported.</string>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gqw-a7-uHp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="5653.2374100719426" y="1970.5035971223022"/>
-        </scene>
-        <!--Your Artists-->
-        <scene sceneID="hjy-Ge-Nda">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="17Z-pk-giM" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Your Artists" image="drums" selectedImage="drums" id="Goh-K9-w2o"/>
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="WNl-6T-VaW">
-                        <rect key="frame" x="0.0" y="20" width="834" height="50"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <color key="barTintColor" red="0.12156862745098039" green="0.62352941176470589" blue="0.69411764705882351" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Cd8-e2-9g8" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="158" y="465"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="R9c-Zd-DEE">
@@ -2614,10 +2604,10 @@ On the </string>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FHt-ni-xDi">
-                                <rect key="frame" x="200" y="0.0" width="434" height="458"/>
+                                <rect key="frame" x="213" y="0.0" width="408" height="458"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="5" translatesAutoresizingMaskIntoConstraints="NO" id="VRP-ZO-VcM">
-                                        <rect key="frame" x="36" y="36" width="163" height="60"/>
+                                        <rect key="frame" x="36" y="36" width="150" height="60"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="60" id="7bw-14-Gg4"/>
                                         </constraints>
@@ -2626,14 +2616,14 @@ On the </string>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fyw-hS-IEY">
-                                        <rect key="frame" x="36" y="99" width="163" height="1"/>
+                                        <rect key="frame" x="36" y="99" width="150" height="1"/>
                                         <color key="backgroundColor" red="0.1199414805" green="0.62484174969999995" blue="0.69512790440000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="1" id="Thh-5E-kEd"/>
                                         </constraints>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="artists listened" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6g4-ue-BaR">
-                                        <rect key="frame" x="36" y="108" width="163" height="16"/>
+                                        <rect key="frame" x="36" y="108" width="150" height="16"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="16" id="l9e-hh-ycU"/>
                                         </constraints>
@@ -2642,23 +2632,24 @@ On the </string>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="5" translatesAutoresizingMaskIntoConstraints="NO" id="Dwr-1Q-XfR">
-                                        <rect key="frame" x="235" y="36" width="163" height="60"/>
+                                        <rect key="frame" x="222" y="36" width="150" height="60"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="60" id="WOX-qy-Jjf"/>
+                                            <constraint firstAttribute="width" constant="150" id="lC9-Sc-3b7"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="50"/>
                                         <color key="textColor" red="0.1101333722" green="0.81008809800000003" blue="0.96938949819999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SeD-ma-FBJ">
-                                        <rect key="frame" x="235" y="99" width="163" height="1"/>
+                                        <rect key="frame" x="222" y="99" width="150" height="1"/>
                                         <color key="backgroundColor" red="0.1199414805" green="0.62484174969999995" blue="0.69512790440000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="1" id="VcN-Bg-hnu"/>
                                         </constraints>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="artists followed" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BJw-JT-Ppe">
-                                        <rect key="frame" x="235" y="108" width="163" height="16"/>
+                                        <rect key="frame" x="222" y="108" width="150" height="16"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="16" id="MP3-dU-4si"/>
                                         </constraints>
@@ -2667,7 +2658,7 @@ On the </string>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="5" translatesAutoresizingMaskIntoConstraints="NO" id="Fp8-kI-G8N">
-                                        <rect key="frame" x="36" y="160" width="163" height="60"/>
+                                        <rect key="frame" x="36" y="160" width="150" height="60"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="60" id="3pf-HY-RLr"/>
                                         </constraints>
@@ -2676,14 +2667,14 @@ On the </string>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kJT-W6-QtE">
-                                        <rect key="frame" x="36" y="223" width="163" height="1"/>
+                                        <rect key="frame" x="36" y="223" width="150" height="1"/>
                                         <color key="backgroundColor" red="0.1199414805" green="0.62484174969999995" blue="0.69512790440000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="1" id="bS1-rj-LGc"/>
                                         </constraints>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="releases listened" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kV2-Vy-EY0">
-                                        <rect key="frame" x="36" y="232" width="163" height="16"/>
+                                        <rect key="frame" x="36" y="232" width="150" height="16"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="16" id="6wf-2O-CHl"/>
                                         </constraints>
@@ -2692,7 +2683,7 @@ On the </string>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="5" translatesAutoresizingMaskIntoConstraints="NO" id="uQU-bf-llj">
-                                        <rect key="frame" x="235" y="160" width="163" height="60"/>
+                                        <rect key="frame" x="222" y="160" width="150" height="60"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="60" id="eAj-jL-XfI"/>
                                         </constraints>
@@ -2701,14 +2692,14 @@ On the </string>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xKD-c6-54g">
-                                        <rect key="frame" x="235" y="223" width="163" height="1"/>
+                                        <rect key="frame" x="222" y="223" width="150" height="1"/>
                                         <color key="backgroundColor" red="0.1199414805" green="0.62484174969999995" blue="0.69512790440000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="1" id="znO-rW-dAX"/>
                                         </constraints>
                                     </view>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="releases followed*" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="TJs-DC-hsh">
-                                        <rect key="frame" x="235" y="231" width="163" height="16"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="releases followed*" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TJs-DC-hsh">
+                                        <rect key="frame" x="222" y="231" width="150" height="16"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="16" id="Z5b-lZ-Q0z"/>
                                         </constraints>
@@ -2717,7 +2708,7 @@ On the </string>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0%" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="5" translatesAutoresizingMaskIntoConstraints="NO" id="tgv-18-qPG">
-                                        <rect key="frame" x="135.5" y="283" width="163" height="60"/>
+                                        <rect key="frame" x="129" y="283" width="150" height="60"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="60" id="qJF-lT-mTf"/>
                                         </constraints>
@@ -2726,14 +2717,14 @@ On the </string>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GOi-ze-Iay">
-                                        <rect key="frame" x="135.5" y="346" width="163" height="1"/>
+                                        <rect key="frame" x="129" y="346" width="150" height="1"/>
                                         <color key="backgroundColor" red="0.1199414805" green="0.62484174969999995" blue="0.69512790440000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="1" id="Mce-LL-ITl"/>
                                         </constraints>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="completed*" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oA9-Tx-jww">
-                                        <rect key="frame" x="182" y="354" width="70" height="16"/>
+                                        <rect key="frame" x="169" y="354" width="70" height="16"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="16" id="UUM-S9-3F4"/>
                                         </constraints>
@@ -2742,7 +2733,7 @@ On the </string>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="* Based on your current filters." textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ymX-lu-NRH">
-                                        <rect key="frame" x="125.5" y="406" width="183" height="16"/>
+                                        <rect key="frame" x="112.5" y="406" width="183" height="16"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="16" id="7UY-HB-JiT"/>
                                         </constraints>
@@ -2789,6 +2780,7 @@ On the </string>
                                     <constraint firstItem="TJs-DC-hsh" firstAttribute="top" secondItem="xKD-c6-54g" secondAttribute="top" constant="8" id="j7e-zj-ywy"/>
                                     <constraint firstItem="Fyw-hS-IEY" firstAttribute="top" secondItem="VRP-ZO-VcM" secondAttribute="bottom" constant="3" id="jkY-Gy-E5w"/>
                                     <constraint firstItem="kJT-W6-QtE" firstAttribute="trailing" secondItem="Fp8-kI-G8N" secondAttribute="trailing" id="k2s-yo-NnW"/>
+                                    <constraint firstAttribute="width" relation="lessThanOrEqual" constant="500" id="l1a-eh-RHo"/>
                                     <constraint firstItem="ymX-lu-NRH" firstAttribute="centerX" secondItem="FHt-ni-xDi" secondAttribute="centerX" id="mco-3C-DHG"/>
                                     <constraint firstItem="oA9-Tx-jww" firstAttribute="top" secondItem="GOi-ze-Iay" secondAttribute="top" constant="8" id="nbH-TZ-brk"/>
                                     <constraint firstItem="TJs-DC-hsh" firstAttribute="leading" secondItem="uQU-bf-llj" secondAttribute="leading" id="njW-1W-Y4X"/>
@@ -2813,10 +2805,10 @@ On the </string>
                         </subviews>
                         <color key="backgroundColor" red="0.13350695369999999" green="0.13364198799999999" blue="0.13352787490000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" relation="lessThanOrEqual" secondItem="FHt-ni-xDi" secondAttribute="trailing" constant="200" id="7VG-F6-4gk"/>
+                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="FHt-ni-xDi" secondAttribute="trailing" id="7VG-F6-4gk"/>
                             <constraint firstItem="FHt-ni-xDi" firstAttribute="centerX" secondItem="APb-5f-Idc" secondAttribute="centerX" id="7hm-Hr-tVh"/>
                             <constraint firstItem="FHt-ni-xDi" firstAttribute="top" secondItem="APb-5f-Idc" secondAttribute="top" id="HI7-AG-xOL"/>
-                            <constraint firstItem="FHt-ni-xDi" firstAttribute="leading" relation="lessThanOrEqual" secondItem="APb-5f-Idc" secondAttribute="leading" constant="200" id="Zye-8T-0lk"/>
+                            <constraint firstItem="FHt-ni-xDi" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="APb-5f-Idc" secondAttribute="leading" id="Zye-8T-0lk"/>
                             <constraint firstAttribute="bottom" secondItem="FHt-ni-xDi" secondAttribute="bottom" id="nsE-XN-Muf"/>
                         </constraints>
                     </scrollView>
