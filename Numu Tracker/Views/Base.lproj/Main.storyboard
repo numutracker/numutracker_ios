@@ -30,9 +30,9 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="11" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Bv-3X-alE">
-                                <rect key="frame" x="273" y="152" width="288" height="184"/>
+                                <rect key="frame" x="230" y="152" width="374.5" height="150.5"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" relation="lessThanOrEqual" constant="288" id="hGs-VW-1bQ"/>
+                                    <constraint firstAttribute="width" relation="lessThanOrEqual" constant="400" id="hGs-VW-1bQ"/>
                                 </constraints>
                                 <string key="text">This will download only the list of artists you have in your library into the Numu Tracker database. 
 
@@ -81,7 +81,7 @@ Any imported artists you've unfollowed will not be re-imported.</string>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ucg-Sm-nZu">
-                                <rect key="frame" x="0.0" y="0.0" width="834" height="516"/>
+                                <rect key="frame" x="0.0" y="0.0" width="834" height="499.5"/>
                                 <subviews>
                                     <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7nY-rM-ZJM">
                                         <rect key="frame" x="767" y="20" width="51" height="31"/>
@@ -273,9 +273,9 @@ Any imported artists you've unfollowed will not be re-imported.</string>
                                         <rect key="frame" x="782" y="373" width="19" height="21"/>
                                     </activityIndicatorView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M7T-mL-29N">
-                                        <rect key="frame" x="273" y="429" width="288" height="67"/>
+                                        <rect key="frame" x="223.5" y="429" width="387" height="50.5"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" relation="lessThanOrEqual" constant="288" id="Ot1-7e-uDK"/>
+                                            <constraint firstAttribute="width" relation="lessThanOrEqual" constant="400" id="Ot1-7e-uDK"/>
                                         </constraints>
                                         <string key="text">Turn the switch off to filter out release types. You won't see those kinds of releases in your lists and you won't receive notifications about them.</string>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -486,20 +486,20 @@ Any imported artists you've unfollowed will not be re-imported.</string>
                                         </connections>
                                     </switch>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Get a heads up on days your artists release new music, so you can't forget." textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pgw-Eo-QBf">
-                                        <rect key="frame" x="276" y="80" width="282.5" height="43"/>
+                                        <rect key="frame" x="228" y="80" width="378" height="43"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="43" id="gDR-qx-0sJ"/>
-                                            <constraint firstAttribute="width" relation="lessThanOrEqual" constant="288" id="pDb-Mf-2kK"/>
+                                            <constraint firstAttribute="width" relation="lessThanOrEqual" constant="400" id="pDb-Mf-2kK"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Numu will let you know when upcoming releases by your artists are announced." textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VEP-RN-tan">
-                                        <rect key="frame" x="288" y="220" width="258" height="43"/>
+                                        <rect key="frame" x="233.5" y="220" width="367.5" height="43"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="43" id="FkO-hm-MvO"/>
-                                            <constraint firstAttribute="width" relation="lessThanOrEqual" constant="288" id="GEw-ns-egO"/>
+                                            <constraint firstAttribute="width" relation="lessThanOrEqual" constant="400" id="GEw-ns-egO"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
@@ -530,10 +530,10 @@ Any imported artists you've unfollowed will not be re-imported.</string>
                                         </connections>
                                     </switch>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Get notified any time past releases by your artists are added to Numu." textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gd3-Yu-jnp">
-                                        <rect key="frame" x="277.5" y="360" width="279.5" height="43"/>
+                                        <rect key="frame" x="221" y="360" width="392.5" height="43"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="43" id="Icn-dq-a5l"/>
-                                            <constraint firstAttribute="width" relation="lessThanOrEqual" constant="288" id="Q0S-Za-PcK"/>
+                                            <constraint firstAttribute="width" relation="lessThanOrEqual" constant="400" id="Q0S-Za-PcK"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
@@ -1810,7 +1810,7 @@ You can import artists from Apple Music, Spotify, or manually search and follow 
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Gf7-8t-Rvm">
-                                <rect key="frame" x="0.0" y="0.0" width="834" height="557.5"/>
+                                <rect key="frame" x="0.0" y="0.0" width="834" height="524"/>
                                 <subviews>
                                     <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Adj-x8-Myn">
                                         <rect key="frame" x="767" y="13" width="51" height="31"/>
@@ -1961,9 +1961,9 @@ You can import artists from Apple Music, Spotify, or manually search and follow 
                                         </constraints>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="52X-6z-VVa">
-                                        <rect key="frame" x="273" y="372" width="288" height="167.5"/>
+                                        <rect key="frame" x="217" y="372" width="400" height="134"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" relation="lessThanOrEqual" constant="288" id="uhA-md-4RF"/>
+                                            <constraint firstAttribute="width" relation="lessThanOrEqual" constant="400" id="uhA-md-4RF"/>
                                         </constraints>
                                         <string key="text">These switches determine which music services appear in the release detail modal. Turn off any services you don't use, and they won't appear in that menu anymore.
 
@@ -2080,9 +2080,9 @@ Turning on certain services may require you to log in to them. Numu values your 
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="11" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gV3-9k-5qm">
-                                <rect key="frame" x="275" y="152" width="284.5" height="184"/>
+                                <rect key="frame" x="227" y="152" width="380" height="150.5"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" relation="lessThanOrEqual" constant="288" id="XGB-ep-ME5"/>
+                                    <constraint firstAttribute="width" relation="lessThanOrEqual" constant="400" id="XGB-ep-ME5"/>
                                 </constraints>
                                 <string key="text">This will download only your Top and Followed artists from Spotify into the Numu Tracker database. 
 
@@ -2184,35 +2184,38 @@ Any imported artists you've unfollowed will not be re-imported.</string>
                         <viewControllerLayoutGuide type="top" id="B0c-wt-nie"/>
                         <viewControllerLayoutGuide type="bottom" id="gwi-PH-1ZT"/>
                     </layoutGuides>
-                    <scrollView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" contentInsetAdjustmentBehavior="always" id="Ld5-kl-enT">
+                    <scrollView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" showsHorizontalScrollIndicator="NO" contentInsetAdjustmentBehavior="always" id="Ld5-kl-enT">
                         <rect key="frame" x="0.0" y="0.0" width="834" height="1112"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZTT-fl-w4I">
-                                <rect key="frame" x="0.0" y="0.0" width="834" height="618.5"/>
+                                <rect key="frame" x="167" y="0.0" width="500" height="428"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What is Numu for?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I4e-bb-04c">
-                                        <rect key="frame" x="18" y="24" width="816" height="24"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" layoutMarginsFollowReadableWidth="YES" text="What is Numu for?" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I4e-bb-04c">
+                                        <rect key="frame" x="18" y="24" width="482" height="24"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <color key="textColor" red="0.10980392160000001" green="0.81176470590000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fcQ-c4-sCS">
-                                        <rect key="frame" x="18" y="58" width="798" height="92.5"/>
+                                        <rect key="frame" x="18" y="58" width="464" height="73.5"/>
                                         <color key="backgroundColor" red="0.13350695369999999" green="0.13364198799999999" blue="0.13352787490000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" relation="lessThanOrEqual" constant="500" id="k6R-d0-xAf"/>
+                                        </constraints>
                                         <string key="text">Numu Tracker serves two purposes. First, it will keep you up-to-date on new releases by your favorite musicians. Secondly, it acts as a never-ending "to-do list" of music you need to listen to.  Numu does not play music, and it does not automatically track the music you've listened to.</string>
                                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="How do I use Numu?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rdq-69-BgF">
-                                        <rect key="frame" x="18" y="168.5" width="816" height="24"/>
+                                        <rect key="frame" x="18" y="149.5" width="482" height="24"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <color key="textColor" red="0.10980392160000001" green="0.81176470590000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="redraw" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" usesAttributedText="YES" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="phg-fg-dDA">
-                                        <rect key="frame" x="18" y="202.5" width="798" height="398"/>
+                                        <rect key="frame" x="18" y="183.5" width="464" height="226.5"/>
                                         <color key="backgroundColor" red="0.13350695369999999" green="0.13364198799999999" blue="0.13352787490000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <attributedString key="attributedText">
                                             <fragment content="Your first step will be to import some artists, using the page available on the ">
@@ -2412,6 +2415,7 @@ On the </string>
                                 </subviews>
                                 <color key="backgroundColor" red="0.13350695369999999" green="0.13364198799999999" blue="0.13352787490000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
+                                    <constraint firstAttribute="width" relation="lessThanOrEqual" constant="500" id="4QZ-O4-cHo"/>
                                     <constraint firstAttribute="trailing" secondItem="fcQ-c4-sCS" secondAttribute="trailing" constant="18" id="66W-y7-iR3"/>
                                     <constraint firstItem="Rdq-69-BgF" firstAttribute="leading" secondItem="ZTT-fl-w4I" secondAttribute="leading" constant="18" id="7uA-qW-r0m"/>
                                     <constraint firstItem="I4e-bb-04c" firstAttribute="top" secondItem="ZTT-fl-w4I" secondAttribute="top" constant="24" id="ElL-wh-uM5"/>
@@ -2430,10 +2434,10 @@ On the </string>
                         </subviews>
                         <color key="backgroundColor" red="0.13350695369999999" green="0.13364198799999999" blue="0.13352787490000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="ZTT-fl-w4I" firstAttribute="width" secondItem="Ld5-kl-enT" secondAttribute="width" id="1cY-jQ-rc7"/>
                             <constraint firstItem="ZTT-fl-w4I" firstAttribute="top" secondItem="Ld5-kl-enT" secondAttribute="top" id="WsE-Kg-Jvt"/>
-                            <constraint firstAttribute="trailing" secondItem="ZTT-fl-w4I" secondAttribute="trailing" id="ZAK-Cm-N5K"/>
-                            <constraint firstItem="ZTT-fl-w4I" firstAttribute="leading" secondItem="Ld5-kl-enT" secondAttribute="leading" id="ZnP-89-Nez"/>
+                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="ZTT-fl-w4I" secondAttribute="trailing" id="ZAK-Cm-N5K"/>
+                            <constraint firstItem="ZTT-fl-w4I" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Ld5-kl-enT" secondAttribute="leading" id="ZnP-89-Nez"/>
+                            <constraint firstItem="ZTT-fl-w4I" firstAttribute="centerX" secondItem="Ld5-kl-enT" secondAttribute="centerX" id="b5X-AE-hgH"/>
                             <constraint firstAttribute="bottom" secondItem="ZTT-fl-w4I" secondAttribute="bottom" id="ppB-vS-IFA"/>
                         </constraints>
                     </scrollView>
@@ -2455,7 +2459,7 @@ On the </string>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mr2-U3-A9t">
-                                <rect key="frame" x="0.0" y="0.0" width="834" height="513"/>
+                                <rect key="frame" x="0.0" y="0.0" width="834" height="479.5"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fgj-O8-LrV" customClass="NumuUIButton" customModule="Numu_Tracker" customModuleProvider="target">
                                         <rect key="frame" x="302" y="21" width="230" height="44"/>
@@ -2469,7 +2473,7 @@ On the </string>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hAt-Rw-Lvn" customClass="NumuUIButton" customModule="Numu_Tracker" customModuleProvider="target">
-                                        <rect key="frame" x="302" y="366.5" width="230" height="44"/>
+                                        <rect key="frame" x="302" y="333" width="230" height="44"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="44" id="OWC-TT-M0o"/>
                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="230" id="PgQ-mC-pP9"/>
@@ -2480,27 +2484,27 @@ On the </string>
                                         </connections>
                                     </button>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="Hi! I'm Brad. Feel free to email me any time with problems you have or feature suggestions / ideas." textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rqa-6t-OAP">
-                                        <rect key="frame" x="273.5" y="83" width="287" height="66.5"/>
+                                        <rect key="frame" x="225" y="83" width="384.5" height="49.5"/>
                                         <color key="backgroundColor" red="0.13350695369999999" green="0.13364198799999999" blue="0.13352787490000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" relation="lessThanOrEqual" constant="288" id="Vao-IS-8Zf"/>
+                                            <constraint firstAttribute="width" relation="lessThanOrEqual" constant="400" id="Vao-IS-8Zf"/>
                                         </constraints>
                                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="I'll post update notes for new versions of the app and sometimes ask for feedback on our subreddit. I'm u/staires on reddit." textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u5d-8K-Rpx">
-                                        <rect key="frame" x="279" y="428.5" width="276.5" height="66.5"/>
+                                        <rect key="frame" x="221" y="395" width="392.5" height="66.5"/>
                                         <color key="backgroundColor" red="0.13350695369999999" green="0.13364198799999999" blue="0.13352787490000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" relation="lessThanOrEqual" constant="288" id="QPf-Ko-92J"/>
+                                            <constraint firstAttribute="width" relation="lessThanOrEqual" constant="400" id="QPf-Ko-92J"/>
                                         </constraints>
                                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z0y-1u-l7X" customClass="NumuUIButton" customModule="Numu_Tracker" customModuleProvider="target">
-                                        <rect key="frame" x="302" y="185.5" width="230" height="44"/>
+                                        <rect key="frame" x="302" y="168.5" width="230" height="44"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="44" id="0et-WN-LiG"/>
                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="230" id="hz9-zI-JY6"/>
@@ -2511,10 +2515,10 @@ On the </string>
                                         </connections>
                                     </button>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xQO-Ds-PcJ">
-                                        <rect key="frame" x="280.5" y="247.5" width="273" height="83"/>
+                                        <rect key="frame" x="232" y="230.5" width="370" height="66.5"/>
                                         <color key="backgroundColor" red="0.13350695369999999" green="0.13364198799999999" blue="0.13352787490000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" relation="lessThanOrEqual" constant="288" id="gef-Es-TGY"/>
+                                            <constraint firstAttribute="width" relation="lessThanOrEqual" constant="400" id="gef-Es-TGY"/>
                                         </constraints>
                                         <string key="text">I'm @amiantos on Twitter. Feel free to @ me with ideas, problems, or just to chat. Follow me to get updates on Numu and what I'm up to.</string>
                                         <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="calibratedWhite"/>
@@ -2605,15 +2609,15 @@ On the </string>
                         <viewControllerLayoutGuide type="top" id="YtP-cc-CgT"/>
                         <viewControllerLayoutGuide type="bottom" id="M3b-Sw-YEI"/>
                     </layoutGuides>
-                    <scrollView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="APb-5f-Idc">
+                    <scrollView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" id="APb-5f-Idc">
                         <rect key="frame" x="0.0" y="0.0" width="834" height="1112"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FHt-ni-xDi">
-                                <rect key="frame" x="0.0" y="0.0" width="834" height="458"/>
+                                <rect key="frame" x="200" y="0.0" width="434" height="458"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="5" translatesAutoresizingMaskIntoConstraints="NO" id="VRP-ZO-VcM">
-                                        <rect key="frame" x="36" y="36" width="363" height="60"/>
+                                        <rect key="frame" x="36" y="36" width="163" height="60"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="60" id="7bw-14-Gg4"/>
                                         </constraints>
@@ -2622,14 +2626,14 @@ On the </string>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fyw-hS-IEY">
-                                        <rect key="frame" x="36" y="99" width="363" height="1"/>
+                                        <rect key="frame" x="36" y="99" width="163" height="1"/>
                                         <color key="backgroundColor" red="0.1199414805" green="0.62484174969999995" blue="0.69512790440000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="1" id="Thh-5E-kEd"/>
                                         </constraints>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="artists listened" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6g4-ue-BaR">
-                                        <rect key="frame" x="36" y="108" width="363" height="16"/>
+                                        <rect key="frame" x="36" y="108" width="163" height="16"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="16" id="l9e-hh-ycU"/>
                                         </constraints>
@@ -2638,7 +2642,7 @@ On the </string>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="5" translatesAutoresizingMaskIntoConstraints="NO" id="Dwr-1Q-XfR">
-                                        <rect key="frame" x="435" y="36" width="363" height="60"/>
+                                        <rect key="frame" x="235" y="36" width="163" height="60"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="60" id="WOX-qy-Jjf"/>
                                         </constraints>
@@ -2647,14 +2651,14 @@ On the </string>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SeD-ma-FBJ">
-                                        <rect key="frame" x="435" y="99" width="363" height="1"/>
+                                        <rect key="frame" x="235" y="99" width="163" height="1"/>
                                         <color key="backgroundColor" red="0.1199414805" green="0.62484174969999995" blue="0.69512790440000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="1" id="VcN-Bg-hnu"/>
                                         </constraints>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="artists followed" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BJw-JT-Ppe">
-                                        <rect key="frame" x="435" y="108" width="363" height="16"/>
+                                        <rect key="frame" x="235" y="108" width="163" height="16"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="16" id="MP3-dU-4si"/>
                                         </constraints>
@@ -2663,7 +2667,7 @@ On the </string>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="5" translatesAutoresizingMaskIntoConstraints="NO" id="Fp8-kI-G8N">
-                                        <rect key="frame" x="36" y="160" width="363" height="60"/>
+                                        <rect key="frame" x="36" y="160" width="163" height="60"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="60" id="3pf-HY-RLr"/>
                                         </constraints>
@@ -2672,14 +2676,14 @@ On the </string>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kJT-W6-QtE">
-                                        <rect key="frame" x="36" y="223" width="363" height="1"/>
+                                        <rect key="frame" x="36" y="223" width="163" height="1"/>
                                         <color key="backgroundColor" red="0.1199414805" green="0.62484174969999995" blue="0.69512790440000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="1" id="bS1-rj-LGc"/>
                                         </constraints>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="releases listened" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kV2-Vy-EY0">
-                                        <rect key="frame" x="36" y="232" width="363" height="16"/>
+                                        <rect key="frame" x="36" y="232" width="163" height="16"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="16" id="6wf-2O-CHl"/>
                                         </constraints>
@@ -2688,7 +2692,7 @@ On the </string>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="5" translatesAutoresizingMaskIntoConstraints="NO" id="uQU-bf-llj">
-                                        <rect key="frame" x="435" y="160" width="363" height="60"/>
+                                        <rect key="frame" x="235" y="160" width="163" height="60"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="60" id="eAj-jL-XfI"/>
                                         </constraints>
@@ -2697,14 +2701,14 @@ On the </string>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xKD-c6-54g">
-                                        <rect key="frame" x="435" y="223" width="363" height="1"/>
+                                        <rect key="frame" x="235" y="223" width="163" height="1"/>
                                         <color key="backgroundColor" red="0.1199414805" green="0.62484174969999995" blue="0.69512790440000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="1" id="znO-rW-dAX"/>
                                         </constraints>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="releases followed*" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="TJs-DC-hsh">
-                                        <rect key="frame" x="435" y="231" width="363" height="16"/>
+                                        <rect key="frame" x="235" y="231" width="163" height="16"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="16" id="Z5b-lZ-Q0z"/>
                                         </constraints>
@@ -2713,7 +2717,7 @@ On the </string>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0%" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="5" translatesAutoresizingMaskIntoConstraints="NO" id="tgv-18-qPG">
-                                        <rect key="frame" x="235.5" y="283" width="363" height="60"/>
+                                        <rect key="frame" x="135.5" y="283" width="163" height="60"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="60" id="qJF-lT-mTf"/>
                                         </constraints>
@@ -2722,14 +2726,14 @@ On the </string>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GOi-ze-Iay">
-                                        <rect key="frame" x="235.5" y="346" width="363" height="1"/>
+                                        <rect key="frame" x="135.5" y="346" width="163" height="1"/>
                                         <color key="backgroundColor" red="0.1199414805" green="0.62484174969999995" blue="0.69512790440000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="1" id="Mce-LL-ITl"/>
                                         </constraints>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="completed*" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oA9-Tx-jww">
-                                        <rect key="frame" x="382" y="354" width="70" height="16"/>
+                                        <rect key="frame" x="182" y="354" width="70" height="16"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="16" id="UUM-S9-3F4"/>
                                         </constraints>
@@ -2738,7 +2742,7 @@ On the </string>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="* Based on your current filters." textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ymX-lu-NRH">
-                                        <rect key="frame" x="325.5" y="406" width="183" height="16"/>
+                                        <rect key="frame" x="125.5" y="406" width="183" height="16"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="16" id="7UY-HB-JiT"/>
                                         </constraints>
@@ -2809,10 +2813,10 @@ On the </string>
                         </subviews>
                         <color key="backgroundColor" red="0.13350695369999999" green="0.13364198799999999" blue="0.13352787490000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="FHt-ni-xDi" secondAttribute="trailing" id="7VG-F6-4gk"/>
+                            <constraint firstAttribute="trailing" relation="lessThanOrEqual" secondItem="FHt-ni-xDi" secondAttribute="trailing" constant="200" id="7VG-F6-4gk"/>
                             <constraint firstItem="FHt-ni-xDi" firstAttribute="centerX" secondItem="APb-5f-Idc" secondAttribute="centerX" id="7hm-Hr-tVh"/>
                             <constraint firstItem="FHt-ni-xDi" firstAttribute="top" secondItem="APb-5f-Idc" secondAttribute="top" id="HI7-AG-xOL"/>
-                            <constraint firstItem="FHt-ni-xDi" firstAttribute="leading" secondItem="APb-5f-Idc" secondAttribute="leading" id="Zye-8T-0lk"/>
+                            <constraint firstItem="FHt-ni-xDi" firstAttribute="leading" relation="lessThanOrEqual" secondItem="APb-5f-Idc" secondAttribute="leading" constant="200" id="Zye-8T-0lk"/>
                             <constraint firstAttribute="bottom" secondItem="FHt-ni-xDi" secondAttribute="bottom" id="nsE-XN-Muf"/>
                         </constraints>
                     </scrollView>
