@@ -13,6 +13,7 @@ class ArtistsSplitViewController: UISplitViewController, UISplitViewControllerDe
     override func viewDidLoad() {
         super.viewDidLoad()
         self.preferredDisplayMode = .allVisible
+        self.view.backgroundColor = UIColor(white: 0.1, alpha: 1)
         self.delegate = self
     }
 
