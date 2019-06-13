@@ -27,6 +27,10 @@ class ArtistReleasesTableViewController: UITableViewController {
 
         navigationItem.rightBarButtonItem = add
 
+        navigationItem.leftBarButtonItem =
+            splitViewController?.displayModeButtonItem
+        navigationItem.leftItemsSupplementBackButton = true
+
         if let artistId = self.artistId {
 
             self.navigationController?.navigationBar.tintColor = .white
