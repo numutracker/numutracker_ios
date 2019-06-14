@@ -645,7 +645,7 @@ Any imported artists you've unfollowed will not be re-imported.</string>
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="135.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <userGuides>
-                                        <userLayoutGuide location="68" affinity="minY"/>
+                                        <userLayoutGuide location="67" affinity="minY"/>
                                     </userGuides>
                                     <subviews>
                                         <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="NGO-7l-svC">
@@ -2895,7 +2895,7 @@ On the </string>
         <image name="yours" width="23" height="24.5"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="QaV-Js-4tI"/>
+        <segue reference="X9X-xR-Pqh"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
 </document>
