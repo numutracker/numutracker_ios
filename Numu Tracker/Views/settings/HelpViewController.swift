@@ -45,7 +45,7 @@ class HelpViewController: UIViewController, MFMailComposeViewControllerDelegate 
             mail.setMessageBody("<p>Numu feedback goes here: </p>", isHTML: true)
             present(mail, animated: true, completion: nil)
         } else {
-            // show failure alert
+            UIApplication.shared.openURL(URL(string: "mailto:info@numutracker.com")!)
         }
     }
 
