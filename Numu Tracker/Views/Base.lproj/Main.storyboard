@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="QfB-2I-NEJ">
-    <device id="ipad10_5" orientation="portrait">
+    <device id="retina6_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -18,11 +18,11 @@
                         <viewControllerLayoutGuide type="bottom" id="XU0-5v-af1"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Rs2-VC-i1a">
-                        <rect key="frame" x="0.0" y="0.0" width="834" height="1112"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Epd-7O-Jkq" customClass="NumuUIButton" customModule="Numu_Tracker" customModuleProvider="target">
-                                <rect key="frame" x="307" y="94" width="220" height="42"/>
+                                <rect key="frame" x="97" y="112" width="220" height="42"/>
                                 <inset key="contentEdgeInsets" minX="10" minY="10" maxX="10" maxY="10"/>
                                 <state key="normal" title="Import from Apple Music"/>
                                 <connections>
@@ -30,7 +30,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="11" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Bv-3X-alE">
-                                <rect key="frame" x="230" y="152" width="374.5" height="150.5"/>
+                                <rect key="frame" x="38" y="170" width="338" height="150.66666666666663"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="lessThanOrEqual" constant="400" id="hGs-VW-1bQ"/>
                                 </constraints>
@@ -44,7 +44,7 @@ Any imported artists you've unfollowed will not be re-imported.</string>
                                 <nil key="highlightedColor"/>
                             </label>
                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="VPi-vA-Mgg">
-                                <rect key="frame" x="535" y="105" width="20" height="20"/>
+                                <rect key="frame" x="325" y="123" width="20" height="20"/>
                             </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" red="0.13350695369999999" green="0.13364198799999999" blue="0.13352787490000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -55,8 +55,8 @@ Any imported artists you've unfollowed will not be re-imported.</string>
                             <constraint firstItem="Epd-7O-Jkq" firstAttribute="centerX" secondItem="Rs2-VC-i1a" secondAttribute="centerX" id="bAb-tj-2Gb"/>
                             <constraint firstItem="VPi-vA-Mgg" firstAttribute="leading" secondItem="Epd-7O-Jkq" secondAttribute="trailing" constant="8" id="fWt-5z-QQa"/>
                             <constraint firstItem="VPi-vA-Mgg" firstAttribute="centerY" secondItem="Epd-7O-Jkq" secondAttribute="centerY" id="ftQ-am-t6t"/>
-                            <constraint firstItem="6Bv-3X-alE" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Rs2-VC-i1a" secondAttribute="leading" constant="18" id="sTI-sU-CXP"/>
-                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="6Bv-3X-alE" secondAttribute="trailing" constant="18" id="trv-zt-5H2"/>
+                            <constraint firstItem="6Bv-3X-alE" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Rs2-VC-i1a" secondAttribute="leading" constant="36" id="sTI-sU-CXP"/>
+                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="6Bv-3X-alE" secondAttribute="trailing" constant="36" id="trv-zt-5H2"/>
                         </constraints>
                     </view>
                     <connections>
@@ -77,14 +77,14 @@ Any imported artists you've unfollowed will not be re-imported.</string>
                         <viewControllerLayoutGuide type="bottom" id="Dh5-FS-0hG"/>
                     </layoutGuides>
                     <scrollView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" id="mXQ-GX-qfT">
-                        <rect key="frame" x="0.0" y="0.0" width="834" height="1112"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ucg-Sm-nZu">
-                                <rect key="frame" x="207.5" y="0.0" width="419" height="499.5"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="499.33333333333331"/>
                                 <subviews>
                                     <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7nY-rM-ZJM">
-                                        <rect key="frame" x="352" y="20" width="51" height="31"/>
+                                        <rect key="frame" x="347" y="20" width="51" height="31"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="31" id="V80-vJ-cX9"/>
                                             <constraint firstAttribute="width" constant="49" id="sxQ-nX-y8K"/>
@@ -101,7 +101,7 @@ Any imported artists you've unfollowed will not be re-imported.</string>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eyr-bA-c1y">
-                                        <rect key="frame" x="18" y="64" width="383" height="1"/>
+                                        <rect key="frame" x="18" y="64" width="378" height="1"/>
                                         <color key="backgroundColor" red="0.20060706140000001" green="0.20079019670000001" blue="0.20063543319999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="1" id="2mk-OR-eyj"/>
@@ -114,7 +114,7 @@ Any imported artists you've unfollowed will not be re-imported.</string>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="a4b-ZH-M8w">
-                                        <rect key="frame" x="352" y="78" width="51" height="31"/>
+                                        <rect key="frame" x="347" y="78" width="51" height="31"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="49" id="0eX-fi-nOH"/>
                                             <constraint firstAttribute="height" constant="31" id="aQa-nw-clJ"/>
@@ -125,7 +125,7 @@ Any imported artists you've unfollowed will not be re-imported.</string>
                                         </connections>
                                     </switch>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="c3B-96-RUB">
-                                        <rect key="frame" x="18" y="122" width="383" height="1"/>
+                                        <rect key="frame" x="18" y="122" width="378" height="1"/>
                                         <color key="backgroundColor" red="0.20060706140000001" green="0.20079019670000001" blue="0.20063543319999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="1" id="ZlB-OT-y4D"/>
@@ -138,7 +138,7 @@ Any imported artists you've unfollowed will not be re-imported.</string>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="I1D-pu-OTS">
-                                        <rect key="frame" x="352" y="136" width="51" height="31"/>
+                                        <rect key="frame" x="347" y="136" width="51" height="31"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="49" id="rFO-iN-E2F"/>
                                             <constraint firstAttribute="height" constant="31" id="zts-BZ-NEy"/>
@@ -149,7 +149,7 @@ Any imported artists you've unfollowed will not be re-imported.</string>
                                         </connections>
                                     </switch>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sGB-nZ-trO">
-                                        <rect key="frame" x="18" y="180" width="383" height="1"/>
+                                        <rect key="frame" x="18" y="180" width="378" height="1"/>
                                         <color key="backgroundColor" red="0.20060706140000001" green="0.20079019670000001" blue="0.20063543319999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="1" id="d4P-AS-KvJ"/>
@@ -162,7 +162,7 @@ Any imported artists you've unfollowed will not be re-imported.</string>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="3Kn-f8-cPP">
-                                        <rect key="frame" x="352" y="194" width="51" height="31"/>
+                                        <rect key="frame" x="347" y="194" width="51" height="31"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="31" id="03C-HJ-9sf"/>
                                             <constraint firstAttribute="width" constant="49" id="dVa-i9-mko"/>
@@ -173,7 +173,7 @@ Any imported artists you've unfollowed will not be re-imported.</string>
                                         </connections>
                                     </switch>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="N8m-o9-DYV">
-                                        <rect key="frame" x="18" y="238" width="383" height="1"/>
+                                        <rect key="frame" x="18" y="238" width="378" height="1"/>
                                         <color key="backgroundColor" red="0.20060706140000001" green="0.20079019670000001" blue="0.20063543319999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="1" id="8QD-AQ-mfC"/>
@@ -186,7 +186,7 @@ Any imported artists you've unfollowed will not be re-imported.</string>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="625-Lf-Ote">
-                                        <rect key="frame" x="352" y="252" width="51" height="31"/>
+                                        <rect key="frame" x="347" y="252" width="51" height="31"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="31" id="JOQ-tx-ppr"/>
                                             <constraint firstAttribute="width" constant="49" id="xj4-Sr-XLY"/>
@@ -197,20 +197,20 @@ Any imported artists you've unfollowed will not be re-imported.</string>
                                         </connections>
                                     </switch>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ULg-iM-vuc">
-                                        <rect key="frame" x="18" y="296" width="383" height="1"/>
+                                        <rect key="frame" x="18" y="296" width="378" height="1"/>
                                         <color key="backgroundColor" red="0.20060706140000001" green="0.20079019670000001" blue="0.20063543319999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="1" id="Wzi-Wi-kS4"/>
                                         </constraints>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Remixes" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R04-yR-Fut">
-                                        <rect key="frame" x="18" y="315" width="335" height="21"/>
+                                        <rect key="frame" x="18" y="315" width="330" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Vk3-dv-33A">
-                                        <rect key="frame" x="352" y="310" width="51" height="31"/>
+                                        <rect key="frame" x="347" y="310" width="51" height="31"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="49" id="KJj-BR-UZ1"/>
                                             <constraint firstAttribute="height" constant="31" id="KO1-Lg-o7G"/>
@@ -221,14 +221,14 @@ Any imported artists you've unfollowed will not be re-imported.</string>
                                         </connections>
                                     </switch>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9cM-9q-kgZ">
-                                        <rect key="frame" x="18" y="354" width="383" height="1"/>
+                                        <rect key="frame" x="18" y="354" width="378" height="1"/>
                                         <color key="backgroundColor" red="0.20060706140000001" green="0.20079019670000001" blue="0.20063543319999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="1" id="vMa-Ik-efa"/>
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eQF-EM-aEM">
-                                        <rect key="frame" x="0.0" y="412" width="419" height="1"/>
+                                        <rect key="frame" x="0.0" y="412" width="414" height="1"/>
                                         <color key="backgroundColor" red="0.20060706140000001" green="0.20079019670000001" blue="0.20063543319999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="1" id="Q0x-0C-7tw"/>
@@ -241,7 +241,7 @@ Any imported artists you've unfollowed will not be re-imported.</string>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="BOb-3N-z7Z">
-                                        <rect key="frame" x="352" y="368" width="51" height="31"/>
+                                        <rect key="frame" x="347" y="368" width="51" height="31"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="31" id="yVo-uT-heK"/>
                                             <constraint firstAttribute="width" constant="49" id="zge-VH-aqI"/>
@@ -252,28 +252,28 @@ Any imported artists you've unfollowed will not be re-imported.</string>
                                         </connections>
                                     </switch>
                                     <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="trZ-Ma-Vfu">
-                                        <rect key="frame" x="367" y="25" width="19" height="21"/>
+                                        <rect key="frame" x="362" y="25" width="19" height="21"/>
                                     </activityIndicatorView>
                                     <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="v2D-U6-kw9">
-                                        <rect key="frame" x="367" y="83" width="19" height="21"/>
+                                        <rect key="frame" x="362" y="83" width="19" height="21"/>
                                     </activityIndicatorView>
                                     <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="ZfL-GA-MIX">
-                                        <rect key="frame" x="367" y="141" width="19" height="21"/>
+                                        <rect key="frame" x="362" y="141" width="19" height="21"/>
                                     </activityIndicatorView>
                                     <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="68o-gW-TCz">
-                                        <rect key="frame" x="367" y="199" width="19" height="21"/>
+                                        <rect key="frame" x="362" y="199" width="19" height="21"/>
                                     </activityIndicatorView>
                                     <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="wnd-7v-XoF">
-                                        <rect key="frame" x="367" y="257" width="19" height="21"/>
+                                        <rect key="frame" x="362" y="257" width="19" height="21"/>
                                     </activityIndicatorView>
                                     <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="GoK-bP-BUy">
-                                        <rect key="frame" x="367" y="315" width="19" height="21"/>
+                                        <rect key="frame" x="362" y="315" width="19" height="21"/>
                                     </activityIndicatorView>
                                     <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="nI7-kF-eXb">
-                                        <rect key="frame" x="367" y="373" width="19" height="21"/>
+                                        <rect key="frame" x="362" y="373" width="19" height="21"/>
                                     </activityIndicatorView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M7T-mL-29N">
-                                        <rect key="frame" x="16" y="429" width="387" height="50.5"/>
+                                        <rect key="frame" x="32" y="429" width="350" height="50.333333333333314"/>
                                         <constraints>
                                             <constraint firstAttribute="width" relation="lessThanOrEqual" constant="400" id="Ot1-7e-uDK"/>
                                         </constraints>
@@ -308,7 +308,7 @@ Any imported artists you've unfollowed will not be re-imported.</string>
                                     <constraint firstItem="GoK-bP-BUy" firstAttribute="leading" secondItem="nI7-kF-eXb" secondAttribute="leading" id="B4M-Kn-RIf"/>
                                     <constraint firstItem="c3B-96-RUB" firstAttribute="leading" secondItem="Ucg-Sm-nZu" secondAttribute="leading" constant="18" id="BFG-7o-PI1"/>
                                     <constraint firstItem="v2D-U6-kw9" firstAttribute="bottom" secondItem="HsP-8O-gjG" secondAttribute="bottom" id="BIA-Ik-sQn"/>
-                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="M7T-mL-29N" secondAttribute="trailing" constant="16" id="Bl4-Jg-x7i"/>
+                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="M7T-mL-29N" secondAttribute="trailing" constant="32" id="Bl4-Jg-x7i"/>
                                     <constraint firstItem="R04-yR-Fut" firstAttribute="top" secondItem="ULg-iM-vuc" secondAttribute="bottom" constant="18" id="Blq-kP-xer"/>
                                     <constraint firstItem="BOb-3N-z7Z" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="ock-B9-4TY" secondAttribute="trailing" id="Bul-fh-Nou"/>
                                     <constraint firstItem="7nY-rM-ZJM" firstAttribute="centerX" secondItem="trZ-Ma-Vfu" secondAttribute="centerX" id="Fx6-hl-cBU"/>
@@ -331,7 +331,7 @@ Any imported artists you've unfollowed will not be re-imported.</string>
                                     <constraint firstItem="trZ-Ma-Vfu" firstAttribute="centerY" secondItem="qBd-bN-Qab" secondAttribute="centerY" id="SQz-pt-hOf"/>
                                     <constraint firstItem="wnd-7v-XoF" firstAttribute="top" secondItem="C5u-2n-d6q" secondAttribute="top" id="TXG-8a-hl5"/>
                                     <constraint firstItem="N8m-o9-DYV" firstAttribute="leading" secondItem="Ucg-Sm-nZu" secondAttribute="leading" constant="18" id="Tw6-H3-jZk"/>
-                                    <constraint firstItem="M7T-mL-29N" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Ucg-Sm-nZu" secondAttribute="leading" constant="16" id="Tz0-zy-VYx"/>
+                                    <constraint firstItem="M7T-mL-29N" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Ucg-Sm-nZu" secondAttribute="leading" constant="32" id="Tz0-zy-VYx"/>
                                     <constraint firstItem="GoK-bP-BUy" firstAttribute="centerY" secondItem="R04-yR-Fut" secondAttribute="centerY" id="Uj3-Tq-MIP"/>
                                     <constraint firstAttribute="trailing" secondItem="625-Lf-Ote" secondAttribute="trailing" constant="18" id="VQH-v3-RZQ"/>
                                     <constraint firstItem="68o-gW-TCz" firstAttribute="centerY" secondItem="tpx-qa-moA" secondAttribute="centerY" id="VoQ-mK-WiT"/>
@@ -424,11 +424,11 @@ Any imported artists you've unfollowed will not be re-imported.</string>
                         <viewControllerLayoutGuide type="bottom" id="gZu-pb-wA5"/>
                     </layoutGuides>
                     <scrollView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="sbg-CK-1Dp">
-                        <rect key="frame" x="0.0" y="0.0" width="834" height="1112"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mPs-9E-dO4">
-                                <rect key="frame" x="217" y="0.0" width="400" height="393"/>
+                                <rect key="frame" x="7" y="0.0" width="400" height="393"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="New Releases Available" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TdO-7z-jPZ">
                                         <rect key="frame" x="16" y="21" width="179" height="21"/>
@@ -486,7 +486,7 @@ Any imported artists you've unfollowed will not be re-imported.</string>
                                         </connections>
                                     </switch>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Get a heads up on days your artists release new music, so you can't forget." textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pgw-Eo-QBf">
-                                        <rect key="frame" x="20.5" y="80" width="359" height="34"/>
+                                        <rect key="frame" x="43.666666666666657" y="80" width="313" height="34"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="34" id="WI9-d8-ohz"/>
                                             <constraint firstAttribute="width" relation="lessThanOrEqual" constant="400" id="pDb-Mf-2kK"/>
@@ -496,7 +496,7 @@ Any imported artists you've unfollowed will not be re-imported.</string>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Numu will let you know when upcoming releases by your artists are announced." textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VEP-RN-tan">
-                                        <rect key="frame" x="18" y="211" width="364" height="34"/>
+                                        <rect key="frame" x="42.333333333333343" y="211" width="315.66666666666663" height="34"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="34" id="1Y1-IM-pIq"/>
                                             <constraint firstAttribute="width" relation="lessThanOrEqual" constant="400" id="GEw-ns-egO"/>
@@ -530,7 +530,7 @@ Any imported artists you've unfollowed will not be re-imported.</string>
                                         </connections>
                                     </switch>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Get notified any time past releases by your artists are added to Numu." textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gd3-Yu-jnp">
-                                        <rect key="frame" x="26" y="342" width="348" height="33"/>
+                                        <rect key="frame" x="38.333333333333343" y="342" width="323.66666666666663" height="33"/>
                                         <constraints>
                                             <constraint firstAttribute="width" relation="lessThanOrEqual" constant="400" id="Q0S-Za-PcK"/>
                                         </constraints>
@@ -561,23 +561,23 @@ Any imported artists you've unfollowed will not be re-imported.</string>
                                     <constraint firstItem="pgw-Eo-QBf" firstAttribute="top" secondItem="xnm-3g-sAf" secondAttribute="bottom" constant="16" id="4S7-Tq-vse"/>
                                     <constraint firstItem="MvH-Jv-RgW" firstAttribute="centerY" secondItem="4uA-c8-I6f" secondAttribute="centerY" id="4cj-kK-UoL"/>
                                     <constraint firstItem="TdO-7z-jPZ" firstAttribute="leading" secondItem="mPs-9E-dO4" secondAttribute="leading" constant="16" id="835-bE-URF"/>
-                                    <constraint firstItem="VEP-RN-tan" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="mPs-9E-dO4" secondAttribute="leading" constant="18" id="9EO-WN-Gym"/>
+                                    <constraint firstItem="VEP-RN-tan" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="mPs-9E-dO4" secondAttribute="leading" constant="36" id="9EO-WN-Gym"/>
                                     <constraint firstItem="vl8-Sc-enq" firstAttribute="top" secondItem="VEP-RN-tan" secondAttribute="bottom" constant="16" id="AQf-IM-Ioe"/>
                                     <constraint firstItem="6mm-7m-os9" firstAttribute="leading" secondItem="mPs-9E-dO4" secondAttribute="leading" id="BgU-sG-JOp"/>
                                     <constraint firstAttribute="trailing" secondItem="6mm-7m-os9" secondAttribute="trailing" id="Ezf-nM-XM6"/>
                                     <constraint firstAttribute="trailing" secondItem="xnm-3g-sAf" secondAttribute="trailing" constant="16" id="Fy2-oY-HO1"/>
                                     <constraint firstItem="82E-V7-ENp" firstAttribute="leading" secondItem="mPs-9E-dO4" secondAttribute="leading" constant="16" id="Gm8-72-5hG"/>
-                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="pgw-Eo-QBf" secondAttribute="trailing" constant="18" id="Hkc-3Q-WEx"/>
+                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="pgw-Eo-QBf" secondAttribute="trailing" constant="36" id="Hkc-3Q-WEx"/>
                                     <constraint firstItem="CZS-6C-3vS" firstAttribute="leading" secondItem="mPs-9E-dO4" secondAttribute="leading" constant="16" id="IJm-0J-1Kt"/>
                                     <constraint firstItem="VEP-RN-tan" firstAttribute="centerX" secondItem="mPs-9E-dO4" secondAttribute="centerX" id="J77-Ps-vhq"/>
                                     <constraint firstItem="Gd3-Yu-jnp" firstAttribute="centerX" secondItem="mPs-9E-dO4" secondAttribute="centerX" id="Jar-l4-vls"/>
                                     <constraint firstItem="4uA-c8-I6f" firstAttribute="leading" secondItem="mPs-9E-dO4" secondAttribute="leading" constant="16" id="K1p-dV-DPa"/>
-                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Gd3-Yu-jnp" secondAttribute="trailing" constant="18" id="MHn-Sl-Kms"/>
+                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Gd3-Yu-jnp" secondAttribute="trailing" constant="36" id="MHn-Sl-Kms"/>
                                     <constraint firstAttribute="trailing" secondItem="l3G-21-HTP" secondAttribute="trailing" constant="16" id="NMo-JD-9da"/>
-                                    <constraint firstItem="pgw-Eo-QBf" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="mPs-9E-dO4" secondAttribute="leading" constant="18" id="PUA-er-JPK"/>
+                                    <constraint firstItem="pgw-Eo-QBf" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="mPs-9E-dO4" secondAttribute="leading" constant="36" id="PUA-er-JPK"/>
                                     <constraint firstItem="ULW-sw-FOr" firstAttribute="top" secondItem="mPs-9E-dO4" secondAttribute="top" constant="16" id="S0N-Fe-Zp2"/>
                                     <constraint firstItem="VEP-RN-tan" firstAttribute="top" secondItem="82E-V7-ENp" secondAttribute="bottom" constant="16" id="SFq-cq-jhd"/>
-                                    <constraint firstItem="Gd3-Yu-jnp" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="mPs-9E-dO4" secondAttribute="leading" constant="18" id="U1z-SS-i3l"/>
+                                    <constraint firstItem="Gd3-Yu-jnp" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="mPs-9E-dO4" secondAttribute="leading" constant="36" id="U1z-SS-i3l"/>
                                     <constraint firstAttribute="bottom" secondItem="6mm-7m-os9" secondAttribute="bottom" id="UFB-e4-4UL"/>
                                     <constraint firstAttribute="trailing" secondItem="ULW-sw-FOr" secondAttribute="trailing" constant="16" id="W3U-bM-J1C"/>
                                     <constraint firstItem="MvH-Jv-RgW" firstAttribute="top" secondItem="vl8-Sc-enq" secondAttribute="bottom" constant="16" id="WId-Ah-QEH"/>
@@ -588,7 +588,7 @@ Any imported artists you've unfollowed will not be re-imported.</string>
                                     <constraint firstAttribute="trailing" secondItem="eHj-Wa-k1h" secondAttribute="trailing" constant="16" id="aMh-6t-QYB"/>
                                     <constraint firstItem="pgw-Eo-QBf" firstAttribute="centerX" secondItem="mPs-9E-dO4" secondAttribute="centerX" id="bYU-qk-vTk"/>
                                     <constraint firstItem="soU-3x-4Aa" firstAttribute="leading" secondItem="mPs-9E-dO4" secondAttribute="leading" constant="16" id="cAq-p2-mLQ"/>
-                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="VEP-RN-tan" secondAttribute="trailing" constant="18" id="dsn-pz-cYo"/>
+                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="VEP-RN-tan" secondAttribute="trailing" constant="36" id="dsn-pz-cYo"/>
                                     <constraint firstItem="eHj-Wa-k1h" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="soU-3x-4Aa" secondAttribute="trailing" id="e2q-fK-O0w"/>
                                     <constraint firstItem="xnm-3g-sAf" firstAttribute="leading" secondItem="mPs-9E-dO4" secondAttribute="leading" constant="16" id="eSZ-jI-YPE"/>
                                     <constraint firstItem="CZS-6C-3vS" firstAttribute="top" secondItem="pgw-Eo-QBf" secondAttribute="bottom" constant="16" id="eWe-jL-deh"/>
@@ -631,7 +631,7 @@ Any imported artists you've unfollowed will not be re-imported.</string>
             <objects>
                 <tableViewController extendedLayoutIncludesOpaqueBars="YES" id="VYe-bB-NhT" customClass="ArtistsTableViewController" customModule="Numu_Tracker" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" sectionIndexMinimumDisplayRowCount="10" rowHeight="-1" estimatedRowHeight="136" sectionHeaderHeight="-1" sectionFooterHeight="-1" id="mlj-7x-Twt">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="1112"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.13350695369999999" green="0.13364198799999999" blue="0.13352787490000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="separatorColor" red="0.20060706140000001" green="0.20079019670000001" blue="0.20063543319999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -639,39 +639,39 @@ Any imported artists you've unfollowed will not be re-imported.</string>
                         <color key="sectionIndexColor" white="0.70141267123287676" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="artistInfoCell" rowHeight="136" id="orZ-mw-u9Y" customClass="ArtistTableViewCell" customModule="Numu_Tracker" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="320" height="136"/>
+                                <rect key="frame" x="0.0" y="28" width="414" height="136"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="orZ-mw-u9Y" id="KAx-t2-NsI">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="135.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="135.66666666666666"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <userGuides>
                                         <userLayoutGuide location="67" affinity="minY"/>
                                     </userGuides>
                                     <subviews>
                                         <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="NGO-7l-svC">
-                                            <rect key="frame" x="66" y="58" width="20" height="20"/>
+                                            <rect key="frame" x="70" y="58" width="20" height="20"/>
                                         </activityIndicatorView>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="DqJ-ou-sTq">
-                                            <rect key="frame" x="26" y="18" width="100" height="100"/>
+                                            <rect key="frame" x="30" y="18" width="100" height="100"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="100" id="Z4I-rW-YKz"/>
                                                 <constraint firstAttribute="height" constant="100" id="cn5-Jf-7lF"/>
                                             </constraints>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Artist Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WnE-zm-8s7">
-                                            <rect key="frame" x="144" y="32" width="160" height="24"/>
+                                            <rect key="frame" x="148" y="32" width="246" height="24"/>
                                             <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2016-10-01" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="04E-UC-Imt">
-                                            <rect key="frame" x="144" y="59" width="80" height="18"/>
+                                            <rect key="frame" x="148" y="59" width="80" height="18"/>
                                             <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
                                             <color key="textColor" red="0.10980392160000001" green="0.81176470590000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Album" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rjv-DU-zIu">
-                                            <rect key="frame" x="144" y="81" width="39" height="16"/>
+                                            <rect key="frame" x="148" y="81" width="39" height="16"/>
                                             <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
                                             <color key="textColor" cocoaTouchSystemColor="lightTextColor"/>
                                             <nil key="highlightedColor"/>
@@ -735,7 +735,7 @@ Any imported artists you've unfollowed will not be re-imported.</string>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
                         <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="Z69-ha-1Y4">
-                            <rect key="frame" x="101.5" y="45.5" width="37" height="37"/>
+                            <rect key="frame" x="101.66666666666667" y="45.666666666666657" width="37.000000000000014" height="37"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="37" id="A2Z-KD-0nl"/>
                                 <constraint firstAttribute="height" constant="37" id="QBg-cL-Ury"/>
@@ -754,7 +754,7 @@ Any imported artists you've unfollowed will not be re-imported.</string>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SHE-jm-wdb">
-                            <rect key="frame" x="60" y="49.5" width="266.5" height="84"/>
+                            <rect key="frame" x="60" y="50.000000000000007" width="266.33333333333331" height="83.666666666666686"/>
                             <constraints>
                                 <constraint firstAttribute="width" relation="lessThanOrEqual" constant="288" id="Vcd-vU-Ez1"/>
                             </constraints>
@@ -766,10 +766,10 @@ You can import artists from Apple Music, Spotify, or manually search and follow 
                             <nil key="highlightedColor"/>
                         </label>
                         <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="HOU-cY-yOZ">
-                            <rect key="frame" x="311" y="168.5" width="20" height="20"/>
+                            <rect key="frame" x="311" y="168.66666666666666" width="20" height="20"/>
                         </activityIndicatorView>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MOv-eW-vnE" customClass="NumuUIButton" customModule="Numu_Tracker" customModuleProvider="target">
-                            <rect key="frame" x="83" y="157.5" width="220" height="42"/>
+                            <rect key="frame" x="83" y="157.66666666666666" width="220" height="42"/>
                             <inset key="contentEdgeInsets" minX="10" minY="10" maxX="10" maxY="10"/>
                             <state key="normal" title="Import from Apple Music">
                                 <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -779,10 +779,10 @@ You can import artists from Apple Music, Spotify, or manually search and follow 
                             </connections>
                         </button>
                         <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="ANb-AM-HaH">
-                            <rect key="frame" x="290" y="234.5" width="20" height="20"/>
+                            <rect key="frame" x="290" y="234.66666666666666" width="20" height="20"/>
                         </activityIndicatorView>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HUi-0S-hdp" customClass="NumuUIButton" customModule="Numu_Tracker" customModuleProvider="target">
-                            <rect key="frame" x="104" y="223.5" width="178" height="42"/>
+                            <rect key="frame" x="104" y="223.66666666666666" width="178" height="41.999999999999972"/>
                             <inset key="contentEdgeInsets" minX="10" minY="10" maxX="10" maxY="10"/>
                             <state key="normal" title="Import from Spotify">
                                 <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -836,7 +836,7 @@ You can import artists from Apple Music, Spotify, or manually search and follow 
             <objects>
                 <tableViewController storyboardIdentifier="artistReleasesController" extendedLayoutIncludesOpaqueBars="YES" id="Wkd-P3-oas" customClass="ArtistReleasesTableViewController" customModule="Numu_Tracker" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="136" sectionHeaderHeight="-1" sectionFooterHeight="-1" id="KFU-9P-Mi9">
-                        <rect key="frame" x="0.0" y="0.0" width="834" height="1112"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.13350695369999999" green="0.13364198799999999" blue="0.13352787490000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -844,10 +844,10 @@ You can import artists from Apple Music, Spotify, or manually search and follow 
                         <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="artistAlbumCell" rowHeight="136" id="U2O-L3-feA" customClass="ArtistReleaseTableViewCell" customModule="Numu_Tracker" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="834" height="136"/>
+                                <rect key="frame" x="0.0" y="28" width="414" height="136"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="U2O-L3-feA" id="6Lz-Uy-d3S">
-                                    <rect key="frame" x="0.0" y="0.0" width="834" height="135.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="135.66666666666666"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="9fR-E8-Key">
@@ -869,19 +869,19 @@ You can import artists from Apple Music, Spotify, or manually search and follow 
                                             </constraints>
                                         </view>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Delusion Moon" textAlignment="natural" lineBreakMode="tailTruncation" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xkR-VI-wng">
-                                            <rect key="frame" x="149" y="59" width="665" height="18"/>
+                                            <rect key="frame" x="149" y="59" width="245" height="18"/>
                                             <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
                                             <color key="textColor" red="0.10980392160000001" green="0.81176470590000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Album" lineBreakMode="tailTruncation" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="plt-37-BYB">
-                                            <rect key="frame" x="149" y="81" width="665" height="16"/>
+                                            <rect key="frame" x="149" y="81" width="245" height="16"/>
                                             <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
                                             <color key="textColor" cocoaTouchSystemColor="lightTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Meat Wave" textAlignment="natural" lineBreakMode="tailTruncation" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gcS-ZP-G7n">
-                                            <rect key="frame" x="149" y="32" width="665" height="24"/>
+                                            <rect key="frame" x="149" y="32" width="245" height="24"/>
                                             <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
@@ -955,7 +955,7 @@ You can import artists from Apple Music, Spotify, or manually search and follow 
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
                         <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="Hkc-Li-D5M">
-                            <rect key="frame" x="75" y="21.5" width="37" height="37"/>
+                            <rect key="frame" x="75" y="21.666666666666671" width="37" height="37"/>
                         </activityIndicatorView>
                     </subviews>
                     <color key="backgroundColor" red="0.13350695369999999" green="0.13364198799999999" blue="0.13352787490000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -994,17 +994,17 @@ You can import artists from Apple Music, Spotify, or manually search and follow 
                         <viewControllerLayoutGuide type="bottom" id="Edw-Rl-hOY"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="WT7-79-sAn">
-                        <rect key="frame" x="0.0" y="0.0" width="834" height="1112"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="J2A-Ex-KyL">
-                                <rect key="frame" x="398.5" y="468.5" width="37" height="37"/>
+                                <rect key="frame" x="188.66666666666666" y="276.66666666666669" width="37" height="37"/>
                             </activityIndicatorView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gIG-KA-PkO" userLabel="Copy Text">
-                                <rect key="frame" x="0.0" y="904" width="834" height="208"/>
+                                <rect key="frame" x="0.0" y="502" width="414" height="360"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="y0d-TD-xht">
-                                        <rect key="frame" x="277" y="30" width="280" height="128"/>
+                                        <rect key="frame" x="67.333333333333343" y="29.999999999999986" width="279.66666666666663" height="210.66666666666663"/>
                                         <constraints>
                                             <constraint firstAttribute="width" relation="lessThanOrEqual" constant="300" id="MYu-gn-oZ5"/>
                                         </constraints>
@@ -1038,19 +1038,19 @@ You can import artists from Apple Music, Spotify, or manually search and follow 
                                 </constraints>
                             </view>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" restorationIdentifier="top" translatesAutoresizingMaskIntoConstraints="NO" id="CQd-hW-J9j">
-                                <rect key="frame" x="0.0" y="70" width="834" height="208.5"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="103.66666666666669"/>
                             </scrollView>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" restorationIdentifier="middle" translatesAutoresizingMaskIntoConstraints="NO" id="bgD-7j-fl4" userLabel="Middle Scroll View">
-                                <rect key="frame" x="0.0" y="278.5" width="834" height="417"/>
+                                <rect key="frame" x="0.0" y="191.66666666666663" width="414" height="207"/>
                             </scrollView>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" restorationIdentifier="bottom" translatesAutoresizingMaskIntoConstraints="NO" id="57k-KG-Fjw" userLabel="Bottom Scroll View">
-                                <rect key="frame" x="0.0" y="695.5" width="834" height="208.5"/>
+                                <rect key="frame" x="0.0" y="398.66666666666669" width="414" height="103.33333333333331"/>
                             </scrollView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EFW-Lx-EBf" userLabel="Log In Form View">
-                                <rect key="frame" x="0.0" y="70" width="834" height="834"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="414"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MTd-6i-11o">
-                                        <rect key="frame" x="330.5" y="0.0" width="173" height="208.5"/>
+                                        <rect key="frame" x="120.66666666666669" y="0.0" width="173" height="103.66666666666667"/>
                                         <attributedString key="attributedText">
                                             <fragment content="Log into ">
                                                 <attributes>
@@ -1070,10 +1070,10 @@ You can import artists from Apple Music, Spotify, or manually search and follow 
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1Py-9I-N2a" userLabel="Password Section">
-                                        <rect key="frame" x="0.0" y="417" width="834" height="208.5"/>
+                                        <rect key="frame" x="0.0" y="206.99999999999997" width="414" height="103.66666666666666"/>
                                         <subviews>
                                             <textField opaque="NO" contentMode="scaleToFill" restorationIdentifier="logPassword" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" adjustsFontSizeToFit="NO" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="e9I-dD-wvn" userLabel="Numu Password Field" customClass="NumuTextField" customModule="Numu_Tracker" customModuleProvider="target">
-                                                <rect key="frame" x="293" y="73.5" width="248" height="40"/>
+                                                <rect key="frame" x="83" y="20.666666666666686" width="248" height="40"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="248" id="fEH-ws-MDM"/>
                                                     <constraint firstAttribute="height" constant="40" id="g6C-VJ-cnm"/>
@@ -1083,7 +1083,7 @@ You can import artists from Apple Music, Spotify, or manually search and follow 
                                                 <textInputTraits key="textInputTraits" keyboardAppearance="alert" returnKeyType="go" secureTextEntry="YES" textContentType="password"/>
                                             </textField>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5zk-1s-K7h">
-                                                <rect key="frame" x="293" y="118.5" width="248" height="17"/>
+                                                <rect key="frame" x="83" y="65.666666666666686" width="248" height="17"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="17" id="ZLj-gB-5CA"/>
                                                 </constraints>
@@ -1104,10 +1104,10 @@ You can import artists from Apple Music, Spotify, or manually search and follow 
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2DL-wl-8kB" userLabel="Email Section">
-                                        <rect key="frame" x="0.0" y="208.5" width="834" height="208.5"/>
+                                        <rect key="frame" x="0.0" y="103.66666666666666" width="414" height="103.33333333333334"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="email address" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q1I-qM-Qs8">
-                                                <rect key="frame" x="293" y="118.5" width="248" height="17"/>
+                                                <rect key="frame" x="83" y="65.666666666666657" width="248" height="17"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="17" id="KSw-RZ-KCO"/>
                                                 </constraints>
@@ -1116,7 +1116,7 @@ You can import artists from Apple Music, Spotify, or manually search and follow 
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textField opaque="NO" contentMode="scaleToFill" restorationIdentifier="logEmail" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" adjustsFontSizeToFit="NO" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OVg-4T-ODB" userLabel="Numu Email Field" customClass="NumuTextField" customModule="Numu_Tracker" customModuleProvider="target">
-                                                <rect key="frame" x="293" y="73.5" width="248" height="40"/>
+                                                <rect key="frame" x="83" y="20.666666666666686" width="248" height="40"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="40" id="bif-2l-Cw2"/>
                                                     <constraint firstAttribute="width" constant="248" id="qlG-4q-Oaa"/>
@@ -1154,10 +1154,10 @@ You can import artists from Apple Music, Spotify, or manually search and follow 
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aGc-Iw-7mg">
-                                <rect key="frame" x="0.0" y="70" width="834" height="834"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="414"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BaV-mh-k3A">
-                                        <rect key="frame" x="320" y="0.0" width="194" height="208.5"/>
+                                        <rect key="frame" x="110" y="0.0" width="194" height="103.66666666666667"/>
                                         <attributedString key="attributedText">
                                             <fragment content="Sign up for ">
                                                 <attributes>
@@ -1177,10 +1177,10 @@ You can import artists from Apple Music, Spotify, or manually search and follow 
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vAB-mt-TZ4" userLabel="Password Section">
-                                        <rect key="frame" x="0.0" y="417" width="834" height="208.5"/>
+                                        <rect key="frame" x="0.0" y="206.99999999999997" width="414" height="103.66666666666666"/>
                                         <subviews>
                                             <textField opaque="NO" contentMode="scaleToFill" restorationIdentifier="signPassword" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" adjustsFontSizeToFit="NO" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="X2z-c3-Vqt" userLabel="Numu Password Field" customClass="NumuTextField" customModule="Numu_Tracker" customModuleProvider="target">
-                                                <rect key="frame" x="293" y="73.5" width="248" height="40"/>
+                                                <rect key="frame" x="83" y="20.666666666666686" width="248" height="40"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="40" id="GZp-lg-7mT"/>
                                                     <constraint firstAttribute="width" constant="248" id="f1E-iX-QfV"/>
@@ -1190,7 +1190,7 @@ You can import artists from Apple Music, Spotify, or manually search and follow 
                                                 <textInputTraits key="textInputTraits" keyboardAppearance="alert" returnKeyType="go" secureTextEntry="YES" textContentType="password"/>
                                             </textField>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dsj-hr-bN1">
-                                                <rect key="frame" x="293" y="118.5" width="248" height="17"/>
+                                                <rect key="frame" x="83" y="65.666666666666686" width="248" height="17"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="17" id="YhB-Bs-TiB"/>
                                                 </constraints>
@@ -1211,10 +1211,10 @@ You can import artists from Apple Music, Spotify, or manually search and follow 
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hcl-Rv-ru1" userLabel="Email Section">
-                                        <rect key="frame" x="0.0" y="208.5" width="834" height="208.5"/>
+                                        <rect key="frame" x="0.0" y="103.66666666666666" width="414" height="103.33333333333334"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="email address" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8mf-q5-0I8">
-                                                <rect key="frame" x="293" y="118.5" width="248" height="17"/>
+                                                <rect key="frame" x="83" y="65.666666666666657" width="248" height="17"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="17" id="029-2K-6oL"/>
                                                 </constraints>
@@ -1223,7 +1223,7 @@ You can import artists from Apple Music, Spotify, or manually search and follow 
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textField opaque="NO" contentMode="scaleToFill" restorationIdentifier="signEmail" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" adjustsFontSizeToFit="NO" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="BzA-K7-oh0" userLabel="Numu Email Field" customClass="NumuTextField" customModule="Numu_Tracker" customModuleProvider="target">
-                                                <rect key="frame" x="293" y="73.5" width="248" height="40"/>
+                                                <rect key="frame" x="83" y="20.666666666666686" width="248" height="40"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="248" id="5Zf-yD-7h7"/>
                                                     <constraint firstAttribute="height" constant="40" id="srB-R8-Mlr"/>
@@ -1333,7 +1333,7 @@ You can import artists from Apple Music, Spotify, or manually search and follow 
             <objects>
                 <tableViewController id="xGt-pE-Rm6" customClass="AllReleasesTableViewController" customModule="Numu_Tracker" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" indicatorStyle="black" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" sectionFooterHeight="-1" id="out-SO-RhK">
-                        <rect key="frame" x="0.0" y="0.0" width="834" height="1112"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.13350695369999999" green="0.13364198799999999" blue="0.13352787490000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -1341,10 +1341,10 @@ You can import artists from Apple Music, Spotify, or manually search and follow 
                         <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="releaseInfoCell" rowHeight="136" id="9Oy-Vj-WM4" customClass="ReleaseTableViewCell" customModule="Numu_Tracker" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="834" height="136"/>
+                                <rect key="frame" x="0.0" y="28" width="414" height="136"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="9Oy-Vj-WM4" id="URL-Ie-01f">
-                                    <rect key="frame" x="0.0" y="0.0" width="834" height="135.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="135.66666666666666"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="jZk-ho-uST">
@@ -1358,19 +1358,19 @@ You can import artists from Apple Music, Spotify, or manually search and follow 
                                             </constraints>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Album" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="osf-QW-Zdf">
-                                            <rect key="frame" x="149" y="81" width="667" height="16"/>
+                                            <rect key="frame" x="149" y="81" width="247" height="16"/>
                                             <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
                                             <color key="textColor" cocoaTouchSystemColor="lightTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Meat Wave" textAlignment="natural" lineBreakMode="tailTruncation" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vSI-EG-u7Z">
-                                            <rect key="frame" x="149" y="32" width="667" height="24"/>
+                                            <rect key="frame" x="149" y="32" width="247" height="24"/>
                                             <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Delusion Moon" textAlignment="natural" lineBreakMode="tailTruncation" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vts-KZ-zYJ">
-                                            <rect key="frame" x="149" y="59" width="667" height="18"/>
+                                            <rect key="frame" x="149" y="59" width="247" height="18"/>
                                             <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
                                             <color key="textColor" red="0.10980392160000001" green="0.81176470590000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
@@ -1427,7 +1427,7 @@ You can import artists from Apple Music, Spotify, or manually search and follow 
                     <navigationItem key="navigationItem" id="e57-ac-NoB">
                         <nil key="title"/>
                         <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="PhI-8h-nYk">
-                            <rect key="frame" x="257.5" y="10" width="319" height="30"/>
+                            <rect key="frame" x="47.666666666666657" y="7" width="319" height="30"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
                             <segments>
                                 <segment title="Unlistened"/>
@@ -1464,7 +1464,7 @@ You can import artists from Apple Music, Spotify, or manually search and follow 
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="1000" text="Nada" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="od1-jW-DvA">
-                            <rect key="frame" x="167.5" y="55.5" width="34" height="17"/>
+                            <rect key="frame" x="167.66666666666666" y="55.666666666666657" width="34" height="17"/>
                             <constraints>
                                 <constraint firstAttribute="width" relation="lessThanOrEqual" constant="288" id="EUW-MC-Syc"/>
                             </constraints>
@@ -1486,7 +1486,7 @@ You can import artists from Apple Music, Spotify, or manually search and follow 
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
                         <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="HnZ-6j-Fcj">
-                            <rect key="frame" x="101.5" y="21.5" width="37" height="37"/>
+                            <rect key="frame" x="101.66666666666667" y="21.666666666666671" width="37.000000000000014" height="37"/>
                         </activityIndicatorView>
                     </subviews>
                     <color key="backgroundColor" red="0.13350695369999999" green="0.13364198799999999" blue="0.13352787490000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1500,7 +1500,7 @@ You can import artists from Apple Music, Spotify, or manually search and follow 
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="1000" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n3X-4R-CJR">
-                            <rect key="frame" x="53" y="36.5" width="280.5" height="67"/>
+                            <rect key="frame" x="53" y="36.666666666666657" width="280.33333333333331" height="67"/>
                             <constraints>
                                 <constraint firstAttribute="width" relation="lessThanOrEqual" constant="288" id="t8d-cY-RnP"/>
                             </constraints>
@@ -1510,7 +1510,7 @@ You can import artists from Apple Music, Spotify, or manually search and follow 
                             <nil key="highlightedColor"/>
                         </label>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fWy-kq-qwT" customClass="NumuUIButton" customModule="Numu_Tracker" customModuleProvider="target">
-                            <rect key="frame" x="83" y="127.5" width="220" height="42"/>
+                            <rect key="frame" x="83" y="127.66666666666669" width="220" height="42"/>
                             <inset key="contentEdgeInsets" minX="10" minY="10" maxX="10" maxY="10"/>
                             <state key="normal" title="Import from Apple Music">
                                 <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1520,10 +1520,10 @@ You can import artists from Apple Music, Spotify, or manually search and follow 
                             </connections>
                         </button>
                         <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="MZO-pL-mss">
-                            <rect key="frame" x="311" y="138.5" width="20" height="20"/>
+                            <rect key="frame" x="311" y="138.66666666666666" width="20" height="20"/>
                         </activityIndicatorView>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PSZ-Nf-eqb" customClass="NumuUIButton" customModule="Numu_Tracker" customModuleProvider="target">
-                            <rect key="frame" x="104" y="193.5" width="178" height="42"/>
+                            <rect key="frame" x="104" y="193.66666666666666" width="178" height="42"/>
                             <inset key="contentEdgeInsets" minX="10" minY="10" maxX="10" maxY="10"/>
                             <state key="normal" title="Import from Spotify">
                                 <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1533,7 +1533,7 @@ You can import artists from Apple Music, Spotify, or manually search and follow 
                             </connections>
                         </button>
                         <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="aBc-08-6ZF">
-                            <rect key="frame" x="290" y="204.5" width="20" height="20"/>
+                            <rect key="frame" x="290" y="204.66666666666666" width="20" height="20"/>
                         </activityIndicatorView>
                     </subviews>
                     <color key="backgroundColor" red="0.1333333333" green="0.1333333333" blue="0.1333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1581,7 +1581,7 @@ You can import artists from Apple Music, Spotify, or manually search and follow 
             <objects>
                 <tableViewController id="2Ma-iV-Juf" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" indicatorStyle="black" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="Zu9-SL-MUL">
-                        <rect key="frame" x="0.0" y="0.0" width="834" height="1112"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.13350695369999999" green="0.13364198799999999" blue="0.13352787490000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="tintColor" red="0.1199414805" green="0.62484174969999995" blue="0.69512790440000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1594,14 +1594,14 @@ You can import artists from Apple Music, Spotify, or manually search and follow 
                             <tableViewSection headerTitle="Your Account" id="s6m-ba-v6D">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" accessoryType="disclosureIndicator" indentationWidth="10" id="FbF-76-ESs">
-                                        <rect key="frame" x="0.0" y="55.5" width="834" height="44"/>
+                                        <rect key="frame" x="0.0" y="55.333333333333343" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="FbF-76-ESs" id="vEA-bK-p65">
-                                            <rect key="frame" x="0.0" y="0.0" width="796" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="376" height="43.666666666666664"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Listening Stats" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LQY-t0-aKy">
-                                                    <rect key="frame" x="18" y="11.5" width="770" height="21"/>
+                                                    <rect key="frame" x="18" y="11.333333333333336" width="350" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
@@ -1623,14 +1623,14 @@ You can import artists from Apple Music, Spotify, or manually search and follow 
                             <tableViewSection headerTitle="Settings" id="trL-jy-MaK">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" accessoryType="disclosureIndicator" indentationWidth="10" id="VuD-wH-c27">
-                                        <rect key="frame" x="0.0" y="155.5" width="834" height="44"/>
+                                        <rect key="frame" x="0.0" y="155.33333333333334" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="VuD-wH-c27" id="ezt-OF-4v5">
-                                            <rect key="frame" x="0.0" y="0.0" width="796" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="376" height="43.666666666666664"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Release Filters" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VY9-6y-XMv">
-                                                    <rect key="frame" x="18" y="11.5" width="770" height="21"/>
+                                                    <rect key="frame" x="18" y="11.333333333333336" width="350" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
@@ -1648,14 +1648,14 @@ You can import artists from Apple Music, Spotify, or manually search and follow 
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" accessoryType="disclosureIndicator" indentationWidth="10" id="4YR-mJ-m9F">
-                                        <rect key="frame" x="0.0" y="199.5" width="834" height="44"/>
+                                        <rect key="frame" x="0.0" y="199.33333333333334" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="4YR-mJ-m9F" id="iUA-7R-pkt">
-                                            <rect key="frame" x="0.0" y="0.0" width="796" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="376" height="43.666666666666664"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Notifications" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZV9-PD-Cbk">
-                                                    <rect key="frame" x="18" y="11.5" width="770" height="21"/>
+                                                    <rect key="frame" x="18" y="11.333333333333336" width="350" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
@@ -1673,14 +1673,14 @@ You can import artists from Apple Music, Spotify, or manually search and follow 
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" accessoryType="disclosureIndicator" indentationWidth="10" id="K6h-3Z-gL6">
-                                        <rect key="frame" x="0.0" y="243.5" width="834" height="44"/>
+                                        <rect key="frame" x="0.0" y="243.33333333333337" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="K6h-3Z-gL6" id="P87-BZ-Ym9">
-                                            <rect key="frame" x="0.0" y="0.0" width="796" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="376" height="43.666666666666664"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Music Services" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6yT-6x-atl">
-                                                    <rect key="frame" x="18" y="11.5" width="770" height="21"/>
+                                                    <rect key="frame" x="18" y="11.333333333333336" width="350" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
@@ -1702,14 +1702,14 @@ You can import artists from Apple Music, Spotify, or manually search and follow 
                             <tableViewSection headerTitle="Import Artists" id="xxB-3B-v8R">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" accessoryType="disclosureIndicator" indentationWidth="10" id="ZSc-Ll-50I">
-                                        <rect key="frame" x="0.0" y="343.5" width="834" height="44"/>
+                                        <rect key="frame" x="0.0" y="343.33333333333337" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ZSc-Ll-50I" id="4oc-U4-3Fn">
-                                            <rect key="frame" x="0.0" y="0.0" width="796" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="376" height="43.666666666666664"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Apple Music" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nu8-hd-nq8">
-                                                    <rect key="frame" x="18" y="11.5" width="770" height="21"/>
+                                                    <rect key="frame" x="18" y="11.333333333333336" width="350" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
@@ -1727,14 +1727,14 @@ You can import artists from Apple Music, Spotify, or manually search and follow 
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" accessoryType="disclosureIndicator" indentationWidth="10" id="b5r-cn-G1v">
-                                        <rect key="frame" x="0.0" y="387.5" width="834" height="44"/>
+                                        <rect key="frame" x="0.0" y="387.33333333333337" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="b5r-cn-G1v" id="nfv-bZ-Toy">
-                                            <rect key="frame" x="0.0" y="0.0" width="796" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="376" height="43.666666666666664"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Spotify" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="klP-41-I8G">
-                                                    <rect key="frame" x="18" y="11.5" width="770" height="21"/>
+                                                    <rect key="frame" x="18" y="11.333333333333336" width="350" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
@@ -1756,14 +1756,14 @@ You can import artists from Apple Music, Spotify, or manually search and follow 
                             <tableViewSection headerTitle="Help" id="x6o-5p-VrU">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" accessoryType="disclosureIndicator" indentationWidth="10" id="wai-bd-eEh">
-                                        <rect key="frame" x="0.0" y="487.5" width="834" height="44"/>
+                                        <rect key="frame" x="0.0" y="487.33333333333337" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="wai-bd-eEh" id="PiK-ej-qHy">
-                                            <rect key="frame" x="0.0" y="0.0" width="796" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="376" height="43.666666666666664"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Instructions" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Lo-sD-lrx">
-                                                    <rect key="frame" x="18" y="11.5" width="770" height="21"/>
+                                                    <rect key="frame" x="18" y="11.333333333333336" width="350" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
@@ -1781,14 +1781,14 @@ You can import artists from Apple Music, Spotify, or manually search and follow 
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" accessoryType="disclosureIndicator" indentationWidth="10" id="hcg-7S-L2U">
-                                        <rect key="frame" x="0.0" y="531.5" width="834" height="44"/>
+                                        <rect key="frame" x="0.0" y="531.33333333333337" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="hcg-7S-L2U" id="m5r-Mr-Eea">
-                                            <rect key="frame" x="0.0" y="0.0" width="796" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="376" height="43.666666666666664"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Get Help" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qIA-nH-Gg6">
-                                                    <rect key="frame" x="18" y="11.5" width="770" height="21"/>
+                                                    <rect key="frame" x="18" y="11.333333333333336" width="350" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
@@ -1828,11 +1828,11 @@ You can import artists from Apple Music, Spotify, or manually search and follow 
                         <viewControllerLayoutGuide type="bottom" id="cZf-ZK-L4S"/>
                     </layoutGuides>
                     <scrollView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="Jar-fP-e7n">
-                        <rect key="frame" x="0.0" y="0.0" width="834" height="1112"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Gf7-8t-Rvm">
-                                <rect key="frame" x="217" y="0.0" width="400" height="541"/>
+                                <rect key="frame" x="7" y="0.0" width="400" height="557.33333333333337"/>
                                 <subviews>
                                     <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Adj-x8-Myn">
                                         <rect key="frame" x="333" y="13" width="51" height="31"/>
@@ -1983,9 +1983,9 @@ You can import artists from Apple Music, Spotify, or manually search and follow 
                                         </constraints>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="52X-6z-VVa">
-                                        <rect key="frame" x="28" y="372" width="344" height="151"/>
+                                        <rect key="frame" x="44" y="372" width="312" height="167.33333333333337"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" relation="lessThanOrEqual" constant="400" id="uhA-md-4RF"/>
+                                            <constraint firstAttribute="width" relation="lessThanOrEqual" priority="750" constant="400" id="uhA-md-4RF"/>
                                         </constraints>
                                         <string key="text">These switches determine which music services appear in the release detail modal. Turn off any services you don't use, and they won't appear in that menu anymore.
 
@@ -2009,11 +2009,10 @@ Turning on certain services may require you to log in to them. Numu values your 
                                     <constraint firstItem="P24-tL-6wN" firstAttribute="top" secondItem="A05-Dh-Joc" secondAttribute="bottom" constant="16" id="Efd-K2-pNK"/>
                                     <constraint firstAttribute="bottom" secondItem="52X-6z-VVa" secondAttribute="bottom" constant="18" id="Ek7-XS-BEC"/>
                                     <constraint firstAttribute="trailing" secondItem="xkq-qf-nwq" secondAttribute="trailing" constant="18" id="G9P-rr-SkI"/>
-                                    <constraint firstItem="52X-6z-VVa" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Gf7-8t-Rvm" secondAttribute="leadingMargin" constant="18" id="GVe-Md-3MO"/>
+                                    <constraint firstItem="52X-6z-VVa" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Gf7-8t-Rvm" secondAttribute="leadingMargin" constant="36" id="GVe-Md-3MO"/>
                                     <constraint firstAttribute="width" relation="lessThanOrEqual" constant="400" id="I12-ss-tvb"/>
                                     <constraint firstItem="KcO-MC-c1X" firstAttribute="top" secondItem="eKP-Od-q2r" secondAttribute="bottom" constant="18" id="K5Z-oj-sYm"/>
                                     <constraint firstAttribute="trailing" secondItem="90x-0f-v45" secondAttribute="trailing" constant="18" id="MSx-lR-qZP"/>
-                                    <constraint firstAttribute="height" constant="541" id="NlI-07-Z6F"/>
                                     <constraint firstItem="8bH-Dt-H1z" firstAttribute="centerY" secondItem="ImA-kn-r48" secondAttribute="centerY" id="Pdj-0P-8pS"/>
                                     <constraint firstItem="90x-0f-v45" firstAttribute="top" secondItem="3vp-bZ-Un2" secondAttribute="bottom" constant="13" id="Prw-Nf-l1s"/>
                                     <constraint firstItem="EXA-1H-EzD" firstAttribute="leading" secondItem="Gf7-8t-Rvm" secondAttribute="leading" constant="18" id="Q0e-AP-CKp"/>
@@ -2023,7 +2022,7 @@ Turning on certain services may require you to log in to them. Numu values your 
                                     <constraint firstItem="3vp-bZ-Un2" firstAttribute="leading" secondItem="Gf7-8t-Rvm" secondAttribute="leading" constant="18" id="UvW-58-MQA"/>
                                     <constraint firstItem="V3T-Uc-Bze" firstAttribute="top" secondItem="KcO-MC-c1X" secondAttribute="bottom" constant="18" id="WT8-jG-y6n"/>
                                     <constraint firstItem="mvN-e6-CQX" firstAttribute="top" secondItem="KcO-MC-c1X" secondAttribute="bottom" constant="13" id="Xsx-1B-dDc"/>
-                                    <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="52X-6z-VVa" secondAttribute="trailing" constant="18" id="Yiy-az-hGC"/>
+                                    <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="52X-6z-VVa" secondAttribute="trailing" constant="36" id="Yiy-az-hGC"/>
                                     <constraint firstItem="xkq-qf-nwq" firstAttribute="leading" secondItem="Gf7-8t-Rvm" secondAttribute="leading" constant="18" id="Yu3-Y5-ohR"/>
                                     <constraint firstItem="P24-tL-6wN" firstAttribute="centerY" secondItem="czB-eh-bje" secondAttribute="centerY" id="ZWX-YC-aQy"/>
                                     <constraint firstItem="KcO-MC-c1X" firstAttribute="leading" secondItem="Gf7-8t-Rvm" secondAttribute="leading" constant="18" id="aHF-2t-42Z"/>
@@ -2045,7 +2044,6 @@ Turning on certain services may require you to log in to them. Numu values your 
                                     <constraint firstItem="mvN-e6-CQX" firstAttribute="centerY" secondItem="V3T-Uc-Bze" secondAttribute="centerY" id="paa-cv-NUh"/>
                                     <constraint firstItem="52X-6z-VVa" firstAttribute="centerX" secondItem="Gf7-8t-Rvm" secondAttribute="centerX" id="rJk-7E-n4r"/>
                                     <constraint firstAttribute="trailing" secondItem="UrG-tn-EjW" secondAttribute="trailing" constant="18" id="t03-P8-xfq"/>
-                                    <constraint firstItem="52X-6z-VVa" firstAttribute="leading" secondItem="Gf7-8t-Rvm" secondAttribute="leading" constant="28" id="toC-qj-2PQ"/>
                                     <constraint firstItem="3vp-bZ-Un2" firstAttribute="top" secondItem="ImA-kn-r48" secondAttribute="bottom" constant="18" id="tqR-Bd-Bok"/>
                                     <constraint firstItem="9Ma-R2-lg7" firstAttribute="top" secondItem="3vp-bZ-Un2" secondAttribute="bottom" constant="18" id="uD8-LT-3mO"/>
                                     <constraint firstAttribute="trailing" secondItem="mvN-e6-CQX" secondAttribute="trailing" constant="18" id="v27-Pb-LWo"/>
@@ -2083,7 +2081,7 @@ Turning on certain services may require you to log in to them. Numu values your 
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1gi-n9-T5b" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6500.0000000000009" y="1969.9640287769785"/>
+            <point key="canvasLocation" x="6500.0000000000009" y="1969.4196428571427"/>
         </scene>
         <!--Spotify-->
         <scene sceneID="n8Z-qq-sus">
@@ -2094,11 +2092,11 @@ Turning on certain services may require you to log in to them. Numu values your 
                         <viewControllerLayoutGuide type="bottom" id="WUy-yp-kU0"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="gae-I2-OW4">
-                        <rect key="frame" x="0.0" y="0.0" width="834" height="1112"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sHL-Xp-MiE" customClass="NumuUIButton" customModule="Numu_Tracker" customModuleProvider="target">
-                                <rect key="frame" x="328" y="94" width="178" height="42"/>
+                                <rect key="frame" x="118" y="112" width="178" height="42"/>
                                 <inset key="contentEdgeInsets" minX="10" minY="10" maxX="10" maxY="10"/>
                                 <state key="normal" title="Import from Spotify"/>
                                 <connections>
@@ -2106,7 +2104,7 @@ Turning on certain services may require you to log in to them. Numu values your 
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="11" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gV3-9k-5qm">
-                                <rect key="frame" x="227" y="152" width="380" height="150.5"/>
+                                <rect key="frame" x="36" y="170" width="342" height="150.66666666666663"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="lessThanOrEqual" constant="400" id="XGB-ep-ME5"/>
                                 </constraints>
@@ -2120,7 +2118,7 @@ Any imported artists you've unfollowed will not be re-imported.</string>
                                 <nil key="highlightedColor"/>
                             </label>
                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="8zH-BM-ldc">
-                                <rect key="frame" x="514" y="105" width="20" height="20"/>
+                                <rect key="frame" x="304" y="123" width="20" height="20"/>
                             </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" red="0.1333333333" green="0.1333333333" blue="0.1333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -2129,9 +2127,9 @@ Any imported artists you've unfollowed will not be re-imported.</string>
                             <constraint firstItem="gV3-9k-5qm" firstAttribute="top" secondItem="sHL-Xp-MiE" secondAttribute="bottom" constant="16" id="Hw9-Cz-PkY"/>
                             <constraint firstItem="sHL-Xp-MiE" firstAttribute="centerX" secondItem="gae-I2-OW4" secondAttribute="centerX" id="Kf5-tl-b7k"/>
                             <constraint firstItem="8zH-BM-ldc" firstAttribute="centerY" secondItem="sHL-Xp-MiE" secondAttribute="centerY" id="T1I-Fb-feL"/>
-                            <constraint firstItem="gV3-9k-5qm" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="gae-I2-OW4" secondAttribute="leading" constant="18" id="Y28-1S-IWX"/>
+                            <constraint firstItem="gV3-9k-5qm" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="gae-I2-OW4" secondAttribute="leading" constant="36" id="Y28-1S-IWX"/>
                             <constraint firstItem="gV3-9k-5qm" firstAttribute="centerX" secondItem="gae-I2-OW4" secondAttribute="centerX" id="gFr-sZ-Qyq"/>
-                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="gV3-9k-5qm" secondAttribute="trailing" constant="18" id="oKk-Mx-SkO"/>
+                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="gV3-9k-5qm" secondAttribute="trailing" constant="36" id="oKk-Mx-SkO"/>
                             <constraint firstItem="8zH-BM-ldc" firstAttribute="leading" secondItem="sHL-Xp-MiE" secondAttribute="trailing" constant="8" id="vi4-jG-3ik"/>
                         </constraints>
                     </view>
@@ -2151,7 +2149,7 @@ Any imported artists you've unfollowed will not be re-imported.</string>
                     <tabBarItem key="tabBarItem" title="" image="yours" id="awc-Tb-MKY"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="dlB-Kq-0Vs">
-                        <rect key="frame" x="0.0" y="20" width="834" height="50"/>
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.12156862745098039" green="0.62352941176470589" blue="0.69411764705882351" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </navigationBar>
@@ -2171,7 +2169,7 @@ Any imported artists you've unfollowed will not be re-imported.</string>
                     <tabBarItem key="tabBarItem" title="More" image="soundwave" id="Wvb-fJ-yyl"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="kam-m5-Lpb">
-                        <rect key="frame" x="0.0" y="20" width="834" height="50"/>
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="barTintColor" red="0.1199414805" green="0.62484174969999995" blue="0.69512790440000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -2194,20 +2192,20 @@ Any imported artists you've unfollowed will not be re-imported.</string>
                         <viewControllerLayoutGuide type="bottom" id="gwi-PH-1ZT"/>
                     </layoutGuides>
                     <scrollView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" showsHorizontalScrollIndicator="NO" contentInsetAdjustmentBehavior="always" id="Ld5-kl-enT">
-                        <rect key="frame" x="0.0" y="0.0" width="834" height="1112"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZTT-fl-w4I">
-                                <rect key="frame" x="167" y="0.0" width="500" height="428"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="428"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" layoutMarginsFollowReadableWidth="YES" text="What is Numu for?" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I4e-bb-04c">
-                                        <rect key="frame" x="18" y="24" width="482" height="24"/>
+                                        <rect key="frame" x="18" y="24" width="396" height="24"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <color key="textColor" red="0.10980392160000001" green="0.81176470590000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fcQ-c4-sCS">
-                                        <rect key="frame" x="18" y="58" width="464" height="73.5"/>
+                                        <rect key="frame" x="36" y="58.000000000000007" width="342" height="73.666666666666686"/>
                                         <color key="backgroundColor" red="0.13350695369999999" green="0.13364198799999999" blue="0.13352787490000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" relation="lessThanOrEqual" constant="500" id="k6R-d0-xAf"/>
@@ -2218,13 +2216,13 @@ Any imported artists you've unfollowed will not be re-imported.</string>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="How do I use Numu?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rdq-69-BgF">
-                                        <rect key="frame" x="18" y="149.5" width="482" height="24"/>
+                                        <rect key="frame" x="18" y="149.66666666666666" width="396" height="24"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <color key="textColor" red="0.10980392160000001" green="0.81176470590000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="redraw" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" usesAttributedText="YES" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="phg-fg-dDA">
-                                        <rect key="frame" x="18" y="183.5" width="464" height="226.5"/>
+                                        <rect key="frame" x="36" y="183.66666666666663" width="342" height="226.33333333333337"/>
                                         <color key="backgroundColor" red="0.13350695369999999" green="0.13364198799999999" blue="0.13352787490000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <attributedString key="attributedText">
                                             <fragment content="Your first step will be to import some artists, using the page available on the ">
@@ -2425,18 +2423,18 @@ On the </string>
                                 <color key="backgroundColor" red="0.13350695369999999" green="0.13364198799999999" blue="0.13352787490000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="lessThanOrEqual" constant="500" id="4QZ-O4-cHo"/>
-                                    <constraint firstAttribute="trailing" secondItem="fcQ-c4-sCS" secondAttribute="trailing" constant="18" id="66W-y7-iR3"/>
+                                    <constraint firstAttribute="trailing" secondItem="fcQ-c4-sCS" secondAttribute="trailing" constant="36" id="66W-y7-iR3"/>
                                     <constraint firstItem="Rdq-69-BgF" firstAttribute="leading" secondItem="ZTT-fl-w4I" secondAttribute="leading" constant="18" id="7uA-qW-r0m"/>
                                     <constraint firstItem="I4e-bb-04c" firstAttribute="top" secondItem="ZTT-fl-w4I" secondAttribute="top" constant="24" id="ElL-wh-uM5"/>
-                                    <constraint firstItem="phg-fg-dDA" firstAttribute="leading" secondItem="ZTT-fl-w4I" secondAttribute="leading" constant="18" id="Rdr-ic-yQX"/>
+                                    <constraint firstItem="phg-fg-dDA" firstAttribute="leading" secondItem="ZTT-fl-w4I" secondAttribute="leading" constant="36" id="Rdr-ic-yQX"/>
                                     <constraint firstItem="Rdq-69-BgF" firstAttribute="top" secondItem="fcQ-c4-sCS" secondAttribute="bottom" constant="18" id="V3i-NH-EtN"/>
                                     <constraint firstAttribute="trailing" secondItem="I4e-bb-04c" secondAttribute="trailing" id="Ykz-fI-9pY"/>
                                     <constraint firstItem="I4e-bb-04c" firstAttribute="leading" secondItem="ZTT-fl-w4I" secondAttribute="leading" constant="18" id="b5Z-6j-J5z"/>
                                     <constraint firstItem="phg-fg-dDA" firstAttribute="top" secondItem="Rdq-69-BgF" secondAttribute="bottom" constant="10" id="h29-ew-xbz"/>
                                     <constraint firstAttribute="trailing" secondItem="Rdq-69-BgF" secondAttribute="trailing" id="i9p-0k-D3v"/>
                                     <constraint firstItem="fcQ-c4-sCS" firstAttribute="top" secondItem="I4e-bb-04c" secondAttribute="bottom" constant="10" id="lla-wQ-L6u"/>
-                                    <constraint firstAttribute="trailing" secondItem="phg-fg-dDA" secondAttribute="trailing" constant="18" id="qKW-KE-Voa"/>
-                                    <constraint firstItem="fcQ-c4-sCS" firstAttribute="leading" secondItem="ZTT-fl-w4I" secondAttribute="leading" constant="18" id="vet-QN-9Dy"/>
+                                    <constraint firstAttribute="trailing" secondItem="phg-fg-dDA" secondAttribute="trailing" constant="36" id="qKW-KE-Voa"/>
+                                    <constraint firstItem="fcQ-c4-sCS" firstAttribute="leading" secondItem="ZTT-fl-w4I" secondAttribute="leading" constant="36" id="vet-QN-9Dy"/>
                                     <constraint firstAttribute="bottom" secondItem="phg-fg-dDA" secondAttribute="bottom" constant="18" id="zWk-Gg-bCm"/>
                                 </constraints>
                             </view>
@@ -2464,14 +2462,14 @@ On the </string>
                         <viewControllerLayoutGuide type="bottom" id="zQm-eQ-mzv"/>
                     </layoutGuides>
                     <scrollView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" contentInsetAdjustmentBehavior="always" id="pGu-p7-8Qv">
-                        <rect key="frame" x="0.0" y="0.0" width="834" height="1112"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mr2-U3-A9t">
-                                <rect key="frame" x="0.0" y="0.0" width="834" height="479.5"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="479.33333333333331"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fgj-O8-LrV" customClass="NumuUIButton" customModule="Numu_Tracker" customModuleProvider="target">
-                                        <rect key="frame" x="302" y="21" width="230" height="44"/>
+                                        <rect key="frame" x="92" y="21" width="230" height="44"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="44" id="FA6-od-Uh0"/>
                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="230" id="SxI-zS-bXd"/>
@@ -2482,7 +2480,7 @@ On the </string>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hAt-Rw-Lvn" customClass="NumuUIButton" customModule="Numu_Tracker" customModuleProvider="target">
-                                        <rect key="frame" x="302" y="333" width="230" height="44"/>
+                                        <rect key="frame" x="92" y="333" width="230" height="44"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="44" id="OWC-TT-M0o"/>
                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="230" id="PgQ-mC-pP9"/>
@@ -2493,7 +2491,7 @@ On the </string>
                                         </connections>
                                     </button>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="Hi! I'm Brad. Feel free to email me any time with problems you have or feature suggestions / ideas." textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rqa-6t-OAP">
-                                        <rect key="frame" x="225" y="83" width="384.5" height="49.5"/>
+                                        <rect key="frame" x="41.333333333333343" y="83" width="331.33333333333326" height="49.666666666666657"/>
                                         <color key="backgroundColor" red="0.13350695369999999" green="0.13364198799999999" blue="0.13352787490000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" relation="lessThanOrEqual" constant="400" id="Vao-IS-8Zf"/>
@@ -2503,7 +2501,7 @@ On the </string>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="I'll post update notes for new versions of the app and sometimes ask for feedback on our subreddit. I'm u/staires on reddit." textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u5d-8K-Rpx">
-                                        <rect key="frame" x="221" y="395" width="392.5" height="66.5"/>
+                                        <rect key="frame" x="38" y="395" width="338.33333333333331" height="66.333333333333314"/>
                                         <color key="backgroundColor" red="0.13350695369999999" green="0.13364198799999999" blue="0.13352787490000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" relation="lessThanOrEqual" constant="400" id="QPf-Ko-92J"/>
@@ -2513,7 +2511,7 @@ On the </string>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z0y-1u-l7X" customClass="NumuUIButton" customModule="Numu_Tracker" customModuleProvider="target">
-                                        <rect key="frame" x="302" y="168.5" width="230" height="44"/>
+                                        <rect key="frame" x="92" y="168.66666666666666" width="230" height="44"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="44" id="0et-WN-LiG"/>
                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="230" id="hz9-zI-JY6"/>
@@ -2524,7 +2522,7 @@ On the </string>
                                         </connections>
                                     </button>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xQO-Ds-PcJ">
-                                        <rect key="frame" x="232" y="230.5" width="370" height="66.5"/>
+                                        <rect key="frame" x="43" y="230.66666666666666" width="328" height="66.333333333333343"/>
                                         <color key="backgroundColor" red="0.13350695369999999" green="0.13364198799999999" blue="0.13352787490000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" relation="lessThanOrEqual" constant="400" id="gef-Es-TGY"/>
@@ -2537,24 +2535,24 @@ On the </string>
                                 </subviews>
                                 <color key="backgroundColor" red="0.13350695369999999" green="0.13364198799999999" blue="0.13352787490000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="rqa-6t-OAP" secondAttribute="trailing" constant="18" id="2E3-fc-Spo"/>
+                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="rqa-6t-OAP" secondAttribute="trailing" constant="36" id="2E3-fc-Spo"/>
                                     <constraint firstItem="rqa-6t-OAP" firstAttribute="top" secondItem="fgj-O8-LrV" secondAttribute="bottom" constant="18" id="DJp-pa-9ii"/>
                                     <constraint firstItem="Z0y-1u-l7X" firstAttribute="top" secondItem="rqa-6t-OAP" secondAttribute="bottom" constant="36" id="HPk-5w-2bu"/>
                                     <constraint firstItem="xQO-Ds-PcJ" firstAttribute="top" secondItem="Z0y-1u-l7X" secondAttribute="bottom" constant="18" id="KBv-0v-NUi"/>
-                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="u5d-8K-Rpx" secondAttribute="trailing" constant="18" id="LBR-br-z0m"/>
+                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="u5d-8K-Rpx" secondAttribute="trailing" constant="36" id="LBR-br-z0m"/>
                                     <constraint firstItem="xQO-Ds-PcJ" firstAttribute="centerX" secondItem="Mr2-U3-A9t" secondAttribute="centerX" id="Lvg-6M-kRV"/>
                                     <constraint firstItem="fgj-O8-LrV" firstAttribute="top" secondItem="Mr2-U3-A9t" secondAttribute="top" constant="21" id="Pdr-Vu-75P"/>
-                                    <constraint firstItem="xQO-Ds-PcJ" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Mr2-U3-A9t" secondAttribute="leading" constant="18" id="SAb-ji-Sj2"/>
+                                    <constraint firstItem="xQO-Ds-PcJ" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Mr2-U3-A9t" secondAttribute="leading" constant="36" id="SAb-ji-Sj2"/>
                                     <constraint firstAttribute="bottom" secondItem="u5d-8K-Rpx" secondAttribute="bottom" constant="18" id="SRp-8l-SvW"/>
                                     <constraint firstItem="fgj-O8-LrV" firstAttribute="centerX" secondItem="Mr2-U3-A9t" secondAttribute="centerX" id="Sm7-tB-2aa"/>
                                     <constraint firstItem="hAt-Rw-Lvn" firstAttribute="centerX" secondItem="Mr2-U3-A9t" secondAttribute="centerX" id="T7e-Rc-25P"/>
                                     <constraint firstItem="rqa-6t-OAP" firstAttribute="centerX" secondItem="Mr2-U3-A9t" secondAttribute="centerX" id="Ujm-ee-CBc"/>
-                                    <constraint firstItem="rqa-6t-OAP" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Mr2-U3-A9t" secondAttribute="leading" constant="18" id="XPo-RY-ySg"/>
-                                    <constraint firstItem="u5d-8K-Rpx" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Mr2-U3-A9t" secondAttribute="leading" constant="18" id="Yiu-aF-YWU"/>
+                                    <constraint firstItem="rqa-6t-OAP" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Mr2-U3-A9t" secondAttribute="leading" constant="36" id="XPo-RY-ySg"/>
+                                    <constraint firstItem="u5d-8K-Rpx" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Mr2-U3-A9t" secondAttribute="leading" constant="36" id="Yiu-aF-YWU"/>
                                     <constraint firstItem="Z0y-1u-l7X" firstAttribute="centerX" secondItem="Mr2-U3-A9t" secondAttribute="centerX" id="i1s-Hy-c6s"/>
                                     <constraint firstItem="u5d-8K-Rpx" firstAttribute="top" secondItem="hAt-Rw-Lvn" secondAttribute="bottom" constant="18" id="iTn-hJ-qiV"/>
                                     <constraint firstItem="hAt-Rw-Lvn" firstAttribute="top" secondItem="xQO-Ds-PcJ" secondAttribute="bottom" constant="36" id="o0v-29-tQl"/>
-                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="xQO-Ds-PcJ" secondAttribute="trailing" constant="18" id="txc-4s-mpo"/>
+                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="xQO-Ds-PcJ" secondAttribute="trailing" constant="36" id="txc-4s-mpo"/>
                                     <constraint firstItem="u5d-8K-Rpx" firstAttribute="centerX" secondItem="Mr2-U3-A9t" secondAttribute="centerX" id="vtZ-qb-ALi"/>
                                 </constraints>
                             </view>
@@ -2583,7 +2581,7 @@ On the </string>
             <objects>
                 <navigationController extendedLayoutIncludesOpaqueBars="YES" id="jBN-Uc-LBR" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" barStyle="black" id="Kna-cl-R0s">
-                        <rect key="frame" x="0.0" y="20" width="320" height="50"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="barTintColor" red="0.1215686275" green="0.62352941179999999" blue="0.69411764710000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -2619,11 +2617,11 @@ On the </string>
                         <viewControllerLayoutGuide type="bottom" id="M3b-Sw-YEI"/>
                     </layoutGuides>
                     <scrollView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" id="APb-5f-Idc">
-                        <rect key="frame" x="0.0" y="0.0" width="834" height="1112"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FHt-ni-xDi">
-                                <rect key="frame" x="213" y="0.0" width="408" height="458"/>
+                                <rect key="frame" x="3" y="0.0" width="408" height="458"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="5" translatesAutoresizingMaskIntoConstraints="NO" id="VRP-ZO-VcM">
                                         <rect key="frame" x="36" y="36" width="150" height="60"/>
@@ -2752,7 +2750,7 @@ On the </string>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="* Based on your current filters." textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ymX-lu-NRH">
-                                        <rect key="frame" x="112.5" y="406" width="183" height="16"/>
+                                        <rect key="frame" x="112.66666666666669" y="406" width="183" height="16"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="16" id="7UY-HB-JiT"/>
                                         </constraints>
@@ -2854,7 +2852,7 @@ On the </string>
                 <navigationController storyboardIdentifier="LogRegPrompt" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="kVu-F3-gLG" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" barStyle="black" id="jz0-y3-TVN">
-                        <rect key="frame" x="0.0" y="20" width="834" height="50"/>
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.1199414805" green="0.62484174969999995" blue="0.69512790440000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </navigationBar>
@@ -2873,7 +2871,7 @@ On the </string>
                 <navigationController extendedLayoutIncludesOpaqueBars="YES" automaticallyAdjustsScrollViewInsets="NO" id="48l-74-uvf" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" barStyle="black" id="voQ-0n-Rri">
-                        <rect key="frame" x="0.0" y="20" width="834" height="50"/>
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="barTintColor" red="0.1215686275" green="0.62352941179999999" blue="0.69411764710000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -2889,10 +2887,10 @@ On the </string>
         </scene>
     </scenes>
     <resources>
-        <image name="drums" width="24" height="23"/>
-        <image name="sort" width="20" height="15.5"/>
+        <image name="drums" width="23.666666030883789" height="23"/>
+        <image name="sort" width="20.666666030883789" height="16"/>
         <image name="soundwave" width="31" height="21"/>
-        <image name="yours" width="23" height="24.5"/>
+        <image name="yours" width="21.666666030883789" height="23"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="X9X-xR-Pqh"/>
