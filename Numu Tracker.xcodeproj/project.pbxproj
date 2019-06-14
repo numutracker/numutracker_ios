@@ -184,7 +184,6 @@
 		441CC0A7215C516E009F4114 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				441CC0A9215C522E009F4114 /* Interface */,
 				B42866071DA5FC53000E5FA6 /* User.swift */,
 				B440D9D61DB2D19300477938 /* ArtistItem.swift */,
 				B4283ABC1D8658AD00467CE6 /* ReleaseItem.swift */,
@@ -204,18 +203,11 @@
 				B4CCFCC01DB425D900D2277B /* More */,
 				447FED38217811810084530E /* Modals */,
 				B4D5960822B23D46006B4439 /* ArtistsSplitViewController.swift */,
-			);
-			path = Views;
-			sourceTree = "<group>";
-		};
-		441CC0A9215C522E009F4114 /* Interface */ = {
-			isa = PBXGroup;
-			children = (
 				B4CCFCC61DB4353E00D2277B /* NumuUIButton.swift */,
 				B471648C1F5FA24600D4E03E /* NumuTextField.swift */,
 				B40E35911DB1D88C004BA8C7 /* NumuTabBarController.swift */,
 			);
-			path = Interface;
+			path = Views;
 			sourceTree = "<group>";
 		};
 		443EBB91217054800071A11D /* Release Details */ = {

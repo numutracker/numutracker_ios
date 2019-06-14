@@ -134,6 +134,8 @@ extension UIView {
 extension UIColor {
     static let shadow = UIColor(red: 28/255, green: 202/255, blue: 241/255, alpha: 1)
     static let background = UIColor(red: 48/255, green: 156/255, blue: 172/255, alpha: 1)
+    static let numuBlue = UIColor(red: 0.12, green: 0.62, blue: 0.69, alpha: 1.0)
+    static let selectedCell = UIColor(red: 0.17, green: 0.17, blue: 0.17, alpha: 1.0)
 }
 
 extension UIImageView {

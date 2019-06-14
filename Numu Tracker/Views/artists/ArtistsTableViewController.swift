@@ -206,16 +206,6 @@ class ArtistsTableViewController: UITableViewController, UISearchBarDelegate, UI
 
         self.view?.snapshotView(afterScreenUpdates: true)
 
-        importAppleMusicButton.backgroundColor = .clear
-        importAppleMusicButton.layer.cornerRadius = 5
-        importAppleMusicButton.layer.borderWidth = 1
-        importAppleMusicButton.layer.borderColor = UIColor.gray.cgColor
-
-        importSpotifyButton.backgroundColor = .clear
-        importSpotifyButton.layer.cornerRadius = 5
-        importSpotifyButton.layer.borderWidth = 1
-        importSpotifyButton.layer.borderColor = UIColor.gray.cgColor
-
         var newFrame = noResultsView.frame
         var height: CGFloat = self.tableView.bounds.height
         height -= UIApplication.shared.statusBarFrame.size.height

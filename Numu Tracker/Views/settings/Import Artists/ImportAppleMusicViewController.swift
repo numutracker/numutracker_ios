@@ -33,11 +33,6 @@ class ImportAppleMusicViewController: UIViewController {
 
         self.navigationController?.navigationBar.tintColor = .white
 
-        addFromAppleMusic.backgroundColor = .clear
-        addFromAppleMusic.layer.cornerRadius = 5
-        addFromAppleMusic.layer.borderWidth = 1
-        addFromAppleMusic.layer.borderColor = UIColor.gray.cgColor
-
     }
 
     override func didReceiveMemoryWarning() {
