@@ -69,7 +69,7 @@ Any imported artists you've unfollowed will not be re-imported.</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fbf-1F-Mfc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3311.5107913669067" y="1969.9640287769785"/>
+            <point key="canvasLocation" x="739" y="1943"/>
         </scene>
         <!--Release Filters-->
         <scene sceneID="nGV-eq-tCK">
@@ -416,7 +416,7 @@ Any imported artists you've unfollowed will not be re-imported.</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8JK-YH-6tC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1697.1223021582734" y="1970.5035971223022"/>
+            <point key="canvasLocation" x="-874" y="1943"/>
         </scene>
         <!--Notifications-->
         <scene sceneID="JRX-KO-nJh">
@@ -624,7 +624,7 @@ Any imported artists you've unfollowed will not be re-imported.</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vWo-Ch-b6w" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2484.1726618705038" y="1970.5035971223022"/>
+            <point key="canvasLocation" x="-87" y="1943"/>
         </scene>
         <!--Artists-->
         <scene sceneID="QT8-L6-wPZ">
@@ -835,7 +835,7 @@ You can import artists from Apple Music, Spotify, or manually search and follow 
                     </constraints>
                 </view>
             </objects>
-            <point key="canvasLocation" x="-658" y="1141"/>
+            <point key="canvasLocation" x="1038" y="465"/>
         </scene>
         <!--Artist Releases Table View Controller-->
         <scene sceneID="H5x-GQ-2Tb">
@@ -989,7 +989,7 @@ You can import artists from Apple Music, Spotify, or manually search and follow 
                     </constraints>
                 </view>
             </objects>
-            <point key="canvasLocation" x="-689" y="1790"/>
+            <point key="canvasLocation" x="1038" y="1193"/>
         </scene>
         <!--Full Log Reg Prompt-->
         <scene sceneID="z5e-qH-IdS">
@@ -1332,7 +1332,7 @@ You can import artists from Apple Music, Spotify, or manually search and follow 
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dYb-Jj-Sih" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1038" y="-1003"/>
+            <point key="canvasLocation" x="-2751" y="465"/>
         </scene>
         <!--All Releases Table View Controller-->
         <scene sceneID="eCT-23-ojS">
@@ -1566,7 +1566,7 @@ You can import artists from Apple Music, Spotify, or manually search and follow 
                     </constraints>
                 </view>
             </objects>
-            <point key="canvasLocation" x="1039.1304347826087" y="-252.71739130434784"/>
+            <point key="canvasLocation" x="158" y="-281"/>
         </scene>
         <!--Numu Tab Bar Controller-->
         <scene sceneID="pPo-Hq-Xts">
@@ -1586,7 +1586,7 @@ You can import artists from Apple Music, Spotify, or manually search and follow 
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bFZ-w6-aX0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-819" y="465"/>
+            <point key="canvasLocation" x="-1661" y="465"/>
         </scene>
         <!--More-->
         <scene sceneID="2qc-ZS-hZe">
@@ -1829,7 +1829,7 @@ You can import artists from Apple Music, Spotify, or manually search and follow 
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YWa-9r-bfs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1791.3669064748203" y="1219.9640287769785"/>
+            <point key="canvasLocation" x="-780" y="1193"/>
         </scene>
         <!--Music Services-->
         <scene sceneID="UP1-cZ-CZ3">
@@ -2093,7 +2093,7 @@ Turning on certain services may require you to log in to them. Numu values your 
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1gi-n9-T5b" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6500.0000000000009" y="1969.4196428571427"/>
+            <point key="canvasLocation" x="3929" y="1943"/>
         </scene>
         <!--Spotify-->
         <scene sceneID="n8Z-qq-sus">
@@ -2155,7 +2155,7 @@ Any imported artists you've unfollowed will not be re-imported.</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gqw-a7-uHp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5653.2374100719426" y="1970.5035971223022"/>
+            <point key="canvasLocation" x="3081" y="1943"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="R9c-Zd-DEE">
@@ -2175,7 +2175,7 @@ Any imported artists you've unfollowed will not be re-imported.</string>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sXm-Sj-nEQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="158" y="-252"/>
+            <point key="canvasLocation" x="-784" y="-281"/>
         </scene>
         <!--More-->
         <scene sceneID="oel-Wh-i56">
@@ -2196,7 +2196,7 @@ Any imported artists you've unfollowed will not be re-imported.</string>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="P97-kQ-jJy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="910.07194244604318" y="1219.9640287769785"/>
+            <point key="canvasLocation" x="-1662" y="1193"/>
         </scene>
         <!--Instructions-->
         <scene sceneID="9Vd-Yo-xXd">
@@ -2466,7 +2466,7 @@ On the </string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6bQ-br-uwt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4091.3669064748206" y="1970.5035971223022"/>
+            <point key="canvasLocation" x="1520" y="1943"/>
         </scene>
         <!--Get Help-->
         <scene sceneID="pvz-Oh-qRb">
@@ -2536,13 +2536,12 @@ On the </string>
                                             <action selector="joinSlackButton:" destination="Now-IP-Fwq" eventType="touchUpInside" id="9P3-VM-y7v"/>
                                         </connections>
                                     </button>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xQO-Ds-PcJ">
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="I'm @amiantos on Twitter. Feel free to @ me with ideas, problems, or just to chat. Follow me to get updates on what I'm up to." textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xQO-Ds-PcJ">
                                         <rect key="frame" x="43" y="230.66666666666666" width="328" height="66.333333333333343"/>
                                         <color key="backgroundColor" red="0.13350695369999999" green="0.13364198799999999" blue="0.13352787490000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" relation="lessThanOrEqual" constant="400" id="gef-Es-TGY"/>
                                         </constraints>
-                                        <string key="text">I'm @amiantos on Twitter. Feel free to @ me with ideas, problems, or just to chat. Follow me to get updates on Numu and what I'm up to.</string>
                                         <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -2589,7 +2588,7 @@ On the </string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OsD-lm-89w" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4856.1151079136698" y="1970.5035971223022"/>
+            <point key="canvasLocation" x="2284" y="1943"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="KAs-LN-HbG">
@@ -2607,7 +2606,7 @@ On the </string>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lNy-q7-JJY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1474" y="1102"/>
+            <point key="canvasLocation" x="158" y="465"/>
         </scene>
         <!--Your Artists-->
         <scene sceneID="gnF-el-tEW">
@@ -2621,7 +2620,7 @@ On the </string>
                 </splitViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cO9-fX-ULK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2232" y="1421"/>
+            <point key="canvasLocation" x="-783" y="465"/>
         </scene>
         <!--Stats-->
         <scene sceneID="sgH-t4-KDi">
@@ -2859,7 +2858,7 @@ On the </string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Kt3-GK-hPk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="910.07194244604318" y="1971.5827338129498"/>
+            <point key="canvasLocation" x="-1662" y="1944"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="GbO-C7-q1j">
@@ -2878,7 +2877,7 @@ On the </string>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4kL-Pp-4sX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="158" y="-1003"/>
+            <point key="canvasLocation" x="-3677" y="465"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="nbJ-EJ-ecZ">
@@ -2898,7 +2897,7 @@ On the </string>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Ie-ku-Llj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1417" y="1790"/>
+            <point key="canvasLocation" x="159" y="1193"/>
         </scene>
     </scenes>
     <resources>
