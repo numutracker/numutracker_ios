@@ -49,7 +49,7 @@ class ArtistReleaseTableViewCell: UITableViewCell {
 
         self.selectionStyle = .default
         let bgColorView = UIView()
-        bgColorView.backgroundColor = UIColor(red: 0.17, green: 0.17, blue: 0.17, alpha: 1.0)
+        bgColorView.backgroundColor = .selectedCell
         self.selectedBackgroundView = bgColorView
 
     }

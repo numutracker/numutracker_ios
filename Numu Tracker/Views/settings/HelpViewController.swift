@@ -45,7 +45,7 @@ class HelpViewController: UIViewController, MFMailComposeViewControllerDelegate 
             mail.setMessageBody("<p>Numu feedback goes here: </p>", isHTML: true)
             present(mail, animated: true, completion: nil)
         } else {
-            // show failure alert
+            UIApplication.shared.openURL(URL(string: "mailto:info@numutracker.com")!)
         }
     }
 
@@ -55,22 +55,10 @@ class HelpViewController: UIViewController, MFMailComposeViewControllerDelegate 
         error: Error?) {
         controller.dismiss(animated: true, completion: nil)
     }
-
-    func setupButton(button: NumuUIButton) {
-        button.backgroundColor = .clear
-        button.layer.cornerRadius = 5
-        button.layer.borderWidth = 1
-        button.layer.borderColor = UIColor.gray.cgColor
-    }
-
     override func viewDidLoad() {
         super.viewDidLoad()
 
         self.navigationController?.navigationBar.tintColor = .white
-
-        setupButton(button: emailDeveloperButton)
-        setupButton(button: discussOnRedditButtonOutlet)
-        setupButton(button: joinSlackButton)
 
         Answers.logCustomEvent(withName: "Help View", customAttributes: nil)
 

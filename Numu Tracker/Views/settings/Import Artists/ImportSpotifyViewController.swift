@@ -29,10 +29,6 @@ class ImportSpotifyViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        spotifyButton.backgroundColor = .clear
-        spotifyButton.layer.cornerRadius = 5
-        spotifyButton.layer.borderWidth = 1
-        spotifyButton.layer.borderColor = UIColor.gray.cgColor
     }
 
 }

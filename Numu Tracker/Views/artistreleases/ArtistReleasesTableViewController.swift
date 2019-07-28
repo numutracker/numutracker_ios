@@ -19,6 +19,7 @@ class ArtistReleasesTableViewController: UITableViewController {
 
     @IBOutlet var footerView: UIView!
     @IBOutlet var noResultsView: UIView!
+    @IBOutlet var selectAnArtistView: UIView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,9 +28,13 @@ class ArtistReleasesTableViewController: UITableViewController {
 
         navigationItem.rightBarButtonItem = add
 
+        navigationItem.leftBarButtonItem =
+            splitViewController?.displayModeButtonItem
+        navigationItem.leftItemsSupplementBackButton = true
+        self.navigationController?.navigationBar.tintColor = .white
+
         if let artistId = self.artistId {
 
-            self.navigationController?.navigationBar.tintColor = .white
             let selectedArtist: String = artistId
             self.title = artistName
             self.tableView.tableFooterView = footerView
@@ -56,6 +61,8 @@ class ArtistReleasesTableViewController: UITableViewController {
                 }
             }
             Answers.logCustomEvent(withName: "Artist Screen", customAttributes: ["Artist ID": selectedArtist])
+        } else {
+            self.tableView.tableFooterView = self.selectAnArtistView
         }
 
     }

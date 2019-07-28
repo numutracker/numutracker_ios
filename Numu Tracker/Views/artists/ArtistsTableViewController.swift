@@ -183,6 +183,7 @@ class ArtistsTableViewController: UITableViewController, UISearchBarDelegate, UI
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        title = "Artists"
         tableView.tableFooterView = footerView
         tableView.backgroundView = UIView()
         tableView.keyboardDismissMode = .onDrag
@@ -204,16 +205,6 @@ class ArtistsTableViewController: UITableViewController, UISearchBarDelegate, UI
         sortButton.tintColor = UIColor.white
 
         self.view?.snapshotView(afterScreenUpdates: true)
-
-        importAppleMusicButton.backgroundColor = .clear
-        importAppleMusicButton.layer.cornerRadius = 5
-        importAppleMusicButton.layer.borderWidth = 1
-        importAppleMusicButton.layer.borderColor = UIColor.gray.cgColor
-
-        importSpotifyButton.backgroundColor = .clear
-        importSpotifyButton.layer.cornerRadius = 5
-        importSpotifyButton.layer.borderWidth = 1
-        importSpotifyButton.layer.borderColor = UIColor.gray.cgColor
 
         var newFrame = noResultsView.frame
         var height: CGFloat = self.tableView.bounds.height
@@ -450,9 +441,10 @@ class ArtistsTableViewController: UITableViewController, UISearchBarDelegate, UI
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showArtistReleases",
-            let destination = segue.destination as? ArtistReleasesTableViewController,
+            let destination = segue.destination as? UINavigationController,
             let releaseIndex = tableView.indexPathForSelectedRow?.row,
             let sectionIndex = tableView.indexPathForSelectedRow?.section {
+
             self.searchTerms = searchController.searchBar.text
 
             var artistId = artists[releaseIndex].artistId
@@ -467,8 +459,10 @@ class ArtistsTableViewController: UITableViewController, UISearchBarDelegate, UI
 
             self.lastSelectedArtistId = artistId
             self.lastSelectedArtistName = artistName
-            destination.artistId = artistId
-            destination.artistName = artistName
+            if let artistView = destination.topViewController as? ArtistReleasesTableViewController {
+                artistView.artistId = artistId
+                artistView.artistName = artistName
+            }
         }
     }
 }

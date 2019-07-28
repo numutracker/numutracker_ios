@@ -175,16 +175,6 @@ class AllReleasesTableViewController: UITableViewController {
 
         self.tableView.tableFooterView = self.footerView
 
-        importFromAMButton.backgroundColor = .clear
-        importFromAMButton.layer.cornerRadius = 5
-        importFromAMButton.layer.borderWidth = 1
-        importFromAMButton.layer.borderColor = UIColor.gray.cgColor
-
-        importSpotifyButton.backgroundColor = .clear
-        importSpotifyButton.layer.cornerRadius = 5
-        importSpotifyButton.layer.borderWidth = 1
-        importSpotifyButton.layer.borderColor = UIColor.gray.cgColor
-
         var newFrame = noResultsFooterView.frame
         var height: CGFloat = self.tableView.bounds.height
         height -= UIApplication.shared.statusBarFrame.size.height

@@ -47,6 +47,11 @@ class ArtistTableViewCell: UITableViewCell {
         artistArt.layer.shadowOpacity = 0.3
         artistArt.layer.shadowOffset = .zero
         artistArt.layer.shadowRadius = 5
+
+        self.selectionStyle = .default
+        let bgColorView = UIView()
+        bgColorView.backgroundColor = .selectedCell
+        self.selectedBackgroundView = bgColorView
     }
 
     public func toggleFollow() {

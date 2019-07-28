@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		4401CBB8215DC8D000B0EB23 /* AlbumArtCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4401CBB7215DC8D000B0EB23 /* AlbumArtCache.swift */; };
+		4403C1FB22A0597E003A09B0 /* SearchDeezerViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4403C1FA22A0597E003A09B0 /* SearchDeezerViewCell.swift */; };
+		4403C1FD22A05991003A09B0 /* SearchDeezerTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4403C1FC22A05991003A09B0 /* SearchDeezerTableViewCell.xib */; };
+		4403C1FF22A05F0C003A09B0 /* SearchAmazonTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4403C1FE22A05F0C003A09B0 /* SearchAmazonTableViewCell.xib */; };
+		4403C20122A05F1C003A09B0 /* SearchAmazonViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4403C20022A05F1C003A09B0 /* SearchAmazonViewCell.swift */; };
 		4406A0032173A674002900E8 /* ImportSpotifyOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4406A0022173A674002900E8 /* ImportSpotifyOperation.swift */; };
 		4406A00821744F38002900E8 /* ListenAMTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4406A00621744F38002900E8 /* ListenAMTableViewCell.swift */; };
 		4406A00921744F38002900E8 /* ListenAMTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4406A00721744F38002900E8 /* ListenAMTableViewCell.xib */; };
@@ -66,6 +70,8 @@
 		B4CCFCC51DB4311B00D2277B /* ImportAppleMusicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4CCFCC41DB4311B00D2277B /* ImportAppleMusicViewController.swift */; };
 		B4CCFCC71DB4353E00D2277B /* NumuUIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4CCFCC61DB4353E00D2277B /* NumuUIButton.swift */; };
 		B4CCFCC91DB447B200D2277B /* HelpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4CCFCC81DB447B200D2277B /* HelpViewController.swift */; };
+		B4D5960922B23D46006B4439 /* ArtistsSplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4D5960822B23D46006B4439 /* ArtistsSplitViewController.swift */; };
+		B4D5960B22B41F2F006B4439 /* MoreTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4D5960A22B41F2F006B4439 /* MoreTableViewController.swift */; };
 		B4F1E3AB2058C6C100F2544A /* NumuReviewHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4F1E3AA2058C6C100F2544A /* NumuReviewHelper.swift */; };
 		E4EB5ACCF23F58468A5C04FF /* Pods_Numu_Tracker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBD0F3687066D64A7B28C145 /* Pods_Numu_Tracker.framework */; };
 /* End PBXBuildFile section */
@@ -73,6 +79,10 @@
 /* Begin PBXFileReference section */
 		01361C8695313B7121751750 /* Pods-Numu Tracker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Numu Tracker.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Numu Tracker/Pods-Numu Tracker.debug.xcconfig"; sourceTree = "<group>"; };
 		4401CBB7215DC8D000B0EB23 /* AlbumArtCache.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlbumArtCache.swift; sourceTree = "<group>"; };
+		4403C1FA22A0597E003A09B0 /* SearchDeezerViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchDeezerViewCell.swift; sourceTree = "<group>"; };
+		4403C1FC22A05991003A09B0 /* SearchDeezerTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchDeezerTableViewCell.xib; sourceTree = "<group>"; };
+		4403C1FE22A05F0C003A09B0 /* SearchAmazonTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchAmazonTableViewCell.xib; sourceTree = "<group>"; };
+		4403C20022A05F1C003A09B0 /* SearchAmazonViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchAmazonViewCell.swift; sourceTree = "<group>"; };
 		4406A0022173A674002900E8 /* ImportSpotifyOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportSpotifyOperation.swift; sourceTree = "<group>"; };
 		4406A00621744F38002900E8 /* ListenAMTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListenAMTableViewCell.swift; sourceTree = "<group>"; };
 		4406A00721744F38002900E8 /* ListenAMTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ListenAMTableViewCell.xib; sourceTree = "<group>"; };
@@ -135,6 +145,8 @@
 		B4CCFCC41DB4311B00D2277B /* ImportAppleMusicViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImportAppleMusicViewController.swift; sourceTree = "<group>"; };
 		B4CCFCC61DB4353E00D2277B /* NumuUIButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NumuUIButton.swift; sourceTree = "<group>"; };
 		B4CCFCC81DB447B200D2277B /* HelpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelpViewController.swift; sourceTree = "<group>"; };
+		B4D5960822B23D46006B4439 /* ArtistsSplitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistsSplitViewController.swift; sourceTree = "<group>"; };
+		B4D5960A22B41F2F006B4439 /* MoreTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreTableViewController.swift; sourceTree = "<group>"; };
 		B4F1E3AA2058C6C100F2544A /* NumuReviewHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumuReviewHelper.swift; sourceTree = "<group>"; };
 		CBD0F3687066D64A7B28C145 /* Pods_Numu_Tracker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Numu_Tracker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -174,7 +186,6 @@
 		441CC0A7215C516E009F4114 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				441CC0A9215C522E009F4114 /* Interface */,
 				B42866071DA5FC53000E5FA6 /* User.swift */,
 				B440D9D61DB2D19300477938 /* ArtistItem.swift */,
 				B4283ABC1D8658AD00467CE6 /* ReleaseItem.swift */,
@@ -193,18 +204,12 @@
 				B4CCFCBD1DB4258C00D2277B /* Artists */,
 				B4CCFCC01DB425D900D2277B /* More */,
 				447FED38217811810084530E /* Modals */,
-			);
-			path = Views;
-			sourceTree = "<group>";
-		};
-		441CC0A9215C522E009F4114 /* Interface */ = {
-			isa = PBXGroup;
-			children = (
+				B4D5960822B23D46006B4439 /* ArtistsSplitViewController.swift */,
 				B4CCFCC61DB4353E00D2277B /* NumuUIButton.swift */,
 				B471648C1F5FA24600D4E03E /* NumuTextField.swift */,
 				B40E35911DB1D88C004BA8C7 /* NumuTabBarController.swift */,
 			);
-			path = Interface;
+			path = Views;
 			sourceTree = "<group>";
 		};
 		443EBB91217054800071A11D /* Release Details */ = {
@@ -271,6 +276,10 @@
 				447FED40217BA34A0084530E /* SearchSoundCloudTableViewCell.xib */,
 				447FED43217BB68D0084530E /* SearchYouTubeTableViewCell.swift */,
 				447FED44217BB68D0084530E /* SearchYouTubeTableViewCell.xib */,
+				4403C1FC22A05991003A09B0 /* SearchDeezerTableViewCell.xib */,
+				4403C1FA22A0597E003A09B0 /* SearchDeezerViewCell.swift */,
+				4403C20022A05F1C003A09B0 /* SearchAmazonViewCell.swift */,
+				4403C1FE22A05F0C003A09B0 /* SearchAmazonTableViewCell.xib */,
 				447FED47217BC17C0084530E /* NumuModalButton.swift */,
 			);
 			path = Rows;
@@ -359,6 +368,7 @@
 				B46754571F6DA66F00C80544 /* InstructionsViewController.swift */,
 				B43E36B11F5DFAD0009834C9 /* LogRegPromptViewController.swift */,
 				447FED3D217B839F0084530E /* MusicServicesViewController.swift */,
+				B4D5960A22B41F2F006B4439 /* MoreTableViewController.swift */,
 			);
 			name = More;
 			path = settings;
@@ -429,13 +439,13 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0800;
-				LastUpgradeCheck = 0930;
+				LastUpgradeCheck = 1020;
 				ORGANIZATIONNAME = "Numu Tracker";
 				TargetAttributes = {
 					B4283A801D8548F300467CE6 = {
 						CreatedOnToolsVersion = 8.0;
 						DevelopmentTeam = 2Y9M69QJKZ;
-						LastSwiftMigration = 1000;
+						LastSwiftMigration = 1020;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
@@ -456,7 +466,7 @@
 			};
 			buildConfigurationList = B4283A7C1D8548F300467CE6 /* Build configuration list for PBXProject "Numu Tracker" */;
 			compatibilityVersion = "Xcode 3.2";
-			developmentRegion = English;
+			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
@@ -482,10 +492,12 @@
 				443EBB902170547A0071A11D /* ReleaseDetailsViewController.xib in Resources */,
 				4459C3D821658A7900EB4048 /* NumuAlertView.xib in Resources */,
 				443EBB8C217053530071A11D /* LoginSpotifyViewController.xib in Resources */,
+				4403C1FF22A05F0C003A09B0 /* SearchAmazonTableViewCell.xib in Resources */,
 				B4283A911D8548F300467CE6 /* LaunchScreen.storyboard in Resources */,
 				449F5A7C2176B99900B9C919 /* MoreReleasesTableViewCell.xib in Resources */,
 				447FED3721780B410084530E /* ListenSpotifyTableViewCell.xib in Resources */,
 				B4283A8E1D8548F300467CE6 /* Assets.xcassets in Resources */,
+				4403C1FD22A05991003A09B0 /* SearchDeezerTableViewCell.xib in Resources */,
 				447FED46217BB68D0084530E /* SearchYouTubeTableViewCell.xib in Resources */,
 				4406A00921744F38002900E8 /* ListenAMTableViewCell.xib in Resources */,
 				B4283A8C1D8548F300467CE6 /* Main.storyboard in Resources */,
@@ -621,6 +633,7 @@
 				446DBDE8215AF82400AE2AA7 /* ImportAppleMusicOperation.swift in Sources */,
 				4461CB8D21589D7A001939F0 /* AuthOperation.swift in Sources */,
 				443EBB8821702D430071A11D /* ImportSpotifyViewController.swift in Sources */,
+				4403C20122A05F1C003A09B0 /* SearchAmazonViewCell.swift in Sources */,
 				447FED48217BC17C0084530E /* NumuModalButton.swift in Sources */,
 				B4283ABD1D8658AD00467CE6 /* ReleaseItem.swift in Sources */,
 				B4CCFCC91DB447B200D2277B /* HelpViewController.swift in Sources */,
@@ -628,6 +641,7 @@
 				B46754581F6DA66F00C80544 /* InstructionsViewController.swift in Sources */,
 				4461CB7F21585488001939F0 /* NumuAPI.swift in Sources */,
 				448C68EB21CB092B00ECEC61 /* AlertModal.swift in Sources */,
+				B4D5960922B23D46006B4439 /* ArtistsSplitViewController.swift in Sources */,
 				B4B940AE1E6131B800F52027 /* NotificationsViewController.swift in Sources */,
 				447FED3E217B839F0084530E /* MusicServicesViewController.swift in Sources */,
 				B4283A851D8548F300467CE6 /* AppDelegate.swift in Sources */,
@@ -636,6 +650,7 @@
 				B4CCFCC51DB4311B00D2277B /* ImportAppleMusicViewController.swift in Sources */,
 				4461CB8B21589AB4001939F0 /* RegisterWithCKOperation.swift in Sources */,
 				4401CBB8215DC8D000B0EB23 /* AlbumArtCache.swift in Sources */,
+				B4D5960B22B41F2F006B4439 /* MoreTableViewController.swift in Sources */,
 				4459C3D721658A7900EB4048 /* NumuAlertView.swift in Sources */,
 				B440D9D71DB2D19300477938 /* ArtistItem.swift in Sources */,
 				447FED41217BA34A0084530E /* SearchSoundCloudTableViewCell.swift in Sources */,
@@ -650,6 +665,7 @@
 				B45A134120551C46001EBDA5 /* Extensions.swift in Sources */,
 				B42866081DA5FC53000E5FA6 /* User.swift in Sources */,
 				4461CB79215844C9001939F0 /* AsyncOperation.swift in Sources */,
+				4403C1FB22A0597E003A09B0 /* SearchDeezerViewCell.swift in Sources */,
 				443EBB8F2170547A0071A11D /* ReleaseDetailsViewController.swift in Sources */,
 				44D3917021691D5000CFB9A3 /* NumuSortView.swift in Sources */,
 				447FED3621780B410084530E /* ListenSpotifyTableViewCell.swift in Sources */,
@@ -689,6 +705,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
@@ -748,6 +765,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
@@ -816,7 +834,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -839,7 +857,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.numutracker.Numu-Tracker";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
