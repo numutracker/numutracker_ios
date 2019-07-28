@@ -7,8 +7,8 @@
 //
 
 import UIKit
-import Spartan
-import SpotifyLogin
+//import Spartan
+//import SpotifyLogin
 
 class ListenSpotifyTableViewCell: UITableViewCell {
 
@@ -35,34 +35,34 @@ class ListenSpotifyTableViewCell: UITableViewCell {
     }
 
     func getSpotifyLink() {
-        if let artist = self.release?.artistNames,
-            let album = self.release?.title {
-
-            let query = "\(artist) \(album)"
-            print(query)
-            SpotifyLogin.shared.getAccessToken { [weak self] (token, error) in
-                if token != nil {
-                    Spartan.authorizationToken = token
-                    Spartan.loggingEnabled = true
-                    _ = Spartan.search(
-                        query: query,
-                        type: .album,
-                        success: { (pagingObject: PagingObject<SimplifiedAlbum>) in
-
-                        if !pagingObject.items.isEmpty {
-                            let release = pagingObject.items[0]
-                            self?.spotifyUrl = release.externalUrls["spotify"]
-                            self?.spotifyButton.isEnabled = true
-                            self?.spotifyLabel.textColor = .white
-                            self?.spotifyIcon.tintColor = .white
-                        }
-
-                    }, failure: { (error) in
-                        print(error)
-                    })
-                }
-            }
-        }
+//        if let artist = self.release?.artistNames,
+//            let album = self.release?.title {
+//
+//            let query = "\(artist) \(album)"
+//            print(query)
+//            SpotifyLogin.shared.getAccessToken { [weak self] (token, error) in
+//                if token != nil {
+//                    Spartan.authorizationToken = token
+//                    Spartan.loggingEnabled = true
+//                    _ = Spartan.search(
+//                        query: query,
+//                        type: .album,
+//                        success: { (pagingObject: PagingObject<SimplifiedAlbum>) in
+//
+//                        if !pagingObject.items.isEmpty {
+//                            let release = pagingObject.items[0]
+//                            self?.spotifyUrl = release.externalUrls["spotify"]
+//                            self?.spotifyButton.isEnabled = true
+//                            self?.spotifyLabel.textColor = .white
+//                            self?.spotifyIcon.tintColor = .white
+//                        }
+//
+//                    }, failure: { (error) in
+//                        print(error)
+//                    })
+//                }
+//            }
+//        }
     }
 
     override func awakeFromNib() {

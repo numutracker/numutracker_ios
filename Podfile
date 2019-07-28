@@ -11,8 +11,6 @@ target 'Numu Tracker' do
   pod 'Kingfisher', '~> 5.0'
   pod 'PushNotifications'
   pod 'SwiftLint'
-  pod 'Spartan'
-  pod 'SpotifyLogin', '~> 0.1'
 
   target 'Numu TrackerTests' do
     inherit! :search_paths

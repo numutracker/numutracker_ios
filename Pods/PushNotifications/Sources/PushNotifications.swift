@@ -24,12 +24,16 @@ import Foundation
                 case .InterestsChangedEvent(let interests):
                     self?.delegate?.interestsSetOnDeviceDidChange(interests: interests)
                 case .UserIdSetEvent(let userId, let error):
-                    if let completion = self?.userIdCallbacks[userId]?.removeFirst() {
-                        completion(error)
+                    if !(self?.userIdCallbacks[userId]?.isEmpty ?? true) {
+                        if let completion = self?.userIdCallbacks[userId]?.removeFirst() {
+                            completion(error)
+                        }
                     }
                 case .StopEvent:
-                    if let completion = self?.stopCallbacks.removeFirst() {
-                        completion()
+                    if !(self?.stopCallbacks.isEmpty ?? true) {
+                        if let completion = self?.stopCallbacks.removeFirst() {
+                            completion()
+                        }
                     }
                 }
             }
@@ -71,7 +75,7 @@ import Foundation
 
         // Detect from where the function is being called
         let wasCalledFromCorrectLocation = Thread.callStackSymbols.contains { stack in
-            return stack.contains("didFinishLaunchingWith") || stack.contains("applicationDidFinishLaunching") || stack.contains("clearAllState")
+            return stack.contains("didFinishLaunchingWith") || stack.contains("applicationDidFinishLaunching") || stack.contains("clearAllState") || stack.contains("enablePushNotifications")
         }
         if !wasCalledFromCorrectLocation {
             print("[PushNotifications]: Warning: You should call `pushNotifications.start` from the `AppDelegate.didFinishLaunchingWith`")
@@ -129,7 +133,7 @@ import Foundation
 
         PushNotifications.shared.tokenProvider = tokenProvider
 
-        var localUserIdDifferent: Bool? = nil
+        var localUserIdDifferent: Bool?
         DeviceStateStore.synchronize {
             if let userIdExists = DeviceStateStore.pushNotificationsInstance.getUserIdPreviouslyCalledWith() {
                 localUserIdDifferent = userIdExists != userId
@@ -150,9 +154,7 @@ import Foundation
             return
         }
 
-        let helpfulTimer = Timer.scheduledTimer(withTimeInterval: 15, repeats: false) { _ in
-            print("[PushNotifications] - It looks like setUserId hasn't completed yet -- have you called `registerDeviceToken`?")
-        }
+        let helpfulTimer = Timer.scheduledTimer(timeInterval: 15, target: self, selector: #selector(printHelpfulMessage), userInfo: nil, repeats: false)
 
         let wrapperCompletion: (Error?) -> Void = { error in
             helpfulTimer.invalidate()
@@ -165,6 +167,10 @@ import Foundation
             self.userIdCallbacks[userId] = [wrapperCompletion]
         }
         self.serverSyncHandler.sendMessage(serverSyncJob: ServerSyncJob.SetUserIdJob(userId: userId))
+    }
+
+    @objc private func printHelpfulMessage() {
+        print("[PushNotifications] - It looks like setUserId hasn't completed yet -- have you called `registerDeviceToken`?")
     }
 
     /**

@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 import PushNotifications
-import SpotifyLogin
+//import SpotifyLogin
 
 let defaults = UserDefaults.standard
 
@@ -30,18 +30,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // try? self.pushNotifications.subscribe(interest: "debug-hello")
 
         // Override point for customization after application launch.
-        let redirectURL: URL = URL(string: "numu://")!
-        SpotifyLogin.shared.configure(clientID: "SPOTIFY_CLIENT_ID", clientSecret: "SPOTIFY_CLIENT_SECRET", redirectURL: redirectURL)
+//        let redirectURL: URL = URL(string: "numu://")!
+//        SpotifyLogin.shared.configure(clientID: "SPOTIFY_CLIENT_ID", clientSecret: "SPOTIFY_CLIENT_SECRET", redirectURL: redirectURL)
 
         NumuCredential.shared.storeCredential(username: "test@test.com", password: "TestingP@ssword")
 
         return true
     }
 
-    func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey: Any] = [:]) -> Bool {
-        let handled = SpotifyLogin.shared.applicationOpenURL(url) { (_) in }
-        return handled
-    }
+//    func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey: Any] = [:]) -> Bool {
+//        let handled = SpotifyLogin.shared.applicationOpenURL(url) { (_) in }
+//        return handled
+//    }
 
     func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
