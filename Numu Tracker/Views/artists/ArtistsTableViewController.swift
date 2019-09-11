@@ -272,7 +272,6 @@ class ArtistsTableViewController: UITableViewController, UISearchBarDelegate, UI
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         if viewState == .search {
-            searchController.isActive = true
             searchController.searchBar.text = self.lastSearch
         }
     }
@@ -335,10 +334,6 @@ class ArtistsTableViewController: UITableViewController, UISearchBarDelegate, UI
                 })
             }
         }
-    }
-
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        self.searchController.isActive = false
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
