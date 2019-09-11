@@ -42,6 +42,8 @@ class ArtistsTableViewController: UITableViewController, UISearchBarDelegate, UI
         queue.addOperation(importSpotifyOperation)
     }
 
+    var lastSearch: String?
+
     var artists: [ArtistItem] = [] {
         didSet {
             if viewState == .user {
@@ -233,7 +235,12 @@ class ArtistsTableViewController: UITableViewController, UISearchBarDelegate, UI
 
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
+        self.lastSearch = searchController.searchBar.text
         searchController.dismiss(animated: false, completion: nil)
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
     }
 
     @objc func actOnImportNotification() {
@@ -264,6 +271,10 @@ class ArtistsTableViewController: UITableViewController, UISearchBarDelegate, UI
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        if viewState == .search {
+            searchController.isActive = true
+            searchController.searchBar.text = self.lastSearch
+        }
     }
 
     // MARK: - Table view data source
@@ -288,6 +299,7 @@ class ArtistsTableViewController: UITableViewController, UISearchBarDelegate, UI
 
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
         self.viewState = .search
+        self.searchController.searchBar.showsCancelButton = true
     }
 
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
