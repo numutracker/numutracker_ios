@@ -1,16 +1,16 @@
 PODS:
-  - Alamofire (4.8.1)
-  - AlamofireObjectMapper (5.2.0):
+  - Alamofire (4.9.0)
+  - AlamofireObjectMapper (5.2.1):
     - Alamofire (~> 4.7)
     - ObjectMapper (~> 3.4)
   - AlamoRecord (1.2.2):
     - AlamofireObjectMapper (~> 5.1)
-  - Crashlytics (3.12.0):
-    - Fabric (~> 1.9.0)
+  - Crashlytics (3.14.0):
+    - Fabric (~> 1.10.2)
   - CryptoSwift (0.9.0)
-  - Fabric (1.9.0)
+  - Fabric (1.10.2)
   - Kingfisher (4.10.1)
-  - ObjectMapper (3.4.2)
+  - ObjectMapper (3.5.1)
   - PusherSwift (6.1.0):
     - CryptoSwift (~> 0.9.0)
     - ReachabilitySwift (~> 4.1.0)
@@ -21,15 +21,15 @@ PODS:
     - AlamoRecord (~> 1.2.0)
   - SpotifyLogin (0.1.6)
   - Starscream (3.0.6)
-  - SwiftLint (0.30.1)
-  - SwiftyJSON (4.2.0)
+  - SwiftLint (0.35.0)
+  - SwiftyJSON (5.0.0)
   - TaskQueue (1.1.1)
 
 DEPENDENCIES:
   - Crashlytics (~> 3.10)
   - Fabric
   - Kingfisher (~> 4.0)
-  - PusherSwift
+  - PusherSwift (~> 6.1.0)
   - Spartan
   - SpotifyLogin (~> 0.1)
   - SwiftLint
@@ -55,23 +55,23 @@ SPEC REPOS:
     - TaskQueue
 
 SPEC CHECKSUMS:
-  Alamofire: 16ce2c353fb72865124ddae8a57c5942388f4f11
-  AlamofireObjectMapper: 92b6ce2423a9d159e686f6a1d514a009bf903ddc
+  Alamofire: afc3e7c6db61476cb45cdd23fed06bad03bbc321
+  AlamofireObjectMapper: 1989f690e982b71921b9253f53a4f33a9bc00d88
   AlamoRecord: 5850c563a811fdca40cd361b1b27622004bccef3
-  Crashlytics: 07fb167b1694128c1c9a5a5cc319b0e9c3ca0933
+  Crashlytics: 540b7e5f5da5a042647227a5e3ac51d85eed06df
   CryptoSwift: bca8c5b653dcc2d9734409242a070ff53bafac86
-  Fabric: f988e33c97f08930a413e08123064d2e5f68d655
+  Fabric: 706c8b8098fff96c33c0db69cbf81f9c551d0d74
   Kingfisher: c148cd7b47ebde9989f6bc7c27dcaa79d81279a0
-  ObjectMapper: 0d4402610f4e468903ae64629eec4784531e5c51
+  ObjectMapper: 70187b8941977c62ccfb423caf6b50be405cabf0
   PusherSwift: 6f2535d616cf0d6867a58bee501999995ad37999
   ReachabilitySwift: 6849231cd4e06559f3b9ef4a97a0a0f96d41e09f
   Spartan: 2fb99ad25f2b0e8182799f251c800091977f0a40
   SpotifyLogin: 9cdf82ff13e5f37e5ddc7fd07cf9793a9ebd1124
   Starscream: ef3ece99d765eeccb67de105bfa143f929026cf5
-  SwiftLint: a54bf1fe12b55c68560eb2a7689dfc81458508f7
-  SwiftyJSON: c4bcba26dd9ec7a027fc8eade48e2c911f229e96
+  SwiftLint: 5553187048b900c91aa03552807681bb6b027846
+  SwiftyJSON: 36413e04c44ee145039d332b4f4e2d3e8d6c4db7
   TaskQueue: 53a3cdaf817d9ce3cd50837ff6610aeb7b968997
 
-PODFILE CHECKSUM: c6b1bb7e314f6a235aa19b7a0e75454f2fccab41
+PODFILE CHECKSUM: 418b54f490088fb42a1db376f5ca3b19f1584f30
 
-COCOAPODS: 1.6.0.rc.2
+COCOAPODS: 1.7.0.beta.3
