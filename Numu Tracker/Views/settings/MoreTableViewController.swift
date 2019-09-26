@@ -10,15 +10,6 @@ import UIKit
 
 class MoreTableViewController: UITableViewController {
 
-    @IBAction func patronButton(_ sender: NumuUIButton) {
-        UIApplication.shared.open(
-            URL(
-                string: "https://www.patreon.com/amiantos?utm_source=numu_ios&utm_medium=button&utm_campaign=more_screen"
-            )!,
-            options: [:],
-            completionHandler: nil
-        )
-    }
     @IBAction func visitBlogButton(_ sender: NumuUIButton) {
         UIApplication.shared.open(
             URL(string: "https://amiantos.net/?utm_source=numu_ios&utm_medium=button&utm_campaign=more_screen")!,

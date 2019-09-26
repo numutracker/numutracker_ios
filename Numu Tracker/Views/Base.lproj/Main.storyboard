@@ -1398,7 +1398,7 @@ You can import artists from Apple Music, Spotify, or manually search and follow 
                     </tableView>
                     <navigationItem key="navigationItem" id="e57-ac-NoB">
                         <nil key="title"/>
-                        <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="PhI-8h-nYk">
+                        <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="PhI-8h-nYk">
                             <rect key="frame" x="35.666666666666657" y="6" width="343" height="32"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
                             <segments>
@@ -1572,20 +1572,8 @@ You can import artists from Apple Music, Spotify, or manually search and follow 
                             <rect key="frame" x="0.0" y="593.33333206176758" width="414" height="606"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Svl-rI-st5">
-                                    <rect key="frame" x="22" y="36.000000000000007" width="370" height="83.666666666666686"/>
-                                    <constraints>
-                                        <constraint firstAttribute="width" relation="lessThanOrEqual" constant="370" id="h7i-tm-qlU"/>
-                                    </constraints>
-                                    <string key="text">Numu Tracker is and will always be free to use, and your data is never shared with anyone for any purpose.
-
-If you like Numu, consider supporting its development by becoming a patron.</string>
-                                    <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="14"/>
-                                    <color key="textColor" cocoaTouchSystemColor="lightTextColor"/>
-                                    <nil key="highlightedColor"/>
-                                </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="isx-wy-39P">
-                                    <rect key="frame" x="34.666666666666657" y="239.66666666666666" width="344.66666666666674" height="50.333333333333343"/>
+                                    <rect key="frame" x="34.666666666666657" y="36" width="344.66666666666674" height="50.333333333333343"/>
                                     <constraints>
                                         <constraint firstAttribute="width" relation="lessThanOrEqual" constant="370" id="DX2-EK-cO9"/>
                                     </constraints>
@@ -1594,18 +1582,8 @@ If you like Numu, consider supporting its development by becoming a patron.</str
                                     <color key="textColor" cocoaTouchSystemColor="lightTextColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JrM-aN-gxw" customClass="NumuUIButton" customModule="Numu_Tracker" customModuleProvider="target">
-                                    <rect key="frame" x="138" y="147.66666666666666" width="138" height="44"/>
-                                    <constraints>
-                                        <constraint firstAttribute="height" constant="44" id="Wyl-kx-Jfz"/>
-                                    </constraints>
-                                    <state key="normal" title="Become a Patron"/>
-                                    <connections>
-                                        <action selector="patronButton:" destination="2Ma-iV-Juf" eventType="touchUpInside" id="SYb-QU-5OY"/>
-                                    </connections>
-                                </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s2w-9o-Ug8" customClass="NumuUIButton" customModule="Numu_Tracker" customModuleProvider="target">
-                                    <rect key="frame" x="133.66666666666666" y="318" width="146.99999999999997" height="44"/>
+                                    <rect key="frame" x="133.66666666666666" y="114.33333333333331" width="146.99999999999997" height="44"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="44" id="eiX-zR-OaG"/>
                                     </constraints>
@@ -1615,7 +1593,7 @@ If you like Numu, consider supporting its development by becoming a patron.</str
                                     </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2tB-XI-rBi" customClass="NumuUIButton" customModule="Numu_Tracker" customModuleProvider="target">
-                                    <rect key="frame" x="118" y="505" width="178" height="44"/>
+                                    <rect key="frame" x="118" y="301.33333333333331" width="178" height="44"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="44" id="KOG-l0-nPK"/>
                                     </constraints>
@@ -1625,7 +1603,7 @@ If you like Numu, consider supporting its development by becoming a patron.</str
                                     </connections>
                                 </button>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wPF-QL-Gva">
-                                    <rect key="frame" x="22" y="410" width="370" height="67"/>
+                                    <rect key="frame" x="22" y="206.33333333333334" width="370" height="67.000000000000028"/>
                                     <constraints>
                                         <constraint firstAttribute="width" relation="lessThanOrEqual" constant="370" id="FLg-5C-tb8"/>
                                     </constraints>
@@ -1639,22 +1617,16 @@ If you like Numu, consider supporting its development by becoming a patron.</str
                             <constraints>
                                 <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="wPF-QL-Gva" secondAttribute="trailing" constant="18" id="2yg-58-Ecf"/>
                                 <constraint firstItem="s2w-9o-Ug8" firstAttribute="top" secondItem="isx-wy-39P" secondAttribute="bottom" constant="28" id="4Ae-Ho-6s2"/>
-                                <constraint firstItem="Svl-rI-st5" firstAttribute="top" secondItem="Bab-ID-zAx" secondAttribute="top" constant="36" id="7JD-0v-FDf"/>
                                 <constraint firstItem="wPF-QL-Gva" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Bab-ID-zAx" secondAttribute="leading" constant="18" id="7Vs-w0-GZn"/>
                                 <constraint firstItem="wPF-QL-Gva" firstAttribute="top" secondItem="s2w-9o-Ug8" secondAttribute="bottom" constant="48" id="80a-6t-yyt"/>
-                                <constraint firstItem="Svl-rI-st5" firstAttribute="centerX" secondItem="Bab-ID-zAx" secondAttribute="centerX" id="A3S-Fh-kc8"/>
                                 <constraint firstItem="isx-wy-39P" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Bab-ID-zAx" secondAttribute="leading" constant="18" id="EZk-7N-aKH"/>
-                                <constraint firstItem="JrM-aN-gxw" firstAttribute="centerX" secondItem="Bab-ID-zAx" secondAttribute="centerX" id="J6D-du-XIs"/>
-                                <constraint firstItem="isx-wy-39P" firstAttribute="top" secondItem="JrM-aN-gxw" secondAttribute="bottom" constant="48" id="PLh-xx-imb"/>
                                 <constraint firstItem="2tB-XI-rBi" firstAttribute="centerX" secondItem="Bab-ID-zAx" secondAttribute="centerX" id="QEA-vl-cBr"/>
                                 <constraint firstItem="isx-wy-39P" firstAttribute="centerX" secondItem="Bab-ID-zAx" secondAttribute="centerX" id="S3t-cD-dlB"/>
                                 <constraint firstItem="s2w-9o-Ug8" firstAttribute="centerX" secondItem="Bab-ID-zAx" secondAttribute="centerX" id="Sb3-nv-RaN"/>
-                                <constraint firstItem="JrM-aN-gxw" firstAttribute="top" secondItem="Svl-rI-st5" secondAttribute="bottom" constant="28" id="T6w-wA-qjx"/>
                                 <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="isx-wy-39P" secondAttribute="trailing" constant="18" id="YCi-6a-PGF"/>
                                 <constraint firstItem="2tB-XI-rBi" firstAttribute="top" secondItem="wPF-QL-Gva" secondAttribute="bottom" constant="28" id="ZVM-mv-Ny4"/>
-                                <constraint firstItem="Svl-rI-st5" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Bab-ID-zAx" secondAttribute="leading" constant="18" id="awm-oC-KSj"/>
+                                <constraint firstItem="isx-wy-39P" firstAttribute="top" secondItem="Bab-ID-zAx" secondAttribute="top" constant="36" id="j5X-F1-tpG"/>
                                 <constraint firstItem="wPF-QL-Gva" firstAttribute="centerX" secondItem="Bab-ID-zAx" secondAttribute="centerX" id="nFr-Ap-Tbr"/>
-                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Svl-rI-st5" secondAttribute="trailing" constant="18" id="tBH-oX-W9i"/>
                                 <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="2tB-XI-rBi" secondAttribute="bottom" constant="48" id="wyB-h7-Jm8"/>
                             </constraints>
                         </view>
