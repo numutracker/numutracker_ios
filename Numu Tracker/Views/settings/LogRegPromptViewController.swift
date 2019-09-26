@@ -83,6 +83,11 @@ class LogRegPromptViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+
+        if #available(iOS 13.0, *) {
+            isModalInPresentation = true
+        }
+
         self.signUpPasswordTextField.delegate = self
         self.signUpEmailTextField.delegate = self
 
