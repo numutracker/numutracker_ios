@@ -420,7 +420,6 @@
 				B4283A7F1D8548F300467CE6 /* Resources */,
 				12A3AF21782474EB2C416A9D /* [CP] Embed Pods Frameworks */,
 				B48D5FE01F6CE6D70045961A /* Fabric */,
-				441CC0AA215C583E009F4114 /* Increment Build Number */,
 				441CC0AB215C5863009F4114 /* Run SwiftLint */,
 			);
 			buildRules = (
@@ -548,24 +547,6 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Numu Tracker/Pods-Numu Tracker-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
-		};
-		441CC0AA215C583E009F4114 /* Increment Build Number */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			name = "Increment Build Number";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "buildNumber=$(/usr/libexec/PlistBuddy -c \"Print CFBundleVersion\" \"${PROJECT_DIR}/${INFOPLIST_FILE}\")\nbuildNumber=$(($buildNumber + 1))\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildNumber\" \"${PROJECT_DIR}/${INFOPLIST_FILE}\"\n";
 		};
 		441CC0AB215C5863009F4114 /* Run SwiftLint */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -822,6 +803,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = "Numu Tracker/Numu Tracker.entitlements";
+				CURRENT_PROJECT_VERSION = 1140;
 				DEVELOPMENT_TEAM = 2Y9M69QJKZ;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -846,6 +828,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = "Numu Tracker/Numu Tracker.entitlements";
+				CURRENT_PROJECT_VERSION = 1140;
 				DEVELOPMENT_TEAM = 2Y9M69QJKZ;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
