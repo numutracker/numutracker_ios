@@ -4,6 +4,8 @@
 
 Numu Tracker can keep you up to date on music by the artists you love the most. Part to-do list, part reminders and alerts, Numu gives you the tools to ensure you never miss out on new albums.
 
+**IMPORTANT NOTE**: Numu Tracker shut down as of January 2020, and development has ceased.
+
 [![Numu Tracker Screenshots](https://www.apple.com/itunes/link/images/link-badge-appstore.png)](https://itunes.apple.com/us/app/numu-new-music-tracker/id1158641228)
 
 This app is dependent on the Numu Tracker server, [originally built in PHP](https://github.com/amiantos/numutracker_php) but soon to be [rebuilt in Python](https://github.com/amiantos/numutracker_api).
